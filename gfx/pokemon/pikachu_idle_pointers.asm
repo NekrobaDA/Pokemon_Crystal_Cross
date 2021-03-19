@@ -1,3 +1,0 @@
-PikachuAnimationIdlePointers:
-	dw PikachuMaleAnimationIdle
-	dw PikachuFemaleAnimationIdle

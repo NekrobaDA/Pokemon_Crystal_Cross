@@ -47,23 +47,6 @@ GetUnownLetter:
 	inc a
 	ld [wUnownLetter], a
 	ret
-	
-GetPikachuGenderForm:
-    farcall GetGender
-    ret c
-    jr z, .female
-
-; male
-    ld hl, wPikachuGenderForm
-    ld a, 1
-    ld [hl], a
-    ret
-
-.female:
-    ld hl, wPikachuGenderForm
-    ld a, 2
-    ld [hl], a
-    ret
 
 GetMonFrontpic:
 	ld a, [wCurPartySpecies]
@@ -123,22 +106,13 @@ GetFrontpicPointer:
 	ld a, [wCurPartySpecies]
 	cp UNOWN
 	jr z, .unown
-	cp PIKACHU
-	jr z, .pikachu
 	ld a, [wCurPartySpecies]
-	ld hl, PokemonPicPointers
 	ld d, BANK(PokemonPicPointers)
 	jr .ok
 
 .unown
 	ld a, [wUnownLetter]
-	ld hl, UnownPicPointers
 	ld d, BANK(UnownPicPointers)
-	
-.pikachu
-	ld a, [wPikachuGenderForm]
-	ld hl, PikachuPicPointers
-	ld d, BANK(PikachuPicPointers)
 
 .ok
 	ld hl, PokemonPicPointers ; UnownPicPointers

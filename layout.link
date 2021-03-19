@@ -307,9 +307,6 @@ ROMX $7e
 ROMX $7f
 	"Link"
 ROMX $80
-	"Pikachu Pic Pointers"
-	"Pics 25"
-ROMX $81
 	org $7de0
 	"Stadium 2 Checksums"
 WRAM0

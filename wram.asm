@@ -2450,7 +2450,6 @@ wForcedSwitch:: db
 wTrainerClass:: db
 
 wUnownLetter:: db
-wPikachuGenderForm:: db
 
 wMoveSelectionMenuType:: db
 

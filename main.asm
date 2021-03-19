@@ -450,20 +450,12 @@ INCLUDE "gfx/pokemon/bitmask_pointers.asm"
 INCLUDE "gfx/pokemon/bitmasks.asm"
 INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
 INCLUDE "gfx/pokemon/unown_bitmasks.asm"
-INCLUDE "gfx/pokemon/pikachu_anim_pointers.asm"
-INCLUDE "gfx/pokemon/pikachu_anims.asm"
-INCLUDE "gfx/pokemon/pikachu_idle_pointers.asm"
-INCLUDE "gfx/pokemon/pikachu_idles.asm"
-INCLUDE "gfx/pokemon/pikachu_bitmask_pointers.asm"
-INCLUDE "gfx/pokemon/pikachu_bitmasks.asm"
 
 
 SECTION "Pic Animations 2", ROMX
 
 INCLUDE "gfx/pokemon/frame_pointers.asm"
 INCLUDE "gfx/pokemon/kanto_frames.asm"
-INCLUDE "gfx/pokemon/pikachu_frame_pointers.asm"
-INCLUDE "gfx/pokemon/pikachu_frames.asm"
 
 
 SECTION "Font Inversed", ROMX
@@ -731,12 +723,8 @@ SECTION "Link", ROMX
 INCLUDE "engine/link/link.asm"
 INCLUDE "engine/battle/link_result.asm"
 
-SECTION "Pikachu Pic Pointers", ROMX
 
-INCLUDE "gfx/pikachupics.asm"
-
-
-SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$81]
+SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]
 
 ; The end of the ROM is taken up by checksums of the content, apparently used
 ; by Pokémon Stadium 2 due to the checksums' "N64PS3" header. (In Japan,
