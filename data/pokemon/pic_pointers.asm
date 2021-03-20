@@ -50,8 +50,10 @@ PokemonPicPointers::
 	dba_pic EkansBackpic
 	dba_pic ArbokFrontpic
 	dba_pic ArbokBackpic
-	dba_pic PikachuFrontpic
-	dba_pic PikachuBackpic
+	; Pikachu pics have their own table. See PikachuPicPointers
+	dbw -1, -1
+	dbw -1, -1
+
 	dba_pic RaichuFrontpic
 	dba_pic RaichuBackpic
 	dba_pic SandshrewFrontpic

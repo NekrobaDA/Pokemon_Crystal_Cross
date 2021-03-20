@@ -10,6 +10,11 @@ SECTION "Pic Pointers", ROMX
 INCLUDE "data/pokemon/pic_pointers.asm"
 
 
+SECTION "Pikachu Pic Pointers", ROMX
+
+INCLUDE "data/pokemon/pikachu_pic_pointers.asm"
+
+
 SECTION "Unown Pic Pointers", ROMX
 
 INCLUDE "data/pokemon/unown_pic_pointers.asm"
@@ -219,7 +224,6 @@ SECTION "Pics 9", ROMX
 
 EkansFrontpic:       INCBIN "gfx/pokemon/ekans/front.animated.2bpp.lz"
 SudowoodoFrontpic:   INCBIN "gfx/pokemon/sudowoodo/front.animated.2bpp.lz"
-PikachuFrontpic:     INCBIN "gfx/pokemon/pikachu/front.animated.2bpp.lz"
 SeadraFrontpic:      INCBIN "gfx/pokemon/seadra/front.animated.2bpp.lz"
 MagbyFrontpic:       INCBIN "gfx/pokemon/magby/front.animated.2bpp.lz"
 WeepinbellFrontpic:  INCBIN "gfx/pokemon/weepinbell/front.animated.2bpp.lz"
@@ -454,7 +458,6 @@ EkansBackpic:        INCBIN "gfx/pokemon/ekans/back.2bpp.lz"
 SeakingBackpic:      INCBIN "gfx/pokemon/seaking/back.2bpp.lz"
 BurglarPic:          INCBIN "gfx/trainers/burglar.2bpp.lz"
 PsyduckBackpic:      INCBIN "gfx/pokemon/psyduck/back.2bpp.lz"
-PikachuBackpic:      INCBIN "gfx/pokemon/pikachu/back.2bpp.lz"
 KabutoFrontpic:      INCBIN "gfx/pokemon/kabuto/front.animated.2bpp.lz"
 MareepBackpic:       INCBIN "gfx/pokemon/mareep/back.2bpp.lz"
 RemoraidBackpic:     INCBIN "gfx/pokemon/remoraid/back.2bpp.lz"
@@ -720,10 +723,10 @@ HonchkrowFrontpic: INCBIN "gfx/pokemon/honchkrow/front.animated.2bpp.lz"
 HonchkrowBackpic:  INCBIN "gfx/pokemon/honchkrow/back.2bpp.lz"
 LeafeonFrontpic: INCBIN "gfx/pokemon/leafeon/front.animated.2bpp.lz"
 LeafeonBackpic:  INCBIN "gfx/pokemon/leafeon/back.2bpp.lz"
-INCBIN "gfx/pokemon/wooper/back.2bpp.lz"
-INCBIN "gfx/pokemon/tauros/back.2bpp.lz"
-INCBIN "gfx/pokemon/unown_x/front.animated.2bpp.lz"
-INCBIN "gfx/pokemon/unown_n/front.animated.2bpp.lz"
+PikachuMaleFrontpic: INCBIN "gfx/pokemon/pikachu_male/front.animated.2bpp.lz"
+PikachuMaleBackpic: INCBIN "gfx/pokemon/pikachu_male/back.2bpp.lz"
+PikachuFemaleFrontpic: INCBIN "gfx/pokemon/pikachu_female/front.animated.2bpp.lz"
+PikachuFemaleBackpic: INCBIN "gfx/pokemon/pikachu_female/back.2bpp.lz"
 INCBIN "gfx/pokemon/tangela/back.2bpp.lz"
 INCBIN "gfx/pokemon/voltorb/back.2bpp.lz"
 INCBIN "gfx/pokemon/unown_j/front.animated.2bpp.lz"

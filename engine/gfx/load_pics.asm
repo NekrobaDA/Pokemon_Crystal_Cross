@@ -125,6 +125,8 @@ _GetFrontpic:
 
 GetFrontpicPointer:
 	ld a, [wCurPartySpecies]
+	cp PIKACHU
+	jr z, .pikachu
 	cp UNOWN
 	jr z, .unown
 	ld a, [wCurPartySpecies]
@@ -132,6 +134,12 @@ GetFrontpicPointer:
 	ld d, BANK(PokemonPicPointers)
 	jr .ok
 
+.pikachu
+	ld a, [wUnownLetterOrGenderVariant]
+	ld hl, PikachuPicPointers
+	ld d, BANK(PikachuPicPointers)
+	jr .ok
+	
 .unown
 	ld a, [wUnownLetterOrGenderVariant]
 	ld hl, UnownPicPointers
@@ -234,6 +242,14 @@ GetMonBackpic:
 	ld hl, PokemonPicPointers
 	ld a, b
 	ld d, BANK(PokemonPicPointers)
+	cp PIKACHU
+	jr nz, .unown
+	ld hl, PikachuPicPointers
+	ld a, c
+	ld d, BANK(PikachuPicPointers)
+	jr .ok
+	
+.unown
 	cp UNOWN
 	jr nz, .ok
 	ld a, c

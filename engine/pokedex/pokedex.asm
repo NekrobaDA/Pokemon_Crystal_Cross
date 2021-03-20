@@ -2355,6 +2355,14 @@ Pokedex_LoadSelectedMonTiles:
 	jr z, .QuestionMark
 	ld a, [wFirstUnownSeen]
 	ld [wUnownLetterOrGenderVariant], a
+	
+	call Pokedex_GetSelectedMon
+	cp PIKACHU
+	jr nz, .continue
+	ld a, 1
+	ld [wUnownLetterOrGenderVariant], a
+.continue
+
 	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	call GetBaseData
