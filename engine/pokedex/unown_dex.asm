@@ -1,5 +1,5 @@
 UpdateUnownDex:
-	ld a, [wUnownLetter]
+	ld a, [wUnownLetterOrGenderVariant]
 	ld c, a
 	ld b, NUM_UNOWN
 	ld hl, wUnownDex

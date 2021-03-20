@@ -135,7 +135,7 @@ _UnownPrinter:
 	cp NUM_UNOWN
 	jr z, .vacant
 	inc a
-	ld [wUnownLetter], a
+	ld [wUnownLetterOrGenderVariant], a
 	ld a, UNOWN
 	ld [wCurPartySpecies], a
 	xor a

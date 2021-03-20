@@ -571,7 +571,7 @@ LoadPortraitMailGFX:
 	call Mail_DrawRowLoop
 	call LovelyEonMail_PlaceIcons
 	ld a, $1
-	ld [wUnownLetter], a
+	ld [wUnownLetterOrGenderVariant], a
 	hlcoord 1, 10
 	call PrepMonFrontpic
 	pop hl

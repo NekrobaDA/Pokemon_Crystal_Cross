@@ -1,4 +1,25 @@
-GetUnownLetter:
+GetVariant:
+	ld a, [wCurPartySpecies]
+	cp UNOWN
+	jr z, .GetUnownVariant
+
+.GetPikachuGenderForm:
+    farcall GetGender
+    ret c
+    jr z, .female
+; male
+    ld hl, wUnownLetterOrGenderVariant
+    ld a, 1
+    ld [hl], a
+    ret
+
+.female:
+    ld hl, wUnownLetterOrGenderVariant
+    ld a, 2
+    ld [hl], a
+    ret	
+	
+.GetUnownVariant:
 ; Return Unown letter in wUnownLetter based on DVs at hl
 
 ; Take the middle 2 bits of each DV and place them in order:
@@ -45,7 +66,7 @@ GetUnownLetter:
 ; Increment to get 1-26
 	ldh a, [hQuotient + 3]
 	inc a
-	ld [wUnownLetter], a
+	ld [wUnownLetterOrGenderVariant], a
 	ret
 
 GetMonFrontpic:
@@ -107,15 +128,16 @@ GetFrontpicPointer:
 	cp UNOWN
 	jr z, .unown
 	ld a, [wCurPartySpecies]
+	ld hl, PokemonPicPointers
 	ld d, BANK(PokemonPicPointers)
 	jr .ok
 
 .unown
-	ld a, [wUnownLetter]
+	ld a, [wUnownLetterOrGenderVariant]
+	ld hl, UnownPicPointers
 	ld d, BANK(UnownPicPointers)
 
 .ok
-	ld hl, PokemonPicPointers ; UnownPicPointers
 	dec a
 	ld bc, 6
 	call AddNTimes
@@ -199,7 +221,7 @@ GetMonBackpic:
 
 	ld a, [wCurPartySpecies]
 	ld b, a
-	ld a, [wUnownLetter]
+	ld a, [wUnownLetterOrGenderVariant]
 	ld c, a
 	ldh a, [rSVBK]
 	push af
@@ -208,13 +230,14 @@ GetMonBackpic:
 	push de
 
 	; These are assumed to be at the same address in their respective banks.
-	assert PokemonPicPointers == UnownPicPointers
+	ld a, b
 	ld hl, PokemonPicPointers
 	ld a, b
 	ld d, BANK(PokemonPicPointers)
 	cp UNOWN
 	jr nz, .ok
 	ld a, c
+	ld hl, UnownPicPointers
 	ld d, BANK(UnownPicPointers)
 .ok
 	dec a

@@ -3439,8 +3439,8 @@ LoadEnemyMonToSwitchTo:
 	and a
 	jr nz, .skip_unown
 	ld hl, wEnemyMonDVs
-	predef GetUnownLetter
-	ld a, [wUnownLetter]
+	predef GetVariant
+	ld a, [wUnownLetterOrGenderVariant]
 	ld [wFirstUnownSeen], a
 .skip_unown
 
@@ -4014,7 +4014,7 @@ SwitchPlayerMon:
 
 SendOutPlayerMon:
 	ld hl, wBattleMonDVs
-	predef GetUnownLetter
+	predef GetVariant
 	hlcoord 1, 5
 	ld b, 7
 	ld c, 8
@@ -6137,7 +6137,7 @@ LoadEnemyMon:
 
 ; Get letter based on DVs
 	ld hl, wEnemyMonDVs
-	predef GetUnownLetter
+	predef GetVariant
 ; Can't use any letters that haven't been unlocked
 ; If combined with forced shiny battletype, causes an infinite loop
 	call CheckUnownLetter
@@ -6465,7 +6465,7 @@ CheckUnownLetter:
 	ld l, a
 
 	push de
-	ld a, [wUnownLetter]
+	ld a, [wUnownLetterOrGenderVariant]
 	ld de, 1
 	push bc
 	call IsInArray
@@ -7963,7 +7963,7 @@ DropPlayerSub:
 	ld a, [wBattleMonSpecies]
 	ld [wCurPartySpecies], a
 	ld hl, wBattleMonDVs
-	predef GetUnownLetter
+	predef GetVariant
 	ld de, vTiles2 tile $31
 	predef GetMonBackpic
 	pop af
@@ -8000,7 +8000,7 @@ DropEnemySub:
 	ld [wCurPartySpecies], a
 	call GetBaseData
 	ld hl, wEnemyMonDVs
-	predef GetUnownLetter
+	predef GetVariant
 	ld de, vTiles2
 	predef GetAnimatedFrontpic
 	pop af
@@ -8188,14 +8188,14 @@ InitEnemyWildmon:
 	ld bc, NUM_MOVES
 	call CopyBytes
 	ld hl, wEnemyMonDVs
-	predef GetUnownLetter
+	predef GetVariant
 	ld a, [wCurPartySpecies]
 	cp UNOWN
 	jr nz, .skip_unown
 	ld a, [wFirstUnownSeen]
 	and a
 	jr nz, .skip_unown
-	ld a, [wUnownLetter]
+	ld a, [wUnownLetterOrGenderVariant]
 	ld [wFirstUnownSeen], a
 .skip_unown
 	ld de, vTiles2

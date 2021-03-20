@@ -625,7 +625,7 @@ GetEggFrontpic:
 	ld [wCurSpecies], a
 	call GetBaseData
 	ld hl, wBattleMonDVs
-	predef GetUnownLetter
+	predef GetVariant
 	pop de
 	predef_jump GetMonFrontpic
 
@@ -635,7 +635,7 @@ GetHatchlingFrontpic:
 	ld [wCurSpecies], a
 	call GetBaseData
 	ld hl, wBattleMonDVs
-	predef GetUnownLetter
+	predef GetVariant
 	pop de
 	predef_jump GetAnimatedFrontpic
 

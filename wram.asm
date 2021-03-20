@@ -2449,7 +2449,7 @@ wForcedSwitch:: db
 
 wTrainerClass:: db
 
-wUnownLetter:: db
+wUnownLetterOrGenderVariant:: db
 
 wMoveSelectionMenuType:: db
 

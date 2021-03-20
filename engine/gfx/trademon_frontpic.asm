@@ -4,7 +4,7 @@ GetTrademonFrontpic:
 	ld de, vTiles2
 	push de
 	push af
-	predef GetUnownLetter
+	predef GetVariant
 	pop af
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a

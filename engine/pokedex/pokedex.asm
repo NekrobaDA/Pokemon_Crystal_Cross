@@ -2354,7 +2354,7 @@ Pokedex_LoadSelectedMonTiles:
 	call Pokedex_CheckSeen
 	jr z, .QuestionMark
 	ld a, [wFirstUnownSeen]
-	ld [wUnownLetter], a
+	ld [wUnownLetterOrGenderVariant], a
 	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	call GetBaseData
@@ -2498,7 +2498,7 @@ Pokedex_LoadUnownFont:
 	ret
 
 Pokedex_LoadUnownFrontpicTiles:
-	ld a, [wUnownLetter]
+	ld a, [wUnownLetterOrGenderVariant]
 	push af
 	ld a, [wDexCurUnownIndex]
 	ld e, a
@@ -2506,14 +2506,14 @@ Pokedex_LoadUnownFrontpicTiles:
 	ld hl, wUnownDex
 	add hl, de
 	ld a, [hl]
-	ld [wUnownLetter], a
+	ld [wUnownLetterOrGenderVariant], a
 	ld a, UNOWN
 	ld [wCurPartySpecies], a
 	call GetBaseData
 	ld de, vTiles2 tile $00
 	predef GetMonFrontpic
 	pop af
-	ld [wUnownLetter], a
+	ld [wUnownLetterOrGenderVariant], a
 	ret
 
 _NewPokedexEntry:
