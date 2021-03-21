@@ -145,5 +145,11 @@ KantoWaterWildMons:
 	db 35, TENTACOOL
 	db 30, TENTACOOL
 	db 35, TENTACRUEL
+	
+	map_id SAFARI_ZONE_BETA
+	db 2 percent ; encounter rate
+	db 35, PSYDUCK
+	db 30, SLOWPOKE
+	db 35, DRATINI
 
 	db -1 ; end

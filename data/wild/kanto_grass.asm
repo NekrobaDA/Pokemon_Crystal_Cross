@@ -811,5 +811,32 @@ KantoGrassWildMons:
 	db 42, GOLBAT
 	db 42, GOLBAT
 	db 42, GOLBAT
+	
+	map_id SAFARI_ZONE_BETA
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 39, EXEGGCUTE
+	db 40, RHYHORN
+	db 40, NIDORINA
+	db 42, PINSIR
+	db 41, NIDORINO
+	db 43, KANGASKHAN
+	db 43, CHANSEY
+	; day
+	db 39, EXEGGCUTE
+	db 40, RHYHORN
+	db 40, NIDORINA
+	db 42, SCYTHER
+	db 41, NIDORINO
+	db 43, KANGASKHAN
+	db 43, CHANSEY
+	; nite
+	db 39, EXEGGCUTE
+	db 40, RHYHORN
+	db 40, PARASECT
+	db 42, SCYTHER
+	db 41, VENOMOTH
+	db 43, KANGASKHAN
+	db 43, CHANSEY
 
 	db -1 ; end

@@ -8188,6 +8188,7 @@ InitEnemyWildmon:
 	ld bc, NUM_MOVES
 	call CopyBytes
 	ld hl, wEnemyMonDVs
+	ld [wMonType], a
 	predef GetVariant
 	ld a, [wCurPartySpecies]
 	cp UNOWN

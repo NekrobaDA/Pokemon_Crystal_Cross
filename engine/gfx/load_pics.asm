@@ -1,3 +1,5 @@
+MALE_ATK_VAL EQU 8
+
 GetVariant:
 	ld a, [wCurPartySpecies]
 	cp UNOWN
