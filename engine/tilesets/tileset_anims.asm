@@ -87,6 +87,12 @@ TilesetJohtoAnim:
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
 	dw WhirlpoolFrames4, AnimateWhirlpoolTile
+	dw vTiles2 tile $16, WriteTileToBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw vTiles2 tile $16, WriteTileFromBuffer
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
@@ -197,6 +203,7 @@ TilesetDarkCaveAnim:
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw NULL,  DoneTileAnimation
 
+TilesetIcePath2Anim:
 TilesetIcePathAnim:
 	dw vTiles2 tile $35, WriteTileToBuffer
 	dw NULL,  FlickeringCaveEntrancePalette

@@ -54,5 +54,5 @@ Route10North_MapEvents:
 	bg_event 12,  1, BGEVENT_READ, Route10PokecenterSign
 
 	def_object_events
-	object_event  7, 10, SPRITE_CHRIS, SPRITEMOVEDATA_STILL, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SundayElectabuzz, EVENT_SUNDAY_ELECTABUZZ
+	object_event  7, 10, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SundayElectabuzz, EVENT_SUNDAY_ELECTABUZZ
 	

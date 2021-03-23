@@ -6,6 +6,8 @@ LoadSpecialMapPalette:
 	jr z, .battle_tower_inside
 	cp TILESET_ICE_PATH
 	jr z, .ice_path
+	cp TILESET_ICE_PATH_2
+	jr z, .ice_path_2
 	cp TILESET_HOUSE
 	jr z, .house
 	cp TILESET_RADIO_TOWER
@@ -30,6 +32,15 @@ LoadSpecialMapPalette:
 	cp INDOOR ; Hall of Fame
 	jr z, .do_nothing
 	call LoadIcePathPalette
+	scf
+	ret
+	
+.ice_path_2
+	ld a, [wEnvironment]
+	and $7
+	cp INDOOR ; Hall of Fame
+	jr z, .do_nothing
+	call LoadIcePath2Palette
 	scf
 	ret
 
@@ -81,9 +92,20 @@ LoadIcePathPalette:
 	ld bc, 8 palettes
 	call FarCopyWRAM
 	ret
-
+	
 IcePathPalette:
-INCLUDE "gfx/tilesets/ice_path.pal"
+INCLUDE "gfx/tilesets/ice_path.pal"	
+	
+LoadIcePath2Palette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, IcePath2Palette
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	ret
+
+IcePath2Palette:
+INCLUDE "gfx/tilesets/ice_path_2.pal"
 
 LoadHousePalette:
 	ld a, BANK(wBGPals1)

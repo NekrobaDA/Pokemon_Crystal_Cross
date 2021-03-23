@@ -465,3 +465,18 @@ INCBIN "data/tilesets/aerodactyl_word_room_attributes.bin"
 
 TilesetKanjoAttr::
 INCBIN "data/tilesets/kanjo_attributes.bin"
+
+SECTION "Tileset Data 12", ROMX
+
+TilesetIcePath2GFX::
+INCBIN "gfx/tilesets/ice_path_2.2bpp.lz"
+
+TilesetIcePath2Coll::
+INCLUDE "data/tilesets/ice_path_2_collision.asm"
+
+TilesetIcePath2Meta::
+INCBIN "data/tilesets/ice_path_2_metatiles.bin"
+
+TilesetIcePath2Attr::
+INCBIN "data/tilesets/ice_path_2_attributes.bin"
+

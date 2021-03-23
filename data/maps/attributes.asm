@@ -147,7 +147,7 @@ ENDM
 	map_attributes Route26, ROUTE_26, $05, WEST
 	connection west, Route27, ROUTE_27, 45
 
-	map_attributes Route27, ROUTE_27, $35, WEST | EAST
+	map_attributes Route27, ROUTE_27, $05, WEST | EAST
 	connection west, NewBarkTown, NEW_BARK_TOWN, 0
 	connection east, Route26, ROUTE_26, -45
 

@@ -48,3 +48,4 @@ Tilesets::
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
 	tileset TilesetKanjo
+	tileset TilesetIcePath2

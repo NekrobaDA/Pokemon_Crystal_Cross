@@ -372,7 +372,7 @@ OlivineCity_MapEvents:
 	coord_event 13, 12, SCENE_DEFAULT, OlivineCityRivalSceneBottom
 
 	def_bg_events
-	bg_event 20, 18, BGEVENT_READ, OlivineCitySign
+	bg_event 21, 19, BGEVENT_READ, OlivineCitySign
 	bg_event 20, 24, BGEVENT_READ, OlivineCityPortSign
 	bg_event  8, 10, BGEVENT_READ, OlivineGymSign
 	bg_event 30, 26, BGEVENT_READ, OlivineLighthouseSign
