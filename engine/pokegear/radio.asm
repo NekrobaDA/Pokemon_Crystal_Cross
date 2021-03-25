@@ -237,7 +237,7 @@ endr
 .loop2
 	call Random
 	maskbits NUM_DAYTIMES
-	cp DARKNESS_F
+	cp EVE_F
 	jr z, .loop2
 
 	ld bc, 2 * NUM_GRASSMON
@@ -1699,7 +1699,7 @@ BuenasPassword21:
 BuenasPasswordCheckTime:
 	call UpdateTime
 	ldh a, [hHours]
-	cp NITE_HOUR
+	cp EVE_HOUR
 	ret
 
 BuenasPasswordChannelName:
