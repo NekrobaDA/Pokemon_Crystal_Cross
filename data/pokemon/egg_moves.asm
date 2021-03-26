@@ -17,7 +17,6 @@ BulbasaurEggMoves:
 	db LIGHT_SCREEN
 	db SKULL_BASH
 	db SAFEGUARD
-	db RAZOR_WIND
 	db PETAL_DANCE
 	db -1 ; end
 
@@ -515,16 +514,16 @@ PichuEggMoves:
 	db DOUBLESLAP
 	db -1 ; end
 
-CleffaEggMoves:
+ClefairyEggMoves:
 	db PRESENT
 	db METRONOME
 	db AMNESIA
 	db BELLY_DRUM
 	db SPLASH
-	db MIMIC
+	db RECOVER
 	db -1 ; end
 
-IgglybuffEggMoves:
+JigglypuffEggMoves:
 	db PERISH_SONG
 	db PRESENT
 	db FAINT_ATTACK
@@ -774,7 +773,7 @@ TyrogueEggMoves:
 	db MIND_READER
 	db -1 ; end
 
-SmoochumEggMoves:
+JynxEggMoves:
 	db MEDITATE
 	db -1 ; end
 
