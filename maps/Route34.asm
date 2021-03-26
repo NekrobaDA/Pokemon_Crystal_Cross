@@ -391,7 +391,7 @@ TrainerYoungsterSamuel:
 	end
 
 TrainerYoungsterIan:
-	trainer YOUNGSTER, IAN, EVENT_BEAT_YOUNGSTER_IAN, YoungsterIanSeenText, YoungsterIanBeatenText, 0, .Script
+	trainer CAMPER, IAN, EVENT_BEAT_YOUNGSTER_IAN, YoungsterIanSeenText, YoungsterIanBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

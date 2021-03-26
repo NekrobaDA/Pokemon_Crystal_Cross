@@ -369,9 +369,8 @@ YoungsterGroup:
 	db -1 ; end
 
 	; YOUNGSTER (6)
-	db "IAN@", TRAINERTYPE_NORMAL
-	db 10, MANKEY
-	db 12, DIGLETT
+	db "LLOYD@", TRAINERTYPE_NORMAL
+	db 17, SLOWPOKE
 	db -1 ; end
 
 	; YOUNGSTER (7)
@@ -2945,9 +2944,9 @@ CamperGroup:
 	db 36, NIDOKING
 	db -1 ; end
 
-	; CAMPER (6)
-	db "LLOYD@", TRAINERTYPE_NORMAL
-	db 34, NIDOKING
+	db "IAN@", TRAINERTYPE_NORMAL
+	db 10, MANKEY
+	db 12, DIGLETT
 	db -1 ; end
 
 	; CAMPER (7)

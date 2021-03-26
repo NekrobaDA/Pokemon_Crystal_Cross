@@ -3,8 +3,27 @@
 
 Route24_MapScripts:
 	def_scene_scripts
-
+	scene_script .DummyScene ; SCENE_DEFAULT
+	
 	def_callbacks
+	
+.DummyScene:
+	end
+
+MewAppears:
+	checkevent EVENT_MEW
+	iffalse NoMewEncounter
+	checkevent EVENT_FOUGHT_MEW
+	iftrue NoMewEncounter
+	cry MEW
+	loadwildmon MEW, 7
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_FOUGHT_MEW
+	end
+	
+NoMewEncounter:
+	end
 
 Route24RocketScript:
 	faceplayer
@@ -122,6 +141,8 @@ Route24_MapEvents:
 	def_warp_events
 
 	def_coord_events
+	coord_event  8, 17, SCENE_DEFAULT, MewAppears
+	coord_event  9, 17, SCENE_DEFAULT, MewAppears
 
 	def_bg_events
 

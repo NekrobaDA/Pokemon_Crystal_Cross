@@ -8,13 +8,28 @@
 
 CeruleanCity_MapScripts:
 	def_scene_scripts
-
+	scene_script .DummyScene ; SCENE_DEFAULT
+	
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+
+.DummyScene:
+	end
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_CERULEAN
 	endcallback
+	
+SetMew:
+	checkevent EVENT_FOUGHT_MEW
+	iftrue NoMew
+	checkevent EVENT_BEAT_YOUNGSTER_LLOYD
+	iffalse NoMew
+	setevent EVENT_MEW
+	end
+	
+NoMew:
+	end
 
 CeruleanCityCooltrainerMScript:
 	faceplayer
@@ -286,6 +301,8 @@ CeruleanCity_MapEvents:
 	warp_event 10,  1, MEWTWO_CAVE, 1
 
 	def_coord_events
+	coord_event 20,  3, SCENE_DEFAULT, SetMew
+	coord_event 21,  3, SCENE_DEFAULT, SetMew
 
 	def_bg_events
 	bg_event 23, 23, BGEVENT_READ, CeruleanCitySign

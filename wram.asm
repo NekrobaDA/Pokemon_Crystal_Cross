@@ -2917,6 +2917,8 @@ wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
+wRoute24SceneID::                                 db
+wCeruleanCitySceneID::                            db
 
 	ds 49
 
