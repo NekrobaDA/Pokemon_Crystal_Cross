@@ -63,4 +63,4 @@ SilverCaveOutside_MapEvents:
 	bg_event  4, 26, BGEVENT_ITEM, SilverCaveOutsideHiddenFullRestore
 
 	def_object_events
-	object_event  9, 25, SPRITE_SNORLAX, SPRITEMOVEDATA_STILL, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MondaySnorlax, EVENT_MONDAY_SNORLAX
+	object_event  9, 25, SPRITE_SNORLAX, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MondaySnorlax, EVENT_MONDAY_SNORLAX

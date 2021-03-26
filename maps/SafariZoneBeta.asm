@@ -42,5 +42,5 @@ SafariZoneBeta_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 15,  4, SPRITE_EKANS, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ThursdayDragonair, EVENT_THURSDAY_DRAGONAIR
+	object_event 15,  4, SPRITE_EKANS, SPRITEMOVEDATA_STILL, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ThursdayDragonair, EVENT_THURSDAY_DRAGONAIR
 	
