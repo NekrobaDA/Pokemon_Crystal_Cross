@@ -255,20 +255,3 @@ IconPointers
 	dw LeafeonIcon 
 	dw UnownIcon 	
 	dw EggIcon
-	dw FishIcon
-	dw BirdIcon
-	dw MonsterIcon
-	dw BugIcon
-	dw GhostIcon
-	dw HumanshapeIcon
-	dw FoxIcon
-	dw EquineIcon
-	dw ShellIcon
-	dw BlobIcon
-	dw SerpentIcon
-	dw CaterpillarIcon
-	dw FighterIcon
-	dw JellyfishIcon
-	dw MothIcon
-	dw BatIcon
-	dw BigmonIcon

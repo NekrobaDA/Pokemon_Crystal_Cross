@@ -255,23 +255,6 @@
 	const ICON_LEAFEON 
 	const ICON_UNOWN 
 	const ICON_EGG          
-	const ICON_FISH
-	const ICON_BIRD
-	const ICON_MONSTER
-	const ICON_BUG
-	const ICON_GHOST
-	const ICON_HUMANSHAPE
-	const ICON_FOX
-	const ICON_EQUINE
-	const ICON_SHELL
-	const ICON_BLOB
-	const ICON_SERPENT
-	const ICON_CATERPILLAR
-	const ICON_FIGHTER
-	const ICON_JELLYFISH
-	const ICON_MOTH
-	const ICON_BAT
-	const ICON_BIGMON	
 
 ; LoadMenuMon.Jumptable indexes (see engine/gfx/mon_s.asm)
 	const_def
@@ -282,4 +265,14 @@
 	const MONICON_MOBILE1
 	const MONICON_MOBILE2
 	const MONICON_UNUSED
-
+	
+; party menu icon palettes
+	const_def
+	const PAL_ICON_RED    ; 0
+	const PAL_ICON_BLUE   ; 1
+	const PAL_ICON_GREEN  ; 2
+	const PAL_ICON_BROWN  ; 3
+	const PAL_ICON_PINK   ; 4
+	const PAL_ICON_GRAY   ; 5
+	const PAL_ICON_TEAL   ; 6
+	const PAL_ICON_PURPLE ; 7
