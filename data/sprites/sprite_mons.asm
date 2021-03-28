@@ -1,37 +1,57 @@
 SpriteMons:
-; entries correspond to SPRITE_* constants past SPRITE_POKEMON
-	db UNOWN
-	db GEODUDE
-	db GROWLITHE
-	db WEEDLE
-	db SHELLDER
-	db ODDISH
-	db GENGAR
-	db ZUBAT
-	db MAGIKARP
-	db SQUIRTLE
-	db TOGEPI
-	db BUTTERFREE
-	db DIGLETT
-	db POLIWAG
-	db PIKACHU
-	db CLEFAIRY
-	db CHARMANDER
-	db JYNX
-	db STARMIE
-	db BULBASAUR
-	db JIGGLYPUFF
-	db GRIMER
-	db EKANS
-	db PARAS
-	db TENTACOOL
-	db TAUROS
-	db MACHOP
-	db VOLTORB
-	db LAPRAS
-	db RHYDON
-	db MOLTRES
-	db SNORLAX
-	db GYARADOS
-	db LUGIA
-	db HO_OH
+; entries correspond to SPRITE_* db ants past SPRITE_POKEMON
+	db ONIX ; 67
+	db MILTANK ; 68
+	db SUNFLORA ; 69
+	db ELECTABUZZ ; 6a
+	db MAGMAR ; 6b
+	db FARFETCH_D ; 6c
+	db MAROWAK ; 6d
+	db SMEARGLE ; 6e
+	db AERODACTYL ; 6f
+	db DRAGONAIR ; 70
+	db RAPIDASH ; 71
+	db LICKITUNG ; 72
+	db EEVEE ; 73
+	db MEWTWO ; 74
+	db MAREEP ; 75
+	db MEOWTH ; 76
+	db AMPHAROS ; 77
+	db MURKROW ; 78
+	db DRAGONITE ; 79
+	db PERSIAN ; 7a
+	db UNOWN ; 80
+	db GEODUDE ; 81
+	db GROWLITHE ; 82
+	db WEEDLE ; 83
+	db SHELLDER ; 84
+	db ODDISH ; 85
+	db GENGAR ; 86
+	db ZUBAT ; 87
+	db MAGIKARP ; 88
+	db SQUIRTLE ; 89
+	db TOGEPI ; 8a
+	db BUTTERFREE ; 8b
+	db DIGLETT ; 8c
+	db POLIWAG ; 8d
+	db PIKACHU ; 8e
+	db CLEFAIRY ; 8f
+	db CHARMANDER ; 90
+	db JYNX ; 91
+	db STARMIE ; 92
+	db BULBASAUR ; 93
+	db JIGGLYPUFF ; 94
+	db GRIMER ; 95
+	db EKANS ; 96
+	db PARAS ; 97
+	db TENTACOOL ; 98
+	db TAUROS ; 99
+	db MACHOP ; 9a
+	db VOLTORB ; 9b
+	db LAPRAS ; 9c
+	db RHYDON ; 9d
+	db MOLTRES ; 9e
+	db SNORLAX ; 9f
+	db GYARADOS ; a0
+	db LUGIA ; a1
+	db HO_OH ; a2

@@ -6,6 +6,15 @@ OutdoorSprites:
 	dw OlivineGroupSprites
 	dw MahoganyGroupSprites
 	dw DungeonsGroupSprites
+	dw NationalParkGroupSprites
+	dw RadioGroupSprites
+	dw RuinsGroupSprites
+	dw LighthouseGroupSprites
+	dw RocketGroupSprites
+	dw ForestGroupSprites
+	dw UndergroundGroupSprites
+	dw CavesGroupSprites
+	dw SafariZoneGroupSprites
 	dw EcruteakGroupSprites
 	dw BlackthornGroupSprites
 	dw CinnabarGroupSprites
@@ -20,6 +29,7 @@ OutdoorSprites:
 	dw FastShipGroupSprites
 	dw IndigoGroupSprites
 	dw FuchsiaGroupSprites
+	dw FuchsiaCityGroupSprites
 	dw LavenderGroupSprites
 	dw SilverGroupSprites
 	dw CableClubGroupSprites
@@ -54,7 +64,7 @@ CinnabarGroupSprites:
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
-	db SPRITE_DRAGON
+	db SPRITE_AERODACTYL
 	db 0 ; end
 
 ; CeruleanCity and Route5 are connected
@@ -74,7 +84,7 @@ SaffronGroupSprites:
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_SLOWPOKE
-	db SPRITE_RHYDON
+	db SPRITE_ELECTABUZZ
 	db 0 ; end
 
 VermilionGroupSprites:
@@ -108,6 +118,7 @@ CeladonGroupSprites:
 ; Route12 and Route13 are connected
 LavenderGroupSprites:
 ; Route8, Route12, Route10South, LavenderTown
+FuchsiaCityGroupSprites:
 FuchsiaGroupSprites:
 ; Route13, Route14, Route15, Route18, FuchsiaCity
 	db SPRITE_POKEFAN_M
@@ -117,7 +128,8 @@ FuchsiaGroupSprites:
 	db SPRITE_TEACHER
 	db SPRITE_SUPER_NERD
 	db SPRITE_BIKER
-	db SPRITE_RHYDON
+	db SPRITE_MAROWAK
+	db SPRITE_LICKITUNG
 	; 7 of max 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
@@ -160,7 +172,7 @@ EcruteakGroupSprites:
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_BUG_CATCHER
 	db SPRITE_SUPER_NERD
-	db SPRITE_GROWLITHE
+	db SPRITE_EEVEE
 	; 8 of max 9 walking sprites
 	db SPRITE_WEIRD_TREE ; variable sprite: becomes SPRITE_SUDOWOODO and SPRITE_TWIN
 	db SPRITE_POKE_BALL
@@ -210,8 +222,9 @@ CianwoodGroupSprites:
 	db SPRITE_SAILOR
 	db SPRITE_POKEFAN_F
 	db SPRITE_SUPER_NERD
+	db SPRITE_MILTANK
 	; 8 of max 9 walking sprites
-	db SPRITE_TAUROS
+	db SPRITE_RAPIDASH
 	db SPRITE_FRUIT_TREE
 	db SPRITE_ROCK
 	db SPRITE_STANDING_YOUNGSTER ; non-walking version of SPRITE_YOUNGSTER
@@ -273,7 +286,45 @@ SilverGroupSprites:
 	db SPRITE_SNORLAX
 	db SPRITE_RHYDON
 	db 0 ; end
-
+	
+NationalParkGroupSprites:
+	db SPRITE_LASS
+	db SPRITE_POKEFAN_F
+	db SPRITE_TEACHER
+	db SPRITE_YOUNGSTER
+	db SPRITE_POKEFAN_M
+	db SPRITE_ROCKER
+	db SPRITE_FISHER
+	db SPRITE_PERSIAN
+	db SPRITE_SUNFLORA
+	; 8 of max 9 walking sprites
+	db SPRITE_GAMEBOY_KID
+	db SPRITE_POKE_BALL
+	db 0 ; end
+	
+SafariZoneGroupSprites:
+	db SPRITE_DRAGONAIR
+	db 0 ; end
+	
+RuinsGroupSprites:
+	db SPRITE_SMEARGLE
+	db SPRITE_POKEFAN_F
+	db SPRITE_TEACHER
+	db SPRITE_YOUNGSTER
+	db SPRITE_POKEFAN_M
+	db SPRITE_ROCKER
+	db SPRITE_FISHER
+	db SPRITE_SCIENTIST
+	; 8 of max 9 walking sprites
+	db SPRITE_POKE_BALL
+	db 0 ; end
+	
+RadioGroupSprites:
+LighthouseGroupSprites:
+RocketGroupSprites:
+ForestGroupSprites:
+UndergroundGroupSprites:
+CavesGroupSprites:
 DungeonsGroupSprites:
 ; NationalPark, NationalParkBugContest, RuinsOfAlphOutside
 	db SPRITE_LASS
@@ -284,15 +335,10 @@ DungeonsGroupSprites:
 	db SPRITE_ROCKER
 	db SPRITE_FISHER
 	db SPRITE_SCIENTIST
-	db SPRITE_MOLTRES
 	; 8 of max 9 walking sprites
 	db SPRITE_GAMEBOY_KID
 	db SPRITE_GROWLITHE
 	db SPRITE_POKE_BALL
-	db SPRITE_EKANS
-	db SPRITE_JYNX
-	db SPRITE_ODDISH
-	db SPRITE_RHYDON
 	db 0 ; end
 
 FastShipGroupSprites:

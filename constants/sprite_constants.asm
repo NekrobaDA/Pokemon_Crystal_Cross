@@ -106,8 +106,28 @@
 	const SPRITE_STANDING_YOUNGSTER ; 66
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
-	const_next $80
+	const_next $67
 SPRITE_POKEMON EQU const_value
+	const SPRITE_ONIX ; 67
+	const SPRITE_MILTANK ; 68
+	const SPRITE_SUNFLORA ; 69
+	const SPRITE_ELECTABUZZ ; 6a
+	const SPRITE_MAGMAR ; 6b
+	const SPRITE_FARFETCHD ; 6c
+	const SPRITE_MAROWAK ; 6d
+	const SPRITE_SMEARGLE ; 6e
+	const SPRITE_AERODACTYL ; 6f
+	const SPRITE_DRAGONAIR ; 70
+	const SPRITE_RAPIDASH ; 71
+	const SPRITE_LICKITUNG ; 72
+	const SPRITE_EEVEE ; 73
+	const SPRITE_MEWTWO ; 74
+	const SPRITE_MAREEP ; 75
+	const SPRITE_MEOWTH ; 76
+	const SPRITE_AMPHAROS ; 77
+	const SPRITE_MURKROW ; 78
+	const SPRITE_DRAGONITE ; 79
+	const SPRITE_PERSIAN ; 7a
 	const SPRITE_UNOWN ; 80
 	const SPRITE_GEODUDE ; 81
 	const SPRITE_GROWLITHE ; 82
