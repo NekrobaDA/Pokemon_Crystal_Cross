@@ -31,8 +31,8 @@ NUM_SPRITEDATA_FIELDS EQU const_value
 	const PAL_NPC_RED    ; 8
 	const PAL_NPC_BLUE   ; 9
 	const PAL_NPC_GREEN  ; a
-	const PAL_NPC_BROWN  ; b
-	const PAL_NPC_PINK   ; c
-	const PAL_NPC_SILVER ; d
+	const PAL_NPC_PINK ; b
+	const PAL_NPC_PURPLE ; c
+	const PAL_NPC_YELLOW ; d
 	const PAL_NPC_TREE   ; e
 	const PAL_NPC_ROCK   ; f

@@ -58,4 +58,4 @@ Route30BerryHouse_MapEvents:
 	bg_event  1,  1, BGEVENT_READ, Route30BerryHouseBookshelf
 
 	def_object_events
-	object_event  2,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route30BerryHousePokefanMScript, -1
+	object_event  2,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route30BerryHousePokefanMScript, -1

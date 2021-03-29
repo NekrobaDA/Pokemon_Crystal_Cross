@@ -205,6 +205,8 @@ CyndaquilPokeBallScript:
 	giveitem TM_THUNDERBOLT
 	giveitem TM_SHADOW_BALL
 	giveitem TM_EARTHQUAKE
+	giveitem TM_HEADBUTT
+	giveitem TM_ROCK_SMASH
 	; all hms
 	giveitem HM_CUT
 	giveitem HM_FLY

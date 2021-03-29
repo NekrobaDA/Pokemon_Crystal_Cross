@@ -20,6 +20,7 @@ SpriteMons:
 	db MURKROW ; 78
 	db DRAGONITE ; 79
 	db PERSIAN ; 7a
+	db ABRA ; 7b
 	db UNOWN ; 80
 	db GEODUDE ; 81
 	db GROWLITHE ; 82
