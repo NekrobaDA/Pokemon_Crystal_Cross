@@ -121,6 +121,7 @@ SpecialsPointers::
 	add_special Diploma
 	add_special PrintDiploma
 	add_special InitRoamMonsKanto
+	add_special MoveRelearner
 
 ; Crystal only
 	add_special Function11ac3e

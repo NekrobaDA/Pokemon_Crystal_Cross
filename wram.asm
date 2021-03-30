@@ -2038,7 +2038,11 @@ wPoisonStepPartyFlags:: ds PARTY_LENGTH
 wPoisonStepDataEnd::
 ENDU
 
-	ds 23
+wEngineBuffer1:: ds 1
+wRelearner:: ds 1
+wRelearner2:: ds 1
+	ds 20
+	
 ENDU
 
 wTMHMMoveNameBackup:: ds MOVE_NAME_LENGTH

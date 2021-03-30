@@ -71,6 +71,27 @@ GetFarByte::
 	; return retrieved value in a
 	ldh a, [hFarByte]
 	ret
+	
+GetFarByte2::
+; retrieve a single byte from a:hl, and return it in a.
+	; bankswitch to new bank
+	ldh [hTempBank], a
+	ldh a, [hROMBank]
+	push af
+	ldh a, [hTempBank]
+	rst Bankswitch
+
+	; get byte from new bank
+	ld a, [hli]
+	ldh [hFarByte], a
+
+	; bankswitch to previous bank
+	pop af
+	rst Bankswitch
+
+	; return retrieved value in a
+	ldh a, [hFarByte]
+	ret
 
 GetFarWord::
 ; retrieve a word from a:hl, and return it in hl.
