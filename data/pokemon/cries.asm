@@ -197,29 +197,29 @@ PokemonCries::
 	mon_cry CRY_AIPOM,       -81,  232 ; AIPOM
 	mon_cry CRY_SUNFLORA,    -32,  384 ; SUNFLORA
 	mon_cry CRY_TOTODILE,     49,  200 ; YANMA
-	mon_cry CRY_TYPHLOSION, 4840,  312 ; YANMEGA
+	mon_cry CRY_AMPHAROS,    100,  452 ; YANMEGA
 	mon_cry CRY_WOOPER,      147,  175 ; WOOPER
 	mon_cry CRY_WOOPER,     -198,  320 ; QUAGSIRE
 	mon_cry CRY_AIPOM,       162,  320 ; ESPEON
 	mon_cry CRY_VENONAT,    -233,  240 ; UMBREON
 	mon_cry CRY_MARILL,      -31,  384 ; MURKROW
-	mon_cry CRY_BULBASAUR,   228,  529 ; HONCHKROW
+	mon_cry CRY_GLIGAR,     -261,  464 ; HONCHKROW
 	mon_cry CRY_HOOTHOOT,    304,  232 ; MISDREAVUS
-	mon_cry CRY_PARAS,       200,  383 ; MISMAGIUS
+	mon_cry CRY_HOOTHOOT,    254,  332 ; MISMAGIUS
 	mon_cry CRY_AMPHAROS,    635,  324 ; WOBBUFFET
 	mon_cry CRY_GIRAFARIG,    65,  512 ; GIRAFARIG
 	mon_cry CRY_SLOWKING,    128,  256 ; PINECO
 	mon_cry CRY_SLOWKING,      0,  384 ; FORRETRESS
 	mon_cry CRY_DUNSPARCE,   452,  256 ; DUNSPARCE
 	mon_cry CRY_GLIGAR,     -258,  256 ; GLIGAR
-	mon_cry CRY_GLIGAR,      -58,  656 ; GLISCOR
+	mon_cry CRY_GLIGAR,      -58,  356 ; GLISCOR
 	mon_cry CRY_DUNSPARCE,   274,  232 ; SNUBBULL
 	mon_cry CRY_DUNSPARCE,     0,  384 ; GRANBULL
 	mon_cry CRY_SLOWKING,    352,  224 ; QWILFISH
 	mon_cry CRY_AMPHAROS,      0,  352 ; SCIZOR
 	mon_cry CRY_DUNSPARCE,   656,  168 ; SHUCKLE
 	mon_cry CRY_WOOPER,       83,  175 ; SNEASEL
-	mon_cry CRY_WOOPER,      183,  200 ; WEAVILE
+	mon_cry CRY_WOOPER,       73,  245 ; WEAVILE
 	mon_cry CRY_TEDDIURSA,  1954,  110 ; TEDDIURSA
 	mon_cry CRY_TEDDIURSA,  1600,  216 ; URSARING
 	mon_cry CRY_SLUGMA,     -472,  320 ; SLUGMA
@@ -256,7 +256,7 @@ PokemonCries::
 	mon_cry CRY_TYPHLOSION,    0,  256 ; LUGIA
 	mon_cry CRY_AIPOM,         0,  384 ; HO_OH
 	mon_cry CRY_ENTEI,       330,  273 ; CELEBI
-	mon_cry CRY_GLIGAR,      458,  300 ; LEAFEON
+	mon_cry CRY_SPEAROW,     321,  208 ; LEAFEON
 	mon_cry CRY_HOOTHOOT,    354,  256 ; UNOWN
 	mon_cry CRY_NIDORAN_M,     0,    0 ; 254
 	mon_cry CRY_NIDORAN_M,     0,    0 ; 255
