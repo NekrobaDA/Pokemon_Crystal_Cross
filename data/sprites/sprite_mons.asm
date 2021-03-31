@@ -21,6 +21,7 @@ SpriteMons:
 	db DRAGONITE ; 79
 	db PERSIAN ; 7a
 	db ABRA ; 7b
+	db DRATINI ; 7c
 	db UNOWN ; 80
 	db GEODUDE ; 81
 	db GROWLITHE ; 82

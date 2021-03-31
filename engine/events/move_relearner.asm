@@ -233,7 +233,7 @@ ChooseMoveToLearn:
 	cp B_BUTTON
 	jr z, .carry
 	ld a, [wMenuSelection]
-	ld [wRelearner2], a
+	ld [wPutativeTMHMMove], a
 	and a
 	ret
 
@@ -296,32 +296,12 @@ ChooseMoveToLearn:
 	ld d, h
 	ld e, l
 
-	ld hl, wStringBuffer1
-	ld bc, 5
-	call PlaceString
-	ld hl, wStringBuffer1 + 4
-	ld [hl], "/"
-	; get move class
-	ld a, [wNamedObjectIndex]
-	and $c0 ; still valid label
-	rlca
-	rlca
-	ld c, a
-	add a
-	add a
-	add c
-	ld c, a
-	ld b, 0
-	ld hl, .Classes
-	add hl, bc
-	ld d, h
-	ld e, l
-
 	ld hl, wStringBuffer1 + 5
 	ld bc, 5
 	call PlaceString
 	ld hl, wStringBuffer1 + 9
 	ld [hl], "/"
+	; get move class
 
 	ld a, [wMenuSelection]
 	dec a
@@ -356,9 +336,9 @@ ChooseMoveToLearn:
 	db "ROCK@"
 	db "BIRD@"
 	db " BUG@"
-	db "GHST@"
 	db " STL@"
 
+	db "TP09@"
 	db "TP10@"
 	db "TP11@"
 	db "TP12@"
@@ -367,7 +347,6 @@ ChooseMoveToLearn:
 	db "TP15@"
 	db "TP16@"
 	db "TP17@"
-	db "TP18@"
 	db "CRSE@"
 
 	db "FIRE@"
@@ -378,10 +357,7 @@ ChooseMoveToLearn:
 	db " ICE@"
 	db "DRGN@"
 	db "DARK@"
-.Classes
-	db "PHYS@"
-	db "SPEC@"
-	db "STAT@"
+	db "GHST@"
 
 .PrintMoveDesc
 	push de
