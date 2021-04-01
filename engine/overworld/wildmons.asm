@@ -658,7 +658,7 @@ CheckEncounterRoamMon:
 	call CopyCurrMapDE
 ; Randomly select a beast.
 	call Random
-	cp 250 ; 25/64 chance
+	cp 150 ; 25/64 chance
 	jr nc, .DontEncounterRoamMon
 	and %00000011 ; Of that, a 3/4 chance.  Running total: 75/256, or around 29.3%.
 	jr z, .DontEncounterRoamMon
@@ -706,7 +706,7 @@ CheckEncounterRoamMonK:
 	call CopyCurrMapDE
 ; Randomly select a beast.
 	call Random
-	cp 250 ; 25/64 chance
+	cp 150 ; 25/64 chance
 	jr nc, .DontEncounterRoamMon
 	and %00000011 ; Of that, a 3/4 chance.  Running total: 75/256, or around 29.3%.
 	jr z, .DontEncounterRoamMon

@@ -1,17 +1,60 @@
 # Pokémon Crystal [![Build Status][travis-badge]][travis]
 
-This is a disassembly of Pokémon Crystal.
+This is a hack of the Pokémon Crystal disassembly.
 
-It builds the following ROMs:
+Features-
 
-- Pokemon - Crystal Version (UE) (V1.0) [C][!].gbc `sha1: f4cd194bdee0d04ca4eac29e09b8e4e9d818c133`
-- Pokemon - Crystal Version (UE) (V1.1) [C][!].gbc `sha1: f2f52230b536214ef7c9924f483392993e226cfb`
-- Pokemon - Crystal Version (A) [C][!].gbc `sha1: a0fc810f1d4e124434f7be2c989ab5b5892ddf36`
-- CRYSTAL_ps3_010328d.bin `sha1: c60d57a24bbe8ecf7cba54ab3f90669f97bd330d`
-- CRYSTAL_ps3_us_revise_010710d.bin `sha1: 391ae86b1d5a26db712ffe6c28bbf2a1f804c3c4`
+Added Weavile, Yanmega, Honckrow, Mismagius, Gliscor, and Leafeon 
+(removed Sunkurn, Igglybuff, Cleffa, and Smoochum)
 
-To set up the repository, see [INSTALL.md](INSTALL.md).
+13 more weekly encounter pokemon in addition to Lapras;
+Sunflora, Electabuzz, Snorlax, Magmar, Farfetch'd, Marowak,
+Smeargle, Aerodactyl, Sudowoodo, Dragonair, Rapidash, Lickitung, Eevee
 
+Articuno, Zapdos, and Moltres are roaming encounters in Kanto
+Roamers should no longer jump routes when using fly
+
+Mewtwo added as a static encounter in a cave in Cerulean
+Mew is encounterable via a secret method
+
+Celebi event has been re-enabled
+
+Both Game Corner pokemon prize tables have been changed
+All 253 pokemon should be attainable without outside trading
+
+All TMs can be bought post-game in Celadon
+All evolution items can now be bought in Goldenrod
+
+Some TMs and Tutor moves have been changed
+Growth, Flash, and Razor Wind have been buffed, and learnsets have also been edited
+
+Ghost is now a special type
+
+Gyarados and Charizard are part dragon;
+Dragon no longer resists grass
+
+Altered some gym teams
+
+HM moves can be forgotten at any time
+A Move Relearner has also been added in Blackthorn 
+
+Enabled the Shiny Ditto mimic glitch from gen 1 to work
+Edited shiny DV ranges to allow for shiny female starters and other 12.5% female species
+(shinies should be slightly more common in general)
+
+Edited some overworld map layouts
+Altered wild encounter tables
+
+Wild pokemon scale with your badges (speficically Fog badge and Rising badge)
+Evening added as a 4th time of day
+
+Individual party menu icons and colors for each normal and shiny pokemon
+Updated pokemon sprites for overworld pokemon
+
+Some altered or updated shiny colors
+
+Bugs;
+Pikachu has its male and female gender dimorphism, however the backsprite does not display correctly
 
 ## See also
 
@@ -21,29 +64,3 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 - **Discord:** [pret][discord]
 - **IRC:** [freenode#pret][irc]
 
-Other disassembly projects:
-
-- [**Pokémon Red/Blue**][pokered]
-- [**Pokémon Yellow**][pokeyellow]
-- [**Pokémon Gold/Silver**][pokegold]
-- [**Pokémon Pinball**][pokepinball]
-- [**Pokémon TCG**][poketcg]
-- [**Pokémon Ruby**][pokeruby]
-- [**Pokémon FireRed**][pokefirered]
-- [**Pokémon Emerald**][pokeemerald]
-
-[pokered]: https://github.com/pret/pokered
-[pokeyellow]: https://github.com/pret/pokeyellow
-[pokegold]: https://github.com/pret/pokegold
-[pokepinball]: https://github.com/pret/pokepinball
-[poketcg]: https://github.com/pret/poketcg
-[pokeruby]: https://github.com/pret/pokeruby
-[pokefirered]: https://github.com/pret/pokefirered
-[pokeemerald]: https://github.com/pret/pokeemerald
-[docs]: https://pret.github.io/pokecrystal/
-[wiki]: https://github.com/pret/pokecrystal/wiki
-[tutorials]: https://github.com/pret/pokecrystal/wiki/Tutorials
-[discord]: https://discord.gg/d5dubZ3
-[irc]: https://kiwiirc.com/client/irc.freenode.net/?#pret
-[travis]: https://travis-ci.org/pret/pokecrystal
-[travis-badge]: https://travis-ci.org/pret/pokecrystal.svg?branch=master
