@@ -141,6 +141,7 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_WATERFALL,  MonMenu_Waterfall
 	dbw MONMENUITEM_ROCKSMASH,  MonMenu_RockSmash
 	dbw MONMENUITEM_SWEETSCENT, MonMenu_SweetScent
+	dbw MONMENUITEM_ROCKCLIMB,  MonMenu_RockClimb
 	dbw MONMENUITEM_STATS,      OpenPartyStats
 	dbw MONMENUITEM_SWITCH,     SwitchPartyMons
 	dbw MONMENUITEM_ITEM,       GiveTakePartyMonItem
@@ -792,6 +793,19 @@ MonMenu_SweetScent:
 	farcall SweetScentFromMenu
 	ld b, $4
 	ld a, $2
+	ret
+	
+MonMenu_RockClimb:
+	farcall RockClimbFunction
+	ld a, [wFieldMoveSucceeded]
+	cp $1
+	jr nz, .Fail
+	ld b, $4
+	ld a, $2
+	ret
+
+.Fail:
+	ld a, $3
 	ret
 
 ChooseMoveToDelete:

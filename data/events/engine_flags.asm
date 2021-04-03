@@ -121,6 +121,21 @@ EngineFlags:
 	engine_flag wDailyFlags2, DAILYFLAGS2_INDIGO_PLATEAU_RIVAL_FIGHT_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_MOVE_TUTOR_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_BUENAS_PASSWORD_F
+	
+	engine_flag wDailyFlags3, DAILYFLAGS3_SUNDAY_SUNFLORA_F
+	engine_flag wDailyFlags3, DAILYFLAGS3_SUNDAY_ELECTABUZZ_F
+	engine_flag wDailyFlags3, DAILYFLAGS3_MONDAY_SNORLAX_F
+	engine_flag wDailyFlags3, DAILYFLAGS3_MONDAY_MAGMAR_F
+	engine_flag wDailyFlags3, DAILYFLAGS3_TUESDAY_FARFETCHD_F
+	engine_flag wDailyFlags3, DAILYFLAGS3_TUESDAY_MAROWAK_F
+	engine_flag wDailyFlags3, DAILYFLAGS3_WEDNESDAY_SMEARGLE_F
+	engine_flag wDailyFlags3, DAILYFLAGS3_WEDNESDAY_AERODACTYL_F
+	
+	engine_flag wDailyFlags4, DAILYFLAGS4_THURSDAY_SUDOWOODO_F
+	engine_flag wDailyFlags4, DAILYFLAGS4_THURSDAY_DRAGONAIR_F
+	engine_flag wDailyFlags4, DAILYFLAGS4_FRIDAY_RAPIDASH_F
+	engine_flag wDailyFlags4, DAILYFLAGS4_SATURDAY_LICKITUNG_F
+	engine_flag wDailyFlags4, DAILYFLAGS4_SATURDAY_EEVEE_F
 
 	engine_flag wSwarmFlags, SWARMFLAGS_BUENAS_PASSWORD_F
 	engine_flag wSwarmFlags, SWARMFLAGS_GOLDENROD_DEPT_STORE_SALE_F
@@ -197,18 +212,3 @@ EngineFlags:
 
 	engine_flag wSwarmFlags, SWARMFLAGS_DUNSPARCE_SWARM_F
 	engine_flag wSwarmFlags, SWARMFLAGS_YANMA_SWARM_F
-	
-	engine_flag wDailyFlags3, DAILYFLAGS3_SUNDAY_SUNFLORA_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_SUNDAY_ELECTABUZZ_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_MONDAY_SNORLAX_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_MONDAY_MAGMAR_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_TUESDAY_FARFETCHD_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_TUESDAY_MAROWAK_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_WEDNESDAY_SMEARGLE_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_WEDNESDAY_AERODACTYL_F
-	
-	engine_flag wDailyFlags4, DAILYFLAGS4_THURSDAY_SUDOWOODO_F
-	engine_flag wDailyFlags4, DAILYFLAGS4_THURSDAY_DRAGONAIR_F
-	engine_flag wDailyFlags4, DAILYFLAGS4_FRIDAY_RAPIDASH_F
-	engine_flag wDailyFlags4, DAILYFLAGS4_SATURDAY_LICKITUNG_F
-	engine_flag wDailyFlags4, DAILYFLAGS4_SATURDAY_EEVEE_F

@@ -22,6 +22,8 @@ LoadSpecialMapPalette:
 	jr z, .radio_tower
 	cp TILESET_MANSION
 	jr z, .mansion_mobile
+	cp TILESET_DARK_CAVE
+	jr z, .mount_mortar
 	jr .do_nothing
 
 .darkness
@@ -69,6 +71,11 @@ LoadSpecialMapPalette:
 
 .mansion_mobile
 	call LoadMansionPalette
+	scf
+	ret
+	
+.mount_mortar
+	call LoadMortarPalette
 	scf
 	ret
 
@@ -130,6 +137,17 @@ LoadIcePath2Palette:
 
 IcePath2Palette:
 INCLUDE "gfx/tilesets/ice_path_2.pal"
+
+LoadMortarPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, MortarPalette
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	ret
+
+MortarPalette:
+INCLUDE "gfx/tilesets/mount_mortar.pal"
 
 LoadHousePalette:
 	ld a, BANK(wBGPals1)

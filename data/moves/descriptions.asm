@@ -251,7 +251,7 @@ MoveDescriptions::
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
-	dw MoveFCDescription
+	dw RockClimbDescription
 	dw MoveFDDescription
 	dw MoveFEDescription
 	dw MoveFFDescription
@@ -1267,3 +1267,7 @@ WhirlpoolDescription:
 BeatUpDescription:
 	db   "Party #MON join"
 	next "in the attack.@"
+	
+RockClimbDescription:
+	db   "Charging attack,"
+	next "may confuse foes.@"

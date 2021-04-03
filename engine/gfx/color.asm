@@ -1249,8 +1249,18 @@ LoadMapPals:
 .got_pals
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
+	ld b, a
+	ld a, [wMapNumber]
+	cp MAP_CHERRYGROVE_CITY
+	jr nz, .skipcherry
+	ld a, b
+	ld hl, MapObjectPalsCherry
+	jr .checkdone
+.skipcherry
+	ld a, b
 	ld hl, MapObjectPals
+.checkdone
+	ld bc, 8 palettes
 	call AddNTimes
 	ld de, wOBPals1
 	ld bc, 8 palettes
@@ -1304,6 +1314,9 @@ INCLUDE "gfx/tilesets/bg_tiles.pal"
 
 MapObjectPals::
 INCLUDE "gfx/overworld/npc_sprites.pal"
+
+MapObjectPalsCherry::
+INCLUDE "gfx/overworld/npc_sprites_cherry.pal"
 
 RoofPals:
 INCLUDE "gfx/tilesets/roofs.pal"
