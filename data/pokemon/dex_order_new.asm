@@ -84,7 +84,6 @@ NewPokedexOrder:
 	db ODDISH
 	db GLOOM
 	db VILEPLUME
-	db BELLOSSOM
 	db DROWZEE
 	db HYPNO
 	db ABRA
@@ -121,6 +120,7 @@ NewPokedexOrder:
 	db VOLTORB
 	db ELECTRODE
 	db AIPOM
+	db AMBIPOM
 	db SNUBBULL
 	db GRANBULL
 	db VULPIX
@@ -150,12 +150,11 @@ NewPokedexOrder:
 	db MILTANK
 	db MAGBY
 	db MAGMAR
-	db JYNX
 	db ELEKID
 	db ELECTABUZZ
-	db MR__MIME
 	db SMEARGLE
 	db FARFETCH_D
+	db WU_DUK
 	db NATU
 	db XATU
 	db QWILFISH
@@ -176,7 +175,6 @@ NewPokedexOrder:
 	db SEEL
 	db DEWGONG
 	db LICKITUNG
-	db TANGELA
 	db EEVEE
 	db VAPOREON
 	db JOLTEON
@@ -184,6 +182,7 @@ NewPokedexOrder:
 	db ESPEON
 	db UMBREON
 	db LEAFEON
+	db GLACEON
 	db HORSEA
 	db SEADRA
 	db KINGDRA

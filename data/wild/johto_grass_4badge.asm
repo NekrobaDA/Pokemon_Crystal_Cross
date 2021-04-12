@@ -820,8 +820,8 @@ JohtoGrassWildMons4Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 27, ONIX
-	db 22, JYNX
-	db 24, JYNX
+	db 22, SNEASEL
+	db 24, SNEASEL
 	db 25, ONIX
 	; day
 	db 23, SNEASEL
@@ -829,8 +829,8 @@ JohtoGrassWildMons4Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 27, ONIX
-	db 22, JYNX
-	db 24, JYNX
+	db 22, SNEASEL
+	db 24, SNEASEL
 	db 25, ONIX
 	; nite
 	db 23, SNEASEL
@@ -839,7 +839,7 @@ JohtoGrassWildMons4Badge:
 	db 25, SNEASEL
 	db 26, MISDREAVUS
 	db 22, SNEASEL
-	db 24, JYNX
+	db 24, SNEASEL
 	db 25, ONIX
 
 	map_id ICE_PATH_B2F_BLACKTHORN_SIDE
@@ -850,8 +850,8 @@ JohtoGrassWildMons4Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 27, ONIX
-	db 22, JYNX
-	db 24, JYNX
+	db 22, SNEASEL
+	db 24, SNEASEL
 	db 25, ONIX
 	; day
 	db 23, SNEASEL
@@ -859,8 +859,8 @@ JohtoGrassWildMons4Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 27, ONIX
-	db 22, JYNX
-	db 24, JYNX
+	db 22, SNEASEL
+	db 24, SNEASEL
 	db 25, ONIX
 	; nite
 	db 23, SNEASEL
@@ -869,7 +869,7 @@ JohtoGrassWildMons4Badge:
 	db 25, SNEASEL
 	db 26, MISDREAVUS
 	db 22, SNEASEL
-	db 24, JYNX
+	db 24, SNEASEL
 	db 25, ONIX
 
 	map_id ICE_PATH_B3F
@@ -880,8 +880,8 @@ JohtoGrassWildMons4Badge:
 	db 24, MISDREAVUS
 	db 25, ONIX
 	db 26, MISDREAVUS
-	db 22, JYNX
-	db 24, JYNX
+	db 22, SNEASEL
+	db 24, SNEASEL
 	db 27, ONIX
 	; day
 	db 23, SNEASEL
@@ -889,8 +889,8 @@ JohtoGrassWildMons4Badge:
 	db 24, MISDREAVUS
 	db 25, ONIX
 	db 26, MISDREAVUS
-	db 22, JYNX
-	db 24, JYNX
+	db 22, SNEASEL
+	db 24, SNEASEL
 	db 27, ONIX
 	; nite
 	db 23, SNEASEL
@@ -899,7 +899,7 @@ JohtoGrassWildMons4Badge:
 	db 25, SNEASEL
 	db 26, MISDREAVUS
 	db 26, SNEASEL
-	db 24, JYNX
+	db 24, SNEASEL
 	db 27, ONIX
 
 	map_id WHIRL_ISLAND_NW

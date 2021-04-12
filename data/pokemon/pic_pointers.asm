@@ -50,10 +50,11 @@ PokemonPicPointers::
 	dba_pic EkansBackpic
 	dba_pic ArbokFrontpic
 	dba_pic ArbokBackpic
+	dba_pic PichuFrontpic
+	dba_pic PichuBackpic
 	; Pikachu pics have their own table. See PikachuPicPointers
 	dbw -1, -1
 	dbw -1, -1
-
 	dba_pic RaichuFrontpic
 	dba_pic RaichuBackpic
 	dba_pic SandshrewFrontpic
@@ -88,6 +89,8 @@ PokemonPicPointers::
 	dba_pic ZubatBackpic
 	dba_pic GolbatFrontpic
 	dba_pic GolbatBackpic
+	dba_pic CrobatFrontpic
+	dba_pic CrobatBackpic	
 	dba_pic OddishFrontpic
 	dba_pic OddishBackpic
 	dba_pic GloomFrontpic
@@ -128,6 +131,8 @@ PokemonPicPointers::
 	dba_pic PoliwhirlBackpic
 	dba_pic PoliwrathFrontpic
 	dba_pic PoliwrathBackpic
+	dba_pic PolitoedFrontpic
+	dba_pic PolitoedBackpic	
 	dba_pic AbraFrontpic
 	dba_pic AbraBackpic
 	dba_pic KadabraFrontpic
@@ -164,12 +169,16 @@ PokemonPicPointers::
 	dba_pic SlowpokeBackpic
 	dba_pic SlowbroFrontpic
 	dba_pic SlowbroBackpic
+    dba_pic SlowkingFrontpic
+	dba_pic SlowkingBackpic	
 	dba_pic MagnemiteFrontpic
 	dba_pic MagnemiteBackpic
 	dba_pic MagnetonFrontpic
 	dba_pic MagnetonBackpic
 	dba_pic FarfetchDFrontpic
 	dba_pic FarfetchDBackpic
+	dba_pic WuDukFrontpic
+	dba_pic WuDukBackpic
 	dba_pic DoduoFrontpic
 	dba_pic DoduoBackpic
 	dba_pic DodrioFrontpic
@@ -194,6 +203,8 @@ PokemonPicPointers::
 	dba_pic GengarBackpic
 	dba_pic OnixFrontpic
 	dba_pic OnixBackpic
+	dba_pic SteelixFrontpic
+	dba_pic SteelixBackpic
 	dba_pic DrowzeeFrontpic
 	dba_pic DrowzeeBackpic
 	dba_pic HypnoFrontpic
@@ -214,10 +225,14 @@ PokemonPicPointers::
 	dba_pic CuboneBackpic
 	dba_pic MarowakFrontpic
 	dba_pic MarowakBackpic
+	dba_pic TyrogueFrontpic
+	dba_pic TyrogueBackpic
 	dba_pic HitmonleeFrontpic
 	dba_pic HitmonleeBackpic
 	dba_pic HitmonchanFrontpic
 	dba_pic HitmonchanBackpic
+	dba_pic HitmontopFrontpic
+	dba_pic HitmontopBackpic
 	dba_pic LickitungFrontpic
 	dba_pic LickitungBackpic
 	dba_pic KoffingFrontpic
@@ -230,14 +245,16 @@ PokemonPicPointers::
 	dba_pic RhydonBackpic
 	dba_pic ChanseyFrontpic
 	dba_pic ChanseyBackpic
-	dba_pic TangelaFrontpic
-	dba_pic TangelaBackpic
+	dba_pic BlisseyFrontpic
+	dba_pic BlisseyBackpic
 	dba_pic KangaskhanFrontpic
 	dba_pic KangaskhanBackpic
 	dba_pic HorseaFrontpic
 	dba_pic HorseaBackpic
 	dba_pic SeadraFrontpic
 	dba_pic SeadraBackpic
+	dba_pic KingdraFrontpic
+	dba_pic KingdraBackpic
 	dba_pic GoldeenFrontpic
 	dba_pic GoldeenBackpic
 	dba_pic SeakingFrontpic
@@ -246,20 +263,24 @@ PokemonPicPointers::
 	dba_pic StaryuBackpic
 	dba_pic StarmieFrontpic
 	dba_pic StarmieBackpic
-	dba_pic MrMimeFrontpic
-	dba_pic MrMimeBackpic
 	dba_pic ScytherFrontpic
 	dba_pic ScytherBackpic
-	dba_pic JynxFrontpic
-	dba_pic JynxBackpic
+	dba_pic ScizorFrontpic
+	dba_pic ScizorBackpic
+	dba_pic ElekidFrontpic
+	dba_pic ElekidBackpic
 	dba_pic ElectabuzzFrontpic
 	dba_pic ElectabuzzBackpic
+	dba_pic MagbyFrontpic
+	dba_pic MagbyBackpic
 	dba_pic MagmarFrontpic
 	dba_pic MagmarBackpic
 	dba_pic PinsirFrontpic
 	dba_pic PinsirBackpic
 	dba_pic TaurosFrontpic
 	dba_pic TaurosBackpic
+	dba_pic MiltankFrontpic
+	dba_pic MiltankBackpic
 	dba_pic MagikarpFrontpic
 	dba_pic MagikarpBackpic
 	dba_pic GyaradosFrontpic
@@ -276,8 +297,18 @@ PokemonPicPointers::
 	dba_pic JolteonBackpic
 	dba_pic FlareonFrontpic
 	dba_pic FlareonBackpic
+	dba_pic EspeonFrontpic
+	dba_pic EspeonBackpic
+	dba_pic UmbreonFrontpic
+	dba_pic UmbreonBackpic
+	dba_pic LeafeonFrontpic
+	dba_pic LeafeonBackpic
+	dba_pic GlaceonFrontpic
+	dba_pic GlaceonBackpic
 	dba_pic PorygonFrontpic
 	dba_pic PorygonBackpic
+	dba_pic Porygon2Frontpic
+	dba_pic Porygon2Backpic
 	dba_pic OmanyteFrontpic
 	dba_pic OmanyteBackpic
 	dba_pic OmastarFrontpic
@@ -340,18 +371,10 @@ PokemonPicPointers::
 	dba_pic SpinarakBackpic
 	dba_pic AriadosFrontpic
 	dba_pic AriadosBackpic
-	dba_pic CrobatFrontpic
-	dba_pic CrobatBackpic
 	dba_pic ChinchouFrontpic
 	dba_pic ChinchouBackpic
 	dba_pic LanturnFrontpic
 	dba_pic LanturnBackpic
-	dba_pic PichuFrontpic
-	dba_pic PichuBackpic
-	dba_pic SteelixFrontpic
-	dba_pic SteelixBackpic
-    dba_pic SlowkingFrontpic
-	dba_pic SlowkingBackpic
 	dba_pic TogepiFrontpic
 	dba_pic TogepiBackpic
 	dba_pic TogeticFrontpic
@@ -366,16 +389,12 @@ PokemonPicPointers::
 	dba_pic FlaaffyBackpic
 	dba_pic AmpharosFrontpic
 	dba_pic AmpharosBackpic
-	dba_pic BellossomFrontpic
-	dba_pic BellossomBackpic
 	dba_pic MarillFrontpic
 	dba_pic MarillBackpic
 	dba_pic AzumarillFrontpic
 	dba_pic AzumarillBackpic
 	dba_pic SudowoodoFrontpic
 	dba_pic SudowoodoBackpic
-	dba_pic PolitoedFrontpic
-	dba_pic PolitoedBackpic
 	dba_pic HoppipFrontpic
 	dba_pic HoppipBackpic
 	dba_pic SkiploomFrontpic
@@ -384,6 +403,8 @@ PokemonPicPointers::
 	dba_pic JumpluffBackpic
 	dba_pic AipomFrontpic
 	dba_pic AipomBackpic
+	dba_pic AmbipomFrontpic
+	dba_pic AmbipomBackpic
 	dba_pic SunfloraFrontpic
 	dba_pic SunfloraBackpic
 	dba_pic YanmaFrontpic
@@ -394,10 +415,6 @@ PokemonPicPointers::
 	dba_pic WooperBackpic
 	dba_pic QuagsireFrontpic
 	dba_pic QuagsireBackpic
-	dba_pic EspeonFrontpic
-	dba_pic EspeonBackpic
-	dba_pic UmbreonFrontpic
-	dba_pic UmbreonBackpic
 	dba_pic MurkrowFrontpic
 	dba_pic MurkrowBackpic
 	dba_pic HonchkrowFrontpic
@@ -416,6 +433,8 @@ PokemonPicPointers::
 	dba_pic ForretressBackpic
 	dba_pic DunsparceFrontpic
 	dba_pic DunsparceBackpic
+	dba_pic DuserpentFrontpic
+	dba_pic DuserpentBackpic
 	dba_pic GligarFrontpic
 	dba_pic GligarBackpic
 	dba_pic GliscorFrontpic
@@ -426,8 +445,6 @@ PokemonPicPointers::
 	dba_pic GranbullBackpic
 	dba_pic QwilfishFrontpic
 	dba_pic QwilfishBackpic
-	dba_pic ScizorFrontpic
-	dba_pic ScizorBackpic
 	dba_pic ShuckleFrontpic
 	dba_pic ShuckleBackpic
 	dba_pic SneaselFrontpic
@@ -462,32 +479,19 @@ PokemonPicPointers::
 	dba_pic HoundourBackpic
 	dba_pic HoundoomFrontpic
 	dba_pic HoundoomBackpic
-	dba_pic KingdraFrontpic
-	dba_pic KingdraBackpic
 	dba_pic PhanpyFrontpic
 	dba_pic PhanpyBackpic
 	dba_pic DonphanFrontpic
 	dba_pic DonphanBackpic
-	dba_pic Porygon2Frontpic
-	dba_pic Porygon2Backpic
 	dba_pic StantlerFrontpic
 	dba_pic StantlerBackpic
 	dba_pic SmeargleFrontpic
 	dba_pic SmeargleBackpic
-	dba_pic TyrogueFrontpic
-	dba_pic TyrogueBackpic
-	dba_pic HitmontopFrontpic
-	dba_pic HitmontopBackpic
 	dba_pic HeracrossFrontpic
 	dba_pic HeracrossBackpic
-	dba_pic ElekidFrontpic
-	dba_pic ElekidBackpic
-	dba_pic MagbyFrontpic
-	dba_pic MagbyBackpic
-	dba_pic MiltankFrontpic
-	dba_pic MiltankBackpic
-	dba_pic BlisseyFrontpic
-	dba_pic BlisseyBackpic
+		; Unown pics have their own table. See UnownPicPointers
+	dbw -1, -1
+	dbw -1, -1
 	dba_pic RaikouFrontpic
 	dba_pic RaikouBackpic
 	dba_pic EnteiFrontpic
@@ -506,10 +510,5 @@ PokemonPicPointers::
 	dba_pic HoOhBackpic
 	dba_pic CelebiFrontpic
 	dba_pic CelebiBackpic
-	dba_pic LeafeonFrontpic
-	dba_pic LeafeonBackpic
-		; Unown pics have their own table. See UnownPicPointers
-	dbw -1, -1
-	dbw -1, -1
 	dba_pic EggPic
 	dbw -1, -1 ; unused

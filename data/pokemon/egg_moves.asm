@@ -348,14 +348,6 @@ ChanseyEggMoves:
 	db HEAL_BELL
 	db -1 ; end
 
-TangelaEggMoves:
-	db FLAIL
-	db CONFUSION
-	db MEGA_DRAIN
-	db REFLECT
-	db AMNESIA
-	db -1 ; end
-
 KangaskhanEggMoves:
 	db STOMP
 	db FORESIGHT
@@ -377,12 +369,6 @@ GoldeenEggMoves:
 	db PSYBEAM
 	db HAZE
 	db HYDRO_PUMP
-	db -1 ; end
-
-MrMimeEggMoves:
-	db FUTURE_SIGHT
-	db HYPNOSIS
-	db MIMIC
 	db -1 ; end
 
 ScytherEggMoves:
@@ -771,10 +757,6 @@ TyrogueEggMoves:
 	db HI_JUMP_KICK
 	db MACH_PUNCH
 	db MIND_READER
-	db -1 ; end
-
-JynxEggMoves:
-	db MEDITATE
 	db -1 ; end
 
 ElekidEggMoves:

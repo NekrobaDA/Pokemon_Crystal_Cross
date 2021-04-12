@@ -39,7 +39,6 @@ SpriteMons:
 	db PIKACHU ; 8e
 	db CLEFAIRY ; 8f
 	db CHARMANDER ; 90
-	db JYNX ; 91
 	db STARMIE ; 92
 	db BULBASAUR ; 93
 	db JIGGLYPUFF ; 94

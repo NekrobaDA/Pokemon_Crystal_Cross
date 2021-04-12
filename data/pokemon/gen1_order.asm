@@ -28,7 +28,7 @@ Pokered_MonIndices:
 	db STARYU
 	db BLASTOISE
 	db PINSIR
-	db TANGELA
+	db WU_DUK
 	db SCIZOR ; MISSINGNO.
 	db SHUCKLE ; MISSINGNO.
 	db GROWLITHE
@@ -40,7 +40,7 @@ Pokered_MonIndices:
 	db GRAVELER
 	db CHANSEY
 	db MACHOKE
-	db MR__MIME
+	db GLACEON
 	db HITMONLEE
 	db HITMONCHAN
 	db ARBOK
@@ -70,7 +70,7 @@ Pokered_MonIndices:
 	db PILOSWINE ; MISSINGNO.
 	db DODUO
 	db POLIWAG
-	db JYNX
+	db DUSERPENT
 	db MOLTRES
 	db ARTICUNO
 	db ZAPDOS
@@ -220,7 +220,7 @@ Pokered_MonIndices:
 	db MAREEP
 	db FLAAFFY
 	db AMPHAROS
-	db BELLOSSOM
+	db AMBIPOM
 	db MARILL
 	db AZUMARILL
 	db SUDOWOODO

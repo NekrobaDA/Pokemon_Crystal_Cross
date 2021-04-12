@@ -192,13 +192,13 @@ CyndaquilPokeBallScript:
 	giveitem COIN_CASE
 	givecoins 50000
 	; good party
-	givepoke HONCHKROW, 100
+	givepoke DUSERPENT, 100
 	givepoke WEAVILE, 100
-	givepoke GLISCOR, 100
+	givepoke WU_DUK, 100
 	givepoke LEAFEON, 100
-	givepoke YANMEGA, 100
+	givepoke GLACEON, 100
 	; hm slaves
-	givepoke MISMAGIUS, 100
+	givepoke AMBIPOM, 100
 	; tms for party
 	giveitem TM_ICE_BEAM
 	giveitem TM_FLAMETHROWER

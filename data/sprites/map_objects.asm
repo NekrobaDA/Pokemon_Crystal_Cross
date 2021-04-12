@@ -296,11 +296,11 @@ SpriteMovementData::
 	db 0 ; flags1
 	db 0 ; flags2
 	db SWIMMING ; palette flags
-
-; 25
-	db SPRITEMOVEFN_00 ; movement function
-	db DOWN ; facing
-	db OBJECT_ACTION_STAND ; action
-	db 0 ; flags1
-	db 0 ; flags2
-	db 0 ; palette flags
+	
+; SPRITEMOVEDATA_OVERLAY
+	db SPRITEMOVEFN_OVERLAY
+	db DOWN
+	db OBJECT_ACTION_OVERLAY
+	db WONT_DELETE | FIXED_FACING | SLIDING | EMOTE_OBJECT
+	db HIGH_PRIORITY
+	db 0

@@ -393,11 +393,11 @@ PlacePartyMonEvoStoneCompatibility:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, wStringBuffer1
+	ld de, wEvoDataBuffer
 	ld a, BANK("Evolutions and Attacks")
-	ld bc, wStringBuffer2 - wStringBuffer1
+	ld bc, 3 * 7
 	call FarCopyBytes
-	ld hl, wStringBuffer1
+	ld hl, wEvoDataBuffer
 .loop2
 	ld a, [hli]
 	and a

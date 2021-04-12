@@ -5,6 +5,7 @@ AlphabeticalPokedexOrder:
 	db AERODACTYL
 	db AIPOM
 	db ALAKAZAM
+	db AMBIPOM
 	db AMPHAROS
 	db ARBOK
 	db ARCANINE
@@ -13,7 +14,6 @@ AlphabeticalPokedexOrder:
 	db AZUMARILL
 	db BAYLEEF
 	db BEEDRILL
-	db BELLOSSOM
 	db BELLSPROUT
 	db BLASTOISE
 	db BLISSEY
@@ -48,6 +48,7 @@ AlphabeticalPokedexOrder:
 	db DROWZEE
 	db DUGTRIO
 	db DUNSPARCE
+	db DUSERPENT
 	db EEVEE
 	db EKANS
 	db ELECTABUZZ
@@ -68,6 +69,7 @@ AlphabeticalPokedexOrder:
 	db GENGAR
 	db GEODUDE
 	db GIRAFARIG
+	db GLACEON
 	db GLIGAR
 	db GLISCOR
 	db GLOOM
@@ -97,7 +99,6 @@ AlphabeticalPokedexOrder:
 	db JIGGLYPUFF
 	db JOLTEON
 	db JUMPLUFF
-	db JYNX
 	db KABUTO
 	db KABUTOPS
 	db KADABRA
@@ -138,7 +139,6 @@ AlphabeticalPokedexOrder:
 	db MISDREAVUS
 	db MISMAGIUS
 	db MOLTRES
-	db MR__MIME
 	db MUK
 	db MURKROW
 	db NATU
@@ -219,7 +219,6 @@ AlphabeticalPokedexOrder:
 	db SUICUNE
 	db SUNFLORA
 	db SWINUB
-	db TANGELA
 	db TAUROS
 	db TEDDIURSA
 	db TENTACOOL
@@ -249,6 +248,7 @@ AlphabeticalPokedexOrder:
 	db WIGGLYTUFF
 	db WOBBUFFET
 	db WOOPER
+	db WU_DUK
 	db XATU
 	db YANMA
 	db YANMEGA

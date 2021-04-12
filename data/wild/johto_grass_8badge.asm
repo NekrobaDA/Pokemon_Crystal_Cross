@@ -820,8 +820,8 @@ JohtoGrassWildMons8Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 34, ONIX
-	db 25, JYNX
-	db 32, JYNX
+	db 25, SNEASEL
+	db 32, SNEASEL
 	db 35, ONIX
 	; day
 	db 23, SNEASEL
@@ -829,8 +829,8 @@ JohtoGrassWildMons8Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 34, ONIX
-	db 25, JYNX
-	db 32, JYNX
+	db 25, SNEASEL
+	db 32, SNEASEL
 	db 35, ONIX
 	; nite
 	db 23, SNEASEL
@@ -839,7 +839,7 @@ JohtoGrassWildMons8Badge:
 	db 25, SNEASEL
 	db 26, MISDREAVUS
 	db 31, SNEASEL
-	db 35, JYNX
+	db 35, SNEASEL
 	db 32, ONIX
 
 	map_id ICE_PATH_B2F_BLACKTHORN_SIDE
@@ -850,8 +850,8 @@ JohtoGrassWildMons8Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 34, ONIX
-	db 25, JYNX
-	db 32, JYNX
+	db 25, SNEASEL
+	db 32, SNEASEL
 	db 35, ONIX
 	; day
 	db 23, SNEASEL
@@ -859,8 +859,8 @@ JohtoGrassWildMons8Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 34, ONIX
-	db 25, JYNX
-	db 32, JYNX
+	db 25, SNEASEL
+	db 32, SNEASEL
 	db 35, ONIX
 	; nite
 	db 23, SNEASEL
@@ -869,7 +869,7 @@ JohtoGrassWildMons8Badge:
 	db 25, SNEASEL
 	db 26, MISDREAVUS
 	db 31, SNEASEL
-	db 35, JYNX
+	db 35, SNEASEL
 	db 32, ONIX
 
 	map_id ICE_PATH_B3F
@@ -880,8 +880,8 @@ JohtoGrassWildMons8Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 34, ONIX
-	db 25, JYNX
-	db 32, JYNX
+	db 25, SNEASEL
+	db 32, SNEASEL
 	db 35, ONIX
 	; day
 	db 23, SNEASEL
@@ -889,8 +889,8 @@ JohtoGrassWildMons8Badge:
 	db 24, MISDREAVUS
 	db 25, MISDREAVUS
 	db 34, ONIX
-	db 25, JYNX
-	db 32, JYNX
+	db 25, SNEASEL
+	db 32, SNEASEL
 	db 35, ONIX
 	; nite
 	db 23, SNEASEL
@@ -899,7 +899,7 @@ JohtoGrassWildMons8Badge:
 	db 25, SNEASEL
 	db 26, MISDREAVUS
 	db 31, SNEASEL
-	db 35, JYNX
+	db 35, SNEASEL
 	db 32, ONIX
 
 	map_id WHIRL_ISLAND_NW
@@ -1806,25 +1806,25 @@ JohtoGrassWildMons8Badge:
 	map_id SILVER_CAVE_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 41, TANGELA
+	db 41, SPEAROW
 	db 42, PHANPY
 	db 42, ARBOK
-	db 44, TANGELA
+	db 44, FEAROW
 	db 41, SKARMORY
 	db 43, DONPHAN
 	db 43, SKARMORY
 	db 39, EKANS
 	; day
-	db 41, TANGELA
+	db 41, SPEAROW
 	db 42, PHANPY
 	db 42, ARBOK
-	db 44, TANGELA
+	db 44, FEAROW
 	db 41, SKARMORY
 	db 43, DONPHAN
 	db 43, SKARMORY
 	db 39, EKANS
 	; nite
-	db 41, TANGELA
+	db 41, ZUBAT
 	db 42, POLIWHIRL
 	db 42, GOLBAT
 	db 44, POLIWHIRL

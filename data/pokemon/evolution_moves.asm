@@ -23,6 +23,7 @@ EvolutionMoves::
 	db NO_MOVE ; Fearow
 	db NO_MOVE ; Ekans
 	db SCARY_FACE ; Arbok
+	db NO_MOVE ; Pichu
 	db NO_MOVE ; Pikachu
 	db MEGA_PUNCH ; Raichu
 	db NO_MOVE ; Sandshrew
@@ -41,6 +42,7 @@ EvolutionMoves::
 	db NO_MOVE ; Wigglytuff
 	db NO_MOVE ; Zubat
 	db NO_MOVE ; Golbat
+	db NO_MOVE ; Crobat
 	db NO_MOVE ; Oddish
 	db NO_MOVE ; Gloom
 	db NO_MOVE ; Vileplume
@@ -61,6 +63,7 @@ EvolutionMoves::
 	db NO_MOVE ; Poliwag
 	db NO_MOVE ; Poliwhirl
 	db SUBMISSION ; Poliwrath
+	db NO_MOVE ; Politoed
 	db NO_MOVE ; Abra
 	db CONFUSION ; Kadabra
 	db NO_MOVE ; Alakazam
@@ -79,9 +82,11 @@ EvolutionMoves::
 	db HORN_ATTACK ; Rapidash
 	db NO_MOVE ; Slowpoke
 	db WITHDRAW ; Slowbro
+	db NO_MOVE ; Slowking
 	db NO_MOVE ; Magnemite
 	db TRI_ATTACK ; Magneton
 	db NO_MOVE ; FarfetchD
+	db KARATE_CHOP ; WuDuk
 	db NO_MOVE ; Doduo
 	db TRI_ATTACK ; Dodrio
 	db NO_MOVE ; Seel
@@ -94,6 +99,7 @@ EvolutionMoves::
 	db NO_MOVE ; Haunter
 	db NO_MOVE ; Gengar
 	db NO_MOVE ; Onix
+	db NO_MOVE ; Steelix
 	db NO_MOVE ; Drowzee
 	db NO_MOVE ; Hypno
 	db NO_MOVE ; Krabby
@@ -104,29 +110,34 @@ EvolutionMoves::
 	db STOMP ; Exeggutor
 	db NO_MOVE ; Cubone
 	db BONEMERANG ; Marowak
+	db NO_MOVE ; Tyrogue
 	db DOUBLE_KICK ; Hitmonlee
 	db COMET_PUNCH ; Hitmonchan
+	db ROLLING_KICK ; Hitmontop
 	db NO_MOVE ; Lickitung
 	db NO_MOVE ; Koffing
 	db NO_MOVE ; Weezing
 	db NO_MOVE ; Rhyhorn
 	db NO_MOVE ; Rhydon
 	db NO_MOVE ; Chansey
-	db NO_MOVE ; Tangela
+	db NO_MOVE ; Blissey
 	db NO_MOVE ; Kangaskhan
 	db NO_MOVE ; Horsea
 	db NO_MOVE ; Seadra
+	db DRAGONBREATH ; Kingdra
 	db NO_MOVE ; Goldeen
 	db NO_MOVE ; Seaking
 	db NO_MOVE ; Staryu
 	db NO_MOVE ; Starmie
-	db NO_MOVE ; MrMime
 	db NO_MOVE ; Scyther
-	db NO_MOVE ; Jynx
+	db NO_MOVE ; Scizor
+	db NO_MOVE ; Elekid
 	db NO_MOVE ; Electabuzz
+	db NO_MOVE ; Magby
 	db NO_MOVE ; Magmar
 	db NO_MOVE ; Pinsir
 	db NO_MOVE ; Tauros
+	db NO_MOVE ; Miltank
 	db NO_MOVE ; Magikarp
 	db BITE ; Gyarados
 	db NO_MOVE ; Lapras
@@ -135,7 +146,12 @@ EvolutionMoves::
 	db WATER_GUN ; Vaporeon
 	db THUNDERSHOCK ; Jolteon
 	db EMBER ; Flareon
+	db CONFUSION ; Espeon
+	db PURSUIT ; Umbreon
+	db RAZOR_LEAF ; Leafeon
+	db POWDER_SNOW ; Glaceon
 	db NO_MOVE ; Porygon
+	db NO_MOVE ; Porygon2
 	db NO_MOVE ; Omanyte
 	db SPIKE_CANNON ; Omastar
 	db NO_MOVE ; Kabuto
@@ -167,12 +183,8 @@ EvolutionMoves::
 	db NO_MOVE ; Ledian
 	db NO_MOVE ; Spinarak
 	db NO_MOVE ; Ariados
-	db NO_MOVE ; Crobat
 	db NO_MOVE ; Chinchou
 	db NO_MOVE ; Lanturn
-	db NO_MOVE ; Pichu
-	db NO_MOVE ; Steelix
-	db NO_MOVE ; Slowking
 	db NO_MOVE ; Togepi
 	db NO_MOVE ; Togetic
 	db NO_MOVE ; Natu
@@ -180,22 +192,19 @@ EvolutionMoves::
 	db NO_MOVE ; Mareep
 	db NO_MOVE ; Flaaffy
 	db THUNDERPUNCH ; Ampharos
-	db NO_MOVE ; Bellossom
 	db NO_MOVE ; Marill
 	db NO_MOVE ; Azumarill
 	db NO_MOVE ; Sudowoodo
-	db NO_MOVE ; Politoed
 	db NO_MOVE ; Hoppip
 	db NO_MOVE ; Skiploom
 	db NO_MOVE ; Jumpluff
 	db NO_MOVE ; Aipom
+	db NO_MOVE ; Ambipom
 	db NO_MOVE ; Sunflora
 	db NO_MOVE ; Yanma
 	db NO_MOVE ; Yanmega
 	db NO_MOVE ; Wooper
 	db NO_MOVE ; Quagsire
-	db CONFUSION ; Espeon
-	db PURSUIT ; Umbreon
 	db NO_MOVE ; Murkrow
 	db NO_MOVE ; Honchkrow
 	db NO_MOVE ; Misdreavus
@@ -205,12 +214,12 @@ EvolutionMoves::
 	db NO_MOVE ; Pineco
 	db WITHDRAW ; Forretress
 	db NO_MOVE ; Dunsparce
+	db TWISTER ; Duserpent
 	db NO_MOVE ; Gligar
 	db RAZOR_WIND ; Gliscor
 	db NO_MOVE ; Snubbull
 	db NO_MOVE ; Granbull
 	db NO_MOVE ; Qwilfish
-	db NO_MOVE ; Scizor
 	db NO_MOVE ; Shuckle
 	db NO_MOVE ; Sneasel
 	db LOW_KICK ; Weavile
@@ -228,19 +237,12 @@ EvolutionMoves::
 	db NO_MOVE ; Skarmory
 	db NO_MOVE ; Houndour
 	db NO_MOVE ; Houndoom
-	db DRAGONBREATH ; Kingdra
 	db NO_MOVE ; Phanpy
 	db FURY_ATTACK ; Donphan
-	db NO_MOVE ; Porygon2
 	db NO_MOVE ; Stantler
 	db NO_MOVE ; Smeargle
-	db NO_MOVE ; Tyrogue
-	db ROLLING_KICK ; Hitmontop
 	db NO_MOVE ; Heracross
-	db NO_MOVE ; Elekid
-	db NO_MOVE ; Magby
-	db NO_MOVE ; Miltank
-	db NO_MOVE ; Blissey
+	db NO_MOVE ; Unown
 	db NO_MOVE ; Raikou
 	db NO_MOVE ; Entei
 	db NO_MOVE ; Suicune
@@ -250,6 +252,3 @@ EvolutionMoves::
 	db NO_MOVE ; Lugia
 	db NO_MOVE ; HoOh
 	db NO_MOVE ; Celebi
-	db RAZOR_LEAF ; Leafeon
-	db NO_MOVE ; Unown
-	

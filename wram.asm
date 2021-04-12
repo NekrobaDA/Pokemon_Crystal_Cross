@@ -2040,8 +2040,7 @@ ENDU
 
 wEngineBuffer1:: ds 1
 wRelearner:: ds 1
-wRelearner2:: ds 1
-	ds 20
+wEvoDataBuffer:: ds 3 * 7
 	
 ENDU
 
@@ -2748,6 +2747,12 @@ wMap12Object::  map_object wMap12
 wMap13Object::  map_object wMap13
 wMap14Object::  map_object wMap14
 wMap15Object::  map_object wMap15
+wMap16Object::  map_object wMap16
+wMap17Object::  map_object wMap17
+wMap18Object::  map_object wMap18
+wMap19Object::  map_object wMap19
+wMap20Object::  map_object wMap20
+wMap21Object::  map_object wMap21
 
 wObjectMasks:: ds NUM_OBJECTS
 
@@ -2924,7 +2929,7 @@ wMobileBattleRoomSceneID::                        db
 wRoute24SceneID::                                 db
 wCeruleanCitySceneID::                            db
 
-	ds 49
+	ds 32
 
 ; fight counts
 wJackFightCount::    db
@@ -2956,7 +2961,7 @@ wKenjiFightCount::   db ; unreferenced
 wParryFightCount::   db
 wErinFightCount::    db
 
-	ds 100
+	ds 15
 
 wEventFlags:: flag_array NUM_EVENTS
 

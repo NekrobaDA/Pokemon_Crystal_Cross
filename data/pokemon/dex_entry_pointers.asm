@@ -24,6 +24,7 @@ PokedexDataPointerTable:
 	dw FearowPokedexEntry
 	dw EkansPokedexEntry
 	dw ArbokPokedexEntry
+	dw PichuPokedexEntry
 	dw PikachuPokedexEntry
 	dw RaichuPokedexEntry
 	dw SandshrewPokedexEntry
@@ -42,6 +43,7 @@ PokedexDataPointerTable:
 	dw WigglytuffPokedexEntry
 	dw ZubatPokedexEntry
 	dw GolbatPokedexEntry
+	dw CrobatPokedexEntry
 	dw OddishPokedexEntry
 	dw GloomPokedexEntry
 	dw VileplumePokedexEntry
@@ -62,6 +64,7 @@ PokedexDataPointerTable:
 	dw PoliwagPokedexEntry
 	dw PoliwhirlPokedexEntry
 	dw PoliwrathPokedexEntry
+	dw PolitoedPokedexEntry
 	dw AbraPokedexEntry
 	dw KadabraPokedexEntry
 	dw AlakazamPokedexEntry
@@ -80,9 +83,11 @@ PokedexDataPointerTable:
 	dw RapidashPokedexEntry
 	dw SlowpokePokedexEntry
 	dw SlowbroPokedexEntry
+	dw SlowkingPokedexEntry
 	dw MagnemitePokedexEntry
 	dw MagnetonPokedexEntry
 	dw FarfetchDPokedexEntry
+	dw WuDukPokedexEntry
 	dw DoduoPokedexEntry
 	dw DodrioPokedexEntry
 	dw SeelPokedexEntry
@@ -95,6 +100,7 @@ PokedexDataPointerTable:
 	dw HaunterPokedexEntry
 	dw GengarPokedexEntry
 	dw OnixPokedexEntry
+	dw SteelixPokedexEntry
 	dw DrowzeePokedexEntry
 	dw HypnoPokedexEntry
 	dw KrabbyPokedexEntry
@@ -105,29 +111,34 @@ PokedexDataPointerTable:
 	dw ExeggutorPokedexEntry
 	dw CubonePokedexEntry
 	dw MarowakPokedexEntry
+	dw TyroguePokedexEntry
 	dw HitmonleePokedexEntry
 	dw HitmonchanPokedexEntry
+	dw HitmontopPokedexEntry
 	dw LickitungPokedexEntry
 	dw KoffingPokedexEntry
 	dw WeezingPokedexEntry
 	dw RhyhornPokedexEntry
 	dw RhydonPokedexEntry
 	dw ChanseyPokedexEntry
-	dw TangelaPokedexEntry
+	dw BlisseyPokedexEntry
 	dw KangaskhanPokedexEntry
 	dw HorseaPokedexEntry
 	dw SeadraPokedexEntry
+	dw KingdraPokedexEntry
 	dw GoldeenPokedexEntry
 	dw SeakingPokedexEntry
 	dw StaryuPokedexEntry
 	dw StarmiePokedexEntry
-	dw MrMimePokedexEntry
 	dw ScytherPokedexEntry
-	dw JynxPokedexEntry
+	dw ScizorPokedexEntry
+	dw ElekidPokedexEntry
 	dw ElectabuzzPokedexEntry
+	dw MagbyPokedexEntry
 	dw MagmarPokedexEntry
 	dw PinsirPokedexEntry
 	dw TaurosPokedexEntry
+	dw MiltankPokedexEntry
 	dw MagikarpPokedexEntry
 	dw GyaradosPokedexEntry
 	dw LaprasPokedexEntry
@@ -136,7 +147,12 @@ PokedexDataPointerTable:
 	dw VaporeonPokedexEntry
 	dw JolteonPokedexEntry
 	dw FlareonPokedexEntry
+	dw EspeonPokedexEntry
+	dw UmbreonPokedexEntry
+	dw LeafeonPokedexEntry
+	dw GlaceonPokedexEntry
 	dw PorygonPokedexEntry
+	dw Porygon2PokedexEntry
 	dw OmanytePokedexEntry
 	dw OmastarPokedexEntry
 	dw KabutoPokedexEntry
@@ -168,12 +184,8 @@ PokedexDataPointerTable:
 	dw LedianPokedexEntry
 	dw SpinarakPokedexEntry
 	dw AriadosPokedexEntry
-	dw CrobatPokedexEntry
 	dw ChinchouPokedexEntry
 	dw LanturnPokedexEntry
-	dw PichuPokedexEntry
-	dw SteelixPokedexEntry
-	dw SlowkingPokedexEntry
 	dw TogepiPokedexEntry
 	dw TogeticPokedexEntry
 	dw NatuPokedexEntry
@@ -181,22 +193,19 @@ PokedexDataPointerTable:
 	dw MareepPokedexEntry
 	dw FlaaffyPokedexEntry
 	dw AmpharosPokedexEntry
-	dw BellossomPokedexEntry
 	dw MarillPokedexEntry
 	dw AzumarillPokedexEntry
 	dw SudowoodoPokedexEntry
-	dw PolitoedPokedexEntry
 	dw HoppipPokedexEntry
 	dw SkiploomPokedexEntry
 	dw JumpluffPokedexEntry
 	dw AipomPokedexEntry
+	dw AmbipomPokedexEntry
 	dw SunfloraPokedexEntry
 	dw YanmaPokedexEntry
 	dw YanmegaPokedexEntry
 	dw WooperPokedexEntry
 	dw QuagsirePokedexEntry
-	dw EspeonPokedexEntry
-	dw UmbreonPokedexEntry
 	dw MurkrowPokedexEntry
 	dw HonchkrowPokedexEntry
 	dw MisdreavusPokedexEntry
@@ -206,12 +215,12 @@ PokedexDataPointerTable:
 	dw PinecoPokedexEntry
 	dw ForretressPokedexEntry
 	dw DunsparcePokedexEntry
+	dw DuserpentPokedexEntry
 	dw GligarPokedexEntry
 	dw GliscorPokedexEntry
 	dw SnubbullPokedexEntry
 	dw GranbullPokedexEntry
 	dw QwilfishPokedexEntry
-	dw ScizorPokedexEntry
 	dw ShucklePokedexEntry
 	dw SneaselPokedexEntry
 	dw WeavilePokedexEntry
@@ -229,19 +238,12 @@ PokedexDataPointerTable:
 	dw SkarmoryPokedexEntry
 	dw HoundourPokedexEntry
 	dw HoundoomPokedexEntry
-	dw KingdraPokedexEntry
 	dw PhanpyPokedexEntry
 	dw DonphanPokedexEntry
-	dw Porygon2PokedexEntry
 	dw StantlerPokedexEntry
 	dw SmearglePokedexEntry
-	dw TyroguePokedexEntry
-	dw HitmontopPokedexEntry
 	dw HeracrossPokedexEntry
-	dw ElekidPokedexEntry
-	dw MagbyPokedexEntry
-	dw MiltankPokedexEntry
-	dw BlisseyPokedexEntry
+	dw UnownPokedexEntry
 	dw RaikouPokedexEntry
 	dw EnteiPokedexEntry
 	dw SuicunePokedexEntry
@@ -251,5 +253,3 @@ PokedexDataPointerTable:
 	dw LugiaPokedexEntry
 	dw HoOhPokedexEntry
 	dw CelebiPokedexEntry
-	dw LeafeonPokedexEntry
-	dw UnownPokedexEntry

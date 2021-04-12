@@ -157,6 +157,12 @@ CherrygroveGroupSprites:
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_MAGIKARP_0
+	db SPRITE_MAGIKARP_1
+	db SPRITE_MAGIKARP_2
+	db SPRITE_MAGIKARP_3
+	db SPRITE_CHERRY_0
+	db SPRITE_CHERRY_1
 	db 0 ; end
 
 ; Route37 and EcruteakCity are connected

@@ -24,7 +24,8 @@ MonMenuIcons:
     db ICON_SPEAROW      
 	db ICON_FEAROW   
 	db ICON_EKANS        
-	db ICON_ARBOK        
+	db ICON_ARBOK   
+	db ICON_PICHU
 	db ICON_PIKACHU      
 	db ICON_RAICHU       
 	db ICON_SANDSHREW    
@@ -42,7 +43,8 @@ MonMenuIcons:
 	db ICON_JIGGLYPUFF   
 	db ICON_WIGGLYTUFF   
 	db ICON_ZUBAT        
-	db ICON_GOLBAT       
+	db ICON_GOLBAT 
+	db ICON_CROBAT
 	db ICON_ODDISH       
 	db ICON_GLOOM        
 	db ICON_VILEPLUME    
@@ -62,7 +64,8 @@ MonMenuIcons:
 	db ICON_ARCANINE     
 	db ICON_POLIWAG      
 	db ICON_POLIWHIRL    
-	db ICON_POLIWRATH    
+	db ICON_POLIWRATH 
+	db ICON_POLITOED
 	db ICON_ABRA         
 	db ICON_KADABRA      
 	db ICON_ALAKAZAM     
@@ -80,10 +83,12 @@ MonMenuIcons:
 	db ICON_PONYTA       
 	db ICON_RAPIDASH     
 	db ICON_SLOWPOKE     
-	db ICON_SLOWBRO      
+	db ICON_SLOWBRO 
+	db ICON_SLOWKING
 	db ICON_MAGNEMITE    
 	db ICON_MAGNETON     
-	db ICON_FARFETCHD    
+	db ICON_FARFETCHD
+	db ICON_FARFETCHD
 	db ICON_DODUO        
 	db ICON_DODRIO       
 	db ICON_SEEL         
@@ -95,7 +100,8 @@ MonMenuIcons:
 	db ICON_GASTLY       
 	db ICON_HAUNTER      
 	db ICON_GENGAR       
-	db ICON_ONIX         
+	db ICON_ONIX  
+	db ICON_STEELIX
 	db ICON_DROWZEE      
 	db ICON_HYPNO        
 	db ICON_KRABBY       
@@ -105,30 +111,35 @@ MonMenuIcons:
 	db ICON_EXEGGCUTE    
 	db ICON_EXEGGUTOR
 	db ICON_CUBONE       
-	db ICON_MAROWAK      
+	db ICON_MAROWAK  
+	db ICON_TYROGUE
 	db ICON_HITMONLEE    
-	db ICON_HITMONCHAN  
+	db ICON_HITMONCHAN
+	db ICON_HITMONTOP
 	db ICON_LICKITUNG 
 	db ICON_KOFFING      
 	db ICON_WEEZING      
 	db ICON_RHYHORN      
 	db ICON_RHYDON       
 	db ICON_CHANSEY      
-	db ICON_TANGELA      
+	db ICON_BLISSEY      
 	db ICON_KANGASKHAN   
 	db ICON_HORSEA       
 	db ICON_SEADRA 
+	db ICON_KINGDRA
 	db ICON_GOLDEEN      
 	db ICON_SEAKING
 	db ICON_STARYU       
-	db ICON_STARMIE      
-	db ICON_MRMIME       
+	db ICON_STARMIE            
 	db ICON_SCYTHER      
-	db ICON_JYNX         
-	db ICON_ELECTABUZZ   
+	db ICON_SCIZOR
+	db ICON_ELEKID
+	db ICON_ELECTABUZZ 
+	db ICON_MAGBY
 	db ICON_MAGMAR       
 	db ICON_PINSIR       
-	db ICON_TAUROS       
+	db ICON_TAUROS   
+	db ICON_MILTANK
 	db ICON_MAGIKARP     
 	db ICON_GYARADOS     
 	db ICON_LAPRAS       
@@ -136,8 +147,13 @@ MonMenuIcons:
 	db ICON_EEVEE        
 	db ICON_VAPOREON     
 	db ICON_JOLTEON      
-	db ICON_FLAREON      
-	db ICON_PORYGON      
+	db ICON_FLAREON 
+	db ICON_ESPEON
+	db ICON_UMBREON
+	db ICON_LEAFEON
+	db ICON_GLACEON	
+	db ICON_PORYGON 
+	db ICON_PORYGON2
 	db ICON_OMANYTE      
 	db ICON_OMASTAR      
 	db ICON_KABUTO       
@@ -168,13 +184,9 @@ MonMenuIcons:
 	db ICON_LEDYBA       
 	db ICON_LEDIAN       
 	db ICON_SPINARAK     
-	db ICON_ARIADOS      
-	db ICON_CROBAT       
+	db ICON_ARIADOS           
 	db ICON_CHINCHOU     
 	db ICON_LANTURN      
-	db ICON_PICHU
-	db ICON_STEELIX 
-	db ICON_SLOWKING 
 	db ICON_TOGEPI       
 	db ICON_TOGETIC 
 	db ICON_NATU         
@@ -182,22 +194,19 @@ MonMenuIcons:
 	db ICON_MAREEP       
 	db ICON_FLAAFFY      
 	db ICON_AMPHAROS     
-	db ICON_BELLOSSOM 
 	db ICON_MARILL       
 	db ICON_AZUMARILL  
 	db ICON_SUDOWOODO    
-	db ICON_POLITOED
 	db ICON_HOPPIP        
 	db ICON_SKIPLOOM      
 	db ICON_JUMPLUFF
+	db ICON_AIPOM 
 	db ICON_AIPOM 
 	db ICON_SUNFLORA     
 	db ICON_YANMA        
 	db ICON_YANMEGA      
 	db ICON_WOOPER       
-	db ICON_QUAGSIRE     
-	db ICON_ESPEON       
-	db ICON_UMBREON      
+	db ICON_QUAGSIRE          
 	db ICON_MURKROW      
 	db ICON_HONCHKROW        
 	db ICON_MISDREAVUS   
@@ -206,13 +215,13 @@ MonMenuIcons:
 	db ICON_GIRAFARIG    
 	db ICON_PINECO       
 	db ICON_FORRETRESS   
-	db ICON_DUNSPARCE    
+	db ICON_DUNSPARCE 
+	db ICON_DUNSPARCE	
 	db ICON_GLIGAR       
 	db ICON_GLISCOR           
 	db ICON_SNUBBULL     
 	db ICON_GRANBULL     
-	db ICON_QWILFISH     
-	db ICON_SCIZOR       
+	db ICON_QWILFISH         
 	db ICON_SHUCKLE          
 	db ICON_SNEASEL      
 	db ICON_WEAVILE      
@@ -229,20 +238,13 @@ MonMenuIcons:
 	db ICON_MANTINE      
 	db ICON_SKARMORY     
 	db ICON_HOUNDOUR     
-	db ICON_HOUNDOOM     
-	db ICON_KINGDRA      
+	db ICON_HOUNDOOM           
 	db ICON_PHANPY       
-	db ICON_DONPHAN      
-	db ICON_PORYGON2  
+	db ICON_DONPHAN        
 	db ICON_STANTLER
-	db ICON_SMEARGLE     
-	db ICON_TYROGUE      
-	db ICON_HITMONTOP  
+	db ICON_SMEARGLE       
 	db ICON_HERACROSS
-	db ICON_ELEKID       
-	db ICON_MAGBY        
-	db ICON_MILTANK      
-	db ICON_BLISSEY      
+	db ICON_UNOWN 	
 	db ICON_RAIKOU       
 	db ICON_ENTEI        
 	db ICON_SUICUNE      
@@ -252,6 +254,4 @@ MonMenuIcons:
 	db ICON_LUGIA        
 	db ICON_HOOH         
 	db ICON_CELEBI       
-	db ICON_LEAFEON 
-	db ICON_UNOWN  
 	db ICON_EGG          

@@ -112,11 +112,12 @@ MartGoldenrod2F2:
 	db -1 ; end
 
 MartGoldenrod3F:
-	db 10 ; # items
+	db 11 ; # items
 	db FIRE_STONE
 	db THUNDERSTONE
 	db WATER_STONE
 	db LEAF_STONE
+	db ICE_STONE
 	db MOON_STONE
 	db SUN_STONE
 	db METAL_COAT

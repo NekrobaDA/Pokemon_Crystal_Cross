@@ -552,6 +552,7 @@ StepFunction_FromMovement:
 	dw MovementFunction_SpinCounterclockwise ; 19
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
+	dw MovementFunction_Overlay
 
 MovementFunction_Null:
 	ret
@@ -976,6 +977,22 @@ MovementFunction_ShakingGrass:
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_TRACKING_OBJECT
+	ret
+	
+MovementFunction_Overlay:
+	ld a, OBJECT_ACTION_OVERLAY
+	jr ._ActionA_StepFunction_Standing
+
+._ActionA_StepFunction_Standing
+	push af
+	call EndSpriteMovement
+	pop af
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], a
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_STANDING
 	ret
 
 InitMovementField1dField1e:

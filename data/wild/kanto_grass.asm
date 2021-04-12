@@ -695,31 +695,31 @@ KantoGrassWildMons:
 	map_id ROUTE_21
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 30, TANGELA
+	db 30, PIDGEOTTO
 	db 20, RATTATA
-	db 35, TANGELA
+	db 35, PIDGEOTTO
 	db 29, RATICATE
-	db 30, MR__MIME
-	db 28, MR__MIME
-	db 28, MR__MIME
-	db 30, TANGELA
+	db 30, RATICATE
+	db 28, RATICATE
+	db 28, RATICATE
+	db 30, PIDGEOTTO
 	; day
-	db 30, TANGELA
+	db 30, PIDGEOTTO
 	db 20, RATTATA
-	db 35, TANGELA
+	db 35, PIDGEOTTO
 	db 29, RATICATE
-	db 28, MR__MIME
-	db 30, MR__MIME
-	db 30, MR__MIME
-	db 30, TANGELA
+	db 28, RATICATE
+	db 30, RATICATE
+	db 30, RATICATE
+	db 30, PIDGEOTTO
 	; nite
-	db 30, TANGELA
+	db 30, GOLBAT
 	db 20, RATTATA
-	db 35, TANGELA
+	db 35, GOLBAT
 	db 29, RATICATE
-	db 30, TANGELA
-	db 28, TANGELA
-	db 28, TANGELA
+	db 30, GOLBAT
+	db 28, GOLBAT
+	db 28, GOLBAT
 	db 34, RATICATE
 
 	map_id ROUTE_22
@@ -875,25 +875,25 @@ KantoGrassWildMons:
 	map_id ROUTE_28
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 39, TANGELA
+	db 39, PIDGEOTTO
 	db 40, PHANPY
 	db 41, SKARMORY
 	db 42, ARBOK
 	db 42, DONPHAN
-	db 43, TANGELA
+	db 43, PIDGEOTTO
 	db 43, SKARMORY
 	db 38, EKANS
 	; day
-	db 39, TANGELA
+	db 39, PIDGEOTTO
 	db 40, PHANPY
 	db 41, SKARMORY
 	db 42, ARBOK
 	db 42, DONPHAN
-	db 43, TANGELA
+	db 43, PIDGEOTTO
 	db 43, SKARMORY
 	db 38, EKANS
 	; nite
-	db 39, TANGELA
+	db 39, PIDGEOTTO
 	db 40, POLIWHIRL
 	db 40, GOLBAT
 	db 40, POLIWHIRL

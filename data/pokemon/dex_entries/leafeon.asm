@@ -3,7 +3,7 @@
 
 	db   "Just like a plant,"
 	next "it uses photosynthesis."
-	next "AS a result, it is"
+	next "As a result, it is"
 
 	page "always surrounded"
 	next "in clean air.@"

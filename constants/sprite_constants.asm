@@ -64,7 +64,7 @@
 	const SPRITE_SCIENTIST ; 3c
 	const SPRITE_KIMONO_GIRL ; 3d
 	const SPRITE_SAGE ; 3e
-	const SPRITE_UNUSED_GUY ; 3f
+	const SPRITE_BIG_KARP ; 3f
 	const SPRITE_GENTLEMAN ; 40
 	const SPRITE_BLACK_BELT ; 41
 	const SPRITE_RECEPTIONIST ; 42
@@ -104,9 +104,15 @@
 	const SPRITE_ENTEI ; 64
 	const SPRITE_RAIKOU ; 65
 	const SPRITE_STANDING_YOUNGSTER ; 66
+	const SPRITE_MAGIKARP_0
+	const SPRITE_MAGIKARP_1
+	const SPRITE_MAGIKARP_2
+	const SPRITE_MAGIKARP_3
+	const SPRITE_CHERRY_0
+	const SPRITE_CHERRY_1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
-	const_next $67
+	const_next $73
 SPRITE_POKEMON EQU const_value
 	const SPRITE_ONIX ; 67
 	const SPRITE_MILTANK ; 68
@@ -147,7 +153,6 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_PIKACHU ; 8e
 	const SPRITE_CLEFAIRY ; 8f
 	const SPRITE_CHARMANDER ; 90
-	const SPRITE_JYNX ; 91
 	const SPRITE_STARMIE ; 92
 	const SPRITE_BULBASAUR ; 93
 	const SPRITE_JIGGLYPUFF ; 94
