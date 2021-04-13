@@ -457,12 +457,6 @@ INCBIN "data/tilesets/ho_oh_word_room_attributes.bin"
 TilesetKabutoWordRoomAttr::
 INCBIN "data/tilesets/kabuto_word_room_attributes.bin"
 
-TilesetOmanyteWordRoomAttr::
-INCBIN "data/tilesets/omanyte_word_room_attributes.bin"
-
-TilesetAerodactylWordRoomAttr::
-INCBIN "data/tilesets/aerodactyl_word_room_attributes.bin"
-
 TilesetKanjoAttr::
 INCBIN "data/tilesets/kanjo_attributes.bin"
 
@@ -479,4 +473,10 @@ INCBIN "data/tilesets/ice_path_2_metatiles.bin"
 
 TilesetIcePath2Attr::
 INCBIN "data/tilesets/ice_path_2_attributes.bin"
+
+TilesetOmanyteWordRoomAttr::
+INCBIN "data/tilesets/omanyte_word_room_attributes.bin"
+
+TilesetAerodactylWordRoomAttr::
+INCBIN "data/tilesets/aerodactyl_word_room_attributes.bin"
 
