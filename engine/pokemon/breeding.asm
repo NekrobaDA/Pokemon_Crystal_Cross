@@ -389,10 +389,42 @@ HatchEggs:
 	text_end
 
 InitEggMoves:
-	call GetHeritableMoves
+	;call GetHeritableMoves
+	ld hl, wBreedMon1Moves
 	ld d, h
 	ld e, l
-	ld b, NUM_MOVES
+	ld b, NUM_MOVES	
+.loop
+	ld a, [de]
+	and a
+	jr z, .done
+	ld hl, wEggMonMoves
+	ld c, NUM_MOVES
+.next
+	ld a, [de]
+	cp [hl]
+	jr z, .skip
+	inc hl
+	dec c
+	jr nz, .next
+	call GetEggMove
+	jr nc, .skip
+	call LoadEggMove
+
+.skip
+	inc de
+	dec b
+	jr nz, .loop
+
+.done
+	ret
+	
+InitEggMoves2:
+	;call GetHeritableMoves
+	ld hl, wBreedMon2Moves
+	ld d, h
+	ld e, l
+	ld b, NUM_MOVES	
 .loop
 	ld a, [de]
 	and a

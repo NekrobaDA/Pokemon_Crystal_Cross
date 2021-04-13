@@ -618,8 +618,9 @@ DayCare_InitBreeding:
 	ld de, wEggMonMoves
 	xor a ; FALSE
 	ld [wSkipMovesBeforeLevelUp], a
-	predef FillMoves
 	farcall InitEggMoves
+	farcall InitEggMoves2
+	predef FillMoves
 	ld hl, wEggMonID
 	ld a, [wPlayerID]
 	ld [hli], a
