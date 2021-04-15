@@ -233,7 +233,6 @@ MonMenuIconPals:
 	icon_pals RED, BLUE ; MAGCARGO
 	icon_pals BROWN, BLUE ; SWINUB
 	icon_pals BROWN, GREEN ; PILOSWINE
-	icon_pals BROWN, GREEN ; MAMOSWINE
 	icon_pals RED, BLUE ; CORSOLA
 	icon_pals BLUE, GRAY ; REMORAID
 	icon_pals RED, TEAL ; OCTILLERY
@@ -257,5 +256,5 @@ MonMenuIconPals:
 	icon_pals BLUE, RED ; LUGIA
 	icon_pals RED, YELLOW ; HO_OH
 	icon_pals GREEN, RED ; CELEBI
-	icon_pals RED, RED ; EGG
+	icon_pals YELLOW, GRAY ; EGG
 	

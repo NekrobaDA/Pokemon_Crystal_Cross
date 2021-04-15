@@ -38,7 +38,10 @@ Dragon no longer resists grass
 Altered some gym teams
 
 HM moves can be forgotten at any time
-A Move Relearner has also been added in Blackthorn 
+A Move Relearner has also been added in Blackthorn
+
+Egg move inheritance has been altered to match gen 6+; both parents pass down egg moves
+Daycare exp has been decreased, and pokemon no longer learn moves in the daycare
 
 Enabled the Shiny Ditto mimic glitch from gen 1 to work
 Edited shiny DV ranges to allow for shiny female starters and other 12.5% female species

@@ -477,9 +477,9 @@ GetEggMove:
 	call GetBreedmonMovePointer
 	ld b, NUM_MOVES
 .loop2
-	ld a, [de]
-	cp [hl]
-	jr z, .found_eggmove
+	;ld a, [de]
+	;cp [hl]
+	;jr z, .found_eggmove
 	inc hl
 	dec b
 	jr z, .inherit_tmhm

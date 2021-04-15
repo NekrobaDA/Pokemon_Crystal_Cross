@@ -874,11 +874,11 @@ RetrieveBreedmon:
 	dec a
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
-	ld d, h
-	ld e, l
-	ld a, TRUE
-	ld [wSkipMovesBeforeLevelUp], a
-	predef FillMoves
+	;ld d, h
+	;ld e, l
+	;ld a, TRUE
+	;ld [wSkipMovesBeforeLevelUp], a
+	;predef FillMoves
 	ld a, [wPartyCount]
 	dec a
 	ld [wCurPartyMon], a

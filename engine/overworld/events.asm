@@ -897,9 +897,6 @@ CountStep:
 	jr nz, .hatch
 
 .skip_egg
-	; Increase the EXP of (both) DayCare Pokemon by 1.
-	farcall DayCareStep
-
 	; Every 4 steps, deal damage to all poisoned Pokemon.
 	ld hl, wPoisonStepCount
 	ld a, [hl]
@@ -907,6 +904,7 @@ CountStep:
 	jr c, .skip_poison
 	ld [hl], 0
 
+	farcall DayCareStep
 	farcall DoPoisonStep
 	jr c, .doscript
 
