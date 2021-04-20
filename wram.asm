@@ -2418,8 +2418,10 @@ wRegisteredPhoneNumbers::
 wListMovesLineSpacing:: db
 wSwitchMonTo:: db
 wSwitchMonFrom:: db
-	ds 4
+	ds 2
 wCurEnemyItem:: db
+wOtherTrainerType:: db ; d1f7
+wTrainerGroupBank:: db ; d1f8
 
 NEXTU
 ; miscellaneous words
@@ -2523,7 +2525,6 @@ wTempPP::
 wNextBoxOrPartyIndex::
 wChosenCableClubRoom::
 wBreedingCompatibility::
-wMoveGrammar::
 wApplyStatLevelMultipliersToEnemy::
 wUsePPUp::
 wd265:: ; mobile

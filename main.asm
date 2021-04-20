@@ -732,6 +732,9 @@ SECTION "Link", ROMX
 INCLUDE "engine/link/link.asm"
 INCLUDE "engine/battle/link_result.asm"
 
+; own section
+INCLUDE "data/trainers/parties.asm"
+
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]
 
