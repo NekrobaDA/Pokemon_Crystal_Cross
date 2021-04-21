@@ -191,7 +191,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	setval CLEFAIRY
+	loadmonindex 1, CLEFAIRY
 	special GameCornerPrizeMonCheckDex
 	givepoke CLEFAIRY, 15
 	takecoins GOLDENRODGAMECORNER_CLEFAIRY_COINS
@@ -209,7 +209,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	setval BULBASAUR
+	loadmonindex 2, BULBASAUR
 	special GameCornerPrizeMonCheckDex
 	givepoke BULBASAUR, 15
 	takecoins GOLDENRODGAMECORNER_BULBASAUR_COINS
@@ -227,7 +227,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	setval CHARMANDER
+	loadmonindex 3, CHARMANDER
 	special GameCornerPrizeMonCheckDex
 	givepoke CHARMANDER, 15
 	takecoins GOLDENRODGAMECORNER_CHARMANDER_COINS
@@ -245,7 +245,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	setval SQUIRTLE
+	loadmonindex 4, SQUIRTLE
 	special GameCornerPrizeMonCheckDex
 	givepoke SQUIRTLE, 15
 	takecoins GOLDENRODGAMECORNER_SQUIRTLE_COINS
@@ -263,7 +263,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	setval LARVITAR
+	loadmonindex 5, LARVITAR
 	special GameCornerPrizeMonCheckDex
 	givepoke LARVITAR, 15
 	takecoins GOLDENRODGAMECORNER_LARVITAR_COINS

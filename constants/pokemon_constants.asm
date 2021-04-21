@@ -274,7 +274,8 @@ JOHTO_POKEMON EQU const_value
 	const HO_OH      ; fa
 	const CELEBI     ; fb
 NUM_POKEMON EQU const_value - 1
-	const EGG        ; fe
+
+EGG EQU -3
 
 ; Unown forms
 ; indexes for:

@@ -153,7 +153,7 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	playsound SFX_TRANSACTION
 	writetext CeladonPrizeRoom_HereYouGoText
 	waitbutton
-	setval CHIKORITA
+	loadmonindex 1, CHIKORITA
 	special GameCornerPrizeMonCheckDex
 	givepoke CHIKORITA, 15
 	takecoins CELADONGAMECORNERPRIZEROOM_CHIKORITA_COINS
@@ -171,7 +171,7 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	playsound SFX_TRANSACTION
 	writetext CeladonPrizeRoom_HereYouGoText
 	waitbutton
-	setval CYNDAQUIL
+	loadmonindex 2, CYNDAQUIL
 	special GameCornerPrizeMonCheckDex
 	givepoke CYNDAQUIL, 15
 	takecoins CELADONGAMECORNERPRIZEROOM_CYNDAQUIL_COINS
@@ -189,7 +189,7 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	playsound SFX_TRANSACTION
 	writetext CeladonPrizeRoom_HereYouGoText
 	waitbutton
-	setval TOTODILE
+	loadmonindex 3, TOTODILE
 	special GameCornerPrizeMonCheckDex
 	givepoke TOTODILE, 15
 	takecoins CELADONGAMECORNERPRIZEROOM_TOTODILE_COINS

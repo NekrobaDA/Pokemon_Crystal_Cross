@@ -52,9 +52,10 @@ ROMX $09
 	"bank9"
 ROMX $0a
 	"bankA" ;moving this broke stuff
-	"Extra Songs 1"
+	"Extra Songs 1" ;moving this broke stuff
 ROMX $0b
 	"bankB"
+	"Extra Songs 3"
 ROMX $0c
 	"Tileset Data 4"
 ROMX $0d
