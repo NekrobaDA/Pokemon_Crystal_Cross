@@ -1,4 +1,4 @@
 PikachuFramesPointers:
-	dw PikachuMaleFrames
-	dw PikachuFemaleFrames
+	dba PikachuMaleFrames
+	dba PikachuFemaleFrames
 
