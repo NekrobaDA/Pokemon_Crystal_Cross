@@ -126,11 +126,7 @@ INCLUDE "engine/events/kurt_selectquantity_interpretjoypad.asm"
 
 SECTION "bankA", ROMX
 
-ChrisBackpic:
-INCBIN "gfx/player/chris_back.2bpp.lz"
-
-DudeBackpic:
-INCBIN "gfx/battle/dude.2bpp.lz"
+INCLUDE "engine/overworld/wildmons.asm"
 
 
 SECTION "bankB", ROMX
@@ -149,7 +145,11 @@ INCLUDE "engine/gfx/place_graphic.asm"
 
 SECTION "bankC", ROMX
 
-INCLUDE "engine/overworld/wildmons.asm"
+ChrisBackpic:
+INCBIN "gfx/player/chris_back.2bpp.lz"
+
+DudeBackpic:
+INCBIN "gfx/battle/dude.2bpp.lz"
 
 
 SECTION "Effect Commands", ROMX
