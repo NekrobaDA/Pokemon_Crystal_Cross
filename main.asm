@@ -126,9 +126,6 @@ INCLUDE "engine/events/kurt_selectquantity_interpretjoypad.asm"
 
 SECTION "bankA", ROMX
 
-
-INCLUDE "engine/overworld/wildmons.asm"
-
 ChrisBackpic:
 INCBIN "gfx/player/chris_back.2bpp.lz"
 
@@ -149,6 +146,10 @@ INCLUDE "engine/pokemon/print_move_description.asm"
 INCLUDE "engine/events/pokerus/pokerus.asm"
 INCLUDE "engine/battle/start_battle.asm"
 INCLUDE "engine/gfx/place_graphic.asm"
+
+SECTION "bankC", ROMX
+
+INCLUDE "engine/overworld/wildmons.asm"
 
 
 SECTION "Effect Commands", ROMX
