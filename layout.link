@@ -51,7 +51,7 @@ ROMX $08
 ROMX $09
 	"bank9"
 ROMX $0a
-	"bankA"
+	"bankA" ;moving this broke stuff
 	"Extra Songs 1"
 ROMX $0b
 	"bankB"
@@ -186,8 +186,8 @@ ROMX $46
 ROMX $47
 	"Battle Tower"
 ROMX $48
-	"Pic Pointers"
-	"Pics 1"
+	"Pic Pointers" ;moving this broke stuff
+	"Pics 1" ;move some pics out of section 1 on gfx/pics
 ROMX $49
 	"Unown Pic Pointers"
 	"Pics 2"
@@ -285,6 +285,7 @@ ROMX $74
 	"Pokedex Entries 193-251"
 ROMX $76
 	"bankC"
+	"16-bit ID stuff"
 ROMX $77
 	"bank77"
 	"Tileset Data 7"
@@ -324,6 +325,8 @@ WRAMX 1
 	"Party"
 WRAMX 2
 	"Pic Animations"
+	align 8
+	"16-bit WRAM tables"
 WRAMX 3
 	"Battle Tower RAM"
 WRAMX 4

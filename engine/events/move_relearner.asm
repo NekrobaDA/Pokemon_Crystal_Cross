@@ -157,7 +157,7 @@ GetRelearnableMoves:
 	push bc
 	jr .loop_moves
 .done
-	callba GetPreEvolution
+	callba GetLowestEvolutionStage
 	pop bc
 	jr c, .loop
 	pop af

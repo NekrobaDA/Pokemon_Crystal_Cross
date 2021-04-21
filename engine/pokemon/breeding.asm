@@ -453,11 +453,9 @@ InitEggMoves2:
 GetEggMove:
 	push bc
 	ld a, [wEggMonSpecies]
-	dec a
-	ld c, a
-	ld b, 0
-	ld hl, EggMovePointers
-	add hl, bc
+	call GetPokemonIndexFromID
+	ld bc, EggMovePointers - 2
+	add hl, hl
 	add hl, bc
 	ld a, BANK(EggMovePointers)
 	call GetFarWord
@@ -487,11 +485,9 @@ GetEggMove:
 
 .found_eggmove
 	ld a, [wEggMonSpecies]
-	dec a
-	ld c, a
-	ld b, 0
-	ld hl, EvosAttacksPointers
-	add hl, bc
+	call GetPokemonIndexFromID
+	ld bc, EvosAttacksPointers - 2
+	add hl, hl
 	add hl, bc
 	ld a, BANK(EvosAttacksPointers)
 	call GetFarWord

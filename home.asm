@@ -63,3 +63,4 @@ INCLUDE "home/audio.asm"
 INCLUDE "home/mobile.asm"
 
 INCLUDE "home/indirection.asm"
+INCLUDE "home/16bit.asm"

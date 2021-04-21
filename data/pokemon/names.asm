@@ -1,3 +1,7 @@
+	db "EGG@@@@@@@"
+	db "?????@@@@@"
+	db "?????@@@@@"
+	db "?????@@@@@"
 PokemonNames::
 	db "BULBASAUR@"
 	db "IVYSAUR@@@"
@@ -252,5 +256,3 @@ PokemonNames::
 	db "LUGIA@@@@@"
 	db "HO-OH@@@@@"
 	db "CELEBI@@@@"
-	db "EGG@@@@@@@"
-	db "?????@@@@@"

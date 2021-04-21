@@ -330,6 +330,7 @@ INCLUDE "engine/rtc/timeset.asm"
 INCLUDE "engine/pokegear/pokegear.asm"
 INCLUDE "engine/events/fish.asm"
 INCLUDE "engine/games/slot_machine.asm"
+INCLUDE "data/pokemon/first_stages.asm"
 
 
 SECTION "Phone Scripts 1", ROMX
@@ -732,6 +733,11 @@ SECTION "Link", ROMX
 
 INCLUDE "engine/link/link.asm"
 INCLUDE "engine/battle/link_result.asm"
+
+
+SECTION "16-bit ID stuff", ROMX
+
+INCLUDE "engine/16/table_functions.asm"
 
 ; own section
 INCLUDE "data/trainers/parties.asm"

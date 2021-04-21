@@ -135,32 +135,39 @@ _GetFrontpic:
 	pop hl
 	ret
 
-GetFrontpicPointer:
+GetPicIndirectPointer:
 	ld a, [wCurPartySpecies]
 	cp PIKACHU
 	jr z, .pikachu
 	cp UNOWN
 	jr z, .unown
-	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
 	ld hl, PokemonPicPointers
 	ld d, BANK(PokemonPicPointers)
-	jr .ok
+	.done
+	ld a, 6
+	jp AddNTimes
 
 .pikachu
 	ld a, [wUnownLetterOrGenderVariant]
-	ld hl, PikachuPicPointers
+	ld c, a
+	ld b, 0
+	ld hl, PikachuPicPointers - 6
 	ld d, BANK(PikachuPicPointers)
-	jr .ok
+	jr .done
 	
 .unown
 	ld a, [wUnownLetterOrGenderVariant]
-	ld hl, UnownPicPointers
+	ld c, a
+	ld b, 0
+	ld hl, UnownPicPointers - 6
 	ld d, BANK(UnownPicPointers)
+	jr .done
 
-.ok
-	dec a
-	ld bc, 6
-	call AddNTimes
+GetFrontpicPointer:
+	call GetPicIndirectPointer
 	ld a, d
 	call GetFarByte
 	push af
@@ -262,41 +269,15 @@ GetMonBackpic:
 	ld a, [wCurPartySpecies]
 	call IsAPokemon
 	ret c
-
-	ld a, [wCurPartySpecies]
-	ld b, a
-	ld a, [wUnownLetterOrGenderVariant]
-	ld c, a
 	ldh a, [rSVBK]
 	push af
+	push de
+	call GetPicIndirectPointer
 	ld a, BANK(wDecompressScratch)
 	ldh [rSVBK], a
-	push de
-
-	; These are assumed to be at the same address in their respective banks.
-	ld a, b
-	ld hl, PokemonPicPointers
-	ld a, b
-	ld d, BANK(PokemonPicPointers)
-	cp PIKACHU
-	jr nz, .unown
-	ld hl, PikachuPicPointers
-	ld a, c
-	ld d, BANK(PikachuPicPointers)
-	jr .ok
-	
-.unown
-	cp UNOWN
-	jr nz, .ok
-	ld a, c
-	ld hl, UnownPicPointers
-	ld d, BANK(UnownPicPointers)
-.ok
-	dec a
-	ld bc, 6
-	call AddNTimes
-	ld bc, 3
-	add hl, bc
+	inc hl
+	inc hl
+	inc hl
 	ld a, d
 	call GetFarByte
 	push af
