@@ -269,12 +269,14 @@ GetMonBackpic:
 	ld a, [wCurPartySpecies]
 	call IsAPokemon
 	ret c
+
 	ldh a, [rSVBK]
 	push af
 	push de
 	call GetPicIndirectPointer
 	ld a, BANK(wDecompressScratch)
 	ldh [rSVBK], a
+
 	inc hl
 	inc hl
 	inc hl

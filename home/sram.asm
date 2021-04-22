@@ -31,11 +31,14 @@ endc
 	ld [MBC3SRamEnable], a
 ; select sram bank
 	pop af
+	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
 	ret
 
 CloseSRAM::
 	push af
+	ld a, -1
+	ldh [hSRAMBank], a
 	ld a, SRAM_DISABLE
 ; reset clock latch for next time
 	ld [MBC3LatchClock], a

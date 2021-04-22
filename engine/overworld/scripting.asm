@@ -408,11 +408,7 @@ Script_closewindow:
 	ret
 
 Script_pokepic:
-	call GetScriptByte
-	and a
-	jr nz, .ok
-	ld a, [wScriptVar]
-.ok
+	call LoadScriptPokemonID
 	ld [wCurPartySpecies], a
 	farcall Pokepic
 	ret
@@ -781,14 +777,7 @@ Script_warpsound:
 	ret
 
 Script_cry:
-	call GetScriptByte
-	push af
-	call GetScriptByte
-	pop af
-	and a
-	jr nz, .ok
-	ld a, [wScriptVar]
-.ok
+	call LoadScriptPokemonID
 	call PlayMonCry
 	ret
 
@@ -1117,7 +1106,8 @@ EarthquakeMovement:
 .End
 
 Script_loadpikachudata:
-	ld a, PIKACHU
+	ld hl, PIKACHU
+	call GetPokemonIDFromIndex
 	ld [wTempWildMonSpecies], a
 	ld a, 5
 	ld [wCurPartyLevel], a
@@ -1140,7 +1130,7 @@ Script_loadtemptrainer:
 Script_loadwildmon:
 	ld a, (1 << 7)
 	ld [wBattleScriptFlags], a
-	call GetScriptByte
+	call LoadScriptPokemonID
 	ld [wTempWildMonSpecies], a
 	call GetScriptByte
 	ld [wCurPartyLevel], a
@@ -1574,11 +1564,7 @@ Script_checkver:
 	db GS_VERSION
 
 Script_getmonname:
-	call GetScriptByte
-	and a
-	jr nz, .gotit
-	ld a, [wScriptVar]
-.gotit
+	call LoadScriptPokemonID
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
 	ld de, wStringBuffer1
@@ -1860,7 +1846,7 @@ Script_checktime:
 Script_checkpoke:
 	xor a
 	ld [wScriptVar], a
-	call GetScriptByte
+	call LoadScriptPokemonID
 	ld hl, wPartySpecies
 	ld de, 1
 	call IsInArray
@@ -1923,7 +1909,7 @@ Script_checkphonecall:
 	ret
 
 Script_givepoke:
-	call GetScriptByte
+	call LoadScriptPokemonID
 	ld [wCurPartySpecies], a
 	call GetScriptByte
 	ld [wCurPartyLevel], a
@@ -1953,7 +1939,7 @@ Script_giveegg:
 	xor a ; PARTYMON
 	ld [wScriptVar], a
 	ld [wMonType], a
-	call GetScriptByte
+	call LoadScriptPokemonID
 	ld [wCurPartySpecies], a
 	call GetScriptByte
 	ld [wCurPartyLevel], a

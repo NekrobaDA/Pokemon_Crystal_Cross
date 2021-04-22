@@ -17,10 +17,20 @@ prob_total = 0
 ; Tyrogue
 	prob 15
 	prob 7
+	
+OddEggSpecies:
+	dw PICHU
+	dw PICHU
+	dw MAGBY
+	dw MAGBY
+	dw ELEKID
+	dw ELEKID
+	dw TYROGUE
+	dw TYROGUE
 
 OddEggs:
 
-	db PICHU
+	db 0 ; Species, will be filled on load
 	db NO_ITEM
 	db THUNDERSHOCK, CHARM, DIZZY_PUNCH, 0
 	dw 02048 ; OT ID
@@ -46,7 +56,7 @@ OddEggs:
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
 
-	db PICHU
+	db 0 ; Species, will be filled on load
 	db NO_ITEM
 	db THUNDERSHOCK, CHARM, DIZZY_PUNCH, 0
 	dw 00256 ; OT ID
@@ -72,7 +82,7 @@ OddEggs:
 	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
 
-	db MAGBY
+	db 0 ; Species, will be filled on load
 	db NO_ITEM
 	db EMBER, DIZZY_PUNCH, 0, 0
 	dw 02560 ; OT ID
@@ -98,7 +108,7 @@ OddEggs:
 	bigdw 10 ; SDef
 	db "EGG@@@@@@@@"
 
-	db MAGBY
+	db 0 ; Species, will be filled on load
 	db NO_ITEM
 	db EMBER, DIZZY_PUNCH, 0, 0
 	dw 00512 ; OT ID
@@ -124,7 +134,7 @@ OddEggs:
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
 
-	db ELEKID
+	db 0 ; Species, will be filled on load
 	db NO_ITEM
 	db QUICK_ATTACK, LEER, DIZZY_PUNCH, 0
 	dw 03072 ; OT ID
@@ -150,7 +160,7 @@ OddEggs:
 	bigdw 10 ; SDef
 	db "EGG@@@@@@@@"
 
-	db ELEKID
+	db 0 ; Species, will be filled on load
 	db NO_ITEM
 	db QUICK_ATTACK, LEER, DIZZY_PUNCH, 0
 	dw 00512 ; OT ID
@@ -176,7 +186,7 @@ OddEggs:
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
 
-	db TYROGUE
+	db 0 ; Species, will be filled on load
 	db NO_ITEM
 	db TACKLE, DIZZY_PUNCH, 0, 0
 	dw 02560 ; OT ID
@@ -202,7 +212,7 @@ OddEggs:
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
 
-	db TYROGUE
+	db 0 ; Species, will be filled on load
 	db NO_ITEM
 	db TACKLE, DIZZY_PUNCH, 0, 0
 	dw 00256 ; OT ID
