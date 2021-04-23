@@ -31,6 +31,7 @@ MoveRelearner:
 	jr c, .cancel
 
 	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
 	cp EGG
 	jr z, .egg
 
@@ -117,11 +118,12 @@ GetRelearnableMoves:
 .loop
 	push bc
 	ld a, [wCurPartySpecies]
-	dec a
-	ld c, a
-	ld b, 0
+	call GetPokemonIndexFromID
+	dec hl
+	ld b, h
+	ld c, l
 	ld hl, EvosAttacksPointers
-	add hl, bc
+	add hl, hl
 	add hl, bc
 	ld a, BANK(EvosAttacksPointers)
 	call GetFarWord

@@ -139,11 +139,40 @@ GetPicIndirectPointer:
 	ld a, [wCurPartySpecies]
 	cp PIKACHU
 	jr z, .pikachu
-	cp UNOWN
-	jr z, .unown
+
 	call GetPokemonIndexFromID
 	ld b, h
 	ld c, l
+	ld a, l
+	sub LOW(UNOWN)
+	if HIGH(UNOWN) == 0
+		or h
+	else
+		jr nz, .try_pikachu
+		if HIGH(UNOWN) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(UNOWN)
+		endc
+	endc
+	jr z, .unown
+.try_pikachu
+	ld a, l
+	sub LOW(PIKACHU)
+	if HIGH(PIKACHU) == 0
+		or h
+	else
+		jr nz, .not_pikachu
+		if HIGH(PIKACHU) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(PIKACHU)
+		endc
+	endc
+	jr z, .pikachu
+.not_pikachu
 	ld hl, PokemonPicPointers
 	ld d, BANK(PokemonPicPointers)
 	.done

@@ -299,7 +299,20 @@ EvolveAfterBattle_MasterLoop:
 	call SetSeenAndCaughtMon
 
 	ld a, [wTempSpecies]
-	cp UNOWN
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(UNOWN)
+	if HIGH(UNOWN) == 0
+		or h
+	else
+		jr nz, .skip_unown
+		if HIGH(UNOWN) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(UNOWN)
+		endc
+	endc
 	jr nz, .skip_unown
 
 	ld hl, wTempMonDVs

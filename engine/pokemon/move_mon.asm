@@ -349,7 +349,20 @@ endr
 	and $f
 	jr nz, .done
 	ld a, [wCurPartySpecies]
-	cp UNOWN
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(UNOWN)
+	if HIGH(UNOWN) == 0
+		or h
+	else
+		jr nz, .done
+		if HIGH(UNOWN) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(UNOWN)
+		endc
+	endc
 	jr nz, .done
 	ld hl, wPartyMon1DVs
 	ld a, [wPartyCount]
@@ -458,7 +471,20 @@ AddTempmonToParty:
 .egg
 
 	ld a, [wCurPartySpecies]
-	cp UNOWN
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(UNOWN)
+	if HIGH(UNOWN) == 0
+		or h
+	else
+		jr nz, .done
+		if HIGH(UNOWN) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(UNOWN)
+		endc
+	endc
 	jr nz, .done
 	ld hl, wPartyMon1DVs
 	ld a, [wPartyCount]
@@ -1041,7 +1067,18 @@ SendMonIntoBox:
 	dec a
 	call SetSeenAndCaughtMon
 	ld a, [wCurPartySpecies]
-	cp UNOWN
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(UNOWN)
+	jr nz, .not_unown
+	if HIGH(UNOWN) == 0
+		or h
+	elif HIGH(UNOWN) == 1
+		dec h
+	else
+		ld a, h
+		cp HIGH(UNOWN)
+	endc
 	jr nz, .not_unown
 	ld hl, sBoxMon1DVs
 	predef GetVariant
