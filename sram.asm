@@ -85,13 +85,19 @@ sBackupOptions:: ds wOptionsEnd - wOptions
 
 sBackupCheckValue1:: db ; loaded with SAVE_CHECK_VALUE_1, used to check save corruption
 
+sBackupSaveData::
+
 sBackupGameData::
 sBackupPlayerData::  ds wPlayerDataEnd - wPlayerData
 sBackupCurMapData::  ds wCurMapDataEnd - wCurMapData
 sBackupPokemonData:: ds wPokemonDataEnd - wPokemonData
 sBackupGameDataEnd::
 
-	ds $18a
+sBackupPokemonIndexTable:: ds wPokemonIndexTableEnd - wPokemonIndexTable
+
+sBackupSaveDataEnd::
+
+	ds $8a
 
 sBackupChecksum:: dw
 
@@ -114,13 +120,20 @@ sOptions:: ds wOptionsEnd - wOptions
 
 sCheckValue1:: db ; loaded with SAVE_CHECK_VALUE_1, used to check save corruption
 
-sGameData::
+sSaveData::
+
+sGameData:: ; a009
 sPlayerData::  ds wPlayerDataEnd - wPlayerData
 sCurMapData::  ds wCurMapDataEnd - wCurMapData
 sPokemonData:: ds wPokemonDataEnd - wPokemonData
 sGameDataEnd::
 
-	ds $18a
+sPokemonIndexTable:: ds wPokemonIndexTableEnd - wPokemonIndexTable
+
+sSaveDataEnd::
+
+; ab83
+	ds $8a
 
 sChecksum:: dw
 

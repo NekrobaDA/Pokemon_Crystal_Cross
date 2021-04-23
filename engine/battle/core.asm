@@ -3435,7 +3435,7 @@ LoadEnemyMonToSwitchTo:
 	call LoadEnemyMon
 
 	ld a, [wCurPartySpecies]
-		call GetPokemonIndexFromID
+	call GetPokemonIndexFromID
 	ld a, l
 	sub LOW(UNOWN)
 	if HIGH(UNOWN) == 0
@@ -6147,7 +6147,7 @@ LoadEnemyMon:
 
 ; Unown
 	ld a, [wTempEnemyMonSpecies]
-		call GetPokemonIndexFromID ; will be preserved for the Magikarp check
+	call GetPokemonIndexFromID ; will be preserved for the Magikarp check
 	ld a, l
 	sub LOW(UNOWN)
 	if HIGH(UNOWN) == 0
@@ -6181,7 +6181,7 @@ LoadEnemyMon:
 ; by targeting those 1600 mm (= 5'3") or larger.
 ; After the conversion to feet, it is unable to target any,
 ; since the largest possible Magikarp is 5'3", and $0503 = 1283 mm.
-		ld a, l
+	ld a, l
 	sub LOW(MAGIKARP)
 	if HIGH(MAGIKARP) == 0
 		or h
@@ -8235,7 +8235,7 @@ InitEnemyWildmon:
 	ld [wMonType], a
 	predef GetVariant
 	ld a, [wCurPartySpecies]
-		call GetPokemonIndexFromID
+	call GetPokemonIndexFromID
 	ld a, l
 	sub UNOWN
 	if HIGH(UNOWN) == 0
