@@ -203,7 +203,7 @@ MonMenuIconPals:
 	icon_pals GREEN, PURPLE ; SKIPLOOM
 	icon_pals BLUE, RED ; JUMPLUFF
 	icon_pals PURPLE, RED ; AIPOM
-	icon_pals PURPLE, RED ; AMBIPOM
+	icon_pals PURPLE, RED ; AMBIPOM 
 	icon_pals GREEN, BROWN ; SUNFLORA
 	icon_pals RED, BLUE ; YANMA
 	icon_pals GREEN, BLUE ; YANMEGA
@@ -217,7 +217,7 @@ MonMenuIconPals:
 	icon_pals BROWN, BLUE ; GIRAFARIG
 	icon_pals GRAY, RED ; PINECO
 	icon_pals PURPLE, BROWN ; FORRETRESS
-	icon_pals BLUE, RED ; DUNSPARCE
+	icon_pals BLUE, RED ; DUNSPARCE 
 	icon_pals BLUE, RED ; DUSERPENT
 	icon_pals PURPLE, TEAL ; GLIGAR
 	icon_pals PURPLE, TEAL ; GLISCOR
@@ -226,7 +226,7 @@ MonMenuIconPals:
 	icon_pals BLUE, PURPLE ; QWILFISH
 	icon_pals RED, BLUE ; SHUCKLE
 	icon_pals RED, YELLOW ; SNEASEL
-	icon_pals RED, YELLOW ; WEAVILE
+	icon_pals RED, YELLOW ; WEAVILE 
 	icon_pals BROWN, GREEN ; TEDDIURSA
 	icon_pals BROWN, GREEN ; URSARING
 	icon_pals RED, GRAY ; SLUGMA

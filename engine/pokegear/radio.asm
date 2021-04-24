@@ -630,7 +630,7 @@ PokedexShow1:
 	ld a, e
 	cp LOW(NUM_POKEMON)
 	jr nc, .loop
-	.ok
+.ok
 	inc de
 	push de
 	call CheckCaughtMonIndex

@@ -239,7 +239,6 @@ HatchEggs:
 	call AddNTimes
 	ld a, [hl]
 	ld [wCurPartySpecies], a
-	dec a
 	call SetSeenAndCaughtMon
 
 	ld a, [wCurPartySpecies]
