@@ -131,7 +131,7 @@ FindNest:
 	jr nz, .next_mon
 	cp b
 	jr z, .found
-	.next_mon
+.next_mon
 	inc hl
 	inc hl
 	pop af
