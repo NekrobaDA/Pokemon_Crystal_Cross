@@ -6,21 +6,36 @@ ENDM
 OddEggProbabilities:
 prob_total = 0
 ; Pichu
-	prob 15
-	prob 7
+	prob 8
+	prob 1
+; Cleffa
+	prob 16
+	prob 3
+; Igglybuff
+	prob 16
+	prob 3
+; Smoochum
+	prob 14
+	prob 2
 ; Magby
-	prob 20
-	prob 8
+	prob 10
+	prob 2
 ; Elekid
-	prob 20
-	prob 8
+	prob 12
+	prob 2
 ; Tyrogue
-	prob 15
-	prob 7
-	
+	prob 10
+	prob 1
+
 OddEggSpecies:
 	dw PICHU
 	dw PICHU
+	dw CLEFFA
+	dw CLEFFA
+	dw IGGLYBUFF
+	dw IGGLYBUFF
+	dw SMOOCHUM
+	dw SMOOCHUM
 	dw MAGBY
 	dw MAGBY
 	dw ELEKID
@@ -41,9 +56,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 9, 9, 9 ; DVs
+	dn 0, 0, 0, 0 ; DVs
 	db 30, 20, 10, 0 ; PP
-	db 5 ; Step cycles to hatch
+	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -69,7 +84,7 @@ OddEggs:
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
 	db 30, 20, 10, 0 ; PP
-	db 5 ; Step cycles to hatch
+	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -84,6 +99,162 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
+	db POUND, CHARM, DIZZY_PUNCH, 0
+	dw 04096 ; OT ID
+	dt 125 ; Exp
+	; Stat exp
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	dn 0, 0, 0, 0 ; DVs
+	db 35, 20, 10, 0 ; PP
+	db 20 ; Step cycles to hatch
+	db 0, 0, 0 ; Pokerus, Caught data
+	db 5 ; Level
+	db 0, 0 ; Status
+	bigdw 0 ; HP
+	bigdw 20 ; Max HP
+	bigdw 7 ; Atk
+	bigdw 7 ; Def
+	bigdw 6 ; Spd
+	bigdw 9 ; SAtk
+	bigdw 10 ; SDef
+	db "EGG@@@@@@@@"
+
+	db 0 ; Species, will be filled on load
+	db NO_ITEM
+	db POUND, CHARM, DIZZY_PUNCH, 0
+	dw 00768 ; OT ID
+	dt 125 ; Exp
+	; Stat exp
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	dn 2, 10, 10, 10 ; DVs
+	db 35, 20, 10, 0 ; PP
+	db 20 ; Step cycles to hatch
+	db 0, 0, 0 ; Pokerus, Caught data
+	db 5 ; Level
+	db 0, 0 ; Status
+	bigdw 0 ; HP
+	bigdw 20 ; Max HP
+	bigdw 7 ; Atk
+	bigdw 8 ; Def
+	bigdw 7 ; Spd
+	bigdw 10 ; SAtk
+	bigdw 11 ; SDef
+	db "EGG@@@@@@@@"
+
+	db 0 ; Species, will be filled on load
+	db NO_ITEM
+	db SING, CHARM, DIZZY_PUNCH, 0
+	dw 04096 ; OT ID
+	dt 125 ; Exp
+	; Stat exp
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	dn 0, 0, 0, 0 ; DVs
+	db 15, 20, 10, 0 ; PP
+	db 20 ; Step cycles to hatch
+	db 0, 0, 0 ; Pokerus, Caught data
+	db 5 ; Level
+	db 0, 0 ; Status
+	bigdw 0 ; HP
+	bigdw 24 ; Max HP
+	bigdw 8 ; Atk
+	bigdw 6 ; Def
+	bigdw 6 ; Spd
+	bigdw 9 ; SAtk
+	bigdw 7 ; SDef
+	db "EGG@@@@@@@@"
+
+	db 0 ; Species, will be filled on load
+	db NO_ITEM
+	db SING, CHARM, DIZZY_PUNCH, 0
+	dw 00768 ; OT ID
+	dt 125 ; Exp
+	; Stat exp
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	dn 2, 10, 10, 10 ; DVs
+	db 15, 20, 10, 0 ; PP
+	db 20 ; Step cycles to hatch
+	db 0, 0, 0 ; Pokerus, Caught data
+	db 5 ; Level
+	db 0, 0 ; Status
+	bigdw 0 ; HP
+	bigdw 24 ; Max HP
+	bigdw 8 ; Atk
+	bigdw 7 ; Def
+	bigdw 7 ; Spd
+	bigdw 10 ; SAtk
+	bigdw 8 ; SDef
+	db "EGG@@@@@@@@"
+
+	db 0 ; Species, will be filled on load
+	db NO_ITEM
+	db POUND, LICK, DIZZY_PUNCH, 0
+	dw 03584 ; OT ID
+	dt 125 ; Exp
+	; Stat exp
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	dn 0, 0, 0, 0 ; DVs
+	db 35, 30, 10, 0 ; PP
+	db 20 ; Step cycles to hatch
+	db 0, 0, 0 ; Pokerus, Caught data
+	db 5 ; Level
+	db 0, 0 ; Status
+	bigdw 0 ; HP
+	bigdw 19 ; Max HP
+	bigdw 8 ; Atk
+	bigdw 6 ; Def
+	bigdw 11 ; Spd
+	bigdw 13 ; SAtk
+	bigdw 11 ; SDef
+	db "EGG@@@@@@@@"
+
+	db 0 ; Species, will be filled on load
+	db NO_ITEM
+	db POUND, LICK, DIZZY_PUNCH, 0
+	dw 00512 ; OT ID
+	dt 125 ; Exp
+	; Stat exp
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	dn 2, 10, 10, 10 ; DVs
+	db 35, 30, 10, 0 ; PP
+	db 20 ; Step cycles to hatch
+	db 0, 0, 0 ; Pokerus, Caught data
+	db 5 ; Level
+	db 0, 0 ; Status
+	bigdw 0 ; HP
+	bigdw 19 ; Max HP
+	bigdw 8 ; Atk
+	bigdw 7 ; Def
+	bigdw 12 ; Spd
+	bigdw 14 ; SAtk
+	bigdw 12 ; SDef
+	db "EGG@@@@@@@@"
+
+	db 0 ; Species, will be filled on load
+	db NO_ITEM
 	db EMBER, DIZZY_PUNCH, 0, 0
 	dw 02560 ; OT ID
 	dt 125 ; Exp
@@ -93,9 +264,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 9, 9, 9 ; DVs
+	dn 0, 0, 0, 0 ; DVs
 	db 25, 10, 0, 0 ; PP
-	db 5 ; Step cycles to hatch
+	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -121,7 +292,7 @@ OddEggs:
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
 	db 25, 10, 0, 0 ; PP
-	db 5 ; Step cycles to hatch
+	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -145,9 +316,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 9, 9, 9 ; DVs
+	dn 0, 0, 0, 0 ; DVs
 	db 30, 30, 10, 0 ; PP
-	db 5 ; Step cycles to hatch
+	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -173,7 +344,7 @@ OddEggs:
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
 	db 30, 30, 10, 0 ; PP
-	db 5 ; Step cycles to hatch
+	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -197,9 +368,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 9, 9, 9 ; DVs
+	dn 0, 0, 0, 0 ; DVs
 	db 35, 10, 0, 0 ; PP
-	db 5 ; Step cycles to hatch
+	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -225,7 +396,7 @@ OddEggs:
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
 	db 35, 10, 0, 0 ; PP
-	db 5 ; Step cycles to hatch
+	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status

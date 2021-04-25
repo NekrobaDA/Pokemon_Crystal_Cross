@@ -1,6 +1,6 @@
 _NameRater:
 ; Introduce himself
-	ld hl, NameRaterHelloText
+	ld hl, NameRaterIntroText
 	call PrintText
 	call YesNoBox
 	jp c, .cancel
@@ -14,22 +14,22 @@ _NameRater:
 	cp EGG
 	jr z, .egg
 ; ... or a Pokemon you got from a trade.
-	; call GetCurNick
-	; call CheckIfMonIsYourOT
-	; jr c, .traded
+	call GetCurNick
+	call CheckIfMonIsYourOT
+	jr c, .traded
 ; This name is good, but we can do better.  How about it?
-	ld hl, NameRaterBetterNameText
+	ld hl, NameRaterIsGoodText
 	call PrintText
 	call YesNoBox
 	jr c, .cancel
 ; What name shall I give it then?
-	ld hl, NameRaterWhatNameText
+	ld hl, NameRaterWhichNameText
 	call PrintText
 ; Load the new nickname into wStringBuffer2
 	xor a ; PARTYMON
 	ld [wMonType], a
 	ld a, [wCurPartySpecies]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexBuffer], a
 	ld [wCurSpecies], a
 	call GetBaseData
 	ld b, NAME_MON
@@ -37,11 +37,11 @@ _NameRater:
 	farcall _NamingScreen
 ; If the new name is empty, treat it as unchanged.
 	call IsNewNameEmpty
-	ld hl, NameRaterSameNameText
+	ld hl, NameRaterSameAsBeforeText
 	jr c, .samename
 ; If the new name is the same as the old name, treat it as unchanged.
 	call CompareNewToOld
-	ld hl, NameRaterSameNameText
+	ld hl, NameRaterSameAsBeforeText
 	jr c, .samename
 ; Copy the new name from wStringBuffer2
 	ld hl, wPartyMonNicknames
@@ -53,22 +53,22 @@ _NameRater:
 	ld hl, wStringBuffer2
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
-	ld hl, NameRaterFinishedText
+	ld hl, NameRaterEvenBetterText
 
 .samename
 	push hl
 	call GetCurNick
-	ld hl, NameRaterNamedText
+	ld hl, NameRaterDoneText
 	call PrintText
 	pop hl
 	jr .done
 
 .traded
-	ld hl, NameRaterPerfectNameText
+	ld hl, NameRaterTradedText
 	jr .done
 
 .cancel
-	ld hl, NameRaterComeAgainText
+	ld hl, NameRaterCancelText
 	jr .done
 
 .egg
@@ -178,42 +178,58 @@ GetNicknameLength:
 	jr nz, .loop
 	ret
 
-NameRaterHelloText:
-	text_far _NameRaterHelloText
+NameRaterIntroText:
+	; Hello, hello! I'm the NAME RATER.
+	; I rate the names of #MON.
+	; Would you like me to rate names?
+	text_far UnknownText_0x1c0043
 	text_end
 
 NameRaterWhichMonText:
-	text_far _NameRaterWhichMonText
+	; Which #MON's nickname should I rate for you?
+	text_far UnknownText_0x1c00a0
 	text_end
 
-NameRaterBetterNameText:
-	text_far _NameRaterBetterNameText
+NameRaterIsGoodText:
+	; Hm… @ … That's a fairly decent name.
+	; But, how about a slightly better nickname?
+	; Want me to give it a better name?
+	text_far UnknownText_0x1c00cd
 	text_end
 
-NameRaterWhatNameText:
-	text_far _NameRaterWhatNameText
+NameRaterWhichNameText:
+	; All right. What name should we give it, then?
+	text_far UnknownText_0x1c0142
 	text_end
 
-NameRaterFinishedText:
-	text_far _NameRaterFinishedText
+NameRaterEvenBetterText:
+	; That's a better name than before! Well done!
+	text_far UnknownText_0x1c0171
 	text_end
 
-NameRaterComeAgainText:
-	text_far _NameRaterComeAgainText
+NameRaterCancelText:
+	; OK, then. Come again sometime.
+	text_far UnknownText_0x1c019e
 	text_end
 
-NameRaterPerfectNameText:
-	text_far _NameRaterPerfectNameText
+NameRaterTradedText:
+	; Hm… @ ? What a great name! It's perfect.
+	; Treat @ with loving care.
+	text_far UnknownText_0x1c01be
 	text_end
 
 NameRaterEggText:
-	text_far _NameRaterEggText
+	; Whoa… That's just an EGG.
+	text_far UnknownText_0x1c0208
 	text_end
 
-NameRaterSameNameText:
-	text_far _NameRaterSameNameText
+NameRaterSameAsBeforeText:
+	; It might look the different as before,
+	; but this new name is much better! Well done!
+	text_far UnknownText_0x1c0222
 	text_end
 
-NameRaterNamedText:
-	text_far _NameRaterNamedText
+NameRaterDoneText:
+	; All right. This #MON is now named @ .
+	text_far UnknownText_0x1c0272
 	text_end

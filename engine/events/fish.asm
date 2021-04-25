@@ -1,7 +1,7 @@
 Fish:
 ; Using a fishing rod.
 ; Fish for monsters with rod e in encounter group d.
-; Return monster d at level e.
+; Return monster e at level d.
 
 	push af
 	push bc
@@ -23,7 +23,7 @@ endr
 
 .Fish:
 ; Fish for monsters with rod b from encounter data in FishGroup at hl.
-; Return monster d at level e.
+; Return monster e at level d.
 
 	call Random
 	cp [hl]
@@ -65,7 +65,6 @@ endr
 	call GetPokemonIDFromIndex
 	ld d, a
 	and a
-	
 	ret nz
 
 	; Species 0 reads from a time-based encounter table.
@@ -80,7 +79,6 @@ endr
 	cp NITE_F
 	jr c, .load
 	inc hl
-
 	inc hl
 	jr .ok
 

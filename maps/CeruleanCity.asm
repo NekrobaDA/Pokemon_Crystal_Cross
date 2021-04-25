@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const CERULEANCITY_COOLTRAINER_M
 	const CERULEANCITY_SUPER_NERD
 	const CERULEANCITY_SLOWPOKE
@@ -7,29 +7,14 @@
 	const CERULEANCITY_YOUNGSTER
 
 CeruleanCity_MapScripts:
-	def_scene_scripts
-	scene_script .DummyScene ; SCENE_DEFAULT
-	
-	def_callbacks
-	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	db 0 ; scene scripts
 
-.DummyScene:
-	end
+	db 1 ; callbacks
+	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_CERULEAN
-	endcallback
-	
-SetMew:
-	checkevent EVENT_FOUGHT_MEW
-	iftrue NoMew
-	checkevent EVENT_BEAT_YOUNGSTER_LLOYD
-	iffalse NoMew
-	setevent EVENT_MEW
-	end
-	
-NoMew:
-	end
+	return
 
 CeruleanCityCooltrainerMScript:
 	faceplayer
@@ -154,10 +139,10 @@ CeruleanLockedDoor:
 	jumptext CeruleanLockedDoorText
 
 CeruleanCityPokecenterSign:
-	jumpstd PokecenterSignScript
+	jumpstd pokecentersign
 
 CeruleanCityMartSign:
-	jumpstd MartSignScript
+	jumpstd martsign
 
 CeruleanCityHiddenBerserkGene:
 	hiddenitem BERSERK_GENE, EVENT_FOUND_BERSERK_GENE_IN_CERULEAN_CITY
@@ -291,20 +276,17 @@ CeruleanLockedDoorText:
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 6 ; warp events
 	warp_event  7, 15, CERULEAN_GYM_BADGE_SPEECH_HOUSE, 1
 	warp_event 28, 17, CERULEAN_POLICE_STATION, 1
 	warp_event 13, 19, CERULEAN_TRADE_SPEECH_HOUSE, 1
 	warp_event 19, 21, CERULEAN_POKECENTER_1F, 1
 	warp_event 30, 23, CERULEAN_GYM, 1
 	warp_event 25, 29, CERULEAN_MART, 2
-	warp_event 10,  1, MEWTWO_CAVE, 1
 
-	def_coord_events
-	coord_event 20,  3, SCENE_DEFAULT, SetMew
-	coord_event 21,  3, SCENE_DEFAULT, SetMew
+	db 0 ; coord events
 
-	def_bg_events
+	db 9 ; bg events
 	bg_event 23, 23, BGEVENT_READ, CeruleanCitySign
 	bg_event 27, 25, BGEVENT_READ, CeruleanGymSign
 	bg_event 11, 29, BGEVENT_READ, CeruleanBikeShopSign
@@ -313,9 +295,9 @@ CeruleanCity_MapEvents:
 	bg_event 14, 29, BGEVENT_READ, CeruleanLockedDoor
 	bg_event 20, 21, BGEVENT_READ, CeruleanCityPokecenterSign
 	bg_event 26, 29, BGEVENT_READ, CeruleanCityMartSign
-	bg_event  8,  3, BGEVENT_ITEM, CeruleanCityHiddenBerserkGene
+	bg_event  2, 12, BGEVENT_ITEM, CeruleanCityHiddenBerserkGene
 
-	def_object_events
+	db 6 ; object events
 	object_event 15, 23, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerMScript, -1
 	object_event 23, 15, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySuperNerdScript, -1
 	object_event 20, 24, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCitySlowbro, -1

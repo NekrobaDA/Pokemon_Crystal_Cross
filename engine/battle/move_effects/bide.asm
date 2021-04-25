@@ -95,6 +95,6 @@ BattleCommand_UnleashEnergy:
 	inc a
 	ld [bc], a
 	ld a, 1
-	ld [wBattleAnimParam], a
+	ld [wKickCounter], a
 	call AnimateCurrentMove
 	jp EndMoveEffect

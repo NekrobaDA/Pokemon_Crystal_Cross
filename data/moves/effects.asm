@@ -268,35 +268,6 @@ EvasionUp:
 	statupmessage
 	statupfailtext
 	endmove
-	
-Growth:
-	checkobedience
-    usedmovetext
-    doturn
-	lowersub
-    statupanim
-	raisesub
-    attackup
-	statupmessage
-	specialattackup
-	statupmessage
-    statupfailtext
-    endmove
-	
-Flash:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	lowersub
-	accuracydown
-	statdownanim
-	statdownmessage
-	specialattackup
-	statupmessage
-	raisesub
-	statdownfailtext
-	endmove
 
 AttackUp2:
 	checkobedience

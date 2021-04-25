@@ -2,7 +2,7 @@ _AnimateTileset::
 ; Iterate over a given pointer array of
 ; animation functions (one per frame).
 
-; Typically in WRAM bank 1, VRAM bank 0.
+; Typically in wra1, vra0
 
 	ld a, [wTilesetAnim]
 	ld e, a
@@ -75,7 +75,6 @@ TilesetForestAnim:
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
-TilesetKanjoAnim:
 TilesetJohtoAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
@@ -87,18 +86,11 @@ TilesetJohtoAnim:
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
 	dw WhirlpoolFrames4, AnimateWhirlpoolTile
-	dw vTiles2 tile $16, WriteTileToBuffer
-	dw NULL,  FlickeringCaveEntrancePalette
-	dw wTileAnimBuffer, ScrollTileDown
-	dw wTileAnimBuffer, ScrollTileDown
-	dw wTileAnimBuffer, ScrollTileDown
-	dw vTiles2 tile $16, WriteTileFromBuffer
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
-UnusedTilesetAnim1: ; unreferenced
-; Scrolls tile $03 like water, but also has the standard $03 flower tile.
+UnusedTilesetAnim_fc0d7:
 	dw vTiles2 tile $03, WriteTileToBuffer
 	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw vTiles2 tile $03, WriteTileFromBuffer
@@ -111,8 +103,7 @@ UnusedTilesetAnim1: ; unreferenced
 	dw NULL,  WaitTileAnimation
 	dw NULL,  DoneTileAnimation
 
-UnusedTilesetAnim2: ; unreferenced
-; Scrolls tile $14 like cave water.
+UnusedTilesetAnim_fc103:
 	dw vTiles2 tile $14, WriteTileToBuffer
 	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw vTiles2 tile $14, WriteTileFromBuffer
@@ -149,8 +140,7 @@ TilesetEliteFourRoomAnim:
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
-UnusedTilesetAnim3: ; unreferenced
-; Scrolls tile $53 like a waterfall; scrolls tile $03 like cave water.
+UnusedTilesetAnim_fc17f:
 	dw vTiles2 tile $53, WriteTileToBuffer
 	dw wTileAnimBuffer, ScrollTileDown
 	dw wTileAnimBuffer, ScrollTileDown
@@ -164,8 +154,7 @@ UnusedTilesetAnim3: ; unreferenced
 	dw vTiles2 tile $53, WriteTileFromBuffer
 	dw NULL,  DoneTileAnimation
 
-UnusedTilesetAnim4: ; unreferenced
-; Scrolls tile $54 like a waterfall; scrolls tile $03 like cave water.
+UnusedTilesetAnim_fc1af:
 	dw vTiles2 tile $54, WriteTileToBuffer
 	dw wTileAnimBuffer, ScrollTileDown
 	dw wTileAnimBuffer, ScrollTileDown
@@ -203,7 +192,6 @@ TilesetDarkCaveAnim:
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw NULL,  DoneTileAnimation
 
-TilesetIcePath2Anim:
 TilesetIcePathAnim:
 	dw vTiles2 tile $35, WriteTileToBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
@@ -226,16 +214,16 @@ TilesetIcePathAnim:
 	dw NULL,  DoneTileAnimation
 
 TilesetTowerAnim:
-	dw TowerPillarTilePointer9, AnimateTowerPillarTile
+	dw TowerPillarTilePointer9,  AnimateTowerPillarTile
 	dw TowerPillarTilePointer10, AnimateTowerPillarTile
-	dw TowerPillarTilePointer7, AnimateTowerPillarTile
-	dw TowerPillarTilePointer8, AnimateTowerPillarTile
-	dw TowerPillarTilePointer5, AnimateTowerPillarTile
-	dw TowerPillarTilePointer6, AnimateTowerPillarTile
-	dw TowerPillarTilePointer3, AnimateTowerPillarTile
-	dw TowerPillarTilePointer4, AnimateTowerPillarTile
-	dw TowerPillarTilePointer1, AnimateTowerPillarTile
-	dw TowerPillarTilePointer2, AnimateTowerPillarTile
+	dw TowerPillarTilePointer7,  AnimateTowerPillarTile
+	dw TowerPillarTilePointer8,  AnimateTowerPillarTile
+	dw TowerPillarTilePointer5,  AnimateTowerPillarTile
+	dw TowerPillarTilePointer6,  AnimateTowerPillarTile
+	dw TowerPillarTilePointer3,  AnimateTowerPillarTile
+	dw TowerPillarTilePointer4,  AnimateTowerPillarTile
+	dw TowerPillarTilePointer1,  AnimateTowerPillarTile
+	dw TowerPillarTilePointer2,  AnimateTowerPillarTile
 	dw NULL,  StandingTileFrame
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -243,8 +231,7 @@ TilesetTowerAnim:
 	dw NULL,  WaitTileAnimation
 	dw NULL,  DoneTileAnimation
 
-UnusedTilesetAnim5: ; unreferenced
-; Scrolls tile $4f like cave water.
+UnusedTilesetAnim_fc2bf:
 	dw vTiles2 tile $4f, WriteTileToBuffer
 	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw vTiles2 tile $4f, WriteTileFromBuffer
@@ -272,7 +259,7 @@ TilesetChampionsRoomAnim:
 TilesetLighthouseAnim:
 TilesetPlayersRoomAnim:
 TilesetPokeComCenterAnim:
-TilesetBattleTowerInsideAnim:
+TilesetBattleTowerAnim:
 TilesetRuinsOfAlphAnim:
 TilesetRadioTowerAnim:
 TilesetUndergroundAnim:
@@ -313,7 +300,7 @@ ScrollTileRightLeft:
 	jr nz, ScrollTileLeft
 	jr ScrollTileRight
 
-ScrollTileUpDown: ; unreferenced
+ScrollTileUpDown:
 ; Scroll up for 4 ticks, then down for 4 ticks.
 	ld a, [wTileAnimationTimer]
 	inc a
@@ -485,11 +472,11 @@ ForestTreeLeftAnimation:
 ; Only during the Celebi event.
 	ld a, [wCelebiEvent]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
-	jr nz, .do_animation
+	jr nz, .asm_fc46c
 	ld hl, ForestTreeLeftFrames
-	jr .got_frames
+	jr .asm_fc47d
 
-.do_animation
+.asm_fc46c
 	ld a, [wTileAnimationTimer]
 	call GetForestTreeFrame
 	add a
@@ -501,7 +488,7 @@ ForestTreeLeftAnimation:
 	adc HIGH(ForestTreeLeftFrames)
 	ld h, a
 
-.got_frames
+.asm_fc47d
 	ld sp, hl
 	ld hl, vTiles2 tile $0c
 	jp WriteTile
@@ -522,11 +509,11 @@ ForestTreeRightAnimation:
 ; Only during the Celebi event.
 	ld a, [wCelebiEvent]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
-	jr nz, .do_animation
+	jr nz, .asm_fc4d4
 	ld hl, ForestTreeRightFrames
-	jr .got_frames
+	jr .asm_fc4eb
 
-.do_animation
+.asm_fc4d4
 	ld a, [wTileAnimationTimer]
 	call GetForestTreeFrame
 	add a
@@ -542,7 +529,7 @@ ForestTreeRightAnimation:
 	add hl, bc
 	pop bc
 
-.got_frames
+.asm_fc4eb
 	ld sp, hl
 	ld hl, vTiles2 tile $0f
 	jp WriteTile
@@ -555,14 +542,14 @@ ForestTreeLeftAnimation2:
 ; Only during the Celebi event.
 	ld a, [wCelebiEvent]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
-	jr nz, .do_animation
+	jr nz, .asm_fc502
 	ld hl, ForestTreeLeftFrames
-	jr .got_frames
+	jr .asm_fc515
 
-.do_animation
+.asm_fc502
 	ld a, [wTileAnimationTimer]
 	call GetForestTreeFrame
-	xor %10
+	xor 2
 	add a
 	add a
 	add a
@@ -572,7 +559,7 @@ ForestTreeLeftAnimation2:
 	adc HIGH(ForestTreeLeftFrames)
 	ld h, a
 
-.got_frames
+.asm_fc515
 	ld sp, hl
 	ld hl, vTiles2 tile $0c
 	jp WriteTile
@@ -585,14 +572,14 @@ ForestTreeRightAnimation2:
 ; Only during the Celebi event.
 	ld a, [wCelebiEvent]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
-	jr nz, .do_animation
+	jr nz, .asm_fc52c
 	ld hl, ForestTreeRightFrames
-	jr .got_frames
+	jr .asm_fc545
 
-.do_animation
+.asm_fc52c
 	ld a, [wTileAnimationTimer]
 	call GetForestTreeFrame
-	xor %10
+	xor 2
 	add a
 	add a
 	add a
@@ -606,7 +593,7 @@ ForestTreeRightAnimation2:
 	add hl, bc
 	pop bc
 
-.got_frames
+.asm_fc545
 	ld sp, hl
 	ld hl, vTiles2 tile $0f
 	jp WriteTile
@@ -671,6 +658,7 @@ FlowerTileFrames:
 	INCBIN "gfx/tilesets/flower/cgb_2.2bpp"
 
 LavaBubbleAnim1:
+; Splash in the bottom-right corner of the fountain.
 	ld hl, sp+0
 	ld b, h
 	ld c, l
@@ -690,6 +678,7 @@ LavaBubbleAnim1:
 	jp WriteTile
 
 LavaBubbleAnim2:
+; Splash in the top-left corner of the fountain.
 	ld hl, sp+0
 	ld b, h
 	ld c, l
@@ -899,7 +888,7 @@ AnimateWaterPalette:
 	cp %100 ; frame 4
 	jr z, .color2
 
-; color1
+.color1
 	ld hl, wBGPals1 palette PAL_BG_WATER color 1
 	ld a, [hli]
 	ldh [rBGPD], a
@@ -938,7 +927,7 @@ FlickeringCaveEntrancePalette:
 	ret nz
 ; We only want to be here if we're in a dark cave.
 	ld a, [wTimeOfDayPalset]
-	cp DARKNESS_PALSET
+	cp %11111111 ; 3,3,3,3
 	ret nz
 
 	ldh a, [rSVBK]

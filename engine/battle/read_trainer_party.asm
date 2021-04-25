@@ -72,7 +72,7 @@ ReadTrainerParty:
 
 .cal2
 	ld a, BANK(sMysteryGiftTrainer)
-	call OpenSRAM
+	call GetSRAMBank
 	ld a, TRAINERTYPE_MOVES
 	ld [wOtherTrainerType], a
 	ld de, sMysteryGiftTrainer
@@ -99,13 +99,13 @@ ReadTrainerPartyPieces:
 	ld l, a
 	call GetPokemonIDFromIndex
 	ld [wCurPartySpecies], a
-	
+
 	ld a, OTPARTYMON
 	ld [wMonType], a
 	predef TryAddMonToParty
 	pop hl
 	inc hl ;because hl was pushed before the last call to GetNextTrainerDataByte
-	
+
 	ld a, [wOtherTrainerType]
 	and TRAINERTYPE_ITEM
 	jr z, .no_item
@@ -217,6 +217,7 @@ Battle_GetTrainerName::
 	ld b, a
 	ld a, [wOtherTrainerClass]
 	ld c, a
+	; fallthrough
 
 GetTrainerName::
 	ld a, c
@@ -224,14 +225,14 @@ GetTrainerName::
 	jr nz, .not_cal2
 
 	ld a, BANK(sMysteryGiftTrainerHouseFlag)
-	call OpenSRAM
+	call GetSRAMBank
 	ld a, [sMysteryGiftTrainerHouseFlag]
 	and a
 	call CloseSRAM
 	jr z, .not_cal2
 
 	ld a, BANK(sMysteryGiftPartnerName)
-	call OpenSRAM
+	call GetSRAMBank
 	ld hl, sMysteryGiftPartnerName
 	call CopyTrainerName
 	jp CloseSRAM
@@ -266,7 +267,7 @@ GetTrainerName::
 .done
 	inc hl
 	; fallthrough
-	
+
 CopyTrainerName:
 	ld de, wStringBuffer1
 	push de
@@ -276,8 +277,8 @@ CopyTrainerName:
 	pop de
 	ret
 
-IncompleteCopyNameFunction: ; unreferenced
-; Copy of CopyTrainerName but without "call CopyBytes"
+Function39990:
+; This function is useless.
 	ld de, wStringBuffer1
 	push de
 	ld bc, NAME_LENGTH

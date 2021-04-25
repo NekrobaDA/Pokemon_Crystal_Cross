@@ -65,7 +65,7 @@ MobileReceive::
 
 	ret
 
-MobileTimer::
+Timer::
 	push af
 	push bc
 	push de
@@ -89,11 +89,11 @@ MobileTimer::
 
 	ld a, [$c822]
 	bit 1, a
-	jr nz, .skip_timer
+	jr nz, .skip_Timer
 
 	ldh a, [rSC]
 	and 1 << rSC_ON
-	jr nz, .skip_timer
+	jr nz, .skip_Timer
 
 	ldh a, [hROMBank]
 	push af
@@ -108,7 +108,7 @@ MobileTimer::
 	ld [$c981], a
 	rst Bankswitch
 
-.skip_timer
+.skip_Timer
 	ldh a, [rTMA]
 	ldh [rTIMA], a
 
@@ -125,7 +125,7 @@ MobileTimer::
 Function3eea::
 	push hl
 	push bc
-	ld de, wAttrmap - wTilemap
+	ld de, wAttrMap - wTileMap
 	add hl, de
 	inc b
 	inc b
@@ -137,15 +137,14 @@ Function3eea::
 	jp MobileHome_PlaceBox
 
 Function3f20::
-	hlcoord 0, 0, wAttrmap
+	hlcoord 0, 0, wAttrMap
 	ld b,  6
 	ld c, 20
 	call Function3f35
 	hlcoord 0, 0
 	ld b,  4
 	ld c, 18
-	call MobileHome_PlaceBox
-	ret
+	jp MobileHome_PlaceBox
 
 Function3f35::
 	ld a, 6
@@ -213,8 +212,7 @@ Function3f7c::
 	call GetMenuBoxDims
 	dec b
 	dec c
-	call Function3eea
-	ret
+	jp Function3eea
 
 Function3f88::
 	ld hl, wDecompressScratch

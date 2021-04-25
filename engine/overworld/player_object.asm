@@ -5,11 +5,11 @@ BlankScreen:
 	call ClearBGPalettes
 	call ClearSprites
 	hlcoord 0, 0
-	ld bc, wTilemapEnd - wTilemap
+	ld bc, wTileMapEnd - wTileMap
 	ld a, " "
 	call ByteFill
-	hlcoord 0, 0, wAttrmap
-	ld bc, wAttrmapEnd - wAttrmap
+	hlcoord 0, 0, wAttrMap
+	ld bc, wAttrMapEnd - wAttrMap
 	ld a, $7
 	call ByteFill
 	call WaitBGMap2
@@ -20,10 +20,10 @@ SpawnPlayer:
 	ld a, -1
 	ld [wObjectFollow_Leader], a
 	ld [wObjectFollow_Follower], a
-	ld a, PLAYER
+	ld a, $0
 	ld hl, PlayerObjectTemplate
 	call CopyPlayerObjectTemplate
-	ld b, PLAYER
+	ld b, $0
 	call PlayerSpawn_ConvertCoords
 	ld a, PLAYER_OBJECT
 	call GetMapObject
@@ -41,10 +41,10 @@ SpawnPlayer:
 .ok
 	ld [hl], e
 	ld a, PLAYER_OBJECT
-	ldh [hMapObjectIndex], a
+	ldh [hMapObjectIndexBuffer], a
 	ld bc, wMapObjects
 	ld a, PLAYER_OBJECT
-	ldh [hObjectStructIndex], a
+	ldh [hObjectStructIndexBuffer], a
 	ld de, wObjectStructs
 	call CopyMapObjectToObjectStruct
 	ld a, PLAYER
@@ -55,7 +55,6 @@ PlayerObjectTemplate:
 ; A dummy map object used to initialize the player object.
 ; Shorter than the actual amount copied by two bytes.
 ; Said bytes seem to be unused.
-_NUM_OBJECT_EVENTS = 0
 	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_PLAYER, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, 0, -1
 
 CopyDECoordsToMapObject::
@@ -94,7 +93,7 @@ WriteObjectXY::
 	ld hl, OBJECT_NEXT_MAP_Y
 	add hl, bc
 	ld e, [hl]
-	ldh a, [hMapObjectIndex]
+	ldh a, [hMapObjectIndexBuffer]
 	ld b, a
 	call CopyDECoordsToMapObject
 	and a
@@ -123,10 +122,9 @@ RefreshPlayerCoords:
 	ld hl, wPlayerLastMapY
 	ld [hl], e
 	ld e, a
-; the next three lines are useless
 	ld a, [wObjectFollow_Leader]
-	cp PLAYER
-	ret nz
+	cp $0
+	ret nz ; wtf
 	ret
 
 CopyObjectStruct::
@@ -134,16 +132,16 @@ CopyObjectStruct::
 	and a
 	ret nz ; masked
 
-	ld hl, wObjectStructs + OBJECT_LENGTH * 1
+	ld hl, wObjectStructs + OBJECT_STRUCT_LENGTH * 1
 	ld a, 1
-	ld de, OBJECT_LENGTH
+	ld de, OBJECT_STRUCT_LENGTH
 .loop
-	ldh [hObjectStructIndex], a
+	ldh [hObjectStructIndexBuffer], a
 	ld a, [hl]
 	and a
 	jr z, .done
 	add hl, de
-	ldh a, [hObjectStructIndex]
+	ldh a, [hObjectStructIndexBuffer]
 	inc a
 	cp NUM_OBJECT_STRUCTS
 	jr nz, .loop
@@ -169,12 +167,12 @@ CopyMapObjectToObjectStruct:
 	ret
 
 .CopyMapObjectToTempObject:
-	ldh a, [hObjectStructIndex]
+	ldh a, [hObjectStructIndexBuffer]
 	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
 	add hl, bc
 	ld [hl], a
 
-	ldh a, [hMapObjectIndex]
+	ldh a, [hMapObjectIndexBuffer]
 	ld [wTempObjectCopyMapObjectIndex], a
 
 	ld hl, MAPOBJECT_SPRITE
@@ -226,10 +224,10 @@ CopyMapObjectToObjectStruct:
 	ret
 
 InitializeVisibleSprites:
-	ld bc, wMap1Object
+	ld bc, wMapObjects + OBJECT_LENGTH
 	ld a, 1
 .loop
-	ldh [hMapObjectIndex], a
+	ldh [hMapObjectIndexBuffer], a
 	ld hl, MAPOBJECT_SPRITE
 	add hl, bc
 	ld a, [hl]
@@ -273,11 +271,11 @@ InitializeVisibleSprites:
 	jp c, .ret
 
 .next
-	ld hl, MAPOBJECT_LENGTH
+	ld hl, OBJECT_LENGTH
 	add hl, bc
 	ld b, h
 	ld c, l
-	ldh a, [hMapObjectIndex]
+	ldh a, [hMapObjectIndexBuffer]
 	inc a
 	cp NUM_OBJECTS
 	jr nz, .loop
@@ -313,10 +311,10 @@ CheckObjectEnteringVisibleRange::
 	ld d, a
 	ld a, [wXCoord]
 	ld e, a
-	ld bc, wMap1Object
+	ld bc, wMapObjects + OBJECT_LENGTH
 	ld a, 1
 .loop_v
-	ldh [hMapObjectIndex], a
+	ldh [hMapObjectIndexBuffer], a
 	ld hl, MAPOBJECT_SPRITE
 	add hl, bc
 	ld a, [hl]
@@ -347,11 +345,11 @@ CheckObjectEnteringVisibleRange::
 	pop de
 
 .next_v
-	ld hl, MAPOBJECT_LENGTH
+	ld hl, OBJECT_LENGTH
 	add hl, bc
 	ld b, h
 	ld c, l
-	ldh a, [hMapObjectIndex]
+	ldh a, [hMapObjectIndexBuffer]
 	inc a
 	cp NUM_OBJECTS
 	jr nz, .loop_v
@@ -369,10 +367,10 @@ CheckObjectEnteringVisibleRange::
 	ld e, a
 	ld a, [wYCoord]
 	ld d, a
-	ld bc, wMap1Object
+	ld bc, wMapObjects + OBJECT_LENGTH
 	ld a, 1
 .loop_h
-	ldh [hMapObjectIndex], a
+	ldh [hMapObjectIndexBuffer], a
 	ld hl, MAPOBJECT_SPRITE
 	add hl, bc
 	ld a, [hl]
@@ -403,11 +401,11 @@ CheckObjectEnteringVisibleRange::
 	pop de
 
 .next_h
-	ld hl, MAPOBJECT_LENGTH
+	ld hl, OBJECT_LENGTH
 	add hl, bc
 	ld b, h
 	ld c, l
-	ldh a, [hMapObjectIndex]
+	ldh a, [hMapObjectIndexBuffer]
 	inc a
 	cp NUM_OBJECTS
 	jr nz, .loop_h
@@ -446,7 +444,7 @@ CopyTempObjectToObjectStruct:
 
 	ld hl, OBJECT_STEP_TYPE
 	add hl, de
-	ld [hl], STEP_TYPE_RESET
+	ld [hl], STEP_TYPE_00
 
 	ld hl, OBJECT_FACING_STEP
 	add hl, de
@@ -680,7 +678,7 @@ FollowNotExact::
 	ld hl, OBJECT_SPRITE_Y
 	add hl, de
 	ld [hl], a
-	ldh a, [hObjectStructIndex]
+	ldh a, [hObjectStructIndexBuffer]
 	ld hl, OBJECT_RANGE
 	add hl, de
 	ld [hl], a
@@ -689,7 +687,7 @@ FollowNotExact::
 	ld [hl], SPRITEMOVEDATA_FOLLOWNOTEXACT
 	ld hl, OBJECT_STEP_TYPE
 	add hl, de
-	ld [hl], STEP_TYPE_RESET
+	ld [hl], STEP_TYPE_00
 	ret
 
 GetRelativeFacing::

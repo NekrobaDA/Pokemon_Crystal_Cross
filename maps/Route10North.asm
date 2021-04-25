@@ -1,40 +1,13 @@
-	object_const_def
-	const SUNDAY_ELECTABUZZ
-
 Route10North_MapScripts:
-	def_scene_scripts
+	db 0 ; scene scripts
 
-	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .Electabuzz
-
-.Electabuzz:
-	checkflag ENGINE_SUNDAY_ELECTABUZZ
-	iftrue .NoAppear
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .Appear
-.NoAppear:
-	disappear SUNDAY_ELECTABUZZ
-	endcallback
-
-.Appear:
-	appear SUNDAY_ELECTABUZZ
-	endcallback
-
-SundayElectabuzz:
-	faceplayer
-	cry ELECTABUZZ
-	loadwildmon ELECTABUZZ, 25
-	startbattle
-	disappear SUNDAY_ELECTABUZZ
-	setflag ENGINE_SUNDAY_ELECTABUZZ
-	reloadmapafterbattle
-	end
+	db 0 ; callbacks
 
 PowerPlantSign:
 	jumptext PowerPlantSignText
 
 Route10PokecenterSign:
-	jumpstd PokecenterSignScript
+	jumpstd pokecentersign
 
 PowerPlantSignText:
 	text "KANTO POWER PLANT"
@@ -43,16 +16,14 @@ PowerPlantSignText:
 Route10North_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 2 ; warp events
 	warp_event 11,  1, ROUTE_10_POKECENTER_1F, 1
 	warp_event  3,  9, POWER_PLANT, 1
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 2 ; bg events
 	bg_event  5, 11, BGEVENT_READ, PowerPlantSign
 	bg_event 12,  1, BGEVENT_READ, Route10PokecenterSign
 
-	def_object_events
-	object_event  7, 10, SPRITE_ELECTABUZZ, SPRITEMOVEDATA_STILL, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SundayElectabuzz, EVENT_SUNDAY_ELECTABUZZ
-	
+	db 0 ; object events

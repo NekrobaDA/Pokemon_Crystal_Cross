@@ -55,7 +55,6 @@
 	const MONMENUITEM_ROCKSMASH  ; 12
 	const MONMENUITEM_MILKDRINK  ; 13
 	const MONMENUITEM_SWEETSCENT ; 14
-	const MONMENUITEM_ROCKCLIMB
 	; options
 	const MONMENUITEM_STATS      ; 15
 	const MONMENUITEM_SWITCH     ; 16
@@ -88,7 +87,7 @@ HMENURETURN_ASM    EQU %11111111
 	const PARTYMENUACTION_GIVE_ITEM
 	const PARTYMENUACTION_MOBILE ; mobile
 ; PrintPartyMenuActionText arguments (see engine/pokemon/party_menu.asm)
-	const_next $f0
+	const_def $f0
 	const PARTYMENUTEXT_HEAL_PSN
 	const PARTYMENUTEXT_HEAL_BRN
 	const PARTYMENUTEXT_HEAL_FRZ

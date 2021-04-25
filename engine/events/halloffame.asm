@@ -1,3 +1,5 @@
+HALLOFFAME_COLON EQU $63
+
 HallOfFame::
 	call HallOfFame_FadeOutMusic
 	ld a, [wStatusFlags]
@@ -66,8 +68,7 @@ HallOfFame_FadeOutMusic:
 	ld [wVramState], a
 	ldh [hMapAnims], a
 	farcall InitDisplayForHallOfFame
-	ld c, 100
-	jp DelayFrames
+	ret
 
 HallOfFame_PlayMusicDE:
 	push de
@@ -91,11 +92,12 @@ AnimateHallOfFame:
 	ld a, [wHallOfFameMonCounter]
 	cp PARTY_LENGTH
 	jr nc, .done
-	ld hl, wHallOfFameTempMon1
+	ld hl, wHallOfFameTempMon1 + 1
 	ld bc, wHallOfFameTempMon1End - wHallOfFameTempMon1
 	call AddNTimes
-	ld a, [hl]
-	cp -1
+	ld a, [hld]
+	and [hl]
+	inc a
 	jr z, .done
 	push hl
 	call AnimateHOFMonEntrance
@@ -134,7 +136,7 @@ AnimateHallOfFame:
 
 GetHallOfFameParty:
 	ld hl, wHallOfFamePokemonList
-	ld bc, wHallOfFamePokemonListEnd - wHallOfFamePokemonList + 1
+	ld bc, HOF_LENGTH
 	xor a
 	call ByteFill
 	ld a, [wHallOfFameCount]
@@ -167,6 +169,11 @@ GetHallOfFameParty:
 	ld hl, MON_SPECIES
 	add hl, bc
 	ld a, [hl]
+	call GetPokemonIndexFromID
+	ld a, l
+	ld [de], a
+	inc de
+	ld a, h
 	ld [de], a
 	inc de
 
@@ -216,6 +223,8 @@ GetHallOfFameParty:
 .done
 	ld a, -1
 	ld [de], a
+	inc de
+	ld [de], a
 	ret
 
 AnimateHOFMonEntrance:
@@ -224,6 +233,12 @@ AnimateHOFMonEntrance:
 	farcall ResetDisplayBetweenHallOfFameMons
 	pop hl
 	ld a, [hli]
+	push hl
+	ld h, [hl]
+	ld l, a
+	call GetPokemonIDFromIndex
+	pop hl
+	inc hl
 	ld [wTempMonSpecies], a
 	ld [wCurPartySpecies], a
 	inc hl
@@ -233,7 +248,7 @@ AnimateHOFMonEntrance:
 	ld a, [hli]
 	ld [wTempMonDVs + 1], a
 	ld hl, wTempMonDVs
-	predef GetVariant
+	predef GetUnownLetter
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
@@ -276,7 +291,7 @@ HOF_SlideBackpic:
 	ldh a, [hSCX]
 	cp $70
 	ret z
-	add 4
+	add $4
 	ldh [hSCX], a
 	call DelayFrame
 	jr .backpicloop
@@ -345,11 +360,12 @@ _HallOfFamePC:
 	ld a, [wHallOfFameMonCounter]
 	cp PARTY_LENGTH
 	jr nc, .fail
-	ld hl, wHallOfFameTempMon1
+	ld hl, wHallOfFameTempMon1 + 1
 	ld bc, wHallOfFameTempMon1End - wHallOfFameTempMon1
 	call AddNTimes
-	ld a, [hl]
-	cp -1
+	ld a, [hld]
+	and [hl]
+	inc a
 	jr nz, .okay
 
 .fail
@@ -362,7 +378,7 @@ _HallOfFamePC:
 	pop hl
 	call DisplayHOFMon
 	ld a, [wHallOfFameTempWinCount]
-	cp HOF_MASTER_COUNT
+	cp HOF_MASTER_COUNT + 1 ; should be HOF_MASTER_COUNT
 	jr c, .print_num_hof
 	ld de, .HOFMaster
 	hlcoord 1, 2
@@ -407,15 +423,15 @@ LoadHOFTeam:
 	cp NUM_HOF_TEAMS
 	jr nc, .invalid
 	ld hl, sHallOfFame
-	ld bc, wHallOfFameTempEnd - wHallOfFameTemp + 1
+	ld bc, HOF_LENGTH
 	call AddNTimes
 	ld a, BANK(sHallOfFame)
-	call OpenSRAM
+	call GetSRAMBank
 	ld a, [hl]
 	and a
 	jr z, .absent
 	ld de, wHallOfFameTemp
-	ld bc, wHallOfFameTempEnd - wHallOfFameTemp + 1
+	ld bc, HOF_LENGTH
 	call CopyBytes
 	call CloseSRAM
 	and a
@@ -432,6 +448,12 @@ DisplayHOFMon:
 	xor a
 	ldh [hBGMapMode], a
 	ld a, [hli]
+	push hl
+	ld h, [hl]
+	ld l, a
+	call GetPokemonIDFromIndex
+	pop hl
+	inc hl
 	ld [wTempMonSpecies], a
 	ld a, [hli]
 	ld [wTempMonID], a
@@ -447,7 +469,7 @@ DisplayHOFMon:
 	ld bc, MON_NAME_LENGTH - 1
 	call CopyBytes
 	ld a, "@"
-	ld [wStringBuffer2 + MON_NAME_LENGTH - 1], a
+	ld [wStringBuffer2 + 10], a
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
@@ -460,9 +482,8 @@ DisplayHOFMon:
 	call Textbox
 	ld a, [wTempMonSpecies]
 	ld [wCurPartySpecies], a
-	ld [wTextDecimalByte], a
 	ld hl, wTempMonDVs
-	predef GetVariant
+	predef GetUnownLetter
 	xor a
 	ld [wBoxAlignment], a
 	hlcoord 6, 5
@@ -474,10 +495,21 @@ DisplayHOFMon:
 	ld a, "№"
 	ld [hli], a
 	ld [hl], "<DOT>"
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	ld l, h
+	ld h, a
+	push hl
+	ld hl, sp + 0
+	ld d, h
+	ld e, l
 	hlcoord 3, 13
-	ld de, wTextDecimalByte
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
+	lb bc, PRINTNUM_LEADINGZEROS | 2, 3
 	call PrintNum
+	pop hl
+	ld a, [wCurPartySpecies]
+	ld [wNamedObjectIndexBuffer], a
 	call GetBasePokemonName
 	hlcoord 7, 13
 	call PlaceString
@@ -516,6 +548,10 @@ DisplayHOFMon:
 
 HOF_AnimatePlayerPic:
 	call ClearBGPalettes
+	ld hl, vTiles2 tile HALLOFFAME_COLON
+	ld de, FontExtra + 13 tiles ; "<COLON>"
+	lb bc, BANK(FontExtra), 1
+	call Request2bpp
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
@@ -585,7 +621,7 @@ HOF_AnimatePlayerPic:
 	ld de, wGameTimeHours
 	lb bc, 2, 3
 	call PrintNum
-	ld [hl], "<COLON>"
+	ld [hl], HALLOFFAME_COLON
 	inc hl
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2

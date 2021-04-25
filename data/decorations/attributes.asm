@@ -7,7 +7,7 @@ ENDM
 
 DecorationAttributes:
 ; entries correspond to deco constants
-	decoration DECO_PLANT,   0,              0,                 EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1,       $00
+	decoration DECO_PLANT,   $00,            $0,                EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1,       $00
 	decoration DECO_PLANT,   PUT_IT_AWAY,    PUT_AWAY_BED,      EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1,       $00
 	decoration DECO_BED,     FEATHERY_BED,   SET_UP_BED,        EVENT_DECO_BED_1,                $1b
 	decoration DECO_BED,     PINK_BED,       SET_UP_BED,        EVENT_DECO_BED_2,                $1c
@@ -23,7 +23,7 @@ DecorationAttributes:
 	decoration DECO_PLANT,   TROPICPLANT,    SET_UP_PLANT,      EVENT_DECO_PLANT_2,              $21
 	decoration DECO_PLANT,   JUMBOPLANT,     SET_UP_PLANT,      EVENT_DECO_PLANT_3,              $22
 	decoration DECO_PLANT,   PUT_IT_AWAY,    PUT_AWAY_POSTER,   EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1,       $00
-	decoration DECO_PLANT,   TOWN_MAP_POSTER, SET_UP_POSTER,    EVENT_DECO_POSTER_1,              $1f
+	decoration DECO_PLANT,   TOWN_MAP_D,     SET_UP_POSTER,     EVENT_DECO_PLANT_4,              $1f
 	decoration DECO_POSTER,  4,              SET_UP_POSTER,     EVENT_DECO_POSTER_1,             $23
 	decoration DECO_POSTER,  5,              SET_UP_POSTER,     EVENT_DECO_POSTER_2,             $24
 	decoration DECO_POSTER,  6,              SET_UP_POSTER,     EVENT_DECO_POSTER_3,             $25
@@ -85,4 +85,3 @@ DecorationAttributePokemonNames:
 	dw LAPRAS     ; 20
 	dw SNORLAX    ; 21
 	dw UNOWN      ; 22
-	

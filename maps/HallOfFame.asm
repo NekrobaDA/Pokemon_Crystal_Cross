@@ -1,12 +1,12 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const HALLOFFAME_LANCE
 
 HallOfFame_MapScripts:
-	def_scene_scripts
+	db 2 ; scene scripts
 	scene_script .EnterHallOfFame ; SCENE_DEFAULT
 	scene_script .DummyScene ; SCENE_FINISHED
 
-	def_callbacks
+	db 0 ; callbacks
 
 .EnterHallOfFame:
 	prioritysjump .EnterHallOfFameScript
@@ -111,13 +111,13 @@ HallOfFame_LanceText:
 HallOfFame_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 2 ; warp events
 	warp_event  4, 13, LANCES_ROOM, 3
 	warp_event  5, 13, LANCES_ROOM, 4
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 0 ; bg events
 
-	def_object_events
+	db 1 ; object events
 	object_event  4, 12, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

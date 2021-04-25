@@ -1,5 +1,5 @@
 ; base data struct members (see data/pokemon/base_stats/*.asm)
-BASE_DEX_NO      EQUS "(wBaseDexNo - wCurBaseData)"
+BASE_SPECIES     EQUS "(wBaseSpecies - wCurBaseData)"
 BASE_STATS       EQUS "(wBaseStats - wCurBaseData)"
 BASE_HP          EQUS "(wBaseHP - wCurBaseData)"
 BASE_ATK         EQUS "(wBaseAttack - wCurBaseData)"
@@ -19,19 +19,18 @@ BASE_UNKNOWN_1   EQUS "(wBaseUnknown1 - wCurBaseData)"
 BASE_EGG_STEPS   EQUS "(wBaseEggSteps - wCurBaseData)"
 BASE_UNKNOWN_2   EQUS "(wBaseUnknown2 - wCurBaseData)"
 BASE_PIC_SIZE    EQUS "(wBasePicSize - wCurBaseData)"
-BASE_FRONTPIC    EQUS "(wBaseUnusedFrontpic - wCurBaseData)"
-BASE_BACKPIC     EQUS "(wBaseUnusedBackpic - wCurBaseData)"
+BASE_PADDING     EQUS "(wBasePadding - wCurBaseData)"
 BASE_GROWTH_RATE EQUS "(wBaseGrowthRate - wCurBaseData)"
 BASE_EGG_GROUPS  EQUS "(wBaseEggGroups - wCurBaseData)"
 BASE_TMHM        EQUS "(wBaseTMHM - wCurBaseData)"
 BASE_DATA_SIZE   EQUS "(wCurBaseDataEnd - wCurBaseData)"
 
 ; gender ratio constants
-GENDER_F0      EQU   0 percent
-GENDER_F12_5   EQU  12 percent + 1
-GENDER_F25     EQU  25 percent
-GENDER_F50     EQU  50 percent
-GENDER_F75     EQU  75 percent
+GENDER_F0      EQU 0 percent
+GENDER_F12_5   EQU 12 percent + 1
+GENDER_F25     EQU 25 percent
+GENDER_F50     EQU 50 percent
+GENDER_F75     EQU 75 percent
 GENDER_F100    EQU 100 percent - 1
 GENDER_UNKNOWN EQU -1
 
@@ -93,8 +92,8 @@ MON_DEF                EQUS "(wPartyMon1Defense - wPartyMon1)"
 MON_SPD                EQUS "(wPartyMon1Speed - wPartyMon1)"
 MON_SAT                EQUS "(wPartyMon1SpclAtk - wPartyMon1)"
 MON_SDF                EQUS "(wPartyMon1SpclDef - wPartyMon1)"
-BOXMON_STRUCT_LENGTH   EQUS "(wPartyMon1BoxEnd - wPartyMon1)"
-PARTYMON_STRUCT_LENGTH EQUS "(wPartyMon1StructEnd - wPartyMon1)"
+BOXMON_STRUCT_LENGTH   EQUS "(wPartyMon1End - wPartyMon1)"
+PARTYMON_STRUCT_LENGTH EQUS "(wPartyMon1StatsEnd - wPartyMon1)"
 
 NICKNAMED_MON_STRUCT_LENGTH EQUS "(PARTYMON_STRUCT_LENGTH + MON_NAME_LENGTH)"
 REDMON_STRUCT_LENGTH EQU 44
@@ -121,8 +120,8 @@ MONS_PER_BOX EQU 20
 NUM_BOXES    EQU 14
 
 ; hall of fame
-HOF_MON_LENGTH EQU 1 + 2 + 2 + 1 + (MON_NAME_LENGTH - 1) ; species, id, dvs, level, nick
-HOF_LENGTH EQU 1 + HOF_MON_LENGTH * PARTY_LENGTH + 1 ; win count, party, terminator
+HOF_MON_LENGTH EQU 2 + 2 + 2 + 1 + (MON_NAME_LENGTH + -1) ; species, id, dvs, level, nick
+HOF_LENGTH EQU 1 + HOF_MON_LENGTH * PARTY_LENGTH + 2 ; win count, party, terminator
 NUM_HOF_TEAMS EQU 30
 
 ; evolution types (used in data/pokemon/evos_attacks.asm)
@@ -137,7 +136,7 @@ NUM_HOF_TEAMS EQU 30
 	const_def 1
 	const TR_ANYTIME
 	const TR_MORNDAY
-	const TR_EVENITE
+	const TR_NITE
 
 ; EVOLVE_STAT triggers
 	const_def 1
@@ -147,15 +146,14 @@ NUM_HOF_TEAMS EQU 30
 
 ; wild data
 
-NUM_GRASSMON EQU 8 ; data/wild/*_grass.asm table size
-NUM_WATERMON EQU 4 ; data/wild/*_water.asm table size
+NUM_GRASSMON EQU 7 ; data/wild/*_grass.asm table size
+NUM_WATERMON EQU 3 ; data/wild/*_water.asm table size
 
 GRASS_WILDDATA_LENGTH EQU 2 + (1 + NUM_GRASSMON * 3) * 3
 WATER_WILDDATA_LENGTH EQU 2 + (1 + NUM_WATERMON * 3) * 1
 FISHGROUP_DATA_LENGTH EQU 1 + 2 * 3
 
-NUM_ROAMMON_MAPS   EQU 16 ; RoamMaps table size (see data/wild/roammon_maps.asm)
-NUM_ROAMMON_MAPS_K EQU 16
+NUM_ROAMMON_MAPS EQU 16 ; RoamMaps table size (see data/wild/roammon_maps.asm)
 
 ; treemon sets
 ; TreeMons indexes (see data/wild/treemons.asm)
@@ -177,7 +175,7 @@ NUM_TREEMON_SETS EQU const_value
 	const TREEMON_SCORE_RARE ; 2
 
 ; ChangeHappiness arguments (see data/happiness_changes.asm)
-	const_def 1
+const_value = 1
 	const HAPPINESS_GAINLEVEL         ; 01
 	const HAPPINESS_USEDITEM          ; 02
 	const HAPPINESS_USEDXITEM         ; 03

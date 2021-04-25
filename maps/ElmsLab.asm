@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const ELMSLAB_ELM
 	const ELMSLAB_ELMS_AIDE
 	const ELMSLAB_POKE_BALL1
@@ -7,7 +7,7 @@
 	const ELMSLAB_OFFICER
 
 ElmsLab_MapScripts:
-	def_scene_scripts
+	db 6 ; scene scripts
 	scene_script .MeetElm ; SCENE_DEFAULT
 	scene_script .DummyScene1 ; SCENE_ELMSLAB_CANT_LEAVE
 	scene_script .DummyScene2 ; SCENE_ELMSLAB_NOTHING
@@ -15,7 +15,7 @@ ElmsLab_MapScripts:
 	scene_script .DummyScene4 ; SCENE_ELMSLAB_UNUSED
 	scene_script .DummyScene5 ; SCENE_ELMSLAB_AIDE_GIVES_POTION
 
-	def_callbacks
+	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .MoveElmCallback
 
 .MeetElm:
@@ -42,7 +42,7 @@ ElmsLab_MapScripts:
 	iftrue .Skip ; not SCENE_DEFAULT
 	moveobject ELMSLAB_ELM, 3, 4
 .Skip:
-	endcallback
+	return
 
 .WalkUpToElm:
 	applymovement PLAYER, ElmsLab_WalkUpToElmMovement
@@ -58,7 +58,7 @@ ElmsLab_MapScripts:
 
 .ElmGetsEmail:
 	writetext ElmText_Accepted
-	promptbutton
+	buttonsound
 	writetext ElmText_ResearchAmbitions
 	waitbutton
 	closetext
@@ -171,140 +171,14 @@ CyndaquilPokeBallScript:
 	disappear ELMSLAB_POKE_BALL1
 	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
 	writetext ChoseStarterText
-	promptbutton
+	buttonsound
 	waitsfx
 	getmonname STRING_BUFFER_3, CYNDAQUIL
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	promptbutton
-	; max money
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 999999
-	giveitem COIN_CASE
-	givecoins 50000
-	; good party
-	givepoke DUSERPENT, 100
-	givepoke WEAVILE, 100
-	givepoke WU_DUK, 100
-	givepoke LEAFEON, 100
-	givepoke GLACEON, 100
-	; hm slaves
-	givepoke AMBIPOM, 100
-	; tms for party
-	giveitem TM_ICE_BEAM
-	giveitem TM_FLAMETHROWER
-	giveitem TM_THUNDERBOLT
-	giveitem TM_SHADOW_BALL
-	giveitem TM_EARTHQUAKE
-	giveitem TM_HEADBUTT
-	giveitem TM_ROCK_SMASH
-	; all hms
-	giveitem HM_CUT
-	giveitem HM_FLY
-	giveitem HM_SURF
-	giveitem HM_STRENGTH
-	giveitem HM_FLASH
-	giveitem HM_WHIRLPOOL
-	giveitem HM_WATERFALL
-	giveitem HM_ROCK_CLIMB
-	; full pokegear
-	setflag ENGINE_POKEGEAR
-	setflag ENGINE_PHONE_CARD
-	setflag ENGINE_MAP_CARD
-	setflag ENGINE_RADIO_CARD
-	setflag ENGINE_EXPN_CARD
-	; pokedex
-	setflag ENGINE_POKEDEX
-	; all badges
-	setflag ENGINE_ZEPHYRBADGE
-	setflag ENGINE_HIVEBADGE
-	setflag ENGINE_PLAINBADGE
-	setflag ENGINE_FOGBADGE
-	setflag ENGINE_STORMBADGE
-	setflag ENGINE_MINERALBADGE
-	setflag ENGINE_GLACIERBADGE
-	setflag ENGINE_RISINGBADGE
-	setflag ENGINE_BOULDERBADGE
-	setflag ENGINE_CASCADEBADGE
-	setflag ENGINE_THUNDERBADGE
-	setflag ENGINE_RAINBOWBADGE
-	setflag ENGINE_MARSHBADGE
-	setflag ENGINE_SOULBADGE
-	setflag ENGINE_VOLCANOBADGE
-	setflag ENGINE_EARTHBADGE
-	setevent EVENT_BEAT_FALKNER
-	setevent EVENT_BEAT_BUGSY
-	setevent EVENT_BEAT_WHITNEY
-	setevent EVENT_BEAT_MORTY
-	setevent EVENT_BEAT_CHUCK
-	setevent EVENT_BEAT_JASMINE
-	setevent EVENT_BEAT_PRYCE
-	setevent EVENT_BEAT_CLAIR
-	setevent EVENT_BEAT_BROCK
-	setevent EVENT_BEAT_MISTY
-	setevent EVENT_BEAT_LTSURGE
-	setevent EVENT_BEAT_ERIKA
-	setevent EVENT_BEAT_JANINE
-	setevent EVENT_BEAT_SABRINA
-	setevent EVENT_BEAT_BLAINE
-	setevent EVENT_BEAT_BLUE
-	setevent EVENT_BEAT_ELITE_FOUR
-	; fly anywhere
-	setflag ENGINE_FLYPOINT_NEW_BARK
-	setflag ENGINE_FLYPOINT_CHERRYGROVE
-	setflag ENGINE_FLYPOINT_VIOLET
-	setflag ENGINE_FLYPOINT_AZALEA
-	setflag ENGINE_FLYPOINT_GOLDENROD
-	setflag ENGINE_FLYPOINT_ECRUTEAK
-	setflag ENGINE_FLYPOINT_OLIVINE
-	setflag ENGINE_FLYPOINT_CIANWOOD
-	setflag ENGINE_FLYPOINT_MAHOGANY
-	setflag ENGINE_FLYPOINT_LAKE_OF_RAGE
-	setflag ENGINE_FLYPOINT_BLACKTHORN
-	setflag ENGINE_FLYPOINT_SILVER_CAVE
-	setflag ENGINE_FLYPOINT_INDIGO_PLATEAU
-	setflag ENGINE_FLYPOINT_PALLET
-	setflag ENGINE_FLYPOINT_VIRIDIAN
-	setflag ENGINE_FLYPOINT_PEWTER
-	setflag ENGINE_FLYPOINT_CERULEAN
-	setflag ENGINE_FLYPOINT_VERMILION
-	setflag ENGINE_FLYPOINT_CELADON
-	setflag ENGINE_FLYPOINT_ROCK_TUNNEL
-	setflag ENGINE_FLYPOINT_LAVENDER
-	setflag ENGINE_FLYPOINT_FUCHSIA
-	setflag ENGINE_FLYPOINT_SAFFRON
-	setflag ENGINE_FLYPOINT_CINNABAR
-	; magnet train works
-	setevent EVENT_RESTORED_POWER_TO_KANTO
-	giveitem PASS
-	; useful items
-	giveitem MAX_REPEL, 99
-	giveitem MAX_REVIVE, 99
-	giveitem FULL_RESTORE, 99
-	giveitem MAX_ELIXER, 99
-	giveitem RARE_CANDY, 99
-	giveitem ESCAPE_ROPE, 99
-	; all balls
-	giveitem POKE_BALL, 99
-	giveitem GREAT_BALL, 99
-	giveitem ULTRA_BALL, 99
-	giveitem MASTER_BALL, 99
-	giveitem LOVE_BALL, 99
-	giveitem LURE_BALL, 99
-	giveitem FAST_BALL, 99
-	giveitem FRIEND_BALL, 99
-	giveitem LEVEL_BALL, 99
-	giveitem MOON_BALL, 99
-	giveitem HEAVY_BALL, 99
+	buttonsound
+	givepoke CYNDAQUIL, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -327,13 +201,13 @@ TotodilePokeBallScript:
 	disappear ELMSLAB_POKE_BALL2
 	setevent EVENT_GOT_TOTODILE_FROM_ELM
 	writetext ChoseStarterText
-	promptbutton
+	buttonsound
 	waitsfx
 	getmonname STRING_BUFFER_3, TOTODILE
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	promptbutton
+	buttonsound
 	givepoke TOTODILE, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
@@ -355,89 +229,15 @@ ChikoritaPokeBallScript:
 	disappear ELMSLAB_POKE_BALL3
 	setevent EVENT_GOT_CHIKORITA_FROM_ELM
 	writetext ChoseStarterText
-	promptbutton
+	buttonsound
 	waitsfx
 	getmonname STRING_BUFFER_3, CHIKORITA
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	promptbutton
-	; max money
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 1000000
-	givemoney $0, 999999
-	giveitem COIN_CASE
-	givecoins 50000
-	; good party
-	givepoke HONCHKROW, 100
-	givepoke WEAVILE, 100
-	; tms for party
-	giveitem TM_ICE_BEAM
-	giveitem TM_FLAMETHROWER
-	giveitem TM_THUNDERBOLT
-	giveitem TM_SHADOW_BALL
-	giveitem TM_EARTHQUAKE
-	; all hms
-	giveitem HM_CUT
-	giveitem HM_FLY
-	giveitem HM_SURF
-	giveitem HM_STRENGTH
-	; full pokegear
-	setflag ENGINE_POKEGEAR
-	setflag ENGINE_PHONE_CARD
-	setflag ENGINE_MAP_CARD
-	setflag ENGINE_RADIO_CARD
-	setflag ENGINE_EXPN_CARD
-	; pokedex
-	setflag ENGINE_POKEDEX
-	; all badges
-	setflag ENGINE_ZEPHYRBADGE
-	setflag ENGINE_HIVEBADGE
-	setflag ENGINE_PLAINBADGE
-	setflag ENGINE_FOGBADGE
-	setevent EVENT_BEAT_FALKNER
-	setevent EVENT_BEAT_BUGSY
-	setevent EVENT_BEAT_WHITNEY
-	setevent EVENT_BEAT_MORTY
-	; fly anywhere
-	setflag ENGINE_FLYPOINT_NEW_BARK
-	setflag ENGINE_FLYPOINT_CHERRYGROVE
-	setflag ENGINE_FLYPOINT_VIOLET
-	setflag ENGINE_FLYPOINT_AZALEA
-	setflag ENGINE_FLYPOINT_GOLDENROD
-	setflag ENGINE_FLYPOINT_ECRUTEAK
-	; magnet train works
-	setevent EVENT_RESTORED_POWER_TO_KANTO
-	giveitem PASS
-	; useful items
-	giveitem MAX_REPEL, 99
-	giveitem MAX_REVIVE, 99
-	giveitem FULL_RESTORE, 99
-	giveitem MAX_ELIXER, 99
-	giveitem RARE_CANDY, 99
-	giveitem ESCAPE_ROPE, 99
-	; all balls
-	giveitem POKE_BALL, 99
-	giveitem GREAT_BALL, 99
-	giveitem ULTRA_BALL, 99
-	giveitem MASTER_BALL, 99
-	giveitem LOVE_BALL, 99
-	giveitem LURE_BALL, 99
-	giveitem FAST_BALL, 99
-	giveitem FRIEND_BALL, 99
-	giveitem LEVEL_BALL, 99
-	giveitem MOON_BALL, 99
-	giveitem HEAVY_BALL, 99
+	buttonsound
+	givepoke CHIKORITA, 5, BERRY
 	closetext
-	readvar VAR_FACING
-	ifequal RIGHT, ElmDirectionsScript
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
 
@@ -525,7 +325,7 @@ ElmAfterTheftScript:
 	writetext ElmAfterTheftText1
 	checkitem MYSTERY_EGG
 	iffalse ElmAfterTheftDoneScript
-	promptbutton
+	buttonsound
 	writetext ElmAfterTheftText2
 	waitbutton
 	takeitem MYSTERY_EGG
@@ -534,9 +334,9 @@ ElmAfterTheftScript:
 	waitbutton
 	scall ElmJumpBackScript2
 	writetext ElmAfterTheftText4
-	promptbutton
+	buttonsound
 	writetext ElmAfterTheftText5
-	promptbutton
+	buttonsound
 	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	setflag ENGINE_MAIN_MENU_MOBILE_CHOICES
 	setmapscene ROUTE_29, SCENE_ROUTE29_CATCH_TUTORIAL
@@ -574,12 +374,12 @@ ShowElmTogepiScript:
 	setevent EVENT_SHOWED_TOGEPI_TO_ELM
 	opentext
 	writetext ShowElmTogepiText2
-	promptbutton
+	buttonsound
 	writetext ShowElmTogepiText3
-	promptbutton
+	buttonsound
 ElmGiveEverstoneScript:
 	writetext ElmGiveEverstoneText1
-	promptbutton
+	buttonsound
 	verbosegiveitem EVERSTONE
 	iffalse ElmScript_NoRoomForEverstone
 	writetext ElmGiveEverstoneText2
@@ -597,7 +397,7 @@ ElmScript_NoRoomForEverstone:
 
 ElmGiveMasterBallScript:
 	writetext ElmGiveMasterBallText1
-	promptbutton
+	buttonsound
 	verbosegiveitem MASTER_BALL
 	iffalse .notdone
 	setevent EVENT_GOT_MASTER_BALL_FROM_ELM
@@ -609,7 +409,7 @@ ElmGiveMasterBallScript:
 
 ElmGiveTicketScript:
 	writetext ElmGiveTicketText1
-	promptbutton
+	buttonsound
 	verbosegiveitem S_S_TICKET
 	setevent EVENT_GOT_SS_TICKET_FROM_ELM
 	writetext ElmGiveTicketText2
@@ -672,7 +472,7 @@ AideScript_WalkPotion2:
 AideScript_GivePotion:
 	opentext
 	writetext AideText_GiveYouPotion
-	promptbutton
+	buttonsound
 	verbosegiveitem POTION
 	writetext AideText_AlwaysBusy
 	waitbutton
@@ -697,19 +497,19 @@ AideScript_WalkBalls2:
 AideScript_GiveYouBalls:
 	opentext
 	writetext AideText_GiveYouBalls
-	promptbutton
+	buttonsound
 	getitemname STRING_BUFFER_4, POKE_BALL
 	scall AideScript_ReceiveTheBalls
 	giveitem POKE_BALL, 5
 	writetext AideText_ExplainBalls
-	promptbutton
+	buttonsound
 	itemnotify
 	closetext
 	setscene SCENE_ELMSLAB_NOTHING
 	end
 
 AideScript_ReceiveTheBalls:
-	jumpstd ReceiveItemScript
+	jumpstd receiveitem
 	end
 
 ElmsAideScript:
@@ -753,7 +553,7 @@ CopScript:
 	turnobject ELMSLAB_OFFICER, LEFT
 	opentext
 	writetext ElmsLabOfficerText1
-	promptbutton
+	buttonsound
 	special NameRival
 	writetext ElmsLabOfficerText2
 	waitbutton
@@ -801,11 +601,12 @@ ElmsLabTrashcan:
 ElmsLabPC:
 	jumptext ElmsLabPCText
 
-ElmsLabTrashcan2: ; unreferenced
-	jumpstd TrashCanScript
+ElmsLabTrashcan2:
+; unused
+	jumpstd trashcan
 
 ElmsLabBookshelf:
-	jumpstd DifficultBookshelfScript
+	jumpstd difficultbookshelf
 
 ElmsLab_WalkUpToElmMovement:
 	step UP
@@ -1408,7 +1209,7 @@ ElmGiveTicketText2:
 	line "PROF.OAK in KANTO!"
 	done
 
-ElmsLabMonEggText: ; unreferenced
+ElmsLabSignpostText_Egg:
 	text "It's the #MON"
 	line "EGG being studied"
 	cont "by PROF.ELM."
@@ -1570,11 +1371,11 @@ ElmsLabPCText:
 ElmsLab_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 2 ; warp events
 	warp_event  4, 11, NEW_BARK_TOWN, 1
 	warp_event  5, 11, NEW_BARK_TOWN, 1
 
-	def_coord_events
+	db 8 ; coord events
 	coord_event  4,  6, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
 	coord_event  5,  6, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
 	coord_event  4,  5, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript
@@ -1584,7 +1385,7 @@ ElmsLab_MapEvents:
 	coord_event  4,  8, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls1
 	coord_event  5,  8, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls2
 
-	def_bg_events
+	db 16 ; bg events
 	bg_event  2,  1, BGEVENT_READ, ElmsLabHealingMachine
 	bg_event  6,  1, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  7,  1, BGEVENT_READ, ElmsLabBookshelf
@@ -1602,8 +1403,8 @@ ElmsLab_MapEvents:
 	bg_event  5,  0, BGEVENT_READ, ElmsLabWindow
 	bg_event  3,  5, BGEVENT_DOWN, ElmsLabPC
 
-	def_object_events
-	object_event  5,  2, SPRITE_ELM, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, ProfElmScript, -1
+	db 6 ; object events
+	object_event  5,  2, SPRITE_ELM, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ProfElmScript, -1
 	object_event  2,  9, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ElmsAideScript, EVENT_ELMS_AIDE_IN_LAB
 	object_event  6,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CyndaquilPokeBallScript, EVENT_CYNDAQUIL_POKEBALL_IN_ELMS_LAB
 	object_event  7,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TotodilePokeBallScript, EVENT_TOTODILE_POKEBALL_IN_ELMS_LAB

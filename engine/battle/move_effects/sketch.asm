@@ -34,7 +34,7 @@ BattleCommand_Sketch:
 .get_last_move
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
 	call GetBattleVar
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexBuffer], a
 	ld b, a
 ; Fail if move is invalid or is Struggle.
 	and a

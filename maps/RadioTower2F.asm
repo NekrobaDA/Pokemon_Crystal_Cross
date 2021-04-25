@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const RADIOTOWER2F_SUPER_NERD
 	const RADIOTOWER2F_TEACHER
 	const RADIOTOWER2F_ROCKET1
@@ -12,11 +12,12 @@
 	const RADIOTOWER2F_RECEPTIONIST
 
 RadioTower2F_MapScripts:
-	def_scene_scripts
+	db 0 ; scene scripts
 
-	def_callbacks
+	db 0 ; callbacks
 
-RadioTower2FUnusedDummyScene: ; unreferenced
+RadioTower2FUnusedDummyScene:
+; unused
 	end
 
 RadioTower2FSuperNerdScript:
@@ -106,7 +107,7 @@ Buena:
 	checkflag ENGINE_BUENAS_PASSWORD_2
 	iftrue .PlayedAlready
 	readvar VAR_HOUR
-	ifless EVE_HOUR, .TooEarly
+	ifless 18, .TooEarly
 	checkflag ENGINE_BUENAS_PASSWORD
 	iffalse .TuneIn
 	checkitem BLUE_CARD
@@ -160,7 +161,7 @@ Buena:
 
 .Introduction:
 	writetext RadioTower2FBuenaShowIntroductionText
-	promptbutton
+	buttonsound
 	setevent EVENT_MET_BUENA
 	verbosegiveitem BLUE_CARD
 .TuneIn:
@@ -284,7 +285,7 @@ Buena:
 	writetext RadioTower2FRegisteredBuenasNumberText
 	playsound SFX_REGISTER_PHONE_NUMBER
 	waitsfx
-	promptbutton
+	buttonsound
 	writetext RadioTower2FBuenaCallMeText
 	waitbutton
 	closetext
@@ -313,14 +314,14 @@ RadioTowerBuenaPrizeReceptionist:
 	checkitem BLUE_CARD
 	iffalse .NoCard
 	writetext RadioTower2FBuenaReceptionistPointsForPrizesText
-	promptbutton
+	buttonsound
 	special BuenaPrize
 	closetext
 	end
 
 .NoCard:
 	writetext RadioTower2FBuenaReceptionistNoCardText
-	promptbutton
+	buttonsound
 	closetext
 	end
 
@@ -334,7 +335,7 @@ RadioTower2FPokemonRadioSign:
 	jumptext RadioTower2FPokemonRadioSignText
 
 RadioTower2FBookshelf:
-	jumpstd MagazineBookshelfScript
+	jumpstd magazinebookshelf
 
 RadioTower2FPlayerWalksToMicrophoneMovement:
 	slow_step DOWN
@@ -711,13 +712,13 @@ RadioTower2FPokemonRadioSignText:
 RadioTower2F_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 2 ; warp events
 	warp_event  0,  0, RADIO_TOWER_3F, 1
 	warp_event 15,  0, RADIO_TOWER_1F, 3
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 6 ; bg events
 	bg_event  3,  0, BGEVENT_READ, RadioTower2FSalesSign
 	bg_event  5,  0, BGEVENT_READ, RadioTower2FOaksPKMNTalkSign
 	bg_event  9,  1, BGEVENT_READ, RadioTower2FBookshelf
@@ -725,15 +726,15 @@ RadioTower2F_MapEvents:
 	bg_event 11,  1, BGEVENT_READ, RadioTower2FBookshelf
 	bg_event 13,  0, BGEVENT_READ, RadioTower2FPokemonRadioSign
 
-	def_object_events
+	db 11 ; object events
 	object_event  6,  6, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RadioTower2FSuperNerdScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 17,  2, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RadioTower2FTeacherScript, -1
-	object_event  1,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntM4, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event  8,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntM5, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event  4,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerGruntM6, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  1,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM4, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  8,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM5, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  4,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerGruntM6, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 10,  5, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntF2, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  0,  1, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTower2FBlackBelt1Script, EVENT_RADIO_TOWER_BLACKBELT_BLOCKS_STAIRS
 	object_event  1,  1, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTower2FBlackBelt2Script, EVENT_RADIO_TOWER_CIVILIANS_AFTER
 	object_event 12,  1, SPRITE_JIGGLYPUFF, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTowerJigglypuff, -1
-	object_event 14,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Buena, -1
+	object_event 14,  5, SPRITE_BUENA, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Buena, -1
 	object_event 12,  7, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RadioTowerBuenaPrizeReceptionist, EVENT_GOLDENROD_CITY_CIVILIANS

@@ -1,13 +1,11 @@
 GOLDENRODGAMECORNER_TM25_COINS EQU 5500
 GOLDENRODGAMECORNER_TM14_COINS EQU 5500
 GOLDENRODGAMECORNER_TM38_COINS EQU 5500
-GOLDENRODGAMECORNER_CLEFAIRY_COINS EQU 500
-GOLDENRODGAMECORNER_BULBASAUR_COINS EQU 1000
-GOLDENRODGAMECORNER_CHARMANDER_COINS EQU 1000
-GOLDENRODGAMECORNER_SQUIRTLE_COINS EQU 1000
-GOLDENRODGAMECORNER_LARVITAR_COINS EQU 2000
+GOLDENRODGAMECORNER_ABRA_COINS      EQU 100
+GOLDENRODGAMECORNER_CUBONE_COINS    EQU 800
+GOLDENRODGAMECORNER_WOBBUFFET_COINS EQU 1500
 
-	object_const_def
+	object_const_def ; object_event constants
 	const GOLDENRODGAMECORNER_CLERK
 	const GOLDENRODGAMECORNER_RECEPTIONIST1
 	const GOLDENRODGAMECORNER_RECEPTIONIST2
@@ -22,9 +20,9 @@ GOLDENRODGAMECORNER_LARVITAR_COINS EQU 2000
 	const GOLDENRODGAMECORNER_MOVETUTOR
 
 GoldenrodGameCorner_MapScripts:
-	def_scene_scripts
+	db 0 ; scene scripts
 
-	def_callbacks
+	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .MoveTutor
 
 .MoveTutor:
@@ -37,14 +35,14 @@ GoldenrodGameCorner_MapScripts:
 	ifequal SATURDAY, .move_tutor_outside
 .move_tutor_inside
 	appear GOLDENRODGAMECORNER_MOVETUTOR
-	endcallback
+	return
 
 .move_tutor_outside
 	checkflag ENGINE_DAILY_MOVE_TUTOR
 	iftrue .finish
 	disappear GOLDENRODGAMECORNER_MOVETUTOR
 .finish
-	endcallback
+	return
 
 MoveTutorInsideScript:
 	faceplayer
@@ -56,7 +54,7 @@ MoveTutorInsideScript:
 	end
 
 GoldenrodGameCornerCoinVendorScript:
-	jumpstd GameCornerCoinVendorScript
+	jumpstd gamecornercoinvendor
 
 GoldenrodGameCornerTMVendorScript:
 	faceplayer
@@ -172,101 +170,63 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	loadmenu .MenuHeader
 	verticalmenu
 	closewindow
-	ifequal 1, .Clefairy
-	ifequal 2, .Bulbasaur
-	ifequal 3, .Charmander
-	ifequal 4, .Squirtle
-	ifequal 5, .Larvitar
+	ifequal 1, .Abra
+	ifequal 2, .Cubone
+	ifequal 3, .Wobbuffet
 	sjump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 
-.Clefairy:
-	checkcoins GOLDENRODGAMECORNER_CLEFAIRY_COINS
+.Abra:
+	checkcoins GOLDENRODGAMECORNER_ABRA_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	getmonname STRING_BUFFER_3, CLEFAIRY
+	getmonname STRING_BUFFER_3, ABRA
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	loadmonindex 1, CLEFAIRY
+	loadmonindex 1, ABRA
 	special GameCornerPrizeMonCheckDex
-	givepoke CLEFAIRY, 15
-	takecoins GOLDENRODGAMECORNER_CLEFAIRY_COINS
+	givepoke ABRA, 5
+	takecoins GOLDENRODGAMECORNER_ABRA_COINS
 	sjump .loop
 
-.Bulbasaur:
-	checkcoins GOLDENRODGAMECORNER_BULBASAUR_COINS
+.Cubone:
+	checkcoins GOLDENRODGAMECORNER_CUBONE_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	getmonname STRING_BUFFER_3, BULBASAUR
+	getmonname STRING_BUFFER_3, CUBONE
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	loadmonindex 2, BULBASAUR
+	loadmonindex 2, CUBONE
 	special GameCornerPrizeMonCheckDex
-	givepoke BULBASAUR, 15
-	takecoins GOLDENRODGAMECORNER_BULBASAUR_COINS
+	givepoke CUBONE, 15
+	takecoins GOLDENRODGAMECORNER_CUBONE_COINS
 	sjump .loop
 
-.Charmander:
-	checkcoins GOLDENRODGAMECORNER_CHARMANDER_COINS
+.Wobbuffet:
+	checkcoins GOLDENRODGAMECORNER_WOBBUFFET_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	getmonname STRING_BUFFER_3, CHARMANDER
+	getmonname STRING_BUFFER_3, WOBBUFFET
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	loadmonindex 3, CHARMANDER
+	loadmonindex 3, WOBBUFFET
 	special GameCornerPrizeMonCheckDex
-	givepoke CHARMANDER, 15
-	takecoins GOLDENRODGAMECORNER_CHARMANDER_COINS
-	sjump .loop
-
-.Squirtle:
-	checkcoins GOLDENRODGAMECORNER_SQUIRTLE_COINS
-	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
-	readvar VAR_PARTYCOUNT
-	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	getmonname STRING_BUFFER_3, SQUIRTLE
-	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
-	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	waitsfx
-	playsound SFX_TRANSACTION
-	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
-	waitbutton
-	loadmonindex 4, SQUIRTLE
-	special GameCornerPrizeMonCheckDex
-	givepoke SQUIRTLE, 15
-	takecoins GOLDENRODGAMECORNER_SQUIRTLE_COINS
-	sjump .loop
-	
-.Larvitar:
-	checkcoins GOLDENRODGAMECORNER_LARVITAR_COINS
-	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
-	readvar VAR_PARTYCOUNT
-	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	getmonname STRING_BUFFER_3, LARVITAR
-	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
-	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	waitsfx
-	playsound SFX_TRANSACTION
-	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
-	waitbutton
-	loadmonindex 5, LARVITAR
-	special GameCornerPrizeMonCheckDex
-	givepoke LARVITAR, 15
-	takecoins GOLDENRODGAMECORNER_LARVITAR_COINS
+	givepoke WOBBUFFET, 15
+	takecoins GOLDENRODGAMECORNER_WOBBUFFET_COINS
 	sjump .loop
 
 .MenuHeader:
@@ -277,12 +237,10 @@ GoldenrodGameCornerPrizeMonVendorScript:
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 6 ; items
-	db "CLEFAIRY    500@"
-	db "BULBASAUR  1000@"
-	db "CHARMANDER 1000@"
-	db "SQUIRTLE   1000@"
-	db "LARVITAR   2000@"
+	db 4 ; items
+	db "ABRA        100@"
+	db "CUBONE      800@"
+	db "WOBBUFFET  1500@"
 	db "CANCEL@"
 
 GoldenrodGameCornerPharmacistScript:
@@ -406,29 +364,14 @@ GoldenrodGameCornerPrizeVendorNoCoinCaseText:
 	done
 
 GoldenrodGameCornerPharmacistText:
-if DEF(_CRYSTAL_AU)
-	text "This machine looks"
-	line "the same as the"
-	cont "others."
-	done
-else
 	text "I always play this"
 	line "slot machine. It"
 
 	para "pays out more than"
 	line "others, I think."
 	done
-endc
 
 GoldenrodGameCornerPokefanM1Text:
-if DEF(_CRYSTAL_AU)
-	text "These machines"
-	line "seem different"
-
-	para "from the ones at"
-	line "CELADON CITY!"
-	done
-else
 	text "I just love this"
 	line "new slot machine."
 
@@ -436,28 +379,16 @@ else
 	line "challenge than the"
 	cont "ones in CELADON."
 	done
-endc
 
 GoldenrodGameCornerCooltrainerMText:
-if DEF(_CRYSTAL_AU)
-	text "Nothing is certain"
-	line "in this area."
-	done
-else
 	text "Life is a gamble."
 	line "I'm going to flip"
 	cont "cards till I drop!"
 	done
-endc
 
 GoldenrodGameCornerPokefanFText:
 	text "Card flip…"
 
-if DEF(_CRYSTAL_AU)
-	para "Different from the"
-	line "other machines."
-	done
-else
 	para "I prefer it over"
 	line "the slots because"
 
@@ -467,7 +398,6 @@ else
 	para "But the payout is"
 	line "much lower."
 	done
-endc
 
 GoldenrodGameCornerCooltrainerFText:
 	text "I won't quit until"
@@ -486,12 +416,6 @@ GoldenrodGameCornerGentlemanText:
 	done
 
 GoldenrodGameCornerPokefanM2Text:
-if DEF(_CRYSTAL_AU)
-	text "COIN CASE? I threw"
-	line "it away in the"
-	cont "UNDERGROUND."
-	done
-else
 	text "I couldn't win at"
 	line "the slots, and I"
 
@@ -504,7 +428,6 @@ else
 	para "COIN CASE in the"
 	line "UNDERGROUND."
 	done
-endc
 
 MoveTutorInsideText:
 	text "Wahahah! The coins"
@@ -521,13 +444,13 @@ GoldenrodGameCornerLeftTheirDrinkText:
 GoldenrodGameCorner_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 2 ; warp events
 	warp_event  2, 13, GOLDENROD_CITY, 10
 	warp_event  3, 13, GOLDENROD_CITY, 10
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 31 ; bg events
 	bg_event  6,  6, BGEVENT_READ, GoldenrodGameCornerSlotsMachineScript
 	bg_event  6,  7, BGEVENT_READ, GoldenrodGameCornerSlotsMachineScript
 	bg_event  6,  8, BGEVENT_READ, GoldenrodGameCornerSlotsMachineScript
@@ -560,16 +483,16 @@ GoldenrodGameCorner_MapEvents:
 	bg_event 18, 11, BGEVENT_RIGHT, GoldenrodGameCornerCardFlipMachineScript
 	bg_event 12,  1, BGEVENT_LEFT, GoldenrodGameCornerLeftTheirDrinkScript
 
-	def_object_events
+	db 12 ; object events
 	object_event  3,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerCoinVendorScript, -1
 	object_event 16,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerTMVendorScript, -1
 	object_event 18,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPrizeMonVendorScript, -1
 	object_event  8,  7, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, DAY, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPharmacistScript, -1
 	object_event  8,  7, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, NITE, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPharmacistScript, -1
-	object_event 11, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM1Script, -1
+	object_event 11, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM1Script, -1
 	object_event 14,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerCooltrainerMScript, -1
 	object_event 17,  6, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanFScript, -1
 	object_event 10,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 2, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerCooltrainerFScript, -1
 	object_event  5, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerGentlemanScript, -1
-	object_event  2,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM2Script, -1
+	object_event  2,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM2Script, -1
 	object_event 17, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorInsideScript, EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR

@@ -25,16 +25,16 @@ PokemonTableGarbageCollection:
 	___conversion_bitmap_check_structs wRoamMon1, wRoamMon2 - wRoamMon1, 3, .set_bit
 	___conversion_bitmap_check_structs wBugContestFirstPlaceMon, wBugContestSecondPlaceMon - wBugContestFirstPlaceMon, 3, .set_bit
 	___conversion_bitmap_check_values .set_bit, wBufferMonSpecies, wTempMonSpecies, wContestMonSpecies, \
-	                                            wBattleMonSpecies, wEnemyMonSpecies, wOddEggSpecies, wBaseDexNo
+	                                            wBattleMonSpecies, wEnemyMonSpecies, wOddEggSpecies, wBaseSpecies
 	pop af
 	ldh [rSVBK], a
 	ldh a, [hSRAMBank]
 	push af
 	ld a, BANK(sBox)
-	call OpenSRAM
+	call GetSRAMBank
 	___conversion_bitmap_check_structs sBoxMons, BOXMON_STRUCT_LENGTH, MONS_PER_BOX, .set_bit
 	pop af
-	call OpenSRAM ;will close SRAM if hSRAMBank was -1
+	call GetSRAMBank ;will close SRAM if hSRAMBank was -1
 	___conversion_bitmap_free_unused wPokemonIndexTable, MON_TABLE
 	pop de
 	ret

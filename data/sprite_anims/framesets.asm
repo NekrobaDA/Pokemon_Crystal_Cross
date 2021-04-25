@@ -11,8 +11,8 @@ SpriteAnimFrameData:
 	dw .Frameset_TextEntryCursor
 	dw .Frameset_TextEntryCursorBig
 	dw .Frameset_GameFreakLogo
-	dw .Frameset_GSGameFreakLogoStar
-	dw .Frameset_GSGameFreakLogoSparkle
+	dw .Frameset_GSIntroStar
+	dw .Frameset_GSIntroSparkle
 	dw .Frameset_SlotsGolem
 	dw .Frameset_SlotsChansey
 	dw .Frameset_SlotsChansey2
@@ -36,7 +36,7 @@ SpriteAnimFrameData:
 	dw .Frameset_EggHatch2
 	dw .Frameset_EggHatch3
 	dw .Frameset_EggHatch4
-	dw .Frameset_GSIntroHoOhLugia
+	dw .Frameset_GSIntroHoOh
 	dw .Frameset_HeadbuttTree
 	dw .Frameset_EZChatCursor1
 	dw .Frameset_EZChatCursor2
@@ -72,8 +72,8 @@ SpriteAnimFrameData:
 	endanim
 
 .Frameset_PartyMon:
-	frame SPRITE_ANIM_OAMSET_PARTY_MON_1,  8
-	frame SPRITE_ANIM_OAMSET_PARTY_MON_2,  8
+	frame SPRITE_ANIM_OAMSET_RED_WALK_1,  8
+	frame SPRITE_ANIM_OAMSET_RED_WALK_2,  8
 	dorestart
 
 .Frameset_PartyMonWithMail:
@@ -87,8 +87,8 @@ SpriteAnimFrameData:
 	dorestart
 
 .Frameset_PartyMonFast:
-	frame SPRITE_ANIM_OAMSET_PARTY_MON_1,  4
-	frame SPRITE_ANIM_OAMSET_PARTY_MON_2,  4
+	frame SPRITE_ANIM_OAMSET_RED_WALK_1,  4
+	frame SPRITE_ANIM_OAMSET_RED_WALK_2,  4
 	dorestart
 
 .Frameset_PartyMonWithMailFast:
@@ -155,16 +155,16 @@ SpriteAnimFrameData:
 	frame SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_11,  7
 	endanim
 
-.Frameset_GSGameFreakLogoStar:
-	frame SPRITE_ANIM_OAMSET_GS_GAMEFREAK_LOGO_STAR,  3
-	frame SPRITE_ANIM_OAMSET_GS_GAMEFREAK_LOGO_STAR,  3, OAM_Y_FLIP
+.Frameset_GSIntroStar:
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_STAR,  3
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_STAR,  3, OAM_Y_FLIP
 	dorestart
 
-.Frameset_GSGameFreakLogoSparkle:
-	frame SPRITE_ANIM_OAMSET_GS_GAMEFREAK_LOGO_SPARKLE_1,  2
-	frame SPRITE_ANIM_OAMSET_GS_GAMEFREAK_LOGO_SPARKLE_2,  2
-	frame SPRITE_ANIM_OAMSET_GS_GAMEFREAK_LOGO_SPARKLE_3,  2
-	frame SPRITE_ANIM_OAMSET_GS_GAMEFREAK_LOGO_SPARKLE_2,  2
+.Frameset_GSIntroSparkle:
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_SPARKLE_1,  2
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_SPARKLE_2,  2
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_SPARKLE_3,  2
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_SPARKLE_2,  2
 	dorestart
 
 .Frameset_SlotsGolem:
@@ -245,45 +245,45 @@ SpriteAnimFrameData:
 	frame SPRITE_ANIM_OAMSET_MAGNET_TRAIN_RED_2,  8, OAM_X_FLIP
 	dorestart
 
-.Frameset_Unknown1: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_43,  8
 	frame SPRITE_ANIM_OAMSET_UNUSED_44,  8
 	dorestart
 
-.Frameset_Unknown2: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_45,  8
 	frame SPRITE_ANIM_OAMSET_UNUSED_46,  8
 	dorestart
 
-.Frameset_Unknown3: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_47,  8
 	frame SPRITE_ANIM_OAMSET_UNUSED_48,  8
 	dorestart
 
-.Frameset_Unknown4: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_49,  1
 	frame SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_X_FLIP
 	frame SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_X_FLIP, OAM_Y_FLIP
 	frame SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_Y_FLIP
 	dorestart
 
-.Frameset_Unknown5: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_4A, 32
 	endanim
 
-.Frameset_Unknown6: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_4B, 32
 	endanim
 
-.Frameset_Unknown7: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_4C, 32
 	endanim
 
-.Frameset_Unknown8: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_4D, 32
 	endanim
 
-.Frameset_Unknown9: ; unreferenced
+; unused
 	frame SPRITE_ANIM_OAMSET_UNUSED_4E,  3
 	dowait 3
 	dorestart
@@ -325,13 +325,13 @@ SpriteAnimFrameData:
 	frame SPRITE_ANIM_OAMSET_EGG_HATCH, 32, OAM_X_FLIP, OAM_Y_FLIP
 	endanim
 
-.Frameset_GSIntroHoOhLugia:
-	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_LUGIA_1, 10
-	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_LUGIA_2,  9
-	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_LUGIA_3, 10
-	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_LUGIA_4, 10
-	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_LUGIA_3,  9
-	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_LUGIA_5, 10
+.Frameset_GSIntroHoOh:
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_1, 10
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_2,  9
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_3, 10
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_4, 10
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_3,  9
+	frame SPRITE_ANIM_OAMSET_GS_INTRO_HO_OH_5, 10
 	dorestart
 
 .Frameset_HeadbuttTree:

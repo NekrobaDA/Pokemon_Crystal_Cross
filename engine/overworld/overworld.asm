@@ -6,7 +6,7 @@ GetEmote2bpp:
 	ldh [rVBK], a
 	ret
 
-_UpdatePlayerSprite::
+_ReplaceKrisSprite::
 	call GetPlayerSprite
 	ld a, [wUsedSprites]
 	ldh [hUsedSpriteIndex], a
@@ -15,7 +15,7 @@ _UpdatePlayerSprite::
 	call GetUsedSprite
 	ret
 
-_RefreshSprites: ; mobile
+Function14146: ; mobile
 	ld hl, wSpriteFlags
 	ld a, [hl]
 	push af
@@ -26,7 +26,7 @@ _RefreshSprites: ; mobile
 	ld [wSpriteFlags], a
 	ret
 
-_ClearSprites: ; mobile
+Function14157: ; mobile
 	ld hl, wSpriteFlags
 	ld a, [hl]
 	push af
@@ -109,7 +109,7 @@ AddIndoorSprites:
 	push af
 	ld a, [hl]
 	call AddSpriteGFX
-	ld de, MAPOBJECT_LENGTH
+	ld de, OBJECT_LENGTH
 	add hl, de
 	pop af
 	inc a
@@ -128,21 +128,24 @@ AddOutdoorSprites:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	ld c, MAX_OUTDOOR_SPRITES
 .loop
+	push bc
 	ld a, [hli]
-	and a
-	ret z
 	call AddSpriteGFX
-	jr .loop
+	pop bc
+	dec c
+	jr nz, .loop
+	ret
 
 LoadUsedSpritesGFX:
 	ld a, MAPCALLBACK_SPRITES
 	call RunMapCallback
 	call GetUsedSprites
-	call LoadMiscTiles
+	call .LoadMiscTiles
 	ret
 
-LoadMiscTiles:
+.LoadMiscTiles:
 	ld a, [wSpriteFlags]
 	bit 6, a
 	ret nz
@@ -235,7 +238,7 @@ GetMonSprite:
 
 	farcall LoadOverworldMonIcon
 
-	ld l, WALKING_SPRITE
+	ld l, 1
 	ld h, 0
 	scf
 	ret
@@ -251,8 +254,8 @@ GetMonSprite:
 	jp nz, GetMonSprite
 
 .NoBreedmon:
-	ld a, WALKING_SPRITE
-	ld l, WALKING_SPRITE
+	ld a, 1
+	ld l, 1
 	ld h, 0
 	and a
 	ret
@@ -304,6 +307,7 @@ _GetSpritePalette::
 
 LoadAndSortSprites:
 	call LoadSpriteGFX
+	call SortUsedSprites
 	call ArrangeUsedSprites
 	ret
 
@@ -367,6 +371,76 @@ LoadSpriteGFX:
 	call GetSprite
 	pop bc
 	ld a, l
+	ret
+
+SortUsedSprites:
+; Bubble-sort sprites by type.
+
+; Run backwards through wUsedSprites to find the last one.
+
+	ld c, SPRITE_GFX_LIST_CAPACITY
+	ld de, wUsedSprites + (SPRITE_GFX_LIST_CAPACITY - 1) * 2
+.FindLastSprite:
+	ld a, [de]
+	and a
+	jr nz, .FoundLastSprite
+	dec de
+	dec de
+	dec c
+	jr nz, .FindLastSprite
+.FoundLastSprite:
+	dec c
+	jr z, .quit
+
+; If the length of the current sprite is
+; higher than a later one, swap them.
+
+	inc de
+	ld hl, wUsedSprites + 1
+
+.CheckSprite:
+	push bc
+	push de
+	push hl
+
+.CheckFollowing:
+	ld a, [de]
+	cp [hl]
+	jr nc, .loop
+
+; Swap the two sprites.
+
+	ld b, a
+	ld a, [hl]
+	ld [hl], b
+	ld [de], a
+	dec de
+	dec hl
+	ld a, [de]
+	ld b, a
+	ld a, [hl]
+	ld [hl], b
+	ld [de], a
+	inc de
+	inc hl
+
+; Keep doing this until everything's in order.
+
+.loop
+	dec de
+	dec de
+	dec c
+	jr nz, .CheckFollowing
+
+	pop hl
+	inc hl
+	inc hl
+	pop de
+	pop bc
+	dec c
+	jr nz, .CheckSprite
+
+.quit
 	ret
 
 ArrangeUsedSprites:

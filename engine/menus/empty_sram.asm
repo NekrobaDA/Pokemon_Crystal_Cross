@@ -10,7 +10,7 @@ EmptyAllSRAMBanks:
 	ret
 
 .EmptyBank:
-	call OpenSRAM
+	call GetSRAMBank
 	ld hl, SRAM_Begin
 	ld bc, SRAM_End - SRAM_Begin
 	xor a

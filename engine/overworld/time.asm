@@ -4,7 +4,7 @@ _InitializeStartDay:
 
 ClearDailyTimers:
 	xor a
-	ld [wLuckyNumberDayTimer], a
+	ld [wLuckyNumberDayBuffer], a
 	ld [wUnusedTwoDayTimer], a
 	ld [wDailyResetTimer], a
 	ret
@@ -25,20 +25,6 @@ NextCallReceiveDelay:
 	ld hl, .ReceiveCallDelays
 	add hl, de
 	ld a, [hl]
-if DEF(_DEBUG)
-	ld h, a
-	ld a, BANK(sDebugTimeCyclesSinceLastCall)
-	call OpenSRAM
-	ld a, [sDebugTimeCyclesSinceLastCall]
-	call CloseSRAM
-	dec a
-	cp 2
-	jr nc, .debug_ok
-	xor 1
-	ld h, a
-.debug_ok
-	ld a, h
-endc
 	jp RestartReceiveCallDelay
 
 .ReceiveCallDelays:
@@ -106,11 +92,10 @@ CheckDailyResetTimer::
 	ret nc
 	xor a
 	ld hl, wDailyFlags1
-	rept 4
-	ld [hli], a ; wDailyFlags1-4
-endr
-	ld hl, wSwarmFlags
-	ld [hli], a
+	ld [hli], a ; wDailyFlags1
+	ld [hli], a ; wDailyFlags2
+	ld [hli], a ; wSwarmFlags
+	ld [hl], a  ; wSwarmFlags + 1
 	ld hl, wDailyRematchFlags
 rept 4
 	ld [hli], a
@@ -204,7 +189,7 @@ CheckPokerusTick::
 	xor a
 	ret
 
-SetUnusedTwoDayTimer: ; unreferenced
+SetUnusedTwoDayTimer:
 	ld a, 2
 	ld hl, wUnusedTwoDayTimer
 	ld [hl], a
@@ -221,12 +206,12 @@ CheckUnusedTwoDayTimer:
 	call UpdateTimeRemaining
 	ret
 
-UnusedSetSwarmFlag: ; unreferenced
+; unused
 	ld hl, wDailyFlags1
 	set DAILYFLAGS1_FISH_SWARM_F, [hl]
 	ret
 
-UnusedCheckSwarmFlag: ; unreferenced
+; unused
 	and a
 	ld hl, wDailyFlags1
 	bit DAILYFLAGS1_FISH_SWARM_F, [hl]
@@ -236,7 +221,7 @@ UnusedCheckSwarmFlag: ; unreferenced
 
 RestartLuckyNumberCountdown:
 	call .GetDaysUntilNextFriday
-	ld hl, wLuckyNumberDayTimer
+	ld hl, wLuckyNumberDayBuffer
 	jp InitNDaysCountdown
 
 .GetDaysUntilNextFriday:
@@ -254,31 +239,31 @@ RestartLuckyNumberCountdown:
 	ret
 
 _CheckLuckyNumberShowFlag:
-	ld hl, wLuckyNumberDayTimer
+	ld hl, wLuckyNumberDayBuffer
 	jp CheckDayDependentEventHL
 
 DoMysteryGiftIfDayHasPassed:
 	ld a, BANK(sMysteryGiftTimer)
-	call OpenSRAM
+	call GetSRAMBank
 	ld hl, sMysteryGiftTimer
 	ld a, [hli]
-	ld [wTempMysteryGiftTimer], a
+	ld [wBuffer1], a
 	ld a, [hl]
-	ld [wTempMysteryGiftTimer + 1], a
+	ld [wBuffer2], a
 	call CloseSRAM
 
-	ld hl, wTempMysteryGiftTimer
+	ld hl, wBuffer1
 	call CheckDayDependentEventHL
 	jr nc, .not_timed_out
-	ld hl, wTempMysteryGiftTimer
+	ld hl, wBuffer1
 	call InitOneDayCountdown
 	call CloseSRAM
-	farcall ResetDailyMysteryGiftLimitIfUnlocked
+	farcall Function1050c8
 
 .not_timed_out
 	ld a, BANK(sMysteryGiftTimer)
-	call OpenSRAM
-	ld hl, wTempMysteryGiftTimer
+	call GetSRAMBank
+	ld hl, wBuffer1
 	ld a, [hli]
 	ld [sMysteryGiftTimer], a
 	ld a, [hl]
@@ -309,7 +294,7 @@ UpdateTimeRemaining:
 	scf
 	ret
 
-GetSecondsSinceIfLessThan60: ; unreferenced
+GetSecondsSinceIfLessThan60:
 	ld a, [wDaysSince]
 	and a
 	jr nz, GetTimeElapsed_ExceedsUnitLimit
@@ -331,7 +316,7 @@ GetMinutesSinceIfLessThan60:
 	ld a, [wMinutesSince]
 	ret
 
-GetHoursSinceIfLessThan24: ; unreferenced
+GetHoursSinceIfLessThan24:
 	ld a, [wDaysSince]
 	and a
 	jr nz, GetTimeElapsed_ExceedsUnitLimit
@@ -350,7 +335,7 @@ CalcDaysSince:
 	xor a
 	jr _CalcDaysSince
 
-CalcHoursDaysSince: ; unreferenced
+CalcHoursDaysSince:
 	inc hl
 	xor a
 	jr _CalcHoursDaysSince
@@ -424,7 +409,7 @@ CopyDayToHL:
 	ld [hl], a
 	ret
 
-CopyDayHourToHL: ; unreferenced
+CopyDayHourToHL:
 	ld a, [wCurDay]
 	ld [hli], a
 	ldh a, [hHours]

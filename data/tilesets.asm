@@ -1,6 +1,8 @@
 tileset: MACRO
-	dba \1GFX, \1Meta, \1Coll, \1Attr
+	dba \1GFX, \1Meta, \1Coll
 	dw \1Anim
+	dw NULL
+	dw \1PalMap
 ENDM
 
 ; Associated data:
@@ -32,7 +34,7 @@ Tilesets::
 	tileset TilesetLighthouse
 	tileset TilesetPlayersRoom
 	tileset TilesetPokeComCenter
-	tileset TilesetBattleTowerInside
+	tileset TilesetBattleTower
 	tileset TilesetTower
 	tileset TilesetCave
 	tileset TilesetPark
@@ -47,5 +49,3 @@ Tilesets::
 	tileset TilesetKabutoWordRoom
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
-	tileset TilesetKanjo
-	tileset TilesetIcePath2

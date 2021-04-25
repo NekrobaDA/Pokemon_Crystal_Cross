@@ -96,7 +96,7 @@ _SlotMachine:
 
 .InitGFX:
 	call ClearBGPalettes
-	call ClearTilemap
+	call ClearTileMap
 	call ClearSprites
 	ld de, MUSIC_NONE
 	call PlayMusic
@@ -144,7 +144,7 @@ _SlotMachine:
 	call ByteFill
 	call Slots_InitReelTiles
 	call Slots_GetPals
-	ld a, SPRITE_ANIM_DICT_SLOTS
+	ld a, $7
 	ld hl, wSpriteAnimDict
 	ld [hli], a
 	ld [hl], $40
@@ -159,7 +159,7 @@ _SlotMachine:
 	call Random
 	and %00101010
 	ret nz
-	ld a, TRUE
+	ld a, 1
 	ld [wKeepSevenBiasChance], a ; 12.5% chance
 	ret
 
@@ -185,7 +185,7 @@ SlotsLoop:
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForFirst16Sprites
 	call .PrintCoinsAndPayout
-	call .Stubbed_AlternateMatchingSevensPalette
+	call .Stubbed_Function927d3
 	call DelayFrame
 	and a
 	ret
@@ -194,7 +194,7 @@ SlotsLoop:
 	scf
 	ret
 
-.Stubbed_AlternateMatchingSevensPalette:
+.Stubbed_Function927d3:
 ; dummied out
 	ret
 	ld a, [wReel1ReelAction]
@@ -215,7 +215,7 @@ SlotsLoop:
 	and $7
 	ret nz
 	ldh a, [rBGP]
-	xor %00001100 ; alternates two palettes
+	xor %00001100
 	call DmgToCgbBGPals
 	ret
 
@@ -230,7 +230,8 @@ SlotsLoop:
 	call PrintNum
 	ret
 
-DebugPrintSlotBias: ; unreferenced
+Unreferenced_Function92811:
+; debug function?
 	ld a, [wSlotBias]
 	add 0
 	daa
@@ -247,9 +248,9 @@ DebugPrintSlotBias: ; unreferenced
 	ld [hl], a
 	ret
 
-AnimateSlotReelIcons: ; unreferenced
-; This animation was present in pokegold-spaceworld.
-	ld hl, wUnusedSlotReelIconDelay
+Unreferenced_Function9282c:
+; animate OAM tiles?
+	ld hl, wcf66
 	ld a, [hl]
 	inc [hl]
 	and $7
@@ -258,9 +259,9 @@ AnimateSlotReelIcons: ; unreferenced
 	ld c, NUM_SPRITE_OAM_STRUCTS - 16
 .loop
 	ld a, [hl]
-	xor $20 ; alternate between $00-$1f and $20-$3f
+	xor %00100000
 	ld [hli], a ; tile id
-rept SPRITEOAMSTRUCT_LENGTH - 1
+rept SPRITEOAMSTRUCT_LENGTH + -1
 	inc hl
 endr
 	dec c
@@ -551,7 +552,7 @@ Slots_GetCurrentReelState:
 	dec a
 	and $f
 	ld e, a
-	ld d, 0
+	ld d, $0
 	ld hl, REEL_TILEMAP_ADDR
 	add hl, bc
 	ld a, [hli]
@@ -585,7 +586,7 @@ Slots_StopReel2:
 	call .CheckReel1ForASeven
 	jr nz, .dont_jump
 	call Random
-	cp 31 percent + 1
+	cp $50 ; 32%
 	jr nc, .dont_jump
 	ld a, REEL_ACTION_SET_UP_REEL2_SKIP_TO_7
 	ret
@@ -631,20 +632,20 @@ Slots_StopReel3:
 	and a
 	jr nz, .biased
 	call Random
-	cp 71 percent - 1
+	cp 180
 	jr nc, .stop
-	cp 47 percent + 1
+	cp 120
 	jr nc, .slow_advance
-	cp 24 percent - 1
+	cp 60
 	jr nc, .golem
 	ld a, REEL_ACTION_INIT_CHANSEY
 	ret
 
 .biased
 	call Random
-	cp 63 percent
+	cp 160
 	jr nc, .stop
-	cp 31 percent + 1
+	cp 80
 	jr nc, .slow_advance
 .golem
 	ld a, REEL_ACTION_INIT_GOLEM
@@ -844,28 +845,21 @@ Slots_UpdateReelPositionAndOAM:
 	jr nz, .loop
 	ret
 
-GetUnknownSlotReelData: ; unreferenced
-; Used to get OAM attribute values for slot reels?
-; (final Slots_UpdateReelPositionAndOAM above reuses tile IDs as OAM palettes)
+Unreferenced_Function92bbe:
 	push hl
 	srl a
 	srl a
-	add LOW(.data)
+	add LOW(.Unknown_92bce)
 	ld l, a
 	ld a, 0
-	adc HIGH(.data)
+	adc HIGH(.Unknown_92bce)
 	ld h, a
 	ld a, [hl]
 	pop hl
 	ret
 
-.data:
-	db 0 ; SLOTS_SEVEN
-	db 1 ; SLOTS_POKEBALL
-	db 2 ; SLOTS_CHERRY
-	db 3 ; SLOTS_PIKACHU
-	db 4 ; SLOTS_SQUIRTLE
-	db 5 ; SLOTS_STARYU
+.Unknown_92bce:
+	db 0, 1, 2, 3, 4, 5
 
 ReelActionJumptable:
 	ld hl, REEL_ACTION
@@ -1096,11 +1090,11 @@ ReelAction_WaitReel2SkipTo7:
 	add hl, bc
 	ld a, [hl]
 	and a
-	jr z, .ready
+	jr z, .asm_92d02
 	dec [hl]
 	ret
 
-.ready
+.asm_92d02
 	ld a, SFX_THROW_BALL
 	call Slots_PlaySFX
 	ld hl, REEL_ACTION
@@ -1145,8 +1139,8 @@ ReelAction_InitGolem:
 	push af
 	depixel 12, 13
 	ld a, SPRITE_ANIM_INDEX_SLOTS_GOLEM
-	call InitSpriteAnimStruct
-	ld hl, SPRITEANIMSTRUCT_VAR3
+	call _InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_0E
 	add hl, bc
 	pop af
 	ld [hl], a
@@ -1206,7 +1200,7 @@ ReelAction_InitChansey:
 	push bc
 	depixel 12, 0
 	ld a, SPRITE_ANIM_INDEX_SLOTS_CHANSEY
-	call InitSpriteAnimStruct
+	call _InitSpriteAnimStruct
 	pop bc
 	xor a
 	ld [wSlotsDelay], a
@@ -1614,7 +1608,7 @@ Slots_GetNumberOfGolems:
 .not_biased_to_seven
 	call Random
 	and $7
-	cp $8 / 2 ; 50%
+	cp $4 ; ((50 percent) & 7) + 1
 	jr c, .not_biased_to_seven
 	ld e, a
 .loop2
@@ -1655,22 +1649,22 @@ Slots_InitBias:
 	ret
 
 .Normal:
-	db   1 percent - 1, SLOTS_SEVEN
-	db   1 percent + 1, SLOTS_POKEBALL
-	db   4 percent,     SLOTS_STARYU
-	db   8 percent,     SLOTS_SQUIRTLE
-	db  16 percent,     SLOTS_PIKACHU
-	db  19 percent,     SLOTS_CHERRY
-	db 100 percent,     SLOTS_NO_BIAS
+	db $01, SLOTS_SEVEN    ; 1/256
+	db $03, SLOTS_POKEBALL ; 1/128
+	db $0a, SLOTS_STARYU   ; 7/256
+	db $14, SLOTS_SQUIRTLE ; 5/128
+	db $28, SLOTS_PIKACHU  ; 5/64
+	db $30, SLOTS_CHERRY   ; 1/32
+	db $ff, SLOTS_NO_BIAS   ; everything else
 
 .Lucky:
-	db   1 percent,     SLOTS_SEVEN
-	db   1 percent + 1, SLOTS_POKEBALL
-	db   3 percent + 1, SLOTS_STARYU
-	db   6 percent + 1, SLOTS_SQUIRTLE
-	db  12 percent,     SLOTS_PIKACHU
-	db  31 percent + 1, SLOTS_CHERRY
-	db 100 percent,     SLOTS_NO_BIAS
+	db $02, SLOTS_SEVEN    ;  1/128
+	db $03, SLOTS_POKEBALL ;  1/256
+	db $08, SLOTS_STARYU   ;  5/256
+	db $10, SLOTS_SQUIRTLE ;  1/32
+	db $1e, SLOTS_PIKACHU  ;  7/128
+	db $50, SLOTS_CHERRY   ; 25/128
+	db $ff, SLOTS_NO_BIAS   ; everything else
 
 Slots_IlluminateBetLights:
 	ld b, $14 ; turned on
@@ -1713,7 +1707,7 @@ Slots_TurnLightsOnOrOff:
 
 Slots_AskBet:
 .loop
-	ld hl, .SlotsBetHowManyCoinsText
+	ld hl, .Text_BetHowManyCoins
 	call PrintText
 	ld hl, .MenuHeader
 	call LoadMenuHeader
@@ -1733,7 +1727,7 @@ Slots_AskBet:
 	ld a, [hl]
 	cp c
 	jr nc, .Start
-	ld hl, .SlotsNotEnoughCoinsText
+	ld hl, .Text_NotEnoughCoins
 	call PrintText
 	jr .loop
 
@@ -1748,21 +1742,24 @@ Slots_AskBet:
 	call WaitSFX
 	ld de, SFX_PAY_DAY
 	call PlaySFX
-	ld hl, .SlotsStartText
+	ld hl, .Text_Start
 	call PrintText
 	and a
 	ret
 
-.SlotsBetHowManyCoinsText:
-	text_far _SlotsBetHowManyCoinsText
+.Text_BetHowManyCoins:
+	; Bet how many coins?
+	text_far UnknownText_0x1c5049
 	text_end
 
-.SlotsStartText:
-	text_far _SlotsStartText
+.Text_Start:
+	; Start!
+	text_far UnknownText_0x1c505e
 	text_end
 
-.SlotsNotEnoughCoinsText:
-	text_far _SlotsNotEnoughCoinsText
+.Text_NotEnoughCoins:
+	; Not enough coins.
+	text_far UnknownText_0x1c5066
 	text_end
 
 .MenuHeader:
@@ -1783,14 +1780,14 @@ Slots_AskPlayAgain:
 	ld a, [hli]
 	or [hl]
 	jr nz, .you_have_coins
-	ld hl, .SlotsRanOutOfCoinsText
+	ld hl, .Text_OutOfCoins
 	call PrintText
 	ld c, 60
 	call DelayFrames
 	jr .exit_slots
 
 .you_have_coins
-	ld hl, .SlotsPlayAgainText
+	ld hl, .Text_PlayAgain
 	call PrintText
 	call LoadMenuTextbox
 	lb bc, 14, 12
@@ -1807,12 +1804,12 @@ Slots_AskPlayAgain:
 	scf
 	ret
 
-.SlotsRanOutOfCoinsText:
-	text_far _SlotsRanOutOfCoinsText
+.Text_OutOfCoins:
+	text_far UnknownText_0x1c5079
 	text_end
 
-.SlotsPlayAgainText:
-	text_far _SlotsPlayAgainText
+.Text_PlayAgain:
+	text_far UnknownText_0x1c5092
 	text_end
 
 Slots_GetPayout:
@@ -1852,7 +1849,7 @@ Slots_PayoutText:
 	ld a, [wSlotMatched]
 	cp SLOTS_NO_MATCH
 	jr nz, .MatchedSomething
-	ld hl, .SlotsDarnText
+	ld hl, .Text_Darn
 	call PrintText
 	farcall StubbedTrainerRankings_EndSlotsWinStreak
 	ret
@@ -1902,18 +1899,20 @@ Slots_PayoutText:
 	ldcoord_a 3, 14
 	hlcoord 18, 17
 	ld [hl], "▼"
-	ld hl, .SlotsLinedUpText
+	ld hl, .Text_LinedUpWonCoins
 rept 4
 	inc bc
 endr
 	ret
 
-.SlotsLinedUpText:
-	text_far _SlotsLinedUpText
+.Text_LinedUpWonCoins:
+	; lined up! Won @  coins!
+	text_far UnknownText_0x1c509f
 	text_end
 
-.SlotsDarnText:
-	text_far _SlotsDarnText
+.Text_Darn:
+	; Darn!
+	text_far UnknownText_0x1c50bb
 	text_end
 
 .LinedUpSevens:
@@ -1974,7 +1973,7 @@ Slots_AnimateGolem:
 	dw .roll
 
 .init
-	ld hl, SPRITEANIMSTRUCT_VAR3
+	ld hl, SPRITEANIMSTRUCT_0E
 	add hl, bc
 	ld a, [hl]
 	and a
@@ -1991,7 +1990,7 @@ Slots_AnimateGolem:
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
 	inc [hl]
-	ld hl, SPRITEANIMSTRUCT_VAR1
+	ld hl, SPRITEANIMSTRUCT_0C
 	add hl, bc
 	ld [hl], $30
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
@@ -1999,7 +1998,7 @@ Slots_AnimateGolem:
 	ld [hl], $0
 
 .fall
-	ld hl, SPRITEANIMSTRUCT_VAR1
+	ld hl, SPRITEANIMSTRUCT_0C
 	add hl, bc
 	ld a, [hl]
 	cp $20
@@ -2018,7 +2017,7 @@ Slots_AnimateGolem:
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
 	inc [hl]
-	ld hl, SPRITEANIMSTRUCT_VAR2
+	ld hl, SPRITEANIMSTRUCT_0D
 	add hl, bc
 	ld [hl], $2
 	ld a, 1
@@ -2037,7 +2036,7 @@ Slots_AnimateGolem:
 	jr nc, .restart
 	and $3
 	ret nz
-	ld hl, SPRITEANIMSTRUCT_VAR2
+	ld hl, SPRITEANIMSTRUCT_0D
 	add hl, bc
 	ld a, [hl]
 	xor $ff
@@ -2107,11 +2106,11 @@ Slots_AnimateChansey:
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
 	inc [hl]
-	ld hl, SPRITEANIMSTRUCT_VAR1
+	ld hl, SPRITEANIMSTRUCT_0C
 	add hl, bc
 	ld [hl], $8
 .two
-	ld hl, SPRITEANIMSTRUCT_VAR1
+	ld hl, SPRITEANIMSTRUCT_0C
 	add hl, bc
 	ld a, [hl]
 	and a
@@ -2126,7 +2125,7 @@ Slots_AnimateChansey:
 	push bc
 	depixel 12, 13, 0, 4
 	ld a, SPRITE_ANIM_INDEX_SLOTS_EGG
-	call InitSpriteAnimStruct
+	call _InitSpriteAnimStruct
 	pop bc
 	ret
 

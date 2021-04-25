@@ -3,15 +3,15 @@ LoadPoisonBGPals:
 	ldh a, [hCGB]
 	and a
 	ret nz
-	; code was probably dummied out here
-	ret
+	ret ; ????
 
 .LoadPals:
 	ldh a, [hCGB]
 	and a
 	jr nz, .cgb
-	ld a, [wTimeOfDayPalset]
-	cp DARKNESS_PALSET
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	cp DARKNESS_F
 	ld a, %00000000
 	jr z, .convert_pals
 	ld a, %10101010
@@ -39,7 +39,7 @@ LoadPoisonBGPals:
 	jr nz, .loop
 	pop af
 	ldh [rSVBK], a
-	ld a, TRUE
+	ld a, $1
 	ldh [hCGBPalUpdate], a
 	ld c, 4
 	call DelayFrames

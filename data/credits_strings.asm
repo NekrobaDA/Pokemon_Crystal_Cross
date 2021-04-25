@@ -1,4 +1,4 @@
-CreditsStringsPointers:
+CreditsStrings:
 ; entries correspond to constants/credits_constants.asm
 	dw .SatoshiTajiri
 	dw .JunichiMasuda

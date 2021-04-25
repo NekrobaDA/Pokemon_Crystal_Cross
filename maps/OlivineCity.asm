@@ -1,18 +1,15 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const OLIVINECITY_SAILOR1
 	const OLIVINECITY_STANDING_YOUNGSTER
 	const OLIVINECITY_SAILOR2
 	const OLIVINECITY_OLIVINE_RIVAL
-	const OLIVINE_CITY_FRUIT_TREE_1
-	const OLIVINE_CITY_FRUIT_TREE_2
-	const OLIVINE_CITY_FRUIT_TREE_3
 
 OlivineCity_MapScripts:
-	def_scene_scripts
+	db 2 ; scene scripts
 	scene_script .DummyScene0 ; SCENE_DEFAULT
 	scene_script .DummyScene1 ; SCENE_FINISHED
 
-	def_callbacks
+	db 1 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .DummyScene0:
@@ -23,7 +20,7 @@ OlivineCity_MapScripts:
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_OLIVINE
-	endcallback
+	return
 
 OlivineCityRivalSceneTop:
 	turnobject PLAYER, LEFT
@@ -33,39 +30,15 @@ OlivineCityRivalSceneTop:
 	playsound SFX_ENTER_DOOR
 	appear OLIVINECITY_OLIVINE_RIVAL
 	waitsfx
-	applymovement OLIVINECITY_OLIVINE_RIVAL, OlivineCityRivalApproachesTopMovement
+	applymovement OLIVINECITY_OLIVINE_RIVAL, MovementData_0x1a88d2
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
 	writetext OlivineCityRivalText
 	waitbutton
 	closetext
-	applymovement PLAYER, OlivineCityPlayerStepsAsideTopMovement
+	applymovement PLAYER, MovementData_0x1a88f4
 	turnobject PLAYER, RIGHT
-	applymovement OLIVINECITY_OLIVINE_RIVAL, OlivineCityRivalLeavesTopMovement
-	setscene SCENE_FINISHED
-	disappear OLIVINECITY_OLIVINE_RIVAL
-	special RestartMapMusic
-	variablesprite SPRITE_OLIVINE_RIVAL, SPRITE_SWIMMER_GUY
-	special LoadUsedSpritesGFX
-	end
-	
-OlivineCityRivalSceneMiddle:
-	turnobject PLAYER, LEFT
-	showemote EMOTE_SHOCK, PLAYER, 15
-	special FadeOutMusic
-	pause 15
-	playsound SFX_ENTER_DOOR
-	appear OLIVINECITY_OLIVINE_RIVAL
-	waitsfx
-	applymovement OLIVINECITY_OLIVINE_RIVAL, OlivineCityRivalApproachesMiddleMovement
-	playmusic MUSIC_RIVAL_ENCOUNTER
-	opentext
-	writetext OlivineCityRivalText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivineCityPlayerStepsAsideMiddleMovement
-	turnobject PLAYER, RIGHT
-	applymovement OLIVINECITY_OLIVINE_RIVAL, OlivineCityRivalLeavesMiddleMovement
+	applymovement OLIVINECITY_OLIVINE_RIVAL, MovementData_0x1a88db
 	setscene SCENE_FINISHED
 	disappear OLIVINECITY_OLIVINE_RIVAL
 	special RestartMapMusic
@@ -81,15 +54,15 @@ OlivineCityRivalSceneBottom:
 	playsound SFX_ENTER_DOOR
 	appear OLIVINECITY_OLIVINE_RIVAL
 	waitsfx
-	applymovement OLIVINECITY_OLIVINE_RIVAL, OlivineCityRivalApproachesBottomMovement
+	applymovement OLIVINECITY_OLIVINE_RIVAL, MovementData_0x1a88d6
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
 	writetext OlivineCityRivalText
 	waitbutton
 	closetext
-	applymovement PLAYER, OlivineCityPlayerStepsAsideBottomMovement
+	applymovement PLAYER, MovementData_0x1a88f7
 	turnobject PLAYER, RIGHT
-	applymovement OLIVINECITY_OLIVINE_RIVAL, OlivineCityRivalLeavesBottomMovement
+	applymovement OLIVINECITY_OLIVINE_RIVAL, MovementData_0x1a88e8
 	disappear OLIVINECITY_OLIVINE_RIVAL
 	setscene SCENE_FINISHED
 	special RestartMapMusic
@@ -135,48 +108,25 @@ OlivineCityBattleTowerSign:
 	jumptext OlivineCityBattleTowerSignText
 
 OlivineCityPokecenterSign:
-	jumpstd PokecenterSignScript
+	jumpstd pokecentersign
 
 OlivineCityMartSign:
-	jumpstd MartSignScript
+	jumpstd martsign
 
-OlivineCityRivalApproachesTopMovement:
-	step DOWN
-	step RIGHT
-	step RIGHT
-	step_end
-	
-OlivineCityRivalApproachesMiddleMovement:
-	step DOWN
+MovementData_0x1a88d2:
 	step DOWN
 	step RIGHT
 	step RIGHT
 	step_end
 
-OlivineCityRivalApproachesBottomMovement:
-	step DOWN
+MovementData_0x1a88d6:
 	step DOWN
 	step DOWN
 	step RIGHT
 	step RIGHT
 	step_end
 
-OlivineCityRivalLeavesTopMovement:
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step UP
-	step UP
-	step UP
-	step UP
-	step UP
-	step UP
-	step_end
-	
-OlivineCityRivalLeavesMiddleMovement:
+MovementData_0x1a88db:
 	step RIGHT
 	step RIGHT
 	step RIGHT
@@ -191,7 +141,7 @@ OlivineCityRivalLeavesMiddleMovement:
 	step UP
 	step_end
 
-OlivineCityRivalLeavesBottomMovement:
+MovementData_0x1a88e8:
 	step RIGHT
 	step RIGHT
 	step RIGHT
@@ -205,17 +155,12 @@ OlivineCityRivalLeavesBottomMovement:
 	step UP
 	step_end
 
-OlivineCityPlayerStepsAsideTopMovement:
-	step DOWN
-	turn_head UP
-	step_end
-	
-OlivineCityPlayerStepsAsideMiddleMovement:
+MovementData_0x1a88f4:
 	step DOWN
 	turn_head UP
 	step_end
 
-OlivineCityPlayerStepsAsideBottomMovement:
+MovementData_0x1a88f7:
 	step UP
 	turn_head DOWN
 	step_end
@@ -336,55 +281,42 @@ OlivineCityBattleTowerSignText:
 	line "Opening Now!"
 	done
 
-OlivineCityBattleTowerSignText_NotYetOpen: ; unreferenced
-; originally shown when the Battle Tower was closed
+OlivineCityBattleTowerSignText_NotYetOpen:
+; unused; originally shown when the Battle Tower was closed
 	text "BATTLE TOWER AHEAD"
 	done
-	
-OlivineCityFruitTree1:
-	fruittree FRUITTREE_OLIVINE_CITY_1
-	
-OlivineCityFruitTree2:
-	fruittree FRUITTREE_OLIVINE_CITY_2
-	
-OlivineCityFruitTree3:
-	fruittree FRUITTREE_OLIVINE_CITY_3
 
 OlivineCity_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 11 ; warp events
 	warp_event 13, 21, OLIVINE_POKECENTER_1F, 1
-	warp_event 10,  9, OLIVINE_GYM, 1
+	warp_event 10, 11, OLIVINE_GYM, 1
 	warp_event 25, 11, OLIVINE_TIMS_HOUSE, 1
 	warp_event  0,  0, OLIVINE_HOUSE_BETA, 1 ; inaccessible
-	warp_event 31, 11, OLIVINE_PUNISHMENT_SPEECH_HOUSE, 1
+	warp_event 29, 11, OLIVINE_PUNISHMENT_SPEECH_HOUSE, 1
 	warp_event 13, 15, OLIVINE_GOOD_ROD_HOUSE, 1
 	warp_event  7, 21, OLIVINE_CAFE, 1
-	warp_event 19, 15, OLIVINE_MART, 2
-	warp_event 28, 25, OLIVINE_LIGHTHOUSE_1F, 1
+	warp_event 19, 17, OLIVINE_MART, 2
+	warp_event 29, 27, OLIVINE_LIGHTHOUSE_1F, 1
 	warp_event 19, 27, OLIVINE_PORT_PASSAGE, 1
 	warp_event 20, 27, OLIVINE_PORT_PASSAGE, 2
 
-	def_coord_events
-	coord_event 13, 10, SCENE_DEFAULT, OlivineCityRivalSceneTop
-	coord_event 13, 11, SCENE_DEFAULT, OlivineCityRivalSceneMiddle
-	coord_event 13, 12, SCENE_DEFAULT, OlivineCityRivalSceneBottom
+	db 2 ; coord events
+	coord_event 13, 12, SCENE_DEFAULT, OlivineCityRivalSceneTop
+	coord_event 13, 13, SCENE_DEFAULT, OlivineCityRivalSceneBottom
 
-	def_bg_events
-	bg_event 19, 19, BGEVENT_READ, OlivineCitySign
-	bg_event 21, 25, BGEVENT_READ, OlivineCityPortSign
-	bg_event  8, 10, BGEVENT_READ, OlivineGymSign
-	bg_event 30, 26, BGEVENT_READ, OlivineLighthouseSign
-	bg_event  2, 22, BGEVENT_READ, OlivineCityBattleTowerSign
+	db 7 ; bg events
+	bg_event 17, 11, BGEVENT_READ, OlivineCitySign
+	bg_event 20, 24, BGEVENT_READ, OlivineCityPortSign
+	bg_event  7, 11, BGEVENT_READ, OlivineGymSign
+	bg_event 30, 28, BGEVENT_READ, OlivineLighthouseSign
+	bg_event  3, 23, BGEVENT_READ, OlivineCityBattleTowerSign
 	bg_event 14, 21, BGEVENT_READ, OlivineCityPokecenterSign
-	bg_event 20, 15, BGEVENT_READ, OlivineCityMartSign
+	bg_event 20, 17, BGEVENT_READ, OlivineCityMartSign
 
-	def_object_events
-	object_event 27, 28, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCitySailor1Script, -1
-	object_event 20, 11, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineCityStandingYoungsterScript, -1
+	db 4 ; object events
+	object_event 26, 27, SPRITE_SAILOR, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCitySailor1Script, -1
+	object_event 20, 13, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineCityStandingYoungsterScript, -1
 	object_event 17, 21, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCitySailor2Script, -1
-	object_event 10,  9, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_OLIVINE_CITY
-	object_event 31,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCityFruitTree1, -1
-	object_event 29,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCityFruitTree2, -1
-	object_event 27,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCityFruitTree3, -1
+	object_event 10, 11, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_OLIVINE_CITY

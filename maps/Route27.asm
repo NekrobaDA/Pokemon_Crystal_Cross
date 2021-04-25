@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const ROUTE27_COOLTRAINER_M1
 	const ROUTE27_COOLTRAINER_M2
 	const ROUTE27_COOLTRAINER_F1
@@ -10,11 +10,11 @@
 	const ROUTE27_FISHER
 
 Route27_MapScripts:
-	def_scene_scripts
+	db 2 ; scene scripts
 	scene_script .DummyScene0 ; SCENE_DEFAULT
 	scene_script .DummyScene1 ; SCENE_FINISHED
 
-	def_callbacks
+	db 0 ; callbacks
 
 .DummyScene0:
 	end
@@ -22,33 +22,21 @@ Route27_MapScripts:
 .DummyScene1:
 	end
 
-FirstStepIntoKantoTopLeftScene:
-	turnobject ROUTE27_FISHER, DOWN
-	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
-	applymovement ROUTE27_FISHER, Route27FisherStepDownTwoMovement
-	sjump FirstStepIntoKantoScene_Continue
-	
 FirstStepIntoKantoLeftScene:
-	turnobject ROUTE27_FISHER, DOWN
+	turnobject ROUTE27_FISHER, LEFT
 	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
-	applymovement ROUTE27_FISHER, Route27FisherStepDownThreeMovement
+	applymovement ROUTE27_FISHER, MovementData_0x1a0a66
 	sjump FirstStepIntoKantoScene_Continue
 
 FirstStepIntoKantoRightScene:
-	turnobject ROUTE27_FISHER, DOWN
-	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
-	applymovement ROUTE27_FISHER, Route27FisherStepDownFourMovement
-	sjump FirstStepIntoKantoScene_Continue
-	
-FirstStepIntoKantoBottomRightScene:
-	turnobject ROUTE27_FISHER, DOWN
-	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
-	applymovement ROUTE27_FISHER, Route27FisherStepDownFiveMovement
-FirstStepIntoKantoScene_Continue:
 	turnobject ROUTE27_FISHER, LEFT
+	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
+	applymovement ROUTE27_FISHER, MovementData_0x1a0a69
+FirstStepIntoKantoScene_Continue:
+	turnobject PLAYER, RIGHT
 	opentext
 	writetext Route27FisherHeyText
-	promptbutton
+	buttonsound
 	writetext Route27FisherText
 	waitbutton
 	closetext
@@ -76,7 +64,7 @@ TrainerBirdKeeperJose2:
 	loadvar VAR_CALLERID, PHONE_BIRDKEEPER_JOSE
 	endifjustbattled
 	opentext
-	checkflag ENGINE_JOSE_READY_FOR_REMATCH
+	checkflag ENGINE_JOSE
 	iftrue .WantsBattle
 	checkflag ENGINE_JOSE_HAS_STAR_PIECE
 	iftrue .HasStarPiece
@@ -85,7 +73,7 @@ TrainerBirdKeeperJose2:
 	checkevent EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext BirdKeeperJose2AfterBattleText
-	promptbutton
+	buttonsound
 	setevent EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
 	scall .AskNumber1
 	sjump .AskForNumber
@@ -118,7 +106,7 @@ TrainerBirdKeeperJose2:
 	startbattle
 	reloadmapafterbattle
 	loadmem wJoseFightCount, 1
-	clearflag ENGINE_JOSE_READY_FOR_REMATCH
+	clearflag ENGINE_JOSE
 	end
 
 .LoadFight1:
@@ -126,14 +114,14 @@ TrainerBirdKeeperJose2:
 	startbattle
 	reloadmapafterbattle
 	loadmem wJoseFightCount, 2
-	clearflag ENGINE_JOSE_READY_FOR_REMATCH
+	clearflag ENGINE_JOSE
 	end
 
 .LoadFight2:
 	loadtrainer BIRD_KEEPER, JOSE3
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_JOSE_READY_FOR_REMATCH
+	clearflag ENGINE_JOSE
 	end
 
 .HasStarPiece:
@@ -147,39 +135,39 @@ TrainerBirdKeeperJose2:
 	sjump .PackFull
 
 .AskNumber1:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 .AskNumber2:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 .RegisteredNumber:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 .NumberAccepted:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 .NumberDeclined:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 .PhoneFull:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 .Rematch:
-	jumpstd RematchMScript
+	jumpstd rematchm
 	end
 
 .Gift:
-	jumpstd GiftMScript
+	jumpstd giftm
 	end
 
 .PackFull:
-	jumpstd PackFullMScript
+	jumpstd packfullm
 	end
 
 TrainerCooltrainermBlake:
@@ -211,14 +199,14 @@ TrainerCooltrainerfReena:
 	loadvar VAR_CALLERID, PHONE_COOLTRAINERF_REENA
 	endifjustbattled
 	opentext
-	checkflag ENGINE_REENA_READY_FOR_REMATCH
+	checkflag ENGINE_REENA
 	iftrue .WantsBattle
 	checkcellnum PHONE_COOLTRAINERF_REENA
 	iftrue .NumberAccepted
 	checkevent EVENT_REENA_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext CooltrainerfReenaAfterBattleText
-	promptbutton
+	buttonsound
 	setevent EVENT_REENA_ASKED_FOR_PHONE_NUMBER
 	scall .AskNumber1
 	sjump .AskForNumber
@@ -251,7 +239,7 @@ TrainerCooltrainerfReena:
 	startbattle
 	reloadmapafterbattle
 	loadmem wReenaFightCount, 1
-	clearflag ENGINE_REENA_READY_FOR_REMATCH
+	clearflag ENGINE_REENA
 	end
 
 .LoadFight1:
@@ -259,42 +247,42 @@ TrainerCooltrainerfReena:
 	startbattle
 	reloadmapafterbattle
 	loadmem wReenaFightCount, 2
-	clearflag ENGINE_REENA_READY_FOR_REMATCH
+	clearflag ENGINE_REENA
 	end
 
 .LoadFight2:
 	loadtrainer COOLTRAINERF, REENA3
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_REENA_READY_FOR_REMATCH
+	clearflag ENGINE_REENA
 	end
 
 .AskNumber1:
-	jumpstd AskNumber1FScript
+	jumpstd asknumber1f
 	end
 
 .AskNumber2:
-	jumpstd AskNumber2FScript
+	jumpstd asknumber2f
 	end
 
 .RegisteredNumber:
-	jumpstd RegisteredNumberFScript
+	jumpstd registerednumberf
 	end
 
 .NumberAccepted:
-	jumpstd NumberAcceptedFScript
+	jumpstd numberacceptedf
 	end
 
 .NumberDeclined:
-	jumpstd NumberDeclinedFScript
+	jumpstd numberdeclinedf
 	end
 
 .PhoneFull:
-	jumpstd PhoneFullFScript
+	jumpstd phonefullf
 	end
 
 .Rematch:
-	jumpstd RematchFScript
+	jumpstd rematchf
 	end
 
 TrainerCooltrainerfMegan:
@@ -317,30 +305,13 @@ Route27TMSolarbeam:
 Route27RareCandy:
 	itemball RARE_CANDY
 
-Route27FisherStepDownTwoMovement:
-	step DOWN
-	step DOWN
+MovementData_0x1a0a66:
+	step LEFT
+	step LEFT
 	step_end
 
-Route27FisherStepDownThreeMovement:
-	step DOWN
-	step DOWN
-	step DOWN
-	step_end
-	
-Route27FisherStepDownFourMovement:
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step_end
-	
-Route27FisherStepDownFiveMovement:
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
+MovementData_0x1a0a69:
+	step LEFT
 	step_end
 
 Route27FisherHeyText:
@@ -497,27 +468,25 @@ TohjoFallsSignText:
 Route27_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
-	warp_event 19,  5, ROUTE_27_SANDSTORM_HOUSE, 1
-	warp_event 12,  3, TOHJO_FALLS, 1
-	warp_event  2,  1, TOHJO_FALLS, 2
+	db 3 ; warp events
+	warp_event 33,  7, ROUTE_27_SANDSTORM_HOUSE, 1
+	warp_event 26,  5, TOHJO_FALLS, 1
+	warp_event 36,  5, TOHJO_FALLS, 2
 
-	def_coord_events
-	coord_event 18, 10, SCENE_DEFAULT, FirstStepIntoKantoTopLeftScene
-	coord_event 18, 11, SCENE_DEFAULT, FirstStepIntoKantoLeftScene
-	coord_event 18, 12, SCENE_DEFAULT, FirstStepIntoKantoRightScene
-	coord_event 18, 13, SCENE_DEFAULT, FirstStepIntoKantoBottomRightScene
+	db 2 ; coord events
+	coord_event 18, 10, SCENE_DEFAULT, FirstStepIntoKantoLeftScene
+	coord_event 19, 10, SCENE_DEFAULT, FirstStepIntoKantoRightScene
 
-	def_bg_events
-	bg_event 17,  7, BGEVENT_READ, TohjoFallsSign
+	db 1 ; bg events
+	bg_event 25,  7, BGEVENT_READ, TohjoFallsSign
 
-	def_object_events
-	object_event 62, 13, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermBlake, -1
-	object_event 50,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainermBrian, -1
-	object_event 74, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerfReena, -1
-	object_event 29,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfMegan, -1
-	object_event 77,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicGilbert, -1
-	object_event 16, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperJose2, -1
-	object_event 24,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route27TMSolarbeam, EVENT_ROUTE_27_TM_SOLARBEAM
-	object_event 20, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route27RareCandy, EVENT_ROUTE_27_RARE_CANDY
-	object_event 19,  8, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 3, Route27FisherScript, -1
+	db 9 ; object events
+	object_event 48,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermBlake, -1
+	object_event 58,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainermBrian, -1
+	object_event 72, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerfReena, -1
+	object_event 37,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfMegan, -1
+	object_event 65,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicGilbert, -1
+	object_event 58, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperJose2, -1
+	object_event 60, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route27TMSolarbeam, EVENT_ROUTE_27_TM_SOLARBEAM
+	object_event 53, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route27RareCandy, EVENT_ROUTE_27_RARE_CANDY
+	object_event 21, 10, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 3, Route27FisherScript, -1

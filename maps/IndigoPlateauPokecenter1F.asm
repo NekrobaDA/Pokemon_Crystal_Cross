@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const INDIGOPLATEAUPOKECENTER1F_NURSE
 	const INDIGOPLATEAUPOKECENTER1F_CLERK
 	const INDIGOPLATEAUPOKECENTER1F_COOLTRAINER_M
@@ -7,10 +7,10 @@
 	const INDIGOPLATEAUPOKECENTER1F_ABRA
 
 IndigoPlateauPokecenter1F_MapScripts:
-	def_scene_scripts
+	db 1 ; scene scripts
 	scene_script .DummyScene ; SCENE_DEFAULT
 
-	def_callbacks
+	db 1 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .PrepareElite4
 
 .DummyScene:
@@ -39,7 +39,7 @@ IndigoPlateauPokecenter1F_MapScripts:
 	clearevent EVENT_BEAT_ELITE_4_KAREN
 	clearevent EVENT_BEAT_CHAMPION_LANCE
 	setevent EVENT_LANCES_ROOM_OAK_AND_MARY
-	endcallback
+	return
 
 PlateauRivalBattle1:
 	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
@@ -135,7 +135,7 @@ PlateauRivalScriptDone:
 	end
 
 IndigoPlateauPokecenter1FNurseScript:
-	jumpstd PokecenterNurseScript
+	jumpstd pokecenternurse
 
 IndigoPlateauPokecenter1FClerkScript:
 	opentext
@@ -303,22 +303,22 @@ AbraText:
 IndigoPlateauPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 4 ; warp events
 	warp_event  5, 13, ROUTE_23, 1
 	warp_event  6, 13, ROUTE_23, 2
 	warp_event  0, 13, POKECENTER_2F, 1
 	warp_event 14,  3, WILLS_ROOM, 1
 
-	def_coord_events
+	db 2 ; coord events
 	coord_event 16,  4, SCENE_DEFAULT, PlateauRivalBattle1
 	coord_event 17,  4, SCENE_DEFAULT, PlateauRivalBattle2
 
-	def_bg_events
+	db 0 ; bg events
 
-	def_object_events
+	db 6 ; object events
 	object_event  3,  7, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FNurseScript, -1
 	object_event 11,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FClerkScript, -1
 	object_event 11, 11, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FCooltrainerMScript, -1
 	object_event 16,  9, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
 	object_event  1,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TeleportGuyScript, EVENT_TELEPORT_GUY
-	object_event  0,  9, SPRITE_ABRA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, AbraScript, EVENT_TELEPORT_GUY
+	object_event  0,  9, SPRITE_JYNX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, AbraScript, EVENT_TELEPORT_GUY

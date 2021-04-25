@@ -155,11 +155,3 @@ SCENE_FINISHED EQU 1
 	const_def 1
 	const SCENE_FASTSHIP1F_ENTER_SHIP   ; 1
 	const SCENE_FASTSHIP1F_MEET_GRANDPA ; 2
-	
-; wTeamRocketBaseB3FSceneID
-	const_def
-	const SCENE_ROUTE24_NOTHING         ; 3
-	
-; wTeamRocketBaseB3FSceneID
-	const_def
-	const SCENE_CERULEANCITY_NOTHING         ; 3

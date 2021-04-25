@@ -115,7 +115,7 @@ Elevator_GoToFloor:
 
 Elevator_AskWhichFloor:
 	call LoadStandardMenuHeader
-	ld hl, AskFloorElevatorText
+	ld hl, Elevator_WhichFloorText
 	call PrintText
 	call Elevator_GetCurrentFloorText
 	ld hl, Elevator_MenuHeader
@@ -137,8 +137,9 @@ Elevator_AskWhichFloor:
 	scf
 	ret
 
-AskFloorElevatorText:
-	text_far _AskFloorElevatorText
+Elevator_WhichFloorText:
+	; Which floor?
+	text_far UnknownText_0x1bd2bc
 	text_end
 
 Elevator_GetCurrentFloorText:

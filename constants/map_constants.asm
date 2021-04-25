@@ -1,6 +1,6 @@
 newgroup: MACRO
-	const_skip
-__map_value__ = 1
+const_value = const_value + 1
+	enum_start 1
 ENDM
 
 map_const: MACRO
@@ -8,8 +8,7 @@ map_const: MACRO
 ;\2: width: in blocks
 ;\3: height: in blocks
 GROUP_\1 EQU const_value
-MAP_\1 EQU __map_value__
-__map_value__ = __map_value__ + 1
+	enum MAP_\1
 \1_WIDTH EQU \2
 \1_HEIGHT EQU \3
 ENDM
@@ -70,22 +69,13 @@ ENDM
 	map_const TIN_TOWER_9F,                                10,  9 ; 12
 	map_const BURNED_TOWER_1F,                             10,  9 ; 13
 	map_const BURNED_TOWER_B1F,                            10,  9 ; 14
-	
-	newgroup
-	
 	map_const NATIONAL_PARK,                               20, 27 ; 15
 	map_const NATIONAL_PARK_BUG_CONTEST,                   20, 27 ; 16
-	
-	newgroup
-	
 	map_const RADIO_TOWER_1F,                               9,  4 ; 17
 	map_const RADIO_TOWER_2F,                               9,  4 ; 18
 	map_const RADIO_TOWER_3F,                               9,  4 ; 19
 	map_const RADIO_TOWER_4F,                               9,  4 ; 20
 	map_const RADIO_TOWER_5F,                               9,  4 ; 21
-	
-	newgroup
-	
 	map_const RUINS_OF_ALPH_OUTSIDE,                       10, 18 ; 22
 	map_const RUINS_OF_ALPH_HO_OH_CHAMBER,                  4,  5 ; 23
 	map_const RUINS_OF_ALPH_KABUTO_CHAMBER,                 4,  5 ; 24
@@ -106,36 +96,21 @@ ENDM
 	map_const UNION_CAVE_B2F,                              10, 18 ; 39
 	map_const SLOWPOKE_WELL_B1F,                           10,  9 ; 40
 	map_const SLOWPOKE_WELL_B2F,                           10,  9 ; 41
-	
-	newgroup
-	
 	map_const OLIVINE_LIGHTHOUSE_1F,                       10,  9 ; 42
 	map_const OLIVINE_LIGHTHOUSE_2F,                       10,  9 ; 43
 	map_const OLIVINE_LIGHTHOUSE_3F,                       10,  9 ; 44
 	map_const OLIVINE_LIGHTHOUSE_4F,                       10,  9 ; 45
 	map_const OLIVINE_LIGHTHOUSE_5F,                       10,  9 ; 46
 	map_const OLIVINE_LIGHTHOUSE_6F,                       10,  9 ; 47
-	
-	newgroup
-	
 	map_const MAHOGANY_MART_1F,                             4,  4 ; 48
 	map_const TEAM_ROCKET_BASE_B1F,                        15,  9 ; 49
 	map_const TEAM_ROCKET_BASE_B2F,                        15,  9 ; 50
 	map_const TEAM_ROCKET_BASE_B3F,                        15,  9 ; 51
-	
-	newgroup
-	
 	map_const ILEX_FOREST,                                 15, 27 ; 52
-	
-	newgroup
-	
 	map_const GOLDENROD_UNDERGROUND,                       15, 18 ; 53
 	map_const GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, 15, 18 ; 54
 	map_const GOLDENROD_DEPT_STORE_B1F,                    10,  9 ; 55
 	map_const GOLDENROD_UNDERGROUND_WAREHOUSE,             10,  9 ; 56
-	
-	newgroup
-	
 	map_const MOUNT_MORTAR_1F_OUTSIDE,                     20, 18 ; 57
 	map_const MOUNT_MORTAR_1F_INSIDE,                      20, 27 ; 58
 	map_const MOUNT_MORTAR_2F_INSIDE,                      20, 18 ; 59
@@ -168,9 +143,6 @@ ENDM
 	map_const UNDERGROUND_PATH,                             3, 14 ; 86
 	map_const ROCK_TUNNEL_1F,                              15, 18 ; 87
 	map_const ROCK_TUNNEL_B1F,                             15, 18 ; 88
-	
-	newgroup
-	
 	map_const SAFARI_ZONE_FUCHSIA_GATE_BETA,                5,  4 ; 89
 	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
 	map_const VICTORY_ROAD,                                10, 36 ; 91
@@ -365,9 +337,6 @@ ENDM
 	map_const ROUTE_14,                                    10, 18 ;  2
 	map_const ROUTE_15,                                    20,  9 ;  3
 	map_const ROUTE_18,                                    10,  9 ;  4
-	
-	newgroup
-	
 	map_const FUCHSIA_CITY,                                20, 18 ;  5
 	map_const FUCHSIA_MART,                                 6,  4 ;  6
 	map_const SAFARI_ZONE_MAIN_OFFICE,                      4,  4 ;  7
@@ -513,7 +482,7 @@ ENDM
 
 	map_const ROUTE_30,                                    10, 27 ;  1
 	map_const ROUTE_31,                                    20,  9 ;  2
-	map_const CHERRYGROVE_CITY,                            20, 20 ;  3
+	map_const CHERRYGROVE_CITY,                            20,  9 ;  3
 	map_const CHERRYGROVE_MART,                             6,  4 ;  4
 	map_const CHERRYGROVE_POKECENTER_1F,                    5,  4 ;  5
 	map_const CHERRYGROVE_GYM_SPEECH_HOUSE,                 4,  4 ;  6
@@ -522,9 +491,3 @@ ENDM
 	map_const ROUTE_30_BERRY_HOUSE,                         4,  4 ;  9
 	map_const MR_POKEMONS_HOUSE,                            4,  4 ; 10
 	map_const ROUTE_31_VIOLET_GATE,                         5,  4 ; 11
-	
-	newgroup
-	
-	map_const MEWTWO_CAVE,									5,  7
-
-NUM_MAP_GROUPS EQU const_value ; 26

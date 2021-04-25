@@ -1,43 +1,26 @@
 LoadSpecialMapPalette:
-	call GetMapTimeOfDay
-	bit IN_DARKNESS_F, a
-	jr z, .not_dark
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_FLASH_F, a
-	jr z, .darkness
-
-.not_dark
 	ld a, [wMapTileset]
 	cp TILESET_POKECOM_CENTER
 	jr z, .pokecom_2f
-	cp TILESET_BATTLE_TOWER_INSIDE
-	jr z, .battle_tower_inside
+	cp TILESET_BATTLE_TOWER
+	jr z, .battle_tower
 	cp TILESET_ICE_PATH
 	jr z, .ice_path
-	cp TILESET_ICE_PATH_2
-	jr z, .ice_path_2
 	cp TILESET_HOUSE
 	jr z, .house
 	cp TILESET_RADIO_TOWER
 	jr z, .radio_tower
 	cp TILESET_MANSION
 	jr z, .mansion_mobile
-	cp TILESET_DARK_CAVE
-	jr z, .mount_mortar
 	jr .do_nothing
-
-.darkness
-	call LoadDarknessPalette
-	scf
-	ret
 
 .pokecom_2f
 	call LoadPokeComPalette
 	scf
 	ret
 
-.battle_tower_inside
-	call LoadBattleTowerInsidePalette
+.battle_tower
+	call LoadBattleTowerPalette
 	scf
 	ret
 
@@ -47,15 +30,6 @@ LoadSpecialMapPalette:
 	cp INDOOR ; Hall of Fame
 	jr z, .do_nothing
 	call LoadIcePathPalette
-	scf
-	ret
-	
-.ice_path_2
-	ld a, [wEnvironment]
-	and $7
-	cp INDOOR ; Hall of Fame
-	jr z, .do_nothing
-	call LoadIcePath2Palette
 	scf
 	ret
 
@@ -73,26 +47,10 @@ LoadSpecialMapPalette:
 	call LoadMansionPalette
 	scf
 	ret
-	
-.mount_mortar
-	call LoadMortarPalette
-	scf
-	ret
 
 .do_nothing
 	and a
 	ret
-
-LoadDarknessPalette:
-	ld a, BANK(wBGPals1)
-	ld de, wBGPals1
-	ld hl, DarknessPalette
-	ld bc, 8 palettes
-	call FarCopyWRAM
-	ret
-
-DarknessPalette:
-INCLUDE "gfx/tilesets/darkness.pal"
 
 LoadPokeComPalette:
 	ld a, BANK(wBGPals1)
@@ -105,16 +63,16 @@ LoadPokeComPalette:
 PokeComPalette:
 INCLUDE "gfx/tilesets/pokecom_center.pal"
 
-LoadBattleTowerInsidePalette:
+LoadBattleTowerPalette:
 	ld a, BANK(wBGPals1)
 	ld de, wBGPals1
-	ld hl, BattleTowerInsidePalette
+	ld hl, BattleTowerPalette
 	ld bc, 8 palettes
 	call FarCopyWRAM
 	ret
 
-BattleTowerInsidePalette:
-INCLUDE "gfx/tilesets/battle_tower_inside.pal"
+BattleTowerPalette:
+INCLUDE "gfx/tilesets/battle_tower.pal"
 
 LoadIcePathPalette:
 	ld a, BANK(wBGPals1)
@@ -123,31 +81,9 @@ LoadIcePathPalette:
 	ld bc, 8 palettes
 	call FarCopyWRAM
 	ret
-	
+
 IcePathPalette:
-INCLUDE "gfx/tilesets/ice_path.pal"	
-	
-LoadIcePath2Palette:
-	ld a, BANK(wBGPals1)
-	ld de, wBGPals1
-	ld hl, IcePath2Palette
-	ld bc, 8 palettes
-	call FarCopyWRAM
-	ret
-
-IcePath2Palette:
-INCLUDE "gfx/tilesets/ice_path_2.pal"
-
-LoadMortarPalette:
-	ld a, BANK(wBGPals1)
-	ld de, wBGPals1
-	ld hl, MortarPalette
-	ld bc, 8 palettes
-	call FarCopyWRAM
-	ret
-
-MortarPalette:
-INCLUDE "gfx/tilesets/mount_mortar.pal"
+INCLUDE "gfx/tilesets/ice_path.pal"
 
 LoadHousePalette:
 	ld a, BANK(wBGPals1)
@@ -199,34 +135,3 @@ LoadMansionPalette:
 
 MansionPalette2:
 INCLUDE "gfx/tilesets/mansion_2.pal"
-
-LoadSpecialNPCPalette:
-	call GetMapTimeOfDay
-	bit IN_DARKNESS_F, a
-	jr z, .not_dark
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_FLASH_F, a
-	jr z, .darkness
-
-.not_dark
-	jr .do_nothing
-
-.darkness
-	call LoadNPCDarknessPalette
-	scf
-	ret
-
-.do_nothing
-	and a
-	ret
-
-LoadNPCDarknessPalette:
-	ld a, BANK(wOBPals1)
-	ld de, wOBPals1
-	ld hl, NPCDarknessPalette
-	ld bc, 8 palettes
-	call FarCopyWRAM
-	ret
-
-NPCDarknessPalette:
-INCLUDE "gfx/overworld/npc_sprites_darkness.pal"

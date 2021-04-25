@@ -120,7 +120,7 @@ DoPlayerMovement::
 	ld c, a
 	call CheckWhirlpoolTile
 	jr c, .not_whirlpool
-	ld a, PLAYERMOVEMENT_FORCE_TURN
+	ld a, 3
 	scf
 	ret
 
@@ -222,7 +222,7 @@ DoPlayerMovement::
 .continue_walk
 	ld a, STEP_WALK
 	call .DoStep
-	ld a, PLAYERMOVEMENT_CONTINUE
+	ld a, 5
 	scf
 	ret
 
@@ -247,7 +247,7 @@ DoPlayerMovement::
 
 	ld a, STEP_TURN
 	call .DoStep
-	ld a, PLAYERMOVEMENT_TURN
+	ld a, 2
 	scf
 	ret
 
@@ -311,7 +311,7 @@ DoPlayerMovement::
 	scf
 	ret
 
-.unused ; unreferenced
+; unused
 	xor a
 	ret
 
@@ -345,7 +345,7 @@ DoPlayerMovement::
 	call PlayMapMusic
 	ld a, STEP_WALK
 	call .DoStep
-	ld a, PLAYERMOVEMENT_EXIT_WATER
+	ld a, 6
 	scf
 	ret
 
@@ -364,43 +364,17 @@ DoPlayerMovement::
 	and 7
 	ld e, a
 	ld d, 0
-	ld hl, .ledge_table
+	ld hl, .data_8021e
 	add hl, de
 	ld a, [wFacingDirection]
 	and [hl]
 	jr z, .DontJump
 
-; d = x coordinate of tile across the ledge
-	ld a, [wPlayerStandingMapX]
-	ld d, a
-	ld a, [wWalkingX]
-	add a
-	add d
-	ld d, a
-; e = y coordinate of tile across the ledge
-	ld a, [wPlayerStandingMapY]
-	ld e, a
-	ld a, [wWalkingY]
-	add a
-	add e
-	ld e, a
-; make sure the tile across the ledge is walkable
-	push de
-	call GetCoordTile
-	call .CheckWalkable
-	pop de
-	jr c, .DontJump
-; make sure there's no NPC across the ledge
-	xor a
-	ldh [hMapObjectIndex], a
-	farcall IsNPCAtCoord
-	jr c, .DontJump
-
 	ld de, SFX_JUMP_OVER_LEDGE
 	call PlaySFX
 	ld a, STEP_LEDGE
 	call .DoStep
-	ld a, PLAYERMOVEMENT_JUMP
+	ld a, 7
 	scf
 	ret
 
@@ -408,7 +382,7 @@ DoPlayerMovement::
 	xor a
 	ret
 
-.ledge_table
+.data_8021e
 	db FACE_RIGHT             ; COLL_HOP_RIGHT
 	db FACE_LEFT              ; COLL_HOP_LEFT
 	db FACE_UP                ; COLL_HOP_UP
@@ -454,11 +428,11 @@ DoPlayerMovement::
 
 	call .StandInPlace
 	scf
-	ld a, PLAYERMOVEMENT_WARP
+	ld a, 1
 	ret
 
 .not_warp
-	xor a ; PLAYERMOVEMENT_NORMAL
+	xor a
 	ret
 
 .EdgeWarps:
@@ -491,7 +465,7 @@ DoPlayerMovement::
 	ld a, [hl]
 	ld [wPlayerTurningDirection], a
 
-	ld a, PLAYERMOVEMENT_FINISH
+	ld a, 4
 	ret
 
 .Steps:
@@ -603,14 +577,11 @@ DoPlayerMovement::
 ; Standing
 	jr .update
 
-.d_down
-	add hl, de
-.d_up
-	add hl, de
-.d_left
-	add hl, de
-.d_right
-	add hl, de
+.d_down 	add hl, de
+.d_up   	add hl, de
+.d_left 	add hl, de
+.d_right	add hl, de
+
 .update
 	ld a, [hli]
 	ld [wWalkingDirection], a
@@ -647,7 +618,7 @@ ENDM
 ; Returns 1 if there is no NPC in front
 ; Returns 2 if there is a movable NPC in front
 	ld a, 0
-	ldh [hMapObjectIndex], a
+	ldh [hMapObjectIndexBuffer], a
 ; Load the next X coordinate into d
 	ld a, [wPlayerStandingMapX]
 	ld d, a
@@ -767,7 +738,7 @@ ENDM
 ; Return 0 if tile a is land. Otherwise, return carry.
 
 	call GetTileCollision
-	and a ; LAND_TILE
+	and a ; LANDTILE?
 	ret z
 	scf
 	ret
@@ -777,11 +748,11 @@ ENDM
 ; Otherwise, return carry.
 
 	call GetTileCollision
-	cp WATER_TILE
+	cp WATERTILE
 	jr z, .Water
 
 ; Can walk back onto land from water.
-	and a ; LAND_TILE
+	and a ; LANDTILE?
 	jr z, .Land
 
 	jr .Neither
@@ -810,7 +781,7 @@ ENDM
 	push bc
 	ld a, PLAYER_NORMAL
 	ld [wPlayerState], a
-	call UpdatePlayerSprite ; UpdateSprites
+	call ReplaceKrisSprite ; UpdateSprites
 	pop bc
 	ret
 

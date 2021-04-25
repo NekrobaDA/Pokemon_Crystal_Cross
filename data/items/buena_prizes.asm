@@ -1,5 +1,5 @@
 BuenaPrizeItems:
-; there are NUM_BUENA_PRIZES entries
+; there are NUM_BUENA_PRIZES items (see engine/events/buena.asm)
 	db ULTRA_BALL,   2
 	db FULL_RESTORE, 2
 	db NUGGET,       3
@@ -9,3 +9,4 @@ BuenaPrizeItems:
 	db CARBOS,       5
 	db CALCIUM,      5
 	db HP_UP,        5
+.End

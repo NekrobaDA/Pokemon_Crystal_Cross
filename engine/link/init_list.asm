@@ -1,5 +1,4 @@
 InitList:
-; This entire function is useless.
 	ld a, [wInitListType]
 
 	cp INIT_ENEMYOT_LIST
@@ -33,14 +32,14 @@ InitList:
 	ld hl, wCurMart
 	ld a, ITEM_NAME
 .done
-	ld [wNamedObjectType], a
+	ld [wNamedObjectTypeBuffer], a
 	ld a, l
 	ld [wListPointer], a
 	ld a, h
 	ld [wListPointer + 1], a
 	ld bc, ItemAttributes
 	ld a, c
-	ld [wItemAttributesPointer], a
+	ld [wItemAttributesPtr], a
 	ld a, b
-	ld [wItemAttributesPointer + 1], a
+	ld [wItemAttributesPtr + 1], a
 	ret

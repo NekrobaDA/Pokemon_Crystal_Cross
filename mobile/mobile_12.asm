@@ -45,8 +45,8 @@ InitMobileProfile:
 	ld [wMusicFadeID + 1], a
 	ld c, 20
 	call DelayFrames
-	ld b, CRYSTAL_CGB_MOBILE_1
-	call GetCrystalCGBLayout
+	ld b, $1
+	call GetMysteryGift_MobileAdapterLayout
 	call ClearBGPalettes
 	hlcoord 0, 0
 	ld b,  2
@@ -144,7 +144,7 @@ asm_4815f:
 	call ClearBGPalettes
 	call Function48d30
 	pop bc
-	call ClearTilemap
+	call ClearTileMap
 	ld a, $ff
 	ret
 
@@ -254,7 +254,7 @@ Function4820d:
 	call ClearBGPalettes
 	call Function48d30
 	pop bc
-	call ClearTilemap
+	call ClearTileMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	ld hl, wd479
@@ -295,7 +295,7 @@ asm_4828d:
 	call WaitBGMap
 	ld a, [wPlayerGender]
 	inc a
-	ld [wMenuCursorPosition], a
+	ld [wMenuCursorBuffer], a
 	call StaticMenuJoypad
 	call PlayClickSFX
 	call ExitMenu
@@ -339,7 +339,7 @@ Function48304:
 	ld b, $c
 	ld c, $8
 	call Function48cdc
-	ld a, [wMenuCursorPosition]
+	ld a, [wMenuCursorBuffer]
 	ld b, a
 	ld a, [wMenuScrollPosition]
 	ld c, a
@@ -350,11 +350,11 @@ Function48304:
 	jr c, .asm_4833f
 	sub $29
 	inc a
-	ld [wMenuCursorPosition], a
+	ld [wMenuCursorBuffer], a
 	ld a, $29
 .asm_4833f
 	ld [wMenuScrollPosition], a
-	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
+	farcall Mobile_OpenAndCloseMenu_HDMATransferTileMapAndAttrMap
 .asm_48348
 	call ScrollingMenu
 	ld de, $629
@@ -363,7 +363,7 @@ Function48304:
 	ld d, a
 	pop bc
 	ld a, b
-	ld [wMenuCursorPosition], a
+	ld [wMenuCursorBuffer], a
 	ld a, c
 	ld [wMenuScrollPosition], a
 	ld a, d
@@ -380,7 +380,7 @@ Function48304:
 	ld [wd003], a
 .asm_48377
 	call Function48187
-	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
+	farcall Mobile_OpenAndCloseMenu_HDMATransferTileMapAndAttrMap
 	jp Function4840c
 
 Function48383:
@@ -412,7 +412,7 @@ Function48383:
 .asm_483af
 	ld hl, wMenuCursorY
 	ld a, [hl]
-	ld [wMenuCursorPosition], a
+	ld [wMenuCursorBuffer], a
 	scf
 .asm_483b7
 	pop bc
@@ -652,8 +652,8 @@ Wakayama:  db "わかやまけん@" ; Wakayama
 Function48689:
 	ld c, 7
 	call DelayFrames
-	ld b, CRYSTAL_CGB_MOBILE_1
-	call GetCrystalCGBLayout
+	ld b, $1
+	call GetMysteryGift_MobileAdapterLayout
 	call ClearBGPalettes
 	hlcoord 0, 0
 	ld b, 4
@@ -1006,10 +1006,10 @@ Function488b9:
 	ret
 
 MobileUpArrowGFX:
-INCBIN "gfx/mobile/up_arrow.1bpp"
+INCBIN "gfx/mobile/up_arrow.2bpp"
 
 MobileDownArrowGFX:
-INCBIN "gfx/mobile/down_arrow.1bpp"
+INCBIN "gfx/mobile/down_arrow.2bpp"
 
 Function488d3:
 	call Function48283
@@ -1080,7 +1080,7 @@ asm_48922:
 	call DelayFrames
 	jr asm_48972
 
-Function4895a: ; unreferenced
+Function4895a:
 	ldh a, [hJoyPressed]
 	and a
 	jr z, .asm_48965
@@ -1598,7 +1598,7 @@ Function48c63:
 	scf
 	ret
 
-Function48c8e: ; unreferenced
+Unreferenced_Function48c8e:
 	ld hl, wd019 + $11
 	ld d, h
 	ld e, l
@@ -1608,7 +1608,7 @@ Function48c8e: ; unreferenced
 	call WaitBGMap
 	ret
 
-Function48ca3: ; unreferenced
+Function48ca3:
 	push af
 	push bc
 	push de
@@ -1662,7 +1662,7 @@ Function48cdc:
 	call Function48cfd
 	pop hl
 	pop bc
-	ld de, wAttrmap - wTilemap
+	ld de, wAttrMap - wTileMap
 	add hl, de
 	inc b
 	inc b

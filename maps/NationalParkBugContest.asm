@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const NATIONALPARKBUGCONTEST_YOUNGSTER1
 	const NATIONALPARKBUGCONTEST_YOUNGSTER2
 	const NATIONALPARKBUGCONTEST_ROCKER
@@ -13,9 +13,9 @@
 	const NATIONALPARKBUGCONTEST_POKE_BALL2
 
 NationalParkBugContest_MapScripts:
-	def_scene_scripts
+	db 0 ; scene scripts
 
-	def_callbacks
+	db 0 ; callbacks
 
 BugCatchingContestant1AScript:
 	faceplayer
@@ -221,25 +221,25 @@ NationalParkBugContestTrainerTipsText:
 NationalParkBugContest_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 4 ; warp events
 	warp_event 33, 18, ROUTE_36_NATIONAL_PARK_GATE, 1
 	warp_event 33, 19, ROUTE_36_NATIONAL_PARK_GATE, 1
 	warp_event 10, 47, ROUTE_35_NATIONAL_PARK_GATE, 1
 	warp_event 11, 47, ROUTE_35_NATIONAL_PARK_GATE, 1
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 4 ; bg events
 	bg_event 14, 44, BGEVENT_READ, NationalParkBugContestRelaxationSquareSign
 	bg_event 27, 31, BGEVENT_READ, NationalParkBugContestBattleNoticeSign
 	bg_event  6, 47, BGEVENT_ITEM, NationalParkBugContestHiddenFullHeal
 	bg_event 12,  4, BGEVENT_READ, NationalParkBugContestTrainerTipsSign
 
-	def_object_events
+	db 12 ; object events
 	object_event 19, 29, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant1AScript, EVENT_BUG_CATCHING_CONTESTANT_1A
 	object_event 28, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant2AScript, EVENT_BUG_CATCHING_CONTESTANT_2A
 	object_event  9, 18, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant3AScript, EVENT_BUG_CATCHING_CONTESTANT_3A
-	object_event  7, 13, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant4AScript, EVENT_BUG_CATCHING_CONTESTANT_4A
+	object_event  7, 13, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant4AScript, EVENT_BUG_CATCHING_CONTESTANT_4A
 	object_event 23,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant5AScript, EVENT_BUG_CATCHING_CONTESTANT_5A
 	object_event 27, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 3, 3, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant6AScript, EVENT_BUG_CATCHING_CONTESTANT_6A
 	object_event  7, 23, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant7AScript, EVENT_BUG_CATCHING_CONTESTANT_7A

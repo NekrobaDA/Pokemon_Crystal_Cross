@@ -14,7 +14,7 @@ BattleCommand_CheckCurl:
 	bit SUBSTATUS_ROLLOUT, a
 	jr z, .reset
 
-	ld b, doturn_command
+	ld b, $4 ; doturn
 	jp SkipToBattleCommand
 
 .reset

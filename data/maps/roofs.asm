@@ -13,15 +13,6 @@ MapGroupRoofs:
 	db ROOF_OLIVINE   ;  1 (Olivine)
 	db ROOF_AZALEA    ;  2 (Mahogany)
 	db -1             ;  3
-	db -1             ;  3
-	db -1             ;  3
-	db -1             ;  3
-	db -1             ;  3
-	db -1             ;  3
-	db -1             ;  3
-	db -1             ;  3
-	db -1             ;  3
-	db -1             ;  3
 	db ROOF_VIOLET    ;  4 (Ecruteak)
 	db ROOF_AZALEA    ;  5 (Blackthorn)
 	db -1             ;  6
@@ -36,7 +27,6 @@ MapGroupRoofs:
 	db -1             ; 15
 	db -1             ; 16
 	db -1             ; 17
-	db -1             ;  3
 	db -1             ; 18
 	db ROOF_NEW_BARK  ; 19 (Silver Cave)
 	db -1             ; 20
@@ -46,7 +36,6 @@ MapGroupRoofs:
 	db ROOF_NEW_BARK  ; 24 (New Bark)
 	db -1             ; 25
 	db ROOF_NEW_BARK  ; 26 (Cherrygrove)
-	db -1
 
 Roofs:
 ; entries correspond to ROOF_* constants

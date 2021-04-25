@@ -34,6 +34,7 @@ Marts:
 	dw MartMtMoon
 	dw MartIndigoPlateau
 	dw MartUnderground
+.End
 
 MartCherrygrove:
 	db 4 ; # items
@@ -112,18 +113,14 @@ MartGoldenrod2F2:
 	db -1 ; end
 
 MartGoldenrod3F:
-	db 11 ; # items
-	db FIRE_STONE
-	db THUNDERSTONE
-	db WATER_STONE
-	db LEAF_STONE
-	db ICE_STONE
-	db MOON_STONE
-	db SUN_STONE
-	db METAL_COAT
-	db KINGS_ROCK
-	db DRAGON_SCALE
-	db UP_GRADE
+	db 7 ; # items
+	db X_SPEED
+	db X_SPECIAL
+	db X_DEFEND
+	db X_ATTACK
+	db DIRE_HIT
+	db GUARD_SPEC
+	db X_ACCURACY
 	db -1 ; end
 
 MartGoldenrod4F:
@@ -140,7 +137,6 @@ MartGoldenrod5F1:
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
-	db TM_RAZOR_WIND
 	db -1 ; end
 
 MartGoldenrod5F2:
@@ -148,7 +144,6 @@ MartGoldenrod5F2:
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
-	db TM_RAZOR_WIND
 	db TM_HEADBUTT
 	db -1 ; end
 
@@ -157,7 +152,6 @@ MartGoldenrod5F3:
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
-	db TM_RAZOR_WIND
 	db TM_ROCK_SMASH
 	db -1 ; end
 
@@ -166,7 +160,6 @@ MartGoldenrod5F4:
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
-	db TM_RAZOR_WIND
 	db TM_HEADBUTT
 	db TM_ROCK_SMASH
 	db -1 ; end
@@ -294,85 +287,7 @@ MartVermilion:
 	db -1 ; end
 
 MartCeladon2F1:
-	db 17 ; # items
-	db TM_DYNAMICPUNCH ; bf
-	db TM_HEADBUTT     ; c0
-	db TM_CURSE        ; c1
-	db TM_ROLLOUT      ; c2
-	db TM_ROAR         ; c4
-	db TM_TOXIC        ; c5
-	db TM_ZAP_CANNON   ; c6
-	db TM_ROCK_SMASH   ; c7
-	db TM_PSYCH_UP     ; c8
-	db TM_HIDDEN_POWER ; c9
-	db TM_SUNNY_DAY    ; ca
-	db TM_SWEET_SCENT  ; cb
-	db TM_ICE_BEAM     ; cc
-	db TM_BLIZZARD     ; cd
-	db TM_HYPER_BEAM   ; ce
-	db TM_ICY_WIND     ; cf
-	db TM_PROTECT      ; d0
-	db -1 ; end
-
-MartCeladon2F2:
-	db 17 ; # items
-	db TM_RAIN_DANCE   ; d1
-	db TM_GIGA_DRAIN   ; d2
-	db TM_THUNDERBOLT  ; d3
-	db TM_FRUSTRATION  ; d4
-	db TM_SOLARBEAM    ; d5
-	db TM_IRON_TAIL    ; d6
-	db TM_DRAGONBREATH ; d7
-	db TM_THUNDER      ; d8
-	db TM_EARTHQUAKE   ; d9
-	db TM_RETURN       ; da
-	db TM_DIG          ; db
-	db TM_PSYCHIC_M    ; dd
-	db TM_SHADOW_BALL  ; de
-	db TM_MUD_SLAP     ; df
-	db TM_DOUBLE_TEAM  ; e0
-	db TM_ICE_PUNCH    ; e1
-	db TM_SWAGGER      ; e2
-	db -1 ; end
-
-MartCeladon3F:
-	db 16 ; # items
-	db TM_SLEEP_TALK   ; e3
-	db TM_SLUDGE_BOMB  ; e4
-	db TM_SANDSTORM    ; e5
-	db TM_FIRE_BLAST   ; e6
-	db TM_RAZOR_WIND   ; e7
-	db TM_FLAMETHROWER ; e8
-	db TM_THUNDERPUNCH ; e9
-	db TM_DREAM_EATER  ; ea
-	db TM_ROCK_SLIDE   ; eb
-	db TM_REST         ; ec
-	db TM_ATTRACT      ; ed
-	db TM_THIEF        ; ee
-	db TM_STEEL_WING   ; ef
-	db TM_FIRE_PUNCH   ; f0
-	db TM_FURY_CUTTER  ; f1
-	db TM_NIGHTMARE
-	db -1 ; end
-
-MartCeladon4F:
-	db 12 ; # items
-	db HP_UP
-	db PROTEIN
-	db IRON
-	db CARBOS
-	db CALCIUM
-	db X_ACCURACY
-	db GUARD_SPEC
-	db DIRE_HIT
-	db X_ATTACK
-	db X_DEFEND
-	db X_SPEED
-	db X_SPECIAL
-	db -1 ; end
-
-MartCeladon5F1:
-	db 10 ; # items
+	db 7 ; # items
 	db POTION
 	db SUPER_POTION
 	db HYPER_POTION
@@ -380,12 +295,9 @@ MartCeladon5F1:
 	db REVIVE
 	db SUPER_REPEL
 	db MAX_REPEL
-	db POKE_DOLL
-	db LOVELY_MAIL
-	db SURF_MAIL
 	db -1 ; end
 
-MartCeladon5F2:
+MartCeladon2F2:
 	db 10 ; # items
 	db POKE_BALL
 	db GREAT_BALL
@@ -397,6 +309,42 @@ MartCeladon5F2:
 	db ICE_HEAL
 	db AWAKENING
 	db PARLYZ_HEAL
+	db -1 ; end
+
+MartCeladon3F:
+	db 5 ; # items
+	db TM_HIDDEN_POWER
+	db TM_SUNNY_DAY
+	db TM_PROTECT
+	db TM_RAIN_DANCE
+	db TM_SANDSTORM
+	db -1 ; end
+
+MartCeladon4F:
+	db 3 ; # items
+	db POKE_DOLL
+	db LOVELY_MAIL
+	db SURF_MAIL
+	db -1 ; end
+
+MartCeladon5F1:
+	db 5 ; # items
+	db HP_UP
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db -1 ; end
+
+MartCeladon5F2:
+	db 7 ; # items
+	db X_ACCURACY
+	db GUARD_SPEC
+	db DIRE_HIT
+	db X_ATTACK
+	db X_DEFEND
+	db X_SPEED
+	db X_SPECIAL
 	db -1 ; end
 
 MartFuchsia:

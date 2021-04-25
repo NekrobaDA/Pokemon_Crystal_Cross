@@ -8,7 +8,7 @@ ShowLinkBattleParticipants:
 	farcall _ShowLinkBattleParticipants
 	ld c, 150
 	call DelayFrames
-	call ClearTilemap
+	call ClearTileMap
 	call ClearSprites
 	ret
 
@@ -38,7 +38,7 @@ FindFirstAliveMonAndStartBattle:
 	ld a, 1
 	ldh [hBGMapMode], a
 	call ClearSprites
-	call ClearTilemap
+	call ClearTileMap
 	xor a
 	ldh [hBGMapMode], a
 	ldh [hWY], a
@@ -78,7 +78,7 @@ PlayBattleMusic:
 	ld de, MUSIC_JOHTO_WILD_BATTLE
 	ld a, [wTimeOfDay]
 	cp NITE_F
-	jr c, .done
+	jr nz, .done
 	ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
 	jr .done
 

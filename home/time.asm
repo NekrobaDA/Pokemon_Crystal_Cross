@@ -1,11 +1,11 @@
 ; Functions relating to the timer interrupt and the real-time-clock.
 
-Timer:: ; unreferenced
+AskTimer::
 	push af
 	ldh a, [hMobile]
 	and a
 	jr z, .not_mobile
-	call MobileTimer
+	call Timer
 
 .not_mobile
 	pop af
@@ -63,8 +63,7 @@ GetClock::
 	ldh [hRTCDayHi], a
 
 ; unlatch clock / disable clock r/w
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 FixDays::
 ; fix day count
@@ -76,11 +75,11 @@ FixDays::
 	jr z, .daylo
 ; reset dh (bit 8)
 	res 0, a
-	ldh [hRTCDayHi], a
+	ldh [hRTCDayHi], a ; DH
 
 ; mod 140
 ; mod twice since bit 8 (DH) was set
-	ldh a, [hRTCDayLo]
+	ldh a, [hRTCDayLo] ; DL
 .modh
 	sub 140
 	jr nc, .modh
@@ -90,7 +89,7 @@ FixDays::
 	add 140
 
 ; update dl
-	ldh [hRTCDayLo], a
+	ldh [hRTCDayLo], a ; DL
 
 ; flag for sRTCStatusFlags
 	ld a, %01000000
@@ -98,7 +97,7 @@ FixDays::
 
 .daylo
 ; quit if fewer than 140 days have passed
-	ldh a, [hRTCDayLo]
+	ldh a, [hRTCDayLo] ; DL
 	cp 140
 	jr c, .quit
 
@@ -109,7 +108,7 @@ FixDays::
 	add 140
 
 ; update dl
-	ldh [hRTCDayLo], a
+	ldh [hRTCDayLo], a ; DL
 
 ; flag for sRTCStatusFlags
 	ld a, %00100000
@@ -128,10 +127,11 @@ FixDays::
 
 FixTime::
 ; add ingame time (set at newgame) to current time
+;				  day     hr    min    sec
 ; store time in wCurDay, hHours, hMinutes, hSeconds
 
 ; second
-	ldh a, [hRTCSeconds]
+	ldh a, [hRTCSeconds] ; S
 	ld c, a
 	ld a, [wStartSecond]
 	add c
@@ -143,7 +143,7 @@ FixTime::
 
 ; minute
 	ccf ; carry is set, so turn it off
-	ldh a, [hRTCMinutes]
+	ldh a, [hRTCMinutes] ; M
 	ld c, a
 	ld a, [wStartMinute]
 	adc c
@@ -155,7 +155,7 @@ FixTime::
 
 ; hour
 	ccf ; carry is set, so turn it off
-	ldh a, [hRTCHours]
+	ldh a, [hRTCHours] ; H
 	ld c, a
 	ld a, [wStartHour]
 	adc c
@@ -167,7 +167,7 @@ FixTime::
 
 ; day
 	ccf ; carry is set, so turn it off
-	ldh a, [hRTCDayLo]
+	ldh a, [hRTCDayLo] ; DL
 	ld c, a
 	ld a, [wStartDay]
 	adc c
@@ -177,7 +177,7 @@ FixTime::
 InitTimeOfDay::
 	xor a
 	ld [wStringBuffer2], a
-	ld a, 0 ; useless
+	ld a, $0 ; useless
 	ld [wStringBuffer2 + 3], a
 	jr InitTime
 
@@ -195,19 +195,14 @@ InitTime::
 	farcall _InitTime
 	ret
 
-ClearClock::
-	call .ClearhRTC
-	call SetClock
-	ret
-
-.ClearhRTC:
+PanicResetClock::
 	xor a
 	ldh [hRTCSeconds], a
 	ldh [hRTCMinutes], a
 	ldh [hRTCHours], a
 	ldh [hRTCDayLo], a
 	ldh [hRTCDayHi], a
-	ret
+; fallthrough
 
 SetClock::
 ; set clock data from hram
@@ -222,13 +217,6 @@ SetClock::
 	call LatchClock
 	ld hl, MBC3SRamBank
 	ld de, MBC3RTC
-
-; seems to be a halt check that got partially commented out
-; this block is totally pointless
-	ld [hl], RTC_DH
-	ld a, [de]
-	bit 6, a ; halt
-	ld [de], a
 
 ; seconds
 	ld [hl], RTC_S
@@ -253,36 +241,32 @@ SetClock::
 	ld [de], a
 
 ; cleanup
-	call CloseSRAM ; unlatch clock, disable clock r/w
-	ret
+	jp CloseSRAM ; unlatch clock, disable clock r/w
 
-ClearRTCStatus:: ; unreferenced
+ClearRTCStatus::
 ; clear sRTCStatusFlags
 	xor a
 	push af
 	ld a, BANK(sRTCStatusFlags)
-	call OpenSRAM
+	call GetSRAMBank
 	pop af
 	ld [sRTCStatusFlags], a
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 RecordRTCStatus::
 ; append flags to sRTCStatusFlags
 	ld hl, sRTCStatusFlags
 	push af
 	ld a, BANK(sRTCStatusFlags)
-	call OpenSRAM
+	call GetSRAMBank
 	pop af
 	or [hl]
 	ld [hl], a
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 CheckRTCStatus::
 ; check sRTCStatusFlags
 	ld a, BANK(sRTCStatusFlags)
-	call OpenSRAM
+	call GetSRAMBank
 	ld a, [sRTCStatusFlags]
-	call CloseSRAM
-	ret
+	jp CloseSRAM

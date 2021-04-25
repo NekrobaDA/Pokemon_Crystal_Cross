@@ -70,4 +70,3 @@ LockPokemonID::
 ; out: a = 8-bit index; everything else preserved
 GetLockedPokemonID::
 	___conversion_table_homecall_readlocked wPokemonIndexTable
-  

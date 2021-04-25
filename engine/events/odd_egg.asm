@@ -22,14 +22,14 @@ _GiveOddEgg:
 	jr z, .done
 .not_done
 
-	; Break when the random word <= the next probability in de.
-	ldh a, [hRandomSub]
+	; Break when [hRandom] <= de.
+	ldh a, [hRandom + 1]
 	cp d
 	jr c, .done
 	jr z, .ok
 	jr .next
 .ok
-	ldh a, [hRandomAdd]
+	ldh a, [hRandom + 0]
 	cp e
 	jr c, .done
 	jr z, .done
@@ -48,7 +48,7 @@ _GiveOddEgg:
 	ld de, wOddEgg
 	ld bc, NICKNAMED_MON_STRUCT_LENGTH + NAME_LENGTH
 	call CopyBytes
-		
+	
 	; Loads the actual species and overwrites the zero in wOddEggSpecies
 	pop bc
 	ld hl, OddEggSpecies
@@ -63,26 +63,26 @@ _GiveOddEgg:
 	ld a, EGG_TICKET
 	ld [wCurItem], a
 	ld a, 1
-	ld [wItemQuantityChange], a
+	ld [wItemQuantityChangeBuffer], a
 	ld a, -1
 	ld [wCurItemQuantity], a
 	ld hl, wNumItems
 	call TossItem
 
-	; load species in wMobileMonSpecies
+	; load species in wcd2a
 	ld a, EGG
-	ld [wMobileMonSpecies], a
+	ld [wMobileMonSpeciesBuffer], a
 
-	; load pointer to (wMobileMonSpecies - 1) in wMobileMonSpeciesPointer
-	ld a, LOW(wMobileMonSpecies - 1)
-	ld [wMobileMonSpeciesPointer], a
-	ld a, HIGH(wMobileMonSpecies - 1)
-	ld [wMobileMonSpeciesPointer + 1], a
-	; load pointer to wOddEgg in wMobileMonStructPointer
+	; load pointer to (wMobileMonSpeciesBuffer - 1) in wMobileMonSpeciesPointerBuffer
+	ld a, LOW(wMobileMonSpeciesBuffer - 1)
+	ld [wMobileMonSpeciesPointerBuffer], a
+	ld a, HIGH(wMobileMonSpeciesBuffer - 1)
+	ld [wMobileMonSpeciesPointerBuffer + 1], a
+	; load pointer to wOddEgg in wMobileMonStructurePointerBuffer
 	ld a, LOW(wOddEgg)
-	ld [wMobileMonStructPointer], a
+	ld [wMobileMonStructurePointerBuffer], a
 	ld a, HIGH(wOddEgg)
-	ld [wMobileMonStructPointer + 1], a
+	ld [wMobileMonStructurePointerBuffer + 1], a
 
 	; load Odd Egg Name in wTempOddEggNickname
 	ld hl, .Odd
@@ -90,16 +90,16 @@ _GiveOddEgg:
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
 
-	; load pointer to wTempOddEggNickname in wMobileMonOTNamePointer
+	; load pointer to wTempOddEggNickname in wMobileMonOTNamePointerBuffer
 	ld a, LOW(wTempOddEggNickname)
-	ld [wMobileMonOTNamePointer], a
+	ld [wMobileMonOTNamePointerBuffer], a
 	ld a, HIGH(wTempOddEggNickname)
-	ld [wMobileMonOTNamePointer + 1], a
-	; load pointer to wOddEggName in wMobileMonNicknamePointer
+	ld [wMobileMonOTNamePointerBuffer + 1], a
+	; load pointer to wOddEggName in wMobileMonNicknamePointerBuffer
 	ld a, LOW(wOddEggName)
-	ld [wMobileMonNicknamePointer], a
+	ld [wMobileMonNicknamePointerBuffer], a
 	ld a, HIGH(wOddEggName)
-	ld [wMobileMonNicknamePointer + 1], a
+	ld [wMobileMonNicknamePointerBuffer + 1], a
 	farcall AddMobileMonToParty
 	ret
 

@@ -37,8 +37,8 @@ _src = -_tgt
 _tgt = 0
 endc
 
-if !STRCMP("\1", "north")
-_blk = \3_WIDTH * (\3_HEIGHT - 3) + _src
+if "\1" == "north"
+_blk = \3_WIDTH * (\3_HEIGHT + -3) + _src
 _map = _tgt
 _win = (\3_WIDTH + 6) * \3_HEIGHT + 1
 _y = \3_HEIGHT * 2 - 1
@@ -48,7 +48,7 @@ if _len > \3_WIDTH
 _len = \3_WIDTH
 endc
 
-elif !STRCMP("\1", "south")
+elif "\1" == "south"
 _blk = _src
 _map = (CURRENT_MAP_WIDTH + 6) * (CURRENT_MAP_HEIGHT + 3) + _tgt
 _win = \3_WIDTH + 7
@@ -59,10 +59,10 @@ if _len > \3_WIDTH
 _len = \3_WIDTH
 endc
 
-elif !STRCMP("\1", "west")
-_blk = (\3_WIDTH * _src) + \3_WIDTH - 3
+elif "\1" == "west"
+_blk = (\3_WIDTH * _src) + \3_WIDTH + -3
 _map = (CURRENT_MAP_WIDTH + 6) * _tgt
-_win = (\3_WIDTH + 6) * 2 - 6
+_win = (\3_WIDTH + 6) * 2 + -6
 _y = (\4) * -2
 _x = \3_WIDTH * 2 - 1
 _len = CURRENT_MAP_HEIGHT + 3 - (\4)
@@ -70,7 +70,7 @@ if _len > \3_HEIGHT
 _len = \3_HEIGHT
 endc
 
-elif !STRCMP("\1", "east")
+elif "\1" == "east"
 _blk = (\3_WIDTH * _src)
 _map = (CURRENT_MAP_WIDTH + 6) * _tgt + CURRENT_MAP_WIDTH + 3
 _win = \3_WIDTH + 7
@@ -147,7 +147,7 @@ ENDM
 	map_attributes Route26, ROUTE_26, $05, WEST
 	connection west, Route27, ROUTE_27, 45
 
-	map_attributes Route27, ROUTE_27, $05, WEST | EAST
+	map_attributes Route27, ROUTE_27, $35, WEST | EAST
 	connection west, NewBarkTown, NEW_BARK_TOWN, 0
 	connection east, Route26, ROUTE_26, -45
 
@@ -337,7 +337,7 @@ ENDM
 	connection north, CeruleanCity, CERULEAN_CITY, -5
 	connection south, SaffronCity, SAFFRON_CITY, -5
 
-	map_attributes CeruleanCity, CERULEAN_CITY, $2c, NORTH | SOUTH | WEST | EAST
+	map_attributes CeruleanCity, CERULEAN_CITY, $0f, NORTH | SOUTH | WEST | EAST
 	connection north, Route24, ROUTE_24, 6
 	connection south, Route5, ROUTE_5, 5
 	connection west, Route4, ROUTE_4, 5
@@ -694,4 +694,3 @@ ENDM
 	map_attributes Route30BerryHouse, ROUTE_30_BERRY_HOUSE, $00, 0
 	map_attributes MrPokemonsHouse, MR_POKEMONS_HOUSE, $00, 0
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
-	map_attributes MewtwoCave, MEWTWO_CAVE, $09, 0

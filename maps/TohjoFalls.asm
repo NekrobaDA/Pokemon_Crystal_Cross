@@ -1,34 +1,10 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const TOHJOFALLS_POKE_BALL
-	const CRYSTAL_ONIX
 
 TohjoFalls_MapScripts:
-	def_scene_scripts
+	db 0 ; scene scripts
 
-	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .Onix
-	
-.Onix:
-	checkevent EVENT_FOUGHT_ONIX
-	iftrue .NoAppear
-
-.Appear:
-	appear CRYSTAL_ONIX
-	endcallback
-
-.NoAppear:
-	disappear CRYSTAL_ONIX
-	endcallback	
-
-CrystalOnix:
-	cry ONIX
-	setevent EVENT_FOUGHT_ONIX
-	loadwildmon ONIX, 30
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
-	startbattle
-	disappear CRYSTAL_ONIX
-	reloadmapafterbattle
-	end
+	db 0 ; callbacks
 
 TohjoFallsMoonStone:
 	itemball MOON_STONE
@@ -36,14 +12,13 @@ TohjoFallsMoonStone:
 TohjoFalls_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
-	warp_event 14, 15, ROUTE_27, 2
-	warp_event 26,  0, ROUTE_27, 3
+	db 2 ; warp events
+	warp_event 13, 15, ROUTE_27, 2
+	warp_event 25, 15, ROUTE_27, 3
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 0 ; bg events
 
-	def_object_events
-	object_event 27, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TohjoFallsMoonStone, EVENT_TOHJO_FALLS_MOON_STONE
-	object_event 15,  7, SPRITE_ONIX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CrystalOnix, EVENT_CRYSTAL_ONIX
+	db 1 ; object events
+	object_event  2,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TohjoFallsMoonStone, EVENT_TOHJO_FALLS_MOON_STONE

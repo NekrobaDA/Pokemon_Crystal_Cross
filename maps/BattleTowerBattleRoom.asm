@@ -1,13 +1,13 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const BATTLETOWERBATTLEROOM_YOUNGSTER
 	const BATTLETOWERBATTLEROOM_RECEPTIONIST
 
 BattleTowerBattleRoom_MapScripts:
-	def_scene_scripts
+	db 2 ; scene scripts
 	scene_script .EnterBattleRoom ; SCENE_DEFAULT
 	scene_script .DummyScene ; SCENE_FINISHED
 
-	def_callbacks
+	db 0 ; callbacks
 
 .EnterBattleRoom:
 	disappear BATTLETOWERBATTLEROOM_YOUNGSTER
@@ -28,9 +28,9 @@ Script_BattleRoomLoop:
 	applymovement BATTLETOWERBATTLEROOM_YOUNGSTER, MovementData_BattleTowerBattleRoomOpponentWalksIn
 	opentext
 	battletowertext BATTLETOWERTEXT_INTRO
-	promptbutton
+	buttonsound
 	closetext
-	special BattleTowerBattle ; predef StartBattle
+	special BattleTowerBattle ; calls predef startbattle
 	special FadeOutPalettes
 	reloadmap
 	ifnotequal $0, Script_FailedBattleTowerChallenge
@@ -110,7 +110,7 @@ Script_BeatenAllTrainers2:
 	writetext Text_CongratulationsYouveBeatenAllTheTrainers
 	sjump Script_GivePlayerHisPrize
 
-Script_TooMuchTimeElapsedNoRegister: ; unreferenced
+UnreferencedScript_0x9f4eb:
 	setval BATTLETOWERACTION_CHALLENGECANCELED
 	special BattleTowerAction
 	opentext
@@ -119,7 +119,7 @@ Script_TooMuchTimeElapsedNoRegister: ; unreferenced
 	closetext
 	end
 
-Script_ChallengeCanceled: ; unreferenced
+UnreferencedScript_0x9f4f7:
 	setval BATTLETOWERACTION_CHALLENGECANCELED
 	special BattleTowerAction
 	setval BATTLETOWERACTION_06
@@ -131,7 +131,7 @@ Script_ChallengeCanceled: ; unreferenced
 	closetext
 	end
 
-Text_ReturnedAfterSave_Mobile: ; unreferenced
+Text_ReturnedAfterSave_Mobile:
 	text "You'll be returned"
 	line "after you SAVE."
 	done
@@ -139,14 +139,14 @@ Text_ReturnedAfterSave_Mobile: ; unreferenced
 BattleTowerBattleRoom_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 2 ; warp events
 	warp_event  3,  7, BATTLE_TOWER_HALLWAY, 4
 	warp_event  4,  7, BATTLE_TOWER_HALLWAY, 4
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 0 ; bg events
 
-	def_object_events
+	db 2 ; object events
 	object_event  4,  0, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BATTLE_TOWER_BATTLE_ROOM_YOUNGSTER
 	object_event  1,  6, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

@@ -14,7 +14,7 @@ FarDecompress::
 	ret
 
 Decompress::
-; Pokemon GSC uses an lz variant (lz3) for compression.
+; Pokemon Crystal uses an lz variant for compression.
 ; This is mainly (but not necessarily) used for graphics.
 
 ; This function decompresses lz-compressed data from hl to de.
@@ -80,6 +80,7 @@ LZ_LONG_HI   EQU %00000011
 	cp LZ_LONG
 	jr nz, .short
 
+.long
 ; The count is now 10 bits.
 
 	; Read the next 3 bits.
@@ -132,7 +133,7 @@ LZ_LONG_HI   EQU %00000011
 	cp LZ_ZERO
 	jr z, .Zero
 
-; Literal
+.Literal:
 ; Read literal data for bc bytes.
 .lloop
 	dec c
@@ -214,8 +215,10 @@ LZ_LONG_HI   EQU %00000011
 	bit 7, a ; sign
 	jr z, .positive
 
-; negative
-	; hl = de + -a
+.negative
+; hl = de - a
+	; Since we can't subtract a from de,
+	; Make it negative and add de.
 	and %01111111
 	cpl
 	add e

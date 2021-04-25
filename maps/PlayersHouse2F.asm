@@ -1,17 +1,18 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const PLAYERSHOUSE2F_CONSOLE
 	const PLAYERSHOUSE2F_DOLL_1
 	const PLAYERSHOUSE2F_DOLL_2
 	const PLAYERSHOUSE2F_BIG_DOLL
 
 PlayersHouse2F_MapScripts:
-	def_scene_scripts
+	db 0 ; scene scripts
 
-	def_callbacks
+	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .InitializeRoom
-	callback MAPCALLBACK_TILES, .SetUpTileDecorations
+	callback MAPCALLBACK_TILES, .SetSpawn
 
-.DummyScene: ; unreferenced
+; unused
+.Null:
 	end
 
 .InitializeRoom:
@@ -19,19 +20,19 @@ PlayersHouse2F_MapScripts:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	checkevent EVENT_INITIALIZED_EVENTS
 	iftrue .SkipInitialization
-	jumpstd InitializeEventsScript
-	endcallback
+	jumpstd initializeevents
+	return
 
 .SkipInitialization:
-	endcallback
+	return
 
-.SetUpTileDecorations:
+.SetSpawn:
 	special ToggleMaptileDecorations
-	endcallback
+	return
 
-	db 0, 0, 0 ; unused
+	db 0, 0, 0 ; filler
 
-Doll1Script::
+Doll1Script:
 	describedecoration DECODESC_LEFT_DOLL
 
 Doll2Script:
@@ -43,7 +44,7 @@ BigDollScript:
 GameConsoleScript:
 	describedecoration DECODESC_CONSOLE
 
-PosterScript:
+PlayersHousePosterScript:
 	conditional_event EVENT_PLAYERS_ROOM_POSTER, .Script
 
 .Script:
@@ -70,7 +71,7 @@ PlayersHouseRadioScript:
 	end
 
 .NormalRadio:
-	jumpstd Radio1Script
+	jumpstd radio1
 
 .AbbreviatedRadio:
 	opentext
@@ -80,7 +81,7 @@ PlayersHouseRadioScript:
 	end
 
 PlayersHouseBookshelfScript:
-	jumpstd PictureBookshelfScript
+	jumpstd picturebookshelf
 
 PlayersHousePCScript:
 	opentext
@@ -115,18 +116,18 @@ PlayersRadioText4:
 PlayersHouse2F_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 1 ; warp events
 	warp_event  7,  0, PLAYERS_HOUSE_1F, 3
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 4 ; bg events
 	bg_event  2,  1, BGEVENT_UP, PlayersHousePCScript
 	bg_event  3,  1, BGEVENT_READ, PlayersHouseRadioScript
 	bg_event  5,  1, BGEVENT_READ, PlayersHouseBookshelfScript
-	bg_event  6,  0, BGEVENT_IFSET, PosterScript
+	bg_event  6,  0, BGEVENT_IFSET, PlayersHousePosterScript
 
-	def_object_events
+	db 4 ; object events
 	object_event  4,  2, SPRITE_CONSOLE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GameConsoleScript, EVENT_PLAYERS_HOUSE_2F_CONSOLE
 	object_event  4,  4, SPRITE_DOLL_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Doll1Script, EVENT_PLAYERS_HOUSE_2F_DOLL_1
 	object_event  5,  4, SPRITE_DOLL_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Doll2Script, EVENT_PLAYERS_HOUSE_2F_DOLL_2

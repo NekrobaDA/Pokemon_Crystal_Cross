@@ -39,7 +39,7 @@ BattleCommand_Curse:
 ; Raise Attack and Defense, and lower Speed.
 
 	ld a, $1
-	ld [wBattleAnimParam], a
+	ld [wKickCounter], a
 	call AnimateCurrentMove
 	ld a, SPEED
 	call LowerStat

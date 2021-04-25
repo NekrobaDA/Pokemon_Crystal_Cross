@@ -32,8 +32,6 @@ Facings:
 	dw FacingBoulderDust2
 	dw FacingGrass1
 	dw FacingGrass2
-	dw FacingOverlay
-	dw FacingTallTree
 .End
 	dw 0
 
@@ -239,21 +237,3 @@ FacingGrass2:
 	db 2 ; #
 	db  9, -1, ABSOLUTE_TILE_ID, $fe
 	db  9,  9, ABSOLUTE_TILE_ID | X_FLIP, $fe
-	
-FacingOverlay:
-	db 4 ; #
-	db  4,  0, 0, $08
-	db  4,  8, 0, $09
-	db 12,  0, 0, $0a
-	db 12,  8, 0, $0b
-	
-FacingTallTree:
-	db 8 ; #
-	db  0,  0, 0, $00
-	db  0,  8, 0, $01
-	db  8,  0, 0, $02
-	db  8,  8, 0, $03
-	db 16,  0, 0, $04
-	db 16,  8, 0, $05
-	db 24,  0, 0, $06
-	db 24,  8, 0, $07

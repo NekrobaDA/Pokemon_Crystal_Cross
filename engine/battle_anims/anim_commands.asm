@@ -26,11 +26,11 @@ _PlayBattleAnim:
 
 	ld c, 1
 	ldh a, [rKEY1]
-	bit 7, a ; check CGB double speed mode
-	jr nz, .got_speed
+	bit 7, a
+	jr nz, .asm_cc0ff
 	ld c, 3
 
-.got_speed
+.asm_cc0ff
 	ld hl, hVBlank
 	ld a, [hl]
 	push af
@@ -41,7 +41,7 @@ _PlayBattleAnim:
 	pop af
 	ldh [hVBlank], a
 
-	ld a, 1
+	ld a, $1
 	ldh [hBGMapMode], a
 
 	call BattleAnimDelayFrame
@@ -112,7 +112,7 @@ RunBattleAnimScript:
 	cp ROLLOUT
 	jr nz, .not_rollout
 
-	ld a, ANIM_BG_ROLLOUT
+	ld a, ANIM_BG_2E
 	ld b, NUM_BG_EFFECTS
 	ld de, BG_EFFECT_STRUCT_LENGTH
 	ld hl, wBGEffect1Function
@@ -152,13 +152,12 @@ BattleAnimRestoreHuds:
 
 	ldh a, [rSVBK]
 	push af
-	ld a, BANK(wCurBattleMon) ; aka BANK(wTempMon), BANK(wPartyMon1), and several others
+	ld a, BANK(wCurBattleMon) ; aka BANK(wTempMon) and BANK(wPartyMon1) and several others
 	ldh [rSVBK], a
 
-; this block should just be "call UpdateBattleHuds"
 	ld hl, UpdateBattleHuds
 	ld a, BANK(UpdatePlayerHUD)
-	rst FarCall
+	rst FarCall ; Why not "call UpdateBattleHuds"?
 
 	pop af
 	ldh [rSVBK], a
@@ -216,18 +215,16 @@ ClearActorHud:
 	call ClearBox
 	ret
 
-PlaceWindowOverBattleTextbox: ; unreferenced
+Unreferenced_Functioncc220:
 	xor a
 	ldh [hBGMapMode], a
-	; bgcoord hBGMapAddress, 0, 20
-	ld a, LOW(vBGMap0 + 20 * BG_MAP_WIDTH)
+	ld a, LOW(vBGMap0 tile $28)
 	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap0 + 20 * BG_MAP_WIDTH)
+	ld a, HIGH(vBGMap0 tile $28)
 	ldh [hBGMapAddress + 1], a
 	call WaitBGMap2
-	ld a, (SCREEN_HEIGHT - TEXTBOX_HEIGHT) * TILE_WIDTH
+	ld a, $60
 	ldh [hWY], a
-	; bgcoord hBGMapAddress, 0, 0
 	xor a ; LOW(vBGMap0)
 	ldh [hBGMapAddress], a
 	ld a, HIGH(vBGMap0)
@@ -240,15 +237,14 @@ BattleAnim_ClearOAM:
 	bit BATTLEANIM_KEEPSPRITES_F, a
 	jr z, .delete
 
-	; Instead of deleting the sprites, make them all use PAL_BATTLE_OB_ENEMY
+	; Instead of deleting the sprites, make them all use palette 0 (monochrome)
 	ld hl, wVirtualOAMSprite00Attributes
 	ld c, NUM_SPRITE_OAM_STRUCTS
 .loop
 	ld a, [hl]
-	and $ff ^ (PALETTE_MASK | VRAM_BANK_1) ; zeros out the palette bits
-	assert PAL_BATTLE_OB_ENEMY == 0
+	and $ff ^ (PALETTE_MASK | VRAM_BANK_1)
 	ld [hli], a
-rept SPRITEOAMSTRUCT_LENGTH - 1
+rept SPRITEOAMSTRUCT_LENGTH + -1
 	inc hl
 endr
 	dec c
@@ -322,13 +318,14 @@ RunBattleAnimCommand:
 	ld hl, BattleAnimCommands
 	add hl, de
 	add hl, de
+
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	jp hl
 
 BattleAnimCommands::
-; entries correspond to anim_* constants (see macros/scripts/battle_anims.asm)
+; entries correspond to macros/scripts/battle_anims.asm enumeration
 	dw BattleAnimCmd_Obj
 	dw BattleAnimCmd_1GFX
 	dw BattleAnimCmd_2GFX
@@ -611,13 +608,13 @@ BattleAnimCmd_Obj:
 
 BattleAnimCmd_BGEffect:
 	call GetBattleAnimByte
-	ld [wBattleBGEffectTempID], a
+	ld [wBattleAnimTemp0], a
 	call GetBattleAnimByte
-	ld [wBattleBGEffectTempJumptableIndex], a
+	ld [wBattleAnimTemp1], a
 	call GetBattleAnimByte
-	ld [wBattleBGEffectTempTurn], a
+	ld [wBattleAnimTemp2], a
 	call GetBattleAnimByte
-	ld [wBattleBGEffectTempParam], a
+	ld [wBattleAnimTemp3], a
 	call _QueueBGEffect
 	ret
 
@@ -666,19 +663,19 @@ BattleAnimCmd_5GFX:
 	ld c, a
 	ld hl, wBattleAnimTileDict
 	xor a
-	ld [wBattleAnimGFXTempTileID], a
+	ld [wBattleAnimTemp0], a
 .loop
-	ld a, [wBattleAnimGFXTempTileID]
+	ld a, [wBattleAnimTemp0]
 	cp (vTiles1 - vTiles0) / LEN_2BPP_TILE - BATTLEANIM_BASE_TILE
 	ret nc
 	call GetBattleAnimByte
 	ld [hli], a
-	ld a, [wBattleAnimGFXTempTileID]
+	ld a, [wBattleAnimTemp0]
 	ld [hli], a
 	push bc
 	push hl
 	ld l, a
-	ld h, 0
+	ld h, $0
 rept 4
 	add hl, hl
 endr
@@ -686,9 +683,9 @@ endr
 	add hl, de
 	ld a, [wBattleAnimByte]
 	call LoadBattleAnimGFX
-	ld a, [wBattleAnimGFXTempTileID]
+	ld a, [wBattleAnimTemp0]
 	add c
-	ld [wBattleAnimGFXTempTileID], a
+	ld [wBattleAnimTemp0], a
 	pop hl
 	pop bc
 	dec c
@@ -715,7 +712,7 @@ BattleAnimCmd_IncObj:
 	ret
 
 .found
-	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
+	ld hl, BATTLEANIMSTRUCT_ANON_JT_INDEX
 	add hl, bc
 	inc [hl]
 	ret
@@ -766,7 +763,7 @@ BattleAnimCmd_SetObj:
 
 .found
 	call GetBattleAnimByte
-	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
+	ld hl, BATTLEANIMSTRUCT_ANON_JT_INDEX
 	add hl, bc
 	ld [hl], a
 	ret
@@ -794,12 +791,12 @@ BattleAnimCmd_BattlerGFX_1Row:
 	ld hl, vTiles0 tile ($80 - 6 - 7)
 	ld de, vTiles2 tile $06 ; Enemy feet start tile
 	ld a, 7 tiles ; Enemy pic height
-	ld [wBattleAnimGFXTempPicHeight], a
+	ld [wBattleAnimTemp0], a
 	ld a, 7 ; Copy 7x1 tiles
 	call .LoadFeet
 	ld de, vTiles2 tile $31 ; Player head start tile
 	ld a, 6 tiles ; Player pic height
-	ld [wBattleAnimGFXTempPicHeight], a
+	ld [wBattleAnimTemp0], a
 	ld a, 6 ; Copy 6x1 tiles
 	call .LoadFeet
 	ret
@@ -811,7 +808,7 @@ BattleAnimCmd_BattlerGFX_1Row:
 	lb bc, BANK(@), 1
 	call Request2bpp
 	pop de
-	ld a, [wBattleAnimGFXTempPicHeight]
+	ld a, [wBattleAnimTemp0]
 	ld l, a
 	ld h, 0
 	add hl, de
@@ -848,12 +845,12 @@ BattleAnimCmd_BattlerGFX_2Row:
 	ld hl, vTiles0 tile ($80 - 6 * 2 - 7 * 2)
 	ld de, vTiles2 tile $05 ; Enemy feet start tile
 	ld a, 7 tiles ; Enemy pic height
-	ld [wBattleAnimGFXTempPicHeight], a
+	ld [wBattleAnimTemp0], a
 	ld a, 7 ; Copy 7x2 tiles
 	call .LoadHead
 	ld de, vTiles2 tile $31 ; Player head start tile
 	ld a, 6 tiles ; Player pic height
-	ld [wBattleAnimGFXTempPicHeight], a
+	ld [wBattleAnimTemp0], a
 	ld a, 6 ; Copy 6x2 tiles
 	call .LoadHead
 	ret
@@ -865,7 +862,7 @@ BattleAnimCmd_BattlerGFX_2Row:
 	lb bc, BANK(@), 2
 	call Request2bpp
 	pop de
-	ld a, [wBattleAnimGFXTempPicHeight]
+	ld a, [wBattleAnimTemp0]
 	ld l, a
 	ld h, 0
 	add hl, de
@@ -893,34 +890,32 @@ BattleAnimCmd_Transform:
 	push af
 	ld a, BANK(wCurPartySpecies)
 	ldh [rSVBK], a
-
-	ld a, [wCurPartySpecies]
+	ld a, [wCurPartySpecies] ; CurPartySpecies
 	push af
 
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .player
 
-	ld a, [wTempBattleMonSpecies]
-	ld [wCurPartySpecies], a
-	ld hl, wBattleMonDVs
-	predef GetVariant
+	ld a, [wTempBattleMonSpecies] ; TempBattleMonSpecies
+	ld [wCurPartySpecies], a ; CurPartySpecies
+	ld hl, wBattleMonDVs ; BattleMonDVs
+	predef GetUnownLetter
 	ld de, vTiles0 tile $00
 	predef GetMonFrontpic
 	jr .done
 
 .player
-	ld a, [wTempEnemyMonSpecies]
-	ld [wCurPartySpecies], a
-	ld hl, wEnemyMonDVs
-	predef GetVariant
+	ld a, [wTempEnemyMonSpecies] ; TempEnemyMonSpecies
+	ld [wCurPartySpecies], a ; CurPartySpecies
+	ld hl, wEnemyMonDVs ; EnemyMonDVs
+	predef GetUnownLetter
 	ld de, vTiles0 tile $00
 	predef GetMonBackpic
 
 .done
 	pop af
-	ld [wCurPartySpecies], a
-
+	ld [wCurPartySpecies], a ; CurPartySpecies
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -949,11 +944,11 @@ BattleAnimCmd_RaiseSub:
 	push af
 	ld a, 1 ; unnecessary bankswitch?
 	ldh [rSVBK], a
-
-	xor a ; BANK(sScratch)
-	call OpenSRAM
+	xor a ; sScratch
+	call GetSRAMBank
 
 GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
+
 	ld hl, sScratch
 	ld bc, (7 * 7) tiles
 .loop
@@ -1008,7 +1003,6 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 
 .done
 	call CloseSRAM
-
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -1024,13 +1018,11 @@ BattleAnimCmd_MinimizeOpp:
 	push af
 	ld a, 1 ; unnecessary bankswitch?
 	ldh [rSVBK], a
-
-	xor a ; BANK(sScratch)
-	call OpenSRAM
+	xor a ; sScratch
+	call GetSRAMBank
 	call GetMinimizePic
 	call Request2bpp
 	call CloseSRAM
-
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -1050,7 +1042,7 @@ GetMinimizePic:
 	and a
 	jr z, .player
 
-	ld de, sScratch + (3 * 7 + 5) tiles
+	ld de, sScratch + $1a tiles
 	call CopyMinimizePic
 	ld hl, vTiles2 tile $00
 	ld de, sScratch
@@ -1058,7 +1050,7 @@ GetMinimizePic:
 	ret
 
 .player
-	ld de, sScratch + (3 * 6 + 4) tiles
+	ld de, sScratch + $160
 	call CopyMinimizePic
 	ld hl, vTiles2 tile $31
 	ld de, sScratch
@@ -1080,14 +1072,12 @@ BattleAnimCmd_Minimize:
 	push af
 	ld a, 1 ; unnecessary bankswitch?
 	ldh [rSVBK], a
-
-	xor a ; BANK(sScratch)
-	call OpenSRAM
+	xor a ; sScratch
+	call GetSRAMBank
 	call GetMinimizePic
 	ld hl, vTiles0 tile $00
 	call Request2bpp
 	call CloseSRAM
-
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -1098,7 +1088,7 @@ BattleAnimCmd_DropSub:
 	ld a, BANK(wCurPartySpecies)
 	ldh [rSVBK], a
 
-	ld a, [wCurPartySpecies]
+	ld a, [wCurPartySpecies] ; CurPartySpecies
 	push af
 	ldh a, [hBattleTurn]
 	and a
@@ -1112,8 +1102,7 @@ BattleAnimCmd_DropSub:
 
 .done
 	pop af
-	ld [wCurPartySpecies], a
-
+	ld [wCurPartySpecies], a ; CurPartySpecies
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -1123,35 +1112,33 @@ BattleAnimCmd_BeatUp:
 	push af
 	ld a, BANK(wCurPartySpecies)
 	ldh [rSVBK], a
-
-	ld a, [wCurPartySpecies]
+	ld a, [wCurPartySpecies] ; CurPartySpecies
 	push af
 
 	ld a, [wBattleAnimParam]
-	ld [wCurPartySpecies], a
+	ld [wCurPartySpecies], a ; CurPartySpecies
 
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .player
 
 	ld hl, wBattleMonDVs
-	predef GetVariant
+	predef GetUnownLetter
 	ld de, vTiles2 tile $00
 	predef GetMonFrontpic
 	jr .done
 
 .player
 	ld hl, wEnemyMonDVs
-	predef GetVariant
+	predef GetUnownLetter
 	ld de, vTiles2 tile $31
 	predef GetMonBackpic
 
 .done
 	pop af
-	ld [wCurPartySpecies], a
+	ld [wCurPartySpecies], a ; CurPartySpecies
 	ld b, SCGB_BATTLE_COLORS
 	call GetSGBLayout
-
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -1188,7 +1175,7 @@ BattleAnimCmd_Sound:
 	ld [wSFXDuration], a
 	call .GetCryTrack
 	maskbits NUM_NOISE_CHANS
-	ld [wCryTracks], a
+	ld [wCryTracks], a ; CryTracks
 
 	ld e, a
 	ld d, 0
@@ -1232,7 +1219,7 @@ endr
 
 	ldh a, [rSVBK]
 	push af
-	ld a, BANK(wEnemyMon) ; wBattleMon is in WRAM0, but wEnemyMon is in WRAMX
+	ld a, BANK(wEnemyMon) ; wBattleMon is in WRAM0, but EnemyMon is in WRAMX
 	ldh [rSVBK], a
 
 	ldh a, [hBattleTurn]
@@ -1275,14 +1262,14 @@ endr
 	ld a, [hli]
 	ld c, a
 	ld b, [hl]
-	ld hl, wCryLength
+	ld hl, wCryLength ; CryLength
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	add hl, bc
 
 	ld a, l
-	ld [wCryLength], a
+	ld [wCryLength], a ; CryLength
 	ld a, h
 	ld [wCryLength + 1], a
 	ld a, 1
@@ -1359,7 +1346,7 @@ ClearBattleAnims::
 	ld hl, wLYOverrides
 	ld bc, wBattleAnimEnd - wLYOverrides
 .loop
-	ld [hl], 0
+	ld [hl], $0
 	inc hl
 	dec bc
 	ld a, c
@@ -1418,7 +1405,7 @@ BattleAnim_SetBGPals:
 	call CopyPals
 	pop af
 	ldh [rSVBK], a
-	ld a, TRUE
+	ld a, $1
 	ldh [hCGBPalUpdate], a
 	ret
 
@@ -1439,7 +1426,7 @@ BattleAnim_SetOBPals:
 	call CopyPals
 	pop af
 	ldh [rSVBK], a
-	ld a, TRUE
+	ld a, $1
 	ldh [hCGBPalUpdate], a
 	ret
 

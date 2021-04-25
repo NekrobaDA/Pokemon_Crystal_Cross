@@ -31,11 +31,7 @@ MAP_NONE   EQU 0
 	const PALETTE_DAY
 	const PALETTE_NITE
 	const PALETTE_MORN
-	const PALETTE_EVE
-NUM_MAP_PALETTES EQU const_value
-
-IN_DARKNESS_F EQU 3
-IN_DARKNESS EQU 1 << IN_DARKNESS_F ; masked with a PALETTE_* constant
+	const PALETTE_DARK
 
 ; FishGroups indexes (see data/wild/fish.asm)
 	const_def
@@ -69,7 +65,7 @@ IN_DARKNESS EQU 1 << IN_DARKNESS_F ; masked with a PALETTE_* constant
 	shift_const NORTH
 
 ; SpawnPoints indexes (see data/maps/spawn_points.asm)
-	const_def -1
+const_value = -1
 	const SPAWN_N_A
 	const SPAWN_HOME
 	const SPAWN_DEBUG
@@ -103,34 +99,4 @@ IN_DARKNESS EQU 1 << IN_DARKNESS_F ; masked with a PALETTE_* constant
 	const SPAWN_FAST_SHIP
 NUM_SPAWNS EQU const_value
 
-; Flypoints indexes (see data/maps/flypoints.asm)
-	const_def
-; johto
-JOHTO_FLYPOINT EQU const_value
-	const FLY_NEW_BARK
-	const FLY_CHERRYGROVE
-	const FLY_VIOLET
-	const FLY_AZALEA
-	const FLY_GOLDENROD
-	const FLY_ECRUTEAK
-	const FLY_OLIVINE
-	const FLY_CIANWOOD
-	const FLY_MAHOGANY
-	const FLY_LAKE_OF_RAGE
-	const FLY_BLACKTHORN
-	const FLY_MT_SILVER
-; kanto
-KANTO_FLYPOINT EQU const_value
-	const FLY_PALLET
-	const FLY_VIRIDIAN
-	const FLY_PEWTER
-	const FLY_CERULEAN
-	const FLY_VERMILION
-	const FLY_ROCK_TUNNEL
-	const FLY_LAVENDER
-	const FLY_CELADON
-	const FLY_SAFFRON
-	const FLY_FUCHSIA
-	const FLY_CINNABAR
-	const FLY_INDIGO
-NUM_FLYPOINTS EQU const_value
+MAX_OUTDOOR_SPRITES EQU 23 ; see engine/overworld/overworld.asm

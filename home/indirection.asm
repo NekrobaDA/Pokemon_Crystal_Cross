@@ -71,7 +71,6 @@ LoadDoubleIndirectPointer::
 	; for indirect tables of near pointers to data, used for structures of varying size
 	; same calling convention as LoadIndirectPointer
 	call LoadIndirectPointer
-	call nz, GetFarWord
+	call nz, GetFarHalfword
 	ld a, b
 	ret
-	

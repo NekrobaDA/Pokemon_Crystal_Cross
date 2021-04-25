@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const TEAMROCKETBASEB1F_ROCKET1
 	const TEAMROCKETBASEB1F_ROCKET2
 	const TEAMROCKETBASEB1F_SCIENTIST
@@ -7,10 +7,10 @@
 	const TEAMROCKETBASEB1F_POKE_BALL3
 
 TeamRocketBaseB1F_MapScripts:
-	def_scene_scripts
+	db 1 ; scene scripts
 	scene_script .DummyScene ; SCENE_DEFAULT
 
-	def_callbacks
+	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .HideSecurityGrunt
 
 .DummyScene:
@@ -18,7 +18,7 @@ TeamRocketBaseB1F_MapScripts:
 
 .HideSecurityGrunt:
 	disappear TEAMROCKETBASEB1F_ROCKET1
-	endcallback
+	return
 
 SecurityCamera1a:
 	checkevent EVENT_SECURITY_CAMERA_1
@@ -504,7 +504,7 @@ TeamRocketBaseB1FSecurityCamera:
 	jumptext TeamRocketBaseB1FSecurityCameraText
 
 TeamRocketBaseB1FBookshelf:
-	jumpstd TeamRocketOathScript
+	jumpstd teamrocketoath
 
 TeamRocketBaseB1FSecretSwitch:
 	opentext
@@ -727,13 +727,13 @@ TeamRocketBaseB1FSwitchOffText:
 TeamRocketBaseB1F_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 4 ; warp events
 	warp_event 27,  2, MAHOGANY_MART_1F, 3
 	warp_event  3, 14, TEAM_ROCKET_BASE_B2F, 1
 	warp_event  5, 15, TEAM_ROCKET_BASE_B1F, 4
 	warp_event 25,  2, TEAM_ROCKET_BASE_B1F, 3
 
-	def_coord_events
+	db 30 ; coord events
 	; There are five security cameras in the base.
 	; Walking in front of one triggers two Rocket Grunts.
 	coord_event 24,  2, SCENE_DEFAULT, SecurityCamera1a
@@ -769,7 +769,7 @@ TeamRocketBaseB1F_MapEvents:
 	coord_event  4, 13, SCENE_DEFAULT, ExplodingTrap21
 	coord_event  5, 13, SCENE_DEFAULT, ExplodingTrap22
 
-	def_bg_events
+	db 9 ; bg events
 	bg_event 19, 11, BGEVENT_READ, TeamRocketBaseB1FSecretSwitch
 	bg_event 24,  1, BGEVENT_UP, TeamRocketBaseB1FSecurityCamera
 	bg_event  6,  1, BGEVENT_UP, TeamRocketBaseB1FSecurityCamera
@@ -780,9 +780,9 @@ TeamRocketBaseB1F_MapEvents:
 	bg_event 21, 11, BGEVENT_READ, TeamRocketBaseB1FBookshelf
 	bg_event  3, 11, BGEVENT_ITEM, TeamRocketBaseB1FHiddenRevive
 
-	def_object_events
-	object_event  0,  0, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_SECURITY_GRUNTS
-	object_event  2,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGruntM16, EVENT_TEAM_ROCKET_BASE_POPULATION
+	db 6 ; object events
+	object_event  0,  0, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_SECURITY_GRUNTS
+	object_event  2,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM16, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event 18, 12, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerScientistJed, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event 27,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB1FHyperPotion, EVENT_TEAM_ROCKET_BASE_B1F_HYPER_POTION
 	object_event 14, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB1FNugget, EVENT_TEAM_ROCKET_BASE_B1F_NUGGET

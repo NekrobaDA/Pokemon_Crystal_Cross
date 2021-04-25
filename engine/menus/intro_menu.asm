@@ -1,4 +1,4 @@
-Intro_MainMenu:
+_MainMenu:
 	ld de, MUSIC_NONE
 	call PlayMusic
 	call DelayFrame
@@ -9,7 +9,7 @@ Intro_MainMenu:
 	farcall MainMenu
 	jp StartTitleScreen
 
-IntroMenu_DummyFunction: ; unreferenced
+; unused
 	ret
 
 PrintDayOfWeek:
@@ -39,10 +39,10 @@ PrintDayOfWeek:
 .Day:
 	db "DAY@"
 
-NewGame_ClearTilemapEtc:
+NewGame_ClearTileMapEtc:
 	xor a
 	ldh [hMapAnims], a
-	call ClearTilemap
+	call ClearTileMap
 	call LoadFontsExtra
 	call LoadStandardFont
 	call ClearWindowData
@@ -54,20 +54,19 @@ MysteryGift:
 	farcall DoMysteryGift
 	ret
 
-Option:
-	farcall _Option
+OptionsMenu:
+	farcall _OptionsMenu
 	ret
 
 NewGame:
 	xor a
 	ld [wDebugFlags], a
 	call ResetWRAM
-	call NewGame_ClearTilemapEtc
+	call NewGame_ClearTileMapEtc
 	call AreYouABoyOrAreYouAGirl
 	call OakSpeech
 	call InitializeWorld
-
-	ld a, LANDMARK_NEW_BARK_TOWN
+	ld a, 1
 	ld [wPrevLandmark], a
 
 	ld a, SPAWN_HOME
@@ -78,7 +77,7 @@ NewGame:
 	jp FinishContinueFunction
 
 AreYouABoyOrAreYouAGirl:
-	farcall Mobile_AlwaysReturnNotCarry ; mobile
+	farcall Mobile_AlwaysReturnNotCarry ; some mobile stuff
 	jr c, .ok
 	farcall InitGender
 	ret
@@ -88,13 +87,13 @@ AreYouABoyOrAreYouAGirl:
 	farcall InitMobileProfile ; mobile
 	ret
 
-if DEF(_DEBUG)
-DebugRoom: ; unreferenced
-	farcall _DebugRoom
-	ret
-endc
-
 ResetWRAM:
+	xor a
+	ldh [hBGMapMode], a
+	call _ResetWRAM
+	ret
+
+_ResetWRAM:
 	ld a, BANK(wPokemonIndexTable)
 	ldh [rSVBK], a
 	ld hl, wPokemonIndexTable
@@ -104,12 +103,7 @@ ResetWRAM:
 
 	ld a, 1
 	ldh [rSVBK], a
-	xor a
-	ldh [hBGMapMode], a
-	call _ResetWRAM
-	ret
 
-_ResetWRAM:
 	ld hl, wVirtualOAM
 	ld bc, wOptions - wVirtualOAM
 	xor a
@@ -126,13 +120,13 @@ _ResetWRAM:
 	call ByteFill
 
 	ldh a, [rLY]
-	ldh [hUnusedBackup], a
+	ldh [hSecondsBackup], a
 	call DelayFrame
 	ldh a, [hRandomSub]
 	ld [wPlayerID], a
 
 	ldh a, [rLY]
-	ldh [hUnusedBackup], a
+	ldh [hSecondsBackup], a
 	call DelayFrame
 	ldh a, [hRandomAdd]
 	ld [wPlayerID + 1], a
@@ -153,7 +147,7 @@ _ResetWRAM:
 	call SetDefaultBoxNames
 
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	call GetSRAMBank
 	ld hl, sBoxCount
 	call .InitList
 	call CloseSRAM
@@ -174,30 +168,20 @@ _ResetWRAM:
 	ld [wRoamMon1Species], a
 	ld [wRoamMon2Species], a
 	ld [wRoamMon3Species], a
-	ld [wRoamMon4Species], a
-	ld [wRoamMon5Species], a
-	ld [wRoamMon6Species], a
 	ld a, -1
 	ld [wRoamMon1MapGroup], a
 	ld [wRoamMon2MapGroup], a
 	ld [wRoamMon3MapGroup], a
-	ld [wRoamMon4MapGroup], a
-	ld [wRoamMon5MapGroup], a
-	ld [wRoamMon6MapGroup], a
 	ld [wRoamMon1MapNumber], a
 	ld [wRoamMon2MapNumber], a
 	ld [wRoamMon3MapNumber], a
-	ld [wRoamMon4MapNumber], a
-	ld [wRoamMon5MapNumber], a
-	ld [wRoamMon6MapNumber], a
 
-	ld a, BANK(sMysteryGiftItem) ; aka BANK(sMysteryGiftUnlocked)
-	call OpenSRAM
+	ld a, BANK(sMysteryGiftItem)
+	call GetSRAMBank
 	ld hl, sMysteryGiftItem
 	xor a
 	ld [hli], a
-	assert sMysteryGiftItem + 1 == sMysteryGiftUnlocked
-	dec a ; -1
+	dec a
 	ld [hl], a
 	call CloseSRAM
 
@@ -330,7 +314,7 @@ InitializeWorld:
 
 LoadOrRegenerateLuckyIDNumber:
 	ld a, BANK(sLuckyIDNumber)
-	call OpenSRAM
+	call GetSRAMBank
 	ld a, [wCurDay]
 	inc a
 	ld b, a
@@ -385,12 +369,12 @@ Continue:
 	call ClearBGPalettes
 	call Continue_MobileAdapterMenu
 	call CloseWindow
-	call ClearTilemap
+	call ClearTileMap
 	ld c, 20
 	call DelayFrames
 	farcall JumpRoamMons
-	farcall CopyMysteryGiftReceivedDecorationsToPC
-	farcall ClockContinue
+	farcall MysteryGift_CopyReceivedDecosToPC ; Mystery Gift
+	farcall Function140ae ; time-related
 	ld a, [wSpawnAfterChampion]
 	cp SPAWN_LANCE
 	jr z, .SpawnAfterE4
@@ -483,9 +467,9 @@ FinishContinueFunction:
 	xor a
 	ld [wDontPlayMapMusicOnReload], a
 	ld [wLinkMode], a
-	ld hl, wGameTimerPaused
-	set GAME_TIMER_PAUSED_F, [hl]
-	res GAME_TIMER_MOBILE_F, [hl]
+	ld hl, wGameTimerPause
+	set GAMETIMERPAUSE_TIMER_PAUSED_F, [hl]
+	res GAMETIMERPAUSE_MOBILE_7_F, [hl]
 	ld hl, wEnteredMapFromContinue
 	set 1, [hl]
 	farcall OverworldLoop
@@ -659,7 +643,7 @@ Continue_DisplayGameTime:
 OakSpeech:
 	farcall InitClock
 	call RotateFourPalettesLeft
-	call ClearTilemap
+	call ClearTileMap
 
 	ld de, MUSIC_ROUTE_30
 	call PlayMusic
@@ -679,7 +663,7 @@ OakSpeech:
 	ld hl, OakText1
 	call PrintText
 	call RotateThreePalettesRight
-	call ClearTilemap
+	call ClearTileMap
 
 	ld hl, WOOPER
 	call GetPokemonIDFromIndex
@@ -703,7 +687,7 @@ OakSpeech:
 	ld hl, OakText4
 	call PrintText
 	call RotateThreePalettesRight
-	call ClearTilemap
+	call ClearTileMap
 
 	xor a
 	ld [wCurPartySpecies], a
@@ -718,7 +702,7 @@ OakSpeech:
 	ld hl, OakText5
 	call PrintText
 	call RotateThreePalettesRight
-	call ClearTilemap
+	call ClearTileMap
 
 	xor a
 	ld [wCurPartySpecies], a
@@ -786,7 +770,7 @@ NamePlayer:
 	farcall NamingScreen
 
 	call RotateThreePalettesRight
-	call ClearTilemap
+	call ClearTileMap
 
 	call LoadFontsExtra
 	call WaitBGMap
@@ -814,7 +798,7 @@ NamePlayer:
 .Kris:
 	db "KRIS@@@@@@@"
 
-GSShowPlayerNamingChoices: ; unreferenced
+Unreferenced_Function60e9:
 	call LoadMenuHeader
 	call VerticalMenu
 	ld a, [wMenuCursorY]
@@ -882,7 +866,7 @@ ShrinkPlayer:
 	call DelayFrames
 
 	call RotateThreePalettesRight
-	call ClearTilemap
+	call ClearTileMap
 	ret
 
 Intro_RotatePalettesLeftFrontpic:
@@ -944,7 +928,7 @@ ShrinkFrame:
 
 Intro_PlacePlayerSprite:
 	farcall GetPlayerIcon
-	ld c, 12
+	ld c, $c
 	ld hl, vTiles0
 	call Request2bpp
 
@@ -973,7 +957,7 @@ Intro_PlacePlayerSprite:
 .male
 	ld a, b
 
-	ld [hli], a ; attributes
+	ld [hli], a
 	dec c
 	jr nz, .loop
 	ret
@@ -986,26 +970,15 @@ Intro_PlacePlayerSprite:
 	db 10 * 8 + 4,  9 * 8, 2
 	db 10 * 8 + 4, 10 * 8, 3
 
-
-	const_def
-	const TITLESCREENOPTION_MAIN_MENU
-	const TITLESCREENOPTION_DELETE_SAVE_DATA
-	const TITLESCREENOPTION_RESTART
-	const TITLESCREENOPTION_UNUSED
-	const TITLESCREENOPTION_RESET_CLOCK
-NUM_TITLESCREENOPTIONS EQU const_value
-
-IntroSequence:
-	callfar SplashScreen
+CrystalIntroSequence:
+	callfar Copyright_GFPresents
 	jr c, StartTitleScreen
 	farcall CrystalIntro
-
-	; fallthrough
 
 StartTitleScreen:
 	ldh a, [rSVBK]
 	push af
-	ld a, BANK(wLYOverrides)
+	ld a, BANK(wBGPals1)
 	ldh [rSVBK], a
 
 	call .TitleScreen
@@ -1035,8 +1008,8 @@ StartTitleScreen:
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call UpdateTimePals
-	ld a, [wTitleScreenSelectedOption]
-	cp NUM_TITLESCREENOPTIONS
+	ld a, [wIntroSceneFrameCounter]
+	cp $5
 	jr c, .ok
 	xor a
 .ok
@@ -1051,10 +1024,10 @@ StartTitleScreen:
 	jp hl
 
 .dw
-	dw Intro_MainMenu
+	dw _MainMenu
 	dw DeleteSaveData
-	dw IntroSequence
-	dw IntroSequence
+	dw CrystalIntroSequence
+	dw CrystalIntroSequence
 	dw ResetClock
 
 .TitleScreen:
@@ -1075,8 +1048,7 @@ RunTitleScreen:
 	scf
 	ret
 
-UnusedTitlePerspectiveScroll: ; unreferenced
-; Similar behavior to Intro_PerspectiveScrollBG.
+Unreferenced_Function6292:
 	ldh a, [hVBlankCounter]
 	and $7
 	ret nz
@@ -1104,7 +1076,7 @@ TitleScreenScene:
 	dw TitleScreenMain
 	dw TitleScreenEnd
 
-TitleScreenNextScene: ; unreferenced
+.Unreferenced_NextScene:
 	ld hl, wJumptableIndex
 	inc [hl]
 	ret
@@ -1220,7 +1192,7 @@ TitleScreenMain:
 	ld a, [hl]
 	and D_LEFT + D_UP
 	cp  D_LEFT + D_UP
-	jr z, .reset_clock
+	jr z, .clock_reset
 
 ; Press Start or A to start the game.
 .check_start
@@ -1230,14 +1202,14 @@ TitleScreenMain:
 	ret
 
 .incave
-	ld a, TITLESCREENOPTION_MAIN_MENU
+	ld a, 0
 	jr .done
 
 .delete_save_data
-	ld a, TITLESCREENOPTION_DELETE_SAVE_DATA
+	ld a, 1
 
 .done
-	ld [wTitleScreenSelectedOption], a
+	ld [wIntroSceneFrameCounter], a
 
 ; Return to the intro sequence.
 	ld hl, wJumptableIndex
@@ -1250,7 +1222,7 @@ TitleScreenMain:
 	inc [hl]
 
 ; Fade out the title screen music
-	xor a ; MUSIC_NONE
+	xor a
 	ld [wMusicFadeID], a
 	ld [wMusicFadeID + 1], a
 	ld hl, wMusicFade
@@ -1260,9 +1232,9 @@ TitleScreenMain:
 	inc [hl]
 	ret
 
-.reset_clock
-	ld a, TITLESCREENOPTION_RESET_CLOCK
-	ld [wTitleScreenSelectedOption], a
+.clock_reset
+	ld a, 4
+	ld [wIntroSceneFrameCounter], a
 
 ; Return to the intro sequence.
 	ld hl, wJumptableIndex
@@ -1279,8 +1251,8 @@ TitleScreenEnd:
 	and a
 	ret nz
 
-	ld a, TITLESCREENOPTION_RESTART
-	ld [wTitleScreenSelectedOption], a
+	ld a, 2
+	ld [wIntroSceneFrameCounter], a
 
 ; Back to the intro.
 	ld hl, wJumptableIndex
@@ -1295,21 +1267,21 @@ ResetClock:
 	farcall _ResetClock
 	jp Init
 
-UpdateTitleTrailSprite: ; unreferenced
+Unreferenced_Function639b:
 	; If bit 0 or 1 of [wTitleScreenTimer] is set, we don't need to be here.
 	ld a, [wTitleScreenTimer]
 	and %00000011
 	ret nz
 	ld bc, wSpriteAnim10
 	ld hl, SPRITEANIMSTRUCT_FRAME
-	add hl, bc
+	add hl, bc ; over-the-top compicated way to load wc3ae into hl
 	ld l, [hl]
 	ld h, 0
 	add hl, hl
 	add hl, hl
-	ld de, .TitleTrailCoords
+	ld de, .Data63ca
 	add hl, de
-	; If bit 2 of [wTitleScreenTimer] is set, get the second coords; else, get the first coords
+	; If bit 2 of [wTitleScreenTimer] is set, get the second dw; else, get the first dw
 	ld a, [wTitleScreenTimer]
 	and %00000100
 	srl a
@@ -1324,31 +1296,20 @@ UpdateTitleTrailSprite: ; unreferenced
 	ld e, a
 	ld d, [hl]
 	ld a, SPRITE_ANIM_INDEX_GS_TITLE_TRAIL
-	call InitSpriteAnimStruct
+	call _InitSpriteAnimStruct
 	ret
 
-.TitleTrailCoords:
-trail_coords: MACRO
-rept _NARG / 2
-_dx = 4
-if \1 == 0 && \2 == 0
-_dx = 0
-endc
-	dbpixel \1, \2, _dx, 0
-	shift
-	shift
-endr
-ENDM
-	; frame 0 y, x; frame 1 y, x
-	trail_coords 11, 10,  0,  0
-	trail_coords 11, 13, 11, 11
-	trail_coords 11, 13, 11, 15
-	trail_coords 11, 17, 11, 15
-	trail_coords  0,  0, 11, 15
-	trail_coords  0,  0, 11, 11
+.Data63ca:
+; frame 0 y, x; frame 1 y, x
+	db 11 * 8 + 4, 10 * 8,  0 * 8,      0 * 8
+	db 11 * 8 + 4, 13 * 8, 11 * 8 + 4, 11 * 8
+	db 11 * 8 + 4, 13 * 8, 11 * 8 + 4, 15 * 8
+	db 11 * 8 + 4, 17 * 8, 11 * 8 + 4, 15 * 8
+	db  0 * 8,      0 * 8, 11 * 8 + 4, 15 * 8
+	db  0 * 8,      0 * 8, 11 * 8 + 4, 11 * 8
 
 Copyright:
-	call ClearTilemap
+	call ClearTileMap
 	call LoadFontsExtra
 	ld de, CopyrightGFX
 	ld hl, vTiles2 tile $60
@@ -1377,7 +1338,7 @@ GameInit::
 	farcall TryLoadSaveData
 	call ClearWindowData
 	call ClearBGPalettes
-	call ClearTilemap
+	call ClearTileMap
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
 	xor a ; LOW(vBGMap0)
@@ -1388,4 +1349,4 @@ GameInit::
 	ld a, $90
 	ldh [hWY], a
 	call WaitBGMap
-	jp IntroSequence
+	jp CrystalIntroSequence

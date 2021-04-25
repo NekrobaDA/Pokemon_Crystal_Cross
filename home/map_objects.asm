@@ -20,7 +20,7 @@ GetSpriteVTile::
 	ld hl, wUsedSprites + 2
 	ld c, SPRITE_GFX_LIST_CAPACITY - 1
 	ld b, a
-	ldh a, [hMapObjectIndex]
+	ldh a, [hMapObjectIndexBuffer]
 	cp 0
 	jr z, .nope
 	ld a, b
@@ -80,7 +80,7 @@ GetPlayerStandingTile::
 CheckOnWater::
 	ld a, [wPlayerStandingTile]
 	call GetTileCollision
-	sub WATER_TILE
+	sub WATERTILE
 	ret z
 	and a
 	ret
@@ -115,23 +115,14 @@ CheckGrassTile::
 	ld d, a
 	and $f0
 	cp HI_NYBBLE_TALL_GRASS
-	jr z, .grass
+	jr z, .check
 	cp HI_NYBBLE_WATER
-	jr z, .water
-	scf
-	ret
-
-.grass
+	jr nz, .nope
+.check
 	ld a, d
 	and LO_NYBBLE_GRASS
 	ret z
-	scf
-	ret
-; For some reason, the above code is duplicated down here.
-.water
-	ld a, d
-	and LO_NYBBLE_GRASS
-	ret z
+.nope
 	scf
 	ret
 
@@ -151,10 +142,6 @@ CheckHeadbuttTreeTile::
 	cp COLL_HEADBUTT_TREE
 	ret z
 	cp COLL_HEADBUTT_TREE_1D
-	ret
-	
-CheckRockyWallTile::
-	cp COLL_ROCKY_WALL
 	ret
 
 CheckCounterTile::
@@ -206,7 +193,7 @@ CheckStandingOnEntrance::
 GetMapObject::
 ; Return the location of map object a in bc.
 	ld hl, wMapObjects
-	ld bc, MAPOBJECT_LENGTH
+	ld bc, OBJECT_LENGTH
 	call AddNTimes
 	ld b, h
 	ld c, l
@@ -214,14 +201,14 @@ GetMapObject::
 
 CheckObjectVisibility::
 ; Sets carry if the object is not visible on the screen.
-	ldh [hMapObjectIndex], a
+	ldh [hMapObjectIndexBuffer], a
 	call GetMapObject
 	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
 	add hl, bc
 	ld a, [hl]
 	cp -1
 	jr z, .not_visible
-	ldh [hObjectStructIndex], a
+	ldh [hObjectStructIndexBuffer], a
 	call GetObjectStruct
 	and a
 	ret
@@ -241,7 +228,7 @@ CheckObjectTime::
 	ld a, [hl]
 	cp -1
 	jr z, .timeofday_always
-	ld hl, .TimesOfDay
+	ld hl, .TimeOfDayValues_191e
 	ld a, [wTimeOfDay]
 	add l
 	ld l, a
@@ -261,12 +248,11 @@ CheckObjectTime::
 	and a
 	ret
 
-.TimesOfDay:
+.TimeOfDayValues_191e:
 ; entries correspond to TimeOfDay values
 	db MORN
 	db DAY
 	db NITE
-	db EVE
 
 .check_hour
 	ld hl, MAPOBJECT_HOUR
@@ -278,49 +264,34 @@ CheckObjectTime::
 	ld hl, hHours
 	ld a, d
 	cp e
-	jr z, .yes
+	ret z
 	jr c, .check_timeofday
 	ld a, [hl]
 	cp d
-	jr nc, .yes
+	ret nc
 	cp e
-	jr c, .yes
-	jr z, .yes
-	jr .no
+	ret z
+	ccf
+	ret
 
 .check_timeofday
 	ld a, e
 	cp [hl]
-	jr c, .no
+	ret c
 	ld a, [hl]
 	cp d
-	jr nc, .yes
-	jr .no
-
-.yes
-	and a
 	ret
 
-.no
-	scf
-	ret
-
-CopyMapObjectStruct:: ; unreferenced
-	ldh [hMapObjectIndex], a
-	call GetMapObject
-	call CopyObjectStruct
-	ret
-
-UnmaskCopyMapObjectStruct::
-	ldh [hMapObjectIndex], a
+_CopyObjectStruct::
+	ldh [hMapObjectIndexBuffer], a
 	call UnmaskObject
-	ldh a, [hMapObjectIndex]
+	ldh a, [hMapObjectIndexBuffer]
 	call GetMapObject
 	farcall CopyObjectStruct
 	ret
 
 ApplyDeletionToMapObject::
-	ldh [hMapObjectIndex], a
+	ldh [hMapObjectIndexBuffer], a
 	call GetMapObject
 	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
 	add hl, bc
@@ -351,8 +322,7 @@ ApplyDeletionToMapObject::
 
 DeleteObjectStruct::
 	call ApplyDeletionToMapObject
-	call MaskObject
-	ret
+	jp MaskObject
 
 CopyPlayerObjectTemplate::
 	push hl
@@ -363,7 +333,7 @@ CopyPlayerObjectTemplate::
 	ld [de], a
 	inc de
 	pop hl
-	ld bc, MAPOBJECT_LENGTH - 1
+	ld bc, OBJECT_LENGTH - 1
 	jp CopyBytes
 
 LoadMovementDataPointer::
@@ -385,7 +355,7 @@ LoadMovementDataPointer::
 
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
-	ld [hl], STEP_TYPE_RESET
+	ld [hl], STEP_TYPE_00
 
 	ld hl, wVramState
 	set 7, [hl]
@@ -399,7 +369,7 @@ FindFirstEmptyObjectStruct::
 	push bc
 	push de
 	ld hl, wObjectStructs
-	ld de, OBJECT_LENGTH
+	ld de, OBJECT_STRUCT_LENGTH
 	ld c, NUM_OBJECT_STRUCTS
 .loop
 	ld a, [hl]
@@ -549,12 +519,12 @@ _GetMovementByte::
 	ld a, h
 	ret
 
-SetVramState_Bit0:: ; unreferenced
+SetVramState_Bit0::
 	ld hl, wVramState
 	set 0, [hl]
 	ret
 
-ResetVramState_Bit0:: ; unreferenced
+ResetVramState_Bit0::
 	ld hl, wVramState
 	res 0, [hl]
 	ret
@@ -564,12 +534,12 @@ UpdateSprites::
 	bit 0, a
 	ret z
 
-	farcall UpdateAllObjectsFrozen
+	farcall Function55e0
 	farcall _UpdateSprites
 	ret
 
 GetObjectStruct::
-	ld bc, OBJECT_LENGTH
+	ld bc, OBJECT_STRUCT_LENGTH
 	ld hl, wObjectStructs
 	call AddNTimes
 	ld b, h

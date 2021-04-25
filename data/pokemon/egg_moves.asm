@@ -17,6 +17,7 @@ BulbasaurEggMoves:
 	db LIGHT_SCREEN
 	db SKULL_BASH
 	db SAFEGUARD
+	db RAZOR_WIND
 	db PETAL_DANCE
 	db -1 ; end
 
@@ -348,6 +349,14 @@ ChanseyEggMoves:
 	db HEAL_BELL
 	db -1 ; end
 
+TangelaEggMoves:
+	db FLAIL
+	db CONFUSION
+	db MEGA_DRAIN
+	db REFLECT
+	db AMNESIA
+	db -1 ; end
+
 KangaskhanEggMoves:
 	db STOMP
 	db FORESIGHT
@@ -369,6 +378,12 @@ GoldeenEggMoves:
 	db PSYBEAM
 	db HAZE
 	db HYDRO_PUMP
+	db -1 ; end
+
+MrMimeEggMoves:
+	db FUTURE_SIGHT
+	db HYPNOSIS
+	db MIMIC
 	db -1 ; end
 
 ScytherEggMoves:
@@ -500,16 +515,16 @@ PichuEggMoves:
 	db DOUBLESLAP
 	db -1 ; end
 
-ClefairyEggMoves:
+CleffaEggMoves:
 	db PRESENT
 	db METRONOME
 	db AMNESIA
 	db BELLY_DRUM
 	db SPLASH
-	db RECOVER
+	db MIMIC
 	db -1 ; end
 
-JigglypuffEggMoves:
+IgglybuffEggMoves:
 	db PERISH_SONG
 	db PRESENT
 	db FAINT_ATTACK
@@ -759,6 +774,10 @@ TyrogueEggMoves:
 	db MIND_READER
 	db -1 ; end
 
+SmoochumEggMoves:
+	db MEDITATE
+	db -1 ; end
+
 ElekidEggMoves:
 	db KARATE_CHOP
 	db BARRIER
@@ -776,6 +795,7 @@ MagbyEggMoves:
 	db -1 ; end
 
 MiltankEggMoves:
+	db PRESENT
 	db REVERSAL
 	db SEISMIC_TOSS
 	db -1 ; end

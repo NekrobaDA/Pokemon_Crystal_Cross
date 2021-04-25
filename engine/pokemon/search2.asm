@@ -117,7 +117,7 @@ FindThatSpecies:
 	ret
 
 RetroactivelyIgnoreEggs:
-	ld e, %11111110
+	ld e, -2
 	ld hl, wPartySpecies
 .loop
 	ld a, [hli]

@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const ROUTE36NATIONALPARKGATE_OFFICER1
 	const ROUTE36NATIONALPARKGATE_YOUNGSTER1
 	const ROUTE36NATIONALPARKGATE_YOUNGSTER2
@@ -13,12 +13,12 @@
 	const ROUTE36NATIONALPARKGATE_OFFICER2
 
 Route36NationalParkGate_MapScripts:
-	def_scene_scripts
+	db 3 ; scene scripts
 	scene_script .DummyScene0 ; SCENE_ROUTE36NATIONALPARKGATE_NOTHING
 	scene_script .DummyScene1 ; SCENE_ROUTE36NATIONALPARKGATE_UNUSED
 	scene_script .LeaveContestEarly ; SCENE_ROUTE36NATIONALPARKGATE_LEAVE_CONTEST_EARLY
 
-	def_callbacks
+	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .CheckIfContestRunning
 	callback MAPCALLBACK_OBJECTS, .CheckIfContestAvailable
 
@@ -36,11 +36,11 @@ Route36NationalParkGate_MapScripts:
 	checkflag ENGINE_BUG_CONTEST_TIMER
 	iftrue .BugContestIsRunning
 	setscene SCENE_ROUTE36NATIONALPARKGATE_NOTHING
-	endcallback
+	return
 
 .BugContestIsRunning:
 	setscene SCENE_ROUTE36NATIONALPARKGATE_LEAVE_CONTEST_EARLY
-	endcallback
+	return
 
 .CheckIfContestAvailable:
 	checkevent EVENT_WARPED_FROM_ROUTE_35_NATIONAL_PARK_GATE
@@ -53,13 +53,13 @@ Route36NationalParkGate_MapScripts:
 	iftrue .SetContestOfficer
 	disappear ROUTE36NATIONALPARKGATE_OFFICER1
 	appear ROUTE36NATIONALPARKGATE_OFFICER2
-	endcallback
+	return
 
 .SetContestOfficer:
 	appear ROUTE36NATIONALPARKGATE_OFFICER1
 	disappear ROUTE36NATIONALPARKGATE_OFFICER2
 .Return:
-	endcallback
+	return
 
 .LeavingContestEarly:
 	turnobject PLAYER, UP
@@ -81,7 +81,7 @@ Route36NationalParkGate_MapScripts:
 	applymovement PLAYER, Route36NationalParkGatePlayerWaitWithContestantsMovement
 	pause 15
 	special FadeInQuickly
-	jumpstd BugContestResultsScript
+	jumpstd bugcontestresults
 
 .GoBackToContest:
 	writetext Route36NationalParkGateOfficer1OkGoFinishText
@@ -160,7 +160,7 @@ Route36OfficerScriptContest:
 	setflag ENGINE_BUG_CONTEST_TIMER
 	special PlayMapMusic
 	writetext Route36NationalParkGateOfficer1GiveParkBallsText
-	promptbutton
+	buttonsound
 	waitsfx
 	writetext Route36NationalParkGatePlayerReceivedParkBallsText
 	playsound SFX_ITEM
@@ -193,11 +193,11 @@ Route36OfficerScriptContest:
 	iftrue .FirstMonIsFainted
 	setevent EVENT_LEFT_MONS_WITH_CONTEST_OFFICER
 	writetext Route36NationalParkGateOfficer1WellHoldYourMonText
-	promptbutton
+	buttonsound
 	writetext Route36NationalParkGatePlayersMonLeftWithHelperText
 	playsound SFX_GOT_SAFARI_BALLS
 	waitsfx
-	promptbutton
+	buttonsound
 	sjump .ResumeStartingContest
 
 .DecidedNotToJoinContest:
@@ -246,7 +246,7 @@ Route36Officer_ContestHasConcluded:
 
 .Sunstone:
 	writetext Route36NationalParkGateOfficer1HeresThePrizeText
-	promptbutton
+	buttonsound
 	verbosegiveitem SUN_STONE
 	iffalse .BagFull
 	clearevent EVENT_CONTEST_OFFICER_HAS_SUN_STONE
@@ -255,7 +255,7 @@ Route36Officer_ContestHasConcluded:
 
 .Everstone:
 	writetext Route36NationalParkGateOfficer1HeresThePrizeText
-	promptbutton
+	buttonsound
 	verbosegiveitem EVERSTONE
 	iffalse .BagFull
 	clearevent EVENT_CONTEST_OFFICER_HAS_EVERSTONE
@@ -264,7 +264,7 @@ Route36Officer_ContestHasConcluded:
 
 .GoldBerry:
 	writetext Route36NationalParkGateOfficer1HeresThePrizeText
-	promptbutton
+	buttonsound
 	verbosegiveitem GOLD_BERRY
 	iffalse .BagFull
 	clearevent EVENT_CONTEST_OFFICER_HAS_GOLD_BERRY
@@ -273,7 +273,7 @@ Route36Officer_ContestHasConcluded:
 
 .Berry:
 	writetext Route36NationalParkGateOfficer1HeresThePrizeText
-	promptbutton
+	buttonsound
 	verbosegiveitem BERRY
 	iffalse .BagFull
 	clearevent EVENT_CONTEST_OFFICER_HAS_BERRY
@@ -300,7 +300,7 @@ Route36NationalParkGateOfficerScript:
 	end
 
 Route36ParkGate_DayToText:
-	jumpstd DayToTextScript
+	jumpstd daytotext
 	end
 
 BugCatchingContestant1BScript:
@@ -463,7 +463,7 @@ BugCatchingContestant10BScript:
 	closetext
 	end
 
-UnusedBugCatchingContestExplanationSign: ; unreferenced
+UnusedBugCatchingContestExplanationSign:
 ; duplicate of BugCatchingContestExplanationSign in Route35NationalParkGate.asm
 	jumptext UnusedBugCatchingContestExplanationText
 
@@ -795,9 +795,10 @@ BugCatchingContestant10BStillCompetingText:
 	line "win."
 	done
 
-UnusedSilphScope2Text: ; unreferenced
-; This text is referring to Sudowoodo.
-; The SILPHSCOPE2 was later reworked into the SQUIRTBOTTLE.
+UnusedSudowoodoText:
+; This text is unused and unreferenced in the final game.
+; The tree Pokémon is Sudowoodo.
+; The Silph Scope 2 was later reworked into the Squirtbottle.
 	text "I hear there's a"
 	line "#MON that looks"
 	cont "just like a tree."
@@ -851,23 +852,23 @@ Route36NationalParkGateOfficer1HeresThePrizeText:
 Route36NationalParkGate_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 4 ; warp events
 	warp_event  0,  4, NATIONAL_PARK, 1
 	warp_event  0,  5, NATIONAL_PARK, 2
 	warp_event  9,  4, ROUTE_36, 1
 	warp_event  9,  5, ROUTE_36, 2
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 1 ; bg events
 	bg_event  6,  0, BGEVENT_READ, BugCatchingContestExplanationSign
 
-	def_object_events
+	db 12 ; object events
 	object_event  0,  3, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36OfficerScriptContest, EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
 	object_event  2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant1BScript, EVENT_BUG_CATCHING_CONTESTANT_1B
 	object_event  4,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant2BScript, EVENT_BUG_CATCHING_CONTESTANT_2B
 	object_event  2,  6, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant3BScript, EVENT_BUG_CATCHING_CONTESTANT_3B
-	object_event  6,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant4BScript, EVENT_BUG_CATCHING_CONTESTANT_4B
+	object_event  6,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant4BScript, EVENT_BUG_CATCHING_CONTESTANT_4B
 	object_event  2,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant5BScript, EVENT_BUG_CATCHING_CONTESTANT_5B
 	object_event  5,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant6BScript, EVENT_BUG_CATCHING_CONTESTANT_6B
 	object_event  3,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant7BScript, EVENT_BUG_CATCHING_CONTESTANT_7B

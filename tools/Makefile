@@ -11,18 +11,14 @@ tools := \
 	pokemon_animation \
 	pokemon_animation_graphics \
 	gfx \
-	stadium
+	md5
 all: $(tools)
 	@:
 
 clean:
 	rm -f $(tools)
 
-gfx: common.h
-
-lzcomp: CFLAGS = -O3 -flto -std=c11 -Wall -Wextra -pedantic -Wno-strict-overflow -Wno-sign-compare
-lzcomp: $(wildcard lz/*.c) $(wildcard lz/*.h)
-	$(CC) $(CFLAGS) -o $@ lz/*.c
+gfx md5: common.h
 
 %: %.c
 	$(CC) $(CFLAGS) -o $@ $<

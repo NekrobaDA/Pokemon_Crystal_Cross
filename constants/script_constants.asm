@@ -9,8 +9,6 @@ LAST_TALKED EQU -2
 	const STRING_BUFFER_5 ; use wStringBuffer5
 NUM_STRING_BUFFERS EQU const_value
 
-STRING_BUFFER_LENGTH EQU 19
-
 ; checkmoney/takemoney accounts
 	const_def
 	const YOUR_MONEY ; 0
@@ -95,17 +93,6 @@ RETVAR_EXECUTE EQU (2 << 6)
 	const PLAYEREVENT_JOYCHANGEFACING
 NUM_PLAYER_EVENTS EQU const_value
 
-; PlayerMovement.pointers indexes (see engine/overworld/events.asm)
-	const_def
-	const PLAYERMOVEMENT_NORMAL
-	const PLAYERMOVEMENT_WARP
-	const PLAYERMOVEMENT_TURN
-	const PLAYERMOVEMENT_FORCE_TURN
-	const PLAYERMOVEMENT_FINISH
-	const PLAYERMOVEMENT_CONTINUE
-	const PLAYERMOVEMENT_EXIT_WATER
-	const PLAYERMOVEMENT_JUMP
-
 ; script data sizes (see macros/scripts/maps.asm)
 SCENE_SCRIPT_SIZE EQU 4 ; scene_script
 CALLBACK_SIZE     EQU 3 ; callback
@@ -141,7 +128,6 @@ OBJECT_EVENT_SIZE EQU 13 ; object_event
 ; command queue members
 CMDQUEUE_TYPE  EQU 0
 CMDQUEUE_ADDR  EQU 1
-CMDQUEUE_02    EQU 2
 CMDQUEUE_03    EQU 3
 CMDQUEUE_04    EQU 4
 CMDQUEUE_05    EQU 5
@@ -151,7 +137,7 @@ CMDQUEUE_CAPACITY EQU 4
 ; HandleQueuedCommand.Jumptable indexes (see engine/overworld/events.asm)
 	const_def
 	const CMDQUEUE_NULL
-	const CMDQUEUE_TYPE1
+	const CMDQUEUE_NULL2
 	const CMDQUEUE_STONETABLE
 	const CMDQUEUE_TYPE3
 	const CMDQUEUE_TYPE4
@@ -227,18 +213,7 @@ EMOTE_FROM_MEM EQU -1
 	const FRUITTREE_PEWTER_CITY_1 ; 1c
 	const FRUITTREE_PEWTER_CITY_2 ; 1d
 	const FRUITTREE_FUCHSIA_CITY  ; 1e
-	const FRUITTREE_CHERRYGROVE_CITY_1
-	const FRUITTREE_CHERRYGROVE_CITY_2
-	const FRUITTREE_CHERRYGROVE_CITY_3
-	const FRUITTREE_CHERRYGROVE_CITY_4
-	const FRUITTREE_CHERRYGROVE_CITY_5
-	const FRUITTREE_CHERRYGROVE_CITY_6
-	const FRUITTREE_CHERRYGROVE_CITY_7
-	const FRUITTREE_CHERRYGROVE_CITY_8
-	const FRUITTREE_OLIVINE_CITY_1
-	const FRUITTREE_OLIVINE_CITY_2
-	const FRUITTREE_OLIVINE_CITY_3
-NUM_FRUIT_TREES EQU const_value - 1
+NUM_FRUIT_TREES EQU const_value + -1
 
 ; describedecoration arguments
 ; DescribeDecoration.JumpTable indexes (see engine/overworld/decorations.asm)
@@ -314,6 +289,6 @@ NUM_UNOWN_PUZZLES EQU const_value
 
 ; MoveTutor setval arguments
 	const_def 1
-	const MOVETUTOR_MIMIC   ; 1
-	const MOVETUTOR_SWIFT   ; 2
-	const MOVETUTOR_OUTRAGE ; 3
+	const MOVETUTOR_FLAMETHROWER ; 1
+	const MOVETUTOR_THUNDERBOLT  ; 2
+	const MOVETUTOR_ICE_BEAM     ; 3

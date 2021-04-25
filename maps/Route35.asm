@@ -1,4 +1,4 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const ROUTE35_YOUNGSTER1
 	const ROUTE35_YOUNGSTER2
 	const ROUTE35_LASS1
@@ -12,9 +12,9 @@
 	const ROUTE35_POKE_BALL
 
 Route35_MapScripts:
-	def_scene_scripts
+	db 0 ; scene scripts
 
-	def_callbacks
+	db 0 ; callbacks
 
 TrainerBirdKeeperBryan:
 	trainer BIRD_KEEPER, BRYAN, EVENT_BEAT_BIRD_KEEPER_BRYAN, BirdKeeperBryanSeenText, BirdKeeperBryanBeatenText, 0, .Script
@@ -39,7 +39,7 @@ TrainerJugglerIrwin:
 	checkevent EVENT_IRWIN_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext JugglerIrwinAfterBattleText
-	promptbutton
+	buttonsound
 	setevent EVENT_IRWIN_ASKED_FOR_PHONE_NUMBER
 	scall Route35AskNumber1M
 	sjump .AskForNumber
@@ -55,31 +55,31 @@ TrainerJugglerIrwin:
 	sjump Route35NumberAcceptedM
 
 Route35AskNumber1M:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 Route35AskNumber2M:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 Route35RegisteredNumberM:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 Route35NumberAcceptedM:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 Route35NumberDeclinedM:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 Route35PhoneFullM:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 Route35RematchM:
-	jumpstd RematchMScript
+	jumpstd rematchm
 	end
 
 TrainerCamperIvan:
@@ -133,7 +133,7 @@ TrainerBugCatcherArnie:
 	loadvar VAR_CALLERID, PHONE_BUG_CATCHER_ARNIE
 	endifjustbattled
 	opentext
-	checkflag ENGINE_ARNIE_READY_FOR_REMATCH
+	checkflag ENGINE_ARNIE
 	iftrue .WantsBattle
 	checkflag ENGINE_YANMA_SWARM
 	iftrue .YanmaSwarming
@@ -142,7 +142,7 @@ TrainerBugCatcherArnie:
 	checkevent EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext BugCatcherArnieAfterBattleText
-	promptbutton
+	buttonsound
 	setevent EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
 	scall Route35AskNumber1M
 	sjump .AskForNumber
@@ -183,7 +183,7 @@ TrainerBugCatcherArnie:
 	startbattle
 	reloadmapafterbattle
 	loadmem wArnieFightCount, 1
-	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
+	clearflag ENGINE_ARNIE
 	end
 
 .LoadFight1:
@@ -191,7 +191,7 @@ TrainerBugCatcherArnie:
 	startbattle
 	reloadmapafterbattle
 	loadmem wArnieFightCount, 2
-	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
+	clearflag ENGINE_ARNIE
 	end
 
 .LoadFight2:
@@ -199,7 +199,7 @@ TrainerBugCatcherArnie:
 	startbattle
 	reloadmapafterbattle
 	loadmem wArnieFightCount, 3
-	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
+	clearflag ENGINE_ARNIE
 	end
 
 .LoadFight3:
@@ -207,14 +207,14 @@ TrainerBugCatcherArnie:
 	startbattle
 	reloadmapafterbattle
 	loadmem wArnieFightCount, 4
-	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
+	clearflag ENGINE_ARNIE
 	end
 
 .LoadFight4:
 	loadtrainer BUG_CATCHER, ARNIE5
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
+	clearflag ENGINE_ARNIE
 	end
 
 .YanmaSwarming:
@@ -463,26 +463,26 @@ Route35SignText:
 Route35_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 3 ; warp events
 	warp_event  9, 33, ROUTE_35_GOLDENROD_GATE, 1
 	warp_event 10, 33, ROUTE_35_GOLDENROD_GATE, 2
 	warp_event  3,  5, ROUTE_35_NATIONAL_PARK_GATE, 3
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
-	bg_event  4,  6, BGEVENT_READ, Route35Sign
+	db 2 ; bg events
+	bg_event  1,  7, BGEVENT_READ, Route35Sign
 	bg_event 11, 31, BGEVENT_READ, Route35Sign
 
-	def_object_events
-	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperIvan, -1
-	object_event 10, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperElliot, -1
-	object_event  9, 14, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerBrooke, -1
-	object_event 11, 26, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerKim, -1
-	object_event 13, 17, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerBirdKeeperBryan, -1
-	object_event  8, 21, SPRITE_FISHER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherWalt, -1
-	object_event 16,  7, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherArnie, -1
-	object_event  7,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerJugglerIrwin, -1
+	db 11 ; object events
+	object_event  4, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperIvan, -1
+	object_event  8, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperElliot, -1
+	object_event  7, 20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerBrooke, -1
+	object_event 10, 26, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerKim, -1
+	object_event 14, 28, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerBirdKeeperBryan, -1
+	object_event  2, 10, SPRITE_FISHER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherWalt, -1
+	object_event 16,  7, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherArnie, -1
+	object_event  5, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerJugglerIrwin, -1
 	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
-	object_event 14, 28, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35FruitTree, -1
-	object_event  6, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT
+	object_event  2, 25, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35FruitTree, -1
+	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT

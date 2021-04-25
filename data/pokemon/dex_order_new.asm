@@ -40,8 +40,10 @@ NewPokedexOrder:
 	dw ZUBAT
 	dw GOLBAT
 	dw CROBAT
+	dw CLEFFA
 	dw CLEFAIRY
 	dw CLEFABLE
+	dw IGGLYBUFF
 	dw JIGGLYPUFF
 	dw WIGGLYTUFF
 	dw TOGEPI
@@ -84,6 +86,7 @@ NewPokedexOrder:
 	dw ODDISH
 	dw GLOOM
 	dw VILEPLUME
+	dw BELLOSSOM
 	dw DROWZEE
 	dw HYPNO
 	dw ABRA
@@ -99,7 +102,7 @@ NewPokedexOrder:
 	dw NIDORINO
 	dw NIDOKING
 	dw YANMA
-	dw YANMEGA
+	dw SUNKERN
 	dw SUNFLORA
 	dw EXEGGCUTE
 	dw EXEGGUTOR
@@ -120,7 +123,6 @@ NewPokedexOrder:
 	dw VOLTORB
 	dw ELECTRODE
 	dw AIPOM
-	dw AMBIPOM
 	dw SNUBBULL
 	dw GRANBULL
 	dw VULPIX
@@ -150,11 +152,13 @@ NewPokedexOrder:
 	dw MILTANK
 	dw MAGBY
 	dw MAGMAR
+	dw SMOOCHUM
+	dw JYNX
 	dw ELEKID
 	dw ELECTABUZZ
+	dw MR__MIME
 	dw SMEARGLE
 	dw FARFETCH_D
-	dw WU_DUK
 	dw NATU
 	dw XATU
 	dw QWILFISH
@@ -175,19 +179,17 @@ NewPokedexOrder:
 	dw SEEL
 	dw DEWGONG
 	dw LICKITUNG
+	dw TANGELA
 	dw EEVEE
 	dw VAPOREON
 	dw JOLTEON
 	dw FLAREON
 	dw ESPEON
 	dw UMBREON
-	dw LEAFEON
-	dw GLACEON
 	dw HORSEA
 	dw SEADRA
 	dw KINGDRA
 	dw GLIGAR
-	dw GLISCOR
 	dw DELIBIRD
 	dw SWINUB
 	dw PILOSWINE
@@ -207,15 +209,12 @@ NewPokedexOrder:
 	dw RHYHORN
 	dw RHYDON
 	dw MURKROW
-	dw HONCHKROW
 	dw HOUNDOUR
 	dw HOUNDOOM
 	dw SLUGMA
 	dw MAGCARGO
 	dw SNEASEL
-	dw WEAVILE
 	dw MISDREAVUS
-	dw MISMAGIUS
 	dw PORYGON
 	dw PORYGON2
 	dw CHANSEY

@@ -3,11 +3,11 @@ LoadSGBLayout:
 	jp nz, LoadSGBLayoutCGB
 
 	ld a, b
-	cp SCGB_DEFAULT
-	jr nz, .not_default
-	ld a, [wDefaultSGBLayout]
-.not_default
-	cp SCGB_PARTY_MENU_HP_BARS
+	cp SCGB_RAM
+	jr nz, .not_ram
+	ld a, [wSGBPredef]
+.not_ram
+	cp SCGB_PARTY_MENU_HP_PALS
 	jp z, SGB_ApplyPartyMenuHPPals
 	ld l, a
 	ld h, 0
@@ -35,7 +35,7 @@ LoadSGBLayout:
 	dw .SGB_PartyMenu
 	dw .SGB_Evolution
 	dw .SGB_GSTitleScreen
-	dw .SGB_Unused0D
+	dw .SGB0d
 	dw .SGB_MoveList
 	dw .SGB_BetaPikachuMinigame
 	dw .SGB_PokedexSearchOption
@@ -52,7 +52,7 @@ LoadSGBLayout:
 	dw .SGB_TradeTube
 	dw .SGB_TrainerOrMonFrontpicPals
 	dw .SGB_MysteryGift
-	dw .SGB_Unused1E
+	dw .SGB1e
 
 .SGB_BattleGrayscale:
 	ld hl, PalPacket_BattleGrayscale
@@ -63,7 +63,7 @@ LoadSGBLayout:
 	ld hl, BlkPacket_Battle
 	call PushSGBPals
 
-	ld hl, PalPacket_Pal01
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -102,7 +102,7 @@ LoadSGBLayout:
 	ld a, [hl]
 	ld [wSGBPals + 12], a
 
-	ld hl, PalPacket_Pal23
+	ld hl, PalPacket_9cf6
 	ld de, wSGBPals + PALPACKET_LENGTH
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -130,11 +130,11 @@ LoadSGBLayout:
 	ld hl, wSGBPals
 	ld de, wSGBPals + PALPACKET_LENGTH
 	ld a, SCGB_BATTLE_COLORS
-	ld [wDefaultSGBLayout], a
+	ld [wSGBPredef], a
 	ret
 
 .SGB_MoveList:
-	ld hl, PalPacket_AllPal0
+	ld hl, PalPacket_9bd6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -153,11 +153,11 @@ LoadSGBLayout:
 
 .SGB_PokegearPals:
 	ld hl, PalPacket_Pokegear
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_StatsScreenHPPals:
-	ld hl, PalPacket_Pal01
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -197,7 +197,7 @@ LoadSGBLayout:
 	ret
 
 .SGB_Pokedex:
-	ld hl, PalPacket_Pal01
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -224,7 +224,7 @@ LoadSGBLayout:
 	ret
 
 .SGB_BillsPC:
-	ld hl, PalPacket_Pal01
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -257,7 +257,7 @@ LoadSGBLayout:
 	ret
 
 .SGB_PokedexSearchOption:
-	ld hl, PalPacket_Pal01
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -270,12 +270,12 @@ LoadSGBLayout:
 	inc hl
 	ld [hl], HIGH(palred 26 + palgreen 10 + palblue 6)
 	ld hl, wSGBPals
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_PackPals:
 	ld hl, PalPacket_Pack
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_SlotMachine:
@@ -291,7 +291,7 @@ LoadSGBLayout:
 .SGB_Diploma:
 .SGB_MysteryGift:
 	ld hl, PalPacket_Diploma
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_GSIntro:
@@ -310,15 +310,15 @@ endr
 	ret
 
 .BlkPacketTable_GSIntro:
-	dw BlkPacket_AllPal0, PalPacket_GSIntroShellderLapras
+	dw BlkPacket_9a86, PalPacket_GSIntroShellderLapras
 	dw BlkPacket_GSIntroJigglypuffPikachu, PalPacket_GSIntroJigglypuffPikachu
-	dw BlkPacket_AllPal0, PalPacket_GSIntroStartersTransition
+	dw BlkPacket_9a86, PalPacket_GSIntroStartersTransition
 
 .SGB_GSTitleScreen:
 	ld hl, PalPacket_GSTitleScreen
 	ld de, BlkPacket_GSTitleScreen
 	ld a, SCGB_DIPLOMA
-	ld [wDefaultSGBLayout], a
+	ld [wSGBPredef], a
 	ret
 
 .SGB_MagnetTrain:
@@ -328,34 +328,34 @@ endr
 
 .SGB_BetaPikachuMinigame:
 	ld hl, PalPacket_BetaPikachuMinigame
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_BetaPoker:
-	ld hl, BlkPacket_AllPal0
-	ld de, wBetaPokerSGBPals
+	ld hl, BlkPacket_9a86
+	ld de, wPlayerLightScreenCount ; ???
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
 	ld hl, PalPacket_BetaPoker
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_MapPals:
-	ld hl, PalPacket_AllPal0
+	ld hl, PalPacket_9bd6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
 	call .GetMapPalsIndex
 	ld hl, wSGBPals + 1
 	ld [hld], a
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ld a, SCGB_MAPPALS
-	ld [wDefaultSGBLayout], a
+	ld [wSGBPredef], a
 	ret
 
 .SGB_Evolution:
 	push bc
-	ld hl, PalPacket_Pal01
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -394,26 +394,26 @@ endr
 
 .done
 	ld hl, wSGBPals
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
-.SGB_Unused0D:
+.SGB0d:
 .SGB_TrainerCard:
 	ld hl, PalPacket_Diploma
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_UnownPuzzle:
 	ld hl, PalPacket_UnownPuzzle
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_Pokepic:
-	ld hl, PalPacket_AllPal0
+	ld hl, PalPacket_9bd6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
-	ld hl, BlkPacket_AllPal0
+	ld hl, BlkPacket_9a86
 	ld de, wSGBPals + PALPACKET_LENGTH
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -437,8 +437,8 @@ endr
 	ld de, wSGBPals + PALPACKET_LENGTH
 	ret
 
-.SGB_Unused1E:
-	ld hl, PalPacket_Pal01
+.SGB1e:
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -449,7 +449,7 @@ endr
 	add hl, hl
 	ld de, PokemonPalettes
 	add hl, de
-	ld a, [wUnusedSGB1eColorOffset]
+	ld a, [wcf65]
 	and 3
 	sla a
 	sla a
@@ -465,16 +465,16 @@ endr
 	ld a, [hl]
 	ld [wSGBPals + 6], a
 	ld hl, wSGBPals
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_GamefreakLogo:
 	ld hl, PalPacket_GamefreakLogo
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_PlayerOrMonFrontpicPals:
-	ld hl, PalPacket_Pal01
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -490,16 +490,16 @@ endr
 	ld a, [hl]
 	ld [wSGBPals + 6], a
 	ld hl, wSGBPals
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_TradeTube:
 	ld hl, PalPacket_TradeTube
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .SGB_TrainerOrMonFrontpicPals:
-	ld hl, PalPacket_Pal01
+	ld hl, PalPacket_9ce6
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
@@ -515,7 +515,7 @@ endr
 	ld a, [hl]
 	ld [wSGBPals + 6], a
 	ld hl, wSGBPals
-	ld de, BlkPacket_AllPal0
+	ld de, BlkPacket_9a86
 	ret
 
 .GetMapPalsIndex:
@@ -546,7 +546,7 @@ endr
 	ret
 
 .route
-	ld a, PREDEFPAL_ROUTES
+	ld a, PREDEFPAL_00
 	ret
 
 .cave

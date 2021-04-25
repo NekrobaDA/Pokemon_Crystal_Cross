@@ -1,3 +1,23 @@
+AddNTimes::
+; Add bc * a to hl.
+; Preserves bc
+	and a
+	ret z
+
+	push bc
+.loop
+	rra ; and a from below and above resets carry
+	jr nc, .noadd
+	add hl, bc
+.noadd
+	sla c
+	rl b
+	and a
+	jr nz, .loop
+.done
+	pop bc
+	ret
+
 SimpleMultiply::
 ; Return a * c.
 	and a
@@ -48,8 +68,8 @@ Divide::
 	pop hl
 	ret
 
-SubtractAbsolute:: ; unreferenced
-; Return |a - b|, sign in carry.
+SubtractSigned::
+; Return a - b, sign in carry.
 	sub b
 	ret nc
 	cpl

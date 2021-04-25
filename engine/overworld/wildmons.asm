@@ -5,7 +5,6 @@ LoadWildMonData:
 	xor a
 	ld [hli], a
 	ld [hli], a
-	ld [hli], a
 	ld [hl], a
 	jr .done_copy
 
@@ -15,8 +14,6 @@ LoadWildMonData:
 	ld de, wMornEncounterRate
 	ld bc, 3
 	call CopyBytes
-	ld a, [wNiteEncounterRate]
-	ld [wEveEncounterRate], a
 .done_copy
 	call _WaterWildmonLookup
 	ld a, 0
@@ -27,23 +24,16 @@ LoadWildMonData:
 .no_copy
 	ld [wWaterEncounterRate], a
 	ret
-	
-GetTimeOfDayNotEve:
-	ld a, [wTimeOfDay]
-	cp EVE_F
-	ret nz
-	ld a, NITE_F ; ld a, DAY_F to make evening use day encounters
-	ret
 
 FindNest:
 ; Parameters:
 ; e: 0 = Johto, 1 = Kanto
-; wNamedObjectIndex: species
+; wNamedObjectIndexBuffer: species
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
 	call ByteFill
-	ld a, [wNamedObjectIndex]
+	ld a, [wNamedObjectIndexBuffer]
 	call GetPokemonIndexFromID
 	ld b, h
 	ld c, l
@@ -64,11 +54,7 @@ FindNest:
 	ld hl, KantoGrassWildMons
 	call .FindGrass
 	ld hl, KantoWaterWildMons
-	call .FindWater
-	call .RoamMon3
-	call .RoamMon4
-	call .RoamMon5
-	ret
+	jp .FindWater
 
 .FindGrass:
 	ld a, [hl]
@@ -100,6 +86,7 @@ FindNest:
 .FindWater:
 	ld a, [hl]
 	cp -1
+	ret z
 	push bc
 	push hl
 	; use the math buffers as storage, since we're not doing any math
@@ -132,7 +119,6 @@ FindNest:
 	cp b
 	jr z, .found
 .next_mon
-	inc hl
 	inc hl
 	pop af
 	dec a
@@ -174,7 +160,7 @@ FindNest:
 .RoamMon1:
 	ld a, [wRoamMon1Species]
 	ld b, a
-	ld a, [wNamedObjectIndex]
+	ld a, [wNamedObjectIndexBuffer]
 	cp b
 	ret nz
 	ld a, [wRoamMon1MapGroup]
@@ -190,7 +176,7 @@ FindNest:
 .RoamMon2:
 	ld a, [wRoamMon2Species]
 	ld b, a
-	ld a, [wNamedObjectIndex]
+	ld a, [wNamedObjectIndexBuffer]
 	cp b
 	ret nz
 	ld a, [wRoamMon2MapGroup]
@@ -203,54 +189,6 @@ FindNest:
 	inc de
 	ret
 
-.RoamMon3:
-	ld a, [wRoamMon3Species]
-	ld b, a
-	ld a, [wNamedObjectIndex]
-	cp b
-	ret nz
-	ld a, [wRoamMon3MapGroup]
-	ld b, a
-	ld a, [wRoamMon3MapNumber]
-	ld c, a
-	call .AppendNest
-	ret nc
-	ld [de], a
-	inc de
-	ret
-	
-.RoamMon4:
-	ld a, [wRoamMon4Species]
-	ld b, a
-	ld a, [wNamedObjectIndex]
-	cp b
-	ret nz
-	ld a, [wRoamMon4MapGroup]
-	ld b, a
-	ld a, [wRoamMon4MapNumber]
-	ld c, a
-	call .AppendNest
-	ret nc
-	ld [de], a
-	inc de
-	ret
-	
-.RoamMon5:
-	ld a, [wRoamMon5Species]
-	ld b, a
-	ld a, [wNamedObjectIndex]
-	cp b
-	ret nz
-	ld a, [wRoamMon5MapGroup]
-	ld b, a
-	ld a, [wRoamMon5MapNumber]
-	ld c, a
-	call .AppendNest
-	ret nc
-	ld [de], a
-	inc de
-	ret
-	
 TryWildEncounter::
 ; Try to trigger a wild encounter.
 	call .EncounterRate
@@ -331,7 +269,6 @@ ChooseWildEncounter:
 	call LoadWildMonDataPointer
 	jp nc, .nowildbattle
 	call CheckEncounterRoamMon
-	call CheckEncounterRoamMonK
 	jp c, .startwildbattle
 
 	inc hl
@@ -342,7 +279,7 @@ ChooseWildEncounter:
 	jr z, .watermon
 	inc hl
 	inc hl
-	call GetTimeOfDayNotEve
+	ld a, [wTimeOfDay]
 	ld bc, NUM_GRASSMON * 3
 	call AddNTimes
 	ld de, GrassMonProbTable
@@ -394,13 +331,14 @@ ChooseWildEncounter:
 .ok
 	ld a, b
 	ld [wCurPartyLevel], a
+
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	call ValidateTempWildMonSpecies
 	jr c, .nowildbattle
 
-		ld a, l
+	ld a, l
 	sub LOW(UNOWN)
 	jr nz, .done
 	if HIGH(UNOWN) > 1
@@ -425,7 +363,7 @@ ChooseWildEncounter:
 .startwildbattle
 	xor a
 	ret
-	
+
 .nowildbattle
 	ld a, 1
 	and a
@@ -469,35 +407,15 @@ LoadWildMonDataPointer:
 	jr z, _WaterWildmonLookup
 
 _GrassWildmonLookup:
-    ld hl, SwarmGrassWildMons
-    ld bc, GRASS_WILDDATA_LENGTH
-    call _SwarmWildmonCheck
-    ret c
-    ld hl, wJohtoBadges
-    bit FOGBADGE, [hl]
-    jp nz, .JohtoGrass4Badge
-    ld hl, JohtoGrassWildMons
-    ld de, KantoGrassWildMons
-    call _JohtoWildmonCheck
-    ld bc, GRASS_WILDDATA_LENGTH
-    jp _NormalWildmonOK
- 
-.JohtoGrass4Badge
-	ld hl, wJohtoBadges
-    bit RISINGBADGE, [hl]
-    jp nz, .JohtoGrass8Badge
-    ld hl, JohtoGrassWildMons4Badge
-    ld de, KantoGrassWildMons
-    call _JohtoWildmonCheck
-    ld bc, GRASS_WILDDATA_LENGTH
-    jr _NormalWildmonOK
- 
-.JohtoGrass8Badge
-    ld hl, JohtoGrassWildMons8Badge
-    ld de, KantoGrassWildMons
-    call _JohtoWildmonCheck
-    ld bc, GRASS_WILDDATA_LENGTH
-    jr _NormalWildmonOK
+	ld hl, SwarmGrassWildMons
+	ld bc, GRASS_WILDDATA_LENGTH
+	call _SwarmWildmonCheck
+	ret c
+	ld hl, JohtoGrassWildMons
+	ld de, KantoGrassWildMons
+	call _JohtoWildmonCheck
+	ld bc, GRASS_WILDDATA_LENGTH
+	jr _NormalWildmonOK
 
 _WaterWildmonLookup:
 	ld hl, SwarmWaterWildMons
@@ -567,11 +485,10 @@ CopyCurrMapDE:
 	ld a, [wMapNumber]
 	ld e, a
 	ret
-	
+
 LookUpGrassJohtoWildmons::
 	ld hl, JohtoGrassWildMons
 	ld bc, GRASS_WILDDATA_LENGTH
-
 LookUpWildmonsForMapDE:
 .loop
 	push hl
@@ -618,15 +535,15 @@ InitRoamMons:
 	ld [wRoamMon2Level], a
 
 ; raikou starting map
-	ld a, GROUP_ROUTE_38
+	ld a, GROUP_ROUTE_42
 	ld [wRoamMon1MapGroup], a
-	ld a, MAP_ROUTE_38
+	ld a, MAP_ROUTE_42
 	ld [wRoamMon1MapNumber], a
 
 ; entei starting map
-	ld a, GROUP_ROUTE_42
+	ld a, GROUP_ROUTE_37
 	ld [wRoamMon2MapGroup], a
-	ld a, MAP_ROUTE_42
+	ld a, MAP_ROUTE_37
 	ld [wRoamMon2MapNumber], a
 
 ; hp
@@ -635,63 +552,17 @@ InitRoamMons:
 	ld [wRoamMon2HP], a
 
 	ret
-	
-InitRoamMonsKanto:
-; initialize wRoamMon structs
-
-; species
-	ld hl, ARTICUNO
-	call GetPokemonIDFromIndex
-	ld [wRoamMon3Species], a
-	ld hl, ZAPDOS
-	call GetPokemonIDFromIndex
-	ld [wRoamMon4Species], a
-	ld hl, MOLTRES
-	call GetPokemonIDFromIndex
-	ld [wRoamMon5Species], a
-
-; level
-	ld a, 40
-	ld [wRoamMon3Level], a
-	ld [wRoamMon4Level], a
-	ld [wRoamMon5Level], a
-
-; articuno starting map
-	ld a, GROUP_ROUTE_15
-	ld [wRoamMon3MapGroup], a
-	ld a, MAP_ROUTE_15
-	ld [wRoamMon3MapNumber], a
-	
-; zapdos starting map
-	ld a, GROUP_ROUTE_10_NORTH
-	ld [wRoamMon4MapGroup], a
-	ld a, MAP_ROUTE_10_NORTH
-	ld [wRoamMon4MapNumber], a
-	
-; moltres starting map
-	ld a, GROUP_ROUTE_6
-	ld [wRoamMon5MapGroup], a
-	ld a, MAP_ROUTE_6
-	ld [wRoamMon5MapNumber], a
-
-; hp
-	xor a ; generate new stats
-	ld [wRoamMon3HP], a
-	ld [wRoamMon4HP], a
-	ld [wRoamMon5HP], a
-
-	ret
 
 CheckEncounterRoamMon:
 	push hl
 ; Don't trigger an encounter if we're on water.
 	call CheckOnWater
-	jp z, .DontEncounterRoamMon
+	jr z, .DontEncounterRoamMon
 ; Load the current map group and number to de
 	call CopyCurrMapDE
 ; Randomly select a beast.
 	call Random
-	cp 150 ; 25/64 chance
+	cp 100 ; 25/64 chance
 	jr nc, .DontEncounterRoamMon
 	and %00000011 ; Of that, a 3/4 chance.  Running total: 75/256, or around 29.3%.
 	jr z, .DontEncounterRoamMon
@@ -709,55 +580,6 @@ CheckEncounterRoamMon:
 	ld a, e
 	cp [hl]
 	jr nz, .DontEncounterRoamMon
-
-; We've decided to take on a beast, so stage its information for battle.
-	dec hl
-	dec hl
-	dec hl
-	ld a, [hli]
-	ld [wTempWildMonSpecies], a
-	ld a, [hl]
-	ld [wCurPartyLevel], a
-	ld a, BATTLETYPE_ROAMING
-	ld [wBattleType], a
-
-	pop hl
-	scf
-	ret
-
-.DontEncounterRoamMon:
-	pop hl
-	and a
-	ret
-	
-CheckEncounterRoamMonK:
-	push hl
-; Don't trigger an encounter if we're on water.
-	call CheckOnWater
-	jp z, .DontEncounterRoamMon
-; Load the current map group and number to de
-	call CopyCurrMapDE
-; Randomly select a beast.
-	call Random
-	cp 150 ; 25/64 chance
-	jr nc, .DontEncounterRoamMon
-	and %00000011 ; Of that, a 3/4 chance.  Running total: 75/256, or around 29.3%.
-	jr z, .DontEncounterRoamMon
-	dec a ; 1/3 chance that it's Entei, 1/3 chance that it's Raikou
-; Compare its current location with yours
-	ld hl, wRoamMon3MapGroup
-	ld c, a
-	ld b, 0
-	ld a, 7 ; length of the roam_struct
-	call AddNTimes
-	ld a, d
-	cp [hl]
-	jr nz, .DontEncounterRoamMon
-	inc hl
-	ld a, e
-	cp [hl]
-	jr nz, .DontEncounterRoamMon
-
 ; We've decided to take on a beast, so stage its information for battle.
 	dec hl
 	dec hl
@@ -794,7 +616,7 @@ UpdateRoamMons:
 .SkipRaikou:
 	ld a, [wRoamMon2MapGroup]
 	cp GROUP_N_A
-	jr z, .Finished
+	jr z, .SkipEntei
 	ld b, a
 	ld a, [wRoamMon2MapNumber]
 	ld c, a
@@ -803,6 +625,19 @@ UpdateRoamMons:
 	ld [wRoamMon2MapGroup], a
 	ld a, c
 	ld [wRoamMon2MapNumber], a
+
+.SkipEntei:
+	ld a, [wRoamMon3MapGroup]
+	cp GROUP_N_A
+	jr z, .Finished
+	ld b, a
+	ld a, [wRoamMon3MapNumber]
+	ld c, a
+	call .Update
+	ld a, b
+	ld [wRoamMon3MapGroup], a
+	ld a, c
+	ld [wRoamMon3MapNumber], a
 
 .Finished:
 	jp _BackUpMapIndices
@@ -877,12 +712,22 @@ JumpRoamMons:
 .SkipRaikou:
 	ld a, [wRoamMon2MapGroup]
 	cp GROUP_N_A
-	jr z, .Finished
+	jr z, .SkipEntei
 	call JumpRoamMon
 	ld a, b
 	ld [wRoamMon2MapGroup], a
 	ld a, c
 	ld [wRoamMon2MapNumber], a
+
+.SkipEntei:
+	ld a, [wRoamMon3MapGroup]
+	cp GROUP_N_A
+	jr z, .Finished
+	call JumpRoamMon
+	ld a, b
+	ld [wRoamMon3MapGroup], a
+	ld a, c
+	ld [wRoamMon3MapNumber], a
 
 .Finished:
 	jp _BackUpMapIndices
@@ -890,14 +735,11 @@ JumpRoamMons:
 JumpRoamMon:
 .loop
 	ld hl, RoamMaps
-.innerloop1
-	; 0-15 are all valid indexes into RoamMaps,
-	; so this retry loop is unnecessary
-	; since NUM_ROAMMON_MAPS happens to be 16
-	call Random
-	maskbits NUM_ROAMMON_MAPS
-	cp NUM_ROAMMON_MAPS
-	jr nc, .innerloop1
+.innerloop1                   ; This loop happens to be unnecessary.
+	call Random               ; Choose a random number.
+	maskbits NUM_ROAMMON_MAPS ; Mask the number to limit it between 0 and 15.
+	cp NUM_ROAMMON_MAPS       ; If the number is not less than 16, try again.
+	jr nc, .innerloop1        ; I'm sure you can guess why this check is bogus.
 	inc a
 	ld b, a
 .innerloop2 ; Loop to get hl to the address of the chosen roam map.
@@ -924,174 +766,7 @@ JumpRoamMon:
 	ld b, a
 	ld c, [hl]
 	ret
-	
-UpdateRoamMonsKanto:
-	ld a, [wRoamMon3MapGroup]
-	cp GROUP_N_A
-	jr z, .SkipArticuno
-	ld b, a
-	ld a, [wRoamMon3MapNumber]
-	ld c, a
-	call .Update
-	ld a, b
-	ld [wRoamMon3MapGroup], a
-	ld a, c
-	ld [wRoamMon3MapNumber], a
 
-.SkipArticuno:
-	ld a, [wRoamMon4MapGroup]
-	cp GROUP_N_A
-	jr z, .SkipZapdos
-	ld b, a
-	ld a, [wRoamMon4MapNumber]
-	ld c, a
-	call .Update
-	ld a, b
-	ld [wRoamMon4MapGroup], a
-	ld a, c
-	ld [wRoamMon4MapNumber], a
-
-.SkipZapdos:
-	ld a, [wRoamMon5MapGroup]
-	cp GROUP_N_A
-	jr z, .Finished
-	ld b, a
-	ld a, [wRoamMon5MapNumber]
-	ld c, a
-	call .Update
-	ld a, b
-	ld [wRoamMon5MapGroup], a
-	ld a, c
-	ld [wRoamMon5MapNumber], a
-
-.Finished:
-	jp _BackUpMapIndices
-
-.Update:
-	ld hl, RoamMapsK
-.loop
-; Are we at the end of the table?
-	ld a, [hl]
-	cp -1
-	ret z
-; Is this the correct entry?
-	ld a, b
-	cp [hl]
-	jr nz, .next
-	inc hl
-	ld a, c
-	cp [hl]
-	jr z, .yes
-; We don't have the correct entry yet, so let's continue.  A 0 terminates each entry.
-.next
-	ld a, [hli]
-	and a
-	jr nz, .next
-	jr .loop
-
-; We have the correct entry now, so let's choose a random map from it.
-.yes
-	inc hl
-	ld d, h
-	ld e, l
-.update_loop
-	ld h, d
-	ld l, e
-; Choose which map to warp to.
-	call Random
-	and %00011111 ; 1/8n chance it moves to a completely random map, where n is the number of roaming connections from the current map.
-	jp z, JumpRoamMonKanto
-	and %11
-	cp [hl]
-	jr nc, .update_loop ; invalid index, try again
-	inc hl
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	ld a, [wRoamMons_LastMapGroup]
-	cp [hl]
-	jr nz, .done
-	inc hl
-	ld a, [wRoamMons_LastMapNumber]
-	cp [hl]
-	jr z, .update_loop
-	dec hl
-
-.done
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
-	ret
-
-JumpRoamMonsKanto:
-	ld a, [wRoamMon3MapGroup]
-	cp GROUP_N_A
-	jr z, .SkipArticuno
-	call JumpRoamMonKanto
-	ld a, b
-	ld [wRoamMon3MapGroup], a
-	ld a, c
-	ld [wRoamMon3MapNumber], a
-
-.SkipArticuno:
-	ld a, [wRoamMon4MapGroup]
-	cp GROUP_N_A
-	jr z, .SkipZapdos
-	call JumpRoamMonKanto
-	ld a, b
-	ld [wRoamMon4MapGroup], a
-	ld a, c
-	ld [wRoamMon4MapNumber], a
-
-.SkipZapdos:
-	ld a, [wRoamMon5MapGroup]
-	cp GROUP_N_A
-	jr z, .Finished
-	call JumpRoamMonKanto
-	ld a, b
-	ld [wRoamMon5MapGroup], a
-	ld a, c
-	ld [wRoamMon5MapNumber], a
-
-.Finished:
-	jp _BackUpMapIndices
-
-JumpRoamMonKanto:
-.loop
-	ld hl, RoamMapsK
-.innerloop1								; This loop happens to be unnecessary.
-	call Random         		    	; Choose a random number.
-	maskbits NUM_ROAMMON_MAPS_K		; Mask the number to limit it between 0 and 20.
-	cp NUM_ROAMMON_MAPS_K    	   	; If the number is not less than 21, try again.
-	jr nc, .innerloop1      		  	; I'm sure you can guess why this check is bogus.
-	inc a
-	ld b, a
-.innerloop2 ; Loop to get hl to the address of the chosen roam map.
-	dec b
-	jr z, .ok
-.innerloop3 ; Loop to skip the current roam map, which is terminated by a 0.
-	ld a, [hli]
-	and a
-	jr nz, .innerloop3
-	jr .innerloop2
-; Check to see if the selected map is the one the player is currently in.  If so, try again.
-.ok
-	ld a, [wMapGroup]
-	cp [hl]
-	jr nz, .done
-	inc hl
-	ld a, [wMapNumber]
-	cp [hl]
-	jr z, .loop
-	dec hl
-; Return the map group and number in bc.
-.done
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
-	ret
-	
 _BackUpMapIndices:
 	ld a, [wRoamMons_CurMapNumber]
 	ld [wRoamMons_LastMapNumber], a
@@ -1109,7 +784,7 @@ ValidateTempWildMonSpecies:
 	ld a, h
 	or l
 	scf
-ret z
+	ret z
 	ld a, h
 	if LOW(NUM_POKEMON) == $FF
 		cp HIGH(NUM_POKEMON) + 1
@@ -1137,7 +812,7 @@ GetCallerRouteWildGrassMons:
 .found
 	ld bc, 5 ; skip the map ID and encounter rates
 	add hl, bc
-	call GetTimeOfDayNotEve
+	ld a, [wTimeOfDay]
 	ld bc, NUM_GRASSMON * 3
 	call AddNTimes
 	scf
@@ -1156,7 +831,6 @@ RandomUnseenWildMon:
 	ld bc, 10 ; skip three mons plus the level of the fourth
 	add hl, bc
 	ld c, a
-	ld b, 0
 	add hl, bc
 	add hl, bc
 	add hl, bc
@@ -1190,9 +864,9 @@ RandomUnseenWildMon:
 	ld h, b
 	ld l, c
 	call GetPokemonIDFromIndex
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexBuffer], a
 	call GetPokemonName
-	ld hl, .JustSawSomeRareMonText
+	ld hl, .SawRareMonText
 	call PrintText
 	xor a
 	ld [wScriptVar], a
@@ -1203,7 +877,8 @@ RandomUnseenWildMon:
 	ld [wScriptVar], a
 	ret
 
-.JustSawSomeRareMonText:
+.SawRareMonText:
+	; I just saw some rare @  in @ . I'll call you if I see another rare #MON, OK?
 	text_far _JustSawSomeRareMonText
 	text_end
 
@@ -1221,7 +896,7 @@ RandomPhoneWildMon:
 	ld h, [hl]
 	ld l, a
 	call GetPokemonIDFromIndex
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexBuffer], a
 	call GetPokemonName
 	ld hl, wStringBuffer1
 	ld de, wStringBuffer4
@@ -1244,7 +919,7 @@ RandomPhoneMon:
 	ld [wTrainerGroupBank], a
 	inc hl
 	ld a, BANK(TrainerGroups)
-	call GetFarWord
+	call GetFarHalfword
 
 .skip_trainer
 	dec e
@@ -1252,11 +927,13 @@ RandomPhoneMon:
 .skip
 	ld a, [wTrainerGroupBank]
 	call GetFarByte
-	inc hl
-	cp -1
-	jr nz, .skip
+	add a, l
+	ld l, a
+	jr nc, .skip_trainer
+	inc h
 	jr .skip_trainer
 .skipped
+	inc hl
 
 .skip_name
 	ld a, [wTrainerGroupBank]
@@ -1269,7 +946,7 @@ RandomPhoneMon:
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, 2
+	ld a, 3
 	bit TRAINERTYPE_ITEM_F, c
 	jr z, .no_item
 	inc a
@@ -1308,8 +985,9 @@ RandomPhoneMon:
 
 	inc hl ; species
 	ld a, [wTrainerGroupBank]
-	call GetFarByte
-	ld [wNamedObjectIndex], a
+	call GetFarHalfword
+	call GetPokemonIDFromIndex
+	ld [wNamedObjectIndexBuffer], a
 	call GetPokemonName
 	ld hl, wStringBuffer1
 	ld de, wStringBuffer4
@@ -1317,8 +995,6 @@ RandomPhoneMon:
 	jp CopyBytes
 
 INCLUDE "data/wild/johto_grass.asm"
-INCLUDE "data/wild/johto_grass_4badge.asm"
-INCLUDE "data/wild/johto_grass_8badge.asm"
 INCLUDE "data/wild/johto_water.asm"
 INCLUDE "data/wild/kanto_grass.asm"
 INCLUDE "data/wild/kanto_water.asm"

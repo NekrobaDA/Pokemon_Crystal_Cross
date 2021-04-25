@@ -1,7 +1,7 @@
 SECTION "Scratch", SRAM
 
 UNION ; a000
-sScratch:: ds $60 tiles
+sScratch:: ds $600 ; a000
 ; a600
 
 NEXTU ; a000
@@ -13,6 +13,7 @@ ENDU ; a600
 
 SECTION "SRAM Bank 0", SRAM
 
+; a600
 sPartyMail::
 sPartyMon1Mail:: mailmsg sPartyMon1Mail
 sPartyMon2Mail:: mailmsg sPartyMon2Mail
@@ -21,6 +22,7 @@ sPartyMon4Mail:: mailmsg sPartyMon4Mail
 sPartyMon5Mail:: mailmsg sPartyMon5Mail
 sPartyMon6Mail:: mailmsg sPartyMon6Mail
 
+; a71a
 sPartyMailBackup::
 sPartyMon1MailBackup:: mailmsg sPartyMon1MailBackup
 sPartyMon2MailBackup:: mailmsg sPartyMon2MailBackup
@@ -29,8 +31,9 @@ sPartyMon4MailBackup:: mailmsg sPartyMon4MailBackup
 sPartyMon5MailBackup:: mailmsg sPartyMon5MailBackup
 sPartyMon6MailBackup:: mailmsg sPartyMon6MailBackup
 
+; a834
 sMailboxCount:: db
-sMailboxes::
+sMailbox::
 sMailbox1::  mailmsg sMailbox1
 sMailbox2::  mailmsg sMailbox2
 sMailbox3::  mailmsg sMailbox3
@@ -42,8 +45,9 @@ sMailbox8::  mailmsg sMailbox8
 sMailbox9::  mailmsg sMailbox9
 sMailbox10:: mailmsg sMailbox10
 
+; aa0b
 sMailboxCountBackup:: db
-sMailboxesBackup::
+sMailboxBackup::
 sMailbox1Backup::  mailmsg sMailbox1Backup
 sMailbox2Backup::  mailmsg sMailbox2Backup
 sMailbox3Backup::  mailmsg sMailbox3Backup
@@ -55,26 +59,26 @@ sMailbox8Backup::  mailmsg sMailbox8Backup
 sMailbox9Backup::  mailmsg sMailbox9Backup
 sMailbox10Backup:: mailmsg sMailbox10Backup
 
-sMysteryGiftData::
+; abe2
 sMysteryGiftItem:: db
 sMysteryGiftUnlocked:: db
 sBackupMysteryGiftItem:: db
 sNumDailyMysteryGiftPartnerIDs:: db
-sDailyMysteryGiftPartnerIDs:: ds MAX_MYSTERY_GIFT_PARTNERS * 2
+sDailyMysteryGiftPartnerIDs:: ds 5 * 2 ; maximum 5 per day, 2 bytes per ID
 sMysteryGiftDecorationsReceived:: flag_array NUM_NON_TROPHY_DECOS
 	ds 4
-sMysteryGiftTimer:: dw
+sMysteryGiftTimer:: db
+sMysteryGiftTimerStartDay:: db
 	ds 1
 sMysteryGiftTrainerHouseFlag:: db
 sMysteryGiftPartnerName:: ds NAME_LENGTH
-sMysteryGiftUnusedFlag:: db
-sMysteryGiftTrainer:: ds wMysteryGiftTrainerEnd - wMysteryGiftTrainer
+s0_ac09:: ds 1
+sMysteryGiftTrainer:: ds (1 + 1 + NUM_MOVES) * PARTY_LENGTH + 2 ; ac0a
 sBackupMysteryGiftItemEnd::
 
 	ds $30
 
-sRTCStatusFlags:: db
-	ds 7
+sRTCStatusFlags:: ds 8
 sLuckyNumberDay:: db
 sLuckyIDNumber::  dw
 
@@ -87,7 +91,7 @@ sBackupCheckValue1:: db ; loaded with SAVE_CHECK_VALUE_1, used to check save cor
 
 sBackupSaveData::
 
-sBackupGameData::
+sBackupGameData:: ; b209
 sBackupPlayerData::  ds wPlayerDataEnd - wPlayerData
 sBackupCurMapData::  ds wCurMapDataEnd - wCurMapData
 sBackupPokemonData:: ds wPokemonDataEnd - wPokemonData
@@ -97,21 +101,15 @@ sBackupPokemonIndexTable:: ds wPokemonIndexTableEnd - wPokemonIndexTable
 
 sBackupSaveDataEnd::
 
+; bd83
 	ds $8a
+; bf0d
 
 sBackupChecksum:: dw
 
 sBackupCheckValue2:: db ; loaded with SAVE_CHECK_VALUE_2, used to check save corruption
 
 sStackTop:: dw
-
-if DEF(_DEBUG)
-sRTCHaltCheckValue:: dw
-sSkipBattle:: db
-sDebugTimeCyclesSinceLastCall:: db
-sOpenedInvalidSRAM:: db
-sIsBugMon:: db
-endc
 
 
 SECTION "Save", SRAM
@@ -134,6 +132,7 @@ sSaveDataEnd::
 
 ; ab83
 	ds $8a
+; ad0d
 
 sChecksum:: dw
 
@@ -142,17 +141,21 @@ sCheckValue2:: db ; loaded with SAVE_CHECK_VALUE_2, used to check save corruptio
 
 SECTION "Active Box", SRAM
 
+; ad10
 sBox:: box sBox
+; b160
 
-	ds $100
+	ds $f4
 
 
 SECTION "Link Battle Data", SRAM
 
+sLinkBattleResults:: ds $c
+
 sLinkBattleStats::
-sLinkBattleWins::   dw
-sLinkBattleLosses:: dw
-sLinkBattleDraws::  dw
+sLinkBattleWins::   dw ; b260
+sLinkBattleLosses:: dw ; b262
+sLinkBattleDraws::  dw ; b264
 
 sLinkBattleRecord::
 sLinkBattleRecord1:: link_battle_record sLinkBattleRecord1
@@ -165,7 +168,7 @@ sLinkBattleStatsEnd::
 
 SECTION "SRAM Hall of Fame", SRAM
 
-sHallOfFame::
+sHallOfFame:: ; b2c0
 sHallOfFame01:: hall_of_fame sHallOfFame01
 sHallOfFame02:: hall_of_fame sHallOfFame02
 sHallOfFame03:: hall_of_fame sHallOfFame03
@@ -201,11 +204,11 @@ sHallOfFameEnd::
 
 SECTION "SRAM Crystal Data", SRAM
 
-sMobileEventIndex:: db
+sMobileEventIndex:: db ; bf0e
 
 sCrystalData:: ds wCrystalDataEnd - wCrystalData
 
-sMobileEventIndexBackup:: db
+sMobileEventIndexBackup:: db ; bf16
 
 
 SECTION "SRAM Battle Tower", SRAM
@@ -216,25 +219,26 @@ sBattleTowerChallengeState::
 ; 2: battle tower
 	db
 
+sBattleTower:: ; bf18
 sNrOfBeatenBattleTowerTrainers:: db
 sBTChoiceOfLevelGroup:: db
 ; Battle Tower trainers are saved here, so nobody appears more than once
-sBTTrainers:: ds BATTLETOWER_STREAK_LENGTH ; sbe48
+sBTTrainers:: ds BATTLETOWER_STREAK_LENGTH ; bf1a
 sBattleTowerSaveFileFlags:: db
 sBattleTowerReward:: db
 
 ; team of previous trainer
-sBTMonOfTrainers::
-sBTMonPrevTrainer1:: db
-sBTMonPrevTrainer2:: db
-sBTMonPrevTrainer3:: db
+sBTMonOfTrainers:: ; bf23
+sBTMonPrevTrainer1:: dw
+sBTMonPrevTrainer2:: dw
+sBTMonPrevTrainer3:: dw
 ; team of preprevious trainer
-sBTMonPrevPrevTrainer1:: db
-sBTMonPrevPrevTrainer2:: db
-sBTMonPrevPrevTrainer3:: db
+sBTMonPrevPrevTrainer1:: dw
+sBTMonPrevPrevTrainer2:: dw
+sBTMonPrevPrevTrainer3:: dw
 
 
-SECTION "Boxes 1-7", SRAM
+SECTION "Boxes 1-7",  SRAM, BANK [2]
 
 sBox1::  box sBox1
 sBox2::  box sBox2
@@ -243,6 +247,14 @@ sBox4::  box sBox4
 sBox5::  box sBox5
 sBox6::  box sBox6
 sBox7::  box sBox7
+
+sBox1PokemonIndexes::  ds 2 * MONS_PER_BOX
+sBox2PokemonIndexes::  ds 2 * MONS_PER_BOX
+sBox3PokemonIndexes::  ds 2 * MONS_PER_BOX
+sBox4PokemonIndexes::  ds 2 * MONS_PER_BOX
+sBox5PokemonIndexes::  ds 2 * MONS_PER_BOX
+sBox6PokemonIndexes::  ds 2 * MONS_PER_BOX
+sBox7PokemonIndexes::  ds 2 * MONS_PER_BOX
 
 
 SECTION "Boxes 8-14", SRAM
@@ -255,43 +267,25 @@ sBox12:: box sBox12
 sBox13:: box sBox13
 sBox14:: box sBox14
 
+sBox8PokemonIndexes::  ds 2 * MONS_PER_BOX
+sBox9PokemonIndexes::  ds 2 * MONS_PER_BOX
+sBox10PokemonIndexes:: ds 2 * MONS_PER_BOX
+sBox11PokemonIndexes:: ds 2 * MONS_PER_BOX
+sBox12PokemonIndexes:: ds 2 * MONS_PER_BOX
+sBox13PokemonIndexes:: ds 2 * MONS_PER_BOX
+sBox14PokemonIndexes:: ds 2 * MONS_PER_BOX
 
 SECTION "SRAM Mobile 1", SRAM
 
-	ds $7
+	ds $13
 
-s4_a007:: ; struct size $30
-
-	ds $c
-
-s4_a013:: ds 36
-
-s4_a037:: ds 4
-
-s4_a03b:: ds 37 * 40
-
-s4_a603:: ds 8
-
-s4_a60b:: db
-s4_a60c:: db
-s4_a60d:: db
-
-s4_a60e:: dw
-
-	ds $1f0
-
-sMobileBattleTimer:: ds 3
-
-	ds $7fd
-
-s4_b000:: db
-
+s4_a013:: ds 36 ; a013
 
 SECTION "SRAM Mobile 2", SRAM
 
 	ds 1 ; former location for sMobileEventIndex, moved to 1:BE3C in English
 
-sTrainerRankings::
+sTrainerRankings:: ; a001
 sTrainerRankingGameTimeHOF:: ds 4
 sTrainerRankingStepCountHOF:: ds 4
 sTrainerRankingHealingsHOF:: ds 4
@@ -335,109 +329,68 @@ sTrainerRankingLongestMagikarp:: ds 2
 sTrainerRankingShortestMagikarp:: ds 2
 sTrainerRankingBugContestScore:: ds 2
 sTrainerRankingsChecksum:: ds 2
-sTrainerRankingsEnd::
+sTrainerRankingsEnd:: ; a083
 
 	ds 1 ; Former location for sMobileEventIndexBackup, moved to 1:BE44 in English
 
-sTrainerRankingsBackup:: ds sTrainerRankingsEnd - sTrainerRankings
+sTrainerRankingsBackup:: ds sTrainerRankingsEnd - sTrainerRankings ; a084
 
 	ds $6fa
 
-s5_a800:: db
+s5_a800:: db ; a800
 
 	ds $24
 
-s5_a825:: db
-s5_a826:: db
+s5_a825:: db ; a825
+s5_a826:: db ; a826
 
 	ds $6d
 
-s5_a894:: ds 6
-s5_a89a:: dw
-s5_a89c:: ds 22
-s5_a8b2:: ds 150
-
-s5_a948:: ds 246
-
-	ds $3
-
-s5_aa41:: ds 4
+s5_a894:: ds NAME_LENGTH_JAPANESE ; a894
 
 	ds $2
 
-s5_aa47:: db
-s5_aa48:: db
+s5_a89c:: ds 22 ; a89c
+s5_a8b2:: ds 150 ; a8b2
+
+s5_a948:: ds 246 ; a948
+
+	ds $3
+
+s5_aa41:: ds 4 ; aa41
+
+	ds $2
+
+s5_aa47:: db ; aa47
+s5_aa48:: db ; aa48
+
+	ds $2
+
+sMobileLoginPassword:: ds MOBILE_LOGIN_PASSWORD_LENGTH ; aa4b
 
 	ds $1
 
-s5_aa4a:: db
+s5_aa5d:: ds MOBILE_LOGIN_PASSWORD_LENGTH ; aa5d
 
-sMobileLoginPassword:: ds MOBILE_LOGIN_PASSWORD_LENGTH
+	ds $1d
 
-	ds $1
-
-s5_aa5d:: ds MOBILE_LOGIN_PASSWORD_LENGTH
-
-	ds $4
-
-s5_aa72:: db
-s5_aa73:: ds 12
-s5_aa7f:: ds 12
-
-s5_aa8b:: db
-s5_aa8c:: db
-s5_aa8d:: db
-s5_aa8e:: ds 7 * $cc
+s5_aa8b:: db ; aa8b
+s5_aa8c:: db ; aa8c
+s5_aa8d:: db ; aa8d
+s5_aa8e:: ds 7 * $cc ; aa8e
 
 	ds $1
 
-s5_b023:: ds 105
-s5_b08c:: ds 4
-s5_b090:: db
-s5_b091:: db
-s5_b092:: ds 31
+s5_b023:: ds 105 ; b023
+s5_b08c:: ds 4 ; b08c
 
-	ds $100
+	ds $269
 
-s5_b1b1:: db
-s5_b1b2:: db
-s5_b1b3:: db
-s5_b1b4:: db
-
-	ds $1e
-
-s5_b1d3::
-
-	ds $120
-
-s5_b2f3:: db
-s5_b2f4:: ds 4
-
-	ds $1
-
-s5_b2f9:: db
-s5_b2fa:: db
-s5_b2fb:: db
+s5_b2f9:: db ; b2f9
+s5_b2fa:: db ; b2fa
+s5_b2fb:: db ; b2fb
 
 	ds $b49
 
-s5_be45:: db
-s5_be46:: db
-
-	ds $1b8
-
-s5_bfff:: db
-
-
-SECTION "SRAM Mobile 3", SRAM
-
-s6_a000::
-
-
-SECTION "SRAM Mobile 4", SRAM
-
-s7_a000::
-
-	ds $800
-
-s7_a800:: db
+s5_be45:: db ; be45
+s5_be46:: db ; be46

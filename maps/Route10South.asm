@@ -1,36 +1,11 @@
-	object_const_def
+	object_const_def ; object_event constants
 	const ROUTE10SOUTH_POKEFAN_M1
 	const ROUTE10SOUTH_POKEFAN_M2
-	const TUESDAY_MAROWAK
 
 Route10South_MapScripts:
-	def_scene_scripts
+	db 0 ; scene scripts
 
-	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .Marowak
-
-.Marowak:
-	checkflag ENGINE_TUESDAY_MAROWAK
-	iftrue .NoAppear
-	readvar VAR_WEEKDAY
-	ifequal TUESDAY, .Appear
-.NoAppear:
-	disappear TUESDAY_MAROWAK
-	endcallback
-
-.Appear:
-	appear TUESDAY_MAROWAK
-	endcallback
-
-TuesdayMarowak:
-	faceplayer
-	cry MAROWAK
-	loadwildmon MAROWAK, 35
-	startbattle
-	disappear TUESDAY_MAROWAK
-	setflag ENGINE_TUESDAY_MAROWAK
-	reloadmapafterbattle
-	end
+	db 0 ; callbacks
 
 TrainerHikerJim:
 	trainer HIKER, JIM, EVENT_BEAT_HIKER_JIM, HikerJimSeenText, HikerJimBeatenText, 0, .Script
@@ -101,15 +76,14 @@ Route10SignText:
 Route10South_MapEvents:
 	db 0, 0 ; filler
 
-	def_warp_events
+	db 1 ; warp events
 	warp_event  6,  1, ROCK_TUNNEL_1F, 2
 
-	def_coord_events
+	db 0 ; coord events
 
-	def_bg_events
+	db 1 ; bg events
 	bg_event  5,  3, BGEVENT_READ, Route10Sign
 
-	def_object_events
-	object_event 17,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, -1
+	db 2 ; object events
+	object_event 17,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, -1
 	object_event  8, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmRobert, -1
-	object_event 11,  5, SPRITE_MAROWAK, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, TuesdayMarowak, EVENT_TUESDAY_MAROWAK

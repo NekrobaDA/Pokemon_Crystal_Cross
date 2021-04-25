@@ -22,14 +22,6 @@ PrintLetterDelay::
 	push de
 	push bc
 
-	ld hl, hOAMUpdate
-	ld a, [hl]
-	push af
-
-; orginally turned oam update off...
-;	ld a, 1
-	ld [hl], a
-
 ; force fast scroll?
 	ld a, [wTextboxFlags]
 	bit FAST_TEXT_DELAY_F, a
@@ -73,8 +65,6 @@ PrintLetterDelay::
 	jr nz, .checkjoypad
 
 .end
-	pop af
-	ldh [hOAMUpdate], a
 	pop bc
 	pop de
 	pop hl
@@ -107,31 +97,14 @@ MobilePrintNum::
 	ret
 
 FarPrintText::
-	ldh [hTempBank], a
+	ldh [hBuffer], a
 	ldh a, [hROMBank]
 	push af
-	ldh a, [hTempBank]
+	ldh a, [hBuffer]
 	rst Bankswitch
 
 	call PrintText
 
 	pop af
-	rst Bankswitch
-	ret
-
-CallPointerAt::
-	ldh a, [hROMBank]
-	push af
-	ld a, [hli]
-	rst Bankswitch
-
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
-	call _hl_
-
-	pop hl
-	ld a, h
 	rst Bankswitch
 	ret

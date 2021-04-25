@@ -43,7 +43,7 @@
 	const SPRITE_YOUNGSTER ; 27
 	const SPRITE_LASS ; 28
 	const SPRITE_TEACHER ; 29
-	const SPRITE_BEAUTY ; 2a
+	const SPRITE_BUENA ; 2a
 	const SPRITE_SUPER_NERD ; 2b
 	const SPRITE_ROCKER ; 2c
 	const SPRITE_POKEFAN_M ; 2d
@@ -64,7 +64,7 @@
 	const SPRITE_SCIENTIST ; 3c
 	const SPRITE_KIMONO_GIRL ; 3d
 	const SPRITE_SAGE ; 3e
-	const SPRITE_BIG_KARP ; 3f
+	const SPRITE_UNUSED_GUY ; 3f
 	const SPRITE_GENTLEMAN ; 40
 	const SPRITE_BLACK_BELT ; 41
 	const SPRITE_RECEPTIONIST ; 42
@@ -73,7 +73,7 @@
 	const SPRITE_SLOWPOKE ; 45
 	const SPRITE_CAPTAIN ; 46
 	const SPRITE_BIG_LAPRAS ; 47
-	const SPRITE_GYM_GUIDE ; 48
+	const SPRITE_GYM_GUY ; 48
 	const SPRITE_SAILOR ; 49
 	const SPRITE_BIKER ; 4a
 	const SPRITE_PHARMACIST ; 4b
@@ -104,38 +104,10 @@
 	const SPRITE_ENTEI ; 64
 	const SPRITE_RAIKOU ; 65
 	const SPRITE_STANDING_YOUNGSTER ; 66
-	const SPRITE_MAGIKARP_0
-	const SPRITE_MAGIKARP_1
-	const SPRITE_MAGIKARP_2
-	const SPRITE_MAGIKARP_3
-	const SPRITE_CHERRY_0
-	const SPRITE_CHERRY_1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
-	const_next $73
+	const_def $80
 SPRITE_POKEMON EQU const_value
-	const SPRITE_ONIX ; 67
-	const SPRITE_MILTANK ; 68
-	const SPRITE_SUNFLORA ; 69
-	const SPRITE_ELECTABUZZ ; 6a
-	const SPRITE_MAGMAR ; 6b
-	const SPRITE_FARFETCHD ; 6c
-	const SPRITE_MAROWAK ; 6d
-	const SPRITE_SMEARGLE ; 6e
-	const SPRITE_AERODACTYL ; 6f
-	const SPRITE_DRAGONAIR ; 70
-	const SPRITE_RAPIDASH ; 71
-	const SPRITE_LICKITUNG ; 72
-	const SPRITE_EEVEE ; 73
-	const SPRITE_MEWTWO ; 74
-	const SPRITE_MAREEP ; 75
-	const SPRITE_MEOWTH ; 76
-	const SPRITE_AMPHAROS ; 77
-	const SPRITE_MURKROW ; 78
-	const SPRITE_DRAGONITE ; 79
-	const SPRITE_PERSIAN ; 7a
-	const SPRITE_ABRA ; 7b
-	const SPRITE_DRATINI ; 7c
 	const SPRITE_UNOWN ; 80
 	const SPRITE_GEODUDE ; 81
 	const SPRITE_GROWLITHE ; 82
@@ -153,6 +125,7 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_PIKACHU ; 8e
 	const SPRITE_CLEFAIRY ; 8f
 	const SPRITE_CHARMANDER ; 90
+	const SPRITE_JYNX ; 91
 	const SPRITE_STARMIE ; 92
 	const SPRITE_BULBASAUR ; 93
 	const SPRITE_JIGGLYPUFF ; 94
@@ -172,12 +145,12 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_HO_OH ; a2
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
-	const_next $e0
+	const_def $e0
 	const SPRITE_DAY_CARE_MON_1 ; e0
 	const SPRITE_DAY_CARE_MON_2 ; e1
 
 ; wVariableSprites indexes (see wram.asm)
-	const_next $f0
+	const_def $f0
 SPRITE_VARS EQU const_value
 	const SPRITE_CONSOLE ; f0
 	const SPRITE_DOLL_1 ; f1

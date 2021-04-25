@@ -1,38 +1,4 @@
-GetVariant:
-	ld a, [wCurPartySpecies]
-	call GetPokemonIndexFromID
-	ld a, l
-	sub LOW(PIKACHU)
-	if HIGH(PIKACHU) == 0
-		or h
-	else
-		jr nz, .GetUnownVariant
-		if HIGH(PIKACHU) == 1
-			dec h
-		else
-			ld a, h
-			cp HIGH(PIKACHU)
-		endc
-	endc
-	jr nz, .GetUnownVariant
-
-.GetPikachuGenderForm:
-    farcall GetGender
-    ret c
-    jr z, .female
-; male
-    ld hl, wUnownLetterOrGenderVariant
-    ld a, 1
-    ld [hl], a
-    ret
-
-.female:
-    ld hl, wUnownLetterOrGenderVariant
-    ld a, 2
-    ld [hl], a
-    ret	
-	
-.GetUnownVariant:
+GetUnownLetter:
 ; Return Unown letter in wUnownLetter based on DVs at hl
 
 ; Take the middle 2 bits of each DV and place them in order:
@@ -79,7 +45,7 @@ GetVariant:
 ; Increment to get 1-26
 	ldh a, [hQuotient + 3]
 	inc a
-	ld [wUnownLetterOrGenderVariant], a
+	ld [wUnownLetter], a
 	ret
 
 GetMonFrontpic:
@@ -107,13 +73,15 @@ GetAnimatedFrontpic:
 	ld a, BANK(vTiles3)
 	ldh [rVBK], a
 	call GetAnimatedEnemyFrontpic
+	xor a
+	ldh [rVBK], a
 	pop af
 	ldh [rSVBK], a
 	jp CloseSRAM
 
 _GetFrontpic:
 	ld a, BANK(sEnemyFrontPicTileCount)
-	call OpenSRAM
+	call GetSRAMBank
 	push de
 	call GetBaseData
 	ld a, [wBasePicSize]
@@ -158,7 +126,7 @@ GetPicIndirectPointer:
 	if HIGH(UNOWN) == 0
 		or h
 	else
-		jr nz, .try_pikachu
+		jr nz, .not_unown
 		if HIGH(UNOWN) == 1
 			dec h
 		else
@@ -167,38 +135,15 @@ GetPicIndirectPointer:
 		endc
 	endc
 	jr z, .unown
-.try_pikachu
-	;ld a, l
-	;sub LOW(PIKACHU)
-	;if HIGH(PIKACHU) == 0
-	;	or h
-	;else
-	;	jr nz, .not_pikachu
-	;	if HIGH(PIKACHU) == 1
-	;		dec h
-	;	else
-	;		ld a, h
-	;		cp HIGH(PIKACHU)
-	;	endc
-	;endc
-	;jr z, .pikachu
-.not_pikachu
+.not_unown
 	ld hl, PokemonPicPointers
 	ld d, BANK(PokemonPicPointers)
 .done
 	ld a, 6
 	jp AddNTimes
 
-.pikachu
-	ld a, [wUnownLetterOrGenderVariant]
-	ld c, a
-	ld b, 0
-	ld hl, PikachuPicPointers - 6
-	ld d, BANK(PikachuPicPointers)
-	jr .done
-	
 .unown
-	ld a, [wUnownLetterOrGenderVariant]
+	ld a, [wUnownLetter]
 	ld c, a
 	ld b, 0
 	ld hl, UnownPicPointers - 6
@@ -212,7 +157,7 @@ GetFrontpicPointer:
 	push af
 	inc hl
 	ld a, d
-	call GetFarWord
+	call GetFarHalfword
 	pop bc
 	ret
 
@@ -324,7 +269,7 @@ GetMonBackpic:
 	push af
 	inc hl
 	ld a, d
-	call GetFarWord
+	call GetFarHalfword
 	ld de, wDecompressScratch
 	pop af
 	call FarDecompress
@@ -364,7 +309,7 @@ GetTrainerPic:
 	push af
 	inc hl
 	ld a, BANK(TrainerPicPointers)
-	call GetFarWord
+	call GetFarHalfword
 	pop af
 	ld de, wDecompressScratch
 	call FarDecompress
@@ -377,12 +322,12 @@ GetTrainerPic:
 	pop af
 	ldh [rSVBK], a
 	call WaitBGMap
-	ld a, 1
+	ld a, $1
 	ldh [hBGMapMode], a
 	ret
 
 DecompressGet2bpp:
-; Decompress lz data from b:hl to wDecompressScratch, then copy it to address de.
+; Decompress lz data from b:hl to scratch space at 6:d000, then copy it to address de.
 
 	ldh a, [rSVBK]
 	push af

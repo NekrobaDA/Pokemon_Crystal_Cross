@@ -17,11 +17,11 @@ MobileCheckOwnMonAnywhere:
 	ld bc, PARTYMON_STRUCT_LENGTH
 	add hl, bc
 	pop bc
-	call .AdvanceOTName
+	call .CopyName
 	dec d
 	jr nz, .asm_4a851
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	call GetSRAMBank
 	ld a, [sBoxCount]
 	and a
 	jr z, .asm_4a888
@@ -39,13 +39,17 @@ MobileCheckOwnMonAnywhere:
 	ld bc, BOXMON_STRUCT_LENGTH
 	add hl, bc
 	pop bc
-	call .AdvanceOTName
+	call .CopyName
 	dec d
 	jr nz, .asm_4a873
 
 .asm_4a888
 	call CloseSRAM
 	ld c, 0
+	ld a, [wScriptVar]
+	call GetPokemonIndexFromID
+	ld d, h
+	ld e, l
 .asm_4a88d
 	ld a, [wCurBox]
 	and $f
@@ -57,44 +61,21 @@ MobileCheckOwnMonAnywhere:
 	add hl, bc
 	add hl, bc
 	ld a, [hli]
-	call OpenSRAM
+	call GetSRAMBank
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [hl]
-	and a
-	jr z, .asm_4a8d1
-	push bc
-	push hl
-	ld de, sBoxMons - sBoxCount
-	add hl, de
-	ld d, h
-	ld e, l
-	pop hl
-	push de
-	ld de, sBoxMonOT - sBoxCount
-	add hl, de
-	ld b, h
-	ld c, l
-	pop hl
-	ld d, a
-.asm_4a8ba
-	call .CheckMatch
-	jr nc, .asm_4a8c4
-	pop bc
-	call CloseSRAM
-	ret
-
-.asm_4a8c4
-	push bc
-	ld bc, BOXMON_STRUCT_LENGTH
-	add hl, bc
-	pop bc
-	call .AdvanceOTName
-	dec d
-	jr nz, .asm_4a8ba
-	pop bc
-
+	ld b, MONS_PER_BOX
+.box_search_loop
+	ld a, [hli]
+	cp e
+	ld a, [hli]
+	jr nz, .next_box_mon
+	cp d
+	jr z, .found_in_box
+.next_box_mon
+	dec b
+	jr nz, .box_search_loop
 .asm_4a8d1
 	inc c
 	ld a, c
@@ -102,6 +83,11 @@ MobileCheckOwnMonAnywhere:
 	jr c, .asm_4a88d
 	call CloseSRAM
 	and a
+	ret
+
+.found_in_box
+	call CloseSRAM
+	scf
 	ret
 
 .CheckMatch:
@@ -131,22 +117,22 @@ MobileCheckOwnMonAnywhere:
 	ret
 
 .BoxAddrs:
-	dba sBox1
-	dba sBox2
-	dba sBox3
-	dba sBox4
-	dba sBox5
-	dba sBox6
-	dba sBox7
-	dba sBox8
-	dba sBox9
-	dba sBox10
-	dba sBox11
-	dba sBox12
-	dba sBox13
-	dba sBox14
+	dba sBox1PokemonIndexes
+	dba sBox2PokemonIndexes
+	dba sBox3PokemonIndexes
+	dba sBox4PokemonIndexes
+	dba sBox5PokemonIndexes
+	dba sBox6PokemonIndexes
+	dba sBox7PokemonIndexes
+	dba sBox8PokemonIndexes
+	dba sBox9PokemonIndexes
+	dba sBox10PokemonIndexes
+	dba sBox11PokemonIndexes
+	dba sBox12PokemonIndexes
+	dba sBox13PokemonIndexes
+	dba sBox14PokemonIndexes
 
-.AdvanceOTName:
+.CopyName:
 	push hl
 	ld hl, NAME_LENGTH
 	add hl, bc
@@ -235,12 +221,13 @@ Function4a94e:
 .asm_4a9b0
 	ld de, SFX_WRONG
 	call PlaySFX
-	ld hl, MobilePickThreeMonForBattleText
+	ld hl, UnknownText_0x4a9be
 	call PrintText
 	jr .asm_4a974
 
-MobilePickThreeMonForBattleText:
-	text_far _MobilePickThreeMonForBattleText
+UnknownText_0x4a9be:
+	; Pick three #MON for battle.
+	text_far UnknownText_0x1c51d7
 	text_end
 
 Function4a9c3:
@@ -267,32 +254,33 @@ Function4a9d7:
 	call GetNick
 	ld h, d
 	ld l, e
-	ld de, wMobileParticipant1Nickname
-	ld bc, NAME_LENGTH_JAPANESE
+	ld de, wd006
+	ld bc, 6
 	call CopyBytes
 	ld a, [wd003]
 	ld hl, wPartyMonNicknames
 	call GetNick
 	ld h, d
 	ld l, e
-	ld de, wMobileParticipant2Nickname
-	ld bc, NAME_LENGTH_JAPANESE
+	ld de, wd00c
+	ld bc, 6
 	call CopyBytes
 	ld a, [wd004]
 	ld hl, wPartyMonNicknames
 	call GetNick
 	ld h, d
 	ld l, e
-	ld de, wMobileParticipant3Nickname
-	ld bc, NAME_LENGTH_JAPANESE
+	ld de, wd012
+	ld bc, 6
 	call CopyBytes
-	ld hl, MobileUseTheseThreeMonText
+	ld hl, UnknownText_0x4aa1d
 	call PrintText
 	call YesNoBox
 	ret
 
-MobileUseTheseThreeMonText:
-	text_far _MobileUseTheseThreeMonText
+UnknownText_0x4aa1d:
+	; , @  and @ . Use these three?
+	text_far UnknownText_0x1c51f4
 	text_end
 
 Function4aa22:
@@ -332,7 +320,7 @@ Function4aa34:
 	pop af
 	ret
 
-Function4aa6e: ; unreferenced
+Function4aa6e:
 	pop af
 	ld de, SFX_WRONG
 	call PlaySFX
@@ -422,15 +410,15 @@ Function4aad3:
 
 	ld c, a
 	xor a
-	ldh [hObjectStructIndex], a
+	ldh [hObjectStructIndexBuffer], a
 .loop
 	push bc
 	push hl
 	ld e, MONICON_PARTYMENU
 	farcall LoadMenuMonIcon
-	ldh a, [hObjectStructIndex]
+	ldh a, [hObjectStructIndexBuffer]
 	inc a
-	ldh [hObjectStructIndex], a
+	ldh [hObjectStructIndexBuffer], a
 	pop hl
 	pop bc
 	dec c
@@ -495,7 +483,7 @@ Function4ab1a:
 	dec a
 	ld [wCurPartyMon], a
 	ld c, a
-	ld b, 0
+	ld b, $0
 	ld hl, wPartySpecies
 	add hl, bc
 	ld a, [hl]
@@ -719,7 +707,7 @@ Function4acaa:
 	ld a, $b
 	ld [wMenuBorderLeftCoord], a
 	ld a, $1
-	ld [wMenuCursorPosition], a
+	ld [wMenuCursorBuffer], a
 	call InitVerticalMenuCursor
 	ld hl, w2DMenuFlags1
 	set 6, [hl]
@@ -770,7 +758,7 @@ Function4ad17:
 	jr z, .asm_4ad39
 	ld de, SFX_WRONG
 	call WaitPlaySFX
-	ld hl, MobileOnlyThreeMonMayEnterText
+	ld hl, UnknownText_0x4ad51
 	call PrintText
 	ret
 
@@ -790,8 +778,9 @@ Function4ad17:
 	call Function4adc2
 	ret
 
-MobileOnlyThreeMonMayEnterText:
-	text_far _MobileOnlyThreeMonMayEnterText
+UnknownText_0x4ad51:
+	; Only three #MON may enter.
+	text_far UnknownText_0x1c521c
 	text_end
 
 Function4ad56:
@@ -803,7 +792,7 @@ Function4ad60:
 	farcall ManagePokemonMoves
 	ret
 
-Function4ad67: ; unreferenced
+Function4ad67:
 	ret
 
 Function4ad68:

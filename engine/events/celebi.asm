@@ -1,11 +1,5 @@
 SPECIALCELEBIEVENT_CELEBI EQU $84
 
-UnusedForestTreeFrames: ; unreferenced
-INCBIN "gfx/tilesets/forest-tree/1.2bpp"
-INCBIN "gfx/tilesets/forest-tree/2.2bpp"
-INCBIN "gfx/tilesets/forest-tree/3.2bpp"
-INCBIN "gfx/tilesets/forest-tree/4.2bpp"
-
 CelebiShrineEvent:
 	call DelayFrame
 	ld a, [wVramState]
@@ -15,14 +9,14 @@ CelebiShrineEvent:
 	call LoadCelebiGFX
 	depixel 0, 10, 7, 0
 	ld a, SPRITE_ANIM_INDEX_CELEBI
-	call InitSpriteAnimStruct
+	call _InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], SPECIALCELEBIEVENT_CELEBI
 	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
 	add hl, bc
 	ld [hl], SPRITE_ANIM_SEQ_CELEBI
-	ld hl, SPRITEANIMSTRUCT_VAR4
+	ld hl, SPRITEANIMSTRUCT_0F
 	add hl, bc
 	ld a, $80
 	ld [hl], a
@@ -60,7 +54,7 @@ CelebiShrineEvent:
 	ld c, 4
 .OAMloop:
 	ld [hli], a ; tile id
-rept SPRITEOAMSTRUCT_LENGTH - 1
+rept SPRITEOAMSTRUCT_LENGTH + -1
 	inc hl
 endr
 	inc a
@@ -99,8 +93,9 @@ CelebiEvent_CountDown:
 	set 7, [hl]
 	ret
 
-CelebiEvent_SpawnLeaf: ; unreferenced
-	ld hl, wFrameCounter2
+CelebiEvent_SpawnLeaf:
+; unused
+	ld hl, wcf65
 	ld a, [hl]
 	inc [hl]
 	and $7
@@ -112,7 +107,7 @@ CelebiEvent_SpawnLeaf: ; unreferenced
 	ld d, a
 	ld e, $0
 	ld a, SPRITE_ANIM_INDEX_FLY_LEAF ; fly land
-	call InitSpriteAnimStruct
+	call _InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], $80
@@ -122,7 +117,10 @@ SpecialCelebiLeafGFX:
 INCBIN "gfx/overworld/cut_grass.2bpp"
 
 SpecialCelebiGFX:
-INCBIN "gfx/overworld/celebi.2bpp"
+INCBIN "gfx/overworld/celebi/1.2bpp"
+INCBIN "gfx/overworld/celebi/2.2bpp"
+INCBIN "gfx/overworld/celebi/3.2bpp"
+INCBIN "gfx/overworld/celebi/4.2bpp"
 
 UpdateCelebiPosition:
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
@@ -137,7 +135,7 @@ UpdateCelebiPosition:
 	ld hl, SPRITEANIMSTRUCT_YCOORD
 	add hl, bc
 	inc [hl]
-	ld hl, SPRITEANIMSTRUCT_VAR4
+	ld hl, SPRITEANIMSTRUCT_0F
 	add hl, bc
 	ld a, [hl]
 	ld d, a
@@ -147,7 +145,7 @@ UpdateCelebiPosition:
 	sub $3
 	ld [hl], a
 .skip
-	ld hl, SPRITEANIMSTRUCT_VAR3
+	ld hl, SPRITEANIMSTRUCT_0E
 	add hl, bc
 	ld a, [hl]
 	inc [hl]

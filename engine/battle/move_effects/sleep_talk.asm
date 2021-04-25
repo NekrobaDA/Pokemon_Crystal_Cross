@@ -52,11 +52,11 @@ BattleCommand_SleepTalk:
 	ld [hl], a
 	call CheckUserIsCharging
 	jr nz, .charging
-	ld a, [wBattleAnimParam]
+	ld a, [wKickCounter]
 	push af
 	call BattleCommand_LowerSub
 	pop af
-	ld [wBattleAnimParam], a
+	ld [wKickCounter], a
 .charging
 	call LoadMoveAnim
 	call UpdateMoveData

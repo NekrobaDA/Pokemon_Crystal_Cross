@@ -1,6 +1,6 @@
-MAP_NAME_SIGN_START EQU $c0
+MAP_NAME_SIGN_START EQU $60
 
-InitMapNameSign::
+ReturnFromMapSetupScript::
 	xor a
 	ldh [hBGMapMode], a
 	farcall .inefficient_farcall ; this is a waste of 6 ROM bytes and 6 stack bytes
@@ -15,13 +15,13 @@ InitMapNameSign::
 	call GetWorldMapLocation
 	ld [wCurLandmark], a
 	call .CheckNationalParkGate
-	jr z, .gate
+	jr z, .nationalparkgate
 
 	call GetMapEnvironment
 	cp GATE
 	jr nz, .not_gate
 
-.gate
+.nationalparkgate
 	ld a, -1
 	ld [wCurLandmark], a
 
@@ -42,6 +42,7 @@ InitMapNameSign::
 ; Display for 60 frames
 	ld a, 60
 	ld [wLandmarkSignTimer], a
+	call LoadMapNameSignGFX
 	call InitMapNameFrame
 	farcall HDMATransfer_OnlyTopFourRows
 	ret
@@ -62,24 +63,24 @@ InitMapNameSign::
 	ld a, [wPrevLandmark]
 	cp c
 	ret z
-	cp LANDMARK_SPECIAL
+	cp SPECIAL_MAP
 	ret
 
 .CheckSpecialMap:
 ; These landmarks do not get pop-up signs.
 	cp -1
 	ret z
-	cp LANDMARK_SPECIAL ; redundant check
+	cp SPECIAL_MAP
 	ret z
-	cp LANDMARK_RADIO_TOWER
+	cp RADIO_TOWER
 	ret z
-	cp LANDMARK_LAV_RADIO_TOWER
+	cp LAV_RADIO_TOWER
 	ret z
-	cp LANDMARK_UNDERGROUND_PATH
+	cp UNDERGROUND_PATH
 	ret z
-	cp LANDMARK_INDIGO_PLATEAU
+	cp INDIGO_PLATEAU
 	ret z
-	cp LANDMARK_POWER_PLANT
+	cp POWER_PLANT
 	ret z
 	ld a, 1
 	and a
@@ -104,11 +105,11 @@ PlaceMapNameSign::
 	cp 60
 	ret z
 	cp 59
-	jr nz, .already_initialized
+	jr nz, .skip2
 	call InitMapNameFrame
 	call PlaceMapNameCenterAlign
 	farcall HDMATransfer_OnlyTopFourRows
-.already_initialized
+.skip2
 	ld a, $80
 	ld a, $70
 	ldh [rWY], a
@@ -123,11 +124,18 @@ PlaceMapNameSign::
 	ldh [hLCDCPointer], a
 	ret
 
+LoadMapNameSignGFX:
+	ld de, MapEntryFrameGFX
+	ld hl, vTiles2 tile MAP_NAME_SIGN_START
+	lb bc, BANK(MapEntryFrameGFX), 14
+	call Get2bpp
+	ret
+
 InitMapNameFrame:
 	hlcoord 0, 0
 	ld b, 2
 	ld c, 18
-	call InitMapSignAttrmap
+	call InitMapSignAttrMap
 	call PlaceMapNameFrame
 	ret
 
@@ -139,7 +147,7 @@ PlaceMapNameCenterAlign:
 	ld a, SCREEN_WIDTH
 	sub c
 	srl a
-	ld b, 0
+	ld b, $0
 	ld c, a
 	hlcoord 0, 2
 	add hl, bc
@@ -163,8 +171,8 @@ PlaceMapNameCenterAlign:
 	pop hl
 	ret
 
-InitMapSignAttrmap:
-	ld de, wAttrmap - wTilemap
+InitMapSignAttrMap:
+	ld de, wAttrMap - wTileMap
 	add hl, de
 	inc b
 	inc b
