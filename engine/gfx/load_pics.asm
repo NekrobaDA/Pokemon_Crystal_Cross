@@ -107,6 +107,8 @@ GetAnimatedFrontpic:
 	ld a, BANK(vTiles3)
 	ldh [rVBK], a
 	call GetAnimatedEnemyFrontpic
+	xor a
+	ldh [rVBK], a
 	pop af
 	ldh [rSVBK], a
 	jp CloseSRAM

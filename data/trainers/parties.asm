@@ -20,6 +20,7 @@ FalknerGroup:
 	db TACKLE, MUD_SLAP, GUST, NO_MOVE
 	db -1 
 	
+	
 	end_list_items
 
 WhitneyGroup:
@@ -32,6 +33,7 @@ WhitneyGroup:
 	dw MILTANK
 	db ROLLOUT, ATTRACT, STOMP, MILK_DRINK
 	db -1 
+
 
 	end_list_items
 
@@ -48,6 +50,7 @@ BugsyGroup:
 	dw SCYTHER
 	db QUICK_ATTACK, LEER, FURY_CUTTER, NO_MOVE
 	db -1 
+
 
 	end_list_items
 
@@ -68,6 +71,7 @@ MortyGroup:
 	db PSYWAVE, MEAN_LOOK, SPITE, CONFUSE_RAY
 	db -1 
 	
+	
 	end_list_items
 
 PryceGroup:
@@ -83,6 +87,7 @@ PryceGroup:
 	dw PILOSWINE
 	db ICY_WIND, FURY_ATTACK, MIST, BLIZZARD
 	db -1 
+
 
 	end_list_items
 
@@ -116,6 +121,7 @@ ChuckGroup:
 	db HYPNOSIS, MIND_READER, SURF, DYNAMICPUNCH
 	db -1 
 
+
 	end_list_items
 
 ClairGroup:
@@ -134,6 +140,7 @@ ClairGroup:
 	dw KINGDRA
 	db SMOKESCREEN, SURF, HYPER_BEAM, DRAGONBREATH
 	db -1 
+
 
 	end_list_items
 
@@ -357,6 +364,7 @@ Rival1Group:
 	db RAGE, WATER_GUN, SCARY_FACE, SLASH
 	db -1 
 
+
 	end_list_items
 
 PokemonProfGroup:
@@ -380,6 +388,7 @@ WillGroup:
 	dw XATU
 	db QUICK_ATTACK, FUTURE_SIGHT, CONFUSE_RAY, PSYCHIC_M
 	db -1 
+
 
 	end_list_items
 
@@ -414,6 +423,7 @@ PKMNTrainerGroup:
 	dw FERALIGATR
 	db -1 
 
+
 	end_list_items
 	
 SECTION "Enemy Trainer Parties 2", ROMX
@@ -438,6 +448,7 @@ BrunoGroup:
 	db ROCK_SLIDE, FORESIGHT, VITAL_THROW, CROSS_CHOP
 	db -1 
 
+
 	end_list_items
 
 KarenGroup:
@@ -460,6 +471,7 @@ KarenGroup:
 	db ROAR, PURSUIT, FLAMETHROWER, CRUNCH
 	db -1 
 
+
 	end_list_items
 
 KogaGroup:
@@ -481,6 +493,7 @@ KogaGroup:
 	dw CROBAT
 	db DOUBLE_TEAM, QUICK_ATTACK, WING_ATTACK, TOXIC
 	db -1 
+
 
 	end_list_items
 
@@ -507,6 +520,7 @@ ChampionGroup:
 	db FIRE_BLAST, SAFEGUARD, OUTRAGE, HYPER_BEAM
 	db -1 
 
+
 	end_list_items
 
 BrockGroup:
@@ -529,6 +543,7 @@ BrockGroup:
 	db SLASH, SURF, ENDURE, GIGA_DRAIN
 	db -1 
 
+
 	end_list_items
 
 MistyGroup:
@@ -547,6 +562,7 @@ MistyGroup:
 	dw STARMIE
 	db SURF, CONFUSE_RAY, RECOVER, ICE_BEAM
 	db -1 
+
 
 	end_list_items
 
@@ -569,6 +585,7 @@ LtSurgeGroup:
 	dw ELECTABUZZ
 	db QUICK_ATTACK, THUNDERPUNCH, LIGHT_SCREEN, THUNDER
 	db -1 
+
 
 	end_list_items
 
@@ -614,6 +631,7 @@ ScientistGroup:
 	db CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
 	db -1 
 
+
 	end_list_items
 
 ErikaGroup:
@@ -632,6 +650,7 @@ ErikaGroup:
 	dw VILEPLUME
 	db SUNNY_DAY, SYNTHESIS, PETAL_DANCE, SOLARBEAM
 	db -1 
+	
 	
 	end_list_items
 
@@ -736,6 +755,7 @@ YoungsterGroup:
 	dw RATICATE
 	db HYPER_BEAM, QUICK_ATTACK, HYPER_FANG, PURSUIT
 	db -1 ; end
+
 
 	end_list_items
 
@@ -963,6 +983,7 @@ SchoolboyGroup:
 	db ZAP_CANNON, THUNDER_WAVE, LOCK_ON, SWIFT
 	db -1 
 	
+	
 	end_list_items
 
 BirdKeeperGroup:
@@ -1123,6 +1144,7 @@ BirdKeeperGroup:
 	db SWIFT, DETECT, STEEL_WING, FLY
 	db -1 ; end
 
+
 	end_list_items
 
 LassGroup:
@@ -1276,6 +1298,7 @@ LassGroup:
 	dw GOLDUCK
 	db DISABLE, SURF, PSYCHIC_M, SCREECH
 	db -1 ; end
+
 
 	end_list_items
 
@@ -1502,6 +1525,7 @@ CooltrainerMGroup:
 	db WRAP, SURF, DRAGON_RAGE, SLAM
 	db -1 ; end
 
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -1699,6 +1723,7 @@ CooltrainerFGroup:
 	db SWIFT, LEER, WATERFALL, TWISTER
 	db -1 ; end
 
+
 	end_list_items
 
 BeautyGroup:
@@ -1826,6 +1851,7 @@ BeautyGroup:
 	dw CORSOLA
 	db -1 ; end
 
+
 	end_list_items
 
 PokemaniacGroup:
@@ -1931,6 +1957,7 @@ PokemaniacGroup:
 	db 17
 	dw NIDOQUEEN
 	db -1 ; end
+
 
 	end_list_items
 
@@ -2191,6 +2218,7 @@ GruntMGroup:
 	dw GOLBAT
 	db -1 ; end
 
+
 	end_list_items
 
 GentlemanGroup:
@@ -2243,6 +2271,7 @@ SkierGroup:
 	dw DEWGONG
 	db -1 
 
+
 	end_list_items
 	
 TeacherGroup:
@@ -2266,6 +2295,7 @@ TeacherGroup:
 	dw JIGGLYPUFF
 	db -1 ; end
 
+
 	end_list_items
 
 SabrinaGroup:
@@ -2281,6 +2311,7 @@ SabrinaGroup:
 	dw ALAKAZAM
 	db RECOVER, FUTURE_SIGHT, PSYCHIC_M, REFLECT
 	db -1 ; end
+
 
 	end_list_items
 
@@ -2457,6 +2488,7 @@ BugCatcherGroup:
 	db 10
 	dw PARAS
 	db -1 ; end
+
 
 	end_list_items
 
@@ -2695,6 +2727,7 @@ FisherGroup:
 	db ROLLOUT, SURF, PIN_MISSILE, TAKE_DOWN
 	db -1 ; end
 
+
 	end_list_items
 
 SwimmerMGroup:
@@ -2894,6 +2927,7 @@ SwimmerMGroup:
 	dw SEADRA
 	db -1 ; end
 
+
 	end_list_items
 
 SwimmerFGroup:
@@ -3041,6 +3075,7 @@ SwimmerFGroup:
 	dw SEAKING
 	db -1 ; end
 
+
 	end_list_items
 
 SailorGroup:
@@ -3155,6 +3190,7 @@ SailorGroup:
 	dw POLIWRATH
 	db SURF, STRENGTH, ICE_PUNCH, SUBMISSION
 	db -1 ; end
+
 
 	end_list_items
 
@@ -3273,6 +3309,7 @@ SuperNerdGroup:
 	dw SLOWPOKE
 	db CURSE, WATER_GUN, GROWL, STRENGTH
 	db -1 ; end
+
 
 	end_list_items
 
@@ -3409,6 +3446,7 @@ Rival2Group:
 	db SURF, RAIN_DANCE, SLASH, SCREECH
 	db -1 ; end
 
+
 	end_list_items
 
 GuitaristGroup:
@@ -3429,6 +3467,7 @@ GuitaristGroup:
 	db 32
 	dw MAGNEMITE
 	db -1 ; end
+
 
 	end_list_items
 
@@ -3641,6 +3680,7 @@ HikerGroup:
 	db KARATE_CHOP, VITAL_THROW, HEADBUTT, DIG
 	db -1 ; end
 
+
 	end_list_items
 
 BikerGroup:
@@ -3724,6 +3764,7 @@ BikerGroup:
 	dw WEEZING
 	db -1 ; end
 
+
 	end_list_items
 
 BlaineGroup:
@@ -3739,6 +3780,7 @@ BlaineGroup:
 	dw RAPIDASH
 	db QUICK_ATTACK, FIRE_SPIN, FURY_ATTACK, FIRE_BLAST
 	db -1 ; end
+
 
 	end_list_items
 
@@ -3774,6 +3816,7 @@ BurglarGroup:
 	db 30
 	dw KOFFING
 	db -1 ; end
+
 
 	end_list_items
 
@@ -3843,6 +3886,7 @@ FirebreatherGroup:
 	db 28
 	dw KOFFING
 	db -1 ; end
+
 
 	end_list_items
 
@@ -3916,6 +3960,7 @@ JugglerGroup:
 	db 30
 	dw ELECTRODE
 	db -1 ; end
+
 
 	end_list_items
  
@@ -4006,6 +4051,7 @@ BlackbeltGroup:
 	dw MACHOKE
 	db -1 ; end
 
+
 	end_list_items
 
 ExecutiveMGroup:
@@ -4060,6 +4106,7 @@ ExecutiveMGroup:
 	db 22
 	dw KOFFING
 	db -1 ; end
+
 
 	end_list_items
 
@@ -4165,6 +4212,7 @@ PsychicGroup:
 	db 33
 	dw HYPNO
 	db -1 ; end
+
 
 	end_list_items
 
@@ -4387,6 +4435,7 @@ PicnickerGroup:
 	db METRONOME, ENCORE, MOONLIGHT, MINIMIZE
 	db -1 ; end
 
+
 	end_list_items
 
 CamperGroup:
@@ -4592,6 +4641,7 @@ CamperGroup:
 	dw TAUROS
 	db -1 ; end
 
+
 	end_list_items
 
 ExecutiveFGroup:
@@ -4620,6 +4670,7 @@ ExecutiveFGroup:
 	dw MURKROW
 	db PECK, PURSUIT, HAZE, NO_MOVE
 	db -1 ; end
+
 
 	end_list_items
 
@@ -4783,6 +4834,7 @@ MediumGroup:
 	dw SLOWBRO
 	db -1 ; end
 
+
 	end_list_items
 
 BoarderGroup:
@@ -4813,6 +4865,7 @@ BoarderGroup:
 	db 24
 	dw SHELLDER
 	db -1 ; end
+
 
 	end_list_items
 
@@ -4948,6 +5001,7 @@ PokefanMGroup:
 	db BERRY
 	db -1 ; end
 
+
 	end_list_items
 
 KimonoGirlGroup:
@@ -4990,6 +5044,7 @@ KimonoGirlGroup:
 	db 17
 	dw JOLTEON
 	db -1 ; end
+
 
 	end_list_items 
 
@@ -5082,6 +5137,7 @@ TwinsGroup:
 	db THUNDER_WAVE, TWISTER, FLAMETHROWER, HEADBUTT
 	db -1 ; end
 
+
 	end_list_items
 
 PokefanFGroup:
@@ -5139,6 +5195,7 @@ PokefanFGroup:
 	db BERRY
 	db -1 ; end
 
+
 	end_list_items
 
 RedGroup:
@@ -5163,6 +5220,7 @@ RedGroup:
 	dw BLASTOISE
 	db RAIN_DANCE, SURF, BLIZZARD, WHIRLPOOL
 	db -1 ; end
+
 
 	end_list_items
 
@@ -5189,6 +5247,7 @@ BlueGroup:
 	db ROAR, SWIFT, FLAMETHROWER, EXTREMESPEED
 	db -1 ; end
 
+
 	end_list_items
 
 OfficerGroup:
@@ -5205,6 +5264,7 @@ OfficerGroup:
 	db 14
 	dw GROWLITHE
 	db -1 ; end
+
 
 	end_list_items
 
@@ -5253,6 +5313,7 @@ GruntFGroup:
 	db ABSORB, SWEET_SCENT, STUN_SPORE, SLEEP_POWDER
 	db -1 ; end
 
+
 	end_list_items
 
 MysticalmanGroup:
@@ -5268,5 +5329,6 @@ MysticalmanGroup:
 	dw ELECTRODE
 	db SCREECH, SONICBOOM, THUNDER, ROLLOUT
 	db -1 ; end
+
 
 	end_list_items
