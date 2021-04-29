@@ -100,6 +100,7 @@ FindNest:
 .FindWater:
 	ld a, [hl]
 	cp -1
+	ret z
 	push bc
 	push hl
 	; use the math buffers as storage, since we're not doing any math
@@ -132,7 +133,6 @@ FindNest:
 	cp b
 	jr z, .found
 .next_mon
-	inc hl
 	inc hl
 	pop af
 	dec a
@@ -331,7 +331,7 @@ ChooseWildEncounter:
 	call LoadWildMonDataPointer
 	jp nc, .nowildbattle
 	call CheckEncounterRoamMon
-	call CheckEncounterRoamMonK
+	;call CheckEncounterRoamMonK
 	jp c, .startwildbattle
 
 	inc hl
@@ -400,7 +400,7 @@ ChooseWildEncounter:
 	call ValidateTempWildMonSpecies
 	jr c, .nowildbattle
 
-		ld a, l
+	ld a, l
 	sub LOW(UNOWN)
 	jr nz, .done
 	if HIGH(UNOWN) > 1
@@ -698,54 +698,6 @@ CheckEncounterRoamMon:
 	dec a ; 1/3 chance that it's Entei, 1/3 chance that it's Raikou
 ; Compare its current location with yours
 	ld hl, wRoamMon1MapGroup
-	ld c, a
-	ld b, 0
-	ld a, 7 ; length of the roam_struct
-	call AddNTimes
-	ld a, d
-	cp [hl]
-	jr nz, .DontEncounterRoamMon
-	inc hl
-	ld a, e
-	cp [hl]
-	jr nz, .DontEncounterRoamMon
-
-; We've decided to take on a beast, so stage its information for battle.
-	dec hl
-	dec hl
-	dec hl
-	ld a, [hli]
-	ld [wTempWildMonSpecies], a
-	ld a, [hl]
-	ld [wCurPartyLevel], a
-	ld a, BATTLETYPE_ROAMING
-	ld [wBattleType], a
-
-	pop hl
-	scf
-	ret
-
-.DontEncounterRoamMon:
-	pop hl
-	and a
-	ret
-	
-CheckEncounterRoamMonK:
-	push hl
-; Don't trigger an encounter if we're on water.
-	call CheckOnWater
-	jp z, .DontEncounterRoamMon
-; Load the current map group and number to de
-	call CopyCurrMapDE
-; Randomly select a beast.
-	call Random
-	cp 150 ; 25/64 chance
-	jr nc, .DontEncounterRoamMon
-	and %00000011 ; Of that, a 3/4 chance.  Running total: 75/256, or around 29.3%.
-	jr z, .DontEncounterRoamMon
-	dec a ; 1/3 chance that it's Entei, 1/3 chance that it's Raikou
-; Compare its current location with yours
-	ld hl, wRoamMon3MapGroup
 	ld c, a
 	ld b, 0
 	ld a, 7 ; length of the roam_struct
@@ -1109,7 +1061,7 @@ ValidateTempWildMonSpecies:
 	ld a, h
 	or l
 	scf
-ret z
+	ret z
 	ld a, h
 	if LOW(NUM_POKEMON) == $FF
 		cp HIGH(NUM_POKEMON) + 1

@@ -1,4 +1,4 @@
-	db DUSERPENT ; 206
+	db 0 ; species ID placeholder
 
 	db 100,  80,  70,  85,  95,  65
 	;   hp  atk  def  spd  sat  sdf

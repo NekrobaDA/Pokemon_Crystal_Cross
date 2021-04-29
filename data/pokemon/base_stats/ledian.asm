@@ -1,4 +1,4 @@
-	db LEDIAN ; 166
+	db 0 ; species ID placeholder
 
 	db  65,  55,  60,  85,  55, 110
 	;   hp  atk  def  spd  sat  sdf

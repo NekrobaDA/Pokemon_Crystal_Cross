@@ -1,4 +1,4 @@
-	db YANMEGA ; 193
+	db 0 ; species ID placeholder
 
 	db  86,  76,  86,  95,  116,  56
 	;   hp   atk  def  spd  sat  sdf

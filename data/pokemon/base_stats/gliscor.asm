@@ -1,4 +1,4 @@
-	db GLISCOR ; 207
+	db 0 ; species ID placeholder
 
 	db  75,  95, 125,  85,  45,  75
 	;   hp  atk  def  spd  sat  sdf

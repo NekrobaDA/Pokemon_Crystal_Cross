@@ -400,7 +400,7 @@ LearnEvolutionMove:
 UpdateSpeciesNameIfNotNicknamed:
 	ld a, [wCurSpecies]
 	push af
-	ld a, [wBaseDexNo]
+	ld a, [wBaseSpecies]
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
 	pop af

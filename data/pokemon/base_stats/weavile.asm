@@ -1,4 +1,4 @@
-	db WEAVILE ; 215
+	db 0 ; species ID placeholder
 
 	db  70,  120,  65, 125,  65,  85
 	;   hp   atk  def  spd  sat  sdf

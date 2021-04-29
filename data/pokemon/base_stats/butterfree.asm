@@ -1,4 +1,4 @@
-	db BUTTERFREE ; 012
+	db 0 ; species ID placeholder
 
 	db  70,  55,  50,  70,  100,  80
 	;   hp  atk  def  spd  sat  sdf

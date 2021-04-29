@@ -1,4 +1,4 @@
-	db XATU ; 178
+	db 0 ; species ID placeholder
 
 	db  75,  75,  70,  95,  95,  80
 	;   hp  atk  def  spd  sat  sdf

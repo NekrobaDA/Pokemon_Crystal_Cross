@@ -1,4 +1,4 @@
-	db VENOMOTH ; 049
+	db 0 ; species ID placeholder
 
 	db  70,  65,  60,  90,  100,  75
 	;   hp  atk  def  spd  sat  sdf

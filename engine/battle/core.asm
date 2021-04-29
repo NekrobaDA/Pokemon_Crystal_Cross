@@ -8708,12 +8708,12 @@ GetRoamMonMapGroup:
 	cp b
 	ld hl, wRoamMon4MapGroup
 	ret z
-	ld a, [wRoamMon5Species]
-	cp b
+	;ld a, [wRoamMon5Species]
+	;cp b
 	ld hl, wRoamMon5MapGroup
-	ret z
-	ld hl, wRoamMon6MapGroup
-	ret
+	ret ;z
+	;ld hl, wRoamMon6MapGroup
+	;ret
 
 GetRoamMonMapNumber:
 	ld a, [wTempEnemyMonSpecies]
@@ -8734,12 +8734,12 @@ GetRoamMonMapNumber:
 	cp b
 	ld hl, wRoamMon4MapNumber
 	ret z
-	ld a, [wRoamMon5Species]
-	cp b
+	;ld a, [wRoamMon5Species]
+	;cp b
 	ld hl, wRoamMon5MapNumber
-	ret z
-	ld hl, wRoamMon6MapNumber
-	ret
+	ret ;z
+	;ld hl, wRoamMon6MapNumber
+	;ret
 
 GetRoamMonHP:
 ; output: hl = wRoamMonHP
@@ -8761,12 +8761,12 @@ GetRoamMonHP:
 	cp b
 	ld hl, wRoamMon4HP
 	ret z
-	ld a, [wRoamMon5Species]
-	cp b
+	;ld a, [wRoamMon5Species]
+	;cp b
 	ld hl, wRoamMon5HP
-	ret z
-	ld hl, wRoamMon6HP
-	ret
+	ret ;z
+	;ld hl, wRoamMon6HP
+	;ret
 
 GetRoamMonDVs:
 ; output: hl = wRoamMonDVs
@@ -8788,8 +8788,8 @@ GetRoamMonDVs:
 	cp b
 	ld hl, wRoamMon4DVs
 	ret z
-	ld a, [wRoamMon5Species]
-	cp b
+	;ld a, [wRoamMon5Species]
+	;cp b
 	ld hl, wRoamMon5DVs
 	ret
 
@@ -8808,11 +8808,11 @@ GetRoamMonSpecies:
 	cp [hl]
 	ret z
 	ld hl, wRoamMon5Species
-	cp [hl]
-	ret z
-	ld hl, wRoamMon6Species
-	cp [hl]
-	ret
+	;cp [hl]
+	ret ;z
+	;ld hl, wRoamMon6Species
+	;cp [hl]
+	;ret
 
 AddLastLinkBattleToLinkRecord:
 	ld hl, wOTPlayerID

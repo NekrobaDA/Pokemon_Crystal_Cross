@@ -1,4 +1,4 @@
-	db MAROWAK ; 105
+	db 0 ; species ID placeholder
 
 	db  60,  100, 110,  55,  50,  80
 	;   hp  atk  def  spd  sat  sdf

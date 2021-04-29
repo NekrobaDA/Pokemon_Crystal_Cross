@@ -34,7 +34,7 @@ GetDexNumber:: ; unreferenced
 	dec a
 	ld b, 0
 	add hl, bc
-	ld hl, BaseData + BASE_DEX_NO
+	ld hl, BaseData + BASE_SPECIES
 	ld bc, BASE_DATA_SIZE
 	call AddNTimes
 	ld a, BANK(BaseData)

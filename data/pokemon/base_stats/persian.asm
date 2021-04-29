@@ -1,4 +1,4 @@
-	db PERSIAN ; 053
+	db 0 ; species ID placeholder
 
 	db  65,  90,  60, 115,  75,  75
 	;   hp  atk  def  spd  sat  sdf

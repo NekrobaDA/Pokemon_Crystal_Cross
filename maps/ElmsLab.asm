@@ -194,11 +194,10 @@ CyndaquilPokeBallScript:
 	; good party
 	givepoke DUSERPENT, 100
 	givepoke WEAVILE, 100
-	givepoke WU_DUK, 100
-	givepoke LEAFEON, 100
+	givepoke RAIKOU, 100
+	givepoke ARTICUNO, 100
 	givepoke GLACEON, 100
-	; hm slaves
-	givepoke AMBIPOM, 100
+	givepoke ENTEI, 100
 	; tms for party
 	giveitem TM_ICE_BEAM
 	giveitem TM_FLAMETHROWER
@@ -283,6 +282,8 @@ CyndaquilPokeBallScript:
 	setflag ENGINE_FLYPOINT_FUCHSIA
 	setflag ENGINE_FLYPOINT_SAFFRON
 	setflag ENGINE_FLYPOINT_CINNABAR
+	;etc
+	setflag ENGINE_UNLOCKED_UNOWNS_A_TO_K
 	; magnet train works
 	setevent EVENT_RESTORED_POWER_TO_KANTO
 	giveitem PASS

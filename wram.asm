@@ -2469,7 +2469,7 @@ wMoveSelectionMenuType:: db
 
 ; corresponds to the data/pokemon/base_stats/*.asm contents
 wCurBaseData::
-wBaseDexNo:: db
+wBaseSpecies:: db
 wBaseStats::
 wBaseHP:: db
 wBaseAttack:: db
@@ -3197,7 +3197,7 @@ wRoamMon2:: roam_struct wRoamMon2
 wRoamMon3:: roam_struct wRoamMon3
 wRoamMon4:: roam_struct wRoamMon4
 wRoamMon5:: roam_struct wRoamMon5
-wRoamMon6:: roam_struct wRoamMon6
+;wRoamMon6:: roam_struct wRoamMon6
 
 wRoamMons_CurMapNumber:: db
 wRoamMons_CurMapGroup:: db
