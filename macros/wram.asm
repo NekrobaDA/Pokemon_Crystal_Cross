@@ -26,7 +26,7 @@ box_struct: MACRO
 \1CaughtGender::
 \1CaughtLocation:: db
 \1Level::          db
-\1BoxEnd::
+\1End::
 ENDM
 
 party_struct: MACRO

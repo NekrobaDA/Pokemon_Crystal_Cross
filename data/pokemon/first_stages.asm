@@ -1,5 +1,6 @@
 FirstEvoStages::
 	; lists the lowest stage for each Pokémon
+	dw BULBASAUR ; filler
 	dw BULBASAUR
 	dw BULBASAUR
 	dw BULBASAUR
@@ -253,3 +254,4 @@ FirstEvoStages::
 	dw LUGIA
 	dw HO_OH
 	dw CELEBI
+	

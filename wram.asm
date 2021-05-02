@@ -943,8 +943,8 @@ NEXTU
 wBillsPCData::
 wBillsPCPokemonList::
 ; (species, box number, list index) x30
-	ds 3 * 30
-	ds 720
+	ds 4 * 30
+	ds 690
 wBillsPC_ScrollPosition:: db
 wBillsPC_CursorPosition:: db
 wBillsPC_NumMonsInBox:: db
@@ -3161,9 +3161,11 @@ wDayCareMan::
 ; bit 0: monster 1 in day-care
 	db
 
+wBreedMon1::
 wBreedMon1Nick:: ds MON_NAME_LENGTH
 wBreedMon1OT::   ds NAME_LENGTH
-wBreedMon1::     box_struct wBreedMon1
+;wBreedMon1::     box_struct wBreedMon1
+wBreedMon1Stats:: box_struct wBreedMon1 ; df0c
 
 wDayCareLady::
 ; bit 7: active
@@ -3177,9 +3179,11 @@ wBreedMotherOrNonDitto::
 ; nz: no
 	db
 
+wBreedMon2::
 wBreedMon2Nick:: ds MON_NAME_LENGTH
 wBreedMon2OT::   ds NAME_LENGTH
-wBreedMon2::     box_struct wBreedMon2
+;wBreedMon2::     box_struct wBreedMon2
+wBreedMon2Stats:: box_struct wBreedMon2 ; df45
 
 wEggNick:: ds MON_NAME_LENGTH
 wEggOT::   ds NAME_LENGTH

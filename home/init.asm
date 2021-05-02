@@ -89,7 +89,6 @@ Init::
 	ldh [hSystemBooted], a
 	pop af
 	ldh [hCGB], a
-	
 	ld a, -1
 	ldh [hSRAMBank], a
 

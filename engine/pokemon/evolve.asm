@@ -644,18 +644,17 @@ EvoFlagAction:
 GetLowestEvolutionStage:
 ; Return the first mon to evolve into wCurPartySpecies.
 ; Instead of looking it up, we just load it from a table. This is a lot more efficient.
-	ld a, [wCurPartySpecies]
-	call GetPokemonIndexFromID
-	ld bc, FirstEvoStages - 2
-	add hl, hl
-	add hl, bc
-	ld a, BANK(FirstEvoStages)
-	call GetFarWord
-	call GetPokemonIDFromIndex
-	call GetFarByte
-	ld [wCurPartySpecies], a
+	ld a, [wCurPartySpecies]    ; loading mother species into a
+	call GetPokemonIndexFromID  ; in: a = 8-bit index, out: hl = 16-bit index; a clobbered
+	ld bc, FirstEvoStages ;- 2   ; load this into bc?
+	add hl, hl                  ; hl + hl, idk what this does
+	add hl, bc                  ; hl + firstevostages bank?
+	ld a, BANK(FirstEvoStages)  ; load bank?
+	call GetFarWord             ; retrive a word from a (the bank), return in hl
+	call GetPokemonIDFromIndex  ; convert hl back to a
+	ld [wCurPartySpecies], a    ; load a into current species
 	ret
-	
+
 SkipEvolutions::
 ; Receives a pointer to the evos and attacks for a mon in hl, and skips to the attacks.
 	ld a, [hli]
