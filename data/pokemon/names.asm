@@ -256,3 +256,5 @@ PokemonNames::
 	db "LUGIA@@@@@"
 	db "HO-OH@@@@@"
 	db "CELEBI@@@@"
+	db "VULPIX@@@@"
+	db "NINETALES@"

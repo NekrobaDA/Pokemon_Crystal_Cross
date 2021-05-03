@@ -1510,7 +1510,7 @@ JohtoGrassWildMons8Badge:
 	dbw 42, PHANPY
 	dbw 42, ARBOK
 	dbw 44, FEAROW
-	dbw 41, SKARMORY
+	dbw 41, VULPIX_ALOLAN
 	dbw 43, DONPHAN
 	dbw 43, SKARMORY
 	dbw 39, EKANS
@@ -1519,7 +1519,7 @@ JohtoGrassWildMons8Badge:
 	dbw 42, PHANPY
 	dbw 42, ARBOK
 	dbw 44, FEAROW
-	dbw 41, SKARMORY
+	dbw 41, VULPIX_ALOLAN
 	dbw 43, DONPHAN
 	dbw 43, SKARMORY
 	dbw 39, EKANS
@@ -1528,7 +1528,7 @@ JohtoGrassWildMons8Badge:
 	dbw 42, POLIWHIRL
 	dbw 42, GOLBAT
 	dbw 44, POLIWHIRL
-	dbw 40, ZUBAT
+	dbw 40, VULPIX_ALOLAN
 	dbw 44, SNEASEL
 	dbw 44, GOLBAT
 	dbw 45, SNEASEL

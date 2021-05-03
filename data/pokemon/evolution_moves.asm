@@ -252,3 +252,5 @@ EvolutionMoves::
 	db NO_MOVE ; Lugia
 	db NO_MOVE ; HoOh
 	db NO_MOVE ; Celebi
+	db NO_MOVE ; Vulpix
+	db CURSE ; Ninetales

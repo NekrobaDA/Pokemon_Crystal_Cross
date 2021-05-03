@@ -252,3 +252,5 @@ FramesPointers:
 	dba LugiaFrames
 	dba HoOhFrames
 	dba CelebiFrames
+	dba Vulpix_AlolanFrames
+	dba Ninetales_AlolanFrames

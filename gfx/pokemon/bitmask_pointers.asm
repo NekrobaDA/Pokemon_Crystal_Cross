@@ -252,3 +252,5 @@ BitmasksPointers:
 	dw LugiaBitmasks
 	dw HoOhBitmasks
 	dw CelebiBitmasks
+	dw Vulpix_AlolanBitmasks
+	dw Ninetales_AlolanBitmasks

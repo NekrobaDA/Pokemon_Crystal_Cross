@@ -3517,3 +3517,28 @@ CelebiEvosAttacks:
 	db 70, GIGA_DRAIN
 	db 0 ; no more level-up moves
 	
+Vulpix_AlolanEvosAttacks:
+	dbbw EVOLVE_ITEM, ICE_STONE, NINETALES_ALOLAN
+	db 0 ; no more evolutions
+	db 1, POWDER_SNOW
+	db 1, TAIL_WHIP
+	db 7, QUICK_ATTACK
+	db 13, ROAR
+	db 19, CONFUSE_RAY
+	db 25, SAFEGUARD
+	db 31, ICE_BEAM
+	db 37, ICY_WIND
+	db 0 ; no more level-up moves
+
+Ninetales_AlolanEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, POWDER_SNOW
+	db 1, QUICK_ATTACK
+	db 1, CONFUSE_RAY
+	db 4, CURSE
+	db 23, CONFUSE_RAY
+	db 37, ICE_BEAM
+	db 51, SHADOW_BALL
+	db 60, DESTINY_BOND
+	db 0 ; no more level-up moves
+	

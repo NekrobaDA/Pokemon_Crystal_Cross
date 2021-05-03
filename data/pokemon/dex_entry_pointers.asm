@@ -253,3 +253,5 @@ PokedexDataPointerTable:
 	dba LugiaPokedexEntry
 	dba HoOhPokedexEntry
 	dba CelebiPokedexEntry
+	dba Vulpix_AlolanPokedexEntry
+	dba Ninetales_AlolanPokedexEntry

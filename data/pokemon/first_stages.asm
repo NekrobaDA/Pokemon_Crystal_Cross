@@ -254,4 +254,6 @@ FirstEvoStages::
 	dw LUGIA
 	dw HO_OH
 	dw CELEBI
+	dw VULPIX_ALOLAN
+	dw VULPIX_ALOLAN
 	

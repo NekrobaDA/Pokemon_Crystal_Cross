@@ -252,3 +252,5 @@ AnimationPointers:
 	dw LugiaAnimation
 	dw HoOhAnimation
 	dw CelebiAnimation
+	dw Vulpix_AlolanAnimation
+	dw Ninetales_AlolanAnimation

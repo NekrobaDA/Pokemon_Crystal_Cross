@@ -253,5 +253,7 @@ MonMenuIcons:
 	db ICON_TYRANITAR    
 	db ICON_LUGIA        
 	db ICON_HOOH         
-	db ICON_CELEBI       
+	db ICON_CELEBI
+	db ICON_VULPIX       
+	db ICON_NINETALES
 	db ICON_EGG          

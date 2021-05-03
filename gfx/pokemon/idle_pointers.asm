@@ -252,4 +252,6 @@ AnimationIdlePointers:
 	dw LugiaAnimationIdle
 	dw HoOhAnimationIdle
 	dw CelebiAnimationIdle
+	dw Vulpix_AlolanAnimationIdle
+	dw Ninetales_AlolanAnimationIdle
 

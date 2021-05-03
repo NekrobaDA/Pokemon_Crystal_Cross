@@ -273,6 +273,8 @@ JOHTO_POKEMON EQU const_value
 	const LUGIA      ; f9
 	const HO_OH      ; fa
 	const CELEBI     ; fb
+	const VULPIX_ALOLAN
+	const NINETALES_ALOLAN
 NUM_POKEMON EQU const_value - 1
 
 EGG EQU -3

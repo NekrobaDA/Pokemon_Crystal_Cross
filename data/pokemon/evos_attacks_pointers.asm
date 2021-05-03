@@ -254,3 +254,6 @@ EvosAttacksPointers::
 	dw LugiaEvosAttacks
 	dw HoOhEvosAttacks
 	dw CelebiEvosAttacks
+	dw Vulpix_AlolanEvosAttacks
+	dw Ninetales_AlolanEvosAttacks
+	

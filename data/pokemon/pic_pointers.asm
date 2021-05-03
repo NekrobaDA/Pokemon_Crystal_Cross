@@ -518,3 +518,7 @@ PokemonPicPointers::
 	dba HoOhBackpic
 	dba CelebiFrontpic
 	dba CelebiBackpic
+	dba Vulpix_AlolanFrontpic
+	dba Vulpix_AlolanBackpic
+	dba Ninetales_AlolanFrontpic
+	dba Ninetales_AlolanBackpic

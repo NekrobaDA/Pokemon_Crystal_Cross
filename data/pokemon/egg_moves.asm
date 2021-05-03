@@ -787,6 +787,14 @@ LarvitarEggMoves:
 	db FOCUS_ENERGY
 	db ANCIENTPOWER
 	db -1 ; end
+	
+Vulpix_AlolanEggMoves:
+	db FAINT_ATTACK
+	db HYPNOSIS
+	db FLAIL
+	db SPITE
+	db DISABLE
+	db -1 ; end
 
 NoEggMoves:
 	db -1 ; end
