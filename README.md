@@ -2,12 +2,16 @@
 
 This is a hack of the Pokémon Crystal disassembly.
 
+UPDATE- being converted to 16bit, some features are broken as I work out the kinks
+
 Features-
 
 Added Weavile, Yanmega, Honckrow, Mismagius, Gliscor, Ambipom, Leafeon, and Glaceon<br/>
 Adapted the unused Farfetch'd evolution, Madame, renamed Wu'Duk<br/>
 Additionally includes a fanmade evolution for Dunsparce- Duserpent<br/>
-(removed Sunkurn, Igglybuff, Cleffa, Smoochum, Tangela, Jynx, Mr Mime, and Bellossom)
+Added Alolan Vulpix and Ninetales<br/>
+(removed Sunkurn, Igglybuff, Cleffa, Smoochum, Tangela, Jynx, Mr Mime, and Bellossom)<br/>
+((may be readded in the future))
 
 13 more weekly encounter pokemon in addition to Lapras;<br/>
 Sunflora, Electabuzz, Snorlax, Magmar, Farfetch'd, Marowak,<br/>
@@ -62,6 +66,8 @@ Updated pokemon sprites for overworld pokemon
 Some altered or updated shiny colors
 
 Rock Climb has been implimented.
+
+Added a menu option to reset the clock easier.
 
 Bugs;
 Pikachu has its male and female gender dimorphism, however the backsprite does not display correctly

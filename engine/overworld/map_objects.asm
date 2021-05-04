@@ -376,9 +376,9 @@ StepVectors:
 	db  2,  0,  8, 2
 	; fast
 	db  0,  4,  4, 4
-	db  0, -4,  4, 4
-	db -4,  0,  4, 4
-	db  4,  0,  4, 4
+    db  0, -4,  4, 4
+    db -4,  0,  4, 4
+    db  4,  0,  4, 4
 
 GetStepVectorSign:
 	add a
