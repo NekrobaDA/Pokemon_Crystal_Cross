@@ -196,9 +196,9 @@ ENDM
 	map_const BLACKTHORN_MART,                              6,  4 ;  5
 	map_const BLACKTHORN_POKECENTER_1F,                     5,  4 ;  6
 	map_const MOVE_DELETERS_HOUSE,                          4,  4 ;  7
-	map_const ROUTE_45,                                    10, 45 ;  8
+	map_const ROUTE_45,                                    12, 45 ;  8
 	map_const ROUTE_46,                                    10, 18 ;  9
-	map_const BLACKTHORN_CITY,                             20, 18 ; 10
+	map_const BLACKTHORN_CITY,                             22, 20 ; 10
 
 	newgroup                                                      ;  6
 
@@ -479,7 +479,7 @@ ENDM
 
 	map_const ROUTE_26,                                    10, 54 ;  1
 	map_const ROUTE_27,                                    40,  9 ;  2
-	map_const ROUTE_29,                                    30,  9 ;  3
+	map_const ROUTE_29,                                    30, 10 ;  3
 	map_const NEW_BARK_TOWN,                               10,  9 ;  4
 	map_const ELMS_LAB,                                     5,  6 ;  5
 	map_const PLAYERS_HOUSE_1F,                             5,  4 ;  6
@@ -511,7 +511,7 @@ ENDM
 
 	newgroup                                                      ; 26
 
-	map_const ROUTE_30,                                    10, 27 ;  1
+	map_const ROUTE_30,                                    11, 27 ;  1
 	map_const ROUTE_31,                                    20,  9 ;  2
 	map_const CHERRYGROVE_CITY,                            20, 20 ;  3
 	map_const CHERRYGROVE_MART,                             6,  4 ;  4
@@ -526,5 +526,15 @@ ENDM
 	newgroup
 	
 	map_const MEWTWO_CAVE,									5,  7
+	
+	newgroup
+	
+	map_const ROUTE_47,                                    11, 20
+	map_const CATALLIA_TOWN,                               12, 16
+	map_const CATALLIA_MART,                               6,  4
+	map_const CATALLIA_POKECENTER_1F,                      5,  4
+	map_const CATALLIA_POLICE_STATION,                     4,  8 
+	map_const CATALLIA_HOUSE_1,                            4,  4
+	map_const CATALLIA_HOUSE_2,                            4,  4
 
-NUM_MAP_GROUPS EQU const_value ; 26
+NUM_MAP_GROUPS EQU const_value ; 28

@@ -1,5 +1,6 @@
 SpriteMons:
 ; entries correspond to SPRITE_* dw ants past SPRITE_POKEMON
+	dw SPINARAK
 	dw ONIX ; 67
 	dw MILTANK ; 68
 	dw SUNFLORA ; 69

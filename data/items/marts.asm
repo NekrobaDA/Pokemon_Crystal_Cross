@@ -34,6 +34,8 @@ Marts:
 	dw MartMtMoon
 	dw MartIndigoPlateau
 	dw MartUnderground
+	dw MartCatallia
+	dw MartCatalliaDex
 
 MartCherrygrove:
 	db 4 ; # items
@@ -449,6 +451,23 @@ MartUnderground:
 	db ENERGY_ROOT
 	db HEAL_POWDER
 	db REVIVAL_HERB
+	db -1 ; end
+	
+MartCatallia:
+	db 4 ; # items
+	db POTION
+	db ANTIDOTE
+	db PARLYZ_HEAL
+	db AWAKENING
+	db -1 ; end
+
+MartCatalliaDex:
+	db 5 ; # items
+	db POKE_BALL
+	db POTION
+	db ANTIDOTE
+	db PARLYZ_HEAL
+	db AWAKENING
 	db -1 ; end
 
 DefaultMart:

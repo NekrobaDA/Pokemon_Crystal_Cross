@@ -47,6 +47,7 @@ MapGroupRoofs:
 	db -1             ; 25
 	db ROOF_NEW_BARK  ; 26 (Cherrygrove)
 	db -1
+	db ROOF_NEW_BARK  ; (catallia)
 
 Roofs:
 ; entries correspond to ROOF_* constants

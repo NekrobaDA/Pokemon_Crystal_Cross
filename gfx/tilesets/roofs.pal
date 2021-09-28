@@ -187,3 +187,8 @@
 	RGB 31,26,00, 31,15,00 ; morn/day
 	RGB 13,13,01, 08,08,01 ; nite
 	RGB 13,13,01, 08,08,01 ; eve
+
+; group 28 (catallia)
+	RGB 07,25,31, 00,11,31 ; morn/day
+	RGB 05,13,25, 00,07,21 ; nite
+	RGB 15,23,23, 06,13,23 ; eve

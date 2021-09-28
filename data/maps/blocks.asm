@@ -307,15 +307,13 @@ Route5_Blocks:
 Route9_Blocks:
 	INCBIN "maps/Route9.ablk"
 
-Route22_Blocks:
-	INCBIN "maps/Route22.ablk"
-
 
 SECTION "Map Blocks 2", ROMX
 
 Route14_Blocks:
 	INCBIN "maps/Route14.ablk"
 
+CatalliaMart_Blocks:
 OlivineMart_Blocks:
 EcruteakMart_Blocks:
 BlackthornMart_Blocks:
@@ -337,6 +335,7 @@ Route10North_Blocks:
 BetaLakeOfRage_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaLakeOfRage.ablk"
 
+CatalliaPokecenter1F_Blocks:
 OlivinePokecenter1F_Blocks:
 MahoganyPokecenter1F_Blocks:
 EcruteakPokecenter1F_Blocks:
@@ -707,9 +706,6 @@ TeamRocketBaseB2F_Blocks:
 TeamRocketBaseB3F_Blocks:
 	INCBIN "maps/TeamRocketBaseB3F.ablk"
 
-BetaRoute23_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaRoute23.ablk"
-
 IndigoPlateauPokecenter1F_Blocks:
 	INCBIN "maps/IndigoPlateauPokecenter1F.ablk"
 
@@ -1045,3 +1041,24 @@ GoldenrodDeptStoreRoof_Blocks:
 	
 MewtwoCave_Blocks:
 	INCBIN "maps/MewtwoCave.ablk"
+	
+Route47_Blocks:
+	INCBIN "maps/Route47.ablk"
+	
+CatalliaTown_Blocks:
+	INCBIN "maps/CatalliaTown.ablk"
+
+CatalliaPoliceStation_Blocks:
+	INCBIN "maps/CatalliaPoliceStation.ablk"
+	
+CatalliaHouse1_Blocks:
+	INCBIN "maps/CatalliaHouse1.ablk"	
+
+CatalliaHouse2_Blocks:
+	INCBIN "maps/CatalliaHouse2.ablk"
+	
+Route22_Blocks:
+	INCBIN "maps/Route22.ablk"
+	
+BetaRoute23_Blocks: ; unreferenced
+	INCBIN "maps/unused/BetaRoute23.ablk"

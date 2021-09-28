@@ -97,12 +97,12 @@ ENDM
 
 
 	map_attributes NewBarkTown, NEW_BARK_TOWN, $05, WEST | EAST
-	connection west, Route29, ROUTE_29, 0
+	connection west, Route29, ROUTE_29, -1
 	connection east, Route27, ROUTE_27, 0
 
 	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $35, NORTH | EAST
 	connection north, Route30, ROUTE_30, 5
-	connection east, Route29, ROUTE_29, 0
+	connection east, Route29, ROUTE_29, -1
 
 	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST | EAST
 	connection south, Route32, ROUTE_32, 0
@@ -138,7 +138,7 @@ ENDM
 	connection south, Route43, ROUTE_43, 5
 
 	map_attributes BlackthornCity, BLACKTHORN_CITY, $71, SOUTH | WEST
-	connection south, Route45, ROUTE_45, 0
+	connection south, Route45, ROUTE_45, -1
 	connection west, Route44, ROUTE_44, 9
 
 	map_attributes SilverCaveOutside, SILVER_CAVE_OUTSIDE, $2c, EAST
@@ -155,13 +155,15 @@ ENDM
 	connection west, SilverCaveOutside, SILVER_CAVE_OUTSIDE, -9
 
 	map_attributes Route29, ROUTE_29, $05, NORTH | WEST | EAST
-	connection north, Route46, ROUTE_46, 10
-	connection west, CherrygroveCity, CHERRYGROVE_CITY, 0
+	connection north, Route47, ROUTE_47, -1
+	connection west, CherrygroveCity, CHERRYGROVE_CITY, 1
 	connection east, NewBarkTown, NEW_BARK_TOWN, 0
+	
 
-	map_attributes Route30, ROUTE_30, $05, NORTH | SOUTH
+	map_attributes Route30, ROUTE_30, $05, NORTH | SOUTH | EAST
 	connection north, Route31, ROUTE_31, -10
 	connection south, CherrygroveCity, CHERRYGROVE_CITY, -5
+	connection east, CatalliaTown, CATALLIA_TOWN, 1
 
 	map_attributes Route31, ROUTE_31, $05, SOUTH | WEST
 	connection south, Route30, ROUTE_30, 10
@@ -221,7 +223,7 @@ ENDM
 	connection east, BlackthornCity, BLACKTHORN_CITY, -9
 
 	map_attributes Route45, ROUTE_45, $71, NORTH | WEST
-	connection north, BlackthornCity, BLACKTHORN_CITY, 0
+	connection north, BlackthornCity, BLACKTHORN_CITY, 1
 	connection west, Route46, ROUTE_46, 36
 
 	map_attributes Route46, ROUTE_46, $05, SOUTH | EAST
@@ -373,6 +375,14 @@ ENDM
 	map_attributes Route10South, ROUTE_10_SOUTH, $2c, NORTH | SOUTH
 	connection north, Route10North, ROUTE_10_NORTH, 0
 	connection south, LavenderTown, LAVENDER_TOWN, 0
+	
+	map_attributes Route47, ROUTE_47, $05, SOUTH | WEST
+	connection south, Route29, ROUTE_29, 1
+	connection west, CatalliaTown, CATALLIA_TOWN, -6
+	
+	map_attributes CatalliaTown, CATALLIA_TOWN, $05, WEST | EAST
+	connection west, Route30, ROUTE_30, -1
+	connection east, Route47, ROUTE_47, 6
 
 	map_attributes Route23, ROUTE_23, $0f, 0
 	map_attributes SproutTower1F, SPROUT_TOWER_1F, $00, 0
@@ -695,3 +705,8 @@ ENDM
 	map_attributes MrPokemonsHouse, MR_POKEMONS_HOUSE, $00, 0
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
 	map_attributes MewtwoCave, MEWTWO_CAVE, $09, 0
+	map_attributes CatalliaMart, CATALLIA_MART, $00, 0
+	map_attributes CatalliaPokecenter1F, CATALLIA_POKECENTER_1F, $00, 0
+	map_attributes CatalliaPoliceStation, CATALLIA_POLICE_STATION, $00, 0
+	map_attributes CatalliaHouse1, CATALLIA_HOUSE_1, $00, 0
+	map_attributes CatalliaHouse2, CATALLIA_HOUSE_1, $00, 0

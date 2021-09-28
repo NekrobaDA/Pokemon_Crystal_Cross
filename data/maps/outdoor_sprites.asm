@@ -40,6 +40,7 @@ OutdoorSprites:
 	dw SaffronGroupSprites
 	dw CherrygroveGroupSprites
 	dw MewtwoGroupSprites
+	dw CatalliaGroupSprites
 
 ; Route1 and ViridianCity are connected
 ; Route2 and PewterCity are connected
@@ -140,6 +141,7 @@ IndigoGroupSprites:
 	; 0 of max 9 walking sprites
 	db 0 ; end
 
+CatalliaGroupSprites:
 ; Route29 and CherrygroveCity are connected
 NewBarkGroupSprites:
 ; Route26, Route27, Route29, NewBarkTown
@@ -163,6 +165,8 @@ CherrygroveGroupSprites:
 	db SPRITE_MAGIKARP_3
 	db SPRITE_CHERRY_0
 	db SPRITE_CHERRY_1
+	db SPRITE_STANDING_OFFICER
+	db SPRITE_SPINARAK
 	db 0 ; end
 
 ; Route37 and EcruteakCity are connected

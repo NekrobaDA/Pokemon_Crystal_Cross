@@ -124,6 +124,7 @@ JohtoWaterWildMons:
 	db 2 percent ; encounter rate
 	dbw 20, TENTACOOL
 	dbw 15, TENTACOOL
+	dbw 15, TENTACOOL
 	dbw 20, TENTACRUEL
 
 	map_id ROUTE_30

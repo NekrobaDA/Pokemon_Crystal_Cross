@@ -110,10 +110,12 @@
 	const SPRITE_MAGIKARP_3
 	const SPRITE_CHERRY_0
 	const SPRITE_CHERRY_1
+	const SPRITE_STANDING_OFFICER
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
-	const_next $73
+	const_next $74
 SPRITE_POKEMON EQU const_value
+	const SPRITE_SPINARAK
 	const SPRITE_ONIX ; 67
 	const SPRITE_MILTANK ; 68
 	const SPRITE_SUNFLORA ; 69
