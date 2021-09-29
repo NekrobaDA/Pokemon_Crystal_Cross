@@ -136,6 +136,7 @@ EngineFlags:
 	engine_flag wDailyFlags4, DAILYFLAGS4_FRIDAY_RAPIDASH_F
 	engine_flag wDailyFlags4, DAILYFLAGS4_SATURDAY_LICKITUNG_F
 	engine_flag wDailyFlags4, DAILYFLAGS4_SATURDAY_EEVEE_F
+	engine_flag wDailyFlags4, DAILYFLAGS4_BEAT_FALKNER_F
 
 	engine_flag wSwarmFlags, SWARMFLAGS_BUENAS_PASSWORD_F
 	engine_flag wSwarmFlags, SWARMFLAGS_GOLDENROD_DEPT_STORE_SALE_F

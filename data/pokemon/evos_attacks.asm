@@ -2504,8 +2504,9 @@ HoothootEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 6, FORESIGHT
-	db 11, PECK
+	db 3, FORESIGHT
+	db 5, PECK
+	db 11, CONFUSION
 	db 16, HYPNOSIS
 	db 22, REFLECT
 	db 28, TAKE_DOWN
@@ -2519,8 +2520,10 @@ NoctowlEvosAttacks:
 	db 1, GROWL
 	db 1, FORESIGHT
 	db 1, PECK
-	db 6, FORESIGHT
-	db 11, PECK
+	db 1, RECOVER
+	db 3, FORESIGHT
+	db 5, PECK
+	db 11, CONFUSION
 	db 16, HYPNOSIS
 	db 25, REFLECT
 	db 33, TAKE_DOWN
@@ -2547,6 +2550,7 @@ LedianEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SUPERSONIC
+	db 1, GROWTH
 	db 8, SUPERSONIC
 	db 15, COMET_PUNCH
 	db 24, LIGHT_SCREEN
@@ -2662,6 +2666,7 @@ XatuEvosAttacks:
 	db 1, NIGHT_SHADE
 	db 10, NIGHT_SHADE
 	db 20, TELEPORT
+	db 29, PSYBEAM
 	db 35, FUTURE_SIGHT
 	db 50, CONFUSE_RAY
 	db 65, PSYCHIC_M
@@ -3283,6 +3288,7 @@ SkarmoryEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, HARDEN
 	db 1, PECK
+	db 5, SPIKES
 	db 13, SAND_ATTACK
 	db 19, SWIFT
 	db 25, AGILITY

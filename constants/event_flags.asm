@@ -1476,6 +1476,8 @@
 	const EVENT_FOUGHT_ONIX
 	const EVENT_MEW
 	const EVENT_FOUGHT_MEW
+; Rematches
+	const EVENT_FALKNER_REMATCH_ACTIVE
 
 	const_next 2048
 NUM_EVENTS EQU const_value ; 800

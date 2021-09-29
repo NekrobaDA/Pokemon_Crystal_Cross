@@ -169,6 +169,8 @@ MankeyEggMoves:
 	db COUNTER
 	db REVERSAL
 	db BEAT_UP
+	db MEGA_KICK
+	db MEGA_PUNCH
 	db -1 ; end
 
 GrowlitheEggMoves:
@@ -470,6 +472,7 @@ HoothootEggMoves:
 	db WING_ATTACK
 	db WHIRLWIND
 	db SKY_ATTACK
+	db PSYBEAM
 	db -1 ; end
 
 LedybaEggMoves:
@@ -725,6 +728,7 @@ SkarmoryEggMoves:
 	db PURSUIT
 	db WHIRLWIND
 	db SKY_ATTACK
+	db RECOVER
 	db -1 ; end
 
 HoundourEggMoves:

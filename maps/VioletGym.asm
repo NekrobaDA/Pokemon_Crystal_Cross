@@ -12,6 +12,8 @@ VioletGym_MapScripts:
 VioletGymFalknerScript:
 	faceplayer
 	opentext
+	checkevent EVENT_FALKNER_REMATCH_ACTIVE
+	iftrue .Rematch
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
 	writetext FalknerIntroText
@@ -52,6 +54,43 @@ VioletGymFalknerScript:
 .NoRoomForMudSlap:
 	closetext
 	end
+	
+.Rematch:
+	checkflag ENGINE_BEAT_FALKNER
+	iftrue .Finished
+	writetext Falkner2IntroText
+	waitbutton
+	closetext
+	winlosstext Falkner2WinLossText, 0
+	loadtrainer FALKNER, FALKNER2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_BEAT_FALKNER
+.Finished
+	opentext
+	writetext Falkner2FightDoneText
+	waitbutton
+	closetext
+	end
+	
+Falkner2IntroText:
+	text "I've been waiting"
+	line "for you! Me and"
+
+	para "my bird #MON"
+	line "are ready for you"
+	cont "this time."
+	done
+	
+Falkner2WinLossText:
+	text "…Darn! I have"
+	line "failed again."
+	done
+	
+Falkner2FightDoneText:
+	text "Let's battle"
+	line "again sometime."
+	done
 
 VioletGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

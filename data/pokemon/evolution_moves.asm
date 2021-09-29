@@ -178,9 +178,9 @@ EvolutionMoves::
 	db NO_MOVE ; Sentret
 	db NO_MOVE ; Furret
 	db NO_MOVE ; Hoothoot
-	db NO_MOVE ; Noctowl
+	db RECOVER ; Noctowl
 	db NO_MOVE ; Ledyba
-	db NO_MOVE ; Ledian
+	db GROWTH  ; Ledian
 	db NO_MOVE ; Spinarak
 	db NO_MOVE ; Ariados
 	db NO_MOVE ; Chinchou
