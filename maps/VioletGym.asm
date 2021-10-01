@@ -63,6 +63,7 @@ VioletGymFalknerScript:
 	closetext
 	winlosstext Falkner2WinLossText, 0
 	loadtrainer FALKNER, FALKNER2
+	; loadtrainer NEKROBA, NEKROBA1 (for testing)
 	startbattle
 	reloadmapafterbattle
 	setflag ENGINE_BEAT_FALKNER

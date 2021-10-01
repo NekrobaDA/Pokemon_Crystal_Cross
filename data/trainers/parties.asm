@@ -12,7 +12,10 @@ SECTION "Enemy Trainer Parties 1", ROMX
 FalknerGroup:
 	next_list_item ; FALKNER (1)
 	db "FALKNER@", TRAINERTYPE_MOVES
-	db  7 
+	db 5 
+	dw HOOTHOOT     
+	db TACKLE, GROWL, MUD_SLAP, NO_MOVE
+	db 7 
 	dw GLIGAR     
 	db POISON_STING, SAND_ATTACK, NO_MOVE, NO_MOVE
 	db 9
@@ -22,12 +25,12 @@ FalknerGroup:
 	
 	next_list_item ; FALKNER (2)
 	db "FALKNER@", TRAINERTYPE_MOVES
-	db 45 
-	dw GLISCOR    
-	db TOXIC, MAGNITUDE, SCREECH, RAZOR_WIND
+	db 45
+	dw NOCTOWL
+	db REFLECT, HYPNOSIS, RECOVER, PSYCHIC_M
 	db 47
-	dw SKARMORY
-	db RAZOR_WIND, MUD_SLAP, STEEL_WING, AGILITY
+	dw GLISCOR
+	db TOXIC, MAGNITUDE, SCREECH, RAZOR_WIND
 	db 49
 	dw DODRIO
 	db DRILL_PECK, MUD_SLAP, TRI_ATTACK, FAINT_ATTACK
@@ -41,6 +44,9 @@ FalknerGroup:
 WhitneyGroup:
 	next_list_item ; WHITNEY (1)
 	db "WHITNEY@", TRAINERTYPE_MOVES
+	db 15
+	dw SNUBBULL
+	db TACKLE, ATTRACT, BITE, CHARM
 	db 18
 	dw CLEFAIRY
 	db DOUBLESLAP, MIMIC, ENCORE, METRONOME
@@ -4345,13 +4351,16 @@ PicnickerGroup:
 	db -1 ; end
 
 	next_list_item ; PICNICKER (2)
-	db "GINA@", TRAINERTYPE_NORMAL
+	db "GINA@", TRAINERTYPE_NICKNAME
 	db 9
 	dw HOPPIP
+	db "HOPPIP@"
 	db 9
 	dw HOPPIP
+	db "HOPPIP@"
 	db 12
 	dw BULBASAUR
+	db "BULBASAUR@"
 	db -1 ; end
 
 	next_list_item ; PICNICKER (3)
@@ -5453,3 +5462,79 @@ MysticalmanGroup:
 
 
 	end_list_items
+
+NekrobaGroup:
+	next_list_item ; NEKROBA (1)
+	db "NEKROBA@", TRAINERTYPE_MOVES | TRAINERTYPE_DVS | TRAINERTYPE_NICKNAME
+	db 50
+	dw ARBOK
+	db SLUDGE_BOMB, GLARE, EARTHQUAKE, DRAGONBREATH
+	dw $8A7A
+	db "ARBOK@"
+	db 51
+	dw SNEASEL
+	db ICE_PUNCH, SWORDS_DANCE, RAZOR_WIND, FAINT_ATTACK
+	dw $3A7A
+	db "ARCTICA@"
+	db 52
+	dw ARIADOS
+	db MEGAHORN, SLUDGE_BOMB, TOXIC, NIGHT_SHADE
+	dw $AAAA
+	db "PURPLE@"
+	db 53
+	dw SKARMORY
+	db STEEL_WING, RECOVER, RAZOR_WIND, SPIKES
+	dw $9A77
+	db "HALBIRD@"
+	db 54
+	dw ESPEON
+	db SHADOW_BALL, PSYCHIC_M, ZAP_CANNON, MORNING_SUN
+	dw $97A7
+	db "CRYSTAL@"
+	db 55
+	dw CHARIZARD ; placeholder for Char 'M
+	db AURORA_BEAM, FLAMETHROWER, EARTHQUAKE, FLY
+	dw $AAAA
+	db "CHAR 'M@"
+	db -1 ; end
+
+
+	end_list_items
+	
+DiogoGroup:
+	next_list_item ; DIOGO (1)
+	db "DIOGO@", TRAINERTYPE_MOVES | TRAINERTYPE_DVS | TRAINERTYPE_NICKNAME
+	db 50
+	dw BEEDRILL
+	db TWINEEDLE, DOUBLE_TEAM, SLUDGE_BOMB, CUT
+	dw $B766
+	db "BEEDRILL@"
+	db 51
+	dw SCIZOR
+	db SWORDS_DANCE, STEEL_WING, FURY_CUTTER, PURSUIT
+	dw $CA76
+	db "SCIZOR@"
+	db 52
+	dw POLITOED ;GRENINJA
+	db HYDRO_PUMP, FAINT_ATTACK, SPIKES, ICE_BEAM
+	dw $AAAA
+	db "SHINOBI@"
+	db 53
+	dw CROBAT
+	db WING_ATTACK, CONFUSE_RAY, LEECH_LIFE, SLUDGE_BOMB
+	dw $B88A
+	db "CROBAT@"
+	db 54
+	dw GLISCOR
+	db SUBSTITUTE, EARTHQUAKE, RAZOR_WIND, TOXIC
+	dw $BA77
+	db "GLISCOR@"
+	db 55
+	dw PIDGEOT ;STARAPTOR
+	db SKY_ATTACK, SUBMISSION, DOUBLE_EDGE, QUICK_ATTACK
+	dw $AAAA
+	db "KAZE@"
+	db -1 ; end
+
+
+	end_list_items	

@@ -69,3 +69,5 @@ TrainerGroups:
 	dba OfficerGroup
 	dba GruntFGroup
 	dba MysticalmanGroup
+	dba NekrobaGroup
+	dba DiogoGroup

@@ -104,7 +104,7 @@ ReadTrainerPartyPieces:
 	ld [wMonType], a
 	predef TryAddMonToParty
 	pop hl
-	inc hl ;because hl was pushed before the last call to GetNextTrainerDataByte
+	inc hl 
 	
 	ld a, [wOtherTrainerType]
 	and TRAINERTYPE_ITEM
@@ -122,8 +122,8 @@ ReadTrainerPartyPieces:
 .no_item
 
 	ld a, [wOtherTrainerType]
-	rra ; TRAINERTYPE_MOVES_F == 0
-	jr nc, .no_moves
+	and TRAINERTYPE_MOVES
+	jr z, .no_moves
 	push hl
 	ld a, [wOTPartyCount]
 	dec a
@@ -183,6 +183,98 @@ ReadTrainerPartyPieces:
 	pop hl
 .no_moves
 
+	push hl 
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1DVs
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+	pop hl
+	ld a, [wOtherTrainerType]
+	and TRAINERTYPE_DVS
+	jr z, .no_dvs 
+	call GetNextTrainerDataByte 
+	ld [de], a
+	inc de
+	call GetNextTrainerDataByte 
+	ld [de], a
+	jr .dvs_done
+.no_dvs
+	push hl
+	farcall GetTrainerDVs
+	ld a, b
+	ld [de], a
+	inc de
+	ld a, c
+	ld [de], a
+	pop hl
+.dvs_done
+
+	ld a, [wOtherTrainerType] 
+	and TRAINERTYPE_STATS
+	jr z, .no_stats
+	push hl
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1HP
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+	pop hl
+	call GetNextTrainerDataByte
+	ld [de], a
+	inc de
+	inc de
+	ld [de], a
+	dec de
+	call GetNextTrainerDataByte
+	ld [de], a
+	inc de
+	inc de
+	ld [de], a
+	inc de
+	ld b, 10
+.loop_stats
+	call GetNextTrainerDataByte
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .loop_stats
+.no_stats
+
+	push hl
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMonNicknames
+	ld bc, MON_NAME_LENGTH
+	call AddNTimes
+	ld d, h
+	ld e, l
+	pop hl
+	ld a, [wOtherTrainerType]
+	and TRAINERTYPE_NICKNAME
+	jr z, .no_nickname
+.loop_nickname
+	call GetNextTrainerDataByte
+	cp "@"
+	ld [de], a
+	jr z, .nickname_done
+	inc de
+	jr .loop_nickname
+.no_nickname
+
+	ld a, [wCurPartySpecies]
+	ld [wNamedObjectIndex], a
+	push de
+	call GetPokemonName
+	pop de
+	push hl
+	ld hl, wStringBuffer1
+	ld bc, MON_NAME_LENGTH
+	call CopyBytes
+	pop hl
+.nickname_done
 	jp .loop
 
 ComputeTrainerReward:

@@ -34,4 +34,5 @@ StallMoves:
 	db CONVERSION
 	db SUBSTITUTE
 	db FLAME_WHEEL
+	db TOXIC
 	db -1 ; end

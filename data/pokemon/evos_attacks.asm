@@ -3119,9 +3119,10 @@ SneaselEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
+	db 1, SWORDS_DANCE
 	db 9, ICY_WIND
 	db 14, SCREECH
-	db 21, PURSUIT
+	db 21, FAINT_ATTACK
 	db 27, FURY_SWIPES
 	db 35, AGILITY
 	db 43, SLASH
@@ -3133,6 +3134,7 @@ WeavileEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
+	db 1, SWORDS_DANCE
 	db 9, ICY_WIND
 	db 17, SCREECH
 	db 25, FAINT_ATTACK

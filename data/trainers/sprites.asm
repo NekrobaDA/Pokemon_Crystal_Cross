@@ -66,3 +66,6 @@ BTTrainerClassSprites:
 	db SPRITE_BLUE
 	db SPRITE_OFFICER
 	db SPRITE_ROCKET_GIRL
+	; ?? nothing for eusine?
+	db SPRITE_ROCKET_GIRL ;temp
+	db SPRITE_FALKNER ;temp

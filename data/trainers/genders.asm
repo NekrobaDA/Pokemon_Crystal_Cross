@@ -68,3 +68,6 @@ BTTrainerClassGenders:
 	db MALE   ; BLUE
 	db MALE   ; OFFICER
 	db FEMALE ; GRUNTF
+	db MALE   ; Eusine
+	db FEMALE ; NEKROBA
+	db MALE   ; DIOGO

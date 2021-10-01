@@ -194,7 +194,6 @@ ROMX $49
 	"Unown Pic Pointers"
 	"Pics 2"
 ROMX $4a
-	"Trainer Pic Pointers"
 	"Pics 3"
 ROMX $4b
 	"Pics 4"
@@ -231,6 +230,7 @@ ROMX $5a
 ROMX $5b
 	"bank5B"
 ROMX $5c
+	"Trainer Pic Pointers"
 	"mobile5C"
 ROMX $5d
 	"Crystal Phone Text 2"

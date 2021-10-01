@@ -5992,6 +5992,15 @@ LoadEnemyMon:
 ; Grab the BaseData for this species
 	call GetBaseData
 
+;Sorting out Base Exp Now as it's needed for trainer mons
+	ld a, [wBaseExp]
+	ld [wEnemyMonBaseExp], a
+	
+; And in a new change, we're done if we are in a trainer battle
+	ld a, [wBattleMode]
+	dec a
+	jp nz, InitEnemyMon
+
 ; Let's get the item:
 
 ; Is the item predetermined?
@@ -6418,9 +6427,6 @@ LoadEnemyMon:
 	ld a, [wBaseCatchRate]
 	ld [de], a
 	inc de
-
-	ld a, [wBaseExp]
-	ld [de], a
 
 	ld a, [wTempEnemyMonSpecies]
 	ld [wNamedObjectIndex], a

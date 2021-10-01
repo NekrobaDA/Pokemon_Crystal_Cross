@@ -633,6 +633,7 @@ GligarEggMoves:
 	db WING_ATTACK
 	db RAZOR_WIND
 	db COUNTER
+	db LEECH_LIFE
 	db -1 ; end
 
 SnubbullEggMoves:
@@ -669,6 +670,7 @@ SneaselEggMoves:
 	db FORESIGHT
 	db REFLECT
 	db BITE
+	db PURSUIT
 	db -1 ; end
 
 TeddiursaEggMoves:

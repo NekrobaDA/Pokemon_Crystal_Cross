@@ -69,3 +69,5 @@ TrainerPicPointers::
 	dba OfficerPic
 	dba GruntfPic
 	dba MysticalmanPic
+	dba ExecutivefPic ; temp
+	dba KogaPic ; temp

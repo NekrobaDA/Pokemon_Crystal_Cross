@@ -9,6 +9,7 @@ TypeNames:
 	dw Bird
 	dw Bug
 	dw Steel
+	dw Dark
 	dw Normal
 	dw Normal
 	dw Normal
@@ -26,7 +27,6 @@ TypeNames:
 	dw Psychic
 	dw Ice
 	dw Dragon
-	dw Dark
 	dw Ghost
 
 Normal:    db "NORMAL@"
@@ -45,6 +45,6 @@ Rock:      db "ROCK@"
 Bird:      db "BIRD@"
 Bug:       db "BUG@"
 Steel:     db "STEEL@"
-Dragon:    db "DRAGON@"
 Dark:      db "DARK@"
+Dragon:    db "DRAGON@"
 Ghost:     db "GHOST@"
