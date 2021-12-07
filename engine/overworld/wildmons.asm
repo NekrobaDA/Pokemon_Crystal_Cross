@@ -15,8 +15,12 @@ LoadWildMonData:
 	ld de, wMornEncounterRate
 	ld bc, 3
 	call CopyBytes
-	ld a, [wNiteEncounterRate]
+	;ld a, [wNiteEncounterRate]
+	ld a, [wDayEncounterRate]
 	ld [wEveEncounterRate], a
+	ld [wNiteEncounterRate], a
+	ld a, [wMornEncounterRate]
+	ld [wDayEncounterRate], a
 .done_copy
 	call _WaterWildmonLookup
 	ld a, 0
@@ -30,9 +34,14 @@ LoadWildMonData:
 	
 GetTimeOfDayNotEve:
 	ld a, [wTimeOfDay]
-	cp EVE_F
-	ret nz
-	ld a, NITE_F ; ld a, DAY_F to make evening use day encounters
+	cp DAY_F
+	jr z, .day
+	cp MORN_F
+	ret z
+	ld a, DAY_F
+	ret
+.day
+	ld a, MORN_F
 	ret
 
 FindNest:
@@ -83,7 +92,7 @@ FindNest:
 	ldh [hMathBuffer + 1], a
 	inc hl
 	inc hl
-	inc hl
+	;inc hl
 	ld a, NUM_GRASSMON * 3
 	call .SearchMapForMon
 	jr nc, .next_grass
@@ -341,7 +350,7 @@ ChooseWildEncounter:
 	ld de, WaterMonProbTable
 	jr z, .watermon
 	inc hl
-	inc hl
+	;inc hl
 	call GetTimeOfDayNotEve
 	ld bc, NUM_GRASSMON * 3
 	call AddNTimes
@@ -1087,7 +1096,7 @@ GetCallerRouteWildGrassMons:
 	call LookUpWildmonsForMapDE
 	ret nc ; no carry = no grass wild mons for that route
 .found
-	ld bc, 5 ; skip the map ID and encounter rates
+	ld bc, 5
 	add hl, bc
 	call GetTimeOfDayNotEve
 	ld bc, NUM_GRASSMON * 3

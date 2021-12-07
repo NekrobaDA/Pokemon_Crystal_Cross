@@ -3,7 +3,7 @@
 KantoGrassWildMons:
 
 	map_id DIGLETTS_CAVE
-	db 4 percent, 2 percent, 8 percent ; encounter rates: morn/day/nite
+	db 4 percent, 2 percent;, 8 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 3, DIGLETT
 	dbw 6, DIGLETT
@@ -12,15 +12,6 @@ KantoGrassWildMons:
 	dbw 24, DUGTRIO
 	dbw 24, DUGTRIO
 	dbw 40, DUGTRIO
-	dbw 24, DIGLETT
-	; day
-	dbw 2, DIGLETT
-	dbw 4, DIGLETT
-	dbw 8, DIGLETT
-	dbw 16, DIGLETT
-	dbw 16, DUGTRIO
-	dbw 16, DUGTRIO
-	dbw 38, DUGTRIO
 	dbw 24, DIGLETT
 	; nite
 	dbw 4, DIGLETT
@@ -33,25 +24,16 @@ KantoGrassWildMons:
 	dbw 24, DIGLETT
 
 	map_id MOUNT_MOON
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 6, ZUBAT
 	dbw 8, GEODUDE
 	dbw 15, SANDSHREW
 	dbw 12, PARAS
 	dbw 40, GOLBAT
-	dbw 15, CLEFAIRY
+	dbw 15, SANDSHREW
 	dbw 30, CLEFAIRY
 	dbw 38, GRAVELER
-	; day
-	dbw 6, ZUBAT
-	dbw 8, GEODUDE
-	dbw 15, SANDSHREW
-	dbw 12, PARAS
-	dbw 29, SANDSHREW
-	dbw 40, GOLBAT
-	dbw 30, CLEFAIRY
-	dbw 42, GRAVELER
 	; nite
 	dbw 6, PARAS
 	dbw 8, GEODUDE
@@ -63,17 +45,8 @@ KantoGrassWildMons:
 	dbw 42, GRAVELER
 
 	map_id ROCK_TUNNEL_1F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 10, ZUBAT
-	dbw 11, GEODUDE
-	dbw 22, MACHOP
-	dbw 12, ZUBAT
-	dbw 40, MACHOKE
-	dbw 42, GRAVELER
-	dbw 35, GOLBAT
-	dbw 35, RHYDON
-	; day
 	dbw 10, ZUBAT
 	dbw 11, GEODUDE
 	dbw 22, MACHOP
@@ -93,18 +66,9 @@ KantoGrassWildMons:
 	dbw 35, RHYDON
 
 	map_id ROCK_TUNNEL_B1F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 12, MACHOP
-	dbw 14, GEODUDE
-	dbw 35, RHYDON
-	dbw 12, ZUBAT
-	dbw 34, MACHOKE
-	dbw 40, GRAVELER
-	dbw 42, ONIX
-	dbw 27, ONIX
-	; day
-	dbw 12, ZUBAT
 	dbw 14, GEODUDE
 	dbw 35, RHYDON
 	dbw 12, ZUBAT
@@ -123,21 +87,12 @@ KantoGrassWildMons:
 	dbw 27, ONIX
 
 	map_id VICTORY_ROAD
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 34, GOLBAT
 	dbw 32, EKANS
 	dbw 33, ONIX
 	dbw 34, GRAVELER
-	dbw 35, SANDSLASH
-	dbw 30, RHYDON
-	dbw 35, ARBOK
-	dbw 35, RHYDON
-	; day
-	dbw 34, GRAVELER
-	dbw 32, EKANS
-	dbw 33, ONIX
-	dbw 34, GOLBAT
 	dbw 35, SANDSLASH
 	dbw 30, RHYDON
 	dbw 35, ARBOK
@@ -153,17 +108,8 @@ KantoGrassWildMons:
 	dbw 40, GRAVELER
 
 	map_id TOHJO_FALLS
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, ZUBAT
-	dbw 22, ZUBAT
-	dbw 24, GEODUDE
-	dbw 21, SNEASEL
-	dbw 20, GEODUDE
-	dbw 23, SNEASEL
-	dbw 23, SHUCKLE
-	dbw 31, GOLBAT
-	; day
 	dbw 22, ZUBAT
 	dbw 22, ZUBAT
 	dbw 24, GEODUDE
@@ -183,25 +129,16 @@ KantoGrassWildMons:
 	dbw 31, GOLBAT
 
 	map_id ROUTE_1
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 2, PIDGEY
 	dbw 3, RATTATA
-	dbw 10, RATTATA
+	dbw 17, RATTATA
 	dbw 10, PIDGEY
-	dbw 35, RATICATE
+	dbw 21, SPEAROW
 	dbw 30, PIDGEOTTO
 	dbw 21, BUTTERFREE
 	dbw 21, PIKACHU
-	; day
-	dbw 2, PIDGEY
-	dbw 3, RATTATA
-	dbw 10, RATTATA
-	dbw 10, PIDGEY
-	dbw 35, PIDGEOTTO
-	dbw 30, RATICATE
-	dbw 21, PIKACHU
-	dbw 23, PIKACHU
 	; nite
 	dbw 2, RATTATA
 	dbw 10, RATTATA
@@ -213,17 +150,8 @@ KantoGrassWildMons:
 	dbw 20, ZUBAT
 
 	map_id ROUTE_2
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 10, CATERPIE
-	dbw 12, WEEDLE
-	dbw 15, PIDGEY
-	dbw 31, BUTTERFREE
-	dbw 25, PIDGEOTTO
-	dbw 34, BEEDRILL
-	dbw 20, PIKACHU
-	dbw 25, GLOOM
-	; day
 	dbw 10, CATERPIE
 	dbw 12, WEEDLE
 	dbw 15, PIDGEY
@@ -243,21 +171,12 @@ KantoGrassWildMons:
 	dbw 11, ZUBAT
 
 	map_id ROUTE_3
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 15, SPEAROW
 	dbw 13, RATTATA
 	dbw 20, MANKEY
-	dbw 31, RATICATE
-	dbw 29, MANKEY
-	dbw 14, SANDSHREW
-	dbw 35, FEAROW
-	dbw 32, SANDSLASH
-	; day
-	dbw 15, SPEAROW
-	dbw 13, RATTATA
-	dbw 20, MANKEY
-	dbw 31, RATICATE
+	dbw 31, JIGGLYPUFF
 	dbw 29, MANKEY
 	dbw 14, SANDSHREW
 	dbw 35, FEAROW
@@ -273,21 +192,12 @@ KantoGrassWildMons:
 	dbw 32, SANDSLASH
 
 	map_id ROUTE_4
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 15, SPEAROW
 	dbw 13, RATTATA
 	dbw 20, EKANS
-	dbw 31, RATICATE
-	dbw 29, SPEAROW
-	dbw 14, SANDSHREW
-	dbw 35, ARBOK
-	dbw 32, SANDSLASH
-	; day
-	dbw 15, SPEAROW
-	dbw 13, RATTATA
-	dbw 20, EKANS
-	dbw 31, RATICATE
+	dbw 24, RATTATA
 	dbw 29, SPEAROW
 	dbw 14, SANDSHREW
 	dbw 35, ARBOK
@@ -303,17 +213,8 @@ KantoGrassWildMons:
 	dbw 32, SANDSLASH
 
 	map_id ROUTE_5
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 13, PIDGEY
-	dbw 15, BELLSPROUT
-	dbw 31, PIDGEOTTO
-	dbw 29, WEEPINBELL
-	dbw 25, JIGGLYPUFF
-	dbw 27, MEOWTH
-	dbw 17, RATTATA
-	dbw 14, MEOWTH
-	; day
 	dbw 13, PIDGEY
 	dbw 15, BELLSPROUT
 	dbw 31, PIDGEOTTO
@@ -333,17 +234,8 @@ KantoGrassWildMons:
 	dbw 14, MEOWTH
 
 	map_id ROUTE_6
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 13, PIDGEY
-	dbw 15, BELLSPROUT
-	dbw 31, PIDGEOTTO
-	dbw 29, WEEPINBELL
-	dbw 25, JIGGLYPUFF
-	dbw 27, MEOWTH
-	dbw 17, RATTATA
-	dbw 14, MEOWTH
-	; day
 	dbw 13, PIDGEY
 	dbw 15, BELLSPROUT
 	dbw 31, PIDGEOTTO
@@ -363,17 +255,8 @@ KantoGrassWildMons:
 	dbw 33, PERSIAN
 
 	map_id ROUTE_7
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 17, PIDGEY
-	dbw 21, GROWLITHE
-	dbw 18, RATTATA
-	dbw 35, GROWLITHE
-	dbw 25, JIGGLYPUFF
-	dbw 16, BELLSPROUT
-	dbw 31, PIDGEOTTO
-	dbw 24, MEOWTH
-	; day
 	dbw 17, PIDGEY
 	dbw 21, GROWLITHE
 	dbw 18, RATTATA
@@ -393,17 +276,8 @@ KantoGrassWildMons:
 	dbw 24, RATTATA
 
 	map_id ROUTE_8
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 17, PIDGEY
-	dbw 18, SANDSHREW
-	dbw 34, PIDGEOTTO
-	dbw 30, VULPIX
-	dbw 25, GROWLITHE
-	dbw 32, GROWLITHE
-	dbw 22, VULPIX
-	dbw 29, SANDSHREW
-	; day
 	dbw 17, PIDGEY
 	dbw 18, SANDSHREW
 	dbw 34, PIDGEOTTO
@@ -423,22 +297,13 @@ KantoGrassWildMons:
 	dbw 29, SANDSHREW
 
 	map_id ROUTE_9
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 15, RATTATA
 	dbw 15, SPEAROW
 	dbw 17, NIDORAN_M
 	dbw 18, NIDORAN_F
-	dbw 28, RATICATE
-	dbw 36, FEAROW
-	dbw 32, NIDORINA
-	dbw 34, NIDORINO
-	; day
-	dbw 15, RATTATA
-	dbw 15, SPEAROW
-	dbw 17, NIDORAN_M
-	dbw 18, NIDORAN_F
-	dbw 28, RATICATE
+	dbw 28, RATTATA
 	dbw 36, FEAROW
 	dbw 32, NIDORINA
 	dbw 34, NIDORINO
@@ -453,20 +318,11 @@ KantoGrassWildMons:
 	dbw 34, NIDORINO
 
 	map_id ROUTE_10_NORTH
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 15, SPEAROW
 	dbw 17, VOLTORB
-	dbw 28, RATICATE
-	dbw 33, FEAROW
-	dbw 15, MAGNEMITE
-	dbw 16, PIKACHU
-	dbw 34, MAGNETON
-	dbw 25, PIKACHU
-	; day
-	dbw 15, SPEAROW
-	dbw 17, VOLTORB
-	dbw 28, RATICATE
+	dbw 28, RATTATA
 	dbw 33, FEAROW
 	dbw 15, MAGNEMITE
 	dbw 16, PIKACHU
@@ -483,7 +339,7 @@ KantoGrassWildMons:
 	dbw 33, RATICATE
 
 	map_id ROUTE_11
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 14, SANDSHREW
 	dbw 13, PIDGEY
@@ -491,16 +347,7 @@ KantoGrassWildMons:
 	dbw 28, PIDGEOTTO
 	dbw 19, DROWZEE
 	dbw 30, ARBOK
-	dbw 29, RATICATE
-	dbw 32, SANDSLASH
-	; day
-	dbw 14, SANDSHREW
-	dbw 13, PIDGEY
-	dbw 15, EKANS
-	dbw 28, PIDGEOTTO
-	dbw 19, DROWZEE
-	dbw 30, ARBOK
-	dbw 29, RATICATE
+	dbw 27, RATTATA
 	dbw 32, SANDSLASH
 	; nite
 	dbw 14, SANDSHREW
@@ -513,17 +360,8 @@ KantoGrassWildMons:
 	dbw 32, SANDSLASH
 
 	map_id ROUTE_13
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 23, PIDGEY
-	dbw 23, BELLSPROUT
-	dbw 29, PIDGEOTTO
-	dbw 25, RATTATA
-	dbw 34, WEEPINBELL
-	dbw 27, DITTO
-	dbw 25, DITTO
-	dbw 27, ODDISH
-	; day
 	dbw 23, PIDGEY
 	dbw 23, BELLSPROUT
 	dbw 29, PIDGEOTTO
@@ -543,17 +381,8 @@ KantoGrassWildMons:
 	dbw 30, RATICATE
 
 	map_id ROUTE_14
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 23, PIDGEY
-	dbw 23, BELLSPROUT
-	dbw 29, PIDGEOTTO
-	dbw 25, RATTATA
-	dbw 34, WEEPINBELL
-	dbw 27, DITTO
-	dbw 25, DITTO
-	dbw 27, ODDISH
-	; day
 	dbw 23, PIDGEY
 	dbw 23, BELLSPROUT
 	dbw 29, PIDGEOTTO
@@ -573,25 +402,16 @@ KantoGrassWildMons:
 	dbw 30, RATICATE
 
 	map_id ROUTE_15
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 23, PIDGEY
 	dbw 23, BELLSPROUT
 	dbw 29, PIDGEOTTO
 	dbw 25, PONYTA
 	dbw 34, WEEPINBELL
-	dbw 27, DITTO
-	dbw 25, DITTO
-	dbw 27, ODDISH
-	; day
-	dbw 23, PIDGEY
-	dbw 23, BELLSPROUT
-	dbw 29, PIDGEOTTO
-	dbw 25, PONYTA
-	dbw 34, WEEPINBELL
-	dbw 27, DITTO
-	dbw 25, DITTO
-	dbw 27, ODDISH
+	dbw 27, DODUO
+	dbw 25, ODDISH
+	dbw 27, DODRIO
 	; nite
 	dbw 23, VENONAT
 	dbw 23, ODDISH
@@ -603,25 +423,17 @@ KantoGrassWildMons:
 	dbw 30, RATICATE
 
 	map_id ROUTE_16
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 26, GRIMER
 	dbw 27, SPEAROW
 	dbw 28, RATTATA
-	dbw 30, GRIMER
+	dbw 30, DODUO
 	dbw 34, MUK
-	dbw 30, RATICATE
+	dbw 30, RATTATA
 	dbw 35, DODRIO
 	dbw 25, DODUO
 	; day
-	dbw 26, GRIMER
-	dbw 27, SPEAROW
-	dbw 28, RATTATA
-	dbw 30, GRIMER
-	dbw 24, MUK
-	dbw 30, RATICATE
-	dbw 35, DODRIO
-	dbw 25, DODUO
 	; nite
 	dbw 26, GRIMER
 	dbw 27, ZUBAT
@@ -629,27 +441,18 @@ KantoGrassWildMons:
 	dbw 32, MUK
 	dbw 30, GRIMER
 	dbw 30, RATICATE
-	dbw 35, DODRIO
-	dbw 25, DODUO
+	dbw 35, GOLBAT
+	dbw 25, RATTATA
 
 	map_id ROUTE_17
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 26, DODUO
 	dbw 27, SPEAROW
 	dbw 28, RATTATA
 	dbw 32, FEAROW
 	dbw 29, DODRIO
-	dbw 30, RATICATE
-	dbw 35, DODRIO
-	dbw 25, DODUO
-	; day
-	dbw 26, DODUO
-	dbw 27, SPEAROW
-	dbw 28, RATTATA
-	dbw 32, FEAROW
-	dbw 29, DODRIO
-	dbw 30, RATICATE
+	dbw 30, RATTATA
 	dbw 35, DODRIO
 	dbw 25, DODUO
 	; nite
@@ -663,23 +466,14 @@ KantoGrassWildMons:
 	dbw 25, DODUO
 
 	map_id ROUTE_18
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 26, DODUO
 	dbw 27, SPEAROW
 	dbw 28, RATTATA
 	dbw 32, FEAROW
 	dbw 29, DODRIO
-	dbw 30, RATICATE
-	dbw 35, DODRIO
-	dbw 25, DODUO
-	; day
-	dbw 26, DODUO
-	dbw 27, SPEAROW
-	dbw 28, RATTATA
-	dbw 32, FEAROW
-	dbw 29, DODRIO
-	dbw 30, RATICATE
+	dbw 30, RATTATA
 	dbw 35, DODRIO
 	dbw 25, DODUO
 	; nite
@@ -693,52 +487,34 @@ KantoGrassWildMons:
 	dbw 25, DODUO
 
 	map_id ROUTE_21
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 30, PIDGEOTTO
 	dbw 20, RATTATA
 	dbw 35, PIDGEOTTO
-	dbw 29, RATICATE
-	dbw 30, RATICATE
-	dbw 28, RATICATE
-	dbw 28, RATICATE
-	dbw 30, PIDGEOTTO
-	; day
-	dbw 30, PIDGEOTTO
-	dbw 20, RATTATA
-	dbw 35, PIDGEOTTO
-	dbw 29, RATICATE
-	dbw 28, RATICATE
-	dbw 30, RATICATE
-	dbw 30, RATICATE
+	dbw 29, PIDGEY
+	dbw 30, KRABBY
+	dbw 28, RATTATA
+	dbw 28, KRABBY
 	dbw 30, PIDGEOTTO
 	; nite
 	dbw 30, GOLBAT
 	dbw 20, RATTATA
-	dbw 35, GOLBAT
+	dbw 35, KRABBY
 	dbw 29, RATICATE
 	dbw 30, GOLBAT
-	dbw 28, GOLBAT
+	dbw 28, KRABBY
 	dbw 28, GOLBAT
 	dbw 34, RATICATE
 
 	map_id ROUTE_22
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 12, RATTATA
 	dbw 14, SPEAROW
 	dbw 15, NIDORAN_F
 	dbw 24, MANKEY
 	dbw 16, NIDORAN_M
-	dbw 32, FEAROW
-	dbw 30, NIDORINA
-	dbw 27, NIDORINO
-	; day
-	dbw 12, RATTATA
-	dbw 14, SPEAROW
-	dbw 15, NIDORAN_M
-	dbw 24, MANKEY
-	dbw 16, NIDORAN_F
 	dbw 32, FEAROW
 	dbw 30, NIDORINA
 	dbw 27, NIDORINO
@@ -753,17 +529,8 @@ KantoGrassWildMons:
 	dbw 27, NIDORINO
 
 	map_id ROUTE_24
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 12, CATERPIE
-	dbw 10, WEEDLE
-	dbw 12, ABRA
-	dbw 28, ABRA
-	dbw 17, BELLSPROUT
-	dbw 31, BUTTERFREE
-	dbw 36, PIDGEOTTO
-	dbw 28, WEEPINBELL
-	; day
 	dbw 12, CATERPIE
 	dbw 10, WEEDLE
 	dbw 12, ABRA
@@ -783,17 +550,8 @@ KantoGrassWildMons:
 	dbw 28, GLOOM
 
 	map_id ROUTE_25
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 12, CATERPIE
-	dbw 10, WEEDLE
-	dbw 12, ABRA
-	dbw 28, ABRA
-	dbw 17, BELLSPROUT
-	dbw 31, BUTTERFREE
-	dbw 36, PIDGEOTTO
-	dbw 28, WEEPINBELL
-	; day
 	dbw 12, CATERPIE
 	dbw 10, WEEDLE
 	dbw 12, ABRA
@@ -813,77 +571,50 @@ KantoGrassWildMons:
 	dbw 28, GLOOM
 
 	map_id ROUTE_26
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 28, DODUO
+	dbw 28, SPEAROW
 	dbw 28, SANDSLASH
 	dbw 32, PONYTA
-	dbw 30, RATICATE
-	dbw 30, DODUO
+	dbw 30, RATTATA
+	dbw 30, FEAROW
 	dbw 30, ARBOK
 	dbw 30, ARBOK
-	dbw 36, DODRIO
-	; day
-	dbw 28, DODUO
-	dbw 28, SANDSLASH
-	dbw 32, PONYTA
-	dbw 30, RATICATE
-	dbw 30, DODUO
-	dbw 30, ARBOK
-	dbw 30, ARBOK
-	dbw 36, DODRIO
+	dbw 36, PONYTA
 	; nite
 	dbw 28, NOCTOWL
 	dbw 28, RATICATE
 	dbw 32, NOCTOWL
 	dbw 30, RATICATE
 	dbw 30, QUAGSIRE
-	dbw 30, QUAGSIRE
-	dbw 34, RATICATE
+	dbw 30, ZUBAT
+	dbw 34, GOLBAT
 	dbw 30, QUAGSIRE
 
 	map_id ROUTE_27
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 28, DODUO
+	dbw 28, PONYTA
 	dbw 28, ARBOK
-	dbw 30, RATICATE
-	dbw 30, DODUO
+	dbw 30, RATTATA
+	dbw 30, SPEAROW
 	dbw 32, PONYTA
-	dbw 30, DODRIO
+	dbw 30, FEAROW
 	dbw 35, ARBOK
-	dbw 30, DODRIO
-	; day
-	dbw 28, DODUO
-	dbw 28, ARBOK
-	dbw 30, RATICATE
-	dbw 30, DODUO
-	dbw 32, PONYTA
-	dbw 30, DODRIO
-	dbw 35, ARBOK
-	dbw 30, DODRIO
+	dbw 30, ARBOK
 	; nite
 	dbw 28, QUAGSIRE
 	dbw 28, NOCTOWL
 	dbw 30, RATICATE
 	dbw 30, QUAGSIRE
-	dbw 32, NOCTOWL
-	dbw 32, NOCTOWL
+	dbw 32, ZUBAT
+	dbw 32, GOLBAT
 	dbw 36, RATICATE
 	dbw 32, NOCTOWL
 
 	map_id ROUTE_28
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 39, PIDGEOTTO
-	dbw 40, PHANPY
-	dbw 41, SKARMORY
-	dbw 42, ARBOK
-	dbw 42, DONPHAN
-	dbw 43, PIDGEOTTO
-	dbw 43, SKARMORY
-	dbw 38, EKANS
-	; day
 	dbw 39, PIDGEOTTO
 	dbw 40, PHANPY
 	dbw 41, SKARMORY
@@ -903,21 +634,12 @@ KantoGrassWildMons:
 	dbw 42, GOLBAT
 	
 	map_id SAFARI_ZONE_BETA
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 39, EXEGGCUTE
 	dbw 40, RHYHORN
 	dbw 40, NIDORINA
 	dbw 42, PINSIR
-	dbw 40, NIDORINO
-	dbw 43, KANGASKHAN
-	dbw 41, GIRAFARIG
-	dbw 43, CHANSEY
-	; day
-	dbw 39, EXEGGCUTE
-	dbw 40, RHYHORN
-	dbw 40, NIDORINA
-	dbw 42, SCYTHER
 	dbw 40, NIDORINO
 	dbw 43, KANGASKHAN
 	dbw 41, GIRAFARIG

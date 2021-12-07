@@ -51,27 +51,6 @@ JohtoWaterWildMons:
 	dbw 20, PSYDUCK
 	dbw 15, YANMA
 
-	map_id MOUNT_MORTAR_1F_OUTSIDE
-	db 4 percent ; encounter rate
-	dbw 15, GOLDEEN
-	dbw 20, MARILL
-	dbw 20, SEAKING
-	dbw 20, MARILL
-
-	map_id MOUNT_MORTAR_2F_INSIDE
-	db 2 percent ; encounter rate
-	dbw 20, GOLDEEN
-	dbw 25, MARILL
-	dbw 25, SEAKING
-	dbw 20, MARILL
-
-	map_id MOUNT_MORTAR_B1F
-	db 2 percent ; encounter rate
-	dbw 15, GOLDEEN
-	dbw 20, MARILL
-	dbw 20, SEAKING
-	dbw 20, MARILL
-
 	map_id WHIRL_ISLAND_SW
 	db 4 percent ; encounter rate
 	dbw 15, SEEL
@@ -214,7 +193,7 @@ JohtoWaterWildMons:
 	map_id CHERRYGROVE_CITY
 	db 6 percent ; encounter rate
 	dbw 20, TENTACOOL
-	dbw 15, TENTACOOL
+	dbw 15, REMORAID
 	dbw 20, TENTACRUEL
 	dbw 15, TENTACOOL
 
@@ -235,7 +214,7 @@ JohtoWaterWildMons:
 	map_id OLIVINE_CITY
 	db 6 percent ; encounter rate
 	dbw 20, TENTACOOL
-	dbw 15, TENTACOOL
+	dbw 15, REMORAID
 	dbw 20, TENTACRUEL
 	dbw 15, TENTACOOL
 

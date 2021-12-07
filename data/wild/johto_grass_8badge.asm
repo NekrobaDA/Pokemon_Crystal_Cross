@@ -3,22 +3,13 @@
 JohtoGrassWildMons8Badge:
 
 	map_id BURNED_TOWER_1F
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent;, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 13, RATTATA
 	dbw 17, KOFFING
-	dbw 23, GASTLY
+	dbw 22, GASTLY
 	dbw 21, ZUBAT
-	dbw 15, HAUNTER
-	dbw 30, MISDREAVUS
-	dbw 35, RATICATE
-	dbw 37, MISDREAVUS
-	; day
-	dbw 13, RATTATA
-	dbw 17, KOFFING
-	dbw 23, GASTLY
-	dbw 21, ZUBAT
-	dbw 15, RATTATA
+	dbw 24, HAUNTER
 	dbw 30, MISDREAVUS
 	dbw 35, RATICATE
 	dbw 37, MISDREAVUS
@@ -33,7 +24,7 @@ JohtoGrassWildMons8Badge:
 	dbw 37, MISDREAVUS
 
 	map_id BURNED_TOWER_B1F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 17, RATTATA
 	dbw 20, KOFFING
@@ -41,15 +32,6 @@ JohtoGrassWildMons8Badge:
 	dbw 22, GASTLY
 	dbw 15, KOFFING
 	dbw 34, HAUNTER
-	dbw 32, RATICATE
-	dbw 33, RATICATE
-	; day
-	dbw 17, RATTATA
-	dbw 20, KOFFING
-	dbw 35, WEEZING
-	dbw 22, GASTLY
-	dbw 15, KOFFING
-	dbw 30, GASTLY
 	dbw 32, RATICATE
 	dbw 33, RATICATE
 	; nite
@@ -63,25 +45,16 @@ JohtoGrassWildMons8Badge:
 	dbw 33, RATICATE
 
 	map_id NATIONAL_PARK
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 22, NIDORAN_M
 	dbw 21, NIDORAN_F
-	dbw 31, LEDIAN
-	dbw 21, PIDGEY
-	dbw 14, CATERPIE
-	dbw 29, PSYDUCK
-	dbw 25, PIKACHU
-	dbw 29, SKIPLOOM
-	; day
-	dbw 21, NIDORAN_F
-	dbw 22, NIDORAN_M
 	dbw 31, YANMA
 	dbw 21, PIDGEY
-	dbw 19, CATERPIE
+	dbw 14, CATERPIE
 	dbw 29, SKIPLOOM
 	dbw 25, PIKACHU
-	dbw 32, BUTTERFREE
+	dbw 29, BUTTERFREE
 	; nite
 	dbw 25, ODDISH
 	dbw 22, HOOTHOOT
@@ -93,17 +66,8 @@ JohtoGrassWildMons8Badge:
 	dbw 32, VENOMOTH
 
 	map_id RUINS_OF_ALPH_OUTSIDE
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent;, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 20, NATU
-	dbw 22, NATU
-	dbw 36, XATU
-	dbw 25, NATU
-	dbw 22, GIRAFARIG
-	dbw 30, WOBBUFFET
-	dbw 34, GIRAFARIG
-	dbw 31, WOBBUFFET
-	; day
 	dbw 20, NATU
 	dbw 22, NATU
 	dbw 36, XATU
@@ -123,17 +87,8 @@ JohtoGrassWildMons8Badge:
 	dbw 33, QUAGSIRE
 
 	map_id RUINS_OF_ALPH_INNER_CHAMBER
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 5, UNOWN
-	dbw 5, UNOWN
-	dbw 5, UNOWN
-	dbw 5, UNOWN
-	dbw 5, UNOWN
-	dbw 5, UNOWN
-	dbw 5, UNOWN
-	dbw 5, UNOWN
-	; day
 	dbw 5, UNOWN
 	dbw 5, UNOWN
 	dbw 5, UNOWN
@@ -153,17 +108,8 @@ JohtoGrassWildMons8Badge:
 	dbw 5, UNOWN
 
 	map_id UNION_CAVE_1F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 12, GEODUDE
-	dbw 15, WOOPER
-	dbw 21, ZUBAT
-	dbw 13, RATTATA
-	dbw 25, ZUBAT
-	dbw 17, ONIX
-	dbw 27, MARILL
-	dbw 34, ONIX
-	; day
 	dbw 12, GEODUDE
 	dbw 15, WOOPER
 	dbw 21, ZUBAT
@@ -183,7 +129,7 @@ JohtoGrassWildMons8Badge:
 	dbw 35, ONIX
 
 	map_id UNION_CAVE_B1F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 12, GEODUDE
 	dbw 14, ZUBAT
@@ -193,15 +139,6 @@ JohtoGrassWildMons8Badge:
 	dbw 35, GOLBAT
 	dbw 32, QUAGSIRE
 	dbw 33, ONIX
-	; day
-	dbw 12, GEODUDE
-	dbw 14, ZUBAT
-	dbw 15, WOOPER
-	dbw 22, ONIX
-	dbw 33, GRAVELER
-	dbw 35, GOLBAT
-	dbw 32, QUAGSIRE
-	dbw 35, ONIX
 	; nite
 	dbw 12, GEODUDE
 	dbw 34, GRAVELER
@@ -213,17 +150,8 @@ JohtoGrassWildMons8Badge:
 	dbw 36, ONIX
 
 	map_id UNION_CAVE_B2F
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent;, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, GEODUDE
-	dbw 29, GRAVELER
-	dbw 22, WOOPER
-	dbw 23, ONIX
-	dbw 36, QUAGSIRE
-	dbw 34, GRAVELER
-	dbw 29, ONIX
-	dbw 37, ONIX
-	; day
 	dbw 22, GEODUDE
 	dbw 29, GRAVELER
 	dbw 22, WOOPER
@@ -243,17 +171,8 @@ JohtoGrassWildMons8Badge:
 	dbw 37, ONIX
 
 	map_id SLOWPOKE_WELL_B1F
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 5, ZUBAT
-	dbw 6, ZUBAT
-	dbw 7, ZUBAT
-	dbw 6, SLOWPOKE
-	dbw 8, ZUBAT
-	dbw 8, SLOWPOKE
-	dbw 7, MARILL
-	dbw 8, SLOWPOKE
-	; day
 	dbw 5, ZUBAT
 	dbw 6, ZUBAT
 	dbw 7, ZUBAT
@@ -273,17 +192,8 @@ JohtoGrassWildMons8Badge:
 	dbw 8, SLOWPOKE
 
 	map_id SLOWPOKE_WELL_B2F
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 21, ZUBAT
-	dbw 23, ZUBAT
-	dbw 19, ZUBAT
-	dbw 21, SLOWPOKE
-	dbw 23, GOLBAT
-	dbw 23, SLOWPOKE
-	dbw 23, SLOWPOKE
-	dbw 24, SLOWPOKE
-	; day
 	dbw 21, ZUBAT
 	dbw 23, ZUBAT
 	dbw 19, ZUBAT
@@ -303,17 +213,8 @@ JohtoGrassWildMons8Badge:
 	dbw 24, SLOWPOKE
 
 	map_id ILEX_FOREST
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent;, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 12, CATERPIE
-	dbw 12, WEEDLE
-	dbw 19, ODDISH
-	dbw 16, PARAS
-	dbw 27, PIDGEY
-	dbw 35, STANTLER
-	dbw 33, GLOOM
-	dbw 32, BEEDRILL
-	; day
 	dbw 12, CATERPIE
 	dbw 12, WEEDLE
 	dbw 19, ODDISH
@@ -333,17 +234,8 @@ JohtoGrassWildMons8Badge:
 	dbw 35, ARIADOS
 
 	map_id MOUNT_MORTAR_1F_OUTSIDE
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 14, RATTATA
-	dbw 15, SPEAROW
-	dbw 18, MACHOP
-	dbw 27, ONIX
-	dbw 32, MACHOKE
-	dbw 35, FEAROW
-	dbw 24, RATICATE
-	dbw 29, SPEAROW
-	; day
 	dbw 14, RATTATA
 	dbw 15, SPEAROW
 	dbw 18, MACHOP
@@ -363,7 +255,7 @@ JohtoGrassWildMons8Badge:
 	dbw 27, ZUBAT
 
 	map_id MOUNT_MORTAR_1F_INSIDE
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 13, GEODUDE
 	dbw 17, SLUGMA
@@ -372,15 +264,6 @@ JohtoGrassWildMons8Badge:
 	dbw 30, MACHOKE
 	dbw 38, MAGCARGO
 	dbw 27, ZUBAT
-	dbw 34, GRAVELER
-	; day
-	dbw 13, GEODUDE
-	dbw 17, SLUGMA
-	dbw 15, MACHOP
-	dbw 31, ONIX
-	dbw 30, MACHOKE
-	dbw 38, MAGCARGO
-	dbw 35, GOLBAT
 	dbw 34, GRAVELER
 	; nite
 	dbw 13, GEODUDE
@@ -393,17 +276,8 @@ JohtoGrassWildMons8Badge:
 	dbw 27, GEODUDE
 
 	map_id MOUNT_MORTAR_2F_INSIDE
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 31, GRAVELER
-	dbw 32, MACHOKE
-	dbw 31, GEODUDE
-	dbw 30, SLUGMA
-	dbw 27, ZUBAT
-	dbw 28, MACHOP
-	dbw 30, MAGCARGO
-	dbw 30, GOLBAT
-	; day
 	dbw 31, GRAVELER
 	dbw 32, MACHOKE
 	dbw 31, GEODUDE
@@ -423,17 +297,8 @@ JohtoGrassWildMons8Badge:
 	dbw 30, MAGCARGO
 
 	map_id MOUNT_MORTAR_B1F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 15, GEODUDE
-	dbw 22, ONIX
-	dbw 20, MACHOP
-	dbw 23, SLUGMA
-	dbw 35, GRAVELER
-	dbw 31, ONIX
-	dbw 38, MAGCARGO
-	dbw 25, SLUGMA
-	; day
 	dbw 15, GEODUDE
 	dbw 22, ONIX
 	dbw 20, MACHOP
@@ -453,7 +318,7 @@ JohtoGrassWildMons8Badge:
 	dbw 25, SLUGMA
 
 	map_id ICE_PATH_1F
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 21, SWINUB
 	dbw 22, SWINUB
@@ -461,16 +326,7 @@ JohtoGrassWildMons8Badge:
 	dbw 23, DELIBIRD
 	dbw 31, SNEASEL
 	dbw 34, PILOSWINE
-	dbw 27, MISDREAVUS
-	dbw 35, ONIX
-	; day
-	dbw 21, SWINUB
-	dbw 22, SWINUB
-	dbw 29, SNEASEL
-	dbw 23, DELIBIRD
-	dbw 31, SNEASEL
-	dbw 34, PILOSWINE
-	dbw 27, MISDREAVUS
+	dbw 27, MISDREAVUS ;alola sandshrew
 	dbw 35, ONIX
 	; nite
 	dbw 21, DELIBIRD
@@ -483,17 +339,8 @@ JohtoGrassWildMons8Badge:
 	dbw 35, ONIX
 
 	map_id ICE_PATH_B1F
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, SNEASEL
-	dbw 25, SNEASEL
-	dbw 23, MISDREAVUS
-	dbw 27, SWINUB
-	dbw 34, MISDREAVUS
-	dbw 33, PILOSWINE
-	dbw 31, SNEASEL
-	dbw 35, ONIX
-	; day
 	dbw 22, SNEASEL
 	dbw 25, SNEASEL
 	dbw 23, MISDREAVUS
@@ -513,17 +360,8 @@ JohtoGrassWildMons8Badge:
 	dbw 35, ONIX
 
 	map_id ICE_PATH_B2F_MAHOGANY_SIDE
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 23, SNEASEL
-	dbw 29, SNEASEL
-	dbw 24, MISDREAVUS
-	dbw 25, MISDREAVUS
-	dbw 34, ONIX
-	dbw 25, SNEASEL
-	dbw 32, SNEASEL
-	dbw 35, ONIX
-	; day
 	dbw 23, SNEASEL
 	dbw 29, SNEASEL
 	dbw 24, MISDREAVUS
@@ -543,17 +381,8 @@ JohtoGrassWildMons8Badge:
 	dbw 32, ONIX
 
 	map_id ICE_PATH_B2F_BLACKTHORN_SIDE
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 23, SNEASEL
-	dbw 29, SNEASEL
-	dbw 24, MISDREAVUS
-	dbw 25, MISDREAVUS
-	dbw 34, ONIX
-	dbw 25, SNEASEL
-	dbw 32, SNEASEL
-	dbw 35, ONIX
-	; day
 	dbw 23, SNEASEL
 	dbw 29, SNEASEL
 	dbw 24, MISDREAVUS
@@ -573,17 +402,8 @@ JohtoGrassWildMons8Badge:
 	dbw 32, ONIX
 
 	map_id ICE_PATH_B3F
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 23, SNEASEL
-	dbw 29, SNEASEL
-	dbw 24, MISDREAVUS
-	dbw 25, MISDREAVUS
-	dbw 34, ONIX
-	dbw 25, SNEASEL
-	dbw 32, SNEASEL
-	dbw 35, ONIX
-	; day
 	dbw 23, SNEASEL
 	dbw 29, SNEASEL
 	dbw 24, MISDREAVUS
@@ -603,17 +423,8 @@ JohtoGrassWildMons8Badge:
 	dbw 32, ONIX
 
 	map_id WHIRL_ISLAND_NW
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
-	dbw 25, GOLBAT
-	dbw 24, SHELLDER
-	dbw 24, SEEL
-	dbw 26, SHELLDER
-	; day
 	dbw 22, KRABBY
 	dbw 23, ZUBAT
 	dbw 22, SEEL
@@ -633,17 +444,8 @@ JohtoGrassWildMons8Badge:
 	dbw 26, SHELLDER
 
 	map_id WHIRL_ISLAND_NE
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
-	dbw 25, GOLBAT
-	dbw 24, SHELLDER
-	dbw 24, SEEL
-	dbw 26, SHELLDER
-	; day
 	dbw 22, KRABBY
 	dbw 23, ZUBAT
 	dbw 22, SEEL
@@ -663,17 +465,8 @@ JohtoGrassWildMons8Badge:
 	dbw 26, SHELLDER
 
 	map_id WHIRL_ISLAND_SW
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
-	dbw 25, GOLBAT
-	dbw 24, SHELLDER
-	dbw 24, SEEL
-	dbw 26, SHELLDER
-	; day
 	dbw 22, KRABBY
 	dbw 23, ZUBAT
 	dbw 22, SEEL
@@ -693,17 +486,8 @@ JohtoGrassWildMons8Badge:
 	dbw 26, SHELLDER
 
 	map_id WHIRL_ISLAND_CAVE
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
-	dbw 25, GOLBAT
-	dbw 24, SHELLDER
-	dbw 24, KRABBY
-	dbw 26, SHELLDER
-	; day
 	dbw 22, KRABBY
 	dbw 23, ZUBAT
 	dbw 22, SEEL
@@ -723,17 +507,8 @@ JohtoGrassWildMons8Badge:
 	dbw 26, SHELLDER
 
 	map_id WHIRL_ISLAND_SE
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
-	dbw 25, GOLBAT
-	dbw 24, SHELLDER
-	dbw 24, SEEL
-	dbw 26, SHELLDER
-	; day
 	dbw 22, KRABBY
 	dbw 23, ZUBAT
 	dbw 22, SEEL
@@ -753,17 +528,8 @@ JohtoGrassWildMons8Badge:
 	dbw 26, SHELLDER
 
 	map_id WHIRL_ISLAND_B1F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 23, KRABBY
-	dbw 24, ZUBAT
-	dbw 26, SEEL
-	dbw 38, KINGLER
-	dbw 27, GOLBAT
-	dbw 32, KRABBY
-	dbw 33, GOLBAT
-	dbw 36, DEWGONG
-	; day
 	dbw 23, KRABBY
 	dbw 24, ZUBAT
 	dbw 26, SEEL
@@ -783,17 +549,8 @@ JohtoGrassWildMons8Badge:
 	dbw 25, KRABBY
 
 	map_id WHIRL_ISLAND_B2F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 24, KRABBY
-	dbw 25, ZUBAT
-	dbw 36, DEWGONG
-	dbw 38, KINGLER
-	dbw 27, GOLBAT
-	dbw 37, KINGLER
-	dbw 33, GOLBAT
-	dbw 25, KRABBY
-	; day
 	dbw 24, KRABBY
 	dbw 25, ZUBAT
 	dbw 36, DEWGONG
@@ -813,17 +570,8 @@ JohtoGrassWildMons8Badge:
 	dbw 25, KRABBY
 
 	map_id WHIRL_ISLAND_LUGIA_CHAMBER
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 25, KRABBY
-	dbw 26, SEEL
-	dbw 36, DEWGONG
-	dbw 38, KINGLER
-	dbw 27, GOLBAT
-	dbw 37, KINGLER
-	dbw 33, SEEL
-	dbw 25, KRABBY
-	; day
 	dbw 25, KRABBY
 	dbw 26, SEEL
 	dbw 36, DEWGONG
@@ -843,17 +591,8 @@ JohtoGrassWildMons8Badge:
 	dbw 25, KRABBY
 
 	map_id SILVER_CAVE_ROOM_1
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 43, GRAVELER
-	dbw 44, URSARING
-	dbw 42, ONIX
-	dbw 45, MAGMAR
-	dbw 45, GOLBAT
-	dbw 20, LARVITAR
-	dbw 15, LARVITAR
-	dbw 33, GEODUDE
-	; day
 	dbw 43, GRAVELER
 	dbw 44, URSARING
 	dbw 42, ONIX
@@ -873,17 +612,8 @@ JohtoGrassWildMons8Badge:
 	dbw 33, GEODUDE
 
 	map_id SILVER_CAVE_ROOM_2
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 48, GOLBAT
-	dbw 48, MACHOKE
-	dbw 47, URSARING
-	dbw 46, PARASECT
-	dbw 48, PARASECT
-	dbw 15, LARVITAR
-	dbw 20, LARVITAR
-	dbw 33, GEODUDE
-	; day
 	dbw 48, GOLBAT
 	dbw 48, MACHOKE
 	dbw 47, URSARING
@@ -903,17 +633,8 @@ JohtoGrassWildMons8Badge:
 	dbw 33, GEODUDE
 
 	map_id SILVER_CAVE_ROOM_3
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 51, GOLBAT
-	dbw 48, ONIX
-	dbw 48, GRAVELER
-	dbw 50, URSARING
-	dbw 20, LARVITAR
-	dbw 15, LARVITAR
-	dbw 20, PUPITAR
-	dbw 33, GEODUDE
-	; day
 	dbw 51, GOLBAT
 	dbw 48, ONIX
 	dbw 48, GRAVELER
@@ -933,17 +654,8 @@ JohtoGrassWildMons8Badge:
 	dbw 33, GEODUDE
 
 	map_id SILVER_CAVE_ITEM_ROOMS
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 48, GOLBAT
-	dbw 46, ZUBAT
-	dbw 50, GOLBAT
-	dbw 46, PARASECT
-	dbw 44, PARAS
-	dbw 50, PARASECT
-	dbw 52, PARASECT
-	dbw 33, GEODUDE
-	; day
 	dbw 48, GOLBAT
 	dbw 46, ZUBAT
 	dbw 50, GOLBAT
@@ -963,17 +675,8 @@ JohtoGrassWildMons8Badge:
 	dbw 33, GEODUDE
 
 	map_id DARK_CAVE_VIOLET_ENTRANCE
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent;, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 12, GEODUDE
-	dbw 10, ZUBAT
-	dbw 24, GRAVELER
-	dbw 14, TEDDIURSA
-	dbw 27, TEDDIURSA
-	dbw 15, ZUBAT
-	dbw 25, DUNSPARCE
-	dbw 20, GEODUDE
-	; day
 	dbw 12, GEODUDE
 	dbw 10, ZUBAT
 	dbw 24, GRAVELER
@@ -993,85 +696,58 @@ JohtoGrassWildMons8Badge:
 	dbw 20, GEODUDE
 
 	map_id DARK_CAVE_BLACKTHORN_ENTRANCE
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent;, 4 percent ; encounter rates: morn/day/nite
 	; morn
-		dbw 23, GEODUDE
+	dbw 23, GEODUDE
 	dbw 23, ZUBAT
 	dbw 25, GRAVELER
 	dbw 25, TEDDIURSA
 	dbw 20, TEDDIURSA
 	dbw 23, GOLBAT
-	dbw 23, GOLBAT
-	dbw 30, URSARING
-	; day
-	dbw 23, GEODUDE
-	dbw 23, ZUBAT
-	dbw 25, GRAVELER
-	dbw 25, TEDDIURSA
-	dbw 30, URSARING
-	dbw 23, GOLBAT
-	dbw 23, GOLBAT
+	dbw 23, DUNSPARCE
 	dbw 30, URSARING
 	; nite
 	dbw 23, GEODUDE
 	dbw 23, ZUBAT
 	dbw 25, GRAVELER
 	dbw 20, WOBBUFFET
-	dbw 25, WOBBUFFET
-	dbw 23, GOLBAT
+	dbw 25, DUNSPARCE
+	dbw 23, DUNSPARCE
 	dbw 23, GOLBAT
 	dbw 30, WOBBUFFET
 	
 	map_id ROUTE_29
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 10, PIDGEY
-	dbw 10, SENTRET
-	dbw 29, PIDGEOTTO
+	dbw 12, SENTRET
+	dbw 32, PIDGEOTTO
+	dbw 10, RATTATA
+	dbw 10, HOPPIP
 	dbw 37, FURRET
-	dbw 10, RATTATA
-	dbw 10, HOPPIP
 	dbw 21, SKIPLOOM
-	dbw 33, RATICATE
-	; day
-	dbw 10, PIDGEY
-	dbw 10, SENTRET
-	dbw 37, PIDGEOTTO
-	dbw 29, FURRET
-	dbw 10, RATTATA
-	dbw 10, HOPPIP
-	dbw 21, SKIPLOOM
-	dbw 33, RATICATE
+	dbw 17, RATTATA
 	; nite
-	dbw 10, HOOTHOOT
+	dbw 12, HOOTHOOT
 	dbw 10, RATTATA
-	dbw 36, NOCTOWL
+	dbw 32, NOCTOWL
+	dbw 10, RATTATA
+	dbw 19, HOOTHOOT
 	dbw 28, RATICATE
-	dbw 10, RATTATA
-	dbw 20, RATICATE
-	dbw 25, NOCTOWL
+	dbw 37, NOCTOWL
 	dbw 33, RATICATE
 
 	map_id ROUTE_30
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 32, LEDIAN
-	dbw 10, CATERPIE
-	dbw 25, BUTTERFREE
-	dbw 29, PIDGEOTTO
-	dbw 10, WEEDLE
-	dbw 31, MARILL
-	dbw 21, SKIPLOOM
-	dbw 35, BEEDRILL
-	; day
 	dbw 20, LEDYBA
 	dbw 10, CATERPIE
-	dbw 27, BUTTERFREE
-	dbw 37, PIDGEOT
-	dbw 10, WEEDLE
+	dbw 33, PIDGEOTTO
 	dbw 31, MARILL
-	dbw 25, SKIPLOOM
-	dbw 32, BEEDRILL
+	dbw 12, WEEDLE
+	dbw 27, BUTTERFREE
+	dbw 21, SKIPLOOM
+	dbw 35, BEEDRILL
 	; nite
 	dbw 10, SPINARAK
 	dbw 10, HOOTHOOT
@@ -1084,7 +760,7 @@ JohtoGrassWildMons8Badge:
 
 
 	map_id ROUTE_31
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 18, LEDYBA
 	dbw 10, CATERPIE
@@ -1094,49 +770,31 @@ JohtoGrassWildMons8Badge:
 	dbw 15, HOPPIP
 	dbw 35, WEEPINBELL
 	dbw 29, PIDGEOTTO
-	; day
-	dbw 18, PIDGEY
-	dbw 10, CATERPIE
-	dbw 16, BELLSPROUT
-	dbw 32, PIDGEOTTO
-	dbw 10, WEEDLE
-	dbw 14, HOPPIP
-	dbw 36, WEEPINBELL
-	dbw 29, PIDGEOTTO
 	; nite
 	dbw 12, SPINARAK
 	dbw 15, BELLSPROUT
 	dbw 35, ARIADOS
 	dbw 34, NOCTOWL
 	dbw 12, ZUBAT
-	dbw 19, GASTLY
+	dbw 19, TEDDIURSA
 	dbw 33, GOLBAT
-	dbw 35, HAUNTER
+	dbw 35, URSARING
 
 	map_id ROUTE_32
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 15, EKANS
 	dbw 12, RATTATA
 	dbw 21, MAREEP
 	dbw 16, PIDGEY
 	dbw 35, ARBOK
-	dbw 30, FLAAFFY
+	dbw 34, FLAAFFY
 	dbw 33, SKIPLOOM
-	dbw 34, RATICATE
-	; day
-	dbw 15, EKANS
-	dbw 12, RATTATA
-	dbw 21, MAREEP
-	dbw 16, PIDGEY
-	dbw 35, ARBOK
-	dbw 30, FLAAFFY
-	dbw 33, SKIPLOOM
-	dbw 34, RATICATE
+	dbw 25, RATTATA
 	; nite
 	dbw 18, WOOPER
 	dbw 13, RATTATA
-	dbw 32, WEEPINBELL
+	dbw 29, WOOPER
 	dbw 16, ZUBAT
 	dbw 19, HOOTHOOT
 	dbw 36, GOLBAT
@@ -1144,24 +802,15 @@ JohtoGrassWildMons8Badge:
 	dbw 34, RATICATE
 
 	map_id ROUTE_33
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 16, RATTATA
 	dbw 21, SPEAROW
-	dbw 26, GEODUDE
+	dbw 17, HOPPIP
 	dbw 35, ARBOK
 	dbw 20, EKANS
 	dbw 37, FEAROW
-	dbw 17, HOPPIP
-	dbw 21, RATTATA
-	; day
-	dbw 16, RATTATA
-	dbw 20, SPEAROW
 	dbw 26, GEODUDE
-	dbw 37, ARBOK
-	dbw 21, EKANS
-	dbw 35, FEAROW
-	dbw 17, HOPPIP
 	dbw 21, RATTATA
 	; nite
 	dbw 16, RATTATA
@@ -1174,77 +823,50 @@ JohtoGrassWildMons8Badge:
 	dbw 32, RATICATE
 
 	map_id ROUTE_34
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 33, FURRET
 	dbw 18, RATTATA
 	dbw 21, PIDGEY
-	dbw 17, ABRA
-	dbw 32, JIGGLYPUFF
-	dbw 15, DITTO
-	dbw 29, MEOWTH
-	dbw 30, DITTO
-	; day
+	dbw 29, MAGNEMITE
 	dbw 33, FURRET
-	dbw 18, RATTATA
-	dbw 21, PIDGEY
 	dbw 17, ABRA
-	dbw 32, JIGGLYPUFF
 	dbw 15, DITTO
-	dbw 29, MEOWTH
+	dbw 32, MAGNETON
 	dbw 30, DITTO
 	; nite
-	dbw 26, HOUNDOUR
-	dbw 36, RATICATE
-	dbw 32, MURKROW
-	dbw 17, ABRA
-	dbw 28, MEOWTH
-	dbw 15, DITTO
 	dbw 25, RATTATA
-	dbw 30, DITTO
+	dbw 32, MAGNEMITE
+	dbw 28, MEOWTH
+	dbw 26, HOUNDOUR
+	dbw 17, ABRA
+	dbw 35, RATICATE
+	dbw 15, DITTO
+	dbw 30, PERSIAN
 
 	map_id ROUTE_35
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 16, SNUBBULL
 	dbw 21, PIDGEY
-	dbw 36, GRANBULL
-	dbw 20, VULPIX
 	dbw 32, JIGGLYPUFF
-	dbw 26, MAGNEMITE
-	dbw 22, DITTO
-	dbw 34, MAGNETON
-	; day
-	dbw 16, SNUBBULL
-	dbw 21, PIDGEY
+	dbw 20, YANMA
+	dbw 27, MEOWTH
+	dbw 26, RATTATA
 	dbw 36, GRANBULL
-	dbw 30, VULPIX
-	dbw 32, JIGGLYPUFF
-	dbw 22, DITTO
-	dbw 30, MAGNEMITE
-	dbw 25, DITTO
+	dbw 34, DITTO
 	; nite
-	dbw 17, DROWZEE
 	dbw 20, HOOTHOOT
+	dbw 17, DROWZEE
+	dbw 30, MEOWTH
+	dbw 26, MURKROW
+	dbw 32, RATTATA
 	dbw 19, ABRA
-	dbw 30, VULPIX
-	dbw 32, JIGGLYPUFF
-	dbw 26, MAGNEMITE
-	dbw 15, DITTO
-	dbw 37, MAGNETON
+	dbw 15, MEOWTH
+	dbw 37, DITTO
 
 	map_id ROUTE_36
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 21, LEDYBA
-	dbw 19, PIDGEY
-	dbw 22, BELLSPROUT
-	dbw 27, PIDGEOTTO
-	dbw 25, VULPIX
-	dbw 35, WEEPINBELL
-	dbw 31, VULPIX
-	dbw 37, PIDGEOTTO
-	; day
 	dbw 21, LEDYBA
 	dbw 19, PIDGEY
 	dbw 22, BELLSPROUT
@@ -1260,81 +882,54 @@ JohtoGrassWildMons8Badge:
 	dbw 36, NOCTOWL
 	dbw 25, VULPIX
 	dbw 34, ARIADOS
-	dbw 31, GASTLY
+	dbw 32, STANTLER
 	dbw 31, VULPIX
 
 	map_id ROUTE_37
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 19, LEDYBA
 	dbw 26, STANTLER
 	dbw 24, PIDGEY
-	dbw 25, VENONAT
+	dbw 17, CATERPIE
 	dbw 35, PIDGEOTTO
-	dbw 35, STANTLER
+	dbw 32, VULPIX
 	dbw 37, LEDIAN
-	dbw 32, VULPIX
-	; day
-	dbw 19, LEDYBA
-	dbw 26, STANTLER
-	dbw 24, PIDGEY
-	dbw 25, VENONAT
-	dbw 37, PIDGEOTTO
 	dbw 35, STANTLER
-	dbw 34, PIDGEOTTO
-	dbw 32, VULPIX
 	; nite
 	dbw 18, SPINARAK
 	dbw 27, STANTLER
 	dbw 23, HOOTHOOT
 	dbw 25, VENONAT
-	dbw 34, NOCTOWL
+	dbw 32, VULPIX
 	dbw 35, ARIADOS
 	dbw 37, VENOMOTH
-	dbw 32, VULPIX
+	dbw 34, VENOMOTH
 
 	map_id ROUTE_38
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 16, RATTATA
 	dbw 20, PIDGEY
 	dbw 29, STANTLER
-	dbw 35, PIDGEOTTO
 	dbw 21, CATERPIE
-	dbw 31, RATICATE
-	dbw 33, VULPIX
-	dbw 27, LEDIAN
-	; day
-	dbw 16, RATTATA
-	dbw 20, PIDGEY
-	dbw 29, STANTLER
+	dbw 19, WEEDLE
+	dbw 31, BEEDRILL
 	dbw 35, PIDGEOTTO
-	dbw 21, CATERPIE
-	dbw 31, RATICATE
 	dbw 33, VULPIX
-	dbw 22, WEEDLE
 	; nite
 	dbw 16, RATTATA
-	dbw 31, RATICATE
 	dbw 29, STANTLER
 	dbw 35, NOCTOWL
 	dbw 21, SPINARAK
 	dbw 22, HOOTHOOT
+	dbw 31, RATICATE
 	dbw 33, VULPIX
-	dbw 22, WEEDLE
+	dbw 22, RATTATA
 
 	map_id ROUTE_39
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 16, RATTATA
-	dbw 28, PIDGEOTTO
-	dbw 21, MAREEP
-	dbw 29, FLAAFFY
-	dbw 32, MILTANK
-	dbw 34, TAUROS
-	dbw 31, MEOWTH
-	dbw 25, RATTATA
-	; day
 	dbw 16, RATTATA
 	dbw 28, PIDGEOTTO
 	dbw 21, MAREEP
@@ -1354,55 +949,37 @@ JohtoGrassWildMons8Badge:
 	dbw 25, RATTATA
 
 	map_id ROUTE_42
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 18, EKANS
 	dbw 16, SPEAROW
 	dbw 15, RATTATA
 	dbw 32, FURRET
 	dbw 36, ARBOK
-	dbw 27, FEAROW
-	dbw 30, MARILL
 	dbw 35, FEAROW
-	; day
-	dbw 18, EKANS
-	dbw 16, SPEAROW
-	dbw 15, RATTATA
-	dbw 32, FURRET
-	dbw 36, ARBOK
-	dbw 27, FEAROW
 	dbw 30, MARILL
-	dbw 35, FEAROW
+	dbw 23, RATTATA
 	; nite
 	dbw 13, RATTATA
 	dbw 19, ZUBAT
 	dbw 32, RATICATE
-	dbw 23, RATICATE
 	dbw 26, MARILL
 	dbw 28, GOLBAT
 	dbw 30, MARILL
 	dbw 34, GOLBAT
+	dbw 23, RATICATE
 
 	map_id ROUTE_43
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 15, SENTRET
+	dbw 15, LEDYBA
 	dbw 29, PIDGEOTTO
-	dbw 18, DODUO
-	dbw 34, FURRET
-	dbw 33, RATICATE
-	dbw 31, GLOOM
-	dbw 35, DODRIO
+	dbw 18, SPEAROW
 	dbw 25, ODDISH
-	; day
-	dbw 15, SENTRET
-	dbw 36, PIDGEOT
-	dbw 18, DODUO
+	dbw 33, PSYDUCK
 	dbw 34, FURRET
-	dbw 33, RATICATE
 	dbw 31, GLOOM
-	dbw 35, DODRIO
-	dbw 25, ODDISH
+	dbw 35, FEAROW
 	; nite
 	dbw 15, VENONAT
 	dbw 32, NOCTOWL
@@ -1412,32 +989,26 @@ JohtoGrassWildMons8Badge:
 	dbw 24, HOOTHOOT
 	dbw 17, RATTATA
 	dbw 35, VENOMOTH
+	
+	;Lake of Rage
+	;Pidgeot
 
 	map_id ROUTE_44
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 32, AIPOM
 	dbw 22, POLIWAG
 	dbw 22, BELLSPROUT
 	dbw 35, WEEPINBELL
 	dbw 24, SPEAROW
-	dbw 26, BELLSPROUT
-	dbw 35, AIPOM
-	dbw 34, POLIWHIRL
-	; day
-	dbw 32, AIPOM
-	dbw 22, POLIWAG
-	dbw 22, BELLSPROUT
-	dbw 35, WEEPINBELL
-	dbw 24, SPEAROW
-	dbw 26, BELLSPROUT
+	dbw 26, VULPIX_ALOLAN
 	dbw 35, AIPOM
 	dbw 34, POLIWHIRL
 	; nite
 	dbw 23, SNEASEL
 	dbw 22, POLIWAG
 	dbw 22, BELLSPROUT
-	dbw 33, WEEPINBELL
+	dbw 33, VULPIX_ALOLAN
 	dbw 34, SNEASEL
 	dbw 26, ZUBAT
 	dbw 36, POLIWHIRL
@@ -1454,37 +1025,19 @@ JohtoGrassWildMons8Badge:
 	dbw 35, SKARMORY
 	dbw 27, SKARMORY
 	dbw 35, GLIGAR
-	; day
-	dbw 23, GEODUDE
-	dbw 34, GRAVELER
-	dbw 32, GLIGAR
-	dbw 36, DONPHAN
-	dbw 20, PHANPY
-	dbw 35, SKARMORY
-	dbw 27, SKARMORY
-	dbw 35, GLIGAR
 	; nite
 	dbw 23, GEODUDE
-	dbw 35, GRAVELER
+	dbw 24, ZUBAT
 	dbw 33, GLIGAR
 	dbw 25, GRAVELER
 	dbw 27, GLIGAR
-	dbw 36, GRAVELER
-	dbw 32, GRAVELER
+	dbw 36, URSARING
+	dbw 34, GOLBAT
 	dbw 35, GLIGAR
 
 	map_id ROUTE_46
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 10, GEODUDE
-	dbw 12, SPEAROW
-	dbw 35, FEAROW
-	dbw 15, RATTATA
-	dbw 15, PHANPY
-	dbw 34, GLIGAR
-	dbw 32, DONPHAN
-	dbw 27, GLIGAR
-	; day
 	dbw 10, GEODUDE
 	dbw 12, SPEAROW
 	dbw 35, FEAROW
@@ -1504,17 +1057,8 @@ JohtoGrassWildMons8Badge:
 	dbw 27, GLIGAR
 
 	map_id SILVER_CAVE_OUTSIDE
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 41, SPEAROW
-	dbw 42, PHANPY
-	dbw 42, ARBOK
-	dbw 44, FEAROW
-	dbw 41, VULPIX_ALOLAN
-	dbw 43, DONPHAN
-	dbw 43, SKARMORY
-	dbw 39, EKANS
-	; day
 	dbw 41, SPEAROW
 	dbw 42, PHANPY
 	dbw 42, ARBOK

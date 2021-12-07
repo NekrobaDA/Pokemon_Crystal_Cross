@@ -18,37 +18,37 @@ TreeMonSet_City:
 TreeMonSet_Canyon:
 ; common
 	dbbw 50, SPEAROW,    10
-	dbbw 15, SPEAROW,    10
-	dbbw 15, SPEAROW,    10
-	dbbw 10, AIPOM,      10
-	dbbw  5, AIPOM,      10
-	dbbw  5, AIPOM,      10
+	dbbw 15, METAPOD,    10
+	dbbw 15, KAKUNA,    10
+	dbbw 10, PINECO,      10
+	dbbw  5, PINECO,      10
+	dbbw  5, SPEAROW,      10
 	db -1
 ; rare
 	dbbw 50, SPEAROW,    10
 	dbbw 15, HERACROSS,  10
 	dbbw 15, HERACROSS,  10
-	dbbw 10, AIPOM,      10
-	dbbw  5, AIPOM,      10
-	dbbw  5, AIPOM,      10
+	dbbw 10, PINECO,      10
+	dbbw  5, KAKUNA,      10
+	dbbw  5, METAPOD,      10
 	db -1
 
 TreeMonSet_Town:
 ; common
-	dbbw 50, SPEAROW,    10
-	dbbw 15, EKANS,      10
-	dbbw 15, SPEAROW,    10
-	dbbw 10, AIPOM,      10
-	dbbw  5, AIPOM,      10
-	dbbw  5, AIPOM,      10
+	dbbw 50, PIDGEY,    10
+	dbbw 15, METAPOD,      10
+	dbbw 15, KAKUNA,    10
+	dbbw 10, PINECO,      10
+	dbbw  5, PINECO,      10
+	dbbw  5, METAPOD,      10
 	db -1
 ; rare
-	dbbw 50, SPEAROW,    10
+	dbbw 50, PIDGEY,    10
 	dbbw 15, HERACROSS,  10
 	dbbw 15, HERACROSS,  10
-	dbbw 10, AIPOM,      10
-	dbbw  5, AIPOM,      10
-	dbbw  5, AIPOM,      10
+	dbbw 10, PINECO,      10
+	dbbw  5, KAKUNA,      10
+	dbbw  5, METAPOD,      10
 	db -1
 
 TreeMonSet_Route:
@@ -57,15 +57,15 @@ TreeMonSet_Route:
 	dbbw 15, METAPOD,    10
 	dbbw 15, LEDYBA,     10
 	dbbw 10, KAKUNA,     10
-	dbbw  5, HOOTHOOT,   10
+	dbbw  5, PINECO,   10
 	dbbw  5, PINECO,     10
 	db -1
 ; rare
 	dbbw 50, HOOTHOOT,   10
 	dbbw 15, PINECO,     10
-	dbbw 15, PINECO,     10
-	dbbw 10, SPINARAK,   10
-	dbbw  5, PINECO,     10
+	dbbw 15, BEEDRILL,     10
+	dbbw 10, KAKUNA,   10
+	dbbw  5, BEEDRILL,     10
 	dbbw  5, PINECO,     10
 	db -1
 
@@ -90,11 +90,11 @@ TreeMonSet_Kanto:
 TreeMonSet_Lake:
 ; common
 	dbbw 50, HOOTHOOT,   10
-	dbbw 15, VENONAT,    10
-	dbbw 15, HOOTHOOT,   10
+	dbbw 15, YANMA,    10
+	dbbw 15, PIDGEY,   10
 	dbbw 10, METAPOD,    10
-	dbbw  5, VENONAT,    10
-	dbbw  5, VENONAT,    10
+	dbbw  5, PINECO,    10
+	dbbw  5, PINECO,    10
 	db -1
 ; rare
 	dbbw 50, HOOTHOOT,   10
@@ -109,16 +109,16 @@ TreeMonSet_Forest:
 ; common
 	dbbw 50, HOOTHOOT,   10
 	dbbw 15, PINECO,     10
-	dbbw 15, PINECO,     10
-	dbbw 10, HOOTHOOT,   10
+	dbbw 15, KAKUNA,     10
+	dbbw 10, METAPOD,   10
 	dbbw  5, BUTTERFREE, 10
 	dbbw  5, BEEDRILL,   10
 	db -1
 ; rare
 	dbbw 50, HOOTHOOT,   10
-	dbbw 15, CATERPIE,   10
-	dbbw 15, WEEDLE,     10
-	dbbw 10, HOOTHOOT,   10
+	dbbw 15, KAKUNA,   10
+	dbbw 15, BEEDRILL,     10
+	dbbw 10, PINECO,   10
 	dbbw  5, METAPOD,    10
 	dbbw  5, KAKUNA,     10
 	db -1

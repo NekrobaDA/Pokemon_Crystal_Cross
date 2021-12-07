@@ -11,7 +11,8 @@ AsleepTreeMonsNite:
 	dw EKANS
 	dw EXEGGCUTE
 	dw LEDYBA
-	dw AIPOM
+	dw YANMA
+	dw PIDGEY
 	dw -1 ; end
 
 AsleepTreeMonsDay:
