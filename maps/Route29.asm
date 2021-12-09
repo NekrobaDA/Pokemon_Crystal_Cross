@@ -7,6 +7,10 @@
 	const ROUTE29_COOLTRAINER_M2
 	const ROUTE29_TUSCANY
 	const ROUTE29_POKE_BALL
+	const PLAYER_M1
+	const PLAYER_M2
+	const PLAYER_F1
+	const PLAYER_F2
 
 Route29_MapScripts:
 	def_scene_scripts
@@ -15,6 +19,7 @@ Route29_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .Tuscany
+	callback MAPCALLBACK_NEWMAP, .ResetExitscene
 
 .DummyScene0:
 	end
@@ -35,6 +40,68 @@ Route29_MapScripts:
 	ifnotequal TUESDAY, .TuscanyDisappears
 	appear ROUTE29_TUSCANY
 	endcallback
+	
+.ResetExitscene
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	endcallback
+	
+ExitLeftScene1:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder1
+	appear PLAYER_M1
+	sjump .HidePlayer1
+.ShowGirlPlaceholder1
+	appear PLAYER_F1
+.HidePlayer1
+	applymovement PLAYER, HidePersonMovement
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F1Movement
+	applymovement PLAYER_M1, ExitsceneMovement
+	sjump .Scenemove1
+.F1Movement
+	applymovement PLAYER_F1, ExitsceneMovement
+.Scenemove1
+	applymovement PLAYER, ShowPersonMovement
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder1
+	disappear PLAYER_M1
+	sjump .HidPlaceholder1
+.HideGirlPlaceholder1
+	disappear PLAYER_F1
+.HidPlaceholder1
+	warpfacing LEFT, CHERRYGROVE_CITY, 36, 6
+	end
+	
+ExitLeftScene2:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder2
+	appear PLAYER_M2
+	sjump .HidePlayer2
+.ShowGirlPlaceholder2
+	appear PLAYER_F2
+.HidePlayer2
+	applymovement PLAYER, HidePersonMovement
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F2Movement
+	applymovement PLAYER_M2, ExitsceneMovement
+	sjump .Scenemove2
+.F2Movement
+	applymovement PLAYER_F2, ExitsceneMovement
+.Scenemove2
+	applymovement PLAYER, ShowPersonMovement
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder2
+	disappear PLAYER_M2
+	sjump .HidPlaceholder2
+.HideGirlPlaceholder2
+	disappear PLAYER_F2
+.HidPlaceholder2
+	warpfacing LEFT, CHERRYGROVE_CITY, 36, 7
+	end
+
 
 Route29Tutorial1:
 	turnobject ROUTE29_COOLTRAINER_M1, UP
@@ -211,6 +278,21 @@ Route29FruitTree:
 
 Route29Potion:
 	itemball POTION
+	
+ExitsceneMovement:
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end
+	
+ShowPersonMovement:
+	show_object
+	step_end
+
+HidePersonMovement:
+	hide_object
+	step_end
 
 DudeMovementData1a:
 	step UP
@@ -417,10 +499,14 @@ Route29_MapEvents:
 
 	def_warp_events
 	warp_event 27,  3, ROUTE_29_ROUTE_46_GATE, 3
+	warp_event  3,  8, CHERRYGROVE_CITY, 6
+	warp_event  3,  9, CHERRYGROVE_CITY, 7
 
 	def_coord_events
 	coord_event 53, 10, SCENE_ROUTE29_CATCH_TUTORIAL, Route29Tutorial1
 	coord_event 53, 11, SCENE_ROUTE29_CATCH_TUTORIAL, Route29Tutorial2
+	coord_event  3,  8, SCENE_DEFAULT, ExitLeftScene1
+	coord_event  3,  9, SCENE_DEFAULT, ExitLeftScene2
 
 	def_bg_events
 	bg_event 51,  9, BGEVENT_READ, Route29Sign1
@@ -435,3 +521,7 @@ Route29_MapEvents:
 	object_event 14,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route29CooltrainerMScript, -1
 	object_event 21,  3, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TuscanyScript, EVENT_ROUTE_29_TUSCANY_OF_TUESDAY
 	object_event 47,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route29Potion, EVENT_ROUTE_29_POTION
+	object_event  3,  8, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ExitLeftScene1, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  3,  9, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ExitLeftScene2, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event  3,  8, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ExitLeftScene1, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	object_event  3,  9, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ExitLeftScene2, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4

@@ -536,5 +536,20 @@ ENDM
 	map_const CATALLIA_POLICE_STATION,                     4,  8 
 	map_const CATALLIA_HOUSE_1,                            4,  4
 	map_const CATALLIA_HOUSE_2,                            4,  4
+	
+	newgroup
+	
+	map_const KINDLE_ROAD, 1, 1
+	map_const MT_EMBER, 1, 1
+	map_const CAPE_BRINK, 1, 1
+	map_const BOND_BRIDGE, 1, 1
+	map_const BERRY_FOREST, 1, 1
+	map_const ICEFALL_CAVE, 1, 1
+	map_const FIVE_ISLE_MEADOW, 1, 1
+	map_const WATER_PATH, 1, 1
+	map_const RUIN_VALLEY, 1, 1
+	map_const PATTERN_BUSH, 1, 1
+	map_const CANYON_ENTRANCE, 1, 1
+	map_const SEVAULT_CANYON, 1, 1
 
 NUM_MAP_GROUPS EQU const_value ; 28

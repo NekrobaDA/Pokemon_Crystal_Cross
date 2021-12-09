@@ -326,7 +326,7 @@ JohtoGrassWildMons8Badge:
 	dbw 23, DELIBIRD
 	dbw 31, SNEASEL
 	dbw 34, PILOSWINE
-	dbw 27, MISDREAVUS ;alola sandshrew
+	dbw 27, MISDREAVUS
 	dbw 35, ONIX
 	; nite
 	dbw 21, DELIBIRD

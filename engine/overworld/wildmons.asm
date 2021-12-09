@@ -15,7 +15,6 @@ LoadWildMonData:
 	ld de, wMornEncounterRate
 	ld bc, 3
 	call CopyBytes
-	;ld a, [wNiteEncounterRate]
 	ld a, [wDayEncounterRate]
 	ld [wEveEncounterRate], a
 	ld [wNiteEncounterRate], a
@@ -1288,3 +1287,5 @@ INCLUDE "data/wild/kanto_grass.asm"
 INCLUDE "data/wild/kanto_water.asm"
 INCLUDE "data/wild/swarm_grass.asm"
 INCLUDE "data/wild/swarm_water.asm"
+INCLUDE "data/wild/sevii_grass.asm"
+INCLUDE "data/wild/sevii_water.asm"
