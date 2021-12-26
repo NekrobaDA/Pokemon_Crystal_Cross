@@ -552,11 +552,11 @@ ENDM
 	map_const FIVE_ISLAND,                                 12, 14
 	map_const FIVE_ISLE_MEADOW,                            13, 20
 	map_const SIX_ISLAND,                                  13, 16
-	map_const WATER_PATH, 1, 1
-	map_const RUIN_VALLEY, 1, 1
+	map_const WATER_PATH,                                  12, 50
+	map_const RUIN_VALLEY,                                 29, 24
 	map_const PATTERN_BUSH,                                28, 16
 	map_const SEVEN_ISLAND,                                14, 14
 	map_const CANYON_ENTRANCE,                             14, 20
-	map_const SEVAULT_CANYON, 1, 1
+	map_const SEVAULT_CANYON,                              14, 53
 
 NUM_MAP_GROUPS EQU const_value ; 28
