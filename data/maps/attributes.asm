@@ -383,6 +383,12 @@ ENDM
 	map_attributes CatalliaTown, CATALLIA_TOWN, $05, WEST | EAST
 	connection west, Route30, ROUTE_30, -1
 	connection east, Route47, ROUTE_47, 6
+	
+	map_attributes OneIsland, ONE_ISLAND, $35, EAST
+	connection east, KindleRoad, KINDLE_ROAD, -45
+	
+	map_attributes KindleRoad, KINDLE_ROAD, $05, WEST
+	connection west, OneIsland, ONE_ISLAND, 45
 
 	map_attributes Route23, ROUTE_23, $0f, 0
 	map_attributes SproutTower1F, SPROUT_TOWER_1F, $00, 0
@@ -710,3 +716,6 @@ ENDM
 	map_attributes CatalliaPoliceStation, CATALLIA_POLICE_STATION, $00, 0
 	map_attributes CatalliaHouse1, CATALLIA_HOUSE_1, $00, 0
 	map_attributes CatalliaHouse2, CATALLIA_HOUSE_1, $00, 0
+	map_attributes OneIslandMart, ONE_ISLAND_MART, $00, 0
+	map_attributes OneIslandPokecenter1F, ONE_ISLAND_POKECENTER_1F, $00, 0
+	map_attributes MtEmber, MT_EMBER, $00, 0

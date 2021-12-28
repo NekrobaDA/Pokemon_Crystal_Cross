@@ -540,22 +540,55 @@ ENDM
 	newgroup
 	
 	map_const ONE_ISLAND,                                  12, 13
-	map_const KINDLE_ROAD, 1, 1
-	map_const MT_EMBER, 1, 1
-	map_const TWO_ISLAND,                                  26, 10
+	map_const ONE_ISLAND_MART,                              5,  4 ;  1
+	map_const ONE_ISLAND_POKECENTER_1F,                     5,  4 ;  1
+	map_const KINDLE_ROAD,                                  1,  1
+	map_const MT_EMBER,                                     1,  1
+	
+	newgroup
+	
+	map_const TWO_ISLAND,                                  26, 12
+	map_const TWO_ISLAND_MART,                              5,  4 ;  1
+	map_const TWO_ISLAND_POKECENTER_1F,                     5,  4 ;  1
 	map_const CAPE_BRINK,                                  13, 16
+	
+	newgroup
+	
 	map_const THREE_ISLAND,                                12, 29
+	map_const THREE_ISLAND_MART,                            5,  4 ;  1
+	map_const THREE_ISLAND_POKECENTER_1F,                   5,  4 ;  1
 	map_const BOND_BRIDGE,                                 46, 12
 	map_const BERRY_FOREST,                                22, 22
+	
+	newgroup
+	
 	map_const FOUR_ISLAND,                                 26, 20
-	map_const ICEFALL_CAVE, 1, 1
+	map_const FOUR_ISLAND_MART,                             5,  4 ;  1
+	map_const FOUR_ISLAND_POKECENTER_1F,                    5,  4 ;  1
+	map_const ICEFALL_CAVE,                                 1,  1
+	
+	newgroup
+	
 	map_const FIVE_ISLAND,                                 12, 14
+	map_const FIVE_ISLAND_MART,                             5,  4 ;  1
+	map_const FIVE_ISLAND_POKECENTER_1F,                    5,  4 ;  1
 	map_const FIVE_ISLE_MEADOW,                            13, 20
+	map_const FIVE_ISLE_ROCKET_BASE,                        1,  1
+	
+	newgroup
+	
 	map_const SIX_ISLAND,                                  13, 16
+	map_const SIX_ISLAND_MART,                              5,  4 ;  1
+	map_const SIX_ISLAND_POKECENTER_1F,                     5,  4 ;  1
 	map_const WATER_PATH,                                  12, 50
 	map_const RUIN_VALLEY,                                 29, 24
 	map_const PATTERN_BUSH,                                28, 16
+	
+	newgroup
+	
 	map_const SEVEN_ISLAND,                                14, 14
+	map_const SEVEN_ISLAND_MART,                            5,  4 ;  1
+	map_const SEVEN_ISLAND_POKECENTER_1F,                   5,  4 ;  1
 	map_const CANYON_ENTRANCE,                             14, 20
 	map_const SEVAULT_CANYON,                              14, 53
 

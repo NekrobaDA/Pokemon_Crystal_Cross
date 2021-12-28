@@ -480,6 +480,8 @@ INCBIN "data/tilesets/omanyte_word_room_attributes.bin"
 TilesetAerodactylWordRoomAttr::
 INCBIN "data/tilesets/aerodactyl_word_room_attributes.bin"
 
+SECTION "Tileset Data 13", ROMX
+
 TilesetSeviiGFX::
 INCBIN "gfx/tilesets/sevii.2bpp.lz"
 

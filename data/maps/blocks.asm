@@ -313,6 +313,7 @@ SECTION "Map Blocks 2", ROMX
 Route14_Blocks:
 	INCBIN "maps/Route14.ablk"
 
+OneIslandMart_Blocks:
 CatalliaMart_Blocks:
 OlivineMart_Blocks:
 EcruteakMart_Blocks:
@@ -335,6 +336,7 @@ Route10North_Blocks:
 BetaLakeOfRage_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaLakeOfRage.ablk"
 
+OneIslandPokecenter1F_Blocks:
 CatalliaPokecenter1F_Blocks:
 OlivinePokecenter1F_Blocks:
 MahoganyPokecenter1F_Blocks:
@@ -1062,3 +1064,14 @@ Route22_Blocks:
 	
 BetaRoute23_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaRoute23.ablk"
+	
+SECTION "Map Blocks 3", ROMX
+
+OneIsland_Blocks:
+	INCBIN "maps/OneIsland.ablk"
+	
+KindleRoad_Blocks:
+	INCBIN "maps/KindleRoad.ablk"
+	
+MtEmber_Blocks:
+	INCBIN "maps/MtEmber.ablk"

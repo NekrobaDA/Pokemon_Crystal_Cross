@@ -75,6 +75,7 @@ TilesetForestAnim:
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
+TilesetSeviiAnim:
 TilesetKanjoAnim:
 TilesetJohtoAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
