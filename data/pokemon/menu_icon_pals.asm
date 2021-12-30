@@ -256,5 +256,10 @@ MonMenuIconPals:
 	icon_pals BLUE, RED ; LUGIA
 	icon_pals RED, YELLOW ; HO_OH
 	icon_pals GREEN, RED ; CELEBI
+	icon_pals BLUE, PURPLE
+	icon_pals BLUE, PURPLE
+	icon_pals PURPLE, BLUE
+	icon_pals RED, YELLOW
+	icon_pals RED, YELLOW
 	icon_pals YELLOW, GRAY ; EGG
 	

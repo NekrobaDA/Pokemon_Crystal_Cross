@@ -69,6 +69,132 @@ VermilionPortSailorAtGangwayScript:
 	setmapscene FAST_SHIP_1F, SCENE_FASTSHIP1F_ENTER_SHIP
 	warp FAST_SHIP_1F, 25, 1
 	end
+	
+VermilionPortSeviiOneAtGangwayScript:
+	faceplayer
+	opentext
+	writetext VermilionPortDepartingText
+	waitbutton
+	closetext
+	turnobject VERMILIONPORT_SAILOR1, DOWN
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	disappear VERMILIONPORT_SAILOR1
+	waitsfx
+	applymovement PLAYER, VermilionPortEnterFastShipMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutPalettes
+	waitsfx
+	warpfacing RIGHT, ONE_ISLAND, 10, 21
+	end
+	
+VermilionPortSeviiTwoAtGangwayScript:
+	faceplayer
+	opentext
+	writetext VermilionPortDepartingText
+	waitbutton
+	closetext
+	turnobject VERMILIONPORT_SAILOR1, DOWN
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	disappear VERMILIONPORT_SAILOR1
+	waitsfx
+	applymovement PLAYER, VermilionPortEnterFastShipMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutPalettes
+	waitsfx
+	warpfacing RIGHT, TWO_ISLAND, 10, 13
+	end
+	
+VermilionPortSeviiThreeAtGangwayScript:
+	faceplayer
+	opentext
+	writetext VermilionPortDepartingText
+	waitbutton
+	closetext
+	turnobject VERMILIONPORT_SAILOR1, DOWN
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	disappear VERMILIONPORT_SAILOR1
+	waitsfx
+	applymovement PLAYER, VermilionPortEnterFastShipMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutPalettes
+	waitsfx
+	warpfacing RIGHT, THREE_ISLAND, 10, 51
+	end
+	
+VermilionPortSeviiFourAtGangwayScript:
+	faceplayer
+	opentext
+	writetext VermilionPortDepartingText
+	waitbutton
+	closetext
+	turnobject VERMILIONPORT_SAILOR1, DOWN
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	disappear VERMILIONPORT_SAILOR1
+	waitsfx
+	applymovement PLAYER, VermilionPortEnterFastShipMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutPalettes
+	waitsfx
+	warpfacing RIGHT, FOUR_ISLAND, 8, 33
+	end
+	
+VermilionPortSeviiFiveAtGangwayScript:
+	faceplayer
+	opentext
+	writetext VermilionPortDepartingText
+	waitbutton
+	closetext
+	turnobject VERMILIONPORT_SAILOR1, DOWN
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	disappear VERMILIONPORT_SAILOR1
+	waitsfx
+	applymovement PLAYER, VermilionPortEnterFastShipMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutPalettes
+	waitsfx
+	warpfacing RIGHT, FIVE_ISLAND, 10, 21
+	end
+	
+VermilionPortSeviiSixAtGangwayScript:
+	faceplayer
+	opentext
+	writetext VermilionPortDepartingText
+	waitbutton
+	closetext
+	turnobject VERMILIONPORT_SAILOR1, DOWN
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	disappear VERMILIONPORT_SAILOR1
+	waitsfx
+	applymovement PLAYER, VermilionPortEnterFastShipMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutPalettes
+	waitsfx
+	warpfacing RIGHT, SIX_ISLAND, 10, 25
+	end
+	
+VermilionPortSeviiSevenAtGangwayScript:
+	faceplayer
+	opentext
+	writetext VermilionPortDepartingText
+	waitbutton
+	closetext
+	turnobject VERMILIONPORT_SAILOR1, DOWN
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	disappear VERMILIONPORT_SAILOR1
+	waitsfx
+	applymovement PLAYER, VermilionPortEnterFastShipMovement
+	playsound SFX_EXIT_BUILDING
+	special FadeOutPalettes
+	waitsfx
+	warpfacing LEFT, SEVEN_ISLAND, 18, 21
+	end
 
 VermilionPortAlreadyRodeScript:
 	writetext VermilionPortCantBoardText
@@ -84,6 +210,15 @@ VermilionPortWalkUpToShipScript:
 	iftrue .skip
 	turnobject PLAYER, LEFT
 	opentext
+	writetext VermilionPortAskRegion
+	promptbutton
+	loadmenu RegionChoice_MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .ContinueToJohto
+	ifequal 2, .sevii
+	ifequal 3, VermilionPortNotRidingMoveAwayScript
+.ContinueToJohto
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .NextShipWednesday
 	ifequal TUESDAY, .NextShipWednesday
@@ -127,6 +262,70 @@ VermilionPortWalkUpToShipScript:
 
 .skip:
 	end
+	
+.sevii:
+	writetext WhichIsland
+	loadmenu ListSeviiIslands_MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .OneIsland
+	ifequal 2, .TwoIsland
+	ifequal 3, .ThreeIsland
+	ifequal 4, .FourIsland
+	ifequal 5, .FiveIsland
+	ifequal 6, .SixIsland
+	ifequal 7, .SevenIsland
+.OneIsland
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
+	sjump VermilionPortSeviiOneAtGangwayScript
+.TwoIsland
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
+	sjump VermilionPortSeviiTwoAtGangwayScript
+.ThreeIsland
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
+	sjump VermilionPortSeviiThreeAtGangwayScript
+.FourIsland
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
+	sjump VermilionPortSeviiFourAtGangwayScript
+.FiveIsland
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
+	sjump VermilionPortSeviiFiveAtGangwayScript
+.SixIsland
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
+	sjump VermilionPortSeviiSixAtGangwayScript
+.SevenIsland
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
+	sjump VermilionPortSeviiSevenAtGangwayScript
+	
+ListSeviiIslands_MenuHeader:
+	db MENU_SPRITE_ANIMS | MENU_BACKUP_TILES ; flags
+	menu_coords 4, 2, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
+	db 7 ; # items
+	db "One Isle@"
+	db "Two Isle@"
+	db "Three Isle@"
+	db "Four Isle@"
+	db "Five Isle@"
+	db "Six Isle@"
+	db "Seven Isle@"
+	
+RegionChoice_MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 8, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData
+	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
+	db 3 ; items
+	db "JOHTO@"
+	db "SEVII@"
+	db "Cancel@"
 
 VermilionPortNotRidingScript:
 	writetext VermilionPortComeAgainText
@@ -285,6 +484,18 @@ VermilionPortSailMondayText:
 VermilionPortSailSundayText:
 	text "The FAST SHIP will"
 	line "sail next Sunday."
+	done
+	
+VermilionPortAskRegion:
+	text "Which region are"
+	line "you headed to?"
+	done
+	
+WhichIsland:
+	;text "Sail to which island?"
+	;done
+	text "Which"
+	line "island?"
 	done
 
 VermilionPortSuperNerdText:

@@ -66,7 +66,8 @@ JohtoWaterWildMons:
 	dbw 34, DEWGONG
 
 	map_id WHIRL_ISLAND_LUGIA_CHAMBER
-	db 15, CHINCHOU
+	db 2 percent ; encounter rate
+	dbw 15, CHINCHOU
 	dbw 19, SEEL
 	dbw 26, CHINCHOU
 	dbw 34, DEWGONG

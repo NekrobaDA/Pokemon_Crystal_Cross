@@ -256,4 +256,7 @@ MonMenuIcons:
 	db ICON_CELEBI
 	db ICON_VULPIX       
 	db ICON_NINETALES
+	db ICON_ARTICUNO     
+	db ICON_ZAPDOS       
+	db ICON_MOLTRES
 	db ICON_EGG          

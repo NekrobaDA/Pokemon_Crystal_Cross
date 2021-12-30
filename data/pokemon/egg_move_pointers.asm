@@ -256,3 +256,6 @@ EggMovePointers::
 	dw NoEggMoves
 	dw Vulpix_AlolanEggMoves
 	dw NoEggMoves
+	dw NoEggMoves
+	dw NoEggMoves
+	dw NoEggMoves

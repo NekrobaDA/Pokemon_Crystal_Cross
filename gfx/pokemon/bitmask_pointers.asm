@@ -254,3 +254,6 @@ BitmasksPointers:
 	dw CelebiBitmasks
 	dw Vulpix_AlolanBitmasks
 	dw Ninetales_AlolanBitmasks
+	dw Articuno_GalarianBitmasks
+	dw Zapdos_GalarianBitmasks
+	dw Moltres_GalarianBitmasks

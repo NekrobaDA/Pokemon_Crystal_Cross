@@ -39,5 +39,11 @@ SpawnPoints:
 	spawn FAST_SHIP_CABINS_SW_SSW_NW,  6,  2
 	
 	spawn ONE_ISLAND,                 12,  6
+	spawn TWO_ISLAND,                 25, 10
+	spawn THREE_ISLAND,               15, 26
+	spawn FOUR_ISLAND,                17, 18
+	spawn FIVE_ISLAND,                17,  6
+	spawn SIX_ISLAND,                 13, 10
+	spawn SEVEN_ISLAND,               13,  6
 
 	spawn N_A,                        -1, -1

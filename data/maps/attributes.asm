@@ -157,7 +157,7 @@ ENDM
 	map_attributes Route29, ROUTE_29, $05, NORTH | WEST | EAST
 	connection north, Route47, ROUTE_47, -1
 	connection west, CherrygroveCity, CHERRYGROVE_CITY, 1
-	connection east, NewBarkTown, NEW_BARK_TOWN, 0
+	connection east, NewBarkTown, NEW_BARK_TOWN, 1
 	
 
 	map_attributes Route30, ROUTE_30, $05, NORTH | SOUTH | EAST
@@ -385,10 +385,48 @@ ENDM
 	connection east, Route47, ROUTE_47, 6
 	
 	map_attributes OneIsland, ONE_ISLAND, $35, EAST
-	connection east, KindleRoad, KINDLE_ROAD, -45
+	connection east, KindleRoad, KINDLE_ROAD, 45
 	
 	map_attributes KindleRoad, KINDLE_ROAD, $05, WEST
-	connection west, OneIsland, ONE_ISLAND, 45
+	connection west, OneIsland, ONE_ISLAND, -45
+	
+	map_attributes TwoIsland, TWO_ISLAND, $05, NORTH
+	connection north, CapeBrink, CAPE_BRINK, 14
+	
+	map_attributes CapeBrink, CAPE_BRINK, $05, SOUTH
+	connection south, TwoIsland, TWO_ISLAND, -14
+	
+	map_attributes ThreeIsland, THREE_ISLAND, $05, WEST
+	connection west, BondBridge, BOND_BRIDGE, -3
+	
+	map_attributes BondBridge, BOND_BRIDGE, $35, EAST
+	connection east, ThreeIsland, THREE_ISLAND, 3
+	
+	map_attributes FiveIsland, FIVE_ISLAND, $35, EAST
+	connection east, FiveIsleMeadow, FIVE_ISLE_MEADOW, 0
+	
+	map_attributes FiveIsleMeadow, FIVE_ISLE_MEADOW, $35, WEST
+	connection west, FiveIsland, FIVE_ISLAND, 0
+	
+	map_attributes SixIsland, SIX_ISLAND, $35, EAST
+	connection east, WaterPath, WATER_PATH, 21
+	
+	map_attributes WaterPath, WATER_PATH, $35, SOUTH | WEST
+	connection south, RuinValley, RUIN_VALLEY, -2
+	connection west, SixIsland, SIX_ISLAND, -21
+	
+	map_attributes RuinValley, RUIN_VALLEY, $71, NORTH
+	connection north, WaterPath, WATER_PATH, 2
+	
+	map_attributes SevenIsland, SEVEN_ISLAND, $35, SOUTH
+	connection south, CanyonEntrance, CANYON_ENTRANCE, 1
+	
+	map_attributes CanyonEntrance, CANYON_ENTRANCE, $35, NORTH | EAST
+	connection north, SevenIsland, SEVEN_ISLAND, -1
+	connection east, SevaultCanyon, SEVAULT_CANYON, 4
+	
+	map_attributes SevaultCanyon, SEVAULT_CANYON, $71, WEST
+	connection west, CanyonEntrance, CANYON_ENTRANCE, -4
 
 	map_attributes Route23, ROUTE_23, $0f, 0
 	map_attributes SproutTower1F, SPROUT_TOWER_1F, $00, 0
@@ -719,3 +757,20 @@ ENDM
 	map_attributes OneIslandMart, ONE_ISLAND_MART, $00, 0
 	map_attributes OneIslandPokecenter1F, ONE_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes MtEmber, MT_EMBER, $00, 0
+	map_attributes TwoIslandMart, TWO_ISLAND_MART, $00, 0
+	map_attributes TwoIslandPokecenter1F, TWO_ISLAND_POKECENTER_1F, $00, 0
+	map_attributes ThreeIslandMart, THREE_ISLAND_MART, $00, 0
+	map_attributes ThreeIslandPokecenter1F, THREE_ISLAND_POKECENTER_1F, $00, 0
+	map_attributes BerryForest, BERRY_FOREST, $00, 0
+	map_attributes FourIsland, FOUR_ISLAND, $35, 0
+	map_attributes FourIslandMart, FOUR_ISLAND_MART, $00, 0
+	map_attributes FourIslandPokecenter1F, FOUR_ISLAND_POKECENTER_1F, $00, 0
+	map_attributes IcefallCave, ICEFALL_CAVE, $00, 0
+	map_attributes FiveIslandMart, FIVE_ISLAND_MART, $00, 0
+	map_attributes FiveIslandPokecenter1F, FIVE_ISLAND_POKECENTER_1F, $00, 0
+	map_attributes FiveIsleRocketBase, FIVE_ISLE_ROCKET_BASE, $00, 0
+	map_attributes SixIslandMart, SIX_ISLAND_MART, $00, 0
+	map_attributes SixIslandPokecenter1F, SIX_ISLAND_POKECENTER_1F, $00, 0
+	map_attributes PatternBush, PATTERN_BUSH, $00, 0
+	map_attributes SevenIslandMart, SEVEN_ISLAND_MART, $00, 0
+	map_attributes SevenIslandPokecenter1F, SEVEN_ISLAND_POKECENTER_1F, $00, 0

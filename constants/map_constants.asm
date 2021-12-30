@@ -542,7 +542,7 @@ ENDM
 	map_const ONE_ISLAND,                                  12, 13
 	map_const ONE_ISLAND_MART,                              5,  4 ;  1
 	map_const ONE_ISLAND_POKECENTER_1F,                     5,  4 ;  1
-	map_const KINDLE_ROAD,                                  1,  1
+	map_const KINDLE_ROAD,                                 13, 55
 	map_const MT_EMBER,                                     1,  1
 	
 	newgroup

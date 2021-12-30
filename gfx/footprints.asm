@@ -460,7 +460,7 @@ INCBIN "gfx/footprints/skiploom.1bpp",   footprint_bottom
 INCBIN "gfx/footprints/jumpluff.1bpp",   footprint_bottom
 INCBIN "gfx/footprints/aipom.1bpp",      footprint_bottom
 ; 201-208 top halves
-INCBIN "gfx/footprints/ambipom.1bpp",      footprint_top
+INCBIN "gfx/footprints/ambipom.1bpp",    footprint_top
 INCBIN "gfx/footprints/sunflora.1bpp",   footprint_top
 INCBIN "gfx/footprints/yanma.1bpp",      footprint_top
 INCBIN "gfx/footprints/yanmega.1bpp",    footprint_top
@@ -575,7 +575,7 @@ INCBIN "gfx/footprints/ho_oh.1bpp",      footprint_top
 INCBIN "gfx/footprints/celebi.1bpp",     footprint_top
 INCBIN "gfx/footprints/vulpix_alolan.1bpp",     footprint_top
 INCBIN "gfx/footprints/ninetales_alolan.1bpp",  footprint_top
-INCBIN "gfx/footprints/256.1bpp",        footprint_top
+INCBIN "gfx/footprints/articuno_galarian.1bpp",        footprint_top
 ; 249-256 bottom halves
 INCBIN "gfx/footprints/pupitar.1bpp",    footprint_bottom
 INCBIN "gfx/footprints/tyranitar.1bpp",  footprint_bottom
@@ -584,4 +584,13 @@ INCBIN "gfx/footprints/ho_oh.1bpp",      footprint_bottom
 INCBIN "gfx/footprints/celebi.1bpp",     footprint_bottom
 INCBIN "gfx/footprints/vulpix_alolan.1bpp",     footprint_bottom
 INCBIN "gfx/footprints/ninetales_alolan.1bpp",  footprint_bottom
+INCBIN "gfx/footprints/articuno_galarian.1bpp",        footprint_bottom
+; 257-265 top halves
+INCBIN "gfx/footprints/zapdos_galarian.1bpp",        footprint_top
+INCBIN "gfx/footprints/moltres_galarian.1bpp",        footprint_top
+INCBIN "gfx/footprints/256.1bpp",        footprint_top
+; 257-265 bottom halves
+INCBIN "gfx/footprints/zapdos_galarian.1bpp",        footprint_bottom
+INCBIN "gfx/footprints/moltres_galarian.1bpp",        footprint_bottom
 INCBIN "gfx/footprints/256.1bpp",        footprint_bottom
+

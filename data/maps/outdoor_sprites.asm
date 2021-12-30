@@ -42,6 +42,12 @@ OutdoorSprites:
 	dw MewtwoGroupSprites
 	dw CatalliaGroupSprites
 	dw SeviiOneGroupSprites
+	dw SeviiTwoGroupSprites
+	dw SeviiThreeGroupSprites
+	dw SeviiFourGroupSprites
+	dw SeviiFiveGroupSprites
+	dw SeviiSixGroupSprites
+	dw SeviiSevenGroupSprites
 
 ; Route1 and ViridianCity are connected
 ; Route2 and PewterCity are connected
@@ -353,6 +359,12 @@ DungeonsGroupSprites:
 	db 0 ; end
 
 SeviiOneGroupSprites:
+SeviiTwoGroupSprites:
+SeviiThreeGroupSprites:
+SeviiFourGroupSprites:
+SeviiFiveGroupSprites:
+SeviiSixGroupSprites:
+SeviiSevenGroupSprites:
 FastShipGroupSprites:
 ; OlivinePort, VermilionPort, MountMoonSquare, TinTowerRoof
 	db SPRITE_SAILOR

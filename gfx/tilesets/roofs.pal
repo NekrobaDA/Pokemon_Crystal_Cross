@@ -197,3 +197,33 @@
 	RGB 07,25,31, 00,11,31 ; morn/day
 	RGB 05,13,25, 00,07,21 ; nite
 	RGB 15,23,23, 06,13,23 ; eve
+	
+; group 30 (sevii two)
+	RGB 07,25,31, 00,11,31 ; morn/day
+	RGB 05,13,25, 00,07,21 ; nite
+	RGB 15,23,23, 06,13,23 ; eve
+
+; group 31 (sevii three)
+	RGB 07,25,31, 00,11,31 ; morn/day
+	RGB 05,13,25, 00,07,21 ; nite
+	RGB 15,23,23, 06,13,23 ; eve
+
+; group 32 (sevii four)
+	RGB 23,12,29, 15,07,20 ; morn/day
+	RGB 19,09,27, 11,06,18 ; nite
+	RGB 25,10,27, 17,05,17 ; eve
+
+; group 33 (sevii five)
+	RGB 07,25,31, 00,11,31 ; morn/day
+	RGB 05,13,25, 00,07,21 ; nite
+	RGB 15,23,23, 06,13,23 ; eve
+
+; group 34 (sevii six)
+	RGB 07,25,31, 00,11,31 ; morn/day
+	RGB 05,13,25, 00,07,21 ; nite
+	RGB 15,23,23, 06,13,23 ; eve
+
+; group 35 (sevii seven)
+	RGB 07,25,31, 00,11,31 ; morn/day
+	RGB 05,13,25, 00,07,21 ; nite
+	RGB 15,23,23, 06,13,23 ; eve

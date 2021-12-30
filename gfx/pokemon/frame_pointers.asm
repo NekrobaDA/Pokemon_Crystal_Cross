@@ -254,3 +254,6 @@ FramesPointers:
 	dba CelebiFrames
 	dba Vulpix_AlolanFrames
 	dba Ninetales_AlolanFrames
+	dba Articuno_GalarianFrames
+	dba Zapdos_GalarianFrames
+	dba Moltres_GalarianFrames

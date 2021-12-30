@@ -522,3 +522,9 @@ PokemonPicPointers::
 	dba Vulpix_AlolanBackpic
 	dba Ninetales_AlolanFrontpic
 	dba Ninetales_AlolanBackpic
+	dba Articuno_GalarianFrontpic
+	dba Articuno_GalarianBackpic
+	dba Zapdos_GalarianFrontpic
+	dba Zapdos_GalarianBackpic
+	dba Moltres_GalarianFrontpic
+	dba Moltres_GalarianBackpic

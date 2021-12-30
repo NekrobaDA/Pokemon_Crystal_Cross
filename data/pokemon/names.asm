@@ -258,3 +258,6 @@ PokemonNames::
 	db "CELEBI@@@@"
 	db "VULPIX@@@@"
 	db "NINETALES@"
+	db "ARTICUNO@@"
+	db "ZAPDOS@@@@"
+	db "MOLTRES@@@"

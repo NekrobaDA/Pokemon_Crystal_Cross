@@ -255,3 +255,6 @@ PokedexDataPointerTable:
 	dba CelebiPokedexEntry
 	dba Vulpix_AlolanPokedexEntry
 	dba Ninetales_AlolanPokedexEntry
+	dba Articuno_GalarianPokedexEntry
+	dba Zapdos_GalarianPokedexEntry
+	dba Moltres_GalarianPokedexEntry

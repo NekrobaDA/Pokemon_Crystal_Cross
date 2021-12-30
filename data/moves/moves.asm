@@ -154,7 +154,7 @@ Moves:
 	move BARRAGE,      EFFECT_MULTI_HIT,          15, NORMAL,        85, 20,   0
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          70, BUG,          100, 15,   0
 	move LOVELY_KISS,  EFFECT_SLEEP,               0, NORMAL,        75, 10,   0
-	move SKY_ATTACK,   EFFECT_SKY_ATTACK,        140, FLYING,        90,  5,   0
+	move SKY_ATTACK,   EFFECT_RECOIL_HIT,        120, FLYING,        90,  5,   0
 	move TRANSFORM,    EFFECT_TRANSFORM,           0, NORMAL,       100, 10,   0
 	move BUBBLE,       EFFECT_SPEED_DOWN_HIT,     20, WATER,        100, 30,  10
 	move DIZZY_PUNCH,  EFFECT_CONFUSE_HIT,        70, NORMAL,       100, 10,  20
@@ -174,7 +174,7 @@ Moves:
 	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,       100, 30,   0
 	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         80, NORMAL,       100, 10,  20
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,        90, 10,   0
-	move SLASH,        EFFECT_NORMAL_HIT,         70, NORMAL,       100, 20,   0
+	move SLASH,        EFFECT_NORMAL_HIT,         70, DARK,       100, 20,   0
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,       100, 10,   0
 	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,       100,  1,   0
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,       100,  1,   0
@@ -196,7 +196,7 @@ Moves:
 	move PROTECT,      EFFECT_PROTECT,             0, NORMAL,       100, 10,   0
 	move MACH_PUNCH,   EFFECT_PRIORITY_HIT,       40, FIGHTING,     100, 30,   0
 	move SCARY_FACE,   EFFECT_SPEED_DOWN_2,        0, NORMAL,        90, 10,   0
-	move FAINT_ATTACK, EFFECT_ALWAYS_HIT,         60, DARK,         100, 20,   0
+	move FAINT_ATTACK, EFFECT_ALWAYS_HIT,         70, DARK,         100, 20,   0
 	move SWEET_KISS,   EFFECT_CONFUSE,             0, NORMAL,        75, 10,   0
 	move BELLY_DRUM,   EFFECT_BELLY_DRUM,          0, NORMAL,       100, 10,   0
 	move SLUDGE_BOMB,  EFFECT_POISON_HIT,         90, POISON,       100, 10,  30

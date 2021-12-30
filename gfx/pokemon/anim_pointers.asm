@@ -254,3 +254,6 @@ AnimationPointers:
 	dw CelebiAnimation
 	dw Vulpix_AlolanAnimation
 	dw Ninetales_AlolanAnimation
+	dw Articuno_GalarianAnimation
+	dw Zapdos_GalarianAnimation
+	dw Moltres_GalarianAnimation

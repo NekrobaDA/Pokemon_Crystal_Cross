@@ -9,7 +9,7 @@ OneIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 12,  5, NEW_BARK_TOWN, 4
+	warp_event 12,  5, NEW_BARK_TOWN, 3
 
 	def_coord_events
 

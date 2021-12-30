@@ -194,9 +194,9 @@ CyndaquilPokeBallScript:
 	; good party
 	givepoke DUSERPENT, 100
 	givepoke WEAVILE, 100
-	givepoke RAIKOU, 100
-	givepoke ARTICUNO, 100
-	givepoke GLACEON, 100
+	givepoke ZAPDOS_GALARIAN, 100
+	givepoke ARTICUNO_GALARIAN, 100
+	givepoke MOLTRES_GALARIAN, 100
 	givepoke ENTEI, 100
 	; tms for party
 	giveitem TM_ICE_BEAM

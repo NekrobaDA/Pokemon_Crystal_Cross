@@ -314,6 +314,12 @@ Route14_Blocks:
 	INCBIN "maps/Route14.ablk"
 
 OneIslandMart_Blocks:
+TwoIslandMart_Blocks:
+ThreeIslandMart_Blocks:
+FourIslandMart_Blocks:
+FiveIslandMart_Blocks:
+SixIslandMart_Blocks:
+SevenIslandMart_Blocks:
 CatalliaMart_Blocks:
 OlivineMart_Blocks:
 EcruteakMart_Blocks:
@@ -337,6 +343,12 @@ BetaLakeOfRage_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaLakeOfRage.ablk"
 
 OneIslandPokecenter1F_Blocks:
+TwoIslandPokecenter1F_Blocks:
+ThreeIslandPokecenter1F_Blocks:
+FourIslandPokecenter1F_Blocks:
+FiveIslandPokecenter1F_Blocks:
+SixIslandPokecenter1F_Blocks:
+SevenIslandPokecenter1F_Blocks:
 CatalliaPokecenter1F_Blocks:
 OlivinePokecenter1F_Blocks:
 MahoganyPokecenter1F_Blocks:
@@ -1075,3 +1087,54 @@ KindleRoad_Blocks:
 	
 MtEmber_Blocks:
 	INCBIN "maps/MtEmber.ablk"
+	
+TwoIsland_Blocks:
+	INCBIN "maps/TwoIsland.ablk"
+	
+CapeBrink_Blocks:
+	INCBIN "maps/CapeBrink.ablk"
+	
+ThreeIsland_Blocks:
+	INCBIN "maps/ThreeIsland.ablk"
+	
+BondBridge_Blocks:
+	INCBIN "maps/BondBridge.ablk"
+	
+BerryForest_Blocks:
+	INCBIN "maps/BerryForest.ablk"
+	
+FourIsland_Blocks:
+	INCBIN "maps/FourIsland.ablk"
+	
+IcefallCave_Blocks:
+	INCBIN "maps/IcefallCave.ablk"
+	
+FiveIsland_Blocks:
+	INCBIN "maps/FiveIsland.ablk"
+	
+FiveIsleMeadow_Blocks:
+	INCBIN "maps/FiveIsleMeadow.ablk"
+	
+FiveIsleRocketBase_Blocks:
+	INCBIN "maps/FiveIsleRocketBase.ablk"
+	
+SixIsland_Blocks:
+	INCBIN "maps/SixIsland.ablk"
+	
+WaterPath_Blocks:
+	INCBIN "maps/WaterPath.ablk"
+	
+RuinValley_Blocks:
+	INCBIN "maps/RuinValley.ablk"
+	
+PatternBush_Blocks:
+	INCBIN "maps/PatternBush.ablk"
+	
+SevenIsland_Blocks:
+	INCBIN "maps/SevenIsland.ablk"
+	
+CanyonEntrance_Blocks:
+	INCBIN "maps/CanyonEntrance.ablk"
+	
+SevaultCanyon_Blocks:
+	INCBIN "maps/SevaultCanyon.ablk"

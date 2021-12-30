@@ -540,6 +540,12 @@ INCBIN "gfx/pokemon/vulpix_alolan/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/vulpix_alolan/shiny.pal"
 INCBIN "gfx/pokemon/ninetales_alolan/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/ninetales_alolan/shiny.pal"
+INCBIN "gfx/pokemon/articuno_galarian/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/articuno_galarian/shiny.pal"
+INCBIN "gfx/pokemon/zapdos_galarian/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/zapdos_galarian/shiny.pal"
+INCBIN "gfx/pokemon/moltres_galarian/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/moltres_galarian/shiny.pal"
 
 INCBIN "gfx/pokemon/egg/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/egg/shiny.pal"

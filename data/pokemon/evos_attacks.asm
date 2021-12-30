@@ -2234,6 +2234,7 @@ ArticunoEvosAttacks:
 	db 1, POWDER_SNOW
 	db 13, MIST
 	db 21, AGILITY
+	db 29, ANCIENTPOWER
 	db 35, MIND_READER
 	db 42, BUBBLEBEAM
 	db 54, ICE_BEAM
@@ -2246,7 +2247,8 @@ ZapdosEvosAttacks:
 	db 1, PECK
 	db 1, THUNDERSHOCK
 	db 13, THUNDER_WAVE
-	db 25, AGILITY
+	db 21, AGILITY
+	db 29, ANCIENTPOWER
 	db 37, DETECT
 	db 49, DRILL_PECK
 	db 61, LIGHT_SCREEN
@@ -2258,7 +2260,8 @@ MoltresEvosAttacks:
 	db 1, WING_ATTACK
 	db 1, EMBER
 	db 13, FIRE_SPIN
-	db 25, AGILITY
+	db 21, AGILITY
+	db 29, ANCIENTPOWER
 	db 37, ENDURE
 	db 49, FLAMETHROWER
 	db 61, SAFEGUARD
@@ -3548,5 +3551,47 @@ Ninetales_AlolanEvosAttacks:
 	db 37, ICE_BEAM
 	db 51, SHADOW_BALL
 	db 60, DESTINY_BOND
+	db 0 ; no more level-up moves
+	
+Articuno_GalarianEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, GUST
+	db 1, CONFUSION
+	db 13, REFLECT
+	db 21, AGILITY
+	db 29, ANCIENTPOWER
+	db 35, HYPNOSIS
+	db 42, DREAM_EATER
+	db 54, ICE_BEAM
+	db 61, RECOVER
+	db 73, PSYCHIC_M
+	db 0 ; no more level-up moves
+
+Zapdos_GalarianEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, PECK
+	db 1, DOUBLE_KICK
+	db 13, AGILITY
+	db 21, ANCIENTPOWER
+	db 29, JUMP_KICK
+	db 37, DETECT
+	db 49, DRILL_PECK
+	db 54, THUNDERBOLT
+	db 61, REVERSAL
+	db 73, HI_JUMP_KICK
+	db 0 ; no more level-up moves
+
+Moltres_GalarianEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, GUST
+	db 1, SAFEGUARD
+	db 13, WING_ATTACK
+	db 21, AGILITY
+	db 29, ANCIENTPOWER
+	db 37, FAINT_ATTACK
+	db 49, FLAMETHROWER
+	db 54, BEAT_UP
+	db 61, ENDURE
+	db 73, SKY_ATTACK
 	db 0 ; no more level-up moves
 	

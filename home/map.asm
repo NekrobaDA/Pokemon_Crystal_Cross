@@ -1,3 +1,4 @@
+
 ; Functions dealing with rendering and interacting with maps.
 
 ClearUnusedMapBuffer::
@@ -2330,3 +2331,4 @@ rept 16
 	nop
 endr
 	ret
+	

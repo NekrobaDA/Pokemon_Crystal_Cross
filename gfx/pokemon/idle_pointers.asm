@@ -254,4 +254,7 @@ AnimationIdlePointers:
 	dw CelebiAnimationIdle
 	dw Vulpix_AlolanAnimationIdle
 	dw Ninetales_AlolanAnimationIdle
+	dw Articuno_GalarianAnimationIdle
+	dw Zapdos_GalarianAnimationIdle
+	dw Moltres_GalarianAnimationIdle
 

@@ -256,4 +256,7 @@ EvosAttacksPointers::
 	dw CelebiEvosAttacks
 	dw Vulpix_AlolanEvosAttacks
 	dw Ninetales_AlolanEvosAttacks
+	dw Articuno_GalarianEvosAttacks
+	dw Zapdos_GalarianEvosAttacks
+	dw Moltres_GalarianEvosAttacks
 	

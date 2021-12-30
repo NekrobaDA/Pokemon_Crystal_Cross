@@ -102,6 +102,25 @@ Landmarks:
 	landmark  12, 100, TohjoFallsName
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
+	landmark   0,   0, OneIslandName
+	landmark   0,   0, KindleRoadName
+	landmark   0,   0, MtEmberName
+	landmark   0,   0, TwoIslandName
+	landmark   0,   0, CapeBrinkName
+	landmark   0,   0, ThreeIslandName
+	landmark   0,   0, BondBridgeName
+	landmark   0,   0, BerryForestName
+	landmark   0,   0, FourIslandName
+	landmark   0,   0, IcefallCaveName
+	landmark   0,   0, FiveIslandName
+	landmark   0,   0, FiveIsleMeadowName
+	landmark   0,   0, SixIslandName
+	landmark   0,   0, WaterPathName
+	landmark   0,   0, RuinValleyName
+	landmark   0,   0, PatternBushName
+	landmark   0,   0, SevenIslandName
+	landmark   0,   0, CanyonEntranceName
+	landmark   0,   0, SevaultCanyonName
 
 NewBarkTownName:     db "NEW BARK¯TOWN@"
 CherrygroveCityName: db "CHERRYGROVE¯CITY@"
@@ -205,3 +224,22 @@ TohjoFallsName:      db "TOHJO FALLS@"
 UndergroundName:     db "UNDERGROUND@"
 BattleTowerName:     db "BATTLE¯TOWER@"
 SpecialMapName:      db "SPECIAL@"
+OneIslandName:       db "ONE ISLAND@"
+KindleRoadName:      db "KINDLE ROAD@"
+MtEmberName:         db "MT.EMBER@"
+TwoIslandName:       db "TWO ISLAND@"
+CapeBrinkName:       db "CAPE BRINK@"
+ThreeIslandName:     db "THREE ISLAND@"
+BondBridgeName:      db "BOND BRIDGE@"
+BerryForestName:     db "BERRY FOREST@"
+FourIslandName:      db "FOUR ISLAND@"
+IcefallCaveName:     db "ICEFALL CAVE@"
+FiveIslandName:      db "FIVE ISLAND@"
+FiveIsleMeadowName:  db "FIVE ISLE MEADOW@"
+SixIslandName:       db "SIX ISLAND@"
+WaterPathName:       db "WATER PATH@"
+RuinValleyName:      db "RUIN VALLEY@"
+PatternBushName:     db "PATTERN BUSH@"
+SevenIslandName:     db "SEVEN ISLAND@"
+CanyonEntranceName:  db "CANYON ENTRANCE@"
+SevaultCanyonName:   db "SEVAULT CANYON@"

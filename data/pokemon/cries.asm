@@ -260,3 +260,6 @@ PokemonCries::
 	mon_cry CRY_ENTEI,       330,  273 ; CELEBI
 	mon_cry CRY_VULPIX,       79,  144 ; VULPIX
 	mon_cry CRY_VULPIX,      136,  224 ; NINETALES
+	mon_cry CRY_RAICHU,      128,  192 ; ARTICUNO
+	mon_cry CRY_FEAROW,      255,  256 ; ZAPDOS
+	mon_cry CRY_RAICHU,      248,  192 ; MOLTRES
