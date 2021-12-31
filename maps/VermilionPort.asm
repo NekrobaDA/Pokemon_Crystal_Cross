@@ -85,7 +85,7 @@ VermilionPortSeviiOneAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
-	warpfacing RIGHT, ONE_ISLAND, 10, 21
+	warpfacing RIGHT, ONE_ISLAND, 12, 21
 	end
 	
 VermilionPortSeviiTwoAtGangwayScript:
@@ -299,7 +299,7 @@ VermilionPortWalkUpToShipScript:
 	
 ListSeviiIslands_MenuHeader:
 	db MENU_SPRITE_ANIMS | MENU_BACKUP_TILES ; flags
-	menu_coords 4, 2, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	menu_coords 4, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1 ;, TEXTBOX_Y - 1 SCREEN_HEIGHT - 1
 	dw .MenuData
 	db 1 ; default option
 
@@ -494,8 +494,8 @@ VermilionPortAskRegion:
 WhichIsland:
 	;text "Sail to which island?"
 	;done
-	text "Which"
-	line "island?"
+	text ""
+	line "Which island?"
 	done
 
 VermilionPortSuperNerdText:

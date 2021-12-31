@@ -385,10 +385,10 @@ ENDM
 	connection east, Route47, ROUTE_47, 6
 	
 	map_attributes OneIsland, ONE_ISLAND, $35, EAST
-	connection east, KindleRoad, KINDLE_ROAD, 45
+	connection east, KindleRoad, KINDLE_ROAD, -45
 	
 	map_attributes KindleRoad, KINDLE_ROAD, $05, WEST
-	connection west, OneIsland, ONE_ISLAND, -45
+	connection west, OneIsland, ONE_ISLAND, 45
 	
 	map_attributes TwoIsland, TWO_ISLAND, $05, NORTH
 	connection north, CapeBrink, CAPE_BRINK, 14
@@ -409,24 +409,24 @@ ENDM
 	connection west, FiveIsland, FIVE_ISLAND, 0
 	
 	map_attributes SixIsland, SIX_ISLAND, $35, EAST
-	connection east, WaterPath, WATER_PATH, 21
+	connection east, WaterPath, WATER_PATH, -22
 	
 	map_attributes WaterPath, WATER_PATH, $35, SOUTH | WEST
-	connection south, RuinValley, RUIN_VALLEY, -2
-	connection west, SixIsland, SIX_ISLAND, -21
+	connection south, RuinValley, RUIN_VALLEY, -21
+	connection west, SixIsland, SIX_ISLAND, 22
 	
 	map_attributes RuinValley, RUIN_VALLEY, $71, NORTH
-	connection north, WaterPath, WATER_PATH, 2
+	connection north, WaterPath, WATER_PATH, 21
 	
 	map_attributes SevenIsland, SEVEN_ISLAND, $35, SOUTH
 	connection south, CanyonEntrance, CANYON_ENTRANCE, 1
 	
 	map_attributes CanyonEntrance, CANYON_ENTRANCE, $35, NORTH | EAST
 	connection north, SevenIsland, SEVEN_ISLAND, -1
-	connection east, SevaultCanyon, SEVAULT_CANYON, 4
+	connection east, SevaultCanyon, SEVAULT_CANYON, 8
 	
 	map_attributes SevaultCanyon, SEVAULT_CANYON, $71, WEST
-	connection west, CanyonEntrance, CANYON_ENTRANCE, -4
+	connection west, CanyonEntrance, CANYON_ENTRANCE, -8
 
 	map_attributes Route23, ROUTE_23, $0f, 0
 	map_attributes SproutTower1F, SPROUT_TOWER_1F, $00, 0
@@ -754,6 +754,8 @@ ENDM
 	map_attributes CatalliaPoliceStation, CATALLIA_POLICE_STATION, $00, 0
 	map_attributes CatalliaHouse1, CATALLIA_HOUSE_1, $00, 0
 	map_attributes CatalliaHouse2, CATALLIA_HOUSE_1, $00, 0
+	;map_attributes OneIsland, ONE_ISLAND, $35, 0
+	;map_attributes KindleRoad, KINDLE_ROAD, $05, 0
 	map_attributes OneIslandMart, ONE_ISLAND_MART, $00, 0
 	map_attributes OneIslandPokecenter1F, ONE_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes MtEmber, MT_EMBER, $00, 0
@@ -769,6 +771,7 @@ ENDM
 	map_attributes FiveIslandMart, FIVE_ISLAND_MART, $00, 0
 	map_attributes FiveIslandPokecenter1F, FIVE_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes FiveIsleRocketBase, FIVE_ISLE_ROCKET_BASE, $00, 0
+	;map_attributes SixIsland, SIX_ISLAND, $35, 0
 	map_attributes SixIslandMart, SIX_ISLAND_MART, $00, 0
 	map_attributes SixIslandPokecenter1F, SIX_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes PatternBush, PATTERN_BUSH, $00, 0

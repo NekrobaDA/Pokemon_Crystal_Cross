@@ -22,6 +22,14 @@ SpawnPoints:
 	spawn FUCHSIA_CITY,               19, 28
 	spawn CINNABAR_ISLAND,            11, 12
 	spawn ROUTE_23,                    9,  6
+	
+	spawn ONE_ISLAND,                 12,  6
+	spawn TWO_ISLAND,                 25, 10
+	spawn THREE_ISLAND,               15, 26
+	spawn FOUR_ISLAND,                17, 18
+	spawn FIVE_ISLAND,                17,  6
+	spawn SIX_ISLAND,                 13, 10
+	spawn SEVEN_ISLAND,               13,  6
 
 	spawn NEW_BARK_TOWN,              11, 14
 	spawn CHERRYGROVE_CITY,           29,  4
@@ -37,13 +45,5 @@ SpawnPoints:
 	spawn BLACKTHORN_CITY,            05, 24
 	spawn SILVER_CAVE_OUTSIDE,        23, 20
 	spawn FAST_SHIP_CABINS_SW_SSW_NW,  6,  2
-	
-	spawn ONE_ISLAND,                 12,  6
-	spawn TWO_ISLAND,                 25, 10
-	spawn THREE_ISLAND,               15, 26
-	spawn FOUR_ISLAND,                17, 18
-	spawn FIVE_ISLAND,                17,  6
-	spawn SIX_ISLAND,                 13, 10
-	spawn SEVEN_ISLAND,               13,  6
 
 	spawn N_A,                        -1, -1

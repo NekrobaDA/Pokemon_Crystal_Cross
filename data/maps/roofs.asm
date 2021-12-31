@@ -48,13 +48,13 @@ MapGroupRoofs:
 	db ROOF_NEW_BARK  ; 26 (Cherrygrove)
 	db -1
 	db ROOF_NEW_BARK  ; (catallia)
-	db ROOF_OLIVINE   ; (one isle-)
-	db ROOF_GOLDENROD
-	db ROOF_VIOLET
-	db ROOF_AZALEA
-	db ROOF_GOLDENROD
-	db ROOF_OLIVINE
-	db ROOF_AZALEA    ; (-seven isle)
+	db -1  ; (one isle-)
+	db -1
+	db -1
+	db -1
+	db -1
+	db -1
+	db -1   ; (-seven isle)
 
 Roofs:
 ; entries correspond to ROOF_* constants

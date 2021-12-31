@@ -539,7 +539,7 @@ ENDM
 	
 	newgroup
 	
-	map_const ONE_ISLAND,                                  12, 13
+	map_const ONE_ISLAND,                                  13, 14
 	map_const ONE_ISLAND_MART,                              5,  4 ;  1
 	map_const ONE_ISLAND_POKECENTER_1F,                     5,  4 ;  1
 	map_const KINDLE_ROAD,                                 13, 55

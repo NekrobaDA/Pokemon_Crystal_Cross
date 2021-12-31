@@ -1229,6 +1229,7 @@ Fly:
 	stab
 	damagevariation
 	checkhit
+	effectchance
 	moveanimnosub
 	raisesub
 	failuretext
@@ -1237,6 +1238,7 @@ Fly:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	paralyzetarget
 	kingsrock
 	endmove
 

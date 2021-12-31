@@ -86,6 +86,15 @@ IN_DARKNESS EQU 1 << IN_DARKNESS_F ; masked with a PALETTE_* constant
 	const SPAWN_FUCHSIA
 	const SPAWN_CINNABAR
 	const SPAWN_INDIGO
+	
+	const SPAWN_ONE
+	const SPAWN_TWO
+	const SPAWN_THREE
+	const SPAWN_FOUR
+	const SPAWN_FIVE
+	const SPAWN_SIX
+	const SPAWN_SEVEN
+	
 ; johto
 	const SPAWN_NEW_BARK
 	const SPAWN_CHERRYGROVE
