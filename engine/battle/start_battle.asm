@@ -70,8 +70,10 @@ PlayBattleMusic:
 	and a
 	jr nz, .trainermusic
 
-	farcall RegionCheck
-	ld a, e
+	;farcall RegionCheck
+	;ld a, e
+	;and a
+	call IsInJohto
 	and a
 	jr nz, .kantowild
 

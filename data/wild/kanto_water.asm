@@ -227,6 +227,7 @@ KantoWaterWildMons:
 	dbw 20, GOLDEEN
 	
 	map_id FOUR_ISLAND
+	db 6 percent
 	dbw 15, MARILL
 	dbw 20, PSYDUCK
 	dbw 15, TENTACOOL
