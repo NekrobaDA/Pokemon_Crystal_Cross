@@ -50,3 +50,4 @@ Tilesets::
 	tileset TilesetKanjo
 	tileset TilesetIcePath2
 	tileset TilesetSevii
+	tileset TilesetSeviiForest

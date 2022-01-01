@@ -493,3 +493,17 @@ INCLUDE "data/tilesets/sevii_collision.asm"
 
 TilesetSeviiAttr::
 INCBIN "data/tilesets/sevii_attributes.bin"
+
+SECTION "Tileset Data 14", ROMX
+
+TilesetSeviiForestGFX::
+INCBIN "gfx/tilesets/sevii_forest.2bpp.lz"
+
+TilesetSeviiForestMeta::
+INCBIN "data/tilesets/sevii_forest_metatiles.bin"
+
+TilesetSeviiForestColl::
+INCLUDE "data/tilesets/sevii_forest_collision.asm"
+
+TilesetSeviiForestAttr::
+INCBIN "data/tilesets/sevii_forest_attributes.bin"
