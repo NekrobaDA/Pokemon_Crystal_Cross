@@ -33,14 +33,23 @@ LoadWildMonData:
 	
 GetTimeOfDayNotEve:
 	ld a, [wTimeOfDay]
-	cp DAY_F
+	cp DAY_F    ;if day, load morning encounters
 	jr z, .day
-	cp MORN_F
+	cp EVE_F
+	jr z, .eve  ;load encounters from both day and nite
+	cp MORN_F   ;if morning, is fine
 	ret z
-	ld a, DAY_F
+	ld a, DAY_F  ;else load 'day' as day is now nite encounters
 	ret
 .day
 	ld a, MORN_F
+	ret
+.eve
+	call Random
+	cp 40 percent
+	ld a, MORN_F
+	ret c
+	inc a
 	ret
 
 FindNest:
@@ -1287,5 +1296,3 @@ INCLUDE "data/wild/kanto_grass.asm"
 INCLUDE "data/wild/kanto_water.asm"
 INCLUDE "data/wild/swarm_grass.asm"
 INCLUDE "data/wild/swarm_water.asm"
-INCLUDE "data/wild/sevii_grass.asm"
-INCLUDE "data/wild/sevii_water.asm"

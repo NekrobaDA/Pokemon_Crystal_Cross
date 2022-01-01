@@ -177,6 +177,13 @@ KantoWaterWildMons:
 	dbw 35, KABUTO
 	dbw 35, OMANYTE
 	
+	map_id ONE_ISLAND
+	db 6 percent ; encounter rate
+	dbw 15, TENTACOOL
+	dbw 20, TENTACRUEL
+	dbw 15, HORSEA
+	dbw 20, TENTACOOL
+	
 	map_id KINDLE_ROAD
 	db 6 percent ; encounter rate
 	dbw 15, TENTACOOL
@@ -184,12 +191,26 @@ KantoWaterWildMons:
 	dbw 15, HORSEA
 	dbw 20, PSYDUCK
 	
+	map_id TWO_ISLAND
+	db 6 percent ; encounter rate
+	dbw 15, TENTACOOL
+	dbw 20, TENTACRUEL
+	dbw 15, HORSEA
+	dbw 20, TENTACOOL
+	
 	map_id CAPE_BRINK
 	db 6 percent ; encounter rate
 	dbw 15, PSYDUCK
 	dbw 20, SLOWPOKE
 	dbw 15, POLIWAG
 	dbw 20, GOLDUCK
+	
+	map_id THREE_ISLAND
+	db 6 percent ; encounter rate
+	dbw 15, TENTACOOL
+	dbw 20, TENTACRUEL
+	dbw 15, HORSEA
+	dbw 20, TENTACOOL
 	
 	map_id BOND_BRIDGE
 	db 6 percent ; encounter rate
@@ -205,12 +226,39 @@ KantoWaterWildMons:
 	dbw 15, POLIWAG
 	dbw 20, GOLDEEN
 	
+	map_id FOUR_ISLAND
+	dbw 15, MARILL
+	dbw 20, PSYDUCK
+	dbw 15, TENTACOOL
+	dbw 20, SLOWPOKE
+	
 	map_id ICEFALL_CAVE
 	db 6 percent ; encounter rate
 	dbw 15, SEEL
 	dbw 20, SEEL ;kurusu
 	dbw 15, SHELLDER
 	dbw 35, DEWGONG
+	
+	map_id FIVE_ISLAND
+	db 6 percent ; encounter rate
+	dbw 15, TENTACOOL
+	dbw 20, TENTACRUEL
+	dbw 15, TENTACOOL
+	dbw 20, MANTINE
+	
+	map_id FIVE_ISLE_MEADOW
+	db 6 percent ; encounter rate
+	dbw 15, TENTACOOL
+	dbw 20, MANTINE
+	dbw 15, HOPPIP
+	dbw 20, TENTACRUEL
+	
+	map_id SIX_ISLAND
+	db 6 percent ; encounter rate
+	dbw 15, HORSEA
+	dbw 20, TENTACRUEL
+	dbw 15, TENTACOOL
+	dbw 20, QWILFISH
 	
 	map_id WATER_PATH
 	db 6 percent ; encounter rate
@@ -225,5 +273,19 @@ KantoWaterWildMons:
 	dbw 20, MARILL
 	dbw 15, WOOPER
 	dbw 20, QUAGSIRE
+	
+	map_id SEVEN_ISLAND
+	db 6 percent ; encounter rate
+	dbw 15, TENTACOOL
+	dbw 20, TENTACRUEL
+	dbw 15, KRABBY
+	dbw 20, MANTINE
+	
+	map_id SEVAULT_CANYON
+	db 6 percent ; encounter rate
+	dbw 15, TENTACOOL
+	dbw 20, MANTINE
+	dbw 15, HORSEA
+	dbw 20, TENTACRUEL
 
 	db -1 ; end

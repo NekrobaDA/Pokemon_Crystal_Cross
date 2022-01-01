@@ -754,8 +754,6 @@ ENDM
 	map_attributes CatalliaPoliceStation, CATALLIA_POLICE_STATION, $00, 0
 	map_attributes CatalliaHouse1, CATALLIA_HOUSE_1, $00, 0
 	map_attributes CatalliaHouse2, CATALLIA_HOUSE_1, $00, 0
-	;map_attributes OneIsland, ONE_ISLAND, $35, 0
-	;map_attributes KindleRoad, KINDLE_ROAD, $05, 0
 	map_attributes OneIslandMart, ONE_ISLAND_MART, $00, 0
 	map_attributes OneIslandPokecenter1F, ONE_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes MtEmber, MT_EMBER, $00, 0
@@ -771,7 +769,6 @@ ENDM
 	map_attributes FiveIslandMart, FIVE_ISLAND_MART, $00, 0
 	map_attributes FiveIslandPokecenter1F, FIVE_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes FiveIsleRocketBase, FIVE_ISLE_ROCKET_BASE, $00, 0
-	;map_attributes SixIsland, SIX_ISLAND, $35, 0
 	map_attributes SixIslandMart, SIX_ISLAND_MART, $00, 0
 	map_attributes SixIslandPokecenter1F, SIX_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes PatternBush, PATTERN_BUSH, $00, 0
