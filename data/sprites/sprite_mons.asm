@@ -1,5 +1,8 @@
 SpriteMons:
 ; entries correspond to SPRITE_* dw ants past SPRITE_POKEMON
+	;dw ARTICUNOG
+	dw ZAPDOS
+	;dw MOLTRESG
 	dw SPINARAK
 	dw ONIX ; 67
 	dw MILTANK ; 68

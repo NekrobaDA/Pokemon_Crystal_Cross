@@ -115,6 +115,9 @@
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
 	const_next $74
 SPRITE_POKEMON EQU const_value
+	;const SPRITE_ARTICUNOG
+	const SPRITE_ZAPDOS
+	;const SPRITE_MOLTRESG
 	const SPRITE_SPINARAK
 	const SPRITE_ONIX ; 67
 	const SPRITE_MILTANK ; 68

@@ -376,6 +376,7 @@ FastShipGroupSprites:
 	db SPRITE_HO_OH
 	db SPRITE_FAIRY
 	db SPRITE_ROCK
+	db SPRITE_ZAPDOS
 	db 0 ; end
 
 CableClubGroupSprites:
