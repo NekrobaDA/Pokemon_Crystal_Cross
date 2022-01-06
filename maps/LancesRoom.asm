@@ -63,6 +63,13 @@ LancesRoomLanceScript:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHAMPION_LANCE
 	setevent EVENT_FALKNER_REMATCH_ACTIVE
+	setevent EVENT_BUGSY_REMATCH_ACTIVE
+	setevent EVENT_WHITNEY_REMATCH_ACTIVE
+	setevent EVENT_MORTY_REMATCH_ACTIVE
+	setevent EVENT_JASMINE_REMATCH_ACTIVE
+	setevent EVENT_CHUCK_REMATCH_ACTIVE
+	setevent EVENT_PRYCE_REMATCH_ACTIVE
+	setevent EVENT_CLAIR_REMATCH_ACTIVE
 	opentext
 	writetext LanceBattleAfterText
 	waitbutton

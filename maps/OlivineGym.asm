@@ -10,6 +10,8 @@ OlivineGym_MapScripts:
 OlivineGymJasmineScript:
 	faceplayer
 	opentext
+	checkevent EVENT_JASMINE_REMATCH_ACTIVE
+	iftrue .Rematch
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
 	writetext Jasmine_SteelTypeIntro
@@ -46,6 +48,43 @@ OlivineGymJasmineScript:
 .NoRoomForIronTail:
 	closetext
 	end
+	
+.Rematch:
+	checkflag ENGINE_BEAT_JASMINE
+	iftrue .Finished
+	writetext Jasmine2IntroText
+	waitbutton
+	closetext
+	winlosstext Jasmine2WinLossText, 0
+	loadtrainer JASMINE, JASMINE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_BEAT_JASMINE
+.Finished
+	opentext
+	writetext Jasmine2FightDoneText
+	waitbutton
+	closetext
+	end
+	
+Jasmine2IntroText:
+	text "I've been waiting"
+	line "for you! Me and"
+
+	para "my steel #MON"
+	line "are ready for you"
+	cont "this time."
+	done
+	
+Jasmine2WinLossText:
+	text "…Darn! I have"
+	line "failed again."
+	done
+	
+Jasmine2FightDoneText:
+	text "Let's battle"
+	line "again sometime."
+	done
 
 OlivineGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

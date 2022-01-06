@@ -15,6 +15,8 @@ MahoganyGym_MapScripts:
 MahoganyGymPryceScript:
 	faceplayer
 	opentext
+	checkevent EVENT_PRYCE_REMATCH_ACTIVE
+	iftrue .Rematch
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
 	writetext PryceText_Intro
@@ -49,6 +51,24 @@ MahoganyGymPryceScript:
 	waitbutton
 	closetext
 	end
+	
+.Rematch:
+	checkflag ENGINE_BEAT_PRYCE
+	iftrue .Finished
+	writetext Pryce2IntroText
+	waitbutton
+	closetext
+	winlosstext Pryce2WinLossText, 0
+	loadtrainer PRYCE, PRYCE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_BEAT_PRYCE
+.Finished
+	opentext
+	writetext Pryce2FightDoneText
+	waitbutton
+	closetext
+	end
 
 PryceScript_Defeat:
 	writetext PryceText_CherishYourPokemon
@@ -56,6 +76,25 @@ PryceScript_Defeat:
 MahoganyGym_NoRoomForIcyWind:
 	closetext
 	end
+	
+Pryce2IntroText:
+	text "I've been waiting"
+	line "for you! Me and"
+
+	para "my ice #MON"
+	line "are ready for you"
+	cont "this time."
+	done
+	
+Pryce2WinLossText:
+	text "…Darn! I have"
+	line "failed again."
+	done
+	
+Pryce2FightDoneText:
+	text "Let's battle"
+	line "again sometime."
+	done
 
 MahoganyGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

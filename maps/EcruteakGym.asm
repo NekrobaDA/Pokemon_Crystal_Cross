@@ -24,6 +24,8 @@ EcruteakGym_MapScripts:
 EcruteakGymMortyScript:
 	faceplayer
 	opentext
+	checkevent EVENT_MORTY_REMATCH_ACTIVE
+	iftrue .Rematch
 	checkevent EVENT_BEAT_MORTY
 	iftrue .FightDone
 	writetext MortyIntroText
@@ -67,6 +69,43 @@ EcruteakGymMortyScript:
 .NoRoomForShadowBall:
 	closetext
 	end
+	
+.Rematch:
+	checkflag ENGINE_BEAT_MORTY
+	iftrue .Finished
+	writetext Morty2IntroText
+	waitbutton
+	closetext
+	winlosstext Morty2WinLossText, 0
+	loadtrainer MORTY, MORTY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_BEAT_MORTY
+.Finished
+	opentext
+	writetext Morty2FightDoneText
+	waitbutton
+	closetext
+	end
+	
+Morty2IntroText:
+	text "I've been waiting"
+	line "for you! Me and"
+
+	para "my ghost #MON"
+	line "are ready for you"
+	cont "this time."
+	done
+	
+Morty2WinLossText:
+	text "…Darn! I have"
+	line "failed again."
+	done
+	
+Morty2FightDoneText:
+	text "Let's battle"
+	line "again sometime."
+	done
 
 EcruteakGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

@@ -29,6 +29,8 @@ BlackthornGym1F_MapScripts:
 BlackthornGymClairScript:
 	faceplayer
 	opentext
+	checkevent EVENT_CLAIR_REMATCH_ACTIVE
+	iftrue .Rematch
 	checkflag ENGINE_RISINGBADGE
 	iftrue .AlreadyGotBadge
 	checkevent EVENT_BEAT_CLAIR
@@ -89,6 +91,43 @@ BlackthornGymClairScript:
 	waitbutton
 	closetext
 	end
+	
+.Rematch:
+	checkflag ENGINE_BEAT_CLAIR
+	iftrue .Finished
+	writetext Clair2IntroText
+	waitbutton
+	closetext
+	winlosstext Clair2WinLossText, 0
+	loadtrainer CLAIR, CLAIR2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_BEAT_CLAIR
+.Finished
+	opentext
+	writetext Clair2FightDoneText
+	waitbutton
+	closetext
+	end
+	
+Clair2IntroText:
+	text "I've been waiting"
+	line "for you! Me and"
+
+	para "my dragon #MON"
+	line "are ready for you"
+	cont "this time."
+	done
+	
+Clair2WinLossText:
+	text "…Darn! I have"
+	line "failed again."
+	done
+	
+Clair2FightDoneText:
+	text "Let's battle"
+	line "again sometime."
+	done
 
 TrainerCooltrainermPaul:
 	trainer COOLTRAINERM, PAUL, EVENT_BEAT_COOLTRAINERM_PAUL, CooltrainermPaulSeenText, CooltrainermPaulBeatenText, 0, .Script

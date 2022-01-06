@@ -21,6 +21,8 @@ GoldenrodGym_MapScripts:
 
 GoldenrodGymWhitneyScript:
 	faceplayer
+	checkevent EVENT_WHITNEY_REMATCH_ACTIVE
+	iftrue .Rematch
 	checkevent EVENT_BEAT_WHITNEY
 	iftrue .FightDone
 	opentext
@@ -78,6 +80,44 @@ GoldenrodGymWhitneyScript:
 .NoRoomForAttract:
 	closetext
 	end
+	
+.Rematch:
+	opentext
+	checkflag ENGINE_BEAT_WHITNEY
+	iftrue .Finished
+	writetext Whitney2IntroText
+	waitbutton
+	closetext
+	winlosstext Whitney2WinLossText, 0
+	loadtrainer WHITNEY, WHITNEY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_BEAT_WHITNEY
+.Finished
+	opentext
+	writetext Whitney2FightDoneText
+	waitbutton
+	closetext
+	end
+	
+Whitney2IntroText:
+	text "I've been waiting"
+	line "for you! Me and"
+
+	para "my cute #MON"
+	line "are ready for you"
+	cont "this time."
+	done
+	
+Whitney2WinLossText:
+	text "…Darn! I have"
+	line "failed again."
+	done
+	
+Whitney2FightDoneText:
+	text "Let's battle"
+	line "again sometime."
+	done
 
 GoldenrodGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

@@ -17,6 +17,8 @@ CianwoodGym_MapScripts:
 CianwoodGymChuckScript:
 	faceplayer
 	opentext
+	checkevent EVENT_CHUCK_REMATCH_ACTIVE
+	iftrue .Rematch
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
 	writetext ChuckIntroText1
@@ -72,6 +74,43 @@ CianwoodGymChuckScript:
 .BagFull:
 	closetext
 	end
+	
+.Rematch:
+	checkflag ENGINE_BEAT_CHUCK
+	iftrue .Finished
+	writetext Chuck2IntroText
+	waitbutton
+	closetext
+	winlosstext Chuck2WinLossText, 0
+	loadtrainer CHUCK, CHUCK2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_BEAT_CHUCK
+.Finished
+	opentext
+	writetext Chuck2FightDoneText
+	waitbutton
+	closetext
+	end
+	
+Chuck2IntroText:
+	text "I've been waiting"
+	line "for you! Me and"
+
+	para "my buff #MON"
+	line "are ready for you"
+	cont "this time."
+	done
+	
+Chuck2WinLossText:
+	text "…Darn! I have"
+	line "failed again."
+	done
+	
+Chuck2FightDoneText:
+	text "Let's battle"
+	line "again sometime."
+	done
 
 CianwoodGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

@@ -3033,6 +3033,7 @@ wDailyFlags1:: db
 wDailyFlags2:: db
 wDailyFlags3:: db
 wDailyFlags4:: db
+wDailyFlags5:: db
 wSwarmFlags:: db
 
 wTimerEventStartDay:: db

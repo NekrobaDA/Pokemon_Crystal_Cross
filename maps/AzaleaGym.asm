@@ -15,6 +15,8 @@ AzaleaGym_MapScripts:
 AzaleaGymBugsyScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BUGSY_REMATCH_ACTIVE
+	iftrue .Rematch
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .FightDone
 	writetext BugsyText_INeverLose
@@ -55,6 +57,43 @@ AzaleaGymBugsyScript:
 .NoRoomForFuryCutter:
 	closetext
 	end
+	
+.Rematch:
+	checkflag ENGINE_BEAT_BUGSY
+	iftrue .Finished
+	writetext Bugsy2IntroText
+	waitbutton
+	closetext
+	winlosstext Bugsy2WinLossText, 0
+	loadtrainer BUGSY, BUGSY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_BEAT_BUGSY
+.Finished
+	opentext
+	writetext Bugsy2FightDoneText
+	waitbutton
+	closetext
+	end
+	
+Bugsy2IntroText:
+	text "I've been waiting"
+	line "for you! Me and"
+
+	para "my bug #MON"
+	line "are ready for you"
+	cont "this time."
+	done
+	
+Bugsy2WinLossText:
+	text "…Darn! I have"
+	line "failed again."
+	done
+	
+Bugsy2FightDoneText:
+	text "Let's battle"
+	line "again sometime."
+	done
 
 AzaleaGymActivateRockets:
 	ifequal 7, .RadioTowerRockets

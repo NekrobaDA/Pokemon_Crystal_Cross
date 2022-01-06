@@ -137,6 +137,14 @@ EngineFlags:
 	engine_flag wDailyFlags4, DAILYFLAGS4_SATURDAY_LICKITUNG_F
 	engine_flag wDailyFlags4, DAILYFLAGS4_SATURDAY_EEVEE_F
 	engine_flag wDailyFlags4, DAILYFLAGS4_BEAT_FALKNER_F
+	engine_flag wDailyFlags4, DAILYFLAGS4_BEAT_BUGSY_F
+	engine_flag wDailyFlags4, DAILYFLAGS4_BEAT_WHITNEY_F
+	
+	engine_flag wDailyFlags5, DAILYFLAGS5_BEAT_MORTY_F
+	engine_flag wDailyFlags5, DAILYFLAGS5_BEAT_JASMINE_F
+	engine_flag wDailyFlags5, DAILYFLAGS5_BEAT_CHUCK_F
+	engine_flag wDailyFlags5, DAILYFLAGS5_BEAT_PRYCE_F
+	engine_flag wDailyFlags5, DAILYFLAGS5_BEAT_CLAIR_F
 
 	engine_flag wSwarmFlags, SWARMFLAGS_BUENAS_PASSWORD_F
 	engine_flag wSwarmFlags, SWARMFLAGS_GOLDENROD_DEPT_STORE_SALE_F
