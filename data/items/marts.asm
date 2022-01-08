@@ -13,6 +13,17 @@ Marts:
 	dw MartGoldenrod5F2
 	dw MartGoldenrod5F3
 	dw MartGoldenrod5F4
+	dw MartGoldenrod5F5
+	dw MartGoldenrod5F6
+	dw MartGoldenrod5F7
+	dw MartGoldenrod5F8
+	dw MartGoldenrod5F9
+	dw MartGoldenrod5F10
+	dw MartGoldenrod5F11
+	dw MartGoldenrod5F12
+	dw MartGoldenrod5F13
+	dw MartGoldenrod5F14
+	dw MartGoldenrod5F15
 	dw MartOlivine
 	dw MartEcruteak
 	dw MartMahogany1
@@ -172,6 +183,107 @@ MartGoldenrod5F4:
 	db TM_HEADBUTT
 	db TM_ROCK_SMASH
 	db -1 ; end
+	
+MartGoldenrod5F5:
+	db 2
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db -1
+
+MartGoldenrod5F6:
+	db 3
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db -1
+	
+MartGoldenrod5F7:
+	db 4
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db -1
+	
+MartGoldenrod5F8:
+	db 5
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db TM_DYNAMICPUNCH
+	db -1
+	
+MartGoldenrod5F9:
+	db 5
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db TM_IRON_TAIL
+	db -1
+	
+MartGoldenrod5F10:
+	db 5
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db TM_ICY_WIND
+	db -1
+	
+MartGoldenrod5F11:
+	db 6
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db TM_DYNAMICPUNCH
+	db TM_ICY_WIND
+	db -1
+	
+MartGoldenrod5F12:
+	db 6
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db TM_DYNAMICPUNCH
+	db TM_IRON_TAIL
+	db -1
+	
+MartGoldenrod5F13:
+	db 7
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db TM_DYNAMICPUNCH
+	db TM_IRON_TAIL
+	db TM_ICY_WIND
+	db -1
+	
+MartGoldenrod5F14:
+	db 6
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db TM_IRON_TAIL
+	db TM_ICY_WIND
+	db -1
+	
+MartGoldenrod5F15:
+	db 8
+	db TM_MUD_SLAP
+	db TM_FURY_CUTTER
+	db TM_ATTRACT
+	db TM_SHADOW_BALL
+	db TM_DYNAMICPUNCH
+	db TM_IRON_TAIL
+	db TM_ICY_WIND
+	db TM_DRAGONBREATH
+	db -1
 
 MartOlivine:
 	db 9 ; # items

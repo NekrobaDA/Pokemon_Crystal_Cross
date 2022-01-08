@@ -7,6 +7,7 @@
 	const GOLDENRODDEPTSTOREROOF_POKEFAN_M
 	const GOLDENRODDEPTSTOREROOF_TEACHER
 	const GOLDENRODDEPTSTOREROOF_BUG_CATCHER
+	const GOLDENRODDEPTSTORE5F_RECEPTIONIST
 
 GoldenrodDeptStoreRoof_MapScripts:
 	def_scene_scripts
@@ -14,6 +15,17 @@ GoldenrodDeptStoreRoof_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_TILES, .CheckSaleChangeBlock
 	callback MAPCALLBACK_OBJECTS, .CheckSaleChangeClerk
+	callback MAPCALLBACK_OBJECTS, .CheckIfSunday
+
+.CheckIfSunday:
+	readvar VAR_WEEKDAY
+	ifequal SUNDAY, .yes
+	disappear GOLDENRODDEPTSTORE5F_RECEPTIONIST
+	endcallback
+
+.yes
+	appear GOLDENRODDEPTSTORE5F_RECEPTIONIST
+	endcallback
 
 .CheckSaleChangeBlock:
 	checkflag ENGINE_GOLDENROD_DEPT_STORE_SALE_IS_ON
@@ -40,6 +52,51 @@ GoldenrodDeptStoreRoof_MapScripts:
 GoldenrodDeptStoreRoofClerkScript:
 	opentext
 	pokemart MARTTYPE_ROOFTOP, 0
+	closetext
+	end
+	
+GoldenrodDeptStore5FReceptionistScript:
+	faceplayer
+	opentext
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, .EventIsOver
+	checkflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
+	iftrue .EventIsOver
+	special GetFirstPokemonHappiness
+	writetext GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText
+	promptbutton
+	ifgreater 150 - 1, .VeryHappy
+	ifgreater 50 - 1, .SomewhatHappy
+	sjump .NotVeryHappy
+
+.VeryHappy:
+	writetext GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText
+	promptbutton
+	verbosegiveitem TM_RETURN
+	iffalse .Done
+	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
+	closetext
+	end
+
+.SomewhatHappy:
+	writetext GoldenrodDeptStore5FReceptionistItsAdorableText
+	waitbutton
+	closetext
+	end
+
+.NotVeryHappy:
+	writetext GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText
+	promptbutton
+	verbosegiveitem TM_FRUSTRATION
+	iffalse .Done
+	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
+	closetext
+	end
+
+.EventIsOver:
+	writetext GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText
+	waitbutton
+.Done:
 	closetext
 	end
 
@@ -91,6 +148,41 @@ Binoculars3:
 
 PokeDollVendingMachine:
 	jumptext PokeDollVendingMachineText
+	
+GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText:
+	text "Hello. Oh, your"
+	line "#MON…"
+	done
+
+GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText:
+	text "It's very attached"
+	line "to you."
+
+	para "This move should"
+	line "be perfect for a"
+	cont "pair like you."
+	done
+
+GoldenrodDeptStore5FReceptionistItsAdorableText:
+	text "It's adorable!"
+
+	para "You should teach"
+	line "it good TM moves."
+	done
+
+GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText:
+	text "It looks evil. How"
+	line "about this TM for"
+	cont "it?"
+	done
+
+GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText:
+	text "There are sure to"
+	line "be TMs that are"
+
+	para "just perfect for"
+	line "your #MON."
+	done
 
 GoldenrodDeptStoreRoofPokefanFText:
 	text "Whew, I'm tired."
@@ -232,3 +324,4 @@ GoldenrodDeptStoreRoof_MapEvents:
 	object_event  7,  0, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofPokefanMScript, EVENT_GOLDENROD_SALE_OFF
 	object_event  5,  3, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofTeacherScript, EVENT_GOLDENROD_SALE_OFF
 	object_event  1,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofBugCatcherScript, EVENT_GOLDENROD_SALE_OFF
+	object_event 12,  1, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore5FReceptionistScript, EVENT_GOLDENROD_DEPT_STORE_5F_HAPPINESS_EVENT_LADY

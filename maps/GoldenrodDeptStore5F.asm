@@ -1,26 +1,103 @@
 	object_const_def
 	const GOLDENRODDEPTSTORE5F_CLERK
+	const GOLDENRODDEPTSTORE5F_CLERK2
 	const GOLDENRODDEPTSTORE5F_LASS
 	const GOLDENRODDEPTSTORE5F_MIKE
 	const GOLDENRODDEPTSTORE5F_POKEFAN_M
 	const GOLDENRODDEPTSTORE5F_CARRIE
-	const GOLDENRODDEPTSTORE5F_RECEPTIONIST
 
 GoldenrodDeptStore5F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .CheckIfSunday
+	
+GoldenrodDeptStore5FClerk2Script:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_CLAIR
+	iftrue .dragonbreath
+	checkevent EVENT_BEAT_WHITNEY
+	iftrue .checkmorty
+	sjump .default
+	
+.checkmorty
+	checkevent EVENT_BEAT_MORTY
+	iftrue .checkchuck
+	sjump .attract
+	
+.checkchuck
+	checkevent EVENT_BEAT_CHUCK
+	iftrue .check1
+.jasmine
+	checkevent EVENT_BEAT_JASMINE
+	iftrue .check2
+.pryce1
+	checkevent EVENT_BEAT_PRYCE
+	iftrue .icywind
+	sjump .shadowball
 
-.CheckIfSunday:
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .yes
-	disappear GOLDENRODDEPTSTORE5F_RECEPTIONIST
-	endcallback
+.check1
+	checkevent EVENT_BEAT_JASMINE
+	iftrue .beatjasmine
+	checkevent EVENT_BEAT_PRYCE
+	iftrue .pryceonly
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_8 ;dynamicpunch only
+	closetext
+	end
+	
+.pryceonly
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_11 ; dynamicpunch icy wind
+	closetext
+	end
 
-.yes
-	appear GOLDENRODDEPTSTORE5F_RECEPTIONIST
-	endcallback
+.beatjasmine
+	checkevent EVENT_BEAT_PRYCE
+	iftrue .beatjasminepryce
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_12 ;dynamicpunch iron tail
+	closetext
+	end
+	
+.beatjasminepryce
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_13 ; dynamicpunch iron tail icy wind
+	closetext
+	end
+
+.check2
+	checkevent EVENT_BEAT_PRYCE
+	iftrue .pryce
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_9 ;iron tail only
+	closetext
+	end
+	
+.pryce
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_14 ; iron tail icy wind
+	closetext
+	end
+	
+.icywind
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_10 ;only icy wind
+	closetext
+	end
+	
+.attract
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_6
+	closetext
+	end
+	
+.shadowball
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_7
+	closetext
+	end
+	
+.dragonbreath
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_15
+	closetext
+	end
+	
+.default
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_5
+	closetext
+	end
 
 GoldenrodDeptStore5FClerkScript:
 	faceplayer
@@ -53,51 +130,6 @@ GoldenrodDeptStore5FClerkScript:
 
 .both
 	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_4
-	closetext
-	end
-
-GoldenrodDeptStore5FReceptionistScript:
-	faceplayer
-	opentext
-	readvar VAR_WEEKDAY
-	ifnotequal SUNDAY, .EventIsOver
-	checkflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
-	iftrue .EventIsOver
-	special GetFirstPokemonHappiness
-	writetext GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText
-	promptbutton
-	ifgreater 150 - 1, .VeryHappy
-	ifgreater 50 - 1, .SomewhatHappy
-	sjump .NotVeryHappy
-
-.VeryHappy:
-	writetext GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText
-	promptbutton
-	verbosegiveitem TM_RETURN
-	iffalse .Done
-	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
-	closetext
-	end
-
-.SomewhatHappy:
-	writetext GoldenrodDeptStore5FReceptionistItsAdorableText
-	waitbutton
-	closetext
-	end
-
-.NotVeryHappy:
-	writetext GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText
-	promptbutton
-	verbosegiveitem TM_FRUSTRATION
-	iffalse .Done
-	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
-	closetext
-	end
-
-.EventIsOver:
-	writetext GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText
-	waitbutton
-.Done:
 	closetext
 	end
 
@@ -137,41 +169,6 @@ GoldenrodDeptStore5FDirectory:
 
 GoldenrodDeptStore5FElevatorButton:
 	jumpstd ElevatorButtonScript
-
-GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText:
-	text "Hello. Oh, your"
-	line "#MON…"
-	done
-
-GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText:
-	text "It's very attached"
-	line "to you."
-
-	para "This move should"
-	line "be perfect for a"
-	cont "pair like you."
-	done
-
-GoldenrodDeptStore5FReceptionistItsAdorableText:
-	text "It's adorable!"
-
-	para "You should teach"
-	line "it good TM moves."
-	done
-
-GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText:
-	text "It looks evil. How"
-	line "about this TM for"
-	cont "it?"
-	done
-
-GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText:
-	text "There are sure to"
-	line "be TMs that are"
-
-	para "just perfect for"
-	line "your #MON."
-	done
 
 GoldenrodDeptStore5FCarrieMysteryGiftExplanationText:
 	text "MYSTERY GIFT."
@@ -231,8 +228,8 @@ GoldenrodDeptStore5F_MapEvents:
 
 	def_object_events
 	object_event  8,  5, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore5FClerkScript, -1
+	object_event  7,  5, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore5FClerk2Script, -1
 	object_event  3,  6, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore5FLassScript, -1
 	object_event  6,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Mike, -1
 	object_event 13,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore5FPokefanMScript, -1
 	object_event  9,  1, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Carrie, -1
-	object_event  7,  5, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore5FReceptionistScript, EVENT_GOLDENROD_DEPT_STORE_5F_HAPPINESS_EVENT_LADY

@@ -717,7 +717,7 @@ JohtoGrassWildMons4Badge:
 	dbw 21, RATICATE
 
 	map_id ROUTE_33
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 12, RATTATA
 	dbw 15, SPEAROW
