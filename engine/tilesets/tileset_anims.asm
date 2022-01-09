@@ -76,6 +76,7 @@ TilesetForestAnim:
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
+TilesetCherrygroveAnim:
 TilesetSeviiAnim:
 TilesetKanjoAnim:
 TilesetJohtoAnim:

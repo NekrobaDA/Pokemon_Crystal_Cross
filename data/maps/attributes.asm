@@ -101,8 +101,8 @@ ENDM
 	connection east, Route27, ROUTE_27, 0
 
 	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $35, NORTH | EAST
-	connection north, Route30, ROUTE_30, 5
-	connection east, Route29, ROUTE_29, -1
+	connection north, Route30, ROUTE_30, 6
+	connection east, Route29, ROUTE_29, 0
 
 	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST | EAST
 	connection south, Route32, ROUTE_32, 0
@@ -156,13 +156,13 @@ ENDM
 
 	map_attributes Route29, ROUTE_29, $05, NORTH | WEST | EAST
 	connection north, Route47, ROUTE_47, -1
-	connection west, CherrygroveCity, CHERRYGROVE_CITY, 1
+	connection west, CherrygroveCity, CHERRYGROVE_CITY, 0
 	connection east, NewBarkTown, NEW_BARK_TOWN, 1
 	
 
 	map_attributes Route30, ROUTE_30, $05, NORTH | SOUTH | EAST
 	connection north, Route31, ROUTE_31, -10
-	connection south, CherrygroveCity, CHERRYGROVE_CITY, -5
+	connection south, CherrygroveCity, CHERRYGROVE_CITY, -6
 	connection east, CatalliaTown, CATALLIA_TOWN, 1
 
 	map_attributes Route31, ROUTE_31, $05, SOUTH | WEST

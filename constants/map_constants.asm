@@ -513,7 +513,7 @@ ENDM
 
 	map_const ROUTE_30,                                    11, 27 ;  1
 	map_const ROUTE_31,                                    20,  9 ;  2
-	map_const CHERRYGROVE_CITY,                            21, 21 ;  3
+	map_const CHERRYGROVE_CITY,                            22, 22 ;  3
 	map_const CHERRYGROVE_MART,                             6,  4 ;  4
 	map_const CHERRYGROVE_POKECENTER_1F,                    5,  4 ;  5
 	map_const CHERRYGROVE_GYM_SPEECH_HOUSE,                 4,  4 ;  6

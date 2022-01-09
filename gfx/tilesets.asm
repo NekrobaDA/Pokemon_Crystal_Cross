@@ -507,3 +507,17 @@ INCLUDE "data/tilesets/sevii_forest_collision.asm"
 
 TilesetSeviiForestAttr::
 INCBIN "data/tilesets/sevii_forest_attributes.bin"
+
+SECTION "Tileset Data 15", ROMX
+
+TilesetCherrygroveGFX::
+INCBIN "gfx/tilesets/cherrygrove.2bpp.lz"
+
+TilesetCherrygroveMeta::
+INCBIN "data/tilesets/cherrygrove_metatiles.bin"
+
+TilesetCherrygroveColl::
+INCLUDE "data/tilesets/cherrygrove_collision.asm"
+
+TilesetCherrygroveAttr::
+INCBIN "data/tilesets/cherrygrove_attributes.bin"

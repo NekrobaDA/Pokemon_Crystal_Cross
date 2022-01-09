@@ -32,7 +32,7 @@ SpawnPoints:
 	spawn SEVEN_ISLAND,               13,  6
 
 	spawn NEW_BARK_TOWN,              11, 14
-	spawn CHERRYGROVE_CITY,           29,  4
+	spawn CHERRYGROVE_CITY,           29,  6
 	spawn VIOLET_CITY,                29, 30
 	spawn ROUTE_32,                   11, 74
 	spawn AZALEA_TOWN,                15, 10

@@ -40,6 +40,7 @@
 	const TILESET_ICE_PATH_2
 	const TILESET_SEVII
 	const TILESET_SEVII_FOREST
+	const TILESET_CHERRYGROVE
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)

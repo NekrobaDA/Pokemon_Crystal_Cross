@@ -339,8 +339,8 @@ CherrygroveMart_Blocks:
 Route10North_Blocks:
 	INCBIN "maps/Route10North.ablk"
 
-BetaLakeOfRage_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaLakeOfRage.ablk"
+;BetaLakeOfRage_Blocks: ; unreferenced
+	;INCBIN "maps/unused/BetaLakeOfRage.ablk"
 
 OneIslandPokecenter1F_Blocks:
 TwoIslandPokecenter1F_Blocks:

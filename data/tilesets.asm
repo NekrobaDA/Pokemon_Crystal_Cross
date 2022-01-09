@@ -51,3 +51,5 @@ Tilesets::
 	tileset TilesetIcePath2
 	tileset TilesetSevii
 	tileset TilesetSeviiForest
+	tileset TilesetCherrygrove
+	
