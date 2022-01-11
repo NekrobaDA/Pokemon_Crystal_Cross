@@ -624,6 +624,8 @@ CherrygroveCity_MapEvents:
 	warp_event 35,  5, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 1
 	warp_event 40,  8, ROUTE_29, 2
 	warp_event 40,  9, ROUTE_29, 3
+	warp_event 18,  3, ROUTE_30, 3
+	warp_event 19,  3, ROUTE_30, 4
 
 	def_coord_events
 	coord_event 38,  8, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth
@@ -631,15 +633,15 @@ CherrygroveCity_MapEvents:
 
 	def_bg_events
 	bg_event 22, 13, BGEVENT_READ, CherrygroveCitySign
-	bg_event 22, 21, BGEVENT_READ, GuideGentsHouseSign
+	bg_event 26, 13, BGEVENT_READ, GuideGentsHouseSign
 	bg_event 24,  5, BGEVENT_READ, CherrygroveCityMartSign
 	bg_event 30,  5, BGEVENT_READ, CherrygroveCityPokecenterSign
 
 	def_object_events
 	object_event 34, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, CherrygroveCityGuideGent, EVENT_GUIDE_GENT_IN_HIS_HOUSE
 	object_event 43,  8, SPRITE_SILVER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_CHERRYGROVE_CITY
-	object_event 16, 15, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
-	object_event 21,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
+	object_event 23, 19, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
+	object_event 20,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
 	object_event  7, 20, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
 	object_event 24, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree1, -1
 	object_event 22, 33, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree2, -1
