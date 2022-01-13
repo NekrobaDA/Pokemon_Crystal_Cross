@@ -19,7 +19,6 @@ ObjectActionPairPointers:
 	dw SetFacingGrassShake,            SetFacingStanding
 	dw SetFacingSkyfall,               SetFacingCurrent
 	dw SetFacingOverlay,               SetFacingOverlay
-	dw SetFacingTallTree,              SetFacingTallTree
 
 SetFacingStanding:
 	ld hl, OBJECT_FACING_STEP
@@ -298,15 +297,8 @@ SetFacingGrassShake:
 	ret
 	
 SetFacingOverlay:
-	ld a, FACING_OVERLAY
-	jr SetFixedFacing
-	
-SetFacingTallTree:
-	ld a, FACING_TALL_TREE
-	jr SetFixedFacing
-	
-SetFixedFacing:
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc
-	ld [hl], a
-	ret	
+	ld [hl], FACING_OVERLAY
+	ret
+	

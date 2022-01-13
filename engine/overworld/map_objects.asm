@@ -980,16 +980,9 @@ MovementFunction_ShakingGrass:
 	ret
 	
 MovementFunction_Overlay:
-	ld a, OBJECT_ACTION_OVERLAY
-	jr ._ActionA_StepFunction_Standing
-
-._ActionA_StepFunction_Standing
-	push af
-	call EndSpriteMovement
-	pop af
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], a
+	ld [hl], OBJECT_ACTION_OVERLAY
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_STANDING

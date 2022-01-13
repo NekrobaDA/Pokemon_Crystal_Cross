@@ -2763,13 +2763,14 @@ wMap18Object::  map_object wMap18
 wMap19Object::  map_object wMap19
 wMap20Object::  map_object wMap20
 wMap21Object::  map_object wMap21
+wMap22Object::  map_object wMap22
 
 wObjectMasks:: ds NUM_OBJECTS
 
 wVariableSprites:: ds $100 - SPRITE_VARS
 
 wEnteredMapFromContinue:: db
-	ds 2
+	;ds 2
 wTimeOfDayPal:: db
 	ds 4
 wTimeOfDayPalFlags:: db

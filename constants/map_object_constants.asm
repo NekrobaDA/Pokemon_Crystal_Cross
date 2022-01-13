@@ -251,7 +251,6 @@ NUM_SPRITEMOVEDATA EQU const_value
 	const OBJECT_ACTION_GRASS_SHAKE   ; 0f
 	const OBJECT_ACTION_SKYFALL       ; 10
 	const OBJECT_ACTION_OVERLAY
-	const OBJECT_ACTION_TALL_TREE
 
 ; Facings indexes (see data/sprites/facings.asm)
 	const_def
@@ -288,7 +287,6 @@ NUM_SPRITEMOVEDATA EQU const_value
 	const FACING_GRASS_1        ; 1e
 	const FACING_GRASS_2        ; 1f
 	const FACING_OVERLAY
-	const FACING_TALL_TREE
 
 ; DoPlayerMovement.DoStep arguments (see engine/overworld/player_movement.asm)
 	const_def

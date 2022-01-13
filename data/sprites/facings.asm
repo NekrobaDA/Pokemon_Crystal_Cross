@@ -33,7 +33,6 @@ Facings:
 	dw FacingGrass1
 	dw FacingGrass2
 	dw FacingOverlay
-	dw FacingTallTree
 .End
 	dw 0
 
@@ -246,14 +245,3 @@ FacingOverlay:
 	db  4,  8, 0, $09
 	db 12,  0, 0, $0a
 	db 12,  8, 0, $0b
-	
-FacingTallTree:
-	db 8 ; #
-	db  0,  0, 0, $00
-	db  0,  8, 0, $01
-	db  8,  0, 0, $02
-	db  8,  8, 0, $03
-	db 16,  0, 0, $04
-	db 16,  8, 0, $05
-	db 24,  0, 0, $06
-	db 24,  8, 0, $07

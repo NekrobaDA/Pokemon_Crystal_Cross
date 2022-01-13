@@ -109,10 +109,10 @@ StandingYoungsterSpriteGFX::   INCBIN "gfx/sprites/standing_youngster.2bpp"
 
 SECTION "Sprites 3", ROMX
 
-Magikarp0SpriteGFX::           INCBIN "gfx/sprites/magikarp0.2bpp"
-Magikarp1SpriteGFX::           INCBIN "gfx/sprites/magikarp1.2bpp"
-Magikarp2SpriteGFX::           INCBIN "gfx/sprites/magikarp2.2bpp"
-Magikarp3SpriteGFX::           INCBIN "gfx/sprites/magikarp3.2bpp"
-Cherry0SpriteGFX::             INCBIN "gfx/sprites/cherry0.2bpp"
-Cherry1SpriteGFX::             INCBIN "gfx/sprites/cherry1.2bpp"
+Magikarp0SpriteGFX::           INCBIN "gfx/sprites/magikarp_0.2bpp"
+Magikarp1SpriteGFX::           INCBIN "gfx/sprites/magikarp_1.2bpp"
+Magikarp2SpriteGFX::           INCBIN "gfx/sprites/magikarp_2.2bpp"
+Magikarp3SpriteGFX::           INCBIN "gfx/sprites/magikarp_3.2bpp"
+Cherry0SpriteGFX::             INCBIN "gfx/sprites/cherry_0.2bpp"
+Cherry1SpriteGFX::             INCBIN "gfx/sprites/cherry_1.2bpp"
 StandingOfficerSpriteGFX::     INCBIN "gfx/sprites/officer_standing.2bpp"

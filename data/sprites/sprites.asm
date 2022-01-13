@@ -108,11 +108,12 @@ OverworldSprites:
 	overworld_sprite EnteiSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite RaikouSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite StandingYoungsterSpriteGFX, 12, STANDING_SPRITE, PAL_OW_BLUE
-	overworld_sprite Magikarp0SpriteGFX, 4, STILL_SPRITE, PAL_OW_SILVER
-	overworld_sprite Magikarp1SpriteGFX, 4, STILL_SPRITE, PAL_OW_SILVER
-	overworld_sprite Magikarp2SpriteGFX, 4, STILL_SPRITE, PAL_OW_SILVER
-	overworld_sprite Magikarp3SpriteGFX, 4, STILL_SPRITE, PAL_OW_SILVER
-	overworld_sprite Cherry0SpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
-	overworld_sprite Cherry1SpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
+	overworld_sprite Magikarp0SpriteGFX, 4, STANDING_SPRITE, PAL_OW_SILVER
+	overworld_sprite Magikarp1SpriteGFX, 4, STANDING_SPRITE, PAL_OW_SILVER
+	overworld_sprite Magikarp2SpriteGFX, 4, STANDING_SPRITE, PAL_OW_SILVER
+	overworld_sprite Magikarp3SpriteGFX, 4, STANDING_SPRITE, PAL_OW_SILVER
+	overworld_sprite Cherry0SpriteGFX, 4, STANDING_SPRITE, PAL_OW_PINK
+	overworld_sprite Cherry1SpriteGFX, 4, STANDING_SPRITE, PAL_OW_PINK
+	overworld_sprite StandingOfficerSpriteGFX, 4, STANDING_SPRITE, PAL_OW_BLUE
 	
 	

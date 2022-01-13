@@ -55,6 +55,7 @@ MapGroupRoofs:
 	db -1
 	db -1
 	db -1   ; (-seven isle)
+	db -1 
 
 Roofs:
 ; entries correspond to ROOF_* constants

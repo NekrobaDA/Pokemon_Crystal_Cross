@@ -4,24 +4,23 @@
 	const CHERRYGROVECITY_TEACHER
 	const CHERRYGROVECITY_YOUNGSTER
 	const CHERRYGROVECITY_FISHER
+	const CHERRYGROVECITY_BIKER
 	const CHERRYGROVE_CITY_FRUIT_TREE_1
 	const CHERRYGROVE_CITY_FRUIT_TREE_2
 	const CHERRYGROVE_CITY_FRUIT_TREE_3
 	const CHERRYGROVE_CITY_FRUIT_TREE_4
 	const CHERRYGROVE_CITY_FRUIT_TREE_5
 	const CHERRYGROVE_CITY_FRUIT_TREE_6
-	const CHERRYGROVE_CITY_FRUIT_TREE_7
-	const CHERRYGROVE_CITY_FRUIT_TREE_8
-	const CHERRYGROVE_CITY_FRUIT_TREE_01
-	const CHERRYGROVE_CITY_FRUIT_TREE_02
-	const CHERRYGROVE_CITY_FRUIT_TREE_03
-	const CHERRYGROVE_CITY_FRUIT_TREE_04
-	const CHERRYGROVE_CITY_FRUIT_TREE_05
-	const CHERRYGROVE_CITY_FRUIT_TREE_06
-	const CHERRYGROVE_CITY_FRUIT_TREE_07
-	const CHERRYGROVE_CITY_FRUIT_TREE_08
-	const KARP_STATUE
-	const ONIX_TEST
+	const CHERRYGROVECITY_FRUIT_TREE_1
+	const CHERRYGROVECITY_FRUIT_TREE_2
+	const CHERRYGROVECITY_FRUIT_TREE_3
+	const CHERRYGROVECITY_FRUIT_TREE_4
+	const CHERRYGROVECITY_FRUIT_TREE_5
+	const CHERRYGROVECITY_FRUIT_TREE_6
+	const CHERRYGROVECITY_MAGIKARP_0
+	const CHERRYGROVECITY_MAGIKARP_1
+	const CHERRYGROVECITY_MAGIKARP_2
+	const CHERRYGROVECITY_MAGIKARP_3
 
 CherrygroveCity_MapScripts:
 	def_scene_scripts
@@ -238,6 +237,14 @@ MysticWaterGuy:
 	writetext MysticWaterGuyTextAfter
 	waitbutton
 .Exit:
+	closetext
+	end
+	
+BikerGuyScript:
+	faceplayer
+	opentext
+	writetext BikerGuyText
+	waitbutton
 	closetext
 	end
 
@@ -567,6 +574,35 @@ GuideGentsHouseSignText:
 	text "GUIDE GENT'S HOUSE"
 	done
 	
+BikerGuyText:
+	text "Biking is great."
+	
+	para "Too bad the BIKE"
+	line "SHOP moved town."
+	done
+	
+KarpStatue:
+	opentext
+	writetext KarpText
+	waitbutton
+	closetext
+	end
+	
+KarpText:
+	text "TEST"
+	done
+	
+CherrygroveTree:
+	opentext
+	writetext TreeText
+	waitbutton
+	closetext
+	end
+	
+TreeText:
+	text "TEST"
+	done
+	
 CherrygroveCityFruitTree1:
 	fruittree FRUITTREE_CHERRYGROVE_CITY_1
 	
@@ -590,74 +626,51 @@ CherrygroveCityFruitTree7:
 	
 CherrygroveCityFruitTree8:
 	fruittree FRUITTREE_CHERRYGROVE_CITY_8
-	
-KarpStatue:
-	opentext
-	writetext KarpText
-	waitbutton
-	closetext
-	end
-	
-KarpText:
-	text "TEST"
-	done
-	
-OnixTest:
-	opentext
-	writetext KarpText
-	waitbutton
-	closetext
-	end
-	
-OnixText:
-	text "TEST"
-	done
 
 CherrygroveCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 23,  5, CHERRYGROVE_MART, 2
-	warp_event 29,  5, CHERRYGROVE_POKECENTER_1F, 1
-	warp_event 31, 13, CHERRYGROVE_GYM_SPEECH_HOUSE, 1
-	warp_event 21, 11, GUIDE_GENTS_HOUSE, 1
-	warp_event 35,  5, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 1
-	warp_event 40,  8, ROUTE_29, 2
-	warp_event 40,  9, ROUTE_29, 3
-	warp_event 18,  3, ROUTE_30, 3
-	warp_event 19,  3, ROUTE_30, 4
+	warp_event 27,  5, CHERRYGROVE_MART, 2
+	warp_event 33,  5, CHERRYGROVE_POKECENTER_1F, 1
+	warp_event 35, 13, CHERRYGROVE_GYM_SPEECH_HOUSE, 1
+	warp_event 25, 11, GUIDE_GENTS_HOUSE, 1
+	warp_event 39,  5, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 1
+	warp_event 44,  8, ROUTE_29, 2
+	warp_event 44,  9, ROUTE_29, 3
+	warp_event 22,  3, ROUTE_30, 3
+	warp_event 23,  3, ROUTE_30, 4
 
 	def_coord_events
-	coord_event 38,  8, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth
-	coord_event 38,  9, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneSouth
+	coord_event 42,  8, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth
+	coord_event 42,  9, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneSouth
 
 	def_bg_events
-	bg_event 22, 13, BGEVENT_READ, CherrygroveCitySign
-	bg_event 26, 13, BGEVENT_READ, GuideGentsHouseSign
-	bg_event 24,  5, BGEVENT_READ, CherrygroveCityMartSign
-	bg_event 30,  5, BGEVENT_READ, CherrygroveCityPokecenterSign
+	bg_event 26, 13, BGEVENT_READ, CherrygroveCitySign
+	bg_event 30, 13, BGEVENT_READ, GuideGentsHouseSign
+	bg_event 28,  5, BGEVENT_READ, CherrygroveCityMartSign
+	bg_event 34,  5, BGEVENT_READ, CherrygroveCityPokecenterSign
 
 	def_object_events
-	object_event 34, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, CherrygroveCityGuideGent, EVENT_GUIDE_GENT_IN_HIS_HOUSE
-	object_event 43,  8, SPRITE_SILVER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_CHERRYGROVE_CITY
-	object_event 23, 19, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
-	object_event 20,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
-	object_event  7, 20, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
-	object_event 24, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree1, -1
-	object_event 22, 33, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree2, -1
-	object_event 31, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree3, -1
-	object_event 24, 36, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree4, -1
-	object_event 33, 33, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree5, -1
-	object_event 31, 36, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree6, -1
-	object_event 24, 29, SPRITE_CHERRY_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree1, -1
-	object_event 22, 32, SPRITE_CHERRY_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree2, -1
-	object_event 31, 29, SPRITE_CHERRY_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree3, -1
-	object_event 24, 35, SPRITE_CHERRY_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree4, -1
-	object_event 31, 35, SPRITE_CHERRY_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree7, -1
-	object_event 33, 32, SPRITE_CHERRY_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree8, -1
-	object_event 35, 20, SPRITE_MAGIKARP_0, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
-	object_event 35, 19, SPRITE_MAGIKARP_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
-	object_event 30, 20, SPRITE_MAGIKARP_2, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
-	object_event 30, 19, SPRITE_MAGIKARP_3, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
-	
-	
+	object_event 38, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, CherrygroveCityGuideGent, EVENT_GUIDE_GENT_IN_HIS_HOUSE
+	object_event 47,  8, SPRITE_SILVER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_CHERRYGROVE_CITY
+	object_event 27, 19, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
+	object_event 24,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
+	object_event 11, 20, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
+	object_event 36, 18, SPRITE_BIKER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 4, 0, -1, -1, 0, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, BikerGuyScript, -1
+	object_event 28, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree1, -1
+	object_event 26, 33, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree2, -1
+	object_event 35, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree3, -1
+	object_event 28, 36, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree4, -1
+	object_event 37, 33, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree5, -1
+	object_event 35, 36, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree6, -1
+	object_event 28, 29, SPRITE_CHERRY_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveTree, -1
+	object_event 26, 32, SPRITE_CHERRY_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveTree, -1
+	object_event 35, 29, SPRITE_CHERRY_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveTree, -1
+	object_event 28, 35, SPRITE_CHERRY_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveTree, -1
+	object_event 35, 35, SPRITE_CHERRY_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveTree, -1
+	object_event 37, 32, SPRITE_CHERRY_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveTree, -1
+	object_event 39, 20, SPRITE_MAGIKARP_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
+	object_event 39, 19, SPRITE_MAGIKARP_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
+	object_event 34, 20, SPRITE_MAGIKARP_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
+	object_event 34, 19, SPRITE_MAGIKARP_3, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1

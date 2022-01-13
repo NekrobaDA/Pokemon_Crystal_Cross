@@ -48,6 +48,7 @@ OutdoorSprites:
 	dw SeviiFiveGroupSprites
 	dw SeviiSixGroupSprites
 	dw SeviiSevenGroupSprites
+	dw CherrygroveNeoGroupSprites
 
 ; Route1 and ViridianCity are connected
 ; Route2 and PewterCity are connected
@@ -382,5 +383,22 @@ FastShipGroupSprites:
 CableClubGroupSprites:
 ; (no outdoor maps)
 	; 0 of max 9 walking sprites
+	db 0 ; end
+	
+CherrygroveNeoGroupSprites:
+; Route30, Route31, CherrygroveCity
+	db SPRITE_SILVER
+	db SPRITE_TEACHER
+	db SPRITE_FISHER
+	db SPRITE_YOUNGSTER
+	db SPRITE_GRAMPS
+	db SPRITE_BIKER
+	; max 6 of 9 walking sprites
+	db SPRITE_MAGIKARP_0
+	db SPRITE_MAGIKARP_1
+	db SPRITE_MAGIKARP_2
+	db SPRITE_MAGIKARP_3
+	db SPRITE_CHERRY_0
+	db SPRITE_CHERRY_1
 	db 0 ; end
 	
