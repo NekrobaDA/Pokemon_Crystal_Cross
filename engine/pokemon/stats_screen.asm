@@ -893,7 +893,8 @@ StatsScreen_PlaceFrontpic:
 	endc
 	jr z, .unownegg
 .not_unown_egg
-	ld a, TRUE
+	;ld a, TRUE
+	xor a
 	ld [wBoxAlignment], a
 	jr .get_animation
 
@@ -1112,7 +1113,6 @@ StatsScreen_AnimateEgg:
 
 .animate
 	push de
-	ld a, $1
 	ld [wBoxAlignment], a
 	call StatsScreen_LoadTextboxSpaceGFX
 	ld de, vTiles2 tile $00

@@ -370,7 +370,6 @@ BeedrillBackpic:     INCBIN "gfx/pokemon/beedrill/back.2bpp.lz"
 ArcanineBackpic:     INCBIN "gfx/pokemon/arcanine/back.2bpp.lz"
 FlareonBackpic:      INCBIN "gfx/pokemon/flareon/back.2bpp.lz"
 GoldeenBackpic:      INCBIN "gfx/pokemon/goldeen/back.2bpp.lz"
-BulbasaurFrontpic:   INCBIN "gfx/pokemon/bulbasaur/front.animated.2bpp.lz"
 StarmieBackpic:      INCBIN "gfx/pokemon/starmie/back.2bpp.lz"
 
 
@@ -740,4 +739,5 @@ Zapdos_GalarianFrontpic: INCBIN "gfx/pokemon/zapdos_galarian/front.animated.2bpp
 Zapdos_GalarianBackpic: INCBIN "gfx/pokemon/zapdos_galarian/back.2bpp.lz"
 Moltres_GalarianFrontpic: INCBIN "gfx/pokemon/moltres_galarian/front.animated.2bpp.lz"
 Moltres_GalarianBackpic: INCBIN "gfx/pokemon/moltres_galarian/back.2bpp.lz"
+BulbasaurFrontpic:   INCBIN "gfx/pokemon/bulbasaur/front.animated.2bpp.lz"
 
