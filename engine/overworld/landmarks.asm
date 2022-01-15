@@ -45,6 +45,38 @@ GetLandmarkName::
 
 INCLUDE "data/maps/landmarks.asm"
 
+GetLandmarkNameS::
+; Copy the name of landmark e to wStringBuffer1.
+	push hl
+	push de
+	push bc
+
+	ld l, e
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	ld de, Landmarks2 + 2
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+	ld de, wStringBuffer1
+	ld c, 18
+.copy
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .copy
+
+	pop bc
+	pop de
+	pop hl
+	ret
+	
+INCLUDE "data/maps/landmarks2.asm"
+
 RegionCheck:
 ; Checks if the player is in Kanto or Johto.
 ; If in Johto, returns 0 in e.

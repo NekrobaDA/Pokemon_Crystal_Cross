@@ -820,6 +820,18 @@ LoadBluePage:
 .got_gender
 	hlcoord 9, 13
 	ld [hl], a
+	
+.location
+	ld de, MetString
+	hlcoord 0, 15
+	call PlaceString
+	ld a, [wTempMonCaughtLocation]
+	ld e, a
+	farcall GetLandmarkNameS
+	ld de, wStringBuffer1
+	hlcoord 0, 16
+	call PlaceString
+	
 .done
 	ret
 
@@ -834,6 +846,9 @@ IDNoString:
 
 OTString:
 	db "OT/@"
+	
+MetString:
+	db "MET/@"
 
 StatsScreen_PlaceFrontpic:
 	ld hl, wTempMonDVs
