@@ -425,7 +425,8 @@ StatsScreen_InitUpperHalf:
 	ld hl, sp + 0
 	ld d, h
 	ld e, l
-	hlcoord 8, 0
+	;hlcoord 8, 0
+	hlcoord 1, 0
 	ld a, "№"
 	ld [hli], a
 	ld a, "."
@@ -433,16 +434,20 @@ StatsScreen_InitUpperHalf:
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 3
 	call PrintNum
 	add sp, 2
-	hlcoord 14, 0
+	;hlcoord 14, 0
+	hlcoord 7, 0
 	call PrintLevel
 	ld hl, .NicknamePointers
 	call GetNicknamePointer
 	call CopyNickname
-	hlcoord 8, 2
+	;hlcoord 8, 2
+	hlcoord 1, 2
 	call PlaceString
-	hlcoord 18, 0
+	;hlcoord 18, 0
+	hlcoord 10, 0
 	call .PlaceGenderChar
-	hlcoord 9, 4
+	;hlcoord 9, 4
+	hlcoord 1, 4
 	ld a, "/"
 	ld [hli], a
 	ld a, [wBaseSpecies]
@@ -513,9 +518,11 @@ StatsScreen_PlaceHorizontalDivider:
 	ret
 
 StatsScreen_PlacePageSwitchArrows:
-	hlcoord 12, 6
+	;hlcoord 12, 6
+	hlcoord 1, 6
 	ld [hl], "◀"
-	hlcoord 19, 6
+	;hlcoord 19, 6
+	hlcoord 8, 6
 	ld [hl], "▶"
 	ret
 
@@ -523,7 +530,8 @@ StatsScreen_PlaceShinyIcon:
 	ld bc, wTempMonDVs
 	farcall CheckShininess
 	ret nc
-	hlcoord 19, 0
+	;hlcoord 19, 0
+	hlcoord 10, 6
 	ld [hl], "⁂"
 	ret
 
@@ -861,7 +869,8 @@ StatsScreen_PlaceFrontpic:
 	ld a, l
 	cp LOW(UNOWN)
 	ld a, h
-	hlcoord 0, 0
+	;hlcoord 0, 0
+	hlcoord 12, 0
 	jp nz, PrepMonFrontpic
 	if HIGH(UNOWN) == 0
 		and a
@@ -909,7 +918,8 @@ StatsScreen_PlaceFrontpic:
 	call StatsScreen_LoadTextboxSpaceGFX
 	ld de, vTiles2 tile $00
 	predef GetAnimatedFrontpic
-	hlcoord 0, 0
+	;hlcoord 0, 0
+	hlcoord 12, 0
 	ld d, $0
 	ld e, ANIM_MON_MENU
 	predef LoadMonAnimation
@@ -1126,23 +1136,29 @@ StatsScreen_AnimateEgg:
 	ret
 
 StatsScreen_LoadPageIndicators:
-	hlcoord 13, 5
+	;hlcoord 13, 5
+	hlcoord 2, 5
 	ld a, $36 ; first of 4 small square tiles
 	call .load_square
-	hlcoord 15, 5
+	;hlcoord 15, 5
+	hlcoord 4, 5
 	ld a, $36 ; " " " "
 	call .load_square
-	hlcoord 17, 5
+	;hlcoord 17, 5
+	hlcoord 6, 5
 	ld a, $36 ; " " " "
 	call .load_square
 	ld a, c
 	cp GREEN_PAGE
 	ld a, $3a ; first of 4 large square tiles
-	hlcoord 13, 5 ; PINK_PAGE (< GREEN_PAGE)
+	;hlcoord 13, 5 ; PINK_PAGE (< GREEN_PAGE)
+	hlcoord 2, 5
 	jr c, .load_square
-	hlcoord 15, 5 ; GREEN_PAGE (= GREEN_PAGE)
+	;hlcoord 15, 5 ; GREEN_PAGE (= GREEN_PAGE)
+	hlcoord 4, 5 
 	jr z, .load_square
-	hlcoord 17, 5 ; BLUE_PAGE (> GREEN_PAGE)
+	;hlcoord 17, 5 ; BLUE_PAGE (> GREEN_PAGE)
+	hlcoord 6, 5
 .load_square
 	push bc
 	ld [hli], a
