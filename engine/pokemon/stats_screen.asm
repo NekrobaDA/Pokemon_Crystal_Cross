@@ -752,7 +752,6 @@ LoadGreenPage:
 	ld a, SCREEN_WIDTH * 2
 	ld [wListMovesLineSpacing], a
 	predef ListMovePP
-	ret
 
 .GetItemName:
 	ld de, .ThreeDashes
@@ -793,12 +792,12 @@ LoadBluePage:
 
 .PlaceOTInfo:
 	ld de, IDNoString
-	hlcoord 0, 9
+	hlcoord 0, 8
 	call PlaceString
 	ld de, OTString
-	hlcoord 0, 12
+	hlcoord 0, 10
 	call PlaceString
-	hlcoord 2, 10
+	hlcoord 2, 9
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	ld de, wTempMonID
 	call PrintNum
@@ -806,7 +805,7 @@ LoadBluePage:
 	call GetNicknamePointer
 	call CopyNickname
 	farcall CorrectNickErrors
-	hlcoord 2, 13
+	hlcoord 2, 11
 	call PlaceString
 	ld a, [wTempMonCaughtGender]
 	and a
@@ -818,19 +817,44 @@ LoadBluePage:
 	jr z, .got_gender
 	ld a, "♀"
 .got_gender
-	hlcoord 9, 13
+	hlcoord 9, 11
 	ld [hl], a
 	
 .location
 	ld de, MetString
-	hlcoord 0, 15
+	hlcoord 0, 13
 	call PlaceString
 	ld a, [wTempMonCaughtLocation]
 	ld e, a
 	farcall GetLandmarkNameS
 	ld de, wStringBuffer1
+	hlcoord 0, 14
+	call PlaceString
+	
+.happiness
+	ld de, HappinessString
 	hlcoord 0, 16
 	call PlaceString
+	ld a, [wTempMonHappiness]
+    ld de, MaxString
+    cp 255
+    jr z, .got_happiness
+    ld de, PoorString
+    cp 30
+    jr c, .got_happiness
+    ld de, LowString
+    cp 70
+    jr c, .got_happiness
+	ld de, MidString
+    cp 150
+    jr c, .got_happiness
+    ld de, GoodString
+    cp 220
+    jr c, .got_happiness
+    ld de, HighString
+.got_happiness
+    hlcoord 0, 17
+    jp PlaceString
 	
 .done
 	ret
@@ -840,6 +864,27 @@ LoadBluePage:
 	dw wOTPartyMonOT
 	dw sBoxMonOT
 	dw wBufferMonOT
+	
+HappinessString:
+	db "HAPPINESS@"
+	
+MaxString:
+	db "/OVERJOYED@"
+	
+HighString:
+	db "/HAPPY@"
+	
+GoodString:
+	db "/CONTENT@"
+	
+MidString:
+	db "/AVERAGE@"
+	
+LowString:
+	db "/UNHAPPY@"
+	
+PoorString:
+	db "/MISERABLE@"
 
 IDNoString:
 	db "<ID>№.@"
