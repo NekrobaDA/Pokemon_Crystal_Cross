@@ -9,6 +9,7 @@ SwarmGrassWildMons:
 	dbw 3, GEODUDE
 	dbw 3, DUNSPARCE
 	dbw 2, ZUBAT
+	dbw 3, DUNSPARCE
 	dbw 2, GEODUDE
 	dbw 2, DUNSPARCE
 	dbw 4, DUNSPARCE
@@ -17,6 +18,7 @@ SwarmGrassWildMons:
 	dbw 3, GEODUDE
 	dbw 3, DUNSPARCE
 	dbw 2, ZUBAT
+	dbw 3, DUNSPARCE
 	dbw 2, GEODUDE
 	dbw 2, DUNSPARCE
 	dbw 4, DUNSPARCE
@@ -30,6 +32,7 @@ SwarmGrassWildMons:
 	dbw 12, NIDORAN_F
 	dbw 12, YANMA
 	dbw 14, YANMA
+	dbw 14, YANMA
 	dbw 14, PIDGEY
 	dbw 10, DITTO
 	dbw 10, DITTO
@@ -37,6 +40,7 @@ SwarmGrassWildMons:
 	dbw 12, NIDORAN_M
 	dbw 12, NIDORAN_F
 	dbw 12, YANMA
+	dbw 14, YANMA
 	dbw 14, YANMA
 	dbw 14, HOOTHOOT
 	dbw 10, DITTO

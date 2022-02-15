@@ -102,7 +102,14 @@ NewBarkTownTeacherScript:
 	end
 
 NewBarkTownFisherScript:
-	jumptextfaceplayer Text_ElmDiscoveredNewMon
+	;jumptextfaceplayer Text_ElmDiscoveredNewMon
+	faceplayer
+	opentext
+	setflag ENGINE_YANMA_SWARM
+	writetext SwarmActiveText
+	waitbutton
+	closetext
+	end
 
 NewBarkTownSilverScript:
 	opentext
@@ -277,6 +284,10 @@ NewBarkTownElmsLabSignText:
 
 NewBarkTownElmsHouseSignText:
 	text "ELM'S HOUSE"
+	done
+	
+SwarmActiveText:
+	text "swarm active"
 	done
 
 NewBarkTown_MapEvents:

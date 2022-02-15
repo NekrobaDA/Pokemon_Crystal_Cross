@@ -198,12 +198,16 @@ endr
 	push hl
 	ld a, [wBattleMode]
 	and a
-	jr nz, .copywildmonDVs
-
+	jp nz, .copywildmonDVs
+	
+;for testing shiny starters
+	;ld b, ATKDEFDV_SHINY ; $ea
+	;ld c, SPDSPCDV_SHINY ; $aa
 	call Random
 	ld b, a
 	call Random
 	ld c, a
+	
 .initializeDVs
 	ld a, b
 	ld [de], a
