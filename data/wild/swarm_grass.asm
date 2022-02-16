@@ -28,22 +28,22 @@ SwarmGrassWildMons:
 	map_id ROUTE_35
 	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 12, NIDORAN_M
-	dbw 12, NIDORAN_F
 	dbw 12, YANMA
 	dbw 14, YANMA
+	dbw 12, PIDGEY
 	dbw 14, YANMA
-	dbw 14, PIDGEY
+	dbw 14, SNUBBULL
+	dbw 14, RATTATA
 	dbw 10, DITTO
-	dbw 10, DITTO
+	dbw 10, JIGGLYPUFF
 	; nite
-	dbw 12, NIDORAN_M
-	dbw 12, NIDORAN_F
 	dbw 12, YANMA
 	dbw 14, YANMA
+	dbw 12, HOOTHOOT
 	dbw 14, YANMA
-	dbw 14, HOOTHOOT
+	dbw 14, MEOWTH
+	dbw 14, RATTATA
 	dbw 10, DITTO
-	dbw 10, DITTO
+	dbw 10, MURKROW
 
 	db -1 ; end

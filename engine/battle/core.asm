@@ -6146,15 +6146,32 @@ LoadEnemyMon:
 	ld hl, wSwarmFlags
 	bit SWARMFLAGS_YANMA_SWARM_F, [hl]
 	jp z, .skipshine
+;check yanma	
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(YANMA)
+	if HIGH(YANMA) == 0
+		or h
+	else
+		jr nz, .skipshine
+		if HIGH(YANMA) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(YANMA)
+		endc
+	endc
+	jr nz, .skipshine
 	call Random
-	cp 3
+	cp 7
 	jr nc, .trynext
 	ld b, ATKDEFDV_SHINY ; $ea
 	ld c, SPDSPCDV_SHINY ; $aa
 	jr .UpdateDVs
 .trynext:
 	call Random
-	cp 3
+	cp 7
 	jr nc, .skipshine
 	ld b, ATKDEFDV_SHINYF ; $ea
 	ld c, SPDSPCDV_SHINY ; $aa
