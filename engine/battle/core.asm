@@ -6106,7 +6106,7 @@ LoadEnemyMon:
 ; Get back the result of our check
 	pop af
 ; If the RoamMon struct has already been initialized, we're done
-	jr nz, .UpdateDVs
+	jp nz, .UpdateDVs
 
 ; If it hasn't, we need to initialize the DVs
 ; (HP is initialized at the end of the battle)
@@ -6119,7 +6119,7 @@ LoadEnemyMon:
 	ld [hl], a
 	ld b, a
 ; We're done with DVs
-	jr .UpdateDVs
+	jp .UpdateDVs
 
 .NotRoaming:
 ; Register a contains wBattleType
@@ -6136,21 +6136,23 @@ LoadEnemyMon:
 .GenerateDVs:
 
 ;checkswarm
-	ld hl, wSwarmFlags
+	ld hl, wDailyFlags1
 	bit DAILYFLAGS1_SWARM_F, [hl]
-	jp nz, .skipshine
+	jp z, .skipshine
 	
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
-	cp LANDMARK_DARK_CAVE_VIOLET_ENTRANCE
+	cp LANDMARK_DARK_CAVE
 	jr z, .dunsparce
 	cp LANDMARK_ROUTE_35
 	jr z, .yanma
 	cp LANDMARK_ROUTE_37
 	jr z, .vulpix
+	cp LANDMARK_KINDLE_ROAD
+	jr z, .ponyta
 	jp .skipshine
 	
 .dunsparce
@@ -6205,6 +6207,25 @@ LoadEnemyMon:
 		else
 			ld a, h
 			cp HIGH(VULPIX)
+		endc
+	endc
+	jr nz, .skipshine
+	jr .rollshiny
+	
+.ponyta
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(PONYTA)
+	if HIGH(PONYTA) == 0
+		or h
+	else
+		jr nz, .skipshine
+		if HIGH(PONYTA) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(PONYTA)
 		endc
 	endc
 	jr nz, .skipshine
@@ -6269,7 +6290,7 @@ LoadEnemyMon:
 ; Can't use any letters that haven't been unlocked
 ; If combined with forced shiny battletype, causes an infinite loop
 	call CheckUnownLetter
-	jr c, .GenerateDVs ; try again
+	jp c, .GenerateDVs ; try again
 	jr .Happiness ; skip the Magikarp check
 
 .Magikarp:
