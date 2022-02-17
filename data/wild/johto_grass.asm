@@ -486,7 +486,7 @@ JohtoGrassWildMons:
 	dbw 15, WEEDLE
 
 	map_id ROUTE_39
-	db 2 percent, 2 percent;, 2 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 16, RATTATA
 	dbw 18, PIDGEOTTO

@@ -89,5 +89,27 @@ SwarmGrassWildMons:
 	dbw 40, PERSIAN
 	dbw 27, GRAVELER
 	dbw 34, GOLDUCK
+	
+;mareep swarm
+	map_id ROUTE_39
+	db 10 percent, 10 percent
+	; morn
+	dbw 16, MAREEP
+	dbw 21, MAREEP
+	dbw 20, PIDGEOTTO
+	dbw 24, MAREEP
+	dbw 22, MAREEP
+	dbw 25, TAUROS
+	dbw 24, MEOWTH
+	dbw 23, MILTANK
+	; nite
+	dbw 16, MAREEP
+	dbw 24, MAREEP
+	dbw 19, RATTATA
+	dbw 22, MAREEP
+	dbw 18, MAREEP
+	dbw 21, SPINARAK
+	dbw 24, MEOWTH
+	dbw 25, NOCTOWL
 
 	db -1 ; end

@@ -6131,7 +6131,7 @@ LoadEnemyMon:
 
 	ld b, ATKDEFDV_SHINY ; $ea
 	ld c, SPDSPCDV_SHINY ; $aa
-	jr .UpdateDVs
+	jp .UpdateDVs
 
 .GenerateDVs:
 
@@ -6153,6 +6153,8 @@ LoadEnemyMon:
 	jr z, .vulpix
 	cp LANDMARK_KINDLE_ROAD
 	jr z, .ponyta
+	cp LANDMARK_ROUTE_39
+	jr z, .mareep
 	jp .skipshine
 	
 .dunsparce
@@ -6226,6 +6228,25 @@ LoadEnemyMon:
 		else
 			ld a, h
 			cp HIGH(PONYTA)
+		endc
+	endc
+	jr nz, .skipshine
+	jr .rollshiny
+	
+.mareep
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(MAREEP)
+	if HIGH(MAREEP) == 0
+		or h
+	else
+		jr nz, .skipshine
+		if HIGH(MAREEP) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(MAREEP)
 		endc
 	endc
 	jr nz, .skipshine

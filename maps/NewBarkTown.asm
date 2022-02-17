@@ -86,7 +86,7 @@ NewBarkTownTeacherScript:
 	faceplayer
 	opentext
 	setflag ENGINE_SWARM
-	swarm KINDLE_ROAD
+	swarm ROUTE_39
 	writetext SwarmActiveText
 	waitbutton
 	closetext
