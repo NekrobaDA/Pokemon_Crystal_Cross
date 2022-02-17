@@ -6077,7 +6077,7 @@ LoadEnemyMon:
 ; These are the DVs we'll use if we're actually in a trainer battle
 	ld a, [wBattleMode]
 	dec a
-	jr nz, .UpdateDVs
+	jp nz, .UpdateDVs
 
 ; Wild DVs
 ; Here's where the fun starts
@@ -6135,18 +6135,44 @@ LoadEnemyMon:
 
 .GenerateDVs:
 
+;checkswarm
+	ld hl, wSwarmFlags
+	bit DAILYFLAGS1_SWARM_F, [hl]
+	jp nz, .skipshine
+	
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
+	cp LANDMARK_DARK_CAVE_VIOLET_ENTRANCE
+	jr z, .dunsparce
 	cp LANDMARK_ROUTE_35
+	jr z, .yanma
+	cp LANDMARK_ROUTE_37
+	jr z, .vulpix
+	jp .skipshine
+	
+.dunsparce
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(DUNSPARCE)
+	if HIGH(DUNSPARCE) == 0
+		or h
+	else
+		jr nz, .skipshine
+		if HIGH(DUNSPARCE) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(DUNSPARCE)
+		endc
+	endc
 	jr nz, .skipshine
-.checkswarm:
-	ld hl, wSwarmFlags
-	bit SWARMFLAGS_YANMA_SWARM_F, [hl]
-	jp z, .skipshine
-;check yanma	
+	jr .rollshiny
+	
+.yanma
 	ld a, [wCurPartySpecies]
 	call GetPokemonIndexFromID
 	ld a, l
@@ -6163,6 +6189,27 @@ LoadEnemyMon:
 		endc
 	endc
 	jr nz, .skipshine
+	jr .rollshiny
+	
+.vulpix
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(VULPIX)
+	if HIGH(VULPIX) == 0
+		or h
+	else
+		jr nz, .skipshine
+		if HIGH(VULPIX) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(VULPIX)
+		endc
+	endc
+	jr nz, .skipshine
+	
+.rollshiny
 	call Random
 	cp 7
 	jr nc, .trynext

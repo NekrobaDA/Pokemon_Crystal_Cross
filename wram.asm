@@ -3068,7 +3068,10 @@ wPlayerMonSelection:: ds 3
 wdc5f:: db
 wdc60:: db
 
-	ds 18
+wVulpixMapGroup:: db
+wVulpixMapNumber:: db
+
+	;ds 18
 
 wStepCount:: db
 wPoisonStepCount:: db
@@ -3194,8 +3197,8 @@ wEggMon::  box_struct wEggMon
 wBugContestSecondPartySpecies:: db
 wContestMon:: party_struct wContestMon
 
-wDunsparceMapGroup:: db
-wDunsparceMapNumber:: db
+wSwarmMapGroup:: db
+wSwarmMapNumber:: db
 wFishingSwarmFlag:: db
 
 wRoamMon1:: roam_struct wRoamMon1

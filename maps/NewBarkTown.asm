@@ -105,7 +105,8 @@ NewBarkTownFisherScript:
 	;jumptextfaceplayer Text_ElmDiscoveredNewMon
 	faceplayer
 	opentext
-	setflag ENGINE_YANMA_SWARM
+	setflag ENGINE_SWARM
+	swarm ROUTE_37
 	writetext SwarmActiveText
 	waitbutton
 	closetext

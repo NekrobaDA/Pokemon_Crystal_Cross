@@ -254,6 +254,7 @@ NUM_FRUIT_TREES EQU const_value - 1
 	const_def
 	const SWARM_DUNSPARCE ; 0
 	const SWARM_YANMA     ; 1
+	const SWARM_VULPIX    ; 2
 
 ; ActivateFishingSwarm setval arguments
 	const_def
