@@ -44,12 +44,12 @@ ItemDescriptions:
 	dw SuperRepelDesc
 	dw MaxRepelDesc
 	dw DireHitDesc
-	dw TeruSama3Desc
+	dw ShinyStoneDesc
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
 	dw XAttackDesc
-	dw TeruSama4Desc
+	dw DuskStoneDesc
 	dw XDefendDesc
 	dw XSpeedDesc
 	dw XSpecialDesc
@@ -89,7 +89,7 @@ ItemDescriptions:
 	dw BigMushroomDesc
 	dw SilverPowderDesc
 	dw BluApricornDesc
-	dw TeruSama6Desc
+	dw TristoneDesc
 	dw AmuletCoinDesc
 	dw YlwApricornDesc
 	dw GrnApricornDesc
@@ -434,8 +434,9 @@ DireHitDesc:
 	db   "Ups critical hit"
 	next "ratio. (1 BTL)@"
 
-TeruSama3Desc:
-	db   "?@"
+ShinyStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 
 FreshWaterDesc:
 	db   "Restores #MON"
@@ -453,8 +454,9 @@ XAttackDesc:
 	db   "Raises ATTACK."
 	next "(1 BTL)@"
 
-TeruSama4Desc:
-	db   "?@"
+DuskStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 
 XDefendDesc:
 	db   "Raises DEFENSE."
@@ -609,8 +611,9 @@ SilverPowderDesc:
 BluApricornDesc:
 	db   "A blue APRICORN.@"
 
-TeruSama6Desc:
-	db   "?@"
+TristoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 
 AmuletCoinDesc:
 	db   "Doubles monetary"

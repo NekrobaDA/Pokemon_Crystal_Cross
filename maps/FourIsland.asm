@@ -1,5 +1,9 @@
 	object_const_def
 	const FOURISLAND_SAILOR
+	const FOURISLAND_POKEFAN_M
+	const FOURISLAND_GRANNY
+	const FOURISLAND_TWIN
+	const FOURISLAND_GRAMPS
 
 FourIsland_MapScripts:
 	def_scene_scripts

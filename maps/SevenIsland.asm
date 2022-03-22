@@ -1,5 +1,8 @@
 	object_const_def
 	const SEVENISLAND_SAILOR
+	const SEVENISLAND_GRANNY
+	const SEVENISLAND_SCIENTIST
+	const SEVENISLAND_COOLTRAINER_M
 
 SevenIsland_MapScripts:
 	def_scene_scripts

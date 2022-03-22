@@ -1,5 +1,9 @@
 	object_const_def
 	const THREEISLAND_SAILOR
+	const THREEISLAND_RECEPTIONIST
+	const THREEISLAND_YOUNGSTER
+	const THREEISLAND_BEAUTY
+	const THREEISLAND_BIKER
 
 ThreeIsland_MapScripts:
 	def_scene_scripts

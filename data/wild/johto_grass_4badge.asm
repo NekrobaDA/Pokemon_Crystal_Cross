@@ -236,23 +236,23 @@ JohtoGrassWildMons4Badge:
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 14, RATTATA
-	dbw 13, SPEAROW
-	dbw 14, MACHOP
-	dbw 19, ONIX
-	dbw 25, MACHOKE
-	dbw 22, FEAROW
-	dbw 21, RATTATA
-	dbw 20, SPEAROW
-	; nite
-	dbw 14, RATTATA
-	dbw 13, ZUBAT
+	dbw 13, GEODUDE
+	dbw 14, SLUGMA
 	dbw 15, MACHOP
-	dbw 24, GOLBAT
-	dbw 20, ONIX
-	dbw 21, RATICATE
-	dbw 23, MACHOP
-	dbw 17, ZUBAT
+	dbw 21, SLUGMA
+	dbw 23, MACHOKE
+	dbw 25, SLUGMA
+	dbw 20, ZUBAT
+	dbw 16, GEODUDE
+	; nite
+	dbw 13, GEODUDE
+	dbw 14, SLUGMA
+	dbw 15, MACHOP
+	dbw 21, SLUGMA
+	dbw 23, MACHOKE
+	dbw 25, SLUGMA
+	dbw 24, GRAVELER
+	dbw 16, GEODUDE
 
 	map_id MOUNT_MORTAR_1F_INSIDE
 	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite

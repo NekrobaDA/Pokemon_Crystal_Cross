@@ -1,5 +1,7 @@
 	object_const_def
 	const ONEISLAND_SAILOR
+	const ONEISLAND_GRAMPS
+	const ONEISLAND_GYM_GUIDE
 
 OneIsland_MapScripts:
 	def_scene_scripts

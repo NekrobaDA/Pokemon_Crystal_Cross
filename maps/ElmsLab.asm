@@ -193,11 +193,11 @@ CyndaquilPokeBallScript:
 	givecoins 50000
 	; good party
 	givepoke DUSERPENT, 100
-	givepoke WEAVILE, 100
-	givepoke ZAPDOS_GALARIAN, 100
-	givepoke ARTICUNO_GALARIAN, 100
-	givepoke MOLTRES_GALARIAN, 100
-	givepoke ENTEI, 100
+	givepoke RINRIN, 100
+	givepoke EKANS_DARK, 100
+	givepoke PICHU_SPIKY, 100
+	givepoke QUILAVA, 100
+	givepoke SANDSHREW_ALOLAN, 100
 	; tms for party
 	giveitem TM_ICE_BEAM
 	giveitem TM_FLAMETHROWER

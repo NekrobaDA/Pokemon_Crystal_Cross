@@ -1,5 +1,9 @@
 	object_const_def
 	const TWOISLAND_SAILOR
+	const TWOISLAND_ROCKER
+	const TWOISLAND_LASS
+	const TWOISLAND_BUG_CATCHER
+	const TWOISLAND_POKEFAN_F
 
 TwoIsland_MapScripts:
 	def_scene_scripts

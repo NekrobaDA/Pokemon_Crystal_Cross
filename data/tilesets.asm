@@ -1,3 +1,5 @@
+SECTION "Tileset Headers", ROMX
+
 tileset: MACRO
 	dba \1GFX, \1Meta, \1Coll, \1Attr
 	dw \1Anim

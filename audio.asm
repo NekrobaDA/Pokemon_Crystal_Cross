@@ -73,7 +73,6 @@ INCLUDE "audio/music/route29.asm"
 INCLUDE "audio/music/halloffame.asm"
 INCLUDE "audio/music/healpokemon.asm"
 INCLUDE "audio/music/evolution.asm"
-INCLUDE "audio/music/printer.asm"
 
 
 SECTION "Songs 4", ROMX
@@ -127,6 +126,7 @@ INCLUDE "audio/music/battletowertheme.asm"
 INCLUDE "audio/music/suicunebattle.asm"
 INCLUDE "audio/music/battletowerlobby.asm"
 INCLUDE "audio/music/mobilecenter.asm"
+INCLUDE "audio/music/printer.asm" ;moved from 3
 
 
 SECTION "Extra Songs 1", ROMX

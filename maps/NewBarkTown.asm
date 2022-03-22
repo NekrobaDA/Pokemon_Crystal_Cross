@@ -86,7 +86,7 @@ NewBarkTownTeacherScript:
 	faceplayer
 	opentext
 	setflag ENGINE_SWARM
-	swarm ROUTE_39
+	swarm BERRY_FOREST
 	writetext SwarmActiveText
 	waitbutton
 	closetext
@@ -115,7 +115,7 @@ NewBarkTownFisherScript:
 	faceplayer
 	opentext
 	setflag ENGINE_SWARM
-	swarm ROUTE_37
+	swarm SEVAULT_CANYON
 	writetext SwarmActiveText
 	waitbutton
 	closetext

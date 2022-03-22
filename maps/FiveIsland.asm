@@ -1,5 +1,7 @@
 	object_const_def
 	const FIVEISLAND_SAILOR
+	const FIVEISLAND_FISHING_GURU
+	const FIVEISLAND_FISHER
 
 FiveIsland_MapScripts:
 	def_scene_scripts

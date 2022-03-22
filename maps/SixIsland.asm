@@ -1,5 +1,8 @@
 	object_const_def
 	const SIXISLAND_SAILOR
+	const SIXISLAND_HIKER
+	const SIXISLAND_COOLTRAINER_M
+	const SIXISLAND_TEACHER
 
 SixIsland_MapScripts:
 	def_scene_scripts

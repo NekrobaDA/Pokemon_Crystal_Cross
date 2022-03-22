@@ -168,11 +168,11 @@ INCLUDE "engine/battle/read_trainer_party.asm"
 SECTION "Battle Core", ROMX
 
 INCLUDE "engine/battle/core.asm"
-INCLUDE "data/battle/effect_command_pointers.asm"
 
 
 SECTION "bank10", ROMX
 
+INCLUDE "data/battle/effect_command_pointers.asm"
 INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/pokemon/evolve.asm"
 
@@ -242,23 +242,23 @@ SECTION "bank14", ROMX
 
 INCLUDE "engine/pokemon/party_menu.asm"
 INCLUDE "engine/events/poisonstep.asm"
-INCLUDE "engine/events/sweet_scent.asm"
 INCLUDE "engine/events/squirtbottle.asm"
 INCLUDE "engine/events/card_key.asm"
 INCLUDE "engine/events/basement_key.asm"
 INCLUDE "engine/events/sacred_ash.asm"
 INCLUDE "engine/pokemon/tempmon.asm"
 INCLUDE "engine/pokemon/types.asm"
-INCLUDE "engine/battle/getgen1trainerclassname.asm"
 INCLUDE "engine/pokemon/mon_stats.asm"
-INCLUDE "engine/link/init_list.asm"
 INCLUDE "engine/pokemon/experience.asm"
 INCLUDE "engine/pokemon/switchpartymons.asm"
 INCLUDE "engine/gfx/load_pics.asm"
 INCLUDE "engine/pokemon/move_mon_wo_mail.asm"
 INCLUDE "data/pokemon/base_stats.asm"
-INCLUDE "data/pokemon/names.asm"
+;INCLUDE "data/pokemon/names.asm"
 INCLUDE "data/pokemon/unused_pic_banks.asm"
+INCLUDE "engine/battle/getgen1trainerclassname.asm"
+INCLUDE "engine/events/sweet_scent.asm"
+INCLUDE "engine/link/init_list.asm"
 
 UnusedEggPic::
 ; The G/S Egg pic. This is shifted up a few pixels.
@@ -290,6 +290,7 @@ INCLUDE "engine/events/engine_flags.asm"
 INCLUDE "engine/overworld/variables.asm"
 INCLUDE "data/text/battle.asm"
 INCLUDE "engine/debug/color_picker.asm"
+INCLUDE "data/pokemon/names.asm"
 
 
 SECTION "bank21", ROMX
@@ -512,7 +513,7 @@ INCLUDE "engine/link/time_capsule_2.asm"
 INCLUDE "engine/pokedex/unown_dex.asm"
 INCLUDE "engine/events/magikarp.asm"
 INCLUDE "engine/battle/hidden_power.asm"
-INCLUDE "engine/battle/misc.asm"
+;INCLUDE "engine/battle/misc.asm"
 
 
 SECTION "bank3F", ROMX
@@ -520,6 +521,7 @@ SECTION "bank3F", ROMX
 INCLUDE "engine/tilesets/tileset_anims.asm"
 INCLUDE "engine/events/npc_trade.asm"
 INCLUDE "engine/events/mom_phone.asm"
+INCLUDE "engine/battle/misc.asm" ;bank 3e
 
 
 SECTION "mobile40", ROMX

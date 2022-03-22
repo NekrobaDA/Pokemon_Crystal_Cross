@@ -2,9 +2,10 @@
 
 This is a hack of the Pokémon Crystal disassembly.
 
-Current Features:
+Current Features:<br/>
 -Added pokemon; Weavile, Yanmega, Honchkrow, Mismagius, Gliscor, Ambipom, Leafeon, Glaceon<br/>
 -Wu'duk (madame), Duserpent (dunsparce evo), A-Vulpix + Ninetales, G-Articuno, Zapdos, Moltres<br/>
+-Post-game pokemon like Houndour and Murkrow available in Johto<br/>
 -Dark type changed to physical, Ghost type to special<br/>
 -Changes to Fly, Razor Wind, Sky Attack, Growth, Flash, Cut, Slash<br/>
 -Fly now has a chance to cause paralysis; Sky Attack changed to one turn move with recoil<br/>
@@ -32,15 +33,17 @@ Current Features:
 -Experience from battling has been increased<br/>
 -Johto gym teams have been altered, and have rematch teams post E4<br/>
 -Pokemon learnsets and movepools expanded; added evolution moves<br/>
+-Some pokemon have received stat buffs<br/>
 -13+ static weekly encounter pokemon, 2 for each day of the week<br/>
--game corner pokemon prizes altered; all pokemon attainable without trading<br/>
+-Game corner pokemon prizes altered; all pokemon attainable without trading<br/>
+-Pokemon stats screen altered; happiness and met location info added<br/>
 -Sevii island region added, accessible via vermillion port<br/>
--converted to the 16 bit branch to host more than 253 pokemon<br/>
+-Converted to the 16 bit branch to host more than 253 pokemon<br/>
 
 
-Work in progress/to do:
+Work in progress/to do:<br/>
 -Galarian birds need backsprites<br/>
--Sevii islands lack npcs and house interiors<br/>
+-Sevii islands and Catallia lack npcs and house interiors<br/>
 -finish seperating blocksets for johto, revamp some maps<br/>
 -Place Nara between Violet and Azela, add npcs<br/>
 -sprite bonsly, mantyke, happiny, baby kangashkan; alolan sandslash backsprite<br/>
@@ -63,13 +66,13 @@ Work in progress/to do:
 -Arbok regional forms, dark Arbok, more gender differences<br/>
 
 
-Bugs/to fix:
+Bugs/to fix:<br/>
 -Party icon colors no longer work<br/>
 -Headbutt tree encounters are broken<br/>
 -Trainers call about their '??????'<br/>
 -Glitchy menu sprites when using sevii island ferry menu<br/>
 -Pokedex locations are sometimes wrong<br/>
--possible crash using pokedex<br/>
+-crash using pokedex when scrolling to the bottom<br/>
 -Fix pikachu gender diference<br/>
 -unowns also broken<br/>
 -do not edit park blockset (you have been warned)<br/>
@@ -78,10 +81,10 @@ Bugs/to fix:
 -Lance's dragon overworld to be replaced with a dragonite<br/>
 
 Removed Sunkurn, Igglybuff, Cleffa, Smoochum, Tangela, Jynx, Mr Mime, and Bellossom<br/>
-This was pre-16 bit, needed to make space, and they may be readded in the future (but I dislike them all)
+This was pre-16 bit, needed to make space, and they may be readded in the future (but I dislike them all)<br/>
 
 
-Credits-
+Credits-<br/>
 Front and back sprites for newly added pokemon sprited by me<br/>
 Party menu icons belong to Emi Monserrate (sourced from the 'Add a new party menu icon' tutorial)<br/>
 Duserpent design credit Knazgle on deviantart<br/>

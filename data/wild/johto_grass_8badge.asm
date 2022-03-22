@@ -236,23 +236,23 @@ JohtoGrassWildMons8Badge:
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 14, RATTATA
-	dbw 15, SPEAROW
-	dbw 18, MACHOP
-	dbw 27, ONIX
-	dbw 32, MACHOKE
-	dbw 35, FEAROW
-	dbw 24, RATICATE
-	dbw 29, SPEAROW
-	; nite
-	dbw 14, RATTATA
-	dbw 19, ZUBAT
-	dbw 21, MACHOP
-	dbw 34, GOLBAT
-	dbw 26, ONIX
-	dbw 32, RATICATE
+	dbw 13, GEODUDE
+	dbw 17, SLUGMA
+	dbw 15, MACHOP
+	dbw 24, SLUGMA
 	dbw 30, MACHOKE
+	dbw 38, MAGCARGO
 	dbw 27, ZUBAT
+	dbw 34, GRAVELER
+	; nite
+	dbw 13, GEODUDE
+	dbw 14, SLUGMA
+	dbw 15, MACHOP
+	dbw 24, SLUGMA
+	dbw 31, MACHOKE
+	dbw 38, MAGCARGO
+	dbw 34, GRAVELER
+	dbw 27, GEODUDE
 
 	map_id MOUNT_MORTAR_1F_INSIDE
 	db 6 percent, 6 percent;, 6 percent ; encounter rates: morn/day/nite
