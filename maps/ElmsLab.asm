@@ -194,9 +194,9 @@ CyndaquilPokeBallScript:
 	; good party
 	givepoke DUSERPENT, 100
 	givepoke RINRIN, 100
-	givepoke EKANS_DARK, 100
-	givepoke PICHU_SPIKY, 100
-	givepoke QUILAVA, 100
+	givepoke RINRIN, 25
+	givepoke RINRIN, 1
+	givepoke CHIMEREON, 100
 	givepoke SANDSHREW_ALOLAN, 100
 	; tms for party
 	giveitem TM_ICE_BEAM

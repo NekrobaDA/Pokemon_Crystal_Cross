@@ -3231,7 +3231,7 @@ GliscorEvosAttacks:
 	db 0 ; no more level-up moves
 
 RinrinEvosAttacks:
-	dbbw EVOLVE_ITEM, MOON_STONE, BELLUNA
+	dbbw EVOLVE_ITEM_LEVEL, MOON_STONE, BELLUNA
 	db 0
 	db 1, SCRATCH
 	db 1, CHARM
