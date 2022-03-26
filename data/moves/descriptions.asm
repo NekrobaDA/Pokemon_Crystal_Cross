@@ -10,7 +10,7 @@ MoveDescriptions::
 	dw IcePunchDescription
 	dw ThunderpunchDescription
 	dw ScratchDescription
-	dw VicegripDescription
+	dw MudShotDescription
 	dw GuillotineDescription
 	dw RazorWindDescription
 	dw SwordsDanceDescription
@@ -19,7 +19,7 @@ MoveDescriptions::
 	dw WingAttackDescription
 	dw WhirlwindDescription
 	dw FlyDescription
-	dw BindDescription
+	dw AuraSphereDescription
 	dw SlamDescription
 	dw VineWhipDescription
 	dw StompDescription
@@ -116,7 +116,7 @@ MoveDescriptions::
 	dw HazeDescription
 	dw ReflectDescription
 	dw FocusEnergyDescription
-	dw BideDescription
+	dw SilverWindDescription
 	dw MetronomeDescription
 	dw MirrorMoveDescription
 	dw SelfdestructDescription
@@ -131,15 +131,15 @@ MoveDescriptions::
 	dw SwiftDescription
 	dw SkullBashDescription
 	dw SpikeCannonDescription
-	dw ConstrictDescription
+	dw PoisonFangDescription
 	dw AmnesiaDescription
-	dw KinesisDescription
+	dw ShadowPunchDescription
 	dw SoftboiledDescription
 	dw HiJumpKickDescription
 	dw GlareDescription
 	dw DreamEaterDescription
-	dw PoisonGasDescription
-	dw BarrageDescription
+	dw PsychoCutDescription
+	dw FlashCannonDescription
 	dw LeechLifeDescription
 	dw LovelyKissDescription
 	dw SkyAttackDescription
@@ -252,16 +252,42 @@ MoveDescriptions::
 	dw WhirlpoolDescription
 	dw BeatUpDescription
 	dw RockClimbDescription
-	dw MoveFDDescription
-	dw MoveFEDescription
+	dw DarkPulseDescription
+	dw SludgeWaveDescription
 	dw MoveFFDescription
 	dw Move00Description
 
-MoveFCDescription:
-MoveFDDescription:
-MoveFEDescription:
-MoveFFDescription:
 Move00Description:
+	db "?@"
+	
+MoveFFDescription:
+	db "?@"
+	
+DarkPulseDescription:
+	db "?@"
+	
+SludgeWaveDescription:
+	db "?@"
+	
+FlashCannonDescription:
+	db "?@"
+	
+MudShotDescription:
+	db "?@"
+	
+AuraSphereDescription:
+	db "?@"
+	
+SilverWindDescription:
+	db "?@"
+
+PoisonFangDescription:
+	db "?@"
+	
+ShadowPunchDescription:
+	db "?@"
+
+PsychoCutDescription:
 	db "?@"
 
 PoundDescription:

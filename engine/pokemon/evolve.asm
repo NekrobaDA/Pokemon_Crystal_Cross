@@ -710,7 +710,7 @@ DetermineEvolutionItemResults::
 	jr z, .item
 	cp EVOLVE_ITEM_LEVEL
 	jr nz, .no_item_check
-	;ld a, [wCurPartyLevel]
+	;ld a, MON_LEVEL
 	;cp 25
 	;jr c, .no_item_check
 .item

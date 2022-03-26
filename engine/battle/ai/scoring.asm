@@ -193,6 +193,7 @@ AI_Types:
 	push de
 	push bc
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	ld d, a
 	ld hl, wEnemyMonMoves
 	ld b, NUM_MOVES + 1
@@ -207,6 +208,7 @@ AI_Types:
 
 	call AIGetEnemyMove
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	cp d
 	jr z, .checkmove2
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
@@ -316,7 +318,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_ALWAYS_HIT,       AI_Smart_AlwaysHit
 	dbw EFFECT_ACCURACY_DOWN,    AI_Smart_AccuracyDown
 	dbw EFFECT_RESET_STATS,      AI_Smart_ResetStats
-	dbw EFFECT_BIDE,             AI_Smart_Bide
 	dbw EFFECT_FORCE_SWITCH,     AI_Smart_ForceSwitch
 	dbw EFFECT_HEAL,             AI_Smart_Heal
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
@@ -1119,11 +1120,26 @@ AI_Smart_SpDefenseUp2:
 	cp BASE_STAT_LEVEL + 2
 	ret nc
 
-	ld a, [wBattleMonType1]
-	cp SPECIAL
-	jr nc, .encourage
-	ld a, [wBattleMonType2]
-	cp SPECIAL
+	push hl
+; Get the pointer for the player's Pokémon's base Attack
+	ld a, [wBattleMonSpecies]
+	ld hl, BaseData + BASE_ATK
+	ld bc, BASE_DATA_SIZE
+	call AddNTimes
+; Get the Pokémon's base Attack
+	ld a, BANK(BaseData)
+	call GetFarByte
+	ld d, a
+; Get the pointer for the player's Pokémon's base Special Attack
+	ld bc, BASE_SAT - BASE_ATK
+	add hl, bc
+; Get the Pokémon's base Special Attack
+	ld a, BANK(BaseData)
+	call GetFarByte
+	pop hl
+; If its base Attack is greater than its base Special Attack,
+; don't encourage this move.
+	cp d
 	ret c
 
 .encourage
@@ -1409,6 +1425,7 @@ AI_Smart_Encore:
 
 	push hl
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	ld hl, wEnemyMonType1
 	predef CheckTypeMatchup
 
@@ -1841,11 +1858,6 @@ AI_Smart_Curse:
 	ld a, [wBattleMonType1]
 	cp GHOST
 	jr z, .greatly_encourage
-	cp SPECIAL
-	ret nc
-	ld a, [wBattleMonType2]
-	cp SPECIAL
-	ret nc
 	call AI_80_20
 	ret c
 	dec [hl]

@@ -16,7 +16,7 @@
 	const ICE_PUNCH    ; 08
 	const THUNDERPUNCH ; 09
 	const SCRATCH      ; 0a
-	const VICEGRIP     ; 0b
+	const MUD_SHOT     ; 0b vicegrip
 	const GUILLOTINE   ; 0c
 	const RAZOR_WIND   ; 0d
 	const SWORDS_DANCE ; 0e
@@ -25,7 +25,7 @@
 	const WING_ATTACK  ; 11
 	const WHIRLWIND    ; 12
 	const FLY          ; 13
-	const BIND         ; 14
+	const AURA_SPHERE  ; 14 bind
 	const SLAM         ; 15
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
@@ -122,7 +122,7 @@
 	const HAZE         ; 72
 	const REFLECT      ; 73
 	const FOCUS_ENERGY ; 74
-	const BIDE         ; 75
+	const SILVER_WIND  ; 75 bide
 	const METRONOME    ; 76
 	const MIRROR_MOVE  ; 77
 	const SELFDESTRUCT ; 78
@@ -137,15 +137,15 @@
 	const SWIFT        ; 81
 	const SKULL_BASH   ; 82
 	const SPIKE_CANNON ; 83
-	const CONSTRICT    ; 84
+	const POISON_FANG  ; 84 constrict
 	const AMNESIA      ; 85
-	const KINESIS      ; 86
+	const SHADOW_PUNCH ; 86 kinesis
 	const SOFTBOILED   ; 87
 	const HI_JUMP_KICK ; 88
 	const GLARE        ; 89
 	const DREAM_EATER  ; 8a
-	const POISON_GAS   ; 8b
-	const BARRAGE      ; 8c
+	const PSYCHO_CUT   ; 8b poison gas
+	const FLASH_CANNON ; 8c barrage
 	const LEECH_LIFE   ; 8d
 	const LOVELY_KISS  ; 8e
 	const SKY_ATTACK   ; 8f
@@ -258,6 +258,9 @@
 	const WHIRLPOOL    ; fa
 	const BEAT_UP      ; fb
 	const ROCK_CLIMB   ; fc
+	const DARK_PULSE   ; 253
+	const SLUDGE_WAVE  ; 254
+	
 NUM_ATTACKS EQU const_value - 1
 
 ; Battle animations use the same constants as the moves up to this point

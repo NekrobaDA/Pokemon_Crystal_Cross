@@ -1276,6 +1276,7 @@ BattleCommand_Stab:
 .go
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
+	and TYPE_MASK
 	ld [wCurType], a
 
 	push hl
@@ -1323,6 +1324,7 @@ BattleCommand_Stab:
 .SkipStab:
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	ld b, a
 	ld hl, TypeMatchups
 
@@ -1446,6 +1448,7 @@ CheckTypeMatchup:
 	push bc
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	ld d, a
 	ld b, [hl]
 	inc hl
@@ -3105,6 +3108,7 @@ BattleCommand_DamageCalc:
 	ld b, a
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	cp b
 	jr nz, .DoneItem
 
@@ -5039,8 +5043,6 @@ CalcBattleStats:
 
 	ret
 
-INCLUDE "engine/battle/move_effects/bide.asm"
-
 BattleCommand_CheckRampage:
 ; checkrampage
 
@@ -5828,7 +5830,6 @@ BattleCommand_TrapTarget:
 	jp StdBattleTextbox
 
 .Traps:
-	dbw BIND,      UsedBindText      ; 'used BIND on'
 	dbw WRAP,      WrappedByText     ; 'was WRAPPED by'
 	dbw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
 	dbw CLAMP,     ClampedByText     ; 'was CLAMPED by'
@@ -6101,6 +6102,7 @@ CheckMoveTypeMatchesTarget:
 
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	cp NORMAL
 	jr z, .normal
 

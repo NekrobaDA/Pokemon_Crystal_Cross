@@ -36,6 +36,7 @@ SquirtleEggMoves:
 	db CONFUSION
 	db FORESIGHT
 	db FLAIL
+	db AURA_SPHERE
 	db -1 ; end
 
 PidgeyEggMoves:
@@ -75,6 +76,7 @@ SandshrewEggMoves:
 	db COUNTER
 	db RAPID_SPIN
 	db METAL_CLAW
+	db MUD_SHOT
 	db -1 ; end
 
 NidoranFEggMoves:
@@ -85,6 +87,7 @@ NidoranFEggMoves:
 	db CHARM
 	db COUNTER
 	db BEAT_UP
+	db SLUDGE_WAVE
 	db -1 ; end
 
 NidoranMEggMoves:
@@ -95,6 +98,8 @@ NidoranMEggMoves:
 	db AMNESIA
 	db COUNTER
 	db BEAT_UP
+	db POISON_FANG
+	db SLUDGE_WAVE
 	db -1 ; end
 
 VulpixEggMoves:
@@ -216,6 +221,7 @@ TentacoolEggMoves:
 	db RAPID_SPIN
 	db HAZE
 	db SAFEGUARD
+	db SCREECH
 	db -1 ; end
 
 GeodudeEggMoves:
@@ -268,6 +274,7 @@ GrimerEggMoves:
 	db HAZE
 	db MEAN_LOOK
 	db LICK
+	db SHADOW_PUNCH
 	db -1 ; end
 
 ShellderEggMoves:
@@ -282,6 +289,7 @@ GastlyEggMoves:
 	db PSYWAVE
 	db PERISH_SONG
 	db HAZE
+	db SLUDGE_WAVE
 	db -1 ; end
 
 OnixEggMoves:
@@ -365,12 +373,14 @@ HorseaEggMoves:
 	db DISABLE
 	db SPLASH
 	db DRAGON_RAGE
+	db FLASH_CANNON
 	db -1 ; end
 
 GoldeenEggMoves:
 	db PSYBEAM
 	db HAZE
 	db HYDRO_PUMP
+	db MUD_SHOT
 	db -1 ; end
 
 ScytherEggMoves:
@@ -380,6 +390,7 @@ ScytherEggMoves:
 	db RAZOR_WIND
 	db REVERSAL
 	db LIGHT_SCREEN
+	db SILVER_WIND
 	db -1 ; end
 
 PinsirEggMoves:
@@ -403,6 +414,7 @@ OmanyteEggMoves:
 	db SLAM
 	db SUPERSONIC
 	db HAZE
+	db MUD_SHOT
 	db -1 ; end
 
 KabutoEggMoves:
@@ -411,6 +423,7 @@ KabutoEggMoves:
 	db RAPID_SPIN
 	db DIG
 	db FLAIL
+	db MUD_SHOT
 	db -1 ; end
 
 AerodactylEggMoves:
@@ -477,7 +490,6 @@ HoothootEggMoves:
 
 LedybaEggMoves:
 	db PSYBEAM
-	db BIDE
 	db LIGHT_SCREEN
 	db -1 ; end
 
@@ -497,7 +509,6 @@ ChinchouEggMoves:
 
 PichuEggMoves:
 	db REVERSAL
-	db BIDE
 	db PRESENT
 	db ENCORE
 	db DOUBLESLAP
@@ -583,6 +594,7 @@ YanmaEggMoves:
 	db WHIRLWIND
 	db REVERSAL
 	db LEECH_LIFE
+	db SILVER_WIND
 	db -1 ; end
 
 WooperEggMoves:
@@ -621,7 +633,6 @@ PinecoEggMoves:
 	db -1 ; end
 
 DunsparceEggMoves:
-	db BIDE
 	db ANCIENTPOWER
 	db ROCK_SLIDE
 	db BITE
@@ -660,7 +671,6 @@ ShuckleEggMoves:
 
 HeracrossEggMoves:
 	db HARDEN
-	db BIDE
 	db FLAIL
 	db -1 ; end
 
@@ -671,6 +681,7 @@ SneaselEggMoves:
 	db REFLECT
 	db BITE
 	db PURSUIT
+	db SHADOW_PUNCH
 	db -1 ; end
 
 TeddiursaEggMoves:
@@ -825,6 +836,7 @@ Squirtle_CloneEggMoves:
 	db CONFUSION
 	db FORESIGHT
 	db FLAIL
+	db AURA_SPHERE
 	db -1 ; end
 	
 Ekans_DarkEggMoves:
@@ -837,7 +849,6 @@ Ekans_DarkEggMoves:
 	
 Pichu_SpikyEggMoves:
 	db REVERSAL
-	db BIDE
 	db PRESENT
 	db ENCORE
 	db DOUBLESLAP

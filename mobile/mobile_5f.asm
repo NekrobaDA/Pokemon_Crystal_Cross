@@ -392,7 +392,20 @@ Function17d1f1:
 	call SetSeenAndCaughtMon
 
 	ld a, [wCurPartySpecies]
-	cp UNOWN
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(UNOWN)
+	if HIGH(UNOWN) == 0
+		or h
+	else
+		jr nz, .asm_17d223
+		ld a, h
+		if HIGH(UNOWN) == 1
+			dec a
+		else
+			cp HIGH(UNOWN)
+		endc
+	endc
 	jr nz, .asm_17d223
 
 	ld hl, wPartyMon1DVs

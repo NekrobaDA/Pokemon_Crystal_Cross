@@ -819,22 +819,6 @@ ResetStats:
 	resetstats
 	endmove
 
-Bide:
-	storeenergy
-	checkobedience
-	doturn
-	usedmovetext
-	unleashenergy
-	resettypematchup
-	checkhit
-	moveanim
-	bidefailtext
-	applydamage
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 Rampage:
 	checkrampage
 	checkobedience

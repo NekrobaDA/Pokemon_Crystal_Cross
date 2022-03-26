@@ -3952,11 +3952,50 @@ BattleTower_UbersCheck:
 .loop
 	push af
 	ld a, [de]
-	cp MEWTWO
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(MEWTWO)
+	if HIGH(MEWTWO) == 0
+		or h
+	else
+		jr z, .uber
+		ld a, h
+		if HIGH(MEWTWO) == 1
+			dec a
+		else
+			cp HIGH(MEWTWO)
+		endc
+	endc
 	jr z, .uber
-	cp MEW
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(MEW)
+	if HIGH(MEW) == 0
+		or h
+	else
+		jr z, .uber
+		ld a, h
+		if HIGH(MEW) == 1
+			dec a
+		else
+			cp HIGH(MEW)
+		endc
+	endc
 	jr z, .uber
-	cp LUGIA
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(LUGIA)
+	if HIGH(LUGIA) == 0
+		or h
+	else
+		jr c, .next
+		ld a, h
+		if HIGH(LUGIA) == 1
+			dec a
+		else
+			cp HIGH(LUGIA)
+		endc
+	endc
 	jr c, .next
 	cp NUM_POKEMON + 1
 	jr nc, .next

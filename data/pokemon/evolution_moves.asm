@@ -7,7 +7,7 @@ EvolutionMoves::
 	db WING_ATTACK ; Charizard
 	db NO_MOVE ; Squirtle
 	db NO_MOVE ; Wartortle
-	db NO_MOVE ; Blastoise
+	db FLASH_CANNON ; Blastoise
 	db NO_MOVE ; Caterpie
 	db HARDEN ; Metapod
 	db GUST ; Butterfree
@@ -49,7 +49,7 @@ EvolutionMoves::
 	db NO_MOVE ; Paras
 	db SLASH ; Parasect
 	db NO_MOVE ; Venonat
-	db GUST ; Venomoth
+	db SILVER_WIND ; Venomoth
 	db NO_MOVE ; Diglett
 	db TRI_ATTACK ; Dugtrio
 	db NO_MOVE ; Meowth
@@ -194,7 +194,7 @@ EvolutionMoves::
 	db NO_MOVE ; Lanturn
 	db NO_MOVE ; Togepi
 	db NO_MOVE ; Togetic
-	db EXTREMESPEED ; Togeskiss
+	db AURA_SPHERE ; Togekiss
 	db NO_MOVE ; Natu
 	db NO_MOVE ; Iatu
 	db NO_MOVE ; Xatu
@@ -251,7 +251,7 @@ EvolutionMoves::
 	db NO_MOVE ; Mantine
 	db NO_MOVE ; Skarmory
 	db NO_MOVE ; Houndour
-	db NO_MOVE ; Houndoom
+	db DARK_PULSE ; Houndoom
 	db NO_MOVE ; Phanpy
 	db FURY_ATTACK ; Donphan
 	db NO_MOVE ; Stantler
@@ -277,7 +277,7 @@ EvolutionMoves::
 	db WING_ATTACK ; Charizard
 	db NO_MOVE ; Squirtle
 	db NO_MOVE ; Wartortle
-	db NO_MOVE ; Blastoise
+	db FLASH_CANNON ; Blastoise
 	db NO_MOVE ; Ekans
 	db SCARY_FACE ; Arbok
 	db NO_MOVE ; Pichu

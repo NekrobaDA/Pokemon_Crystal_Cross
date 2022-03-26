@@ -36,8 +36,6 @@ BattleCommandPointers:
 	dw BattleCommand_PayDay
 	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
-	dw BattleCommand_StoreEnergy
-	dw BattleCommand_UnleashEnergy
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget

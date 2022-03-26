@@ -6390,7 +6390,20 @@ Function102d48:
 
 .asm_102d6d
 	ld a, [wTempSpecies]
-	cp UNOWN
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(UNOWN)
+	if HIGH(UNOWN) == 0
+		or h
+	else
+		jr nz, .asm_102d98
+		ld a, h
+		if HIGH(UNOWN) == 1
+			dec a
+		else
+			cp HIGH(UNOWN)
+		endc
+	endc
 	jr nz, .asm_102d98
 	ld a, [wcd4c]
 	dec a
