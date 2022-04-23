@@ -36,6 +36,8 @@ BattleCommandPointers:
 	dw BattleCommand_PayDay
 	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
+	dw BattleCommand_UnusedA
+	dw BattleCommand_UnusedB
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
@@ -166,7 +168,7 @@ BattleCommandPointers:
 	dw BattleCommand_RageDamage
 	dw BattleCommand_ResetTypeMatchup
 	dw BattleCommand_AllStatsUp
-	dw BattleCommand_BideFailText
+	dw BattleCommand_UnusedC
 	dw BattleCommand_RaiseSubNoAnim
 	dw BattleCommand_LowerSubNoAnim
 	dw BattleCommand_BeatUpFailText

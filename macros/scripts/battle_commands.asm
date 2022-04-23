@@ -30,6 +30,8 @@ ENDM
 	command burntarget              ; 17
 	command freezetarget            ; 18
 	command paralyzetarget          ; 19
+	command effect0xA
+	command effect0xB
 	command selfdestruct            ; 1a
 	command mirrormove              ; 1b
 	command statup                  ; 1c
@@ -167,7 +169,7 @@ ENDM
 	command ragedamage              ; a2
 	command resettypematchup        ; a3
 	command allstatsup              ; a4
-	command bidefailtext            ; a5
+	command effect0xC
 	command raisesubnoanim          ; a6
 	command lowersubnoanim          ; a7
 	command beatupfailtext          ; a8

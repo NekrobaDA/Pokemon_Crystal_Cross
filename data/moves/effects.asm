@@ -818,6 +818,9 @@ ResetStats:
 	doturn
 	resetstats
 	endmove
+	
+Unused:
+	endmove
 
 Rampage:
 	checkrampage

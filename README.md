@@ -89,6 +89,7 @@ Front and back sprites for newly added pokemon sprited by me<br/>
 Party menu icons belong to Emi Monserrate (sourced from the 'Add a new party menu icon' tutorial)<br/>
 Duserpent design credit Knazgle on deviantart<br/>
 Move Relearner code adapted from TPP Crystal Aniversary repo
+New HP/EXP bar HUD graphics created by KDLPro
 
 General credit to those behind Pokecrystal for making this project possible.
 

@@ -126,7 +126,8 @@ DrawPlayerPartyIconHUDBorder:
 
 .tiles
 	db $73 ; right side
-	db $5c ; bottom right
+	;db $5c ; bottom right
+	db $5e
 	db $6f ; bottom left
 	db $76 ; bottom side
 .tiles_end
@@ -146,7 +147,8 @@ DrawEnemyHUDBorder:
 	call CheckCaughtMon
 	ret z
 	hlcoord 1, 1
-	ld [hl], $5d
+	;ld [hl], $5d
+	ld [hl], $5f
 	ret
 
 .tiles
