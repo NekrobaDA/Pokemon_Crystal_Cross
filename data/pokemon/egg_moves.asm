@@ -162,7 +162,6 @@ PsyduckEggMoves:
 	db PSYBEAM
 	db FORESIGHT
 	db LIGHT_SCREEN
-	db FUTURE_SIGHT
 	db PSYCHIC_M
 	db CROSS_CHOP
 	db -1 ; end
@@ -170,7 +169,6 @@ PsyduckEggMoves:
 MankeyEggMoves:
 	db ROCK_SLIDE
 	db FORESIGHT
-	db MEDITATE
 	db COUNTER
 	db REVERSAL
 	db BEAT_UP
@@ -197,12 +195,10 @@ PoliwagEggMoves:
 AbraEggMoves:
 	db LIGHT_SCREEN
 	db ENCORE
-	db BARRIER
 	db -1 ; end
 
 MachopEggMoves:
 	db LIGHT_SCREEN
-	db MEDITATE
 	db ROLLING_KICK
 	db ENCORE
 	db -1 ; end
@@ -241,7 +237,6 @@ PonytaEggMoves:
 SlowpokeEggMoves:
 	db SAFEGUARD
 	db BELLY_DRUM
-	db FUTURE_SIGHT
 	db STOMP
 	db -1 ; end
 
@@ -280,7 +275,6 @@ GrimerEggMoves:
 ShellderEggMoves:
 	db BUBBLEBEAM
 	db TAKE_DOWN
-	db BARRIER
 	db RAPID_SPIN
 	db SCREECH
 	db -1 ; end
@@ -299,7 +293,6 @@ OnixEggMoves:
 
 DrowzeeEggMoves:
 	db LIGHT_SCREEN
-	db BARRIER
 	db -1 ; end
 
 KrabbyEggMoves:
@@ -534,7 +527,6 @@ TogepiEggMoves:
 	db MIRROR_MOVE
 	db PECK
 	db FORESIGHT
-	db FUTURE_SIGHT
 	db -1 ; end
 
 NatuEggMoves:
@@ -558,7 +550,6 @@ MarillEggMoves:
 	db LIGHT_SCREEN
 	db PRESENT
 	db AMNESIA
-	db FUTURE_SIGHT
 	db BELLY_DRUM
 	db PERISH_SONG
 	db SUPERSONIC
@@ -621,7 +612,6 @@ GirafarigEggMoves:
 	db TAKE_DOWN
 	db AMNESIA
 	db FORESIGHT
-	db FUTURE_SIGHT
 	db BEAT_UP
 	db -1 ; end
 
@@ -724,7 +714,6 @@ RemoraidEggMoves:
 DelibirdEggMoves:
 	db AURORA_BEAM
 	db QUICK_ATTACK
-	db FUTURE_SIGHT
 	db SPLASH
 	db RAPID_SPIN
 	db -1 ; end
@@ -771,23 +760,19 @@ StantlerEggMoves:
 
 TyrogueEggMoves:
 	db RAPID_SPIN
-	db HI_JUMP_KICK
 	db MACH_PUNCH
 	db MIND_READER
 	db -1 ; end
 
 ElekidEggMoves:
 	db KARATE_CHOP
-	db BARRIER
 	db ROLLING_KICK
-	db MEDITATE
 	db CROSS_CHOP
 	db -1 ; end
 
 MagbyEggMoves:
 	db KARATE_CHOP
 	db MEGA_PUNCH
-	db BARRIER
 	db SCREECH
 	db CROSS_CHOP
 	db -1 ; end

@@ -1415,34 +1415,6 @@ HealBell:
 	healbell
 	endmove
 
-TripleKick:
-	checkobedience
-	usedmovetext
-	doturn
-	startloop
-	lowersub
-	checkhit
-	critical
-	damagestats
-	damagecalc
-	triplekick
-	stab
-	damagevariation
-	clearmissdamage
-	moveanimnosub
-	failuretext
-	applydamage
-	criticaltext
-	cleartext
-	supereffectivelooptext
-	checkfaint
-	buildopponentrage
-	kickcounter
-	endloop
-	raisesub
-	kingsrock
-	endmove
-
 Thief:
 	checkobedience
 	usedmovetext
@@ -2092,4 +2064,92 @@ DefenseCurl:
 	raisesub
 	statupmessage
 	statupfailtext
+	endmove
+	
+SpeedDownMultiHit:
+	checkobedience
+	usedmovetext
+	doturn
+	startloop
+	lowersub
+	checkhit
+	effectchance
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	clearmissdamage
+	moveanimnosub
+	failuretext
+	applydamage
+	criticaltext
+	cleartext
+	supereffectivelooptext
+	checkfaint
+	buildopponentrage
+	endloop
+	raisesub
+	kingsrock
+	speeddown
+	statdownmessage
+	endmove
+	
+CalmMind:
+	checkobedience
+    usedmovetext
+    doturn
+	lowersub
+    statupanim
+	raisesub
+    specialattackup
+	statupmessage
+	specialdefenseup
+	statupmessage
+    statupfailtext
+    endmove
+	
+DragonDance:
+	checkobedience
+    usedmovetext
+    doturn
+	lowersub
+    statupanim
+	raisesub
+    attackup
+	statupmessage
+	speedup
+	statupmessage
+    statupfailtext
+    endmove
+	
+WillOWisp:
+	checkobedience
+	usedmovetext
+	doturn
+	stab
+	checkhit
+	checksafeguard
+	burntarget
+	endmove
+	
+CosmicPower:
+	checkobedience
+    usedmovetext
+    doturn
+	lowersub
+    statupanim
+	raisesub
+    defenseup
+	statupmessage
+	specialdefenseup
+	statupmessage
+    statupfailtext
+    endmove
+	
+Hail:
+	checkobedience
+	usedmovetext
+	doturn
+	starthail
 	endmove

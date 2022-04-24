@@ -26,7 +26,7 @@ MoveEffectsPointers:
 	dw AccuracyDown
 	dw EvasionDown
 	dw ResetStats
-	dw Unused
+	dw SpeedDownMultiHit
 	dw Rampage
 	dw ForceSwitch
 	dw MultiHit
@@ -37,13 +37,13 @@ MoveEffectsPointers:
 	dw PayDay
 	dw LightScreen
 	dw TriAttack
-	dw NormalHit
+	dw WillOWisp
 	dw OHKOHit
 	dw RazorWind
 	dw SuperFang
 	dw StaticDamage
 	dw TrapTarget
-	dw NormalHit
+	dw Hail
 	dw MultiHit
 	dw NormalHit
 	dw Mist
@@ -78,7 +78,7 @@ MoveEffectsPointers:
 	dw SkyAttack
 	dw ConfuseHit
 	dw PoisonMultiHit
-	dw NormalHit
+	dw DragonDance
 	dw Substitute
 	dw HyperBeam
 	dw Rage
@@ -104,13 +104,13 @@ MoveEffectsPointers:
 	dw FalseSwipe
 	dw HealBell
 	dw NormalHit
-	dw TripleKick
+	dw CosmicPower
 	dw Thief
 	dw MeanLook
 	dw Nightmare
 	dw FlameWheel
 	dw Curse
-	dw NormalHit
+	dw CalmMind
 	dw Protect
 	dw Spikes
 	dw Foresight

@@ -30,8 +30,6 @@ ENDM
 	command burntarget              ; 17
 	command freezetarget            ; 18
 	command paralyzetarget          ; 19
-	command effect0xA
-	command effect0xB
 	command selfdestruct            ; 1a
 	command mirrormove              ; 1b
 	command statup                  ; 1c
@@ -39,6 +37,8 @@ ENDM
 	command payday                  ; 1e
 	command conversion              ; 1f
 	command resetstats              ; 20
+	command effect0xA
+	command effect0xB
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
@@ -82,8 +82,8 @@ ENDM
 	command falseswipe              ; 4b
 	command healbell                ; 4c
 	command kingsrock               ; 4d
-	command triplekick              ; 4e
-	command kickcounter             ; 4f
+	command unused1                 ; 4e
+	command unused2                 ; 4f
 	command thief                   ; 50
 	command arenatrap               ; 51
 	command nightmare               ; 52
@@ -169,7 +169,7 @@ ENDM
 	command ragedamage              ; a2
 	command resettypematchup        ; a3
 	command allstatsup              ; a4
-	command effect0xC
+	command starthail
 	command raisesubnoanim          ; a6
 	command lowersubnoanim          ; a7
 	command beatupfailtext          ; a8

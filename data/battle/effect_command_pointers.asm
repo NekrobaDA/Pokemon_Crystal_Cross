@@ -81,8 +81,8 @@ BattleCommandPointers:
 	dw BattleCommand_FalseSwipe
 	dw BattleCommand_HealBell
 	dw BattleCommand_HeldFlinch
-	dw BattleCommand_TripleKick
-	dw BattleCommand_KickCounter
+	dw BattleCommand_Unused1
+	dw BattleCommand_Unused2
 	dw BattleCommand_Thief
 	dw BattleCommand_ArenaTrap
 	dw BattleCommand_Nightmare
@@ -168,7 +168,7 @@ BattleCommandPointers:
 	dw BattleCommand_RageDamage
 	dw BattleCommand_ResetTypeMatchup
 	dw BattleCommand_AllStatsUp
-	dw BattleCommand_UnusedC
+	dw BattleCommand_StartHail
 	dw BattleCommand_RaiseSubNoAnim
 	dw BattleCommand_LowerSubNoAnim
 	dw BattleCommand_BeatUpFailText

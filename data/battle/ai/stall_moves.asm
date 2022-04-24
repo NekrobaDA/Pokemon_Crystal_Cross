@@ -12,7 +12,7 @@ StallMoves:
 	db LEECH_SEED
 	db GROWTH
 	db STRING_SHOT
-	db MEDITATE
+	db HOWL
 	db AGILITY
 	db RAGE
 	db MIMIC
@@ -20,7 +20,7 @@ StallMoves:
 	db HARDEN
 	db WITHDRAW
 	db DEFENSE_CURL
-	db BARRIER
+	db CALM_MIND
 	db LIGHT_SCREEN
 	db HAZE
 	db REFLECT
@@ -34,4 +34,5 @@ StallMoves:
 	db SUBSTITUTE
 	db FLAME_WHEEL
 	db TOXIC
+	db COSMIC_POWER
 	db -1 ; end

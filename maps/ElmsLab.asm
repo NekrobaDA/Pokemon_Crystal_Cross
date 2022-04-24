@@ -197,7 +197,7 @@ CyndaquilPokeBallScript:
 	givepoke RINRIN, 25
 	givepoke RINRIN, 1
 	givepoke CHIMEREON, 100
-	givepoke SANDSHREW_ALOLAN, 100
+	givepoke MEW, 100
 	; tms for party
 	giveitem TM_ICE_BEAM
 	giveitem TM_FLAMETHROWER

@@ -95,7 +95,7 @@ MoveDescriptions::
 	dw ConfusionDescription
 	dw PsychicMDescription
 	dw HypnosisDescription
-	dw MeditateDescription
+	dw HowlDescription
 	dw AgilityDescription
 	dw QuickAttackDescription
 	dw RageDescription
@@ -111,7 +111,7 @@ MoveDescriptions::
 	dw ConfuseRayDescription
 	dw WithdrawDescription
 	dw DefenseCurlDescription
-	dw BarrierDescription
+	dw CalmMindDescription
 	dw LightScreenDescription
 	dw HazeDescription
 	dw ReflectDescription
@@ -120,7 +120,7 @@ MoveDescriptions::
 	dw MetronomeDescription
 	dw MirrorMoveDescription
 	dw SelfdestructDescription
-	dw EggBombDescription
+	dw DragonDanceDescription
 	dw LickDescription
 	dw SmogDescription
 	dw SludgeDescription
@@ -135,13 +135,13 @@ MoveDescriptions::
 	dw AmnesiaDescription
 	dw ShadowPunchDescription
 	dw SoftboiledDescription
-	dw HiJumpKickDescription
+	dw WillOWispDescription
 	dw GlareDescription
 	dw DreamEaterDescription
 	dw PsychoCutDescription
 	dw FlashCannonDescription
 	dw LeechLifeDescription
-	dw LovelyKissDescription
+	dw RoostDescription
 	dw SkyAttackDescription
 	dw TransformDescription
 	dw BubbleDescription
@@ -166,7 +166,7 @@ MoveDescriptions::
 	dw SubstituteDescription
 	dw StruggleDescription
 	dw SketchDescription
-	dw TripleKickDescription
+	dw CosmicPowerDescription
 	dw ThiefDescription
 	dw SpiderWebDescription
 	dw MindReaderDescription
@@ -196,7 +196,7 @@ MoveDescriptions::
 	dw DestinyBondDescription
 	dw PerishSongDescription
 	dw IcyWindDescription
-	dw DetectDescription
+	dw FeatherDanceDescription
 	dw BoneRushDescription
 	dw LockOnDescription
 	dw OutrageDescription
@@ -217,7 +217,7 @@ MoveDescriptions::
 	dw HealBellDescription
 	dw ReturnDescription
 	dw PresentDescription
-	dw FrustrationDescription
+	dw HailDescription
 	dw SafeguardDescription
 	dw PainSplitDescription
 	dw SacredFireDescription
@@ -247,7 +247,7 @@ MoveDescriptions::
 	dw ExtremespeedDescription
 	dw AncientpowerDescription
 	dw ShadowBallDescription
-	dw FutureSightDescription
+	dw HyperVoiceDescription
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
@@ -261,6 +261,36 @@ Move00Description:
 	db "?@"
 	
 MoveFFDescription:
+	db "?@"
+
+HowlDescription:
+	db "?@"
+	
+CalmMindDescription:
+	db "?@"
+	
+DragonDanceDescription:
+	db "?@"
+	
+WillOWispDescription:
+	db "?@"
+	
+CosmicPowerDescription:
+	db "?@"
+	
+FeatherDanceDescription:
+	db "?@"
+	
+HailDescription:
+	db "?@"
+	
+SecretPowerDescription:
+	db "?@"
+	
+HyperVoiceDescription:
+	db "?@"
+	
+RoostDescription:
 	db "?@"
 	
 DarkPulseDescription:

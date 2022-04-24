@@ -252,8 +252,8 @@ HandleBetweenTurnEffects:
 	jr z, .CheckEnemyFirst
 	call CheckFaint_PlayerThenEnemy
 	ret c
-	call HandleFutureSight
-	call CheckFaint_PlayerThenEnemy
+	;call HandleFutureSight
+	;call CheckFaint_PlayerThenEnemy
 	ret c
 	call HandleWeather
 	call CheckFaint_PlayerThenEnemy
@@ -269,8 +269,8 @@ HandleBetweenTurnEffects:
 .CheckEnemyFirst:
 	call CheckFaint_EnemyThenPlayer
 	ret c
-	call HandleFutureSight
-	call CheckFaint_EnemyThenPlayer
+	;call HandleFutureSight
+	;call CheckFaint_EnemyThenPlayer
 	ret c
 	call HandleWeather
 	call CheckFaint_EnemyThenPlayer
@@ -827,9 +827,9 @@ GetMovePriority:
 	ld b, a
 
 	; Vital Throw goes last.
-	cp VITAL_THROW
-	ld a, 0
-	ret z
+	;cp VITAL_THROW
+	;ld a, 0
+	;ret z
 
 	call GetMoveEffect
 	ld hl, MoveEffectPriorities
@@ -1458,64 +1458,6 @@ HandleMysteryberry:
 	ld hl, BattleText_UserRecoveredPPUsing
 	jp StdBattleTextbox
 
-HandleFutureSight:
-	ldh a, [hSerialConnectionStatus]
-	cp USING_EXTERNAL_CLOCK
-	jr z, .enemy_first
-	call SetPlayerTurn
-	call .do_it
-	call SetEnemyTurn
-	jp .do_it
-
-.enemy_first
-	call SetEnemyTurn
-	call .do_it
-	call SetPlayerTurn
-
-.do_it
-	ld hl, wPlayerFutureSightCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .okay
-	ld hl, wEnemyFutureSightCount
-
-.okay
-	ld a, [hl]
-	and a
-	ret z
-	dec a
-	ld [hl], a
-	cp $1
-	ret nz
-
-	ld hl, BattleText_TargetWasHitByFutureSight
-	call StdBattleTextbox
-
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
-	push af
-	ld a, FUTURE_SIGHT
-	ld [hl], a
-
-	callfar UpdateMoveData
-	xor a
-	ld [wAttackMissed], a
-	ld [wAlreadyDisobeyed], a
-	ld a, EFFECTIVE
-	ld [wTypeModifier], a
-	callfar DoMove
-	xor a
-	ld [wCurDamage], a
-	ld [wCurDamage + 1], a
-
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
-	pop af
-	ld [hl], a
-
-	call UpdateBattleMonInParty
-	jp UpdateEnemyMonInParty
-
 HandleDefrost:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
@@ -1690,6 +1632,8 @@ HandleWeather:
 	call .PrintWeatherMessage
 
 	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	jr z, .hail
 	cp WEATHER_SANDSTORM
 	ret nz
 
@@ -1754,8 +1698,75 @@ HandleWeather:
 	xor a
 	ld [wBattleWeather], a
 	ret
+	
+.hail
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .enemy_first1
+
+; player first
+	call SetPlayerTurn
+	call .HailDamage
+	call SetEnemyTurn
+	jr .HailDamage
+
+.enemy_first1
+	call SetEnemyTurn
+	call .SandstormDamage
+	call SetPlayerTurn
+
+.HailDamage:
+	ld a, BATTLE_VARS_SUBSTATUS3
+	call GetBattleVar
+	bit SUBSTATUS_UNDERGROUND, a
+	ret nz
+
+	ld hl, wBattleMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok1
+	ld hl, wEnemyMonType1
+.ok1
+	ld a, [hli]
+	cp ICE
+	ret z
+
+	ld a, [hl]
+	cp ICE
+	ret z
+
+	call SwitchTurnCore
+	xor a
+	ld [wNumHits], a
+	ld de, RAIN_DANCE
+	call Call_PlayBattleAnim
+	call SwitchTurnCore
+	call GetEighthMaxHP
+	call SubtractHPFromUser
+
+	ld hl, HailHitsText
+	jp StdBattleTextbox
+
+.ended1
+	ld hl, .WeatherEndedMessages
+	call .PrintWeatherMessage1
+	xor a
+	ld [wBattleWeather], a
+	ret
 
 .PrintWeatherMessage:
+	ld a, [wBattleWeather]
+	dec a
+	ld c, a
+	ld b, 0
+	add hl, bc
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp StdBattleTextbox
+	
+.PrintWeatherMessage1:
 	ld a, [wBattleWeather]
 	dec a
 	ld c, a
@@ -1772,12 +1783,14 @@ HandleWeather:
 	dw BattleText_RainContinuesToFall
 	dw BattleText_TheSunlightIsStrong
 	dw BattleText_TheSandstormRages
+	dw BattleText_HailContinuesToFall
 
 .WeatherEndedMessages:
 ; entries correspond to WEATHER_* constants
 	dw BattleText_TheRainStopped
 	dw BattleText_TheSunlightFaded
 	dw BattleText_TheSandstormSubsided
+	dw BattleText_TheHailEnded
 
 SubtractHPFromTarget:
 	call SubtractHP

@@ -436,7 +436,7 @@ MartCeladon2F2:
 	db TM_RAIN_DANCE   ; d1
 	db TM_GIGA_DRAIN   ; d2
 	db TM_THUNDERBOLT  ; d3
-	db TM_FRUSTRATION  ; d4
+	;db TM_FRUSTRATION  ; d4
 	db TM_SOLARBEAM    ; d5
 	db TM_IRON_TAIL    ; d6
 	db TM_DRAGONBREATH ; d7

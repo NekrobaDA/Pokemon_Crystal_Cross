@@ -1241,8 +1241,6 @@ INCLUDE "data/moves/critical_hit_moves.asm"
 
 INCLUDE "data/battle/critical_hit_chances.asm"
 
-INCLUDE "engine/battle/move_effects/triple_kick.asm"
-
 BattleCommand_Stab:
 ; STAB = Same Type Attack Bonus
 	ld a, BATTLE_VARS_MOVE_ANIM
@@ -2019,8 +2017,6 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .alternate_anim
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .alternate_anim
-	cp EFFECT_TRIPLE_KICK
-	jr z, .triplekick
 	xor a
 	ld [wBattleAnimParam], a
 
@@ -2462,8 +2458,6 @@ BattleCommand_CheckFaint:
 	cp EFFECT_DOUBLE_HIT
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_POISON_MULTI_HIT
-	jr z, .multiple_hit_raise_sub
-	cp EFFECT_TRIPLE_KICK
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_BEAT_UP
 	jr nz, .finish
@@ -3638,8 +3632,6 @@ DoSubstituteDamage:
 	cp EFFECT_DOUBLE_HIT
 	jr z, .ok
 	cp EFFECT_POISON_MULTI_HIT
-	jr z, .ok
-	cp EFFECT_TRIPLE_KICK
 	jr z, .ok
 	cp EFFECT_BEAT_UP
 	jr z, .ok
@@ -5383,17 +5375,7 @@ BattleCommand_EndLoop:
 	ld a, [hl]
 	cp EFFECT_BEAT_UP
 	jr z, .beat_up
-	cp EFFECT_TRIPLE_KICK
-	jr nz, .not_triple_kick
-.reject_triple_kick_sample
-	call BattleRandom
-	and $3
-	jr z, .reject_triple_kick_sample
-	dec a
-	jr nz, .double_hit
-	ld a, 1
-	ld [bc], a
-	jr .done_loop
+	jr .not_triple_kick
 
 .beat_up
 	ldh a, [hBattleTurn]
@@ -5775,6 +5757,14 @@ BattleCommand_UnusedB:
 ; effect0x3c
 	ret
 BattleCommand_UnusedC:
+; effect0x3c
+	ret
+	
+BattleCommand_Unused1:
+; effect0x3c
+	ret
+	
+BattleCommand_Unused2:
 ; effect0x3c
 	ret
 
@@ -6705,6 +6695,8 @@ INCLUDE "engine/battle/move_effects/hidden_power.asm"
 INCLUDE "engine/battle/move_effects/rain_dance.asm"
 
 INCLUDE "engine/battle/move_effects/sunny_day.asm"
+
+INCLUDE "engine/battle/move_effects/hail.asm"
 
 INCLUDE "engine/battle/move_effects/belly_drum.asm"
 
