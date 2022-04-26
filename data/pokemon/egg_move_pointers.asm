@@ -131,7 +131,7 @@ EggMovePointers::
 	dw NoEggMoves
 	dw GoldeenEggMoves
 	dw NoEggMoves
-	dw NoEggMoves
+	dw StaryuEggMoves
 	dw NoEggMoves
 	dw ScytherEggMoves
 	dw NoEggMoves
@@ -143,7 +143,7 @@ EggMovePointers::
 	dw MoobyEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
-	dw NoEggMoves
+	dw MagikarpEggMoves
 	dw NoEggMoves
 	dw NessiEggMoves
 	dw NoEggMoves
