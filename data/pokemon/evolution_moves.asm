@@ -15,12 +15,12 @@ EvolutionMoves::
 	db HARDEN ; Kakuna
 	db TWINEEDLE ; Beedrill
 	db NO_MOVE ; Pidgey
-	db NO_MOVE ; Pidgeotto
+	db FEATHERDANCE ; Pidgeotto
 	db NO_MOVE ; Pidgeot
 	db NO_MOVE ; Rattata
 	db SCARY_FACE ; Raticate
 	db NO_MOVE ; Spearow
-	db NO_MOVE ; Fearow
+	db WING_ATTACK ; Fearow
 	db NO_MOVE ; Ekans
 	db SCARY_FACE ; Arbok
 	db NO_MOVE ; Pichu
@@ -35,14 +35,14 @@ EvolutionMoves::
 	db NO_MOVE ; Nidorino
 	db THRASH ; Nidoking
 	db NO_MOVE ; Clefairy
-	db MOONLIGHT ; Clefable
+	db HEAL_BELL ; Clefable
 	db NO_MOVE ; Vulpix
 	db CURSE ; Ninetales
 	db NO_MOVE ; Jigglypuff
 	db NO_MOVE ; Wigglytuff
 	db NO_MOVE ; Zubat
 	db NO_MOVE ; Golbat
-	db NO_MOVE ; Crobat
+	db SLUDGE_BOMB ; Crobat
 	db NO_MOVE ; Oddish
 	db NO_MOVE ; Gloom
 	db NO_MOVE ; Vileplume
@@ -55,21 +55,21 @@ EvolutionMoves::
 	db NO_MOVE ; Meowth
 	db NO_MOVE ; Persian
 	db NO_MOVE ; Psyduck
-	db NO_MOVE ; Golduck
+	db PSYBEAM ; Golduck
 	db NO_MOVE ; Mankey
 	db RAGE ; Primeape
 	db NO_MOVE ; Growlithe
-	db NO_MOVE ; Arcanine
+	db EXTREMESPEED ; Arcanine
 	db NO_MOVE ; Poliwag
 	db NO_MOVE ; Poliwhirl
-	db SUBMISSION ; Poliwrath
-	db NO_MOVE ; Politoed
+	db SEISMIC_TOSS ; Poliwrath
+	db PERISH_SONG ; Politoed
 	db NO_MOVE ; Abra
 	db CONFUSION ; Kadabra
 	db NO_MOVE ; Alakazam
 	db NO_MOVE ; Machop
 	db NO_MOVE ; Machoke
-	db NO_MOVE ; Machamp
+	db DYNAMICPUNCH ; Machamp
 	db NO_MOVE ; Bellsprout
 	db NO_MOVE ; Weepinbell
 	db NO_MOVE ; Victreebel
@@ -77,12 +77,12 @@ EvolutionMoves::
 	db SLUDGE_BOMB ; Tentacruel
 	db NO_MOVE ; Geodude
 	db NO_MOVE ; Graveler
-	db NO_MOVE ; Golem
+	db EXPLOSION ; Golem
 	db NO_MOVE ; Ponyta
 	db HORN_ATTACK ; Rapidash
 	db NO_MOVE ; Slowpoke
 	db WITHDRAW ; Slowbro
-	db NO_MOVE ; Slowking
+	db HIDDEN_POWER ; Slowking
 	db NO_MOVE ; Magnemite
 	db TRI_ATTACK ; Magneton
 	db NO_MOVE ; FarfetchD
@@ -94,22 +94,22 @@ EvolutionMoves::
 	db NO_MOVE ; Grimer
 	db NO_MOVE ; Muk
 	db NO_MOVE ; Shellder
-	db NO_MOVE ; Cloyster
+	db SPIKE_CANNON ; Cloyster
 	db NO_MOVE ; Gastly
-	db NO_MOVE ; Haunter
-	db NO_MOVE ; Gengar
+	db SHADOW_PUNCH ; Haunter
+	db DARK_PULSE ; Gengar
 	db NO_MOVE ; Onix
-	db NO_MOVE ; Steelix
+	db CRUNCH ; Steelix
 	db NO_MOVE ; Drowzee
-	db NO_MOVE ; Hypno
+	db NIGHTMARE ; Hypno
 	db NO_MOVE ; Krabby
 	db NO_MOVE ; Kingler
 	db NO_MOVE ; Voltorb
 	db NO_MOVE ; Electrode
 	db NO_MOVE ; Exeggcute
-	db STOMP ; Exeggutor
+	db RAZOR_LEAF ; Exeggutor
 	db NO_MOVE ; Cubone
-	db BONEMERANG ; Marowak
+	db SKULL_BASH ; Marowak
 	db NO_MOVE ; Tyrogue
 	db DOUBLE_KICK ; Hitmonlee
 	db COMET_PUNCH ; Hitmonchan
@@ -118,29 +118,29 @@ EvolutionMoves::
 	db NO_MOVE ; Koffing
 	db NO_MOVE ; Weezing
 	db NO_MOVE ; Rhyhorn
-	db NO_MOVE ; Rhydon
+	db HORN_DRILL ; Rhydon
 	db NO_MOVE ; Happiny
 	db SOFTBOILED ; Chansey
 	db NO_MOVE ; Blissey
 	db NO_MOVE ; Kangaskid
-	db NO_MOVE ; Kangaskhan
+	db COMET_PUNCH ; Kangaskhan
 	db NO_MOVE ; Horsea
-	db NO_MOVE ; Seadra
+	db POISON_STING ; Seadra
 	db DRAGONBREATH ; Kingdra
 	db NO_MOVE ; Goldeen
 	db NO_MOVE ; Seaking
 	db NO_MOVE ; Staryu
-	db NO_MOVE ; Starmie
+	db CONFUSE_RAY ; Starmie
 	db NO_MOVE ; Scyther
-	db NO_MOVE ; Scizor
+	db METAL_CLAW ; Scizor
 	db NO_MOVE ; Elekid
-	db NO_MOVE ; Electabuzz
+	db THUNDERPUNCH ; Electabuzz
 	db NO_MOVE ; Magby
-	db NO_MOVE ; Magmar
+	db FIRE_PUNCH ; Magmar
 	db NO_MOVE ; Pinsir
 	db NO_MOVE ; Mooby
-	db NO_MOVE ; Tauros
-	db NO_MOVE ; Miltank
+	db HORN_ATTACK ; Tauros
+	db MILK_DRINK ; Miltank
 	db NO_MOVE ; Magikarp
 	db BITE ; Gyarados
 	db NO_MOVE ; Nessi
@@ -152,19 +152,19 @@ EvolutionMoves::
 	db EMBER ; Flareon
 	db CONFUSION ; Espeon
 	db PURSUIT ; Umbreon
-	db RAZOR_LEAF ; Leafeon
+	db MEGA_DRAIN ; Leafeon
 	db POWDER_SNOW ; Glaceon
 	db SWIFT ; Sylveon
 	db NO_MOVE ; Porygon
 	db NO_MOVE ; Porygon2
-	db NO_MOVE ; PorygonZ
+	db CONVERSION2 ; PorygonZ
 	db NO_MOVE ; Omanyte
 	db SPIKE_CANNON ; Omastar
 	db NO_MOVE ; Kabuto
 	db SLASH ; Kabutops
 	db NO_MOVE ; Aerodactyl
 	db NO_MOVE ; Munchlax
-	db NO_MOVE ; Snorlax
+	db REST ; Snorlax
 	db NO_MOVE ; Articuno
 	db NO_MOVE ; Zapdos
 	db NO_MOVE ; Moltres
@@ -174,32 +174,32 @@ EvolutionMoves::
 	db NO_MOVE ; Mewtwo
 	db NO_MOVE ; Mew
 	db NO_MOVE ; Chikorita
-	db NO_MOVE ; Bayleef
+	db BODY_SLAM ; Bayleef
 	db PETAL_DANCE ; Meganium
 	db NO_MOVE ; Cyndaquil
 	db NO_MOVE ; Quilava
-	db NO_MOVE ; Typhlosion
+	db FIRE_PUNCH ; Typhlosion
 	db NO_MOVE ; Totodile
 	db NO_MOVE ; Croconaw
-	db NO_MOVE ; Feraligatr
+	db SLASH ; Feraligatr
 	db NO_MOVE ; Sentret
-	db NO_MOVE ; Furret
+	db DIG ; Furret
 	db NO_MOVE ; Hoothoot
-	db RECOVER ; Noctowl
+	db MOONLIGHT ; Noctowl
 	db NO_MOVE ; Ledyba
-	db GROWTH  ; Ledian
+	db MACH_PUNCH ; Ledian
 	db NO_MOVE ; Spinarak
 	db NO_MOVE ; Ariados
 	db NO_MOVE ; Chinchou
 	db NO_MOVE ; Lanturn
 	db NO_MOVE ; Togepi
-	db NO_MOVE ; Togetic
+	db GUST ; Togetic
 	db AURA_SPHERE ; Togekiss
 	db NO_MOVE ; Natu
 	db NO_MOVE ; Iatu
-	db NO_MOVE ; Xatu
+	db RECOVER ; Xatu
 	db NO_MOVE ; Mareep
-	db NO_MOVE ; Flaaffy
+	db CONFUSE_RAY ; Flaaffy
 	db THUNDERPUNCH ; Ampharos
 	db NO_MOVE ; Marill
 	db NO_MOVE ; Azumarill
@@ -210,15 +210,15 @@ EvolutionMoves::
 	db NO_MOVE ; Jumpluff
 	db NO_MOVE ; Aipom
 	db NO_MOVE ; Ambipom
-	db NO_MOVE ; Sunflora
+	db POUND ; Sunflora
 	db NO_MOVE ; Yanma
-	db NO_MOVE ; Yanmega
+	db LEECH_LIFE ; Yanmega
 	db NO_MOVE ; Wooper
 	db NO_MOVE ; Quagsire
 	db NO_MOVE ; Murkrow
-	db NO_MOVE ; Honchkrow
+	db DARK_PULSE ; Honchkrow
 	db NO_MOVE ; Misdreavus
-	db NO_MOVE ; Mismagius
+	db FIRE_SPIN ; Mismagius
 	db NO_MOVE ; Wynaut
 	db NO_MOVE ; Wobbuffet
 	db NO_MOVE ; Girafarig
@@ -227,20 +227,20 @@ EvolutionMoves::
 	db NO_MOVE ; Dunsparce
 	db TWISTER ; Duserpent
 	db NO_MOVE ; Gligar
-	db RAZOR_WIND ; Gliscor
+	db POISON_FANG ; Gliscor
 	db NO_MOVE ; Rinrin
-	db NO_MOVE ; Belluna
+	db SLASH ; Belluna
 	db NO_MOVE ; Snubbull
-	db NO_MOVE ; Granbull
+	db SCARY_FACE ; Granbull
 	db NO_MOVE ; Qwilfish
 	db SELFDESTRUCT ; Detoqwil
 	db NO_MOVE ; Shuckle
 	db NO_MOVE ; Sneasel
-	db LOW_KICK ; Weavile
+	db ICE_PUNCH ; Weavile
 	db NO_MOVE ; Teddiursa
 	db SLASH ; Ursaring
 	db NO_MOVE ; Slugma
-	db NO_MOVE ; Magcargo
+	db FLAME_WHEEL ; Magcargo
 	db NO_MOVE ; Swinub
 	db FURY_ATTACK ; Piloswine
 	db NO_MOVE ; Corsola
@@ -248,12 +248,12 @@ EvolutionMoves::
 	db OCTAZOOKA ; Octillery
 	db NO_MOVE ; Delibird
 	db NO_MOVE ; Mantyke
-	db NO_MOVE ; Mantine
+	db PSYBEAM ; Mantine
 	db NO_MOVE ; Skarmory
 	db NO_MOVE ; Houndour
-	db DARK_PULSE ; Houndoom
+	db WILL_O_WISP ; Houndoom
 	db NO_MOVE ; Phanpy
-	db FURY_ATTACK ; Donphan
+	db RAPID_SPIN ; Donphan
 	db NO_MOVE ; Stantler
 	db CONFUSION ; Wyrdeer
 	db NO_MOVE ; Smeargle
@@ -263,7 +263,7 @@ EvolutionMoves::
 	db NO_MOVE ; Entei
 	db NO_MOVE ; Suicune
 	db NO_MOVE ; Larvitar
-	db NO_MOVE ; Pupitar
+	db HARDEN ; Pupitar
 	db HYPER_BEAM ; Tyranitar
 	db NO_MOVE ; Lugia
 	db NO_MOVE ; HoOh
