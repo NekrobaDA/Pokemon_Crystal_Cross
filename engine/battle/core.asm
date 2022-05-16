@@ -1626,16 +1626,22 @@ HandleWeather:
 
 	ld hl, wWeatherCount
 	dec [hl]
-	jr z, .ended
+	jr nz, .continues
+	
+; ended
+	ld hl, .WeatherEndedMessages
+	call .PrintWeatherMessage
+	xor a
+	ld [wBattleWeather], a
+	ret
 
+.continues
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
 
 	ld a, [wBattleWeather]
-	cp WEATHER_HAIL
-	jr z, .hail
 	cp WEATHER_SANDSTORM
-	ret nz
+	jr nz, .check_hail
 
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
@@ -1692,17 +1698,14 @@ HandleWeather:
 	ld hl, SandstormHitsText
 	jp StdBattleTextbox
 
-.ended
-	ld hl, .WeatherEndedMessages
-	call .PrintWeatherMessage
-	xor a
-	ld [wBattleWeather], a
-	ret
-	
-.hail
+.check_hail
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	ret nz
+
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
-	jr z, .enemy_first1
+	jr z, .enemy_first_hail
 
 ; player first
 	call SetPlayerTurn
@@ -1710,9 +1713,9 @@ HandleWeather:
 	call SetEnemyTurn
 	jr .HailDamage
 
-.enemy_first1
+.enemy_first_hail
 	call SetEnemyTurn
-	call .SandstormDamage
+	call .HailDamage
 	call SetPlayerTurn
 
 .HailDamage:
@@ -1735,24 +1738,11 @@ HandleWeather:
 	cp ICE
 	ret z
 
-	call SwitchTurnCore
-	xor a
-	ld [wNumHits], a
-	ld de, RAIN_DANCE
-	call Call_PlayBattleAnim
-	call SwitchTurnCore
-	call GetEighthMaxHP
+	call GetSixteenthMaxHP
 	call SubtractHPFromUser
 
 	ld hl, HailHitsText
 	jp StdBattleTextbox
-
-.ended1
-	ld hl, .WeatherEndedMessages
-	call .PrintWeatherMessage1
-	xor a
-	ld [wBattleWeather], a
-	ret
 
 .PrintWeatherMessage:
 	ld a, [wBattleWeather]
@@ -1766,18 +1756,6 @@ HandleWeather:
 	ld l, a
 	jp StdBattleTextbox
 	
-.PrintWeatherMessage1:
-	ld a, [wBattleWeather]
-	dec a
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jp StdBattleTextbox
-
 .WeatherMessages:
 ; entries correspond to WEATHER_* constants
 	dw BattleText_RainContinuesToFall

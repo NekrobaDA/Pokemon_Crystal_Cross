@@ -1470,7 +1470,8 @@ FlameWheel:
 	defrost
 	checkfaint
 	buildopponentrage
-	burntarget
+	speedup
+	statupmessage
 	endmove
 
 Curse:
@@ -1744,6 +1745,7 @@ RapidSpin:
 	stab
 	damagevariation
 	checkhit
+	effectchance
 	moveanim
 	failuretext
 	applydamage
@@ -1752,6 +1754,8 @@ RapidSpin:
 	clearhazards
 	checkfaint
 	buildopponentrage
+	speedup
+	statupmessage
 	kingsrock
 	endmove
 
@@ -1859,6 +1863,7 @@ SkullBash:
 	stab
 	damagevariation
 	checkhit
+	effectchance
 	moveanim
 	failuretext
 	applydamage
