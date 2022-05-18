@@ -1704,7 +1704,7 @@ BattleTowerMons:
 
 	dw SNORLAX
 	db QUICK_CLAW
-	db ATTRACT, BODY_SLAM, PSYCH_UP, EARTHQUAKE
+	db ATTRACT, SLAM, PSYCH_UP, EARTHQUAKE
 	dw 0 ; OT ID
 	dt 64000 ; Exp
 	; Stat exp
@@ -1990,7 +1990,7 @@ BattleTowerMons:
 
 	dw ARCANINE
 	db CHARCOAL
-	db FLAME_WHEEL, LEER, BODY_SLAM, ROAR
+	db FLAME_WHEEL, LEER, SLAM, ROAR
 	dw 0 ; OT ID
 	dt 64000 ; Exp
 	; Stat exp
@@ -3088,7 +3088,7 @@ BattleTowerMons:
 
 	dw SNORLAX
 	db PINK_BOW
-	db ROCK_SLIDE, SURF, BODY_SLAM, EARTHQUAKE
+	db ROCK_SLIDE, SURF, SLAM, EARTHQUAKE
 	dw 0 ; OT ID
 	dt 216000 ; Exp
 	; Stat exp
@@ -3715,7 +3715,7 @@ BattleTowerMons:
 
 	dw HITMONLEE
 	db FOCUS_BAND
-	db REVERSAL, ENDURE, BODY_SLAM, MEGA_KICK
+	db REVERSAL, ENDURE, SLAM, MEGA_KICK
 	dw 0 ; OT ID
 	dt 343000 ; Exp
 	; Stat exp
@@ -3926,7 +3926,7 @@ BattleTowerMons:
 
 	dw TAUROS
 	db GOLD_BERRY
-	db EARTHQUAKE, BODY_SLAM, IRON_TAIL, HYPER_BEAM
+	db EARTHQUAKE, SLAM, IRON_TAIL, HYPER_BEAM
 	dw 0 ; OT ID
 	dt 512000 ; Exp
 	; Stat exp
@@ -4865,7 +4865,7 @@ BattleTowerMons:
 
 	dw MILTANK
 	db LEFTOVERS
-	db MILK_DRINK, EARTHQUAKE, ATTRACT, BODY_SLAM
+	db MILK_DRINK, EARTHQUAKE, ATTRACT, SLAM
 	dw 0 ; OT ID
 	dt 729000 ; Exp
 	; Stat exp

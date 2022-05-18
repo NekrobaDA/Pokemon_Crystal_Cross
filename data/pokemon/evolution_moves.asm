@@ -30,7 +30,7 @@ EvolutionMoves::
 	db SLASH ; Sandslash
 	db NO_MOVE ; NidoranF
 	db NO_MOVE ; Nidorina
-	db BODY_SLAM ; Nidoqueen
+	db SLAM ; Nidoqueen
 	db NO_MOVE ; NidoranM
 	db NO_MOVE ; Nidorino
 	db THRASH ; Nidoking
@@ -53,7 +53,7 @@ EvolutionMoves::
 	db NO_MOVE ; Diglett
 	db TRI_ATTACK ; Dugtrio
 	db NO_MOVE ; Meowth
-	db NO_MOVE ; Persian
+	db SLASH ; Persian
 	db NO_MOVE ; Psyduck
 	db PSYBEAM ; Golduck
 	db NO_MOVE ; Mankey
@@ -81,8 +81,8 @@ EvolutionMoves::
 	db NO_MOVE ; Ponyta
 	db HORN_ATTACK ; Rapidash
 	db NO_MOVE ; Slowpoke
-	db WITHDRAW ; Slowbro
-	db HIDDEN_POWER ; Slowking
+	db HARDEN ; Slowbro
+	db POWER_GEM ; Slowking
 	db NO_MOVE ; Magnemite
 	db TRI_ATTACK ; Magneton
 	db NO_MOVE ; FarfetchD
@@ -113,7 +113,7 @@ EvolutionMoves::
 	db NO_MOVE ; Tyrogue
 	db DOUBLE_KICK ; Hitmonlee
 	db COMET_PUNCH ; Hitmonchan
-	db ROLLING_KICK ; Hitmontop
+	db RAPID_SPIN ; Hitmontop
 	db NO_MOVE ; Lickitung
 	db NO_MOVE ; Koffing
 	db NO_MOVE ; Weezing
@@ -174,7 +174,7 @@ EvolutionMoves::
 	db NO_MOVE ; Mewtwo
 	db NO_MOVE ; Mew
 	db NO_MOVE ; Chikorita
-	db BODY_SLAM ; Bayleef
+	db SLAM ; Bayleef
 	db PETAL_DANCE ; Meganium
 	db NO_MOVE ; Cyndaquil
 	db NO_MOVE ; Quilava
@@ -223,7 +223,7 @@ EvolutionMoves::
 	db NO_MOVE ; Wobbuffet
 	db NO_MOVE ; Girafarig
 	db NO_MOVE ; Pineco
-	db WITHDRAW ; Forretress
+	db HARDEN ; Forretress
 	db NO_MOVE ; Dunsparce
 	db TWISTER ; Duserpent
 	db NO_MOVE ; Gligar
@@ -293,7 +293,7 @@ EvolutionMoves::
 	db NO_MOVE ; Voltorb
 	db NO_MOVE ; Electrode
 	db FLAME_WHEEL ; Marowak
-	db NIGHT_SHADE; Typhlosion
+	db HEX ; Typhlosion
 	db NO_MOVE ; Articuno
 	db NO_MOVE ; Zapdos
 	db NO_MOVE ; Moltres

@@ -29,17 +29,17 @@
 	const SLAM         ; 15
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
-	const DOUBLE_KICK  ; 18 X?
+	const DOUBLE_KICK  ; 18 
 	const MEGA_KICK    ; 19
 	const JUMP_KICK    ; 1a
-	const ROLLING_KICK ; 1b
+	const EARTH_POWER  ; 1b
 	const SAND_ATTACK  ; 1c acc -1
 	const HEADBUTT     ; 1d
 	const HORN_ATTACK  ; 1e
 	const FURY_ATTACK  ; 1f
 	const HORN_DRILL   ; 20
 	const TACKLE       ; 21
-	const BODY_SLAM    ; 22
+	const POWER_GEM    ; 22
 	const WRAP         ; 23
 	const TAKE_DOWN    ; 24
 	const THRASH       ; 25
@@ -56,10 +56,10 @@
 	const SUPERSONIC   ; 30
 	const SONICBOOM    ; 31
 	const DISABLE      ; 32
-	const ACID         ; 33 def -1
+	const WATER_PULSE  ; 33
 	const EMBER        ; 34
 	const FLAMETHROWER ; 35
-	const MIST         ; 36 X, merge with safeguard
+	const MIST         ; 36 
 	const WATER_GUN    ; 37
 	const HYDRO_PUMP   ; 38
 	const SURF         ; 39
@@ -115,7 +115,7 @@
 	const MINIMIZE     ; 6b evade +1
 	const SMOKESCREEN  ; 6c acc -1
 	const CONFUSE_RAY  ; 6d 
-	const WITHDRAW     ; 6e
+	const HEX          ; 6e
 	const DEFENSE_CURL ; 6f def +1
 	const CALM_MIND    ; 70
 	const LIGHT_SCREEN ; 71 
@@ -141,7 +141,7 @@
 	const AMNESIA      ; 85 spdef +2
 	const SHADOW_PUNCH ; 86 
 	const SOFTBOILED   ; 87
-	const WILL_O_WISP  ; 88 X hjk merge with Jump Kick
+	const WILL_O_WISP  ; 88 
 	const GLARE        ; 89
 	const DREAM_EATER  ; 8a
 	const PSYCHO_CUT   ; 8b 
@@ -154,7 +154,7 @@
 	const DIZZY_PUNCH  ; 92 
 	const SPORE        ; 93
 	const FLASH        ; 94 acc -1 spatk +1 
-	const PSYWAVE      ; 95
+	const ICICLE_CRASH ; 95
 	const SPLASH       ; 96
 	const ACID_ARMOR   ; 97 def +2
 	const CRABHAMMER   ; 98
@@ -175,7 +175,7 @@
 	const COSMIC_POWER ; a7
 	const THIEF        ; a8
 	const SPIDER_WEB   ; a9
-	const MIND_READER  ; aa
+	const DRAGON_CLAW  ; aa
 	const NIGHTMARE    ; ab
 	const FLAME_WHEEL  ; ac
 	const SNORE        ; ad

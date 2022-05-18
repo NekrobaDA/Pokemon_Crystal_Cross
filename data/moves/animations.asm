@@ -27,14 +27,14 @@ BattleAnimations::
 	dw BattleAnim_DoubleKick
 	dw BattleAnim_MegaKick
 	dw BattleAnim_JumpKick
-	dw BattleAnim_RollingKick
+	dw BattleAnim_Ancientpower  ;earth power
 	dw BattleAnim_SandAttack
 	dw BattleAnim_Headbutt
 	dw BattleAnim_HornAttack
 	dw BattleAnim_FuryAttack
 	dw BattleAnim_HornDrill
 	dw BattleAnim_Tackle
-	dw BattleAnim_BodySlam
+	dw BattleAnim_HiddenPower ;power gem
 	dw BattleAnim_Wrap
 	dw BattleAnim_TakeDown
 	dw BattleAnim_Thrash
@@ -51,7 +51,7 @@ BattleAnimations::
 	dw BattleAnim_Supersonic
 	dw BattleAnim_Sonicboom_JP
 	dw BattleAnim_Disable
-	dw BattleAnim_Acid
+	dw BattleAnim_Supersonic  ; water pulse
 	dw BattleAnim_Ember
 	dw BattleAnim_Flamethrower
 	dw BattleAnim_Mist
@@ -110,7 +110,7 @@ BattleAnimations::
 	dw BattleAnim_Minimize
 	dw BattleAnim_Smokescreen
 	dw BattleAnim_ConfuseRay
-	dw BattleAnim_Withdraw
+	dw BattleAnim_Nightmare     ;hex
 	dw BattleAnim_DefenseCurl
 	dw BattleAnim_Growth
 	dw BattleAnim_LightScreen
@@ -149,7 +149,7 @@ BattleAnimations::
 	dw BattleAnim_DizzyPunch
 	dw BattleAnim_Spore
 	dw BattleAnim_Flash
-	dw BattleAnim_Psywave
+	dw BattleAnim_Crabhammer  ;icicle crash
 	dw BattleAnim_Splash
 	dw BattleAnim_AcidArmor
 	dw BattleAnim_Crabhammer
@@ -170,7 +170,7 @@ BattleAnimations::
 	dw BattleAnim_Moonlight
 	dw BattleAnim_Thief
 	dw BattleAnim_SpiderWeb
-	dw BattleAnim_MindReader
+	dw BattleAnim_Slash
 	dw BattleAnim_Nightmare
 	dw BattleAnim_FlameWheel
 	dw BattleAnim_Snore

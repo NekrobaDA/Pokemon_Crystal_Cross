@@ -26,14 +26,14 @@ MoveDescriptions::
 	dw DoubleKickDescription
 	dw MegaKickDescription
 	dw JumpKickDescription
-	dw RollingKickDescription
+	dw EarthPowerDescription
 	dw SandAttackDescription
 	dw HeadbuttDescription
 	dw HornAttackDescription
 	dw FuryAttackDescription
 	dw HornDrillDescription
 	dw TackleDescription
-	dw BodySlamDescription
+	dw PowerGemDescription
 	dw WrapDescription
 	dw TakeDownDescription
 	dw ThrashDescription
@@ -50,7 +50,7 @@ MoveDescriptions::
 	dw SupersonicDescription
 	dw SonicboomDescription
 	dw DisableDescription
-	dw AcidDescription
+	dw WaterPulseDescription
 	dw EmberDescription
 	dw FlamethrowerDescription
 	dw MistDescription
@@ -109,7 +109,7 @@ MoveDescriptions::
 	dw MinimizeDescription
 	dw SmokescreenDescription
 	dw ConfuseRayDescription
-	dw WithdrawDescription
+	dw HexDescription
 	dw DefenseCurlDescription
 	dw CalmMindDescription
 	dw LightScreenDescription
@@ -148,7 +148,7 @@ MoveDescriptions::
 	dw DizzyPunchDescription
 	dw SporeDescription
 	dw FlashDescription
-	dw PsywaveDescription
+	dw IcicleCrashDescription
 	dw SplashDescription
 	dw AcidArmorDescription
 	dw CrabhammerDescription
@@ -169,7 +169,7 @@ MoveDescriptions::
 	dw CosmicPowerDescription
 	dw ThiefDescription
 	dw SpiderWebDescription
-	dw MindReaderDescription
+	dw DragonClawDescription
 	dw NightmareDescription
 	dw FlameWheelDescription
 	dw SnoreDescription
@@ -261,6 +261,24 @@ Move00Description:
 	db "?@"
 	
 MoveFFDescription:
+	db "?@"
+	
+IcicleCrashDescription:
+	db "?@"
+	
+HexDescription:
+	db "?@"
+	
+DragonClawDescription:
+	db "?@"
+	
+EarthPowerDescription:
+	db "?@"
+	
+PowerGemDescription:
+	db "?@"
+	
+WaterPulseDescription:
 	db "?@"
 
 HowlDescription:

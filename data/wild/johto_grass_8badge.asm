@@ -1015,7 +1015,7 @@ JohtoGrassWildMons8Badge:
 	dbw 34, GOLBAT
 
 	map_id ROUTE_45
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 23, GEODUDE
 	dbw 34, GRAVELER
