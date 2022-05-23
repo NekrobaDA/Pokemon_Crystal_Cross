@@ -21,7 +21,6 @@ BulbasaurEggMoves:
 	db SNORE
 	db SYNTHESIS
 	db SLAM
-	db LIGHT_SCREEN
 	db SKULL_BASH
 	db SAFEGUARD
 	db PETAL_DANCE
@@ -40,7 +39,6 @@ CharmanderEggMoves:
 	db ENDURE
 	db SEISMIC_TOSS
 	db FURY_SWIPES
-	db WILL_O_WISP
 	db -1 ; end
 
 SquirtleEggMoves:
@@ -50,10 +48,8 @@ SquirtleEggMoves:
 	db CONFUSION
 	db FORESIGHT
 	db FLAIL
-	db AURA_SPHERE
 	db SNORE
 	db ENDURE
-	db ROLLOUT
 	db POWDER_SNOW
 	db -1 ; end
 	
@@ -249,7 +245,6 @@ ParasEggMoves:
 	db SCREECH
 	db PSYBEAM
 	db FLAIL
-	db LIGHT_SCREEN
 	db PURSUIT
 	db METAL_CLAW
 	db AGILITY
@@ -300,7 +295,6 @@ PsyduckEggMoves:
 	db HYPNOSIS
 	db PSYBEAM
 	db FORESIGHT
-	db LIGHT_SCREEN
 	db CROSS_CHOP
 	db MUD_SHOT
 	db CONFUSE_RAY
@@ -333,7 +327,6 @@ GrowlitheEggMoves:
 	db SNORE
 	db CHARM
 	db SAFEGUARD
-	db WILL_O_WISP
 	db GROWL
 	db OUTRAGE
 	db -1 ; end
@@ -352,7 +345,6 @@ PoliwagEggMoves:
 	db -1 ; end
 
 AbraEggMoves:
-	db LIGHT_SCREEN
 	db ENCORE
 	db MEGA_PUNCH
 	db METRONOME
@@ -363,7 +355,6 @@ AbraEggMoves:
 	db -1 ; end
 
 MachopEggMoves:
-	db LIGHT_SCREEN
 	db ENCORE
 	db MACH_PUNCH
 	db MEGA_PUNCH
@@ -414,7 +405,6 @@ PonytaEggMoves:
 	db QUICK_ATTACK
 	db MORNING_SUN
 	db LOW_KICK
-	db WILL_O_WISP
 	db LICK
 	db -1 ; end
 
@@ -498,7 +488,6 @@ GastlyEggMoves:
 	db SCARY_FACE
 	db PAIN_SPLIT
 	db SELFDESTRUCT
-	db WILL_O_WISP
 	db CONFUSION
 	db BEAT_UP
 	db HEX
@@ -507,7 +496,6 @@ GastlyEggMoves:
 OnixEggMoves:
 	db FLAIL
 	db DEFENSE_CURL
-	db ROLLOUT
 	db ENDURE
 	db MAGNITUDE
 	db DRAGON_DANCE
@@ -519,7 +507,6 @@ OnixEggMoves:
 	db -1 ; end
 
 DrowzeeEggMoves:
-	db LIGHT_SCREEN
 	db LOW_KICK
 	db MEGA_PUNCH
 	db SEISMIC_TOSS
@@ -596,9 +583,7 @@ KoffingEggMoves:
 	db PSYBEAM
 	db PAIN_SPLIT
 	db SPITE
-	db ROLLOUT
 	db FIRE_SPIN
-	db WILL_O_WISP
 	db SUPERSONIC
 	db -1 ; end
 
@@ -623,7 +608,6 @@ HappinyEggMoves:
 	db SEISMIC_TOSS
 	db ENDURE
 	db HYPER_VOICE
-	db ROLLOUT
 	db SLAM
 	db SPARK
 	db -1 ; end
@@ -684,7 +668,6 @@ ScytherEggMoves:
 	db BATON_PASS
 	db REVERSAL
 	db ENDURE
-	db LIGHT_SCREEN
 	db SILVER_WIND
 	db MORNING_SUN
 	db DOUBLE_EDGE
@@ -837,7 +820,6 @@ MunchlaxEggMoves:
 	db -1 ; end
 
 DratiniEggMoves:
-	db LIGHT_SCREEN
 	db MIST
 	db HAZE
 	db SUPERSONIC
@@ -950,7 +932,6 @@ SpinarakEggMoves:
 
 ChinchouEggMoves:
 	db SCREECH
-	db LIGHT_SCREEN
 	db RECOVER
 	db PSYBEAM
 	db HAZE
@@ -1008,7 +989,6 @@ MareepEggMoves:
 	db -1 ; end
 
 MarillEggMoves:
-	db LIGHT_SCREEN
 	db PRESENT
 	db AMNESIA
 	db BELLY_DRUM
@@ -1024,14 +1004,12 @@ MarillEggMoves:
 
 BonslyEggMoves:
 	db SELFDESTRUCT
-	db LIGHT_SCREEN
 	db RAGE
 	db HARDEN
 	db ENDURE
 	db SEISMIC_TOSS
 	db REVERSAL
 	db DEFENSE_CURL
-	db ROLLOUT
 	db EARTH_POWER
 	db -1 ; end
 
@@ -1112,7 +1090,6 @@ MurkrowEggMoves:
 	db THUNDER_WAVE
 	db BEAT_UP
 	db FURY_ATTACK
-	db WILL_O_WISP
 	db CONFUSE_RAY
 	db FEATHERDANCE
 	db PERISH_SONG
@@ -1140,7 +1117,6 @@ GirafarigEggMoves:
 	db THUNDER_WAVE
 	db THUNDERSHOCK
 	db TRI_ATTACK
-	db LIGHT_SCREEN
 	db DOUBLE_KICK
 	db MIRROR_COAT
 	db MEAN_LOOK
@@ -1160,7 +1136,6 @@ PinecoEggMoves:
 	db MAGNITUDE
 	db PAIN_SPLIT
 	db DEFENSE_CURL
-	db ROLLOUT
 	db STRING_SHOT
 	db -1 ; end
 
@@ -1284,11 +1259,9 @@ TeddiursaEggMoves:
 
 SlugmaEggMoves:
 	db ACID_ARMOR
-	db WILL_O_WISP
 	db MIRROR_COAT
 	db PSYBEAM
 	db SMOKESCREEN
-	db ROLLOUT
 	db MAGNITUDE
 	db PAIN_SPLIT
 	db SNORE
@@ -1317,7 +1290,6 @@ CorsolaEggMoves:
 	db AMNESIA
 	db CONFUSE_RAY
 	db DEFENSE_CURL
-	db ROLLOUT
 	db SLAM
 	db SELFDESTRUCT
 	db PAIN_SPLIT
@@ -1411,7 +1383,6 @@ StantlerEggMoves:
 	db REFLECT
 	db SPITE
 	db DISABLE
-	db LIGHT_SCREEN
 	db BITE
 	db THUNDER_WAVE
 	db SAFEGUARD
@@ -1457,7 +1428,6 @@ Bulbasaur_CloneEggMoves:
 	db SNORE
 	db SYNTHESIS
 	db SLAM
-	db LIGHT_SCREEN
 	db SKULL_BASH
 	db SAFEGUARD
 	db PETAL_DANCE
@@ -1476,7 +1446,6 @@ Charmander_CloneEggMoves:
 	db ENDURE
 	db SEISMIC_TOSS
 	db FURY_SWIPES
-	db WILL_O_WISP
 	db -1 ; end
 
 Squirtle_CloneEggMoves:
@@ -1486,10 +1455,8 @@ Squirtle_CloneEggMoves:
 	db CONFUSION
 	db FORESIGHT
 	db FLAIL
-	db AURA_SPHERE
 	db SNORE
 	db ENDURE
-	db ROLLOUT
 	db POWDER_SNOW
 	db -1 ; end
 	
@@ -1533,7 +1500,6 @@ Growlithe_HisuianEggMoves:
 	db SNORE
 	db CHARM
 	db SAFEGUARD
-	db WILL_O_WISP
 	db SKULL_BASH
 	db -1 ; end
 	

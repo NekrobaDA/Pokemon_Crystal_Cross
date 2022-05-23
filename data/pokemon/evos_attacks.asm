@@ -2708,6 +2708,7 @@ MewtwoEvosAttacks:
 MewEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POUND
+	db 5, MIMIC
 	db 10, TRANSFORM
 	db 20, MEGA_PUNCH
 	db 30, METRONOME
@@ -2718,6 +2719,7 @@ MewEvosAttacks:
 	db 80, BATON_PASS
 	db 90, AURA_SPHERE
 	db 100, RECOVER
+	db 100, SKETCH
 	db 0 ; no more level-up moves
 
 ChikoritaEvosAttacks:

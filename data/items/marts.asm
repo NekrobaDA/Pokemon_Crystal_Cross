@@ -174,7 +174,7 @@ MartGoldenrod5F3:
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
 	db TM_RAZOR_WIND
-	db TM_ROCK_SMASH
+	;db TM_ROCK_SMASH
 	db -1 ; end
 
 MartGoldenrod5F4:
@@ -184,7 +184,7 @@ MartGoldenrod5F4:
 	db TM_ICE_PUNCH
 	db TM_RAZOR_WIND
 	db TM_HEADBUTT
-	db TM_ROCK_SMASH
+	;db TM_ROCK_SMASH
 	db -1 ; end
 	
 MartGoldenrod5F5:
@@ -419,7 +419,7 @@ MartCeladon2F1:
 	db TM_ROAR         ; c4
 	db TM_TOXIC        ; c5
 	db TM_ZAP_CANNON   ; c6
-	db TM_ROCK_SMASH   ; c7
+	;db TM_ROCK_SMASH   ; c7
 	db TM_PSYCH_UP     ; c8
 	db TM_HIDDEN_POWER ; c9
 	db TM_SUNNY_DAY    ; ca
