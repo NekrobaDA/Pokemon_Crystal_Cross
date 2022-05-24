@@ -3579,6 +3579,8 @@ ShowSetEnemyMonAndSendOutAnimation:
 	hlcoord 12, 0
 	ld d, $0
 	ld e, ANIM_MON_SLOW
+	ld a, TEMPMON
+	ld [wMonType], a
 	predef AnimateFrontpic
 	jr .skip_cry
 
@@ -8348,6 +8350,8 @@ DropPlayerSub:
 	ld a, [wBattleMonSpecies]
 	ld [wCurPartySpecies], a
 	ld hl, wBattleMonDVs
+	ld a, BATTLEMON
+	ld [wMonType], a
 	predef GetVariant
 	ld de, vTiles2 tile $31
 	predef GetMonBackpic
@@ -8385,6 +8389,8 @@ DropEnemySub:
 	ld [wCurPartySpecies], a
 	call GetBaseData
 	ld hl, wEnemyMonDVs
+	ld a, WILDMON
+	ld [wMonType], a
 	predef GetVariant
 	ld de, vTiles2
 	predef GetAnimatedFrontpic
@@ -8573,6 +8579,7 @@ InitEnemyWildmon:
 	ld bc, NUM_MOVES
 	call CopyBytes
 	ld hl, wEnemyMonDVs
+	ld a, WILDMON
 	ld [wMonType], a
 	predef GetVariant
 	ld a, [wCurPartySpecies]
@@ -9562,6 +9569,8 @@ BattleStartMessage:
 	hlcoord 12, 0
 	ld d, $0
 	ld e, ANIM_MON_NORMAL
+	ld a, TEMPMON
+	ld [wMonType], a
 	predef AnimateFrontpic
 	jr .skip_cry ; cry is played during the animation
 

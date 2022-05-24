@@ -12,6 +12,8 @@ Pokepic::
 	ld [wCurSpecies], a
 	call GetBaseData
 	ld de, vTiles1
+	ld a, -1
+	ld [wMonType], a
 	predef GetMonFrontpic
 	ld a, [wMenuBorderTopCoord]
 	inc a

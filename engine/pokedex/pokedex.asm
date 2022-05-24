@@ -2690,18 +2690,12 @@ Pokedex_LoadSelectedMonTiles:
 	jr z, .QuestionMark
 	ld a, [wFirstUnownSeen]
 	ld [wUnownLetterOrGenderVariant], a
-	
-	call Pokedex_GetSelectedMon
-	cp PIKACHU
-	jr nz, .continue
-	ld a, 1
-	ld [wUnownLetterOrGenderVariant], a
-.continue
-
 	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	call GetBaseData
 	ld de, vTiles2
+	ld a, -1
+	ld [wMonType], a
 	predef GetMonFrontpic
 	ret
 
@@ -2867,6 +2861,8 @@ _NewPokedexEntry:
 	call WaitBGMap
 	call GetBaseData
 	ld de, vTiles2
+	ld a, -1
+	ld [wMonType], a
 	predef GetMonFrontpic
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout

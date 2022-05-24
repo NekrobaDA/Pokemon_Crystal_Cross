@@ -452,24 +452,6 @@ PokeAnim_StopWaitAnim:
 	ld [wPokeAnimJumptableIndex], a
 	ret
 	
-PokeAnim_IsPikachu:
-	ld a, [wPokeAnimSpecies]
-	push hl
-	call GetPokemonIndexFromID
-	ld a, l
-	cp LOW(PIKACHU)
-	ld a, h
-	pop hl
-	ret nz
-	if HIGH(PIKACHU) == 0
-		and a
-	elif HIGH(PIKACHU) == 1
-		dec a
-	else
-		cp HIGH(PIKACHU)
-	endc
-	ret
-	
 PokeAnim_IsUnown:
 	ld a, [wPokeAnimSpecies]
 	push hl
@@ -923,11 +905,6 @@ GetMonAnimPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	ld c, BANK(PikachuAnimationPointers)
-	ld hl, PikachuAnimationPointers - 2
-	ld de, PikachuAnimationIdlePointers - 2
-	call PokeAnim_IsPikachu
-	jr z, .variant
 	ld c, BANK(UnownAnimationPointers) ; aka BANK(UnownAnimationIdlePointers)
 	ld hl, UnownAnimationPointers - 2
 	ld de, UnownAnimationIdlePointers - 2
@@ -945,12 +922,6 @@ GetMonAnimPointer:
 	ld e, l
 .got_pointer
 
-	call PokeAnim_IsPikachu
-	ld a, [wPokeAnimSpeciesOrUnown]
-	ld l, a
-	ld h, 0
-	jr nz, .unown_next
-.unown_next
 	call PokeAnim_IsUnown
 	ld a, [wPokeAnimSpeciesOrUnown]
 	ld l, a
@@ -1004,13 +975,6 @@ GetMonFramesPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	call PokeAnim_IsPikachu	
-	ld a, BANK(PikachusFrames)
-	ld [wPokeAnimFramesBank], a
-	ld hl, PikachuFramesPointers - 2
-	ld a, BANK(PikachuFramesPointers)
-	ld c, 2
-	jr z, .got_frames
 	call PokeAnim_IsUnown
 	ld hl, FramesPointers - 3
 	ld a, BANK(FramesPointers)
@@ -1062,17 +1026,13 @@ GetMonBitmaskPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	call PokeAnim_IsPikachu
-	ld a, BANK(PikachuBitmasksPointers)
-	ld hl, PikachuBitmasksPointers
-	jr z, .variant
 	call PokeAnim_IsUnown
 	ld a, BANK(UnownBitmasksPointers)
 	ld de, UnownBitmasksPointers - 2
-	jr z, .variant
+	jr z, .unown
 	ld a, BANK(BitmasksPointers)
 	ld de, BitmasksPointers - 2
-.variant
+.unown
 	ld [wPokeAnimBitmaskBank], a
 
 	ld a, [wPokeAnimSpeciesOrUnown]
@@ -1088,7 +1048,7 @@ GetMonBitmaskPointer:
 	ld a, h
 	ld [wPokeAnimBitmaskAddr + 1], a
 	ret
-
+	
 .egg
 	ld c, BANK(EggBitmasks)
 	ld hl, EggBitmasks
@@ -1101,8 +1061,6 @@ GetMonBitmaskPointer:
 	ret
 
 PokeAnim_GetSpeciesOrUnown:
-	call PokeAnim_IsPikachu
-	jr z, .variant
 	call PokeAnim_IsUnown
 	jr z, .variant
 	ld a, [wPokeAnimSpecies]

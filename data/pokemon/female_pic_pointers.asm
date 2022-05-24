@@ -6,7 +6,7 @@
 	dbw -1, -1 ; unused
 	dbw -1, -1 ; unused
 	dbw -1, -1 ; unused
-PokemonPicPointers::
+FemalePokemonPicPointers::
 ; entries correspond to Pokémon species, two apiece (first index is 0)
 	dbw -1, -1 ; unused
 	dbw -1, -1 ; unused
@@ -60,8 +60,8 @@ PokemonPicPointers::
 	dba ArbokBackpic
 	dba PichuFrontpic
 	dba PichuBackpic
-	dba PikachuFrontpic
-	dba PikachuBackpic
+	dba PikachuFemaleFrontpic
+	dba PikachuFemaleBackpic
 	dba RaichuFrontpic
 	dba RaichuBackpic
 	dba SandshrewFrontpic

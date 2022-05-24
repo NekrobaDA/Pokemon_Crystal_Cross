@@ -904,6 +904,8 @@ BattleAnimCmd_Transform:
 	ld a, [wTempBattleMonSpecies]
 	ld [wCurPartySpecies], a
 	ld hl, wBattleMonDVs
+	ld a, BATTLEMON
+	ld [wMonType], a
 	predef GetVariant
 	ld de, vTiles0 tile $00
 	predef GetMonFrontpic
@@ -913,6 +915,8 @@ BattleAnimCmd_Transform:
 	ld a, [wTempEnemyMonSpecies]
 	ld [wCurPartySpecies], a
 	ld hl, wEnemyMonDVs
+	ld a, WILDMON
+	ld [wMonType], a
 	predef GetVariant
 	ld de, vTiles0 tile $00
 	predef GetMonBackpic
@@ -1135,6 +1139,8 @@ BattleAnimCmd_BeatUp:
 	jr z, .player
 
 	ld hl, wBattleMonDVs
+	ld a, BATTLEMON
+	ld [wMonType], a
 	predef GetVariant
 	ld de, vTiles2 tile $00
 	predef GetMonFrontpic
@@ -1142,6 +1148,8 @@ BattleAnimCmd_BeatUp:
 
 .player
 	ld hl, wEnemyMonDVs
+	ld a, WILDMON
+	ld [wMonType], a
 	predef GetVariant
 	ld de, vTiles2 tile $31
 	predef GetMonBackpic

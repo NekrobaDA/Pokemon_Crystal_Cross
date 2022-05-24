@@ -56,6 +56,7 @@ LoadPartyMenuMonIconColors:
 	ld hl, wPartySpecies
 	add hl, de
 	ld a, [hl]
+	call GetPokemonIDFromIndex
 	ld [wCurPartySpecies], a
 	ld a, MON_DVS
 	call GetPartyParamLocation

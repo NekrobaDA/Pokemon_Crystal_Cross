@@ -10,9 +10,9 @@ SECTION "Pic Pointers", ROMX
 INCLUDE "data/pokemon/pic_pointers.asm"
 
 
-SECTION "Pikachu Pic Pointers", ROMX
+SECTION "Female Pic Pointers", ROMX
 
-INCLUDE "data/pokemon/pikachu_pic_pointers.asm"
+INCLUDE "data/pokemon/female_pic_pointers.asm"
 
 
 SECTION "Unown Pic Pointers", ROMX
@@ -715,8 +715,8 @@ HonchkrowFrontpic: INCBIN "gfx/pokemon/honchkrow/front.animated.2bpp.lz"
 HonchkrowBackpic:  INCBIN "gfx/pokemon/honchkrow/back.2bpp.lz"
 LeafeonFrontpic: INCBIN "gfx/pokemon/leafeon/front.animated.2bpp.lz"
 LeafeonBackpic:  INCBIN "gfx/pokemon/leafeon/back.2bpp.lz"
-PikachuMaleFrontpic: INCBIN "gfx/pokemon/pikachu_male/front.animated.2bpp.lz"
-PikachuMaleBackpic: INCBIN "gfx/pokemon/pikachu_male/back.2bpp.lz"
+PikachuFrontpic: INCBIN "gfx/pokemon/pikachu/front.animated.2bpp.lz"
+PikachuBackpic: INCBIN "gfx/pokemon/pikachu/back.2bpp.lz"
 PikachuFemaleFrontpic: INCBIN "gfx/pokemon/pikachu_female/front.animated.2bpp.lz"
 PikachuFemaleBackpic: INCBIN "gfx/pokemon/pikachu_female/back.2bpp.lz"
 VenusaurFrontpic:    INCBIN "gfx/pokemon/venusaur/front.animated.2bpp.lz"

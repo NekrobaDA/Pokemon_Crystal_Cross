@@ -680,6 +680,8 @@ GetHatchlingFrontpic:
 	ld [wCurSpecies], a
 	call GetBaseData
 	ld hl, wBattleMonDVs
+	ld a, BATTLEMON
+	ld [wMonType], a
 	predef GetVariant
 	pop de
 	predef_jump GetAnimatedFrontpic

@@ -202,10 +202,14 @@ RunTradeAnimScript:
 	farcall GetTrademonFrontpic
 	call EnableLCD
 	call LoadTradeBallAndCableGFX
+	ld a, PLAYERTRADEMON
+	ld [wMonType], a
 	ld a, [wPlayerTrademonSpecies]
 	ld hl, wPlayerTrademonDVs
 	ld de, vTiles0
 	call TradeAnim_GetFrontpic
+	ld a, OTTRADEMON
+	ld [wMonType], a
 	ld a, [wOTTrademonSpecies]
 	ld hl, wOTTrademonDVs
 	ld de, vTiles0 tile $31

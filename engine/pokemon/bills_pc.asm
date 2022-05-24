@@ -1064,6 +1064,8 @@ PCMonInfo:
 	predef GetVariant
 	call GetBaseData
 	ld de, vTiles2 tile $00
+	ld a, TEMPMON
+	ld [wMonType], a
 	predef GetMonFrontpic
 	xor a
 	ld [wBillsPC_MonHasMail], a

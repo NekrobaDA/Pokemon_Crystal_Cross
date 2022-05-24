@@ -21,6 +21,9 @@ AUTO_INPUT EQU $ff
 	const BOXMON     ; 2
 	const TEMPMON    ; 3
 	const WILDMON    ; 4
+	const BATTLEMON
+	const PLAYERTRADEMON
+	const OTTRADEMON
 
 ; wGameTimerPaused::
 GAME_TIMER_PAUSED_F EQU 0
