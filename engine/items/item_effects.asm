@@ -18,14 +18,8 @@ ItemEffects:
 	dw NoEffect            ; BRIGHTPOWDER
 	dw PokeBallEffect      ; GREAT_BALL
 	dw PokeBallEffect      ; POKE_BALL
-	dw TownMapEffect       ; TOWN_MAP
 	dw BicycleEffect       ; BICYCLE
 	dw EvoStoneEffect      ; MOON_STONE
-	dw StatusHealingEffect ; ANTIDOTE
-	dw StatusHealingEffect ; BURN_HEAL
-	dw StatusHealingEffect ; ICE_HEAL
-	dw StatusHealingEffect ; AWAKENING
-	dw StatusHealingEffect ; PARLYZ_HEAL
 	dw FullRestoreEffect   ; FULL_RESTORE
 	dw RestoreHPEffect     ; MAX_POTION
 	dw RestoreHPEffect     ; HYPER_POTION
@@ -54,9 +48,7 @@ ItemEffects:
 	dw ReviveEffect        ; REVIVE
 	dw ReviveEffect        ; MAX_REVIVE
 	dw GuardSpecEffect     ; GUARD_SPEC
-	dw SuperRepelEffect    ; SUPER_REPEL
 	dw MaxRepelEffect      ; MAX_REPEL
-	dw DireHitEffect       ; DIRE_HIT
 	dw EvoStoneEffect      ; SHINY_STONE
 	dw RestoreHPEffect     ; FRESH_WATER
 	dw RestoreHPEffect     ; SODA_POP
@@ -68,15 +60,12 @@ ItemEffects:
 	dw XItemEffect         ; X_SPECIAL
 	dw CoinCaseEffect      ; COIN_CASE
 	dw ItemfinderEffect    ; ITEMFINDER
-	dw PokeFluteEffect     ; POKE_FLUTE
 	dw NoEffect            ; EXP_SHARE
 	dw OldRodEffect        ; OLD_ROD
 	dw GoodRodEffect       ; GOOD_ROD
 	dw NoEffect            ; SILVER_LEAF
 	dw SuperRodEffect      ; SUPER_ROD
 	dw RestorePPEffect     ; PP_UP
-	dw RestorePPEffect     ; ETHER
-	dw RestorePPEffect     ; MAX_ETHER
 	dw RestorePPEffect     ; ELIXER
 	dw NoEffect            ; RED_SCALE
 	dw NoEffect            ; SECRETPOTION
@@ -112,7 +101,6 @@ ItemEffects:
 	dw NoEffect            ; WHT_APRICORN
 	dw NoEffect            ; BLACKBELT_I
 	dw NoEffect            ; BLK_APRICORN
-	dw NoEffect            ; ITEM_64
 	dw NoEffect            ; PNK_APRICORN
 	dw NoEffect            ; BLACKGLASSES
 	dw NoEffect            ; SLOWPOKETAIL
@@ -132,7 +120,6 @@ ItemEffects:
 	dw NoEffect            ; MIRACLE_SEED
 	dw NoEffect            ; THICK_CLUB
 	dw NoEffect            ; FOCUS_BAND
-	dw NoEffect            ; ITEM_78
 	dw EnergypowderEffect  ; ENERGYPOWDER
 	dw EnergyRootEffect    ; ENERGY_ROOT
 	dw HealPowderEffect    ; HEAL_POWDER
@@ -141,40 +128,26 @@ ItemEffects:
 	dw NoEffect            ; LUCKY_EGG
 	dw CardKeyEffect       ; CARD_KEY
 	dw NoEffect            ; MACHINE_PART
-	dw NoEffect            ; EGG_TICKET
 	dw NoEffect            ; LOST_ITEM
 	dw NoEffect            ; STARDUST
 	dw NoEffect            ; STAR_PIECE
 	dw BasementKeyEffect   ; BASEMENT_KEY
 	dw NoEffect            ; PASS
-	dw NoEffect            ; ITEM_87
-	dw NoEffect            ; ITEM_88
-	dw NoEffect            ; ITEM_89
 	dw NoEffect            ; CHARCOAL
 	dw RestoreHPEffect     ; BERRY_JUICE
 	dw NoEffect            ; SCOPE_LENS
-	dw NoEffect            ; ITEM_8D
-	dw NoEffect            ; ITEM_8E
 	dw EvoStoneEffect      ; METAL_COAT
 	dw NoEffect            ; DRAGON_FANG
-	dw NoEffect            ; ITEM_91
 	dw NoEffect            ; LEFTOVERS
-	dw NoEffect            ; ITEM_93
-	dw NoEffect            ; ITEM_94
-	dw NoEffect            ; ITEM_95
 	dw RestorePPEffect     ; MYSTERYBERRY
 	dw EvoStoneEffect      ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
-	dw NoEffect            ; ITEM_99
-	dw NoEffect            ; ITEM_9A
-	dw NoEffect            ; ITEM_9B
 	dw SacredAshEffect     ; SACRED_ASH
 	dw PokeBallEffect      ; HEAVY_BALL
 	dw NoEffect            ; FLOWER_MAIL
 	dw PokeBallEffect      ; LEVEL_BALL
 	dw PokeBallEffect      ; LURE_BALL
 	dw PokeBallEffect      ; FAST_BALL
-	dw NoEffect            ; ITEM_A2
 	dw NoEffect            ; LIGHT_BALL
 	dw PokeBallEffect      ; FRIEND_BALL
 	dw PokeBallEffect      ; MOON_BALL
@@ -183,15 +156,12 @@ ItemEffects:
 	dw GorgeousBoxEffect   ; GORGEOUS_BOX
 	dw EvoStoneEffect      ; SUN_STONE
 	dw NoEffect            ; POLKADOT_BOW
-	dw NoEffect            ; ITEM_AB
 	dw EvoStoneEffect      ; UP_GRADE
 	dw RestoreHPEffect     ; BERRY
 	dw RestoreHPEffect     ; GOLD_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
-	dw NoEffect            ; ITEM_B0
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
-	dw NoEffect            ; ITEM_B3
 
 PokeBallEffect:
 	ld a, [wBattleMode]

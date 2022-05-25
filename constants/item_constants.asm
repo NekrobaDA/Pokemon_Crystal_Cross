@@ -388,7 +388,7 @@ BLUESKY_MAIL   EQU $84
 MUSIC_MAIL     EQU $84
 MIRAGE_MAIL    EQU $84
 
-DIRE_HIT       EQU $00 ; to be removed
-ETHER          EQU $00
-MAX_ETHER      EQU $00
-EGG_TICKET     EQU $00
+DIRE_HIT       EQU $01 ; to be removed
+ETHER          EQU $01
+MAX_ETHER      EQU $01
+EGG_TICKET     EQU $01
