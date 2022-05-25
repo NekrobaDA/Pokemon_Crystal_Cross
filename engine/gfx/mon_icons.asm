@@ -19,7 +19,8 @@ SetMenuMonIconColor:
 	push bc
 	push af
 
-	ld a, [wd265]
+	ld a, [wTempIconSpecies] ;?
+	;ld a, [wd265]
 	ld [wCurPartySpecies], a
 	call GetMenuMonIconPalette
 	jr _ApplyMenuMonIconColor
@@ -30,7 +31,8 @@ SetMenuMonIconColor_NoShiny:
 	push bc
 	push af
 
-	ld a, [wd265]
+	ld a, [wTempIconSpecies] ;?
+	;ld a, [wd265]
 	ld [wCurPartySpecies], a
 	and a
 	call GetMenuMonIconPalette_PredeterminedShininess
@@ -56,7 +58,6 @@ LoadPartyMenuMonIconColors:
 	ld hl, wPartySpecies
 	add hl, de
 	ld a, [hl]
-	call GetPokemonIDFromIndex
 	ld [wCurPartySpecies], a
 	ld a, MON_DVS
 	call GetPartyParamLocation
@@ -112,10 +113,11 @@ GetMenuMonIconPalette:
 GetMenuMonIconPalette_PredeterminedShininess:
 	push af
 	ld a, [wCurPartySpecies]
-	dec a
-	ld c, a
-	ld b, 0
-	ld hl, MonMenuIconPals
+	call GetPokemonIndexFromID	
+	;dec a
+	ld c, l
+	ld b, h
+	ld hl, MonMenuIconPals - 1
 	add hl, bc
 	ld e, [hl]
 	pop af
