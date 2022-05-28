@@ -190,7 +190,6 @@
 	const ITEM_X33     ; b6
 	const ITEM_X34     ; b7
 	const ITEM_X35     ; b8
-	const ITEM_X36     ; b9
 
 __tmhm_value__ = 1
 
@@ -223,7 +222,6 @@ ENDM
 	add_tm ROAR         ; be
 	add_tm TOXIC        ; bf
 	add_tm ZAP_CANNON   ; c0
-	add_tm SECRET_POWER ; c1 
 	add_tm PSYCH_UP     ; c2
 	add_tm HIDDEN_POWER ; c3
 	add_tm SUNNY_DAY    ; c4
@@ -276,6 +274,7 @@ ENDM
 	add_tm WILL_O_WISP  ; f3
 	add_tm AURA_SPHERE  ; f4
 	add_tm SUBSTITUTE   ; f5
+	add_tm SHADOW_RUSH  ; c1 
 NUM_TMS EQU __tmhm_value__ - 1
 
 add_hm: MACRO
@@ -310,6 +309,7 @@ ENDM
 	add_hm WATERFALL    ; fc
 	add_hm ROCK_CLIMB   ; fd
 	add_hm ROCK_SMASH   ; fe
+	add_hm DIVE         ; b9
 NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 add_mt: MACRO
@@ -349,6 +349,9 @@ ENDM
 	add_mt PAIN_SPLIT
 	add_mt HEAL_BELL
 	add_mt SPIKES
+	add_mt SACRED_FIRE
+	add_mt AEROBLAST
+	add_mt VOLT_TACKLE
 NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 NUM_TM_HM_TUTOR EQU __tmhm_value__ - 1

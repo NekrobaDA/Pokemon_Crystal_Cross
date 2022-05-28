@@ -2,9 +2,7 @@ BattleAnimations::
 ; entries correspond to constants/move_constants.asm
 	dw BattleAnim_0
 	dw BattleAnim_Pound
-	dw BattleAnim_KarateChop
 	dw BattleAnim_Doubleslap
-	dw BattleAnim_CometPunch
 	dw BattleAnim_MegaPunch
 	dw BattleAnim_PayDay
 	dw BattleAnim_FirePunch
@@ -107,7 +105,6 @@ BattleAnimations::
 	dw BattleAnim_DoubleTeam
 	dw BattleAnim_Recover
 	dw BattleAnim_Harden
-	dw BattleAnim_Minimize
 	dw BattleAnim_Smokescreen
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_Nightmare     ;hex
@@ -128,9 +125,7 @@ BattleAnimations::
 	dw BattleAnim_BoneClub
 	dw BattleAnim_FireBlast
 	dw BattleAnim_Waterfall
-	dw BattleAnim_Clamp
 	dw BattleAnim_Swift
-	dw BattleAnim_SkullBash
 	dw BattleAnim_SpikeCannon
 	dw BattleAnim_Bite
 	dw BattleAnim_Amnesia
@@ -146,7 +141,6 @@ BattleAnimations::
 	dw BattleAnim_SkyAttack
 	dw BattleAnim_Transform
 	dw BattleAnim_Bubble
-	dw BattleAnim_DizzyPunch
 	dw BattleAnim_Spore
 	dw BattleAnim_Flash
 	dw BattleAnim_Crabhammer  ;icicle crash
@@ -165,7 +159,6 @@ BattleAnimations::
 	dw BattleAnim_SuperFang
 	dw BattleAnim_Slash
 	dw BattleAnim_Substitute
-	dw BattleAnim_Struggle
 	dw BattleAnim_Sketch
 	dw BattleAnim_Moonlight
 	dw BattleAnim_Thief
@@ -198,7 +191,6 @@ BattleAnimations::
 	dw BattleAnim_PerishSong
 	dw BattleAnim_IcyWind
 	dw BattleAnim_TailWhip
-	dw BattleAnim_BoneRush
 	dw BattleAnim_LockOn
 	dw BattleAnim_Outrage
 	dw BattleAnim_Sandstorm
@@ -233,7 +225,6 @@ BattleAnimations::
 	dw BattleAnim_SweetScent
 	dw BattleAnim_IronTail
 	dw BattleAnim_MetalClaw
-	dw BattleAnim_Return
 	dw BattleAnim_MorningSun
 	dw BattleAnim_Synthesis
 	dw BattleAnim_Moonlight
@@ -255,8 +246,18 @@ BattleAnimations::
 	dw BattleAnim_Waterfall
 	dw BattleAnim_Psybeam
 	dw BattleAnim_Toxic
+	dw BattleAnim_Dig ; Dive
+	dw BattleAnim_Spark
+	dw BattleAnim_CometPunch
+	dw BattleAnim_Harden
+	dw BattleAnim_Slash
+	dw BattleAnim_IcyWind
+	dw BattleAnim_Slash
+	dw BattleAnim_Return     ; charge wave (modified bide + thundershock?)
+	dw BattleAnim_TakeDown
+	dw BattleAnim_Struggle
+; $100	
 	dw BattleAnim_SweetScent2
-; $100
 	dw BattleAnim_ThrowPokeBall
 	dw BattleAnim_SendOutMon
 	dw BattleAnim_ReturnMon

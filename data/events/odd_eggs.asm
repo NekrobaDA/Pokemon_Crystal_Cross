@@ -32,7 +32,7 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
-	db THUNDERSHOCK, CHARM, DIZZY_PUNCH, 0
+	db THUNDERSHOCK, CHARM, POWERUPPUNCH, 0
 	dw 02048 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -58,7 +58,7 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
-	db THUNDERSHOCK, CHARM, DIZZY_PUNCH, 0
+	db THUNDERSHOCK, CHARM, POWERUPPUNCH, 0
 	dw 00256 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -84,7 +84,7 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
-	db EMBER, DIZZY_PUNCH, 0, 0
+	db EMBER, POWERUPPUNCH, 0, 0
 	dw 02560 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -110,7 +110,7 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
-	db EMBER, DIZZY_PUNCH, 0, 0
+	db EMBER, POWERUPPUNCH, 0, 0
 	dw 00512 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -136,7 +136,7 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
-	db QUICK_ATTACK, LEER, DIZZY_PUNCH, 0
+	db QUICK_ATTACK, LEER, POWERUPPUNCH, 0
 	dw 03072 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -162,7 +162,7 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
-	db QUICK_ATTACK, LEER, DIZZY_PUNCH, 0
+	db QUICK_ATTACK, LEER, POWERUPPUNCH, 0
 	dw 00512 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -188,7 +188,7 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
-	db TACKLE, DIZZY_PUNCH, 0, 0
+	db TACKLE, POWERUPPUNCH, 0, 0
 	dw 02560 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -214,7 +214,7 @@ OddEggs:
 
 	db 0 ; Species, will be filled on load
 	db NO_ITEM
-	db TACKLE, DIZZY_PUNCH, 0, 0
+	db TACKLE, POWERUPPUNCH, 0, 0
 	dw 00256 ; OT ID
 	dt 125 ; Exp
 	; Stat exp

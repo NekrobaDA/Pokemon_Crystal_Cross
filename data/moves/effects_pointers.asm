@@ -159,3 +159,4 @@ MoveEffectsPointers:
 	dw DefenseCurl
 	dw FreezeHit
 	dw Hex
+	dw ChargeWave

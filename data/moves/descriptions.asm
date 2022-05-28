@@ -1,9 +1,7 @@
 MoveDescriptions::
 ; entries correspond to move ids (see constants/move_constants.asm)
 	dw PoundDescription
-	dw KarateChopDescription
 	dw DoubleslapDescription
-	dw CometPunchDescription
 	dw MegaPunchDescription
 	dw PayDayDescription
 	dw FirePunchDescription
@@ -106,7 +104,6 @@ MoveDescriptions::
 	dw DoubleTeamDescription
 	dw RecoverDescription
 	dw HardenDescription
-	dw MinimizeDescription
 	dw SmokescreenDescription
 	dw ConfuseRayDescription
 	dw HexDescription
@@ -127,9 +124,7 @@ MoveDescriptions::
 	dw BoneClubDescription
 	dw FireBlastDescription
 	dw WaterfallDescription
-	dw ClampDescription
 	dw SwiftDescription
-	dw SkullBashDescription
 	dw SpikeCannonDescription
 	dw PoisonFangDescription
 	dw AmnesiaDescription
@@ -145,7 +140,6 @@ MoveDescriptions::
 	dw SkyAttackDescription
 	dw TransformDescription
 	dw BubbleDescription
-	dw DizzyPunchDescription
 	dw SporeDescription
 	dw FlashDescription
 	dw IcicleCrashDescription
@@ -164,7 +158,6 @@ MoveDescriptions::
 	dw SuperFangDescription
 	dw SlashDescription
 	dw SubstituteDescription
-	dw StruggleDescription
 	dw SketchDescription
 	dw CosmicPowerDescription
 	dw ThiefDescription
@@ -197,7 +190,6 @@ MoveDescriptions::
 	dw PerishSongDescription
 	dw IcyWindDescription
 	dw FeatherDanceDescription
-	dw BoneRushDescription
 	dw LockOnDescription
 	dw OutrageDescription
 	dw SandstormDescription
@@ -232,7 +224,6 @@ MoveDescriptions::
 	dw SweetScentDescription
 	dw IronTailDescription
 	dw MetalClawDescription
-	dw VitalThrowDescription
 	dw MorningSunDescription
 	dw SynthesisDescription
 	dw MoonlightDescription
@@ -254,14 +245,47 @@ MoveDescriptions::
 	dw RockClimbDescription
 	dw DarkPulseDescription
 	dw SludgeWaveDescription
-	dw MoveFFDescription
+	dw DiveDescription
+	dw VoltTackleDescription
+	dw PowerUpPunchDescription
+	dw IronDefenseDescription
+	dw LeafBladeDescription
+	dw IceShardDescription
+	dw RazorShellDescription
+	dw ChargeWaveDescription
+	dw ShadowRushDescription
+	dw StruggleDescription
 	dw Move00Description
 
 Move00Description:
 	db "?@"
 	
-MoveFFDescription:
+ShadowRushDescription:
 	db "?@"
+	
+DiveDescription:
+	db "?@"
+	
+VoltTackleDescription:
+	db "?@"
+
+PowerUpPunchDescription:
+	db "?@"
+
+IronDefenseDescription:
+	db "?@"
+
+LeafBladeDescription:
+	db "?@"
+
+IceShardDescription:
+	db "?@"
+
+RazorShellDescription:
+	db "?@"
+
+ChargeWaveDescription:
+	db "?@"	
 	
 IcicleCrashDescription:
 	db "?@"

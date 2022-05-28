@@ -7,9 +7,7 @@
 	const_def
 	const NO_MOVE      ; 00
 	const POUND        ; 01
-	const KARATE_CHOP  ; 02
 	const DOUBLESLAP   ; 03
-	const COMET_PUNCH  ; 04
 	const MEGA_PUNCH   ; 05
 	const PAY_DAY      ; 06
 	const FIRE_PUNCH   ; 07
@@ -112,7 +110,6 @@
 	const DOUBLE_TEAM  ; 68 evade +2
 	const RECOVER      ; 69
 	const HARDEN       ; 6a def +1
-	const MINIMIZE     ; 6b evade +1
 	const SMOKESCREEN  ; 6c acc -1
 	const CONFUSE_RAY  ; 6d 
 	const HEX          ; 6e
@@ -130,12 +127,10 @@
 	const LICK         ; 7a
 	const SMOG         ; 7b
 	const SLUDGE       ; 7c
-	const BONE_CLUB    ; 7d
+	const BONE_CLUB    ; 7d ;rename bone rush
 	const FIRE_BLAST   ; 7e
 	const WATERFALL    ; 7f
-	const CLAMP        ; 80
 	const SWIFT        ; 81
-	const SKULL_BASH   ; 82
 	const SPIKE_CANNON ; 83
 	const POISON_FANG  ; 84 
 	const AMNESIA      ; 85 spdef +2
@@ -151,7 +146,6 @@
 	const SKY_ATTACK   ; 8f
 	const TRANSFORM    ; 90
 	const BUBBLE       ; 91
-	const DIZZY_PUNCH  ; 92 
 	const SPORE        ; 93
 	const FLASH        ; 94 acc -1 spatk +1 
 	const ICICLE_CRASH ; 95
@@ -170,7 +164,6 @@
 	const SUPER_FANG   ; a2
 	const SLASH        ; a3
 	const SUBSTITUTE   ; a4
-	const STRUGGLE     ; a5
 	const SKETCH       ; a6
 	const COSMIC_POWER ; a7
 	const THIEF        ; a8
@@ -203,7 +196,6 @@
 	const PERISH_SONG  ; c3
 	const ICY_WIND     ; c4 spd -1
 	const FEATHERDANCE ; c5
-	const BONE_RUSH    ; c6
 	const LOCK_ON      ; c7
 	const OUTRAGE      ; c8
 	const SANDSTORM    ; c9
@@ -238,7 +230,6 @@
 	const SWEET_SCENT  ; e6 evade -1
 	const IRON_TAIL    ; e7 def -1
 	const METAL_CLAW   ; e8 atk +1
-	const SECRET_POWER ; e9
 	const MORNING_SUN  ; ea
 	const SYNTHESIS    ; eb
 	const MOONLIGHT    ; ec
@@ -260,11 +251,20 @@
 	const ROCK_CLIMB   ; fc
 	const DARK_PULSE   ; 253 
 	const SLUDGE_WAVE  ; 254
+	const DIVE         ; 02
+	const VOLT_TACKLE  ; 04
+	const POWERUPPUNCH ; 6b 
+	const IRON_DEFENSE ; 80
+	const LEAF_BLADE   ; 82
+	const ICE_SHARD    ; 92 
+	const RAZOR_SHELL  ; c6
+	const CHARGE_WAVE  ; e9
+	const SHADOW_RUSH  ; a5
+	const STRUGGLE
 	
 NUM_ATTACKS EQU const_value - 1
 
 ; Battle animations use the same constants as the moves up to this point
-	const_next $ff
 	const ANIM_SWEET_SCENT_2     ; ff
 	const ANIM_THROW_POKE_BALL   ; 100
 	const ANIM_SEND_OUT_MON      ; 101

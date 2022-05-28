@@ -3,7 +3,7 @@
 	db  86,  86,  60,  88,  105,  100
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, NORMAL ; type
+	db CURSE_TYPE, CURSE_TYPE ; type
 	db 45 ; catch rate
 	db 115 ; base exp
 	db NO_ITEM, NO_ITEM ; items

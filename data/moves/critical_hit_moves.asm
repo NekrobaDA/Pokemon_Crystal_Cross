@@ -1,5 +1,5 @@
 CriticalHitMoves:
-	db KARATE_CHOP
+	db LEAF_BLADE
 	db RAZOR_WIND
 	db RAZOR_LEAF
 	db CRABHAMMER

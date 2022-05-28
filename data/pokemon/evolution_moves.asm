@@ -61,7 +61,7 @@ EvolutionMoves::
 	db NO_MOVE ; Growlithe
 	db EXTREMESPEED ; Arcanine
 	db NO_MOVE ; Poliwag
-	db NO_MOVE ; Poliwhirl
+	db POWERUPPUNCH ; Poliwhirl
 	db SEISMIC_TOSS ; Poliwrath
 	db PERISH_SONG ; Politoed
 	db NO_MOVE ; Abra
@@ -81,16 +81,16 @@ EvolutionMoves::
 	db NO_MOVE ; Ponyta
 	db HORN_ATTACK ; Rapidash
 	db NO_MOVE ; Slowpoke
-	db HARDEN ; Slowbro
+	db IRON_DEFENSE ; Slowbro
 	db POWER_GEM ; Slowking
 	db NO_MOVE ; Magnemite
 	db TRI_ATTACK ; Magneton
 	db NO_MOVE ; FarfetchD
-	db KARATE_CHOP ; WuDuk
+	db ROCK_SMASH ; WuDuk
 	db NO_MOVE ; Doduo
 	db TRI_ATTACK ; Dodrio
 	db NO_MOVE ; Seel
-	db NO_MOVE ; Dewgong
+	db DIVE ; Dewgong
 	db NO_MOVE ; Grimer
 	db NO_MOVE ; Muk
 	db NO_MOVE ; Shellder
@@ -109,10 +109,10 @@ EvolutionMoves::
 	db NO_MOVE ; Exeggcute
 	db RAZOR_LEAF ; Exeggutor
 	db NO_MOVE ; Cubone
-	db SKULL_BASH ; Marowak
+	db NO_MOVE ; Marowak
 	db NO_MOVE ; Tyrogue
 	db DOUBLE_KICK ; Hitmonlee
-	db COMET_PUNCH ; Hitmonchan
+	db POWERUPPUNCH ; Hitmonchan
 	db RAPID_SPIN ; Hitmontop
 	db NO_MOVE ; Lickitung
 	db NO_MOVE ; Koffing
@@ -123,7 +123,7 @@ EvolutionMoves::
 	db SOFTBOILED ; Chansey
 	db NO_MOVE ; Blissey
 	db NO_MOVE ; Kangaskid
-	db COMET_PUNCH ; Kangaskhan
+	db NO_MOVE ; Kangaskhan
 	db NO_MOVE ; Horsea
 	db POISON_STING ; Seadra
 	db DRAGONBREATH ; Kingdra
@@ -153,7 +153,7 @@ EvolutionMoves::
 	db CONFUSION ; Espeon
 	db PURSUIT ; Umbreon
 	db MEGA_DRAIN ; Leafeon
-	db POWDER_SNOW ; Glaceon
+	db ICE_SHARD ; Glaceon
 	db SWIFT ; Sylveon
 	db NO_MOVE ; Porygon
 	db NO_MOVE ; Porygon2
@@ -223,7 +223,7 @@ EvolutionMoves::
 	db NO_MOVE ; Wobbuffet
 	db NO_MOVE ; Girafarig
 	db NO_MOVE ; Pineco
-	db HARDEN ; Forretress
+	db IRON_DEFENSE ; Forretress
 	db NO_MOVE ; Dunsparce
 	db TWISTER ; Duserpent
 	db NO_MOVE ; Gligar

@@ -2179,3 +2179,34 @@ Hex:
 	buildopponentrage
 	kingsrock
 	endmove
+
+ChargeWave:
+	checkcharge
+	checkobedience
+	doturn
+	charge
+	lowersub
+    statupanim
+	raisesub
+    specialattackup
+	statupmessage
+	usedmovetext
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endturn
+	defenseup
+	statupmessage
+	endmove		
