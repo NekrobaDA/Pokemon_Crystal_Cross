@@ -732,6 +732,11 @@ _BattleDugText::
 	text_start
 	line "dug a hole!"
 	prompt
+	
+_BattleChargingText::
+	text_start
+	line "is charging up!"
+	prompt
 
 _ActorNameText::
 	text "<USER>@"

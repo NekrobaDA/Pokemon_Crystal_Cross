@@ -261,7 +261,8 @@ Move00Description:
 	db "?@"
 	
 ShadowRushDescription:
-	db "?@"
+	db "An evil move that"
+	next "also hurts the user@"
 	
 DiveDescription:
 	db "?@"

@@ -787,8 +787,8 @@ EnemyHitTimesText:
 	prompt
 
 MistText:
-	text "<USER>'s"
-	line "shrouded in MIST!"
+	text "<USER>"
+	line "was cured!"
 	prompt
 
 ProtectedByMistText:

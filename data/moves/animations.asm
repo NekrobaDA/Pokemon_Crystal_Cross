@@ -253,7 +253,7 @@ BattleAnimations::
 	dw BattleAnim_Slash
 	dw BattleAnim_IcyWind
 	dw BattleAnim_Slash
-	dw BattleAnim_Return     ; charge wave (modified bide + thundershock?)
+	dw BattleAnim_Bide    ; charge wave (modified bide + thundershock?)
 	dw BattleAnim_TakeDown
 	dw BattleAnim_Struggle
 ; $100	

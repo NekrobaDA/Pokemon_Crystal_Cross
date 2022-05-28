@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm MIMIC
+	tmhm SHADOW_RUSH, MIMIC
 	; end

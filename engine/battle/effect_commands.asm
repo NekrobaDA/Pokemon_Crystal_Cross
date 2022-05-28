@@ -1088,6 +1088,7 @@ BattleCommand_DoTurn:
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
 	db EFFECT_RAMPAGE
+	db EFFECT_CHARGE_WAVE
 	db -1
 
 CheckMimicUsed:
@@ -1950,7 +1951,7 @@ BattleCommand_LowerSub:
 	jr z, .charge_turn
 	cp EFFECT_SKY_ATTACK
 	jr z, .charge_turn
-	cp EFFECT_SKULL_BASH
+	cp EFFECT_CHARGE_WAVE
 	jr z, .charge_turn
 	cp EFFECT_SOLARBEAM
 	jr z, .charge_turn
@@ -5724,6 +5725,9 @@ BattleCommand_Charge:
 
 	cp DIG
 	ld hl, .BattleDugText
+	
+	cp CHARGE_WAVE
+	ld hl, .BattleChargingText
 
 .done
 	ret
@@ -5750,6 +5754,10 @@ BattleCommand_Charge:
 
 .BattleDugText:
 	text_far _BattleDugText
+	text_end
+	
+.BattleChargingText:
+	text_far _BattleChargingText
 	text_end
 
 BattleCommand_Unused3C:

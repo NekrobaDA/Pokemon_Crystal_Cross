@@ -1,24 +1,25 @@
 BattleCommand_Mist:
 ; mist
-
-	;ld a, BATTLE_VARS_SUBSTATUS4
-	;call GetBattleVarAddr
-	;bit SUBSTATUS_MIST, [hl]
-	;jr nz, .already_mist
-	;set SUBSTATUS_MIST, [hl]
-	;call AnimateCurrentMove
-	;ld hl, MistText
-	;jp StdBattleTextbox
-
-;.already_mist
-	;call AnimateFailedMove
-	;jp PrintButItFailed
-
-	ld a, BATTLE_VARS_SUBSTATUS5
+	ld a, BATTLE_VARS_SUBSTATUS1
 	call GetBattleVarAddr
-	res SUBSTATUS_TOXIC, [hl]
+	res SUBSTATUS_NIGHTMARE, [hl]
+	ld de, wPartyMon1Status
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_status
+	ld de, wOTPartyMon1Status
+.got_status
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVarAddr
-	ld a, [hl]
+	xor a
+	ld [hl], a
+	call AnimateCurrentMove
+
+	ld hl, MistText
+	call StdBattleTextbox
+
+	ldh a, [hBattleTurn]
 	and a
-	jp StdBattleTextbox
+	jp z, CalcPlayerStats
+	jp CalcEnemyStats
+	

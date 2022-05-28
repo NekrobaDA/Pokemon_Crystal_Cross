@@ -2184,12 +2184,12 @@ ChargeWave:
 	checkcharge
 	checkobedience
 	doturn
-	charge
 	lowersub
     statupanim
 	raisesub
     specialattackup
 	statupmessage
+	charge
 	usedmovetext
 	critical
 	damagestats
