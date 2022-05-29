@@ -104,7 +104,7 @@ GetRelearnableMoves:
 	xor a
 	ld [hli], a
 	ld [hl], $ff
-	ld a, MON_SPECIES
+	ld a, MON_SPECIES	
 	call GetPartyParamLocation
 	ld a, [hl]
 	ld [wCurPartySpecies], a
@@ -119,19 +119,14 @@ GetRelearnableMoves:
 	push bc
 	ld a, [wCurPartySpecies]
 	call GetPokemonIndexFromID
-	dec hl
-	ld b, h
-	ld c, l
-	ld hl, EvosAttacksPointers
+	ld bc, EvosAttacksPointers - 2
 	add hl, hl
 	add hl, bc
 	ld a, BANK(EvosAttacksPointers)
 	call GetFarWord
-.skip_evos
-	ld a, BANK(EvosAttacks)
-	call GetFarByte2
-	and a
-	jr nz, .skip_evos
+
+	call FarSkipEvolutions
+	
 .loop_moves
 	ld a, BANK(EvosAttacks)
 	call GetFarByte2
@@ -159,7 +154,7 @@ GetRelearnableMoves:
 	push bc
 	jr .loop_moves
 .done
-	callba GetLowestEvolutionStage
+	callfar GetLowestEvolutionStage
 	pop bc
 	jr c, .loop
 	pop af
@@ -339,6 +334,7 @@ ChooseMoveToLearn:
 	db "BIRD@"
 	db " BUG@"
 	db " STL@"
+	db "DARK@"
 
 	db "TP09@"
 	db "TP10@"
@@ -358,7 +354,6 @@ ChooseMoveToLearn:
 	db "PSYC@"
 	db " ICE@"
 	db "DRGN@"
-	db "DARK@"
 	db "GHST@"
 
 .PrintMoveDesc
