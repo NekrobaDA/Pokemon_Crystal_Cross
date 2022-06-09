@@ -55,7 +55,8 @@ MapGroupRoofs:
 	db -1
 	db -1
 	db -1   ; (-seven isle)
-	db -1 
+	db -1   ; neo cherrygrove
+	db -1	; underwater
 
 Roofs:
 ; entries correspond to ROOF_* constants

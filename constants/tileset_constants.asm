@@ -41,6 +41,7 @@
 	const TILESET_SEVII
 	const TILESET_SEVII_FOREST
 	const TILESET_CHERRYGROVE
+	const TILESET_UNDERWATER
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)

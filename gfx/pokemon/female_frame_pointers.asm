@@ -4,16 +4,16 @@ FemaleFramesPointers:
 	dba VenusaurFrames
 	dba CharmanderFrames
 	dba CharmeleonFrames
-	dba CharizardFrames
+	dba CharizardFemaleFrames
 	dba SquirtleFrames
 	dba WartortleFrames
 	dba BlastoiseFrames
 	dba CaterpieFrames
 	dba MetapodFrames
-	dba ButterfreeFrames
+	dba ButterfreeFemaleFrames
 	dba WeedleFrames
 	dba KakunaFrames
-	dba BeedrillFrames
+	dba BeedrillFemaleFrames
 	dba PidgeyFrames
 	dba PidgeottoFrames
 	dba PidgeotFrames

@@ -223,3 +223,4 @@
 	tilecoll WALL, FLOOR, WALL, WALL ; de
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; df
 	tilecoll FLOOR, WALL, WALL, WALL ; e0
+	tilecoll DIVE, DIVE, DIVE, DIVE ; e1

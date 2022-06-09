@@ -975,6 +975,31 @@ GetMonFramesPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
 
+	;ldh a, [rSVBK]
+	;push af
+	ld a, BANK(wCurPartySpecies)
+	;ldh [rSVBK], a
+	ld a, [wCurPartySpecies]
+	farcall GetGender
+	jr c, .male
+
+	;pop af
+
+	call PokeAnim_IsUnown
+	ld hl, FemaleFramesPointers - 3
+	ld a, BANK(FramesPointers)
+	ld c, 3
+	jr nz, .got_frames
+	ld a, BANK(UnownsFrames)
+	ld [wPokeAnimFramesBank], a
+	ld hl, UnownFramesPointers - 2
+	ld a, BANK(UnownFramesPointers)
+	ld c, 2
+	jr .got_frames
+	
+.male	
+	;pop af
+
 	call PokeAnim_IsUnown
 	ld hl, FramesPointers - 3
 	ld a, BANK(FramesPointers)
@@ -985,6 +1010,7 @@ GetMonFramesPointer:
 	ld hl, UnownFramesPointers - 2
 	ld a, BANK(UnownFramesPointers)
 	ld c, 2
+	
 .got_frames
 
 	push af
@@ -1025,13 +1051,36 @@ GetMonFramesPointer:
 GetMonBitmaskPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
+	
+	;ldh a, [rSVBK]
+	;push af
+	ld a, BANK(wCurPartySpecies)
+	;ldh [rSVBK], a
+	ld a, [wCurPartySpecies]
+	farcall GetGender
+	jr c, .male
+	
+	;pop af
 
 	call PokeAnim_IsUnown
 	ld a, BANK(UnownBitmasksPointers)
 	ld de, UnownBitmasksPointers - 2
 	jr z, .unown
 	ld a, BANK(BitmasksPointers)
+	ld de, FemaleBitmasksPointers - 2
+	jr .unown
+	
+.male
+
+	;pop af
+	
+	call PokeAnim_IsUnown
+	ld a, BANK(UnownBitmasksPointers)
+	ld de, UnownBitmasksPointers - 2
+	jr z, .unown
+	ld a, BANK(BitmasksPointers)
 	ld de, BitmasksPointers - 2
+	
 .unown
 	ld [wPokeAnimBitmaskBank], a
 

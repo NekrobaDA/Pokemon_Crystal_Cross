@@ -181,6 +181,7 @@ ENDM
 	command startloop               ; ae
 	command curl                    ; af
 	command hex
+	command doubleunderwaterdamage
 
 	const_def -1, -1
 	command endmove                 ; ff

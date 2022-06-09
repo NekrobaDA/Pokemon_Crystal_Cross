@@ -235,6 +235,8 @@ ScriptCommandTable:
 	dw Script_checksave                  ; a9
 	dw Script_loadmonindex               ; aa
 	dw Script_checkmaplockedmons         ; ab
+	dw Script_divemap
+	dw Script_divewarp
 
 StartScript:
 	ld hl, wScriptFlags
@@ -2397,6 +2399,41 @@ LoadScriptPokemonID:
 	or l
 	jp nz, GetPokemonIDFromIndex
 	ld a, [wScriptVar]
+	ret
+	
+Script_divemap:
+	call GetScriptByte
+	ld [wDiveMapGroup], a
+	call GetScriptByte
+	ld [wDiveMapNumber], a
+	call GetScriptByte
+	ld [wDiveDeltaX], a
+	call GetScriptByte
+	ld [wDiveDeltaY], a
+	ret
+
+Script_divewarp:
+	ld a, [wDiveMapGroup]
+	ld [wMapGroup], a
+	ld a, [wDiveMapNumber]
+	ld [wMapNumber], a
+	;ld a, [wXCoord]
+	;ld b, a
+	ld a, [wDiveDeltaX]
+	;add b
+	ld [wXCoord], a
+	;ld a, [wYCoord]
+	;ld b, a
+	ld a, [wDiveDeltaY]
+	;add b
+	ld [wYCoord], a
+	ld a, SPAWN_N_A
+	ld [wDefaultSpawnpoint], a
+	ld a, MAPSETUP_WARP
+	ldh [hMapEntryMethod], a
+	ld a, MAPSTATUS_ENTER
+	call LoadMapStatus
+	call StopScript
 	ret
 
 Script_checkver_duplicate: ; unreferenced

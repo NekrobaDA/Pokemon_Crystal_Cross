@@ -562,6 +562,9 @@ FlyFunction:
 	ld de, ENGINE_STORMBADGE
 	call CheckBadge
 	jr c, .nostormbadge
+	ld a, [wMapTileset]
+	cp TILESET_UNDERWATER
+	jr z, .indoors
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr z, .outdoors
@@ -1451,6 +1454,8 @@ FishFunction:
 	jr z, .fail
 	cp PLAYER_SURF_PIKA
 	jr z, .fail
+	cp PLAYER_DIVE
+	jr z, .fail
 	call GetFacingTileCoord
 	call GetTileCollision
 	cp WATER_TILE
@@ -1830,9 +1835,9 @@ RockClimbFunction:
 	dw .FailRockClimb
 
 .TryRockClimb:
-	ld de, ENGINE_MINERALBADGE
-	farcall CheckBadge
-	jr c, .noearthbadge
+	;ld de, ENGINE_MINERALBADGE
+	;farcall CheckBadge
+	;jr c, .noearthbadge
 	call TryRockClimbMenu
 	jr c, .failed
 	ld a, $1
@@ -1872,9 +1877,9 @@ TryRockClimbMenu:
 	ret
 
 TryRockClimbOW::
-	ld de, ENGINE_EARTHBADGE
-	call CheckEngineFlag
-	jr c, .cant_climb
+	;ld de, ENGINE_EARTHBADGE
+	;call CheckEngineFlag
+	;jr c, .cant_climb
 
 	ld d, ROCK_CLIMB
 	call CheckPartyMove
@@ -1969,4 +1974,143 @@ UsedRockClimbText:
 
 CantRockClimbText:
 	text_far _CantRockClimbText
+	text_end
+	
+DiveFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+ 	dw .TryDive
+ 	dw .DoDive
+ 	dw .FailDive
+
+.TryDive:
+	;ld de, ENGINE_CASCADEBADGE
+	;call CheckBadge
+	;jr c, .nocascadebadge
+	call CheckMapCanDive
+	;jr nz, .cannotdive
+	jr c, .cannotdive
+	ld a, $1
+	ret
+.nocascadebadge
+	ld a, $80
+	ret
+.cannotdive
+	ld a, $2
+	ret
+
+.DoDive:
+	call GetPartyNick
+	ld hl, DiveFromMenuScript
+	call QueueScript
+	ld a, $81
+	ret
+
+.FailDive:
+	call FieldMoveFailed
+	ld a, $80
+	ret
+
+CantDiveText:
+	text_far _CantDiveText
+	text_end
+
+CheckMapCanDive:
+	;ld a, [wDiveMapGroup]
+	;and a
+	;jr z, .failed
+	;ld a, [wDiveMapNumber]
+	;and a
+	;jr z, .failed
+	ld a, [wPlayerStandingTile]
+	call CheckDiveTile
+	jr nz, .failed
+	xor a
+	ret
+
+.failed
+	scf
+	ret
+
+TryDiveOW::
+	call CheckMapCanDive
+	jr c, .failed
+
+	;ld de, ENGINE_CASCADEBADGE
+	;call CheckEngineFlag
+	;jr c, .cant
+
+	ld d, DIVE
+	call CheckPartyMove
+	jr c, .cant
+
+	call GetPartyNick
+	ld a, BANK(AskDiveScript)
+	ld hl, AskDiveScript
+	call CallScript
+	scf
+	ret
+
+.failed
+	xor a
+	ret
+
+.cant
+	ld a, BANK(CantDiveScript)
+	ld hl, CantDiveScript
+	call CallScript
+	scf
+	ret
+
+CantDiveScript:
+	jumptext CanDiveText
+
+CanDiveText:
+	text_far _CanDiveText
+	text_end
+
+AskDiveScript:
+	opentext
+	readmem wPlayerStandingTile
+	ifequal COLL_RESURFACE, .up
+	writetext AskDiveText
+	jump .continue
+.up
+	writetext AskResurfaceText
+.continue
+	yesorno
+	iftrue UsedDiveScript
+	closetext
+	end
+
+AskDiveText:
+	text_far _AskDiveText
+	text_end
+
+AskResurfaceText:
+	text_far _AskResurfaceText
+	text_end
+
+DiveFromMenuScript:
+	special UpdateTimePals
+
+UsedDiveScript:
+	writetext UsedDiveText
+	waitbutton
+	closetext
+	special FadeOutPalettes
+	waitsfx
+	divewarp
+	end
+
+UsedDiveText:
+	text_far _UsedDiveText
 	text_end

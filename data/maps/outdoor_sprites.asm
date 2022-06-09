@@ -49,6 +49,7 @@ OutdoorSprites:
 	dw SeviiSixGroupSprites
 	dw SeviiSevenGroupSprites
 	dw CherrygroveNeoGroupSprites
+	dw UnderwaterGroupSprites
 
 ; Route1 and ViridianCity are connected
 ; Route2 and PewterCity are connected
@@ -400,5 +401,9 @@ CherrygroveNeoGroupSprites:
 	db SPRITE_MAGIKARP_3
 	db SPRITE_CHERRY_0
 	db SPRITE_CHERRY_1
+	db 0 ; end
+	
+UnderwaterGroupSprites:
+	; 0 of max 9 walking sprites
 	db 0 ; end
 	

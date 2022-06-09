@@ -156,6 +156,12 @@ CheckHeadbuttTreeTile::
 CheckRockyWallTile::
 	cp COLL_ROCKY_WALL
 	ret
+	
+CheckDiveTile::
+	cp COLL_RESURFACE
+	ret z
+	cp COLL_DIVE
+	ret
 
 CheckCounterTile::
 	cp COLL_COUNTER
@@ -171,8 +177,6 @@ CheckPitTile::
 
 CheckIceTile::
 	cp COLL_ICE
-	ret z
-	cp COLL_ICE_2B
 	ret z
 	scf
 	ret

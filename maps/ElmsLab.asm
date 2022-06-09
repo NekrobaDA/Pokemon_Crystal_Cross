@@ -215,6 +215,7 @@ CyndaquilPokeBallScript:
 	giveitem HM_WHIRLPOOL
 	giveitem HM_WATERFALL
 	giveitem HM_ROCK_CLIMB
+	giveitem HM_DIVE
 	; full pokegear
 	setflag ENGINE_POKEGEAR
 	setflag ENGINE_PHONE_CARD

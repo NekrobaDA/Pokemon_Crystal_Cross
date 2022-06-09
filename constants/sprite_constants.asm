@@ -111,6 +111,7 @@
 	const SPRITE_CHERRY_0
 	const SPRITE_CHERRY_1
 	const SPRITE_STANDING_OFFICER
+	const SPRITE_DIVE
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
 	const_next $74

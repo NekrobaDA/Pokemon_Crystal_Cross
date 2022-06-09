@@ -594,5 +594,9 @@ ENDM
 	map_const CHERRYGROVE_GYM_SPEECH_HOUSE,                 4,  4 ;  6
 	map_const GUIDE_GENTS_HOUSE,                            4,  4 ;  7
 	map_const CHERRYGROVE_EVOLUTION_SPEECH_HOUSE,           4,  4 ;  8
+	
+	newgroup
+	
+	map_const DIVE_TEST,                                    5,  5
 
 NUM_MAP_GROUPS EQU const_value ; 28

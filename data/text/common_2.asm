@@ -1574,3 +1574,43 @@ _CantRockClimbText::
 	para "Will a #MON's"
 	line "move scale it?"
 	done
+	
+_CanDiveText::
+	text "The sea is deep"
+	line "here…"
+
+	para "A #MON can"
+	line "DIVE here."
+	done	
+	
+_AskDiveText::
+	text "The sea is deep"
+	line "here…"
+
+	para "Want to use"
+	line "DIVE?"
+	done
+	
+_AskResurfaceText::
+	text "Light is filtering"
+	line "down from above…"
+
+	para "Want to use"
+	line "DIVE?"
+	done
+
+_UsedDiveText::
+	text_ram wStringBuffer2
+	text " used"
+	line "DIVE!"
+	prompt
+
+_CantDiveText::
+	text "DIVE can't be"
+	line "used here."
+	prompt
+	
+HidUnderwaterText::
+	text_start
+	line "hid underwater!"
+	prompt

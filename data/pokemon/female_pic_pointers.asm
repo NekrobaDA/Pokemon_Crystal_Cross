@@ -20,8 +20,8 @@ FemalePokemonPicPointers::
 	dba CharmanderBackpic
 	dba CharmeleonFrontpic
 	dba CharmeleonBackpic
-	dba CharizardFrontpic
-	dba CharizardBackpic
+	dba CharizardFemaleFrontpic
+	dba CharizardFemaleBackpic
 	dba SquirtleFrontpic
 	dba SquirtleBackpic
 	dba WartortleFrontpic
@@ -32,14 +32,14 @@ FemalePokemonPicPointers::
 	dba CaterpieBackpic
 	dba MetapodFrontpic
 	dba MetapodBackpic
-	dba ButterfreeFrontpic
-	dba ButterfreeBackpic
+	dba ButterfreeFemaleFrontpic
+	dba ButterfreeFemaleBackpic
 	dba WeedleFrontpic
 	dba WeedleBackpic
 	dba KakunaFrontpic
 	dba KakunaBackpic
-	dba BeedrillFrontpic
-	dba BeedrillBackpic
+	dba BeedrillFemaleFrontpic
+	dba BeedrillFemaleBackpic
 	dba PidgeyFrontpic
 	dba PidgeyBackpic
 	dba PidgeottoFrontpic

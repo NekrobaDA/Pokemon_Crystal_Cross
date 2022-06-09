@@ -160,3 +160,5 @@ MoveEffectsPointers:
 	dw FreezeHit
 	dw Hex
 	dw ChargeWave
+	dw Surf
+	dw Whirlpool

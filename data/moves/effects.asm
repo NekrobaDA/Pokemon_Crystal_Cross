@@ -2209,4 +2209,45 @@ ChargeWave:
 	endturn
 	defenseup
 	statupmessage
-	endmove		
+	endmove	
+
+Surf:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleunderwaterdamage
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	buildopponentrage
+	kingsrock
+	endmove
+
+Whirlpool:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleunderwaterdamage
+	clearmissdamage
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	buildopponentrage
+	traptarget
+	endmove	

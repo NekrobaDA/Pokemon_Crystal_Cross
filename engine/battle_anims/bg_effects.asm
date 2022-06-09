@@ -375,7 +375,7 @@ BattleBGEffect_HideMon:
 	ret
 
 BattleBGEffect_ShowMon:
-	call BGEffect_CheckFlyDigStatus
+	call BGEffect_CheckFlyDigDiveStatus
 	jr z, .not_flying
 	call EndBattleBGEffect
 	ret
@@ -414,7 +414,7 @@ BattleBGEffect_BattlerObj_1Row:
 	dw .five
 
 .zero
-	call BGEffect_CheckFlyDigStatus
+	call BGEffect_CheckFlyDigDiveStatus
 	jr z, .not_flying_digging
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
@@ -481,7 +481,7 @@ BattleBGEffect_BattlerObj_2Row:
 	dw .five
 
 .zero
-	call BGEffect_CheckFlyDigStatus
+	call BGEffect_CheckFlyDigDiveStatus
 	jr z, .not_flying_digging
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
@@ -2903,7 +2903,7 @@ BGEffect_CheckBattleTurn:
 	xor [hl]
 	ret
 
-BGEffect_CheckFlyDigStatus:
+BGEffect_CheckFlyDigDiveStatus:
 	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
 	add hl, bc
 	ldh a, [hBattleTurn]
@@ -2912,11 +2912,17 @@ BGEffect_CheckFlyDigStatus:
 	jr nz, .player
 	ld a, [wEnemySubStatus3] ; EnemySubStatus3
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	ret nz
+	ld a, [wEnemySubStatus4]
+	and 1 << SUBSTATUS_UNDERWATER
 	ret
 
 .player
 	ld a, [wPlayerSubStatus3] ; PlayerSubStatus3
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	ret nz
+	ld a, [wPlayerSubStatus4]
+	and 1 << SUBSTATUS_UNDERWATER
 	ret
 
 BattleBGEffects_CheckSGB:

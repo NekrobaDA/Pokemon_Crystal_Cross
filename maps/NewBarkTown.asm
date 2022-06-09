@@ -307,7 +307,7 @@ NewBarkTown_MapEvents:
 	warp_event  6,  3, ELMS_LAB, 1
 	warp_event 11, 13, PLAYERS_HOUSE_1F, 1
 	warp_event  3, 11, ONE_ISLAND, 1
-	warp_event 13,  5, WATER_PATH, 1
+	warp_event 13,  5, DIVE_TEST, 1
 	;warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
 	;warp_event 13,  5, ELMS_HOUSE, 1
 

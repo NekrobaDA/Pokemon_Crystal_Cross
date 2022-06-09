@@ -4,16 +4,16 @@ FemaleBitmasksPointers:
 	dw VenusaurBitmasks
 	dw CharmanderBitmasks
 	dw CharmeleonBitmasks
-	dw CharizardBitmasks
+	dw CharizardFemaleBitmasks
 	dw SquirtleBitmasks
 	dw WartortleBitmasks
 	dw BlastoiseBitmasks
 	dw CaterpieBitmasks
 	dw MetapodBitmasks
-	dw ButterfreeBitmasks
+	dw ButterfreeFemaleBitmasks
 	dw WeedleBitmasks
 	dw KakunaBitmasks
-	dw BeedrillBitmasks
+	dw BeedrillFemaleBitmasks
 	dw PidgeyBitmasks
 	dw PidgeottoBitmasks
 	dw PidgeotBitmasks

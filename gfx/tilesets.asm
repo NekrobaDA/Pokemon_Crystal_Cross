@@ -521,3 +521,15 @@ INCLUDE "data/tilesets/cherrygrove_collision.asm"
 
 TilesetCherrygroveAttr::
 INCBIN "data/tilesets/cherrygrove_attributes.bin"
+
+TilesetUnderwaterGFX::
+INCBIN "gfx/tilesets/underwater.2bpp.lz"
+
+TilesetUnderwaterMeta::
+INCBIN "data/tilesets/underwater_metatiles.bin"
+
+TilesetUnderwaterColl::
+INCLUDE "data/tilesets/underwater_collision.asm"
+
+TilesetUnderwaterAttr::
+INCBIN "data/tilesets/underwater_attributes.bin"

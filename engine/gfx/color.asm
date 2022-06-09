@@ -1267,6 +1267,7 @@ LoadMapPals:
 	call FarCopyWRAM
 	
 	farcall LoadSpecialNPCPalette
+	farcall LoadSpecialMapObjectPalette
 
 	ld a, [wEnvironment]
 	cp TOWN

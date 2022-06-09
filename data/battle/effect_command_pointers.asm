@@ -180,3 +180,4 @@ BattleCommandPointers:
 	dw BattleCommand_StartLoop
 	dw BattleCommand_Curl
 	dw BattleCommand_Hex
+	dw BattleCommand_DoubleUnderwaterDamage

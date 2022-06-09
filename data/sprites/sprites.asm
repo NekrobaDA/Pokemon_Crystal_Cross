@@ -115,5 +115,6 @@ OverworldSprites:
 	overworld_sprite Cherry0SpriteGFX, 4, STANDING_SPRITE, PAL_OW_PINK
 	overworld_sprite Cherry1SpriteGFX, 4, STANDING_SPRITE, PAL_OW_PINK
 	overworld_sprite StandingOfficerSpriteGFX, 4, STANDING_SPRITE, PAL_OW_BLUE
+	overworld_sprite DiveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	
 	

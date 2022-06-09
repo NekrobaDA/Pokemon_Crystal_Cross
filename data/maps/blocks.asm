@@ -1138,3 +1138,6 @@ CanyonEntrance_Blocks:
 	
 SevaultCanyon_Blocks:
 	INCBIN "maps/SevaultCanyon.ablk"
+	
+DiveTest_Blocks:
+	INCBIN "maps/DiveTest.ablk"	

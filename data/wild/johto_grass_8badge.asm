@@ -1076,5 +1076,26 @@ JohtoGrassWildMons8Badge:
 	dbw 44, SNEASEL
 	dbw 44, GOLBAT
 	dbw 45, SNEASEL
+	
+	map_id DIVE_TEST
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 41, CHINCHOU
+	dbw 42, REMORAID
+	dbw 42, CHINCHOU
+	dbw 44, REMORAID
+	dbw 41, CORSOLA
+	dbw 43, LANTURN
+	dbw 43, CORSOLA
+	dbw 39, DRATINI
+	; nite
+	dbw 41, CHINCHOU
+	dbw 42, REMORAID
+	dbw 42, CHINCHOU
+	dbw 44, REMORAID
+	dbw 41, CORSOLA
+	dbw 43, LANTURN
+	dbw 43, CORSOLA
+	dbw 39, DRATINI
 
 	db -1 ; end

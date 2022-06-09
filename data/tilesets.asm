@@ -54,4 +54,5 @@ Tilesets::
 	tileset TilesetSevii
 	tileset TilesetSeviiForest
 	tileset TilesetCherrygrove
+	tileset TilesetUnderwater
 	
