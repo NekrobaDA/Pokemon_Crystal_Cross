@@ -21,6 +21,7 @@ CutTreeBlockPointers:
 .johto_modern:
 ; facing block, replacement block, animation
 	db $03, $02, $01 ; grass
+	db $83, $85, 0 ; bush
 	db -1 ; end
 
 .kanto:

@@ -15,6 +15,7 @@ DiveTest_MapEvents:
 
 	def_warp_events
 	warp_event 3,  3, NEW_BARK_TOWN, 4
+	warp_event 3,  4, ROUTE_34, 6
 
 	def_coord_events
 

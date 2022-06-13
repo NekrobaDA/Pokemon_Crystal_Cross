@@ -129,4 +129,6 @@
 	tilecoll WALL, FLOOR, WALL, WALL ; 80
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 81
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 82
-	tilecoll DIVE, DIVE, DIVE, DIVE ; 83
+	tilecoll CUT_TREE, WALL, FLOOR, FLOOR ; 83
+	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 84
+	tilecoll DOOR, FLOOR, FLOOR, FLOOR ; 85

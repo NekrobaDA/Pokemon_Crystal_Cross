@@ -768,6 +768,7 @@ Route34_MapEvents:
 	warp_event 13, 12, DAY_CARE, 1
 	warp_event 13, 13, DAY_CARE, 2
 	warp_event 15, 13, DAY_CARE, 3
+	warp_event 18, 22, DIVE_TEST, 2
 
 	def_coord_events
 
