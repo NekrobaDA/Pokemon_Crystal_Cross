@@ -774,3 +774,4 @@ ENDM
 	map_attributes SevenIslandMart, SEVEN_ISLAND_MART, $00, 0
 	map_attributes SevenIslandPokecenter1F, SEVEN_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes DiveTest, DIVE_TEST, $1d, 0
+	map_attributes EcruteakSwarmHouse, ECRUTEAK_SWARM_HOUSE, $00, 0
