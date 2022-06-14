@@ -287,5 +287,27 @@ SwarmGrassWildMons:
 	dbw 40, HYPNO
 	dbw 42, VENOMOTH
 	dbw 27, PSYDUCK
+	
+;dratini swarm
+	map_id DIVE_TEST
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 41, DRATINI
+	dbw 42, REMORAID
+	dbw 42, CHINCHOU
+	dbw 44, DRATINI
+	dbw 41, CORSOLA
+	dbw 43, LANTURN
+	dbw 43, DRATINI
+	dbw 39, DRATINI
+	; nite
+	dbw 41, DRATINI
+	dbw 42, REMORAID
+	dbw 42, CHINCHOU
+	dbw 44, DRATINI
+	dbw 41, CORSOLA
+	dbw 43, LANTURN
+	dbw 43, DRATINI
+	dbw 39, DRATINI
 
 	db -1 ; end

@@ -738,6 +738,7 @@ INCLUDE "engine/16/table_functions.asm"
 
 ; own section
 INCLUDE "data/trainers/parties.asm"
+INCLUDE "engine/battle/swarm_shiny.asm"
 
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]
