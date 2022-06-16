@@ -155,9 +155,9 @@
 	const SQUIRTBOTTLE ; 93
 	const PARK_BALL    ; 94
 	const RAINBOW_WING ; 95
-	const ITEM_X01     ; 96
-	const ITEM_X02     ; 97
-	const ITEM_X03     ; 98
+	const OLD_AMBER    ; 96
+	const DOME_FOSSIL  ; 97
+	const HELIX_FOSSIL ; 98
 	const ITEM_X04     ; 99
 	const ITEM_X05     ; 9a
 	const ITEM_X06     ; 9b

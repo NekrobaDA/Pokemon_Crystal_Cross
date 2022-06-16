@@ -8,7 +8,7 @@ TreeMons:
 	dw TreeMonSet_Lake
 	dw TreeMonSet_Forest
 	dw TreeMonSet_Rock
-	dw TreeMonSet_City
+	;dw TreeMonSet_City
 
 ; Two tables each (common, rare).
 ; Structure:
@@ -17,113 +17,113 @@ TreeMons:
 TreeMonSet_City:
 TreeMonSet_Canyon:
 ; common
-	dbbw 50, SPEAROW,    10
-	dbbw 15, METAPOD,    10
-	dbbw 15, KAKUNA,    10
-	dbbw 10, PINECO,      10
-	dbbw  5, PINECO,      10
-	dbbw  5, SPEAROW,      10
+	dbbw 50, 10, SPEAROW
+	dbbw 15, 10, METAPOD
+	dbbw 15, 10, KAKUNA
+	dbbw 10, 10, PINECO
+	dbbw  5, 10, PINECO
+	dbbw  5, 10, SPEAROW
 	db -1
 ; rare
-	dbbw 50, SPEAROW,    10
-	dbbw 15, HERACROSS,  10
-	dbbw 15, HERACROSS,  10
-	dbbw 10, PINECO,      10
-	dbbw  5, KAKUNA,      10
-	dbbw  5, METAPOD,      10
+	dbbw 50, 10, SPEAROW
+	dbbw 15, 10, HERACROSS
+	dbbw 15, 10, HERACROSS
+	dbbw 10, 10, PINECO
+	dbbw  5, 10, KAKUNA
+	dbbw  5, 10, METAPOD
 	db -1
 
 TreeMonSet_Town:
 ; common
-	dbbw 50, PIDGEY,    10
-	dbbw 15, METAPOD,      10
-	dbbw 15, KAKUNA,    10
-	dbbw 10, PINECO,      10
-	dbbw  5, PINECO,      10
-	dbbw  5, METAPOD,      10
+	dbbw 50, 10, PIDGEY
+	dbbw 15, 10, METAPOD
+	dbbw 15, 10, KAKUNA
+	dbbw 10, 10, PINECO
+	dbbw  5, 10, PINECO
+	dbbw  5, 10, METAPOD
 	db -1
 ; rare
-	dbbw 50, PIDGEY,    10
-	dbbw 15, HERACROSS,  10
-	dbbw 15, HERACROSS,  10
-	dbbw 10, PINECO,      10
-	dbbw  5, KAKUNA,      10
-	dbbw  5, METAPOD,      10
+	dbbw 50, 10, PIDGEY
+	dbbw 15, 10, HERACROSS
+	dbbw 15, 10, HERACROSS
+	dbbw 10, 10, PINECO
+	dbbw  5, 10, KAKUNA
+	dbbw  5, 10, METAPOD
 	db -1
 
 TreeMonSet_Route:
 ; common
-	dbbw 50, HOOTHOOT,   10
-	dbbw 15, METAPOD,    10
-	dbbw 15, LEDYBA,     10
-	dbbw 10, KAKUNA,     10
-	dbbw  5, PINECO,   10
-	dbbw  5, PINECO,     10
+	dbbw 50, 10, HOOTHOOT
+	dbbw 15, 10, METAPOD
+	dbbw 15, 10, LEDYBA
+	dbbw 10, 10, KAKUNA
+	dbbw  5, 10, PINECO
+	dbbw  5, 10, PINECO
 	db -1
 ; rare
-	dbbw 50, HOOTHOOT,   10
-	dbbw 15, PINECO,     10
-	dbbw 15, BEEDRILL,     10
-	dbbw 10, KAKUNA,   10
-	dbbw  5, BEEDRILL,     10
-	dbbw  5, PINECO,     10
+	dbbw 50, 10, HOOTHOOT
+	dbbw 15, 10, PINECO
+	dbbw 15, 10, BEEDRILL
+	dbbw 10, 10, KAKUNA
+	dbbw  5, 10, BEEDRILL
+	dbbw  5, 10, PINECO
 	db -1
 
 TreeMonSet_Kanto:
 ; common
-	dbbw 50, SPEAROW,    10
-	dbbw 15, METAPOD,    10
-	dbbw 15, KAKUNA,     10
-	dbbw 10, EXEGGCUTE,  10
-	dbbw  5, EXEGGCUTE,  10
-	dbbw  5, EXEGGCUTE,  10
+	dbbw 50, 10, SPEAROW
+	dbbw 15, 10, METAPOD
+	dbbw 15, 10, KAKUNA
+	dbbw 10, 10, EXEGGCUTE
+	dbbw  5, 10, EXEGGCUTE
+	dbbw  5, 10, EXEGGCUTE
 	db -1
 ; rare
-	dbbw 50, SPEAROW,    10
-	dbbw 15, EKANS,      10
-	dbbw 15, EKANS,      10
-	dbbw 10, EXEGGCUTE,  10
-	dbbw  5, EXEGGCUTE,  10
-	dbbw  5, EXEGGCUTE,  10
+	dbbw 50, 10, SPEAROW
+	dbbw 15, 10, EKANS
+	dbbw 15, 10, EKANS
+	dbbw 10, 10, EXEGGCUTE
+	dbbw  5, 10, EXEGGCUTE
+	dbbw  5, 10, EXEGGCUTE
 	db -1
 
 TreeMonSet_Lake:
 ; common
-	dbbw 50, HOOTHOOT,   10
-	dbbw 15, YANMA,    10
-	dbbw 15, PIDGEY,   10
-	dbbw 10, METAPOD,    10
-	dbbw  5, PINECO,    10
-	dbbw  5, PINECO,    10
+	dbbw 50, 10, HOOTHOOT
+	dbbw 15, 10, YANMA
+	dbbw 15, 10, PIDGEY
+	dbbw 10, 10, METAPOD
+	dbbw  5, 10, PINECO
+	dbbw  5, 10, PINECO
 	db -1
 ; rare
-	dbbw 50, HOOTHOOT,   10
-	dbbw 15, PINECO,     10
-	dbbw 15, PINECO,     10
-	dbbw 10, METAPOD,    10
-	dbbw  5, VENONAT,    10
-	dbbw  5, VENONAT,    10
+	dbbw 50, 10, HOOTHOOT
+	dbbw 15, 10, PINECO
+	dbbw 15, 10, PINECO
+	dbbw 10, 10, METAPOD
+	dbbw  5, 10, VENONAT
+	dbbw  5, 10, VENONAT
 	db -1
 
 TreeMonSet_Forest:
 ; common
-	dbbw 50, HOOTHOOT,   10
-	dbbw 15, PINECO,     10
-	dbbw 15, KAKUNA,     10
-	dbbw 10, METAPOD,   10
-	dbbw  5, BUTTERFREE, 10
-	dbbw  5, BEEDRILL,   10
+	dbbw 50, 10, HOOTHOOT
+	dbbw 15, 10, PINECO
+	dbbw 15, 10, KAKUNA
+	dbbw 10, 10, METAPOD
+	dbbw  5, 10, BUTTERFREE
+	dbbw  5, 10, BEEDRILL
 	db -1
 ; rare
-	dbbw 50, HOOTHOOT,   10
-	dbbw 15, KAKUNA,   10
-	dbbw 15, BEEDRILL,     10
-	dbbw 10, PINECO,   10
-	dbbw  5, METAPOD,    10
-	dbbw  5, KAKUNA,     10
+	dbbw 50, 10, HOOTHOOT
+	dbbw 15, 10, KAKUNA
+	dbbw 15, 10, BEEDRILL
+	dbbw 10, 10, PINECO
+	dbbw  5, 10, METAPOD
+	dbbw  5, 10, KAKUNA
 	db -1
 
 TreeMonSet_Rock:
-	dbbw 90, KRABBY,     15
-	dbbw 10, SHUCKLE,    15
+	dbbw 90, 15, KRABBY
+	dbbw 10, 15, SHUCKLE
 	db -1
