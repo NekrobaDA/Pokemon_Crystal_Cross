@@ -7,6 +7,8 @@ CutTreeBlockPointers:
 	dbw TILESET_PARK,         .park
 	dbw TILESET_FOREST,       .forest
 	dbw TILESET_KANJO,		  .kanjo
+	dbw TILESET_SEVII,        .sevii
+	dbw TILESET_SEVII_FOREST, .sevii_forest
 	db -1 ; end
 
 .johto:
@@ -21,7 +23,7 @@ CutTreeBlockPointers:
 .johto_modern:
 ; facing block, replacement block, animation
 	db $03, $02, $01 ; grass
-	db $83, $85, 0 ; bush
+	db $83, $85, 1 ; bush
 	db -1 ; end
 
 .kanto:
@@ -53,6 +55,25 @@ CutTreeBlockPointers:
 	db $5f, $3d, 0 ; tree
 	db $63, $3f, 0 ; tree
 	db $67, $3e, 0 ; tree
+	db -1 ; end
+	
+.sevii
+; facing block, replacement block, animation
+	db $80, $5d, 0 ; tree
+	db $81, $3d, 0 ; tree
+	db $b7, $9c, 0 ; tree
+	db $e9, $e4, 0 ; tree
+	db $03, $02, 1 ; grass
+	db -1 ; end
+	
+.sevii_forest
+; facing block, replacement block, animation
+	db $8a, $90, 0 ; tree
+	db $8b, $04, 0 ; tree
+	db $8f, $04, 0 ; tree
+	db $03, $04, 1 ; grass
+	db $91, $92, 1 ; grass
+	db $13, $03, 1 ; grass
 	db -1 ; end
 
 ; these blocks all use COLL_WHIRLPOOL in one quadrant

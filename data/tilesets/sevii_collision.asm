@@ -4,7 +4,7 @@
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 03
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 04
 	tilecoll WALL, WALL, WALL, WALL ; 05
-	tilecoll WATER, WATER, WALL, WALL ; 06
+	tilecoll WALL, WALL, FLOOR, WALL ; 06
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 07
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 08
 	tilecoll WALL, FLOOR, WALL, WALL ; 09
@@ -126,8 +126,8 @@
 	tilecoll WALL, WALL, WALL, WALL ; 7d
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 7e
 	tilecoll WALL, WATER, WALL, WATER ; 7f
-	tilecoll FLOOR, FLOOR, WALL, WALL ; 80
-	tilecoll FLOOR, FLOOR, WALL, WALL ; 81
+	tilecoll HEADBUTT_TREE, HEADBUTT_TREE, CUT_TREE, FLOOR ; 80
+	tilecoll CUT_TREE, HEADBUTT_TREE, FLOOR, FLOOR ; 81
 	tilecoll FLOOR, WALL, WALL, WALL ; 82
 	tilecoll WALL, WALL, WALL, DOOR ; 83
 	tilecoll WALL, WALL, WALL, DOOR ; 84
@@ -181,7 +181,7 @@
 	tilecoll WATER, WATER, WATERFALL, WATERFALL ; b4
 	tilecoll WALL, WALL, WALL, FLOOR ; b5
 	tilecoll WALL, HEADBUTT_TREE, WALL, HEADBUTT_TREE ; b6
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; b7
+	tilecoll FLOOR, WALL, CUT_TREE, WALL ; b7
 	tilecoll WALL, WALL, FLOOR, WALL ; b8
 	tilecoll HEADBUTT_TREE, WALL, FLOOR, WALL ; b9
 	tilecoll WATER, WALL, WATER, WALL ; ba
@@ -226,12 +226,12 @@
 	tilecoll WATER, WATER, WALL, WALL ; e1
 	tilecoll WALL, WALL, WALL, WALL ; e2
 	tilecoll WALL, FLOOR, UP_WALL, WALL ; e3
-	tilecoll WATER, WATER, WALL, WALL ; e4
+	tilecoll FLOOR, WALL, FLOOR, FLOOR ; e4
 	tilecoll FLOOR, WALL, FLOOR, WALL ; e5
-	tilecoll WALL, WALL, WATER, WATER ; e6
+	tilecoll WALL, HOP_LEFT, WALL, HOP_LEFT ; e6
 	tilecoll FLOOR, WALL, WALL, WALL ; e7
 	tilecoll WALL, WALL, WALL, WALL ; e8
-	tilecoll WALL, FLOOR, WALL, WALL ; e9
+	tilecoll CUT_TREE, WALL, FLOOR, FLOOR ; e9
 	tilecoll WALL, WALL, WALL, WALL ; ea
 	tilecoll WALL, FLOOR, WALL, WALL ; eb
 	tilecoll WALL, WALL, HEADBUTT_TREE, HEADBUTT_TREE ; ec
@@ -253,4 +253,4 @@
 	tilecoll FLOOR, FLOOR, WALL, WALL ; fc
 	tilecoll FLOOR, FLOOR, WALL, WALL ; fd
 	tilecoll FLOOR, FLOOR, ROCKY_WALL, WALL ; fe
-	tilecoll WALL, WALL, WATER, WATER ; ff
+	tilecoll WALL, HOP_DOWN_LEFT, WALL, WALL ; ff

@@ -4,6 +4,8 @@
 	const FOURISLAND_GRANNY
 	const FOURISLAND_TWIN
 	const FOURISLAND_GRAMPS
+	const FOUR_ISLAND_ROCK1
+	const FOUR_ISLAND_ROCK2
 
 FourIsland_MapScripts:
 	def_scene_scripts
@@ -120,6 +122,9 @@ WhichIsland4I:
 	text ""
 	line "Which island?"
 	done
+	
+FourIslandRock:
+	jumpstd SmashRockScript
 
 FourIsland_MapEvents:
 	db 0, 0 ; filler
@@ -133,3 +138,5 @@ FourIsland_MapEvents:
 
 	def_object_events
 	object_event  7, 33, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FourIslandPortScript, -1
+	object_event  4, 11, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FourIslandRock, -1
+	object_event  5, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FourIslandRock, -1
