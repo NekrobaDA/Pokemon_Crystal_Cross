@@ -83,7 +83,62 @@ CheckForHiddenItems:
 	ret
 	
 RockItemEncounter:
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	
+	cp LANDMARK_KINDLE_ROAD
+	jr z, .volcanic
+	cp LANDMARK_MT_EMBER
+	jr z, .volcanic
+	cp LANDMARK_MT_MORTAR
+	jr z, .volcanic
+	cp LANDMARK_CINNABAR_ISLAND
+	jr z, .volcanic
+	
+	cp LANDMARK_MT_MOON
+	jr z, .moon
+	
+	cp LANDMARK_ICE_PATH
+	jr z, .ice
+	cp LANDMARK_ICEFALL_CAVE
+	jr z, .ice
+	
+	cp LANDMARK_ROUTE_40
+	jr z, .beach
+	cp LANDMARK_FOUR_ISLAND
+	jr z, .beach
+	
+	cp LANDMARK_SEVAULT_CANYON
+	jr z, .mountain
+	
+	cp LANDMARK_DRAGONS_DEN
+	jr z, .dragon
+	
 	ld hl, .RockItems
+	jr .next
+	
+.volcanic
+	ld hl, RockItemSet_Volcanic
+	jr .next
+.moon
+	ld hl, RockItemSet_Moon
+	jr .next
+.ice
+	ld hl, RockItemSet_Ice
+	jr .next
+.beach
+	ld hl, RockItemSet_Beach
+	jr .next
+.mountain
+	ld hl, RockItemSet_Mountain
+	jr .next
+.dragon
+	ld hl, RockItemSet_Dragon
+	
+.next	
 	call Random
 .loop
 	sub [hl]
@@ -118,3 +173,5 @@ RockItemEncounter:
 	db 10, METAL_POWDER
 	db 15, HARD_STONE
 	db -1
+	
+INCLUDE "data/items/rockitems.asm"
