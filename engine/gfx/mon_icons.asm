@@ -23,6 +23,7 @@ SetMenuMonIconColor:
 	;ld a, [wd265]
 	ld [wCurPartySpecies], a
 	call GetMenuMonIconPalette
+	ld hl, wVirtualOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
 
 SetMenuMonIconColor_NoShiny:
@@ -36,6 +37,7 @@ SetMenuMonIconColor_NoShiny:
 	ld [wCurPartySpecies], a
 	and a
 	call GetMenuMonIconPalette_PredeterminedShininess
+	ld hl, wVirtualOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
 
 LoadPartyMenuMonIconColors:

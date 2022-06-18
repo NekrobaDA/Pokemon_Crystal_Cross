@@ -2211,12 +2211,46 @@ BattleCommand_ApplyDamage:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_ENDURE, a
-	jr z, .focus_band
+	jr z, .friendship_endure
 
 	call BattleCommand_FalseSwipe
 	ld b, 0
 	jr nc, .damage
 	ld b, 1
+	jr .damage
+
+.friendship_endure
+	ld a, [wLinkMode]
+	and a
+	jr nz, .focus_band
+
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .focus_band
+
+	ld hl, wBattleMonHappiness
+	ld a, [hl]
+	ld b, 25 percent + 1
+	cp 255
+	jr z, .friendship_endure_checks
+
+	ld b, 18 percent + 1
+	cp 200
+	jr nc, .friendship_endure_checks
+
+	ld b, 12 percent + 1
+	cp 150
+	jr c, .focus_band
+	; fallthrough
+.friendship_endure_checks
+	call BattleRandom
+	cp b
+	jr nc, .focus_band
+
+	call BattleCommand_FalseSwipe
+	ld b, 0
+	jr nc, .damage
+	ld b, 3
 	jr .damage
 
 .focus_band
@@ -2254,7 +2288,13 @@ BattleCommand_ApplyDamage:
 	ret z
 
 	dec a
-	jr nz, .focus_band_text
+	jr z, .endured_text
+	dec a
+	jr z, .focus_band_text
+	ld hl, EnduredFriendshipText
+	jp StdBattleTextbox
+
+.endured_text
 	ld hl, EnduredText
 	jp StdBattleTextbox
 
