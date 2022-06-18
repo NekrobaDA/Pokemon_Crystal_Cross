@@ -1891,12 +1891,12 @@ Pokedex_OrderMonsByMode:
 .NewMode:
 	ld hl, NewPokedexOrder
 	ld de, wPokedexOrder
-	ld bc, NUM_POKEMON * 2
+	ld bc, NUM_POKEDEX * 2
 	call CopyBytes
 	ld a, BANK(wPokedexSeen)
 	ldh [rSVBK], a
-	ld bc, NUM_POKEMON
-	ld hl, NewPokedexOrder + (2 * NUM_POKEMON) - 1
+	ld bc, NUM_POKEDEX
+	ld hl, NewPokedexOrder + (2 * NUM_POKEDEX) - 1
 .new_mode_last_seen_loop
 	ld a, [hld]
 	ld d, a
