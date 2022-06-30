@@ -23,7 +23,6 @@ SECTION "bank2", ROMX
 INCLUDE "engine/overworld/player_object.asm"
 INCLUDE "engine/math/sine.asm"
 INCLUDE "engine/predef.asm"
-INCLUDE "engine/gfx/color.asm"
 
 
 SECTION "bank3", ROMX
@@ -739,6 +738,10 @@ INCLUDE "engine/16/table_functions.asm"
 ; own section
 INCLUDE "data/trainers/parties.asm"
 INCLUDE "engine/battle/swarm_shiny.asm"
+
+SECTION "Color", ROMX
+
+INCLUDE "engine/gfx/color.asm"
 
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]

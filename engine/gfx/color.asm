@@ -666,6 +666,20 @@ GetBattlemonBackpicPalettePointer:
 	ret
 
 GetEnemyFrontpicPalettePointer:
+	ld a, [wDittoFlag]
+	cp 0
+	jr z, .not_ditto
+
+	push de
+	farcall GetEnemyMonDVs
+	ld c, l
+	ld b, h
+	ld a, [wTempEnemyMonSpecies]
+	call GetMonNormalOrShinyPalettePointerDitto
+	pop de
+	jr .end
+
+.not_ditto
 	push de
 	farcall GetEnemyMonDVs
 	ld c, l
@@ -673,11 +687,13 @@ GetEnemyFrontpicPalettePointer:
 	ld a, [wTempEnemyMonSpecies]
 	call GetFrontpicPalettePointer
 	pop de
+.end
 	ret
 
 GetPlayerOrMonPalettePointer:
 	and a
 	jp nz, GetMonNormalOrShinyPalettePointer
+
 	ld a, [wPlayerSpriteSetupFlags]
 	bit PLAYERSPRITESETUP_FEMALE_TO_MALE_F, a
 	jr nz, .male
@@ -693,7 +709,21 @@ GetPlayerOrMonPalettePointer:
 
 GetFrontpicPalettePointer:
 	and a
-	jp nz, GetMonNormalOrShinyPalettePointer
+	jp z, .trainer
+	
+	;ld e, a
+	;ld a, [wDittoFlag]
+	;cp $00
+	;jr z, .not_ditto
+	
+	;ld a, e
+	;jp GetMonNormalOrShinyPalettePointerDitto
+	
+;.not_ditto
+	;ld a, e
+	jp GetMonNormalOrShinyPalettePointer
+	
+.trainer
 	ld a, [wTrainerClass]
 
 GetTrainerPalettePointer:
@@ -775,6 +805,28 @@ GetMonNormalOrShinyPalettePointer:
 rept 4
 	inc hl
 endr
+	ret
+	
+GetMonNormalOrShinyPalettePointerDitto:
+	push bc
+	call _GetMonPalettePointerDitto
+	pop bc
+	push hl
+	call CheckShininess
+	pop hl
+	ret nc
+rept 4
+	inc hl
+endr
+	ret
+	
+_GetMonPalettePointerDitto:
+	call GetPokemonIndexFromID
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld bc, DittoPalettes
+	add hl, bc
 	ret
 
 PushSGBPals:

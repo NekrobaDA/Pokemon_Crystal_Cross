@@ -1889,7 +1889,7 @@ wPokeFluteCuredSleep::
 wTempRestorePPItem::
 wApricorns::
 wSuicuneFrame::
-	db
+wDittoFlag::
 
 NEXTU
 ; debug color picker
@@ -3074,6 +3074,7 @@ wdc60:: db
 wVulpixMapGroup:: db
 wVulpixMapNumber:: db
 
+wDittoFlags:: db
 	;ds 18
 
 wStepCount:: db

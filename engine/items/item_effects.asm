@@ -408,7 +408,8 @@ PokeBallEffect:
 	jr .not_ditto
 
 .ditto
-	ld a, DITTO
+	ld hl, DITTO
+	call GetPokemonIDFromIndex
 	ld [wTempEnemyMonSpecies], a
 	jr .load_data
 

@@ -8301,6 +8301,48 @@ InitEnemyWildmon:
 	hlcoord 12, 0
 	lb bc, 7, 7
 	predef PlaceGraphic
+	
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	cp LANDMARK_ROUTE_45
+	jr nz, .not_ditto
+	
+	;ld a, [wCurPartySpecies]
+	;call GetPokemonIndexFromID
+	;ld a, l
+	;sub LOW(GLIGAR)
+	;if HIGH(GLIGAR) == 0
+	;	or h
+	;else
+	;	jr z, .not_ditto
+	;	if HIGH(GLIGAR) == 1
+	;		dec h
+	;	else
+	;		ld a, h
+	;		cp HIGH(GLIGAR)
+	;	endc
+	;endc
+	;jp z, .not_ditto
+	
+	call Random
+	cp 100
+	jr nc, .not_ditto
+
+	ld a, BATTLE_VARS_SUBSTATUS5_OPP
+	call GetBattleVarAddr
+	set SUBSTATUS_TRANSFORMED, [hl]
+	
+	ld a, 1
+	ld [wDittoFlag], a
+	jr .end
+	
+.not_ditto
+	ld a, 0
+	ld [wDittoFlag], a
+.end
 	ret
 
 FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
