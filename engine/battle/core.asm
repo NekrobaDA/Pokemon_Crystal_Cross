@@ -8171,6 +8171,8 @@ LoadTrainerOrWildMonPic:
 	ret
 
 InitEnemy:
+	ld a, 0
+	ld [wDittoFlag], a
 	ld a, [wOtherTrainerClass]
 	and a
 	jp nz, InitEnemyTrainer ; trainer
@@ -8307,33 +8309,51 @@ InitEnemyWildmon:
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
-	cp LANDMARK_ROUTE_45
+	cp LANDMARK_ROUTE_34
+	jr z, .next
+	
+	cp LANDMARK_ROUTE_35
 	jr nz, .not_ditto
 	
-	;ld a, [wCurPartySpecies]
-	;call GetPokemonIndexFromID
-	;ld a, l
-	;sub LOW(GLIGAR)
-	;if HIGH(GLIGAR) == 0
-	;	or h
-	;else
-	;	jr z, .not_ditto
-	;	if HIGH(GLIGAR) == 1
-	;		dec h
-	;	else
-	;		ld a, h
-	;		cp HIGH(GLIGAR)
-	;	endc
-	;endc
-	;jp z, .not_ditto
-	
+.next
+
 	call Random
 	cp 100
 	jr nc, .not_ditto
-
-	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
-	set SUBSTATUS_TRANSFORMED, [hl]
+	
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(ENTEI)
+	if HIGH(ENTEI) == 0
+		or h
+	else
+		jr z, .not_ditto
+		if HIGH(ENTEI) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(ENTEI)
+		endc
+	endc
+	jp z, .not_ditto
+	
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(RAIKOU)
+	if HIGH(RAIKOU) == 0
+		or h
+	else
+		jr z, .not_ditto
+		if HIGH(RAIKOU) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(RAIKOU)
+		endc
+	endc
+	jp z, .not_ditto
 	
 	ld a, 1
 	ld [wDittoFlag], a

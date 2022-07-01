@@ -192,10 +192,10 @@ CyndaquilPokeBallScript:
 	giveitem COIN_CASE
 	givecoins 50000
 	; good party
+	givepoke TYPHLOSION, 100
 	givepoke DUSERPENT, 100
+	givepoke STARMIE, 100
 	givepoke RINRIN, 100
-	givepoke RINRIN, 25
-	givepoke RINRIN, 1
 	givepoke CHIMEREON, 100
 	givepoke MEW, 100
 	; tms for party
@@ -304,10 +304,10 @@ CyndaquilPokeBallScript:
 	giveitem RARE_CANDY, 99
 	giveitem ESCAPE_ROPE, 99
 	; all balls
+	giveitem MASTER_BALL, 99
 	giveitem POKE_BALL, 99
 	giveitem GREAT_BALL, 99
 	giveitem ULTRA_BALL, 99
-	giveitem MASTER_BALL, 99
 	giveitem LOVE_BALL, 99
 	giveitem LURE_BALL, 99
 	giveitem FAST_BALL, 99
@@ -386,8 +386,8 @@ ChikoritaPokeBallScript:
 	giveitem COIN_CASE
 	givecoins 50000
 	; good party
-	givepoke HONCHKROW, 100
-	givepoke WEAVILE, 100
+	givepoke BAYLEEF, 50
+	givepoke MEW, 50
 	; tms for party
 	giveitem TM_ICE_BEAM
 	giveitem TM_FLAMETHROWER

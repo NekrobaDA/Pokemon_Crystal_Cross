@@ -2858,7 +2858,10 @@ wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 
-	ds 13
+wDittoFlags:: db
+
+	;ds 13
+	ds 12
 
 ; map scene ids
 wPokecenter2FSceneID::                            db
@@ -3073,8 +3076,6 @@ wdc60:: db
 
 wVulpixMapGroup:: db
 wVulpixMapNumber:: db
-
-wDittoFlags:: db
 	;ds 18
 
 wStepCount:: db

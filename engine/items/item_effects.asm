@@ -405,7 +405,10 @@ PokeBallEffect:
 ; To fix, do not set [wTempEnemyMonSpecies] to DITTO.
 	bit SUBSTATUS_TRANSFORMED, a
 	jr nz, .ditto
-	jr .not_ditto
+	
+	ld a, [wDittoFlag]
+	cp 0
+	jr z, .not_ditto
 
 .ditto
 	ld hl, DITTO

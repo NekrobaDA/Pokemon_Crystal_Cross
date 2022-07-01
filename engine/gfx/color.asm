@@ -709,21 +709,7 @@ GetPlayerOrMonPalettePointer:
 
 GetFrontpicPalettePointer:
 	and a
-	jp z, .trainer
-	
-	;ld e, a
-	;ld a, [wDittoFlag]
-	;cp $00
-	;jr z, .not_ditto
-	
-	;ld a, e
-	;jp GetMonNormalOrShinyPalettePointerDitto
-	
-;.not_ditto
-	;ld a, e
-	jp GetMonNormalOrShinyPalettePointer
-	
-.trainer
+	jp nz, GetMonNormalOrShinyPalettePointer
 	ld a, [wTrainerClass]
 
 GetTrainerPalettePointer:
