@@ -78,10 +78,14 @@ PlayBattleMusic:
 	jr nz, .kantowild
 
 	ld de, MUSIC_JOHTO_WILD_BATTLE
+	ld a, 0
+	ld [wNightFlag], a
 	ld a, [wTimeOfDay]
 	cp NITE_F
 	jr c, .done
 	ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
+	ld a, 1
+	ld [wNightFlag], a
 	jr .done
 
 .kantowild

@@ -144,13 +144,14 @@ wSpriteUpdatesEnabled:: db
 wUnusedScriptByte:: db
 
 wMapTimeOfDay:: db
+wNightFlag:: db
 
 	ds 3
 
 wPrinterConnectionOpen:: db
 wPrinterOpcode:: db
 
-	ds 1
+	;ds 1
 
 wDisableTextAcceleration:: db
 wPrevLandmark:: db
@@ -1902,7 +1903,7 @@ NEXTU
 wd002:: ds 1
 wd003:: ds 1
 wd004:: ds 1
-	ds 3
+	;ds 3
 wd008:: ds 2
 	ds 6
 wd010:: ds 1
@@ -2858,10 +2859,7 @@ wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 
-wDittoFlags:: db
-
-	;ds 13
-	ds 12
+	ds 13
 
 ; map scene ids
 wPokecenter2FSceneID::                            db

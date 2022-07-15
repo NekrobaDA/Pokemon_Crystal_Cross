@@ -483,17 +483,35 @@ LoadHLPaletteIntoDE:
 LoadPalette_White_Col1_Col2_Black:
 	ldh a, [rSVBK]
 	push af
-	ld a, BANK(wBGPals1)
+	ld a, $5
 	ldh [rSVBK], a
-
-	ld a, LOW(PALRGB_WHITE)
+	
+	ld a, [wNightFlag]
+	cp 0
+	jr z, .day
+	
+	ld a, LOW(PALRGB_NIGHT) ;EF
 	ld [de], a
 	inc de
-	ld a, HIGH(PALRGB_WHITE)
+	ld a, HIGH(PALRGB_NIGHT) ;51
 	ld [de], a
 	inc de
-
+	
+	call NightColors
 	ld c, 2 * PAL_COLOR_SIZE
+
+	jr .black
+
+.day
+	ld a, LOW(PALRGB_WHITE) ;FF
+	ld [de], a
+	inc de
+	ld a, HIGH(PALRGB_WHITE) ;7F
+	ld [de], a
+	inc de
+	
+	ld c, 2 * PAL_COLOR_SIZE
+	
 .loop
 	ld a, [hli]
 	ld [de], a
@@ -501,15 +519,113 @@ LoadPalette_White_Col1_Col2_Black:
 	dec c
 	jr nz, .loop
 
+.black
 	xor a
 	ld [de], a
 	inc de
 	ld [de], a
 	inc de
+	
 
 	pop af
 	ldh [rSVBK], a
 	ret
+	
+NightColors:
+	call NightColorSwap
+	
+; b = gggrrrrr, c = 0bbbbbGG
+	
+.loop
+	ld a, b
+	ld [de], a
+	inc de
+	inc hl
+	
+	ld a, c
+	ld [de], a
+	inc de
+	inc hl
+	
+	call NightColorSwap
+	
+; b = gggrrrrr, c = 0bbbbbGG
+
+.loop2
+	ld a, b
+	ld [de], a
+	inc hl
+	inc de
+	
+	ld a, c
+	ld [de], a
+	inc hl
+	inc de
+	
+	ret
+	
+NightColorSwap:
+	push de
+	
+; red
+	ld a, [hl] ; gggrrrrr
+	and $1f ; 00011111 -> 000rrrrr
+	
+	ld e, a ;e red 000rrrrr
+	
+;green
+	ld a, [hli] ; gggrrrrr
+	and $e0 ; 11100000 -> ggg00000
+	ld b, a 
+	ld a, [hl] ; 0bbbbbGG
+	and 3 ; 00000011 -> 000000GG
+	or b ; 000000GG + ggg00000
+	swap a ; ggg0 00GG -> 00GGggg0
+	rrca ; 000GGgg
+	
+	ld d, a ;d green 000GGgg
+
+;blue
+	ld a, [hld] ; 0bbbbbGG
+	and $7c ; 1111100 -> 0bbbbb00
+	
+	ld c, a ;c blue 0bbbbb00
+
+;mod colors here - still not working
+	srl e
+	srl d
+	
+	ld a, c
+	; a == %0bbbbb00
+	rrca ; a = a / 2 = %00bbbbb0
+	ld b, a ; b == a / 2
+	rrca ; a = a / 4 = %000bbbbb
+	add b ; a = a / 4 + a / 2 = a * 3 / 4
+	and %01111100 ; mask the blue bits
+; now a == 3/4ths of previous a
+	ld c, a
+
+	ld a, d
+	rlca ; 00GGggg0
+	swap a ; 00GG ggg0 -> ggg000GG
+	and $e0 ; 11100000 -> ggg00000
+	ld b, a
+	ld a, d
+	rlca ; 00GGggg0
+	swap a ; 00GG ggg0 -> ggg000GG
+	and 3 ; 00000011 -> 000000GG
+	ld d, a
+	
+;red in e, low green in b, high green in d, blue in c
+	ld a, e 
+	or b ; 000rrrrr + ggg00000
+	ld b, a ; gggrrrrr
+	ld a, d
+	or c ; 0bbbbb00 + 000000GG
+	ld c, a ; 0bbbbbGG
+	pop de
+	ret
+
 
 FillBoxCGB:
 .row
@@ -725,42 +841,8 @@ GetMonPalettePointer:
 	call _GetMonPalettePointer
 	ret
 
-CGBCopyBattleObjectPals: ; unreferenced
-; dummied out
-	ret
-	call CheckCGB
-	ret z
-	ld hl, BattleObjectPals
-	ld a, (1 << rOBPI_AUTO_INCREMENT) | $10
-	ldh [rOBPI], a
-	ld c, 6 palettes
-.loop
-	ld a, [hli]
-	ldh [rOBPD], a
-	dec c
-	jr nz, .loop
-	ld hl, BattleObjectPals
-	ld de, wOBPals1 palette 2
-	ld bc, 2 palettes
-	ld a, BANK(wOBPals1)
-	call FarCopyWRAM
-	ret
-
 BattleObjectPals:
 INCLUDE "gfx/battle_anims/battle_anims.pal"
-
-CGBCopyTwoPredefObjectPals: ; unreferenced
-	call CheckCGB
-	ret z
-	ld a, (1 << rOBPI_AUTO_INCREMENT) | $10
-	ldh [rOBPI], a
-	ld a, PREDEFPAL_TRADE_TUBE
-	call GetPredefPal
-	call .PushPalette
-	ld a, PREDEFPAL_RB_GREENMON
-	call GetPredefPal
-	call .PushPalette
-	ret
 
 .PushPalette:
 	ld c, 1 palettes
@@ -982,20 +1064,6 @@ _InitSGBBorderPals:
 	dw DataSndPacket6
 	dw DataSndPacket7
 	dw DataSndPacket8
-
-UpdateSGBBorder: ; unreferenced
-	di
-	xor a
-	ldh [rJOYP], a
-	ld hl, MaskEnFreezePacket
-	call _PushSGBPals
-	call PushSGBBorder
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	ld hl, MaskEnCancelPacket
-	call _PushSGBPals
-	ei
-	ret
 
 PushSGBBorder:
 	call .LoadSGBBorderPointers
@@ -1364,9 +1432,6 @@ INCLUDE "gfx/diploma/diploma.pal"
 
 PartyMenuOBPals:
 INCLUDE "gfx/stats/party_menu_ob.pal"
-
-UnusedBattleObjectPals: ; unreferenced
-INCLUDE "gfx/battle_anims/unused_battle_anims.pal"
 
 UnusedGSTitleBGPals:
 INCLUDE "gfx/title/unused_gs_bg.pal"
