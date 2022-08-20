@@ -7,7 +7,7 @@
 	const_def
 	const NO_MOVE      ; 00
 	const POUND        ; 01
-	const DOUBLESLAP   ; 03
+	const BUG_BUZZ     ; 03
 	const MEGA_PUNCH   ; 05
 	const PAY_DAY      ; 06
 	const FIRE_PUNCH   ; 07
@@ -15,7 +15,7 @@
 	const THUNDERPUNCH ; 09
 	const SCRATCH      ; 0a
 	const MUD_SHOT     ; 0b spd -1
-	const GUILLOTINE   ; 0c
+	const ASTONISH     ; 0c
 	const RAZOR_WIND   ; 0d
 	const SWORDS_DANCE ; 0e atk +2
 	const CUT          ; 0f
@@ -41,7 +41,7 @@
 	const WRAP         ; 23
 	const TAKE_DOWN    ; 24
 	const THRASH       ; 25
-	const DOUBLE_EDGE  ; 26
+	const ICE_FANG     ; 26
 	const TAIL_WHIP    ; 27 def -1
 	const POISON_STING ; 28
 	const TWINEEDLE    ; 29
@@ -93,7 +93,7 @@
 	const THUNDER      ; 57
 	const ROCK_THROW   ; 58
 	const EARTHQUAKE   ; 59
-	const FISSURE      ; 5a
+	const X_SCISSOR    ; 5a
 	const DIG          ; 5b
 	const TOXIC        ; 5c
 	const CONFUSION    ; 5d
@@ -152,7 +152,7 @@
 	const SPLASH       ; 96
 	const ACID_ARMOR   ; 97 def +2
 	const CRABHAMMER   ; 98
-	const EXPLOSION    ; 99
+	const SNARL        ; 99
 	const FURY_SWIPES  ; 9a
 	const BONEMERANG   ; 9b
 	const REST         ; 9c
@@ -231,7 +231,7 @@
 	const IRON_TAIL    ; e7 def -1
 	const METAL_CLAW   ; e8 atk +1
 	const MORNING_SUN  ; ea
-	const SYNTHESIS    ; eb
+	const ENERGY_BALL  ; eb
 	const MOONLIGHT    ; ec
 	const HIDDEN_POWER ; ed
 	const CROSS_CHOP   ; ee 
@@ -250,7 +250,7 @@
 	const BEAT_UP      ; fb
 	const ROCK_CLIMB   ; fc
 	const DARK_PULSE   ; 253 
-	const SLUDGE_WAVE  ; 254
+	const POISON_JAB   ; 254
 	const DIVE         ; 02
 	const VOLT_TACKLE  ; 04
 	const POWERUPPUNCH ; 6b 
@@ -258,7 +258,7 @@
 	const LEAF_BLADE   ; 82
 	const ICE_SHARD    ; 92 
 	const RAZOR_SHELL  ; c6
-	const CHARGE_WAVE  ; e9
+	const CHARGE_BEAM  ; e9
 	const SHADOW_RUSH  ; a5
 	const STRUGGLE
 	

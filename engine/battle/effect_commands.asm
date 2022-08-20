@@ -1104,7 +1104,6 @@ BattleCommand_DoTurn:
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
 	db EFFECT_RAMPAGE
-	db EFFECT_CHARGE_WAVE
 	db -1
 
 CheckMimicUsed:
@@ -1735,8 +1734,6 @@ BattleCommand_CheckHit:
 
 	cp EARTHQUAKE
 	ret z
-	cp FISSURE
-	ret z
 	cp MAGNITUDE
 	ret z
 
@@ -1806,8 +1803,6 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 
 	cp EARTHQUAKE
-	ret z
-	cp FISSURE
 	ret z
 	cp MAGNITUDE
 	ret
@@ -1980,8 +1975,6 @@ BattleCommand_LowerSub:
 	cp EFFECT_RAZOR_WIND
 	jr z, .charge_turn
 	cp EFFECT_SKY_ATTACK
-	jr z, .charge_turn
-	cp EFFECT_CHARGE_WAVE
 	jr z, .charge_turn
 	cp EFFECT_SOLARBEAM
 	jr z, .charge_turn
@@ -5830,9 +5823,6 @@ BattleCommand_Charge:
 	cp DIVE
 	ld hl, .BattleDiveText
 	jr z, .done
-	
-	cp CHARGE_WAVE
-	ld hl, .BattleChargingText
 
 .done
 	ret
@@ -6728,6 +6718,8 @@ INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 BattleCommand_HealMorn:
 ; healmorn
 	ld b, MORN_F
+	ld d, DAY_F
+	push de
 	jr BattleCommand_TimeBasedHealContinue
 
 BattleCommand_HealDay:
@@ -6738,6 +6730,8 @@ BattleCommand_HealDay:
 BattleCommand_HealNite:
 ; healnite
 	ld b, NITE_F
+	ld d, EVE_F
+	push de
 	; fallthrough
 
 BattleCommand_TimeBasedHealContinue:
@@ -6769,6 +6763,14 @@ BattleCommand_TimeBasedHealContinue:
 
 	ld a, [wTimeOfDay]
 	cp b
+	jr z, .next 
+	dec c
+	jr .Weather
+	
+.next
+	ld a, [wTimeOfDay]
+	pop de
+	cp d
 	jr z, .Weather
 	dec c ; double
 

@@ -89,6 +89,7 @@ ReadTrainerPartyPieces:
 	cp $ff
 	ret z
 
+;level + species
 	ld [wCurPartyLevel], a
 	call GetNextTrainerDataByte
 	push hl
@@ -99,13 +100,15 @@ ReadTrainerPartyPieces:
 	ld l, a
 	call GetPokemonIDFromIndex
 	ld [wCurPartySpecies], a
-	
+
+;add to party	
 	ld a, OTPARTYMON
 	ld [wMonType], a
 	predef TryAddMonToParty
 	pop hl
 	inc hl 
-	
+
+;item	
 	ld a, [wOtherTrainerType]
 	and TRAINERTYPE_ITEM
 	jr z, .no_item
@@ -121,6 +124,7 @@ ReadTrainerPartyPieces:
 	ld [de], a
 .no_item
 
+;moves
 	ld a, [wOtherTrainerType]
 	and TRAINERTYPE_MOVES
 	jr z, .no_moves
@@ -183,6 +187,7 @@ ReadTrainerPartyPieces:
 	pop hl
 .no_moves
 
+;dvs
 	push hl 
 	ld a, [wOTPartyCount]
 	dec a
@@ -211,38 +216,71 @@ ReadTrainerPartyPieces:
 	pop hl
 .dvs_done
 
+;stat exp
 	ld a, [wOtherTrainerType] 
-	and TRAINERTYPE_STATS
-	jr z, .no_stats
+	and TRAINERTYPE_STAT_EXP
+	jr z, .no_stat_exp
+	
 	push hl
 	ld a, [wOTPartyCount]
 	dec a
-	ld hl, wOTPartyMon1HP
+	ld hl, wOTPartyMon1StatExp
 	call GetPartyLocation
 	ld d, h
 	ld e, l
 	pop hl
-	call GetNextTrainerDataByte
+	
+	ld c, NUM_EXP_STATS
+.stat_exp_loop
+	rept 2
+	ld a, [hli]
 	ld [de], a
 	inc de
-	inc de
-	ld [de], a
-	dec de
-	call GetNextTrainerDataByte
-	ld [de], a
-	inc de
-	inc de
-	ld [de], a
-	inc de
-	ld b, 10
-.loop_stats
-	call GetNextTrainerDataByte
-	ld [de], a
-	inc de
-	dec b
-	jr nz, .loop_stats
-.no_stats
+endr
+.continue_stat_exp
+	dec c
+	jr nz, .stat_exp_loop	
+.no_stat_exp
 
+;Custom stat exp, so recalculate them after TryAddMonToParty
+	ld a, [wOtherTrainerType]
+	and TRAINERTYPE_STAT_EXP
+	jr z, .no_stat_recalc
+
+	push hl
+
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1MaxHP
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1StatExp - 1
+	call GetPartyLocation
+
+; recalculate stats
+	ld b, TRUE
+	push de
+	predef CalcMonStats
+	pop hl
+
+; copy max HP to current HP
+	inc hl
+	ld c, [hl]
+	dec hl
+	ld b, [hl]
+	dec hl
+	ld [hl], c
+	dec hl
+	ld [hl], b
+
+	pop hl
+.no_stat_recalc	
+
+;nickname
 	push hl
 	ld a, [wOTPartyCount]
 	dec a

@@ -42,6 +42,7 @@ KRIS EQU __trainer_class__
 	trainerclass MORTY ; 4
 	const MORTY1
 	const MORTY2
+	const MORTY3
 
 	trainerclass PRYCE ; 5
 	const PRYCE1
@@ -77,26 +78,31 @@ KRIS EQU __trainer_class__
 	const RIVAL1_5_TOTODILE
 
 	trainerclass POKEMON_PROF ; a
-
-	trainerclass WILL ; b
-	const WILL1
-
+	
 	trainerclass CAL ; c
 	const CAL1
 	const CAL2
 	const CAL3
 
+	trainerclass WILL ; b
+	const WILL1
+	const WILL2
+	
+	trainerclass KOGA ; f
+	const KOGA1
+	const KOGA2
+
 	trainerclass BRUNO ; d
 	const BRUNO1
+	const BRUNO2
 
 	trainerclass KAREN ; e
 	const KAREN1
-
-	trainerclass KOGA ; f
-	const KOGA1
+	const KAREN2
 
 	trainerclass CHAMPION ; 10
 	const LANCE
+	const LANCE2
 
 	trainerclass BROCK ; 11
 	const BROCK1
@@ -695,6 +701,7 @@ KRIS EQU __trainer_class__
 
 	trainerclass BLUE ; 40
 	const BLUE1
+	const BLUE2
 
 	trainerclass OFFICER ; 41
 	const KEITH
@@ -715,5 +722,21 @@ KRIS EQU __trainer_class__
 	
 	trainerclass DIOGO
 	const DIOGO1
+	
+	trainerclass GOLD1 ; 9
+	const GOLD1_1_CHIKORITA
+	const GOLD1_1_CYNDAQUIL
+	const GOLD1_1_TOTODILE
+	const GOLD1_2_CHIKORITA
+	const GOLD1_2_CYNDAQUIL
+	const GOLD1_2_TOTODILE
+	
+	trainerclass KRIS1 ; 9
+	const KRIS1_1_CHIKORITA
+	const KRIS1_1_CYNDAQUIL
+	const KRIS1_1_TOTODILE
+	const KRIS1_2_CHIKORITA
+	const KRIS1_2_CYNDAQUIL
+	const KRIS1_2_TOTODILE
 
 NUM_TRAINER_CLASSES EQU __trainer_class__

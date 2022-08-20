@@ -1,7 +1,7 @@
 MoveDescriptions::
 ; entries correspond to move ids (see constants/move_constants.asm)
 	dw PoundDescription
-	dw DoubleslapDescription
+	dw BugBuzzDescription
 	dw MegaPunchDescription
 	dw PayDayDescription
 	dw FirePunchDescription
@@ -9,7 +9,7 @@ MoveDescriptions::
 	dw ThunderpunchDescription
 	dw ScratchDescription
 	dw MudShotDescription
-	dw GuillotineDescription
+	dw AstonishDescription
 	dw RazorWindDescription
 	dw SwordsDanceDescription
 	dw CutDescription
@@ -35,7 +35,7 @@ MoveDescriptions::
 	dw WrapDescription
 	dw TakeDownDescription
 	dw ThrashDescription
-	dw DoubleEdgeDescription
+	dw IceFangDescription
 	dw TailWhipDescription
 	dw PoisonStingDescription
 	dw TwineedleDescription
@@ -87,7 +87,7 @@ MoveDescriptions::
 	dw ThunderDescription
 	dw RockThrowDescription
 	dw EarthquakeDescription
-	dw FissureDescription
+	dw XScissorDescription
 	dw DigDescription
 	dw ToxicDescription
 	dw ConfusionDescription
@@ -146,7 +146,7 @@ MoveDescriptions::
 	dw SplashDescription
 	dw AcidArmorDescription
 	dw CrabhammerDescription
-	dw ExplosionDescription
+	dw SnarlDescription
 	dw FurySwipesDescription
 	dw BonemerangDescription
 	dw RestDescription
@@ -225,7 +225,7 @@ MoveDescriptions::
 	dw IronTailDescription
 	dw MetalClawDescription
 	dw MorningSunDescription
-	dw SynthesisDescription
+	dw EnergyBallDescription
 	dw MoonlightDescription
 	dw HiddenPowerDescription
 	dw CrossChopDescription
@@ -244,7 +244,7 @@ MoveDescriptions::
 	dw BeatUpDescription
 	dw RockClimbDescription
 	dw DarkPulseDescription
-	dw SludgeWaveDescription
+	dw CrossPoisonDescription
 	dw DiveDescription
 	dw VoltTackleDescription
 	dw PowerUpPunchDescription
@@ -252,7 +252,7 @@ MoveDescriptions::
 	dw LeafBladeDescription
 	dw IceShardDescription
 	dw RazorShellDescription
-	dw ChargeWaveDescription
+	dw ChargeBeamDescription
 	dw ShadowRushDescription
 	dw StruggleDescription
 	dw Move00Description
@@ -261,8 +261,26 @@ Move00Description:
 	db "?@"
 	
 ShadowRushDescription:
-	db "An evil move that"
+	db   "An evil move that"
 	next "also hurts the user@"
+
+BugBuzzDescription:
+	db "?@"
+	
+AstonishDescription:
+	db "?@"
+	
+IceFangDescription:
+	db "?@"
+
+XScissorDescription:
+	db "?@"
+
+SnarlDescription:
+	db "?@"
+
+EnergyBallDescription:
+	db "?@"	
 	
 DiveDescription:
 	db "?@"
@@ -285,7 +303,7 @@ IceShardDescription:
 RazorShellDescription:
 	db "?@"
 
-ChargeWaveDescription:
+ChargeBeamDescription:
 	db "?@"	
 	
 IcicleCrashDescription:
@@ -339,7 +357,7 @@ RoostDescription:
 DarkPulseDescription:
 	db "?@"
 	
-SludgeWaveDescription:
+CrossPoisonDescription:
 	db "?@"
 	
 FlashCannonDescription:

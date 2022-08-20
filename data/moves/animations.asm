@@ -2,7 +2,7 @@ BattleAnimations::
 ; entries correspond to constants/move_constants.asm
 	dw BattleAnim_0
 	dw BattleAnim_Pound
-	dw BattleAnim_Doubleslap
+	dw BattleAnim_Snore ;bug buzz
 	dw BattleAnim_MegaPunch
 	dw BattleAnim_PayDay
 	dw BattleAnim_FirePunch
@@ -10,7 +10,7 @@ BattleAnimations::
 	dw BattleAnim_Thunderpunch
 	dw BattleAnim_Scratch
 	dw BattleAnim_SandAttack
-	dw BattleAnim_Guillotine
+	dw BattleAnim_Tackle ;astonish
 	dw BattleAnim_RazorWind
 	dw BattleAnim_SwordsDance
 	dw BattleAnim_Cut
@@ -18,7 +18,7 @@ BattleAnimations::
 	dw BattleAnim_WingAttack
 	dw BattleAnim_Whirlwind
 	dw BattleAnim_Fly
-	dw BattleAnim_ShadowBall
+	dw BattleAnim_ShadowBall ;aura sphere
 	dw BattleAnim_Slam
 	dw BattleAnim_VineWhip
 	dw BattleAnim_Stomp
@@ -36,7 +36,7 @@ BattleAnimations::
 	dw BattleAnim_Wrap
 	dw BattleAnim_TakeDown
 	dw BattleAnim_Thrash
-	dw BattleAnim_DoubleEdge
+	dw BattleAnim_Bite ;ice fang
 	dw BattleAnim_TailWhip
 	dw BattleAnim_PoisonSting
 	dw BattleAnim_Twineedle
@@ -88,7 +88,7 @@ BattleAnimations::
 	dw BattleAnim_Thunder
 	dw BattleAnim_RockThrow
 	dw BattleAnim_Earthquake
-	dw BattleAnim_Fissure
+	dw BattleAnim_Slash ;x scissor
 	dw BattleAnim_Dig
 	dw BattleAnim_Toxic
 	dw BattleAnim_Confusion
@@ -147,7 +147,7 @@ BattleAnimations::
 	dw BattleAnim_Splash
 	dw BattleAnim_AcidArmor
 	dw BattleAnim_Crabhammer
-	dw BattleAnim_Explosion
+	dw BattleAnim_Roar ; snarl
 	dw BattleAnim_FurySwipes
 	dw BattleAnim_Bonemerang
 	dw BattleAnim_Rest
@@ -226,7 +226,7 @@ BattleAnimations::
 	dw BattleAnim_IronTail
 	dw BattleAnim_MetalClaw
 	dw BattleAnim_MorningSun
-	dw BattleAnim_Synthesis
+	dw BattleAnim_Octazooka ; energy ball
 	dw BattleAnim_Moonlight
 	dw BattleAnim_HiddenPower
 	dw BattleAnim_CrossChop
@@ -245,7 +245,7 @@ BattleAnimations::
 	dw BattleAnim_BeatUp
 	dw BattleAnim_Waterfall
 	dw BattleAnim_Psybeam
-	dw BattleAnim_Toxic
+	dw BattleAnim_Slash
 	dw BattleAnim_Dive
 	dw BattleAnim_Spark
 	dw BattleAnim_CometPunch
@@ -253,7 +253,7 @@ BattleAnimations::
 	dw BattleAnim_Slash
 	dw BattleAnim_IcyWind
 	dw BattleAnim_Slash
-	dw BattleAnim_Bide    ; charge wave (modified bide + thundershock?)
+	dw BattleAnim_AuroraBeam ; charge beam
 	dw BattleAnim_TakeDown
 	dw BattleAnim_Struggle
 ; $100	

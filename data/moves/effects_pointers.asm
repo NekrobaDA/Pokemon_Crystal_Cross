@@ -162,3 +162,5 @@ MoveEffectsPointers:
 	dw ChargeWave
 	dw Surf
 	dw Whirlpool
+	dw SpAtkUpHit
+	dw SpAtkDownHit

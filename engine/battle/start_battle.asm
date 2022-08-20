@@ -13,6 +13,27 @@ ShowLinkBattleParticipants:
 	ret
 
 FindFirstAliveMonAndStartBattle:
+;add checks for caves and indoors
+	call GetMapEnvironment
+	cp CAVE
+	jr z, .nightpal
+	cp INDOOR
+	jr z, .day
+
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	jr c, .day
+
+.nightpal
+	ld a, 1
+	ld [wNightFlag], a
+	jr .timeofdaypalset
+
+.day
+	ld a, 0
+	ld [wNightFlag], a
+	
+.timeofdaypalset
 	xor a
 	ldh [hMapAnims], a
 	call DelayFrame
@@ -70,22 +91,19 @@ PlayBattleMusic:
 	and a
 	jr nz, .trainermusic
 
-	;farcall RegionCheck
-	;ld a, e
-	;and a
 	call IsInJohto
 	and a
 	jr nz, .kantowild
 
 	ld de, MUSIC_JOHTO_WILD_BATTLE
-	ld a, 0
-	ld [wNightFlag], a
+	;ld a, 0
+	;ld [wNightFlag], a
 	ld a, [wTimeOfDay]
 	cp NITE_F
 	jr c, .done
 	ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
-	ld a, 1
-	ld [wNightFlag], a
+	;ld a, 1
+	;ld [wNightFlag], a
 	jr .done
 
 .kantowild

@@ -415,15 +415,15 @@ MartCeladon2F1:
 	db TM_DYNAMICPUNCH ; bf
 	db TM_HEADBUTT     ; c0
 	db TM_CURSE        ; c1
-	db TM_ROLLOUT      ; c2
+	;db TM_ROLLOUT      ; c2
 	db TM_ROAR         ; c4
 	db TM_TOXIC        ; c5
 	db TM_ZAP_CANNON   ; c6
 	;db TM_ROCK_SMASH   ; c7
-	db TM_PSYCH_UP     ; c8
+	;db TM_PSYCH_UP     ; c8
 	db TM_HIDDEN_POWER ; c9
 	db TM_SUNNY_DAY    ; ca
-	db TM_SWEET_SCENT  ; cb
+	;db TM_SWEET_SCENT  ; cb
 	db TM_ICE_BEAM     ; cc
 	db TM_BLIZZARD     ; cd
 	db TM_HYPER_BEAM   ; ce

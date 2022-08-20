@@ -828,3 +828,5 @@ BeedrillFemaleFrontpic: INCBIN "gfx/pokemon/beedrill_female/front.animated.2bpp.
 BeedrillFemaleBackpic: INCBIN "gfx/pokemon/beedrill_female/back.2bpp.lz"
 ButterfreeFemaleFrontpic: INCBIN "gfx/pokemon/butterfree_female/front.animated.2bpp.lz"
 ButterfreeFemaleBackpic: INCBIN "gfx/pokemon/butterfree_female/back.2bpp.lz"
+GoldPic: INCBIN "gfx/trainers/gold.2bpp.lz"
+KrisPic: INCBIN "gfx/trainers/kris.2bpp.lz"

@@ -125,7 +125,8 @@ AI_Setup:
 	jr nz, .discourage
 
 .encourage
-	call AI_50_50
+	;call AI_50_50
+	call AI_80_20
 	jr c, .checkmove
 
 	dec [hl]

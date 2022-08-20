@@ -34,4 +34,5 @@ StallMoves:
 	db FLAME_WHEEL
 	db TOXIC
 	db COSMIC_POWER
+	db DRAGON_DANCE
 	db -1 ; end

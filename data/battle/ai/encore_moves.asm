@@ -30,4 +30,5 @@ EncoreMoves:
 	db POWDER_SNOW
 	db CALM_MIND
 	db COSMIC_POWER
+	db DRAGON_DANCE
 	db -1 ; end

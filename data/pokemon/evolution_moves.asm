@@ -41,7 +41,7 @@ EvolutionMoves::
 	db NO_MOVE ; Jigglypuff
 	db NO_MOVE ; Wigglytuff
 	db NO_MOVE ; Zubat
-	db NO_MOVE ; Golbat
+	db LICK ; Golbat
 	db SLUDGE_BOMB ; Crobat
 	db NO_MOVE ; Oddish
 	db NO_MOVE ; Gloom
@@ -49,7 +49,7 @@ EvolutionMoves::
 	db NO_MOVE ; Paras
 	db SLASH ; Parasect
 	db NO_MOVE ; Venonat
-	db SILVER_WIND ; Venomoth
+	db GUST ; Venomoth
 	db NO_MOVE ; Diglett
 	db TRI_ATTACK ; Dugtrio
 	db NO_MOVE ; Meowth
@@ -77,7 +77,7 @@ EvolutionMoves::
 	db SLUDGE_BOMB ; Tentacruel
 	db NO_MOVE ; Geodude
 	db NO_MOVE ; Graveler
-	db EXPLOSION ; Golem
+	db NO_MOVE ; Golem
 	db NO_MOVE ; Ponyta
 	db HORN_ATTACK ; Rapidash
 	db NO_MOVE ; Slowpoke
@@ -154,7 +154,7 @@ EvolutionMoves::
 	db PURSUIT ; Umbreon
 	db MEGA_DRAIN ; Leafeon
 	db ICE_SHARD ; Glaceon
-	db SWIFT ; Sylveon
+	db POUND ; Sylveon
 	db NO_MOVE ; Porygon
 	db NO_MOVE ; Porygon2
 	db CONVERSION2 ; PorygonZ
@@ -189,7 +189,7 @@ EvolutionMoves::
 	db NO_MOVE ; Ledyba
 	db MACH_PUNCH ; Ledian
 	db NO_MOVE ; Spinarak
-	db NO_MOVE ; Ariados
+	db POISON_JAB ; Ariados
 	db NO_MOVE ; Chinchou
 	db NO_MOVE ; Lanturn
 	db NO_MOVE ; Togepi

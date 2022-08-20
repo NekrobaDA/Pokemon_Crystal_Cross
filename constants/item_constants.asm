@@ -215,66 +215,66 @@ __tmhm_value__ = __tmhm_value__ + 1
 ENDM
 
 ; see data/moves/tmhm_moves.asm for moves
-	add_tm DYNAMICPUNCH ; ba
-	add_tm HEADBUTT     ; bb
-	add_tm CURSE        ; bc
-	add_tm ROLLOUT      ; bd
-	add_tm ROAR         ; be
-	add_tm TOXIC        ; bf
-	add_tm ZAP_CANNON   ; c0
-	add_tm PSYCH_UP     ; c2
-	add_tm HIDDEN_POWER ; c3
-	add_tm SUNNY_DAY    ; c4
-	add_tm SWEET_SCENT  ; c5
-	add_tm ICE_BEAM     ; c6
-	add_tm BLIZZARD     ; c7
-	add_tm HYPER_BEAM   ; c8
-	add_tm ICY_WIND     ; c9
-	add_tm PROTECT      ; ca
-	add_tm RAIN_DANCE   ; cb
-	add_tm GIGA_DRAIN   ; cc
-	add_tm THUNDERBOLT  ; cd
-	add_tm CALM_MIND    ; ce
-	add_tm SOLARBEAM    ; cf
-	add_tm IRON_TAIL    ; d0
-	add_tm DRAGONBREATH ; d1
-	add_tm THUNDER      ; d2
-	add_tm EARTHQUAKE   ; d3
-	add_tm RETURN       ; d4
-	add_tm DIG          ; d5
-	add_tm PSYCHIC_M    ; d6
-	add_tm SHADOW_BALL  ; d7
-	add_tm MUD_SLAP     ; d8
-	add_tm DOUBLE_TEAM  ; d9
-	add_tm ICE_PUNCH    ; da
-	add_tm SWAGGER      ; db
-	add_tm SLEEP_TALK   ; dc
-	add_tm SLUDGE_BOMB  ; dd
-	add_tm SANDSTORM    ; de
-	add_tm FIRE_BLAST   ; df
-	add_tm RAZOR_WIND   ; e0
-	add_tm FLAMETHROWER ; e1
-	add_tm THUNDERPUNCH ; e2
-	add_tm DREAM_EATER  ; e3
-	add_tm ROCK_SLIDE   ; e4
-	add_tm REST         ; e5
-	add_tm ATTRACT      ; e6
-	add_tm THIEF        ; e7
-	add_tm STEEL_WING   ; e8
-	add_tm FIRE_PUNCH   ; e9
-	add_tm FURY_CUTTER  ; ea
-	add_tm NIGHTMARE    ; eb
-	add_tm DRAGON_CLAW  ; ec
-	add_tm WATER_PULSE  ; ed
-	add_tm DARK_PULSE   ; ee
-	add_tm FLASH_CANNON ; ef
-	add_tm HAIL         ; f0
-	add_tm REFLECT      ; f1
-	add_tm LIGHT_SCREEN ; f2
-	add_tm WILL_O_WISP  ; f3
-	add_tm AURA_SPHERE  ; f4
-	add_tm SUBSTITUTE   ; f5
-	add_tm SHADOW_RUSH  ; c1 
+	add_tm DYNAMICPUNCH ; ba  1
+	add_tm HEADBUTT     ; bb  2
+	add_tm CURSE        ; bc  3
+	add_tm SNARL        ; bd  4
+	add_tm ROAR         ; be  5
+	add_tm TOXIC        ; bf  6
+	add_tm ZAP_CANNON   ; c0  7
+	add_tm CHARGE_BEAM  ; c2  8
+	add_tm HIDDEN_POWER ; c3  9
+	add_tm SUNNY_DAY    ; c4 10
+	add_tm ENERGY_BALL  ; c5 11
+	add_tm ICE_BEAM     ; c6 12
+	add_tm BLIZZARD     ; c7 13
+	add_tm HYPER_BEAM   ; c8 14
+	add_tm ICY_WIND     ; c9 15
+	add_tm PROTECT      ; ca 16
+	add_tm RAIN_DANCE   ; cb 17
+	add_tm GIGA_DRAIN   ; cc 18
+	add_tm THUNDERBOLT  ; cd 19
+	add_tm CALM_MIND    ; ce 20
+	add_tm SOLARBEAM    ; cf 21
+	add_tm IRON_TAIL    ; d0 22
+	add_tm DRAGONBREATH ; d1 23
+	add_tm THUNDER      ; d2 24
+	add_tm EARTHQUAKE   ; d3 25
+	add_tm RETURN       ; d4 26
+	add_tm DIG          ; d5 27
+	add_tm PSYCHIC_M    ; d6 28
+	add_tm SHADOW_BALL  ; d7 29
+	add_tm MUD_SLAP     ; d8 30
+	add_tm DOUBLE_TEAM  ; d9 31
+	add_tm ICE_PUNCH    ; da 32
+	add_tm SWAGGER      ; db 33
+	add_tm SLEEP_TALK   ; dc 34
+	add_tm SLUDGE_BOMB  ; dd 35
+	add_tm SANDSTORM    ; de 36
+	add_tm FIRE_BLAST   ; df 37
+	add_tm RAZOR_WIND   ; e0 38
+	add_tm FLAMETHROWER ; e1 39
+	add_tm THUNDERPUNCH ; e2 40
+	add_tm DREAM_EATER  ; e3 41
+	add_tm ROCK_SLIDE   ; e4 42
+	add_tm REST         ; e5 43
+	add_tm ATTRACT      ; e6 44
+	add_tm THIEF        ; e7 45
+	add_tm STEEL_WING   ; e8 46
+	add_tm FIRE_PUNCH   ; e9 47
+	add_tm FURY_CUTTER  ; ea 48
+	add_tm NIGHTMARE    ; eb 49
+	add_tm DRAGON_CLAW  ; ec 50
+	add_tm WATER_PULSE  ; ed 51
+	add_tm DARK_PULSE   ; ee 52
+	add_tm FLASH_CANNON ; ef 53
+	add_tm HAIL         ; f0 54
+	add_tm REFLECT      ; f1 55
+	add_tm LIGHT_SCREEN ; f2 56
+	add_tm WILL_O_WISP  ; f3 57
+	add_tm AURA_SPHERE  ; f4 58
+	add_tm SUBSTITUTE   ; f5 59
+	add_tm SHADOW_RUSH  ; c1 60
 NUM_TMS EQU __tmhm_value__ - 1
 
 add_hm: MACRO
@@ -338,7 +338,6 @@ ENDM
 	add_mt SEISMIC_TOSS
 	add_mt COUNTER
 	add_mt THUNDER_WAVE
-	add_mt DOUBLE_EDGE
 	add_mt SELFDESTRUCT
 	add_mt NIGHT_SHADE
 	add_mt EARTH_POWER

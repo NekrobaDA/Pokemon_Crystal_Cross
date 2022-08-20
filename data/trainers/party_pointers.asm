@@ -12,11 +12,11 @@ TrainerGroups:
 	dba ClairGroup
 	dba Rival1Group
 	dba PokemonProfGroup
-	dba WillGroup
 	dba PKMNTrainerGroup
+	dba WillGroup
+	dba KogaGroup
 	dba BrunoGroup
 	dba KarenGroup
-	dba KogaGroup
 	dba ChampionGroup
 	dba BrockGroup
 	dba MistyGroup
@@ -71,3 +71,6 @@ TrainerGroups:
 	dba MysticalmanGroup
 	dba NekrobaGroup
 	dba DiogoGroup
+	dba GreenGroup
+	dba Gold1Group
+	dba Kris1Group

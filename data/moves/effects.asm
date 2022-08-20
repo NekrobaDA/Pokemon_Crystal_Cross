@@ -133,6 +133,7 @@ ParalyzeHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock
 	paralyzetarget
 	endmove
 
@@ -737,6 +738,7 @@ DefenseUpHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock
 	defenseup
 	statupmessage
 	endmove
@@ -925,6 +927,7 @@ FlinchHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock
 	flinchtarget
 	endmove
 
@@ -1120,6 +1123,7 @@ HyperBeam:
 	rechargenextturn
 	checkfaint
 	buildopponentrage
+	kingsrock
 	endmove
 
 Rage:
@@ -1896,6 +1900,7 @@ Twister:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock
 	flinchtarget
 	endmove
 
@@ -2251,3 +2256,54 @@ Whirlpool:
 	buildopponentrage
 	traptarget
 	endmove	
+	
+;SpiderWeb:
+	;checkobedience
+	;usedmovetext
+	;doturn
+	;spiderweb
+	;endmove
+	
+SpAtkUpHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	specialattackup
+	statupmessage
+	endmove
+	
+SpAtkDownHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	specialattackdown
+	statdownmessage
+	endmove

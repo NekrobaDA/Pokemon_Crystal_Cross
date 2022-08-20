@@ -12,11 +12,11 @@ TrainerPicPointers::
 	dba ClairPic
 	dba Rival1Pic
 	dba PokemonProfPic
-	dba WillPic
 	dba CalPic
+	dba WillPic
+	dba KogaPic
 	dba BrunoPic
 	dba KarenPic
-	dba KogaPic
 	dba ChampionPic
 	dba BrockPic
 	dba MistyPic
@@ -71,3 +71,6 @@ TrainerPicPointers::
 	dba MysticalmanPic
 	dba ExecutivefPic ; temp
 	dba KogaPic ; temp
+	dba LassPic ; temp
+	dba GoldPic
+	dba KrisPic

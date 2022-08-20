@@ -21,7 +21,6 @@ TypeMatchups:
 	db ELECTRIC,     GRASS,        NOT_VERY_EFFECTIVE
 	db ELECTRIC,     GROUND,       NO_EFFECT
 	db ELECTRIC,     FLYING,       SUPER_EFFECTIVE
-	db ELECTRIC,     DRAGON,       NOT_VERY_EFFECTIVE
 	db GRASS,        FIRE,         NOT_VERY_EFFECTIVE
 	db GRASS,        WATER,        SUPER_EFFECTIVE
 	db GRASS,        GRASS,        NOT_VERY_EFFECTIVE
@@ -31,6 +30,7 @@ TypeMatchups:
 	db GRASS,        BUG,          NOT_VERY_EFFECTIVE
 	db GRASS,        ROCK,         SUPER_EFFECTIVE
 	db GRASS,        STEEL,        NOT_VERY_EFFECTIVE
+	db GRASS,        DRAGON,       NOT_VERY_EFFECTIVE
 	db ICE,          WATER,        NOT_VERY_EFFECTIVE
 	db ICE,          GRASS,        SUPER_EFFECTIVE
 	db ICE,          ICE,          NOT_VERY_EFFECTIVE
@@ -69,7 +69,6 @@ TypeMatchups:
 	db PSYCHIC_TYPE, FIGHTING,     SUPER_EFFECTIVE
 	db PSYCHIC_TYPE, POISON,       SUPER_EFFECTIVE
 	db PSYCHIC_TYPE, PSYCHIC_TYPE, NOT_VERY_EFFECTIVE
-	db PSYCHIC_TYPE, DARK,         NO_EFFECT
 	db PSYCHIC_TYPE, STEEL,        NOT_VERY_EFFECTIVE
 	db BUG,          FIRE,         NOT_VERY_EFFECTIVE
 	db BUG,          GRASS,        SUPER_EFFECTIVE
@@ -107,5 +106,7 @@ TypeMatchups:
 ; Foresight removes Ghost's immunities.
 	db NORMAL,       GHOST,        NO_EFFECT
 	db FIGHTING,     GHOST,        NO_EFFECT
+	
+	db PSYCHIC_TYPE, DARK,         NO_EFFECT 
 
 	db -1 ; end

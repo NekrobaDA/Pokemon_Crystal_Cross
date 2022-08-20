@@ -7,4 +7,6 @@ CriticalHitMoves:
 	db AEROBLAST
 	db CROSS_CHOP
 	db PSYCHO_CUT
+	db CROSS_CHOP
+	db TWINEEDLE
 	db -1
