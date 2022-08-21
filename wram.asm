@@ -401,13 +401,13 @@ wBattleMonNick:: ds MON_NAME_LENGTH
 
 wBattleMon:: battle_struct wBattleMon
 
-wBattleMonSunSpeed::
-wEnemyMonSunSpeed::
+wBattleMonSunSpeed:: dw
+wEnemyMonSunSpeed:: dw
 
-	ds 2
+	;ds 2
 
 wWildMon:: db
-	ds 1
+	;ds 1
 
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db
@@ -423,7 +423,7 @@ wBattleParticipantsNotFainted::
 ; Bit cleared if the mon faints.
 ; Backed up if the enemy switches.
 ; All bits cleared if the enemy faints.
-	db
+	;db
 
 wTypeModifier::
 ; >10: super-effective

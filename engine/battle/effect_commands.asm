@@ -1636,9 +1636,41 @@ BattleCommand_CheckHit:
 	ld b, a
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .BrightPowder
+	jr z, .SnowCloak
 	ld a, [wEnemyMoveStruct + MOVE_ACC]
 	ld b, a
+
+.SnowCloak	
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	jr nz, .BrightPowder
+	
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .okay
+	ld hl, wBattleMonType1
+.okay
+	ld a, [hli]
+	cp GHOST
+	jr z, .evadechance
+
+	ld a, [hl]
+	cp GHOST
+	jr nz, .BrightPowder
+
+.evadechance	
+	call BattleRandom
+	cp 51
+	jr c, .Miss
+	;ld a, c ; % miss
+	;ld c, a
+	;ld a, b
+	;sub c
+	;ld b, a
+	;jr nc, .skip_brightpowder ; no stacking snow cloak + brightpowder
+	;ld b, 0
+	;jr .skip_brightpowder
 
 .BrightPowder:
 	push bc
@@ -1666,7 +1698,7 @@ BattleCommand_CheckHit:
 	jr nc, .Miss
 
 .Hit:
-	ret
+	ret	
 
 .Miss:
 ; Keep the damage value intact if we're using (Hi) Jump Kick.
