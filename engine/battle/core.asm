@@ -493,16 +493,16 @@ DetermineMoveOrder:
 	jr z, .both_have_quick_claw
 	call BattleRandom
 	cp e
-	jr nc, .speed_check
+	jr nc, .weather_check
 	jp .player_first
 
 .player_no_quick_claw
 	ld a, b
 	cp HELD_QUICK_CLAW
-	jr nz, .speed_check
+	jr nz, .weather_check
 	call BattleRandom
 	cp c
-	jr nc, .speed_check
+	jr nc, .weather_check
 	jp .enemy_first
 
 .both_have_quick_claw
@@ -515,7 +515,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp e
 	jp c, .player_first
-	jr .speed_check
+	jr .weather_check
 
 .player_2b
 	call BattleRandom
@@ -524,11 +524,70 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp c
 	jp c, .enemy_first
-	jr .speed_check
+	jr .weather_check
 
+.weather_check
+   ld a, [wBattleWeather]
+   cp WEATHER_SUN
+   jr nz, .speed_check 
+ 
+;check player types
+   ld hl, wBattleMonType1
+   ld a, [hli]
+   cp GRASS
+   jr z, .calc_player_speed
+.next_type
+   ld a, [hl]
+   cp GRASS
+   jr z, .calc_player_speed
+   ld de, wBattleMonSpeed
+   jr .check_enemy_type
+
+.calc_player_speed
+   ld a, [wBattleMonSpeed]
+   ld b, a
+   srl a   ; a = 1/2
+   add b   ; a + b = 1/2 + 2/2 = 3/2
+   ld [wBattleMonSunSpeed], a
+   ld a, [wBattleMonSpeed + 1]
+   ld b, a
+   srl a   ; a = 1/2
+   add b   ; a + b = 1/2 + 2/2 = 3/2
+   ld [wBattleMonSunSpeed + 1], a
+   ld de, wBattleMonSunSpeed
+ 
+.check_enemy_type
+   ld hl, wEnemyMonType1
+   ld a, [hli]
+   cp GRASS
+   jr z, .calc_enemy_speed
+.next_enemy_type
+   ld a, [hl]
+   cp GRASS
+   jr z, .calc_enemy_speed
+   ld hl, wEnemyMonSpeed
+   jr .speed_check_sun
+ 
+.calc_enemy_speed
+   ld a, [wEnemyMonSpeed]
+   ld b, a
+   srl a   ; a = 1/2
+   add b   ; a + b = 1/2 + 2/2 = 3/2
+   ld [wEnemyMonSunSpeed], a
+   ld a, [wEnemyMonSpeed  + 1]
+   ld b, a
+   srl a   ; a = 1/2
+   add b   ; a + b = 1/2 + 2/2 = 3/2
+   ld [wEnemyMonSunSpeed + 1], a
+   ld de, wEnemyMonSunSpeed
+ 
+   jr .speed_check_sun 
+ 
 .speed_check
-	ld de, wBattleMonSpeed
-	ld hl, wEnemyMonSpeed
+   ld de, wBattleMonSpeed  
+   ld hl, wEnemyMonSpeed
+.speed_check_sun
+
 	ld c, 2
 	call CompareBytes
 	jr z, .speed_tie

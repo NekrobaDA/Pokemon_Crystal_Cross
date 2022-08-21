@@ -401,6 +401,9 @@ wBattleMonNick:: ds MON_NAME_LENGTH
 
 wBattleMon:: battle_struct wBattleMon
 
+wBattleMonSunSpeed::
+wEnemyMonSunSpeed::
+
 	ds 2
 
 wWildMon:: db
