@@ -1773,7 +1773,8 @@ HandleWeather:
 .check_hail
 	ld a, [wBattleWeather]
 	cp WEATHER_HAIL
-	ret nz
+	;ret nz
+	jr nz, .check_rain
 
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
@@ -1805,16 +1806,113 @@ HandleWeather:
 	ld a, [hli]
 	cp ICE
 	ret z
+	cp GHOST
+	ret z
+	cp GRASS
+	jr z, .extradamage
+	cp DRAGON
+	jr z, .extradamage
+	cp FLYING
+	jr z, .extradamage
+	cp GROUND
+	jr z, .extradamage
 
 	ld a, [hl]
 	cp ICE
 	ret z
+	cp GHOST
+	ret z
+	cp GRASS
+	jr z, .extradamage
+	cp DRAGON
+	jr z, .extradamage
+	cp FLYING
+	jr z, .extradamage
+	cp GROUND
+	jr z, .extradamage
 
 	call GetSixteenthMaxHP
 	call SubtractHPFromUser
+	jr .hailtext
+	
+.extradamage
+	call GetEighthMaxHP
+	call SubtractHPFromUser	
 
+.hailtext
 	ld hl, HailHitsText
 	jp StdBattleTextbox
+	
+.check_rain
+	ld a, [wBattleWeather]
+	cp WEATHER_RAIN
+	ret nz
+	
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .enemy_first_rain
+	
+; player first
+	call SetPlayerTurn
+	call .RainHeal
+	call SetEnemyTurn
+	jr .RainHeal
+
+.enemy_first_rain
+	call SetEnemyTurn
+	call .RainHeal
+	call SetPlayerTurn
+	
+.RainHeal:
+	ld a, BATTLE_VARS_SUBSTATUS3
+	call GetBattleVar
+	bit SUBSTATUS_UNDERGROUND, a
+	ret nz
+
+	ld hl, wBattleMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok2
+	ld hl, wEnemyMonType1
+.ok2
+	ld a, [hli]
+	cp GRASS
+	jr z, .get_hp
+
+	ld a, [hl]
+	cp GRASS
+	jr z, .get_hp
+	ret
+
+.get_hp	
+	ld hl, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld hl, wEnemyMonHP
+
+.got_hp
+; Don't restore if we're already at max HP
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	cp b
+	jr nz, .restore
+	ld a, [hl]
+	cp c
+	ret z
+
+.restore
+	call GetSixteenthMaxHP
+	call SwitchTurnCore
+	call RestoreHP
+
+	call SwitchTurnCore
+	ld hl, RainRestoreText
+	jp StdBattleTextbox
+	
 
 .PrintWeatherMessage:
 	ld a, [wBattleWeather]

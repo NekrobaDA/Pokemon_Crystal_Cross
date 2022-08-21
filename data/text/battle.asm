@@ -85,8 +85,9 @@ SandstormHitsText:
 	prompt
 	
 HailHitsText:
-	text "The HAIL pelts"
-	line "<USER>!"
+	text "<USER>'s"
+	line "health is sapped"
+	cont "by the cold!"
 	prompt
 
 PerishCountText:
@@ -151,8 +152,8 @@ BattleText_TheSandstormRages:
 	prompt
 	
 BattleText_HailContinuesToFall:
-	text "Hail continues to"
-	line "fall."
+	text "The snowstorm"
+	line "continues."
 	prompt
 
 BattleText_TheRainStopped:
@@ -170,7 +171,14 @@ BattleText_TheSandstormSubsided:
 	prompt
 	
 BattleText_TheHailEnded:
-	text "The hail ended."
+	text "The snowstorm"
+	line "ended."
+	prompt
+	
+RainRestoreText:
+	text "<USER>"
+	line "was restored"
+	cont "by the rain."
 	prompt
 
 BattleText_EnemyMonFainted:
@@ -1022,8 +1030,8 @@ StartPerishText:
 	prompt
 
 HailFallsText:
-	text "It started to"
-	line "HAIL!"
+	text "Snow started to"
+	line "fall!"
 	prompt
 	
 SandstormBrewedText:
