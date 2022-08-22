@@ -1629,7 +1629,25 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
 	ret z
+	
+	cp EFFECT_ACCURACY_DOWN
+	jr nz, .skipacc
+	
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .typeokay
+	ld hl, wBattleMonType1
+.typeokay
+	ld a, [hli]
+	cp FLYING
+	jr z, .Miss
 
+	ld a, [hl]
+	cp FLYING
+	jr z, .Miss
+	
+.skipacc
 	call .StatModifiers
 
 	ld a, [wPlayerMoveStruct + MOVE_ACC]
