@@ -1663,14 +1663,6 @@ BattleCommand_CheckHit:
 	call BattleRandom
 	cp 51
 	jr c, .Miss
-	;ld a, c ; % miss
-	;ld c, a
-	;ld a, b
-	;sub c
-	;ld b, a
-	;jr nc, .skip_brightpowder ; no stacking snow cloak + brightpowder
-	;ld b, 0
-	;jr .skip_brightpowder
 
 .BrightPowder:
 	push bc
@@ -2743,7 +2735,50 @@ PlayerAttackDamage:
 	rl b
 
 .physicalcrit
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
+	jr nz, .finish
+	
+	ld hl, wBattleMonType1
+	ld a, [hli]
+	cp GROUND
+	jr z, .sandboostplayer
+ 
+	ld a, [hl]
+	cp GROUND
+	jr nz, .finish
+	
+.sandboostplayer
 	ld hl, wBattleMonAttack
+    push bc
+    ; Load value at wBattleMonAttack into hl
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ; Copy value into bc
+    ld b, h
+    ld c, l
+
+    ; Halve bc
+    srl b
+    rr c
+
+    add hl, bc ; 2/2 + 1/2 = 3/2
+    pop bc
+
+    ; Load the new value into wBattleMonSandAttack
+    ld a, h
+    ld [wBattleMonSunSpeed], a
+    ld a, l
+    ld [wBattleMonSunSpeed + 1], a
+
+    ld hl, wBattleMonSunSpeed
+	jr .boosted
+	
+.finish
+	ld hl, wBattleMonAttack
+.boosted
 	call CheckDamageStatsCritical
 	jr c, .thickclub
 
@@ -3003,7 +3038,50 @@ EnemyAttackDamage:
 	rl b
 
 .physicalcrit
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
+	jr nz, .finish
+ 
+	ld hl, wEnemyMonType1
+	ld a, [hli]
+	cp GROUND
+	jr z, .sandboostenemy
+ 
+	ld a, [hl]
+	cp GROUND
+	jr nz, .finish
+	
+.sandboostenemy
 	ld hl, wEnemyMonAttack
+    push bc
+    ; Load value at wBattleMonAttack into hl
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ; Copy value into bc
+    ld b, h
+    ld c, l
+
+    ; Halve bc
+    srl b
+    rr c
+
+    add hl, bc ; 2/2 + 1/2 = 3/2
+    pop bc
+
+    ; Load the new value into wBattleMonSandAttack
+    ld a, h
+    ld [wEnemyMonSunSpeed], a
+    ld a, l
+    ld [wEnemyMonSunSpeed + 1], a
+
+    ld hl, wEnemyMonSunSpeed
+	jr .boosted
+ 
+.finish
+	ld hl, wEnemyMonAttack
+.boosted
 	call CheckDamageStatsCritical
 	jr c, .thickclub
 

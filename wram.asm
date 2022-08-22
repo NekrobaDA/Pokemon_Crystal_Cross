@@ -404,6 +404,9 @@ wBattleMon:: battle_struct wBattleMon
 wBattleMonSunSpeed:: dw
 wEnemyMonSunSpeed:: dw
 
+;wBattleMonSandAttack:: dw
+;wEnemyMonSandAttack:: dw
+
 	;ds 2
 
 wWildMon:: db
