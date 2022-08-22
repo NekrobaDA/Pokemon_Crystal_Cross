@@ -21,8 +21,18 @@ FindFirstAliveMonAndStartBattle:
 	jr z, .day
 
 	ld a, [wTimeOfDay]
+	cp EVE_F
+	jr z, .evepal
+	
+;night
 	cp NITE_F
-	jr c, .day
+	jr z, .nightpal
+	jr .day
+
+.evepal
+	ld a, 2
+	ld [wNightFlag], a
+	jr .timeofdaypalset
 
 .nightpal
 	ld a, 1

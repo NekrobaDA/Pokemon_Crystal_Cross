@@ -544,50 +544,62 @@ DetermineMoveOrder:
    jr .check_enemy_type
 
 .calc_player_speed
-   ld a, [wBattleMonSpeed]
-   ld b, a
-   srl a   ; a = 1/2
-   add b   ; a + b = 1/2 + 2/2 = 3/2
-   ld [wBattleMonSunSpeed], a
-   ld a, [wBattleMonSpeed + 1]
-   ld b, a
-   srl a   ; a = 1/2
-   add b   ; a + b = 1/2 + 2/2 = 3/2
-   ld [wBattleMonSunSpeed + 1], a
-   ld de, wBattleMonSunSpeed
+    ld hl, wBattleMonSpeed
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ld b, h ; Copy value into bc
+    ld c, l
+    srl b ; Halve bc
+    rr c
+    add hl, bc ; 2/2 + 1/2 = 3/2
+
+    ld a, h
+    ld [wBattleMonSunSpeed], a
+    ld a, l
+    ld [wBattleMonSunSpeed + 1], a
+   
+	ld de, wBattleMonSunSpeed
  
 .check_enemy_type
-   ld hl, wEnemyMonType1
-   ld a, [hli]
-   cp GRASS
-   jr z, .calc_enemy_speed
+	ld hl, wEnemyMonType1
+	ld a, [hli]
+	cp GRASS
+	jr z, .calc_enemy_speed
 .next_enemy_type
-   ld a, [hl]
-   cp GRASS
-   jr z, .calc_enemy_speed
-   ld hl, wEnemyMonSpeed
-   jr .speed_check_sun
+	ld a, [hl]
+	cp GRASS
+	jr z, .calc_enemy_speed
+	ld hl, wEnemyMonSpeed
+	jr .speed_check_sun
  
 .calc_enemy_speed
-   ld a, [wEnemyMonSpeed]
-   ld b, a
-   srl a   ; a = 1/2
-   add b   ; a + b = 1/2 + 2/2 = 3/2
-   ld [wEnemyMonSunSpeed], a
-   ld a, [wEnemyMonSpeed  + 1]
-   ld b, a
-   srl a   ; a = 1/2
-   add b   ; a + b = 1/2 + 2/2 = 3/2
-   ld [wEnemyMonSunSpeed + 1], a
-   ld de, wEnemyMonSunSpeed
+	ld hl, wEnemyMonSpeed
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ld b, h ; Copy value into bc
+    ld c, l
+    srl b ; Halve bc
+    rr c
+    add hl, bc ; 2/2 + 1/2 = 3/2
+
+    ld a, h
+    ld [wEnemyMonSunSpeed], a
+    ld a, l
+    ld [wEnemyMonSunSpeed + 1], a
+	
+	ld hl, wEnemyMonSunSpeed
  
-   jr .speed_check_sun 
+	jr .speed_check_sun 
  
 .speed_check
-   ld de, wBattleMonSpeed  
-   ld hl, wEnemyMonSpeed
+	ld de, wBattleMonSpeed  
+	ld hl, wEnemyMonSpeed
+	
 .speed_check_sun
-
 	ld c, 2
 	call CompareBytes
 	jr z, .speed_tie

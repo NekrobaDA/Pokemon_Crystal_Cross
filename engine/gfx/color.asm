@@ -38,39 +38,6 @@ CheckShininess:
 	and a
 	ret
 
-Unused_CheckShininess:
-; Return carry if the DVs at hl are all 10 or higher.
-
-; Attack
-	ld a, [hl]
-	cp 10 << 4
-	jr c, .not_shiny
-
-; Defense
-	ld a, [hli]
-	and $f
-	cp 10
-	jr c, .not_shiny
-
-; Speed
-	ld a, [hl]
-	cp 10 << 4
-	jr c, .not_shiny
-
-; Special
-	ld a, [hl]
-	and $f
-	cp 10
-	jr c, .not_shiny
-
-; shiny
-	scf
-	ret
-
-.not_shiny
-	and a
-	ret
-
 SGB_ApplyCreditsPals: ; unreferenced
 	push de
 	push bc
@@ -489,7 +456,23 @@ LoadPalette_White_Col1_Col2_Black:
 	ld a, [wNightFlag]
 	cp 0
 	jr z, .day
+	cp 1
+	jr z, .night
 	
+;eve
+	ld a, LOW(PALRGB_EVE) ;EF
+	ld [de], a
+	inc de
+	ld a, HIGH(PALRGB_EVE) ;51
+	ld [de], a
+	inc de
+	
+	call EveColors
+	ld c, 2 * PAL_COLOR_SIZE
+
+	jr .black	
+	
+.night
 	ld a, LOW(PALRGB_NIGHT) ;EF
 	ld [de], a
 	inc de
@@ -581,9 +564,9 @@ NightColorSwap:
 	and 3 ; 00000011 -> 000000GG
 	or b ; 000000GG + ggg00000
 	swap a ; ggg0 00GG -> 00GGggg0
-	rrca ; 000GGgg
+	rrca ; 000GGggg
 	
-	ld d, a ;d green 000GGgg
+	ld d, a ;d green 000GGggg
 
 ;blue
 	ld a, [hld] ; 0bbbbbGG
@@ -591,7 +574,7 @@ NightColorSwap:
 	
 	ld c, a ;c blue 0bbbbb00
 
-;mod colors here - still not working
+;mod colors here
 	srl e
 	srl d
 	
@@ -600,6 +583,111 @@ NightColorSwap:
 	rrca ; a = a / 2 = %00bbbbb0
 	ld b, a ; b == a / 2
 	rrca ; a = a / 4 = %000bbbbb
+	add b ; a = a / 4 + a / 2 = a * 3 / 4
+	and %01111100 ; mask the blue bits
+; now a == 3/4ths of previous a
+	ld c, a
+
+	ld a, d
+	rlca ; 00GGggg0
+	swap a ; 00GG ggg0 -> ggg000GG
+	and $e0 ; 11100000 -> ggg00000
+	ld b, a
+	ld a, d
+	rlca ; 00GGggg0
+	swap a ; 00GG ggg0 -> ggg000GG
+	and 3 ; 00000011 -> 000000GG
+	ld d, a
+	
+;red in e, low green in b, high green in d, blue in c
+	ld a, e 
+	or b ; 000rrrrr + ggg00000
+	ld b, a ; gggrrrrr
+	ld a, d
+	or c ; 0bbbbb00 + 000000GG
+	ld c, a ; 0bbbbbGG
+	pop de
+	ret
+	
+EveColors:
+	call EveColorSwap
+	
+; b = gggrrrrr, c = 0bbbbbGG
+	
+.loop
+	ld a, b
+	ld [de], a
+	inc de
+	inc hl
+	
+	ld a, c
+	ld [de], a
+	inc de
+	inc hl
+	
+	call EveColorSwap
+	
+; b = gggrrrrr, c = 0bbbbbGG
+
+.loop2
+	ld a, b
+	ld [de], a
+	inc hl
+	inc de
+	
+	ld a, c
+	ld [de], a
+	inc hl
+	inc de
+	
+	ret
+	
+EveColorSwap:
+	push de
+	
+; red
+	ld a, [hl] ; gggrrrrr
+	and $1f ; 00011111 -> 000rrrrr
+	
+	ld e, a ;e red 000rrrrr
+	
+;green
+	ld a, [hli] ; gggrrrrr
+	and $e0 ; 11100000 -> ggg00000
+	ld b, a 
+	ld a, [hl] ; 0bbbbbGG
+	and 3 ; 00000011 -> 000000GG
+	or b ; 000000GG + ggg00000
+	swap a ; ggg0 00GG -> 00GGggg0
+	rrca ; 000GGggg
+	
+	ld d, a ;d green 000GGggg
+
+;blue
+	ld a, [hld] ; 0bbbbbGG
+	and $7c ; 1111100 -> 0bbbbb00
+	
+	ld c, a ;c blue 0bbbbb00
+
+;mod colors here
+	;e unchanged
+	
+	ld a, d
+	; a == 000GGggg
+	rrca ; a / 2
+	ld b, a
+	rrca ; a / 4
+	rrca ; a / 8
+	add b ; 1/2 + 1/8 = 5/8
+	and %00011111 ; mask green bits
+	ld d, a
+	
+	ld a, c
+	; a == %0bbbbb00
+	rrca ; a = a / 2 = %00bbbbb0
+	ld b, a ; b == a / 2
+	rrca ; a = a / 4 = %000bbbbb
+	rrca
 	add b ; a = a / 4 + a / 2 = a * 3 / 4
 	and %01111100 ; mask the blue bits
 ; now a == 3/4ths of previous a
