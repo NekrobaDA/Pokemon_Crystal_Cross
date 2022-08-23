@@ -61,10 +61,6 @@ MoveEffectsPointers:
 	dw AttackDown2
 	dw DefenseDown2
 	dw SpeedDown2
-	dw SpecialAttackDown2
-	dw SpecialDefenseDown2
-	dw AccuracyDown2
-	dw EvasionDown2
 	dw Reflect
 	dw DoPoison
 	dw DoParalyze
@@ -148,7 +144,6 @@ MoveEffectsPointers:
 	dw SkullBash
 	dw Twister
 	dw Earthquake
-	dw FutureSight
 	dw Gust
 	dw Stomp
 	dw Solarbeam

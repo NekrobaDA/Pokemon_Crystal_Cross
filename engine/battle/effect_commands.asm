@@ -2380,10 +2380,10 @@ GetFailureResultText:
 	jr z, .got_text
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_FUTURE_SIGHT
-	ld hl, ButItFailedText
-	ld de, ItFailedText
-	jr z, .got_text
+	;cp EFFECT_FUTURE_SIGHT
+	;ld hl, ButItFailedText
+	;ld de, ItFailedText
+	;jr z, .got_text
 	ld hl, AttackMissedText
 	ld de, AttackMissed2Text
 	ld a, [wCriticalHit]
@@ -2822,7 +2822,52 @@ PlayerAttackDamage:
 	rl b
 
 .specialcrit
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	jr nz, .finish2
+	
+	ld hl, wBattleMonType1
+	ld a, [hli]
+	cp FIRE
+	jr z, .sunboostplayer
+ 
+	ld a, [hl]
+	cp FIRE
+	jr nz, .finish2
+	
+.sunboostplayer
 	ld hl, wBattleMonSpclAtk
+    push bc
+    ; Load value at wBattleMonSpclAtk into hl
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ; Copy value into bc
+    ld b, h
+    ld c, l
+
+    ; quarter bc
+    srl b 
+    rr c
+	srl b 
+    rr c
+
+    add hl, bc ; 4/4 + 1/4 = 5/4
+    pop bc
+
+    ; Load the new value into wBattleMonSunSpeed
+    ld a, h
+    ld [wBattleMonSunSpeed], a
+    ld a, l
+    ld [wBattleMonSunSpeed + 1], a
+
+    ld hl, wBattleMonSunSpeed
+	jr .boosted2
+	
+.finish2
+	ld hl, wBattleMonSpclAtk
+.boosted2	
 	call CheckDamageStatsCritical
 	jr c, .lightball
 
@@ -3125,7 +3170,52 @@ EnemyAttackDamage:
 	rl b
 
 .specialcrit
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	jr nz, .finish2
+	
+	ld hl, wBattleMonType1
+	ld a, [hli]
+	cp FIRE
+	jr z, .sunboostenemy
+ 
+	ld a, [hl]
+	cp FIRE
+	jr nz, .finish2
+	
+.sunboostenemy
 	ld hl, wEnemyMonSpclAtk
+    push bc
+    ; Load value at wEnemyMonSpclAtk into hl
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ; Copy value into bc
+    ld b, h
+    ld c, l
+
+    ; quarter bc
+    srl b 
+    rr c
+	srl b 
+    rr c
+
+    add hl, bc ; 4/4 + 1/4 = 5/4
+    pop bc
+
+    ; Load the new value into wEnemyMonSunSpeed
+    ld a, h
+    ld [wEnemyMonSunSpeed], a
+    ld a, l
+    ld [wEnemyMonSunSpeed + 1], a
+
+    ld hl, wEnemyMonSunSpeed
+	jr .boosted2
+	
+.finish2
+	ld hl, wEnemyMonSpclAtk
+.boosted2
 	call CheckDamageStatsCritical
 	jr c, .lightball
 	ld hl, wPlayerSpDef
@@ -4656,24 +4746,24 @@ BattleCommand_SpeedDown2:
 	ld a, $10 | SPEED
 	jr BattleCommand_StatDown
 
-BattleCommand_SpecialAttackDown2:
-; specialattackdown2
-	ld a, $10 | SP_ATTACK
-	jr BattleCommand_StatDown
+;BattleCommand_SpecialAttackDown2:
+;; specialattackdown2
+	;ld a, $10 | SP_ATTACK
+	;jr BattleCommand_StatDown
 
-BattleCommand_SpecialDefenseDown2:
-; specialdefensedown2
-	ld a, $10 | SP_DEFENSE
-	jr BattleCommand_StatDown
+;BattleCommand_SpecialDefenseDown2:
+;; specialdefensedown2
+	;ld a, $10 | SP_DEFENSE
+	;jr BattleCommand_StatDown
 
-BattleCommand_AccuracyDown2:
-; accuracydown2
-	ld a, $10 | ACCURACY
-	jr BattleCommand_StatDown
+;BattleCommand_AccuracyDown2:
+;; accuracydown2
+	;ld a, $10 | ACCURACY
+	;jr BattleCommand_StatDown
 
-BattleCommand_EvasionDown2:
-; evasiondown2
-	ld a, $10 | EVASION
+;BattleCommand_EvasionDown2:
+;; evasiondown2
+	;ld a, $10 | EVASION
 
 BattleCommand_StatDown:
 ; statdown
@@ -4807,8 +4897,6 @@ CheckMist:
 	jr c, .check_mist
 	cp EFFECT_ATTACK_DOWN_2
 	jr c, .dont_check_mist
-	cp EFFECT_EVASION_DOWN_2 + 1
-	jr c, .check_mist
 	cp EFFECT_ATTACK_DOWN_HIT
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN_HIT + 1
@@ -5991,27 +6079,6 @@ BattleCommand_Charge:
 	text_far _BattleChargingText
 	text_end
 
-BattleCommand_Unused3C:
-; effect0x3c
-	ret
-BattleCommand_UnusedA:
-; effect0x3c
-	ret
-BattleCommand_UnusedB:
-; effect0x3c
-	ret
-BattleCommand_UnusedC:
-; effect0x3c
-	ret
-	
-BattleCommand_Unused1:
-; effect0x3c
-	ret
-	
-BattleCommand_Unused2:
-; effect0x3c
-	ret
-
 BattleCommand_TrapTarget:
 ; traptarget
 
@@ -6793,10 +6860,6 @@ INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
 INCLUDE "engine/battle/move_effects/rollout.asm"
 
-BattleCommand_Unused5D:
-; effect0x5d
-	ret
-
 INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 
 INCLUDE "engine/battle/move_effects/attract.asm"
@@ -6999,8 +7062,6 @@ BattleCommand_SkipSunCharge:
 	ret nz
 	ld b, charge_command
 	jp SkipToBattleCommand
-
-INCLUDE "engine/battle/move_effects/future_sight.asm"
 
 INCLUDE "engine/battle/move_effects/thunder.asm"
 

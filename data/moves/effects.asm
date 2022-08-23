@@ -513,58 +513,6 @@ SpeedDown2:
 	statdownfailtext
 	endmove
 
-SpecialAttackDown2:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialattackdown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialDefenseDown2:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialdefensedown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-AccuracyDown2:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	accuracydown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-EvasionDown2:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	evasiondown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
 AttackDownHit:
 	checkobedience
 	usedmovetext
@@ -819,9 +767,6 @@ ResetStats:
 	usedmovetext
 	doturn
 	resetstats
-	endmove
-	
-Unused:
 	endmove
 
 Rampage:
@@ -1921,23 +1866,6 @@ Earthquake:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkfaint
-	buildopponentrage
-	endmove
-
-FutureSight:
-	checkfuturesight
-	checkobedience
-	usedmovetext
-	doturn
-	damagestats
-	damagecalc
-	futuresight
-	damagevariation ; skip here if last turn
-	checkhit
-	moveanimnosub
-	failuretext
-	applydamage
 	checkfaint
 	buildopponentrage
 	endmove

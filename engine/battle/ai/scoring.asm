@@ -107,8 +107,8 @@ AI_Setup:
 
 ;	cp EFFECT_ATTACK_DOWN_2 - 1
 	jr z, .checkmove
-	cp EFFECT_EVASION_DOWN_2 + 1
-	jr c, .statdown
+	;cp EFFECT_EVASION_DOWN_2 + 1
+	;jr c, .statdown
 
 	jr .checkmove
 
@@ -382,7 +382,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SKULL_BASH,       AI_Smart_SkullBash
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
-	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
 	dbw EFFECT_GUST,             AI_Smart_Gust
 	dbw EFFECT_STOMP,            AI_Smart_Stomp
 	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
@@ -2614,21 +2613,6 @@ AI_Smart_Gust:
 	ret c
 	call AI_50_50
 	ret c
-	dec [hl]
-	ret
-
-AI_Smart_FutureSight:
-; Greatly encourage this move if the player is
-; flying or underground, and slower than the enemy.
-
-	call AICompareSpeed
-	ret nc
-
-	ld a, [wPlayerSubStatus3]
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
-	ret z
-
-	dec [hl]
 	dec [hl]
 	ret
 

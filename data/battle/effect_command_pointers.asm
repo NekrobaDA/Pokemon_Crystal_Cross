@@ -2,6 +2,7 @@
 
 	dw 0 ; padding
 
+
 BattleCommandPointers:
 ; entries correspond to macros/scripts/battle_commands.asm
 	dw BattleCommand_CheckTurn
@@ -36,8 +37,6 @@ BattleCommandPointers:
 	dw BattleCommand_PayDay
 	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
-	dw BattleCommand_UnusedA
-	dw BattleCommand_UnusedB
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
@@ -63,7 +62,6 @@ BattleCommandPointers:
 	dw BattleCommand_Charge
 	dw BattleCommand_CheckCharge
 	dw BattleCommand_TrapTarget
-	dw BattleCommand_Unused3C
 	dw BattleCommand_Rampage
 	dw BattleCommand_CheckRampage
 	dw BattleCommand_ConstantDamage
@@ -81,8 +79,6 @@ BattleCommandPointers:
 	dw BattleCommand_FalseSwipe
 	dw BattleCommand_HealBell
 	dw BattleCommand_HeldFlinch
-	dw BattleCommand_Unused1
-	dw BattleCommand_Unused2
 	dw BattleCommand_Thief
 	dw BattleCommand_ArenaTrap
 	dw BattleCommand_Nightmare
@@ -96,7 +92,6 @@ BattleCommandPointers:
 	dw BattleCommand_Endure
 	dw BattleCommand_CheckCurl
 	dw BattleCommand_RolloutPower
-	dw BattleCommand_Unused5D
 	dw BattleCommand_FuryCutter
 	dw BattleCommand_Attract
 	dw BattleCommand_HappinessPower
@@ -139,10 +134,6 @@ BattleCommandPointers:
 	dw BattleCommand_AttackDown2
 	dw BattleCommand_DefenseDown2
 	dw BattleCommand_SpeedDown2
-	dw BattleCommand_SpecialAttackDown2
-	dw BattleCommand_SpecialDefenseDown2
-	dw BattleCommand_AccuracyDown2
-	dw BattleCommand_EvasionDown2
 	dw BattleCommand_StatUpMessage
 	dw BattleCommand_StatDownMessage
 	dw BattleCommand_StatUpFailText
@@ -158,8 +149,6 @@ BattleCommandPointers:
 	dw BattleCommand_DoubleFlyingDamage
 	dw BattleCommand_DoubleUndergroundDamage
 	dw BattleCommand_MirrorCoat
-	dw BattleCommand_CheckFutureSight
-	dw BattleCommand_FutureSight
 	dw BattleCommand_DoubleMinimizeDamage
 	dw BattleCommand_SkipSunCharge
 	dw BattleCommand_ThunderAccuracy
