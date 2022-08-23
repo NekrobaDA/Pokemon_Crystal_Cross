@@ -527,21 +527,93 @@ DetermineMoveOrder:
 	jr .weather_check
 
 .weather_check
-   ld a, [wBattleWeather]
-   cp WEATHER_SUN
-   jr nz, .speed_check 
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	jr z, .sun_speed
+   
+	cp WEATHER_RAIN
+	jp nz, .speed_check
+   
+;check rain player types 
+	ld hl, wBattleMonType1
+	ld a, [hli]
+	cp WATER
+	jr z, .calc_player_speed_rain
+.next_type_rain
+	ld a, [hl]
+	cp WATER
+	jr z, .calc_player_speed_rain
+	ld de, wBattleMonSpeed
+	jr .check_enemy_type_rain
+	
+.calc_player_speed_rain
+    ld hl, wBattleMonSpeed
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ld b, h ; Copy value into bc
+    ld c, l
+    srl b ; quarter bc
+    rr c
+	srl b
+    rr c
+    add hl, bc ; 4/4 + 1/4 = 5/4
+
+    ld a, h
+    ld [wBattleMonSunSpeed], a
+    ld a, l
+    ld [wBattleMonSunSpeed + 1], a
+   
+	ld de, wBattleMonSunSpeed
+
+.check_enemy_type_rain
+	ld hl, wEnemyMonType1
+	ld a, [hli]
+	cp WATER
+	jr z, .calc_enemy_speed_rain
+.next_enemy_type_rain
+	ld a, [hl]
+	cp WATER
+	jr z, .calc_enemy_speed_rain
+	ld hl, wEnemyMonSpeed
+	jr .speed_check_sun
+	
+.calc_enemy_speed_rain
+	ld hl, wEnemyMonSpeed
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ld b, h ; Copy value into bc
+    ld c, l
+    srl b
+    rr c
+	srl b
+    rr c
+    add hl, bc
+
+    ld a, h
+    ld [wEnemyMonSunSpeed], a
+    ld a, l
+    ld [wEnemyMonSunSpeed + 1], a
+	
+	ld hl, wEnemyMonSunSpeed
  
+	jr .speed_check_sun
+  
+.sun_speed
 ;check player types
-   ld hl, wBattleMonType1
-   ld a, [hli]
-   cp GRASS
-   jr z, .calc_player_speed
+	ld hl, wBattleMonType1
+	ld a, [hli]
+	cp GRASS
+	jr z, .calc_player_speed
 .next_type
-   ld a, [hl]
-   cp GRASS
-   jr z, .calc_player_speed
-   ld de, wBattleMonSpeed
-   jr .check_enemy_type
+	ld a, [hl]
+	cp GRASS
+	jr z, .calc_player_speed
+	ld de, wBattleMonSpeed
+	jr .check_enemy_type
 
 .calc_player_speed
     ld hl, wBattleMonSpeed
