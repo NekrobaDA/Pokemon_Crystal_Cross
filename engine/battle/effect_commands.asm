@@ -2785,13 +2785,13 @@ PlayerAttackDamage:
     add hl, bc ; 2/2 + 1/2 = 3/2
     pop bc
 
-    ; Load the new value into wBattleMonSandAttack
+    ; Load the new value into wBattleMonTempStat
     ld a, h
-    ld [wBattleMonSunSpeed], a
+    ld [wBattleMonTempStat], a
     ld a, l
-    ld [wBattleMonSunSpeed + 1], a
+    ld [wBattleMonTempStat + 1], a
 
-    ld hl, wBattleMonSunSpeed
+    ld hl, wBattleMonTempStat
 	jr .boosted
 	
 .finish
@@ -2856,13 +2856,13 @@ PlayerAttackDamage:
     add hl, bc ; 4/4 + 1/4 = 5/4
     pop bc
 
-    ; Load the new value into wBattleMonSunSpeed
+    ; Load the new value into wBattleMonTempStat
     ld a, h
-    ld [wBattleMonSunSpeed], a
+    ld [wBattleMonTempStat], a
     ld a, l
-    ld [wBattleMonSunSpeed + 1], a
+    ld [wBattleMonTempStat + 1], a
 
-    ld hl, wBattleMonSunSpeed
+    ld hl, wBattleMonTempStat
 	jr .boosted2
 	
 .finish2
@@ -3117,7 +3117,7 @@ EnemyAttackDamage:
 .sandboostenemy
 	ld hl, wEnemyMonAttack
     push bc
-    ; Load value at wBattleMonAttack into hl
+    ; Load value at wEnemyMonAttack into hl
     ld a, [hli]
     ld l, [hl]
     ld h, a
@@ -3133,13 +3133,13 @@ EnemyAttackDamage:
     add hl, bc ; 2/2 + 1/2 = 3/2
     pop bc
 
-    ; Load the new value into wBattleMonSandAttack
+    ; Load the new value into wEnemyMonTempStat
     ld a, h
-    ld [wEnemyMonSunSpeed], a
+    ld [wEnemyMonTempStat], a
     ld a, l
-    ld [wEnemyMonSunSpeed + 1], a
+    ld [wEnemyMonTempStat + 1], a
 
-    ld hl, wEnemyMonSunSpeed
+    ld hl, wEnemyMonTempStat
 	jr .boosted
  
 .finish
@@ -3204,13 +3204,13 @@ EnemyAttackDamage:
     add hl, bc ; 4/4 + 1/4 = 5/4
     pop bc
 
-    ; Load the new value into wEnemyMonSunSpeed
+    ; Load the new value into wEnemyMonTempStat
     ld a, h
-    ld [wEnemyMonSunSpeed], a
+    ld [wEnemyMonTempStat], a
     ld a, l
-    ld [wEnemyMonSunSpeed + 1], a
+    ld [wEnemyMonTempStat + 1], a
 
-    ld hl, wEnemyMonSunSpeed
+    ld hl, wEnemyMonTempStat
 	jr .boosted2
 	
 .finish2

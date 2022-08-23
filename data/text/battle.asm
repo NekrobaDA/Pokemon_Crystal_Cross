@@ -180,6 +180,12 @@ RainRestoreText:
 	line "was restored"
 	cont "by the rain."
 	prompt
+	
+BurnSoothedText:
+	text "<USER>'s"
+	line "BRN was soothed"
+	cont "by the rain."
+	prompt
 
 BattleText_EnemyMonFainted:
 	text "Enemy @"

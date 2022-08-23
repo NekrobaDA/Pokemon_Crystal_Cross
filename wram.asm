@@ -401,16 +401,10 @@ wBattleMonNick:: ds MON_NAME_LENGTH
 
 wBattleMon:: battle_struct wBattleMon
 
-wBattleMonSunSpeed:: dw
-wEnemyMonSunSpeed:: dw
-
-;wBattleMonSandAttack:: dw
-;wEnemyMonSandAttack:: dw
-
-	;ds 2
+	ds 2
 
 wWildMon:: db
-	;ds 1
+	ds 1
 
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db
@@ -426,7 +420,7 @@ wBattleParticipantsNotFainted::
 ; Bit cleared if the mon faints.
 ; Backed up if the enemy switches.
 ; All bits cleared if the enemy faints.
-	;db
+	db
 
 wTypeModifier::
 ; >10: super-effective
@@ -597,16 +591,19 @@ wEnemyReflectCount:: db
 	ds 1
 
 NEXTU
-	ds 1
+wBattleMonTempStat:: dw
+wEnemyMonTempStat:: dw
+
+	;ds 1
 wBetaPokerSGBPals:: dw
-	ds 1
+	;ds 1
 wBetaPokerSGBAttr:: db
 wBetaPokerSGBCol:: db
 wBetaPokerSGBRow:: db
-	ds 1
+	;ds 1
 ENDU
 
-	ds 1
+	;ds 1
 
 wBattleWeather::
 ; 00 normal

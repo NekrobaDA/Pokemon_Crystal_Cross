@@ -561,11 +561,11 @@ DetermineMoveOrder:
     add hl, bc ; 4/4 + 1/4 = 5/4
 
     ld a, h
-    ld [wBattleMonSunSpeed], a
+    ld [wBattleMonTempStat], a
     ld a, l
-    ld [wBattleMonSunSpeed + 1], a
+    ld [wBattleMonTempStat + 1], a
    
-	ld de, wBattleMonSunSpeed
+	ld de, wBattleMonTempStat
 
 .check_enemy_type_rain
 	ld hl, wEnemyMonType1
@@ -594,11 +594,11 @@ DetermineMoveOrder:
     add hl, bc
 
     ld a, h
-    ld [wEnemyMonSunSpeed], a
+    ld [wEnemyMonTempStat], a
     ld a, l
-    ld [wEnemyMonSunSpeed + 1], a
+    ld [wEnemyMonTempStat + 1], a
 	
-	ld hl, wEnemyMonSunSpeed
+	ld hl, wEnemyMonTempStat
  
 	jr .speed_check_sun
   
@@ -628,11 +628,11 @@ DetermineMoveOrder:
     add hl, bc ; 2/2 + 1/2 = 3/2
 
     ld a, h
-    ld [wBattleMonSunSpeed], a
+    ld [wBattleMonTempStat], a
     ld a, l
-    ld [wBattleMonSunSpeed + 1], a
+    ld [wBattleMonTempStat + 1], a
    
-	ld de, wBattleMonSunSpeed
+	ld de, wBattleMonTempStat
  
 .check_enemy_type
 	ld hl, wEnemyMonType1
@@ -659,11 +659,11 @@ DetermineMoveOrder:
     add hl, bc ; 2/2 + 1/2 = 3/2
 
     ld a, h
-    ld [wEnemyMonSunSpeed], a
+    ld [wEnemyMonTempStat], a
     ld a, l
-    ld [wEnemyMonSunSpeed + 1], a
+    ld [wEnemyMonTempStat + 1], a
 	
-	ld hl, wEnemyMonSunSpeed
+	ld hl, wEnemyMonTempStat
  
 	jr .speed_check_sun 
  
@@ -1952,7 +1952,29 @@ HandleWeather:
 	call GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
 	ret nz
+	
+	ld a, BATTLE_VARS_SUBSTATUS1
+	call GetBattleVarAddr
+	res SUBSTATUS_NIGHTMARE, [hl]
+	ld de, wEnemyMonStatus
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_status
+	ld de, wBattleMonStatus
+.got_status
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVarAddr
+	bit BRN, [hl]
+	jr nz, .continue_cure
+	jr .finish_burn
+.continue_cure
+	xor a
+	ld [hl], a
 
+	ld hl, BurnSoothedText
+	call StdBattleTextbox
+	
+.finish_burn
 	ld hl, wBattleMonType1
 	ldh a, [hBattleTurn]
 	and a
