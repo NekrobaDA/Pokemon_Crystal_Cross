@@ -186,6 +186,12 @@ BurnSoothedText:
 	line "BRN was soothed"
 	cont "by the rain."
 	prompt
+	
+ThawedText:
+	text "<USER>"
+	line "was thawed out"
+	cont "by the sun."
+	prompt
 
 BattleText_EnemyMonFainted:
 	text "Enemy @"

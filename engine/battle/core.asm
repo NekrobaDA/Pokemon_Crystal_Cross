@@ -756,11 +756,11 @@ ParsePlayerAction:
 	ld a, [wBattlePlayerAction]
 	cp BATTLEPLAYERACTION_SWITCH
 	jr z, .reset_rage
-	and a
-	jr nz, .reset_bide
-	ld a, [wPlayerSubStatus3]
-	and 1 << SUBSTATUS_BIDE
-	jr nz, .locked_in
+	;and a
+	;jr nz, .reset_bide
+	;ld a, [wPlayerSubStatus3]
+	;and 1 << SUBSTATUS_BIDE
+	;jr nz, .locked_in
 	xor a
 	ld [wMoveSelectionMenuType], a
 	inc a ; POUND
@@ -810,9 +810,9 @@ ParsePlayerAction:
 	ld [wPlayerProtectCount], a
 	jr .continue_protect
 
-.reset_bide
-	ld hl, wPlayerSubStatus3
-	res SUBSTATUS_BIDE, [hl]
+;.reset_bide
+	;ld hl, wPlayerSubStatus3
+	;res SUBSTATUS_BIDE, [hl]
 
 .locked_in
 	xor a
@@ -1930,7 +1930,8 @@ HandleWeather:
 .check_rain
 	ld a, [wBattleWeather]
 	cp WEATHER_RAIN
-	ret nz
+	;ret nz
+	jp nz, .check_sun
 	
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
@@ -1953,6 +1954,7 @@ HandleWeather:
 	bit SUBSTATUS_UNDERGROUND, a
 	ret nz
 	
+	;start burn heal
 	ld a, BATTLE_VARS_SUBSTATUS1
 	call GetBattleVarAddr
 	res SUBSTATUS_NIGHTMARE, [hl]
@@ -2019,6 +2021,55 @@ HandleWeather:
 	ld hl, RainRestoreText
 	jp StdBattleTextbox
 	
+.check_sun
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	ret nz
+	
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .enemy_first_sun
+	
+; player first
+	call SetPlayerTurn
+	call .SunHeal
+	call SetEnemyTurn
+	jr .SunHeal
+
+.enemy_first_sun
+	call SetEnemyTurn
+	call .SunHeal
+	call SetPlayerTurn
+	
+.SunHeal:
+	ld a, BATTLE_VARS_SUBSTATUS3
+	call GetBattleVar
+	bit SUBSTATUS_UNDERGROUND, a
+	ret nz
+	
+	;start burn heal
+	ld a, BATTLE_VARS_SUBSTATUS1
+	call GetBattleVarAddr
+	res SUBSTATUS_NIGHTMARE, [hl]
+	ld de, wEnemyMonStatus
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_status2
+	ld de, wBattleMonStatus
+.got_status2
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVarAddr
+	bit FRZ, [hl]
+	jr nz, .continue_cure2
+	jr .finish_thaw
+.continue_cure2
+	xor a
+	ld [hl], a
+
+	ld hl, ThawedText
+	jp StdBattleTextbox
+.finish_thaw	
+	ret
 
 .PrintWeatherMessage:
 	ld a, [wBattleWeather]
@@ -6081,7 +6132,7 @@ ParseEnemyAction:
 	bit SUBSTATUS_ROLLOUT, a
 	jp nz, .skip_load
 	ld a, [wEnemySubStatus3]
-	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	jp nz, .skip_load
 
 	ld hl, wEnemySubStatus5
@@ -6220,7 +6271,7 @@ CheckEnemyLockedIn:
 
 	ld hl, wEnemySubStatus3
 	ld a, [hl]
-	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	ret nz
 
 	ld hl, wEnemySubStatus1
