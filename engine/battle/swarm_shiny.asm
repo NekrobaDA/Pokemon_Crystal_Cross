@@ -11,9 +11,9 @@ GenerateSwarmShiny:
 	cp LANDMARK_ROUTE_37
 	jr z, .vulpix
 	cp LANDMARK_KINDLE_ROAD
-	jr z, .ponyta
+	jp z, .ponyta
 	cp LANDMARK_ROUTE_39
-	jr z, .mareep
+	jp z, .mareep
 	cp LANDMARK_ROUTE_41
 	jp z, .horsea
 	cp LANDMARK_ROUTE_45
@@ -56,6 +56,10 @@ GenerateSwarmShiny:
 	jp .rollshiny
 	
 .yanma
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr nz, .murkrow
+
 	ld a, [wCurPartySpecies]
 	call GetPokemonIndexFromID
 	ld a, l
@@ -69,6 +73,25 @@ GenerateSwarmShiny:
 		else
 			ld a, h
 			cp HIGH(YANMA)
+		endc
+	endc
+	jp nz, .skipshine
+	jp .rollshiny
+	
+.murkrow
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld a, l
+	sub LOW(MURKROW)
+	if HIGH(MURKROW) == 0
+		or h
+	else
+		jr nz, .skipshine
+		if HIGH(MURKROW) == 1
+			dec h
+		else
+			ld a, h
+			cp HIGH(MURKROW)
 		endc
 	endc
 	jp nz, .skipshine

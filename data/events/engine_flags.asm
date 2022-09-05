@@ -219,6 +219,5 @@ EngineFlags:
 
 	engine_flag wPlayerSpriteSetupFlags, PLAYERSPRITESETUP_FEMALE_TO_MALE_F
 
-	engine_flag wSwarmFlags, SWARMFLAGS_DUNSPARCE_SWARM_F
+	engine_flag wSwarmFlags, SWARMFLAGS_ALT_SWARM_F
 	engine_flag wSwarmFlags, SWARMFLAGS_YANMA_SWARM_F
-	engine_flag wSwarmFlags, SWARMFLAGS_VULPIX_SWARM_F

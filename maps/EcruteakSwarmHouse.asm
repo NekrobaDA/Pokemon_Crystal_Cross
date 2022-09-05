@@ -12,9 +12,9 @@ EcruteakSwarmHouseGrampsScript:
 	opentext
 	checkflag ENGINE_SWARM
 	iftrue .skiprandomswarm
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .extraswarms
-	random 7
+	;checkevent EVENT_BEAT_ELITE_FOUR
+	;iftrue .extraswarms
+	random 8
 	ifequal 0, .dunsparce
 	ifequal 1, .yanma
 	ifequal 2, .vulpix
@@ -22,6 +22,7 @@ EcruteakSwarmHouseGrampsScript:
 	ifequal 4, .stantler
 	ifequal 5, .slugma
 	ifequal 6, .marill
+	ifequal 7, .murkrow
 	
 .extraswarms
 	random 15
@@ -45,6 +46,15 @@ EcruteakSwarmHouseGrampsScript:
 	setflag ENGINE_SWARM
 	swarm DARK_CAVE_VIOLET_ENTRANCE
 	writetext SwarmDunsparceText
+	waitbutton
+	closetext
+	end
+
+.murkrow
+	setflag ENGINE_ALT_SWARM
+	setflag ENGINE_SWARM
+	swarm ROUTE_35
+	writetext SwarmMurkrowText
 	waitbutton
 	closetext
 	end
@@ -202,6 +212,16 @@ SwarmYanmaText:
 	cont "on ROUTE 35."
 	done
 	
+SwarmMurkrowText:
+	text "Let me see…"
+	line "What did the news"
+	cont "say?"
+
+	para "Oh yes! There's a"
+	line "swarm of MURKROW"
+	cont "on ROUTE 35."
+	done
+	
 SwarmVulpixText:
 	text "Let me see…"
 	line "What did the news"
@@ -318,7 +338,7 @@ SwarmButterfreeText:
 	cont "say?"
 
 	para "Oh yes! There's a"
-	line "swarm of BUTTERFREE"
+	line "swarm o'BUTTERFREE"
 	cont "at BERRY FOREST."
 	done
 
