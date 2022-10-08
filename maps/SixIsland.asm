@@ -124,7 +124,8 @@ SixIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	;warp_event 19,  15, NEW_BARK_TOWN, 4
+	warp_event 13,  9, SIX_ISLAND_POKECENTER_1F, 1
+	warp_event 21,  9, SIX_ISLAND_MART, 1
 
 	def_coord_events
 

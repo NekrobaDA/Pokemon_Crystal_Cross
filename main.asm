@@ -721,8 +721,8 @@ INCLUDE "mobile/news/news.asm"
 
 SECTION "Crystal Events", ROMX
 
-INCLUDE "engine/events/battle_tower/load_trainer.asm"
 INCLUDE "engine/events/odd_egg.asm"
+INCLUDE "engine/events/battle_tower/load_trainer.asm"
 
 
 SECTION "Link", ROMX
@@ -738,6 +738,12 @@ INCLUDE "engine/16/table_functions.asm"
 ; own section
 INCLUDE "data/trainers/parties.asm"
 INCLUDE "engine/battle/swarm_shiny.asm"
+
+
+SECTION "ETC", ROMX
+
+INCLUDE "engine/events/egg_move_egg.asm"
+
 
 SECTION "Color", ROMX
 

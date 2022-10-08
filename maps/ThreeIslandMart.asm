@@ -23,8 +23,8 @@ ThreeIslandMart_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  7, CATALLIA_TOWN, 2
-	warp_event  3,  7, CATALLIA_TOWN, 2
+	warp_event  2,  7, THREE_ISLAND, 2
+	warp_event  3,  7, THREE_ISLAND, 2
 
 	def_coord_events
 

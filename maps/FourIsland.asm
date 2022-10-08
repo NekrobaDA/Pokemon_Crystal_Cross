@@ -16,6 +16,95 @@ FourIsland_MapScripts:
 .DummyScene0:
 	end
 	
+
+EggManScript:
+	faceplayer
+	opentext	
+	checkflag ENGINE_YANMA_SWARM
+	iftrue .AlreadyGotEggToday
+	writetext EggManText_GiveOddEgg
+	promptbutton
+	closetext
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	special GiveEggMoveEgg
+	opentext
+	writetext EggManText_GotOddEgg
+	playsound SFX_KEY_ITEM
+	waitsfx
+	writetext EggManText_DescribeOddEgg
+	waitbutton
+	closetext
+	setflag ENGINE_YANMA_SWARM
+	end
+
+.PartyFull:
+	opentext
+	writetext EggManText_PartyFull
+	waitbutton
+	closetext
+	end
+	
+.AlreadyGotEggToday:
+	writetext EggManText_ComeAgain
+	waitbutton
+	closetext
+	end
+	
+EggManText_ComeAgain:
+	text "Come again."
+	done
+	
+EggManText_GotOddEgg:
+	text "<PLAYER> received"
+	line "ODD EGG!"
+	done
+
+EggManText_DescribeOddEgg:
+	text "I found that when"
+	line "I was caring for"
+
+	para "someone's #MON"
+	line "before."
+
+	para "But the trainer"
+	line "didn't want the"
+
+	para "EGG, so I'd kept"
+	line "it around."
+	done
+
+EggManText_PartyFull:
+	text "You've no room for"
+	line "this."
+	done
+	
+EggManText_GiveOddEgg:
+	text "I'm the DAY-CARE"
+	line "MAN."
+
+	para "Do you know about"
+	line "EGGS?"
+
+	para "I was raising"
+	line "#MON with my"
+	cont "wife, you see."
+
+	para "We were shocked to"
+	line "find an EGG!"
+
+	para "How incredible is"
+	line "that?"
+
+	para "Well, wouldn't you"
+	line "like this EGG?"
+
+	para "Then fine, this is"
+	line "yours to keep!"
+	done	
+	
+	
+	
 FourIslandPortScript:
 	opentext
 	writetext AskIfSailing4I
@@ -130,7 +219,8 @@ FourIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 17, NEW_BARK_TOWN, 4
+	warp_event 17, 17, FOUR_ISLAND_POKECENTER_1F, 1
+	warp_event 23, 23, FOUR_ISLAND_MART, 1
 
 	def_coord_events
 
@@ -140,3 +230,4 @@ FourIsland_MapEvents:
 	object_event  7, 33, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FourIslandPortScript, -1
 	object_event  4, 11, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FourIslandRock, -1
 	object_event  5, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FourIslandRock, -1
+	object_event 20, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EggManScript, -1

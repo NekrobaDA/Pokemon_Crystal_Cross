@@ -70,24 +70,15 @@ NewBarkTown_TeacherStopsYouScene2:
 	end
 
 NewBarkTownTeacherScript:
-	;faceplayer
-	;opentext
-	;checkevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
-	;iftrue .CallMom
-	;checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	;iftrue .TellMomYoureLeaving
-	;checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	;iftrue .MonIsAdorable
-	;writetext Text_GearIsImpressive
-	;waitbutton
-	;closetext
-	;end
-	
 	faceplayer
 	opentext
-	setflag ENGINE_SWARM
-	swarm BERRY_FOREST
-	writetext SwarmActiveText
+	checkevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
+	iftrue .CallMom
+	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	iftrue .TellMomYoureLeaving
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue .MonIsAdorable
+	writetext Text_GearIsImpressive
 	waitbutton
 	closetext
 	end
@@ -111,15 +102,7 @@ NewBarkTownTeacherScript:
 	end
 
 NewBarkTownFisherScript:
-	;jumptextfaceplayer Text_ElmDiscoveredNewMon
-	faceplayer
-	opentext
-	setflag ENGINE_SWARM
-	swarm SEVAULT_CANYON
-	writetext SwarmActiveText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer Text_ElmDiscoveredNewMon
 
 NewBarkTownSilverScript:
 	opentext
@@ -295,10 +278,6 @@ NewBarkTownElmsLabSignText:
 NewBarkTownElmsHouseSignText:
 	text "ELM'S HOUSE"
 	done
-	
-SwarmActiveText:
-	text "swarm active"
-	done
 
 NewBarkTown_MapEvents:
 	db 0, 0 ; filler
@@ -306,10 +285,8 @@ NewBarkTown_MapEvents:
 	def_warp_events
 	warp_event  6,  3, ELMS_LAB, 1
 	warp_event 11, 13, PLAYERS_HOUSE_1F, 1
-	warp_event  3, 11, ONE_ISLAND, 1
-	warp_event 13,  5, DIVE_TEST, 1
-	;warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
-	;warp_event 13,  5, ELMS_HOUSE, 1
+	warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
+	warp_event 13,  5, ELMS_HOUSE, 1
 
 	def_coord_events
 	coord_event  1,  8, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene1

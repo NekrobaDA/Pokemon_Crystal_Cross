@@ -13,8 +13,8 @@ SevenIslandPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  7, CATALLIA_TOWN, 1
-	warp_event  4,  7, CATALLIA_TOWN, 1
+	warp_event  3,  7, SEVEN_ISLAND,  2
+	warp_event  4,  7, SEVEN_ISLAND,  2
 	warp_event  0,  7, POKECENTER_2F, 1
 
 	def_coord_events

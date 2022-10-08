@@ -123,7 +123,7 @@ OneIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 9,  10, NEW_BARK_TOWN, 3
+	warp_event 14,  5, ONE_ISLAND_POKECENTER_1F, 1
 
 	def_coord_events
 

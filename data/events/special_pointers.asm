@@ -122,6 +122,7 @@ SpecialsPointers::
 	add_special PrintDiploma
 	add_special InitRoamMonsKanto
 	add_special MoveRelearner
+	add_special GiveEggMoveEgg
 
 ; Crystal only
 	add_special Function11ac3e

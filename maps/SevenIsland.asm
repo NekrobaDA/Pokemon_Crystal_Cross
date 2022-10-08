@@ -124,10 +124,13 @@ SevenIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event 11,  3, ROUTE_40_BATTLE_TOWER_GATE, 1
+	warp_event 13,  9, SEVEN_ISLAND_POKECENTER_1F, 1
+	warp_event  7, 15, SEVEN_ISLAND_MART, 1
 
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event  19, 21, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SevenIslandPortScript, -1
+	object_event 19, 25, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SevenIslandPortScript, -1

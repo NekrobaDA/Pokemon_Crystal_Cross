@@ -125,6 +125,8 @@ ThreeIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event 15, 25, THREE_ISLAND_POKECENTER_1F, 1
+	warp_event 17, 11, THREE_ISLAND_MART, 1
 
 	def_coord_events
 
