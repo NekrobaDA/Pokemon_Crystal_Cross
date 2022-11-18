@@ -557,7 +557,7 @@ ENDM
 	
 	newgroup
 	
-	map_const FOUR_ISLAND,                                 26, 20
+	map_const FOUR_ISLAND,                                 26, 21
 	map_const FOUR_ISLAND_MART,                             6,  4 ;  1
 	map_const FOUR_ISLAND_POKECENTER_1F,                    5,  4 ;  1
 	map_const ICEFALL_CAVE,                                 1,  1

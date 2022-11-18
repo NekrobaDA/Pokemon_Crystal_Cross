@@ -56,7 +56,7 @@ GiveEggMoveEgg:
 	call Random
 
 	call GetWeekday
-    cp 0
+	cp 0
 	jr z, .sundayprob
 	cp 1
 	jr z, .mondayprob
@@ -134,7 +134,7 @@ GiveEggMoveEgg:
 
 	; Loads the actual species and overwrites the zero in wOddEggSpecies
 	call GetWeekday
-    cp 0
+	cp 0
 	jr z, .sundayspecies
 	cp 1
 	jr z, .mondayspecies
@@ -185,7 +185,7 @@ GiveEggMoveEgg:
 	ld [wOddEggSpecies], a
 	
 	call GetWeekday
-    cp 0
+	cp 0
 	jr z, .sundayegg
 	cp 1
 	jr z, .mondayegg

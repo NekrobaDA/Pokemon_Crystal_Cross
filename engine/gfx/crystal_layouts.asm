@@ -113,8 +113,15 @@ Palette_MysteryGiftMobile:
 INCLUDE "gfx/mystery_gift/mg_mobile.pal"
 
 LoadOW_BGPal7::
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	jr z, .nightpal
 	ld hl, Palette_TextBG7
-	ld de, wBGPals1 palette PAL_BG_TEXT
+	jr .next
+.nightpal
+	ld hl, Palette_TextBG7Night
+.next
+	ld de, wBGPals1 palette PAL_BG_GRAY
 	ld bc, 1 palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
@@ -122,6 +129,9 @@ LoadOW_BGPal7::
 
 Palette_TextBG7:
 INCLUDE "gfx/font/bg_text.pal"
+
+Palette_TextBG7Night:
+INCLUDE "gfx/font/bg_textnight.pal"
 
 Function49420::
 	ld hl, MansionPalette1 + 8 palettes

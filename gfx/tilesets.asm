@@ -533,3 +533,29 @@ INCLUDE "data/tilesets/underwater_collision.asm"
 
 TilesetUnderwaterAttr::
 INCBIN "data/tilesets/underwater_attributes.bin"
+
+SECTION "Tileset Data 16", ROMX
+
+TilesetSeviiFourGFX::
+INCBIN "gfx/tilesets/sevii_four.2bpp.lz"
+
+TilesetSeviiFourMeta::
+INCBIN "data/tilesets/sevii_four_metatiles.bin"
+
+TilesetSeviiFourColl::
+INCLUDE "data/tilesets/sevii_four_collision.asm"
+
+TilesetSeviiFourAttr::
+INCBIN "data/tilesets/sevii_four_attributes.bin"
+
+TilesetSeviiThreeGFX::
+INCBIN "gfx/tilesets/sevii_three.2bpp.lz"
+
+TilesetSeviiThreeMeta::
+INCBIN "data/tilesets/sevii_three_metatiles.bin"
+
+TilesetSeviiThreeColl::
+INCLUDE "data/tilesets/sevii_three_collision.asm"
+
+TilesetSeviiThreeAttr::
+INCBIN "data/tilesets/sevii_three_attributes.bin"
