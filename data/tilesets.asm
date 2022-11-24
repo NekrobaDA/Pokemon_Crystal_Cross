@@ -57,4 +57,5 @@ Tilesets::
 	tileset TilesetUnderwater
 	tileset TilesetSeviiFour
 	tileset TilesetSeviiThree
+	tileset TilesetSeviiTwo
 	

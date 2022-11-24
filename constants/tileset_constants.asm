@@ -44,6 +44,7 @@
 	const TILESET_UNDERWATER
 	const TILESET_SEVII_FOUR
 	const TILESET_SEVII_THREE
+	const TILESET_SEVII_TWO
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)

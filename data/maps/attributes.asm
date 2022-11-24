@@ -395,10 +395,10 @@ ENDM
 	map_attributes CapeBrink, CAPE_BRINK, $05, SOUTH
 	connection south, TwoIsland, TWO_ISLAND, -14
 	
-	map_attributes ThreeIsland, THREE_ISLAND, $05, WEST
+	map_attributes ThreeIsland, THREE_ISLAND, $24, WEST
 	connection west, BondBridge, BOND_BRIDGE, -3
 	
-	map_attributes BondBridge, BOND_BRIDGE, $35, EAST
+	map_attributes BondBridge, BOND_BRIDGE, $82, EAST
 	connection east, ThreeIsland, THREE_ISLAND, 3
 	
 	map_attributes FiveIsland, FIVE_ISLAND, $35, EAST

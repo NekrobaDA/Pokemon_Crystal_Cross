@@ -548,6 +548,8 @@ INCLUDE "data/tilesets/sevii_four_collision.asm"
 TilesetSeviiFourAttr::
 INCBIN "data/tilesets/sevii_four_attributes.bin"
 
+SECTION "Tileset Data 17", ROMX
+
 TilesetSeviiThreeGFX::
 INCBIN "gfx/tilesets/sevii_three.2bpp.lz"
 
@@ -559,3 +561,17 @@ INCLUDE "data/tilesets/sevii_three_collision.asm"
 
 TilesetSeviiThreeAttr::
 INCBIN "data/tilesets/sevii_three_attributes.bin"
+
+SECTION "Tileset Data 18", ROMX
+
+TilesetSeviiTwoGFX::
+INCBIN "gfx/tilesets/sevii_two.2bpp.lz"
+
+TilesetSeviiTwoMeta::
+INCBIN "data/tilesets/sevii_two_metatiles.bin"
+
+TilesetSeviiTwoColl::
+INCLUDE "data/tilesets/sevii_two_collision.asm"
+
+TilesetSeviiTwoAttr::
+INCBIN "data/tilesets/sevii_two_attributes.bin"

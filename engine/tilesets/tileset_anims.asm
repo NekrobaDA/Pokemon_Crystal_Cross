@@ -1136,6 +1136,7 @@ SeaweedTileFrames:
 	INCBIN "gfx/tilesets/seaweed/1.2bpp"
 	INCBIN "gfx/tilesets/seaweed/2.2bpp"
 
+TilesetSeviiTwoAnim:
 TilesetSeviiThreeAnim:	
 TilesetSeviiFourAnim:
 	dw vTiles2 tile $14, AnimateWaterTile

@@ -549,7 +549,7 @@ ENDM
 	
 	newgroup
 	
-	map_const THREE_ISLAND,                                12, 29
+	map_const THREE_ISLAND,                                14, 29
 	map_const THREE_ISLAND_MART,                            6,  4 ;  1
 	map_const THREE_ISLAND_POKECENTER_1F,                   5,  4 ;  1
 	map_const BOND_BRIDGE,                                 46, 12
