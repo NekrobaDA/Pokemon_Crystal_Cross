@@ -383,10 +383,10 @@ ENDM
 	connection west, Route30, ROUTE_30, -1
 	connection east, Route47, ROUTE_47, 6
 	
-	map_attributes OneIsland, ONE_ISLAND, $35, EAST
+	map_attributes OneIsland, ONE_ISLAND, $82, EAST
 	connection east, KindleRoad, KINDLE_ROAD, -45
 	
-	map_attributes KindleRoad, KINDLE_ROAD, $05, WEST
+	map_attributes KindleRoad, KINDLE_ROAD, $82, WEST
 	connection west, OneIsland, ONE_ISLAND, 45
 	
 	map_attributes TwoIsland, TWO_ISLAND, $05, NORTH
@@ -401,10 +401,10 @@ ENDM
 	map_attributes BondBridge, BOND_BRIDGE, $82, EAST
 	connection east, ThreeIsland, THREE_ISLAND, 3
 	
-	map_attributes FiveIsland, FIVE_ISLAND, $35, EAST
+	map_attributes FiveIsland, FIVE_ISLAND, $82, EAST
 	connection east, FiveIsleMeadow, FIVE_ISLE_MEADOW, 0
 	
-	map_attributes FiveIsleMeadow, FIVE_ISLE_MEADOW, $35, WEST
+	map_attributes FiveIsleMeadow, FIVE_ISLE_MEADOW, $82, WEST
 	connection west, FiveIsland, FIVE_ISLAND, 0
 	
 	map_attributes SixIsland, SIX_ISLAND, $35, EAST

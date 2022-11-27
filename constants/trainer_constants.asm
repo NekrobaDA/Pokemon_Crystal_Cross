@@ -252,6 +252,7 @@ KRIS EQU __trainer_class__
 	const REENA2
 	const REENA3
 	const CARA
+	const MAYA
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA

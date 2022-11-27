@@ -1136,6 +1136,8 @@ SeaweedTileFrames:
 	INCBIN "gfx/tilesets/seaweed/1.2bpp"
 	INCBIN "gfx/tilesets/seaweed/2.2bpp"
 
+TilesetSeviiFiveAnim:
+TilesetSeviiOneAnim:
 TilesetSeviiTwoAnim:
 TilesetSeviiThreeAnim:	
 TilesetSeviiFourAnim:
