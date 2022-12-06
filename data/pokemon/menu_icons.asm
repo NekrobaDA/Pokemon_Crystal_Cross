@@ -1,5 +1,10 @@
 ; party menu icons
 
+	db ICON_EGG
+	db ICON_EGG
+	db ICON_EGG
+	db ICON_EGG
+
 MonMenuIcons:
 	db ICON_BULBASAUR    
 	db ICON_IVYSAUR      
@@ -298,5 +303,4 @@ MonMenuIcons:
 	db ICON_TYPHLOSION
 	db ICON_ARTICUNO     
 	db ICON_ZAPDOS       
-	db ICON_MOLTRES
-	db ICON_EGG          
+	db ICON_MOLTRES	

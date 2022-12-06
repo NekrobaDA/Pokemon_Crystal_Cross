@@ -80,12 +80,13 @@ CharmanderEvosAttacks:
 	db 1, GROWL
 	db 7, EMBER
 	db 10, SMOKESCREEN
-	db 16, METAL_CLAW
-	db 19, SCARY_FACE
-	db 25, DRAGONBREATH
-	db 31, FLAMETHROWER
-	db 37, SLASH
-	db 40, DRAGON_RAGE
+	db 15, METAL_CLAW
+	db 19, FIRE_FANG
+	db 25, DRAGON_RAGE
+	db 28, SCARY_FACE
+	db 34, SLASH
+	db 37, DRAGONBREATH
+	db 40, FLAMETHROWER
 	db 45, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -96,12 +97,13 @@ CharmeleonEvosAttacks:
 	db 1, GROWL
 	db 7, EMBER
 	db 10, SMOKESCREEN
-	db 16, METAL_CLAW
-	db 21, SCARY_FACE
-	db 27, DRAGONBREATH
-	db 34, FLAMETHROWER
-	db 39, SLASH
-	db 46, DRAGON_RAGE
+	db 15, METAL_CLAW
+	db 21, FIRE_FANG
+	db 25, DRAGON_RAGE
+	db 29, SCARY_FACE
+	db 37, SLASH
+	db 43, DRAGONBREATH
+	db 46, FLAMETHROWER
 	db 50, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -113,12 +115,13 @@ CharizardEvosAttacks:
 	db 1, GROWL
 	db 7, EMBER
 	db 10, SMOKESCREEN
-	db 16, METAL_CLAW
-	db 21, SCARY_FACE
-	db 27, DRAGONBREATH
-	db 34, FLAMETHROWER
-	db 42, SLASH
-	db 50, DRAGON_RAGE
+	db 15, METAL_CLAW
+	db 21, FIRE_FANG
+	db 25, DRAGON_RAGE
+	db 29, SCARY_FACE
+	db 38, SLASH
+	db 46, DRAGONBREATH
+	db 50, FLAMETHROWER
 	db 55, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -359,6 +362,7 @@ EkansEvosAttacks:
 
 ArbokEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FIRE_FANG
 	db 1, ICE_FANG
 	db 1, SCARY_FACE
 	db 1, WRAP
@@ -958,7 +962,8 @@ GrowlitheEvosAttacks:
 	db 9, BITE
 	db 14, FORESIGHT
 	db 19, FLAME_WHEEL
-	db 25, REVERSAL
+	db 23, REVERSAL
+	db 28, FIRE_FANG
 	db 34, TAKE_DOWN
 	db 39, FLAMETHROWER
 	db 42, AGILITY
@@ -972,8 +977,9 @@ ArcanineEvosAttacks:
 	db 1, LEER
 	db 7, ROAR
 	db 13, BITE
-	db 21, FLAME_WHEEL
-	db 34, REVERSAL
+	db 23, FLAME_WHEEL
+	db 32, REVERSAL
+	db 38, FIRE_FANG
 	db 42, TAKE_DOWN
 	db 50, FLAMETHROWER
 	db 54, AGILITY
@@ -985,9 +991,9 @@ PoliwagEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 5, HYPNOSIS
-	db 10, POUND
-	db 15, WATER_GUN
-	db 18, RAIN_DANCE
+	db 9, POUND
+	db 13, WATER_GUN
+	db 17, RAIN_DANCE
 	db 21, SLAM
 	db 25, BUBBLEBEAM
 	db 31, MUD_SHOT
@@ -1002,9 +1008,9 @@ PoliwhirlEvosAttacks:
 	db 1, POWERUPPUNCH
 	db 1, BUBBLE
 	db 5, HYPNOSIS
-	db 10, POUND
-	db 15, WATER_GUN
-	db 18, RAIN_DANCE
+	db 9, POUND
+	db 13, WATER_GUN
+	db 17, RAIN_DANCE
 	db 21, SLAM
 	db 24, BUBBLEBEAM
 	db 35, MUD_SHOT
@@ -1018,9 +1024,9 @@ PoliwrathEvosAttacks:
 	db 1, POWERUPPUNCH
 	db 1, BUBBLE
 	db 5, HYPNOSIS
-	db 10, POUND
-	db 15, WATER_GUN
-	db 18, RAIN_DANCE
+	db 9, POUND
+	db 13, WATER_GUN
+	db 17, RAIN_DANCE
 	db 21, SLAM
 	db 25, BUBBLEBEAM
 	db 35, COUNTER
@@ -1035,9 +1041,9 @@ PolitoedEvosAttacks:
 	db 1, POWERUPPUNCH
 	db 1, BUBBLE
 	db 5, HYPNOSIS
-	db 10, POUND
-	db 15, WATER_GUN
-	db 18, RAIN_DANCE
+	db 9, POUND
+	db 13, WATER_GUN
+	db 17, RAIN_DANCE
 	db 21, SLAM
 	db 25, BUBBLEBEAM
 	db 35, SWAGGER
@@ -1617,6 +1623,7 @@ OnixEvosAttacks:
 	
 SteelixEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FIRE_FANG
 	db 1, ICE_FANG
 	db 1, SPIKES
 	db 1, CRUNCH
@@ -2331,6 +2338,8 @@ EeveeEvosAttacks:
 	dbbw EVOLVE_ITEM, ICE_STONE, GLACEON
 	dbbw EVOLVE_ITEM, SHINY_STONE, SYLVEON
 	dbbw EVOLVE_ITEM, TRISTONE, CHIMEREON
+	dbbw EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
+	dbbw EVOLVE_HAPPINESS, TR_EVENITE, UMBREON
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, TAIL_WHIP
@@ -2353,11 +2362,12 @@ VaporeonEvosAttacks:
 	db 1, TAIL_WHIP
 	db 5, SAND_ATTACK
 	db 9, WATER_GUN
-	db 15, BITE
-	db 19, MIST
-	db 25, AURORA_BEAM
+	db 13, BITE
+	db 17, MIST
+	db 20, ICE_FANG
+	db 25, ACID_ARMOR
 	db 32, WATER_PULSE
-	db 36, ACID_ARMOR
+	db 36, AURORA_BEAM
 	db 45, HAZE
 	db 49, HYDRO_PUMP
 	db 55, RECOVER
@@ -2370,11 +2380,12 @@ JolteonEvosAttacks:
 	db 1, TAIL_WHIP
 	db 5, SAND_ATTACK
 	db 9, THUNDERSHOCK
-	db 15, QUICK_ATTACK
-	db 19, DOUBLE_KICK
-	db 25, PIN_MISSILE
-	db 32, SPARK
-	db 36, THUNDER_WAVE
+	db 13, QUICK_ATTACK
+	db 17, DOUBLE_KICK
+	db 20, SPARK
+	db 25, THUNDER_WAVE
+	db 32, CHARGE_BEAM
+	db 36, PIN_MISSILE
 	db 45, AGILITY
 	db 49, THUNDER
 	db 55, EXTREMESPEED
@@ -2387,9 +2398,10 @@ FlareonEvosAttacks:
 	db 1, TAIL_WHIP
 	db 5, SAND_ATTACK
 	db 9, EMBER
-	db 15, BITE
-	db 19, HOWL
-	db 25, SMOG
+	db 13, BITE
+	db 17, SMOG
+	db 20, FIRE_FANG
+	db 25, HOWL
 	db 32, FLAME_WHEEL
 	db 36, FIRE_SPIN
 	db 45, SWAGGER
@@ -2503,9 +2515,8 @@ ChimereonEvosAttacks:
 PorygonEvosAttacks:
 	dbbw EVOLVE_ITEM, UP_GRADE, PORYGON2
 	db 0 ; no more evolutions
-	db 1, CONVERSION2
 	db 1, TACKLE
-	db 1, CONVERSION
+	db 1, CONVERSION2
 	db 9, AGILITY
 	db 12, PSYBEAM
 	db 17, SHARPEN
@@ -2519,9 +2530,8 @@ PorygonEvosAttacks:
 Porygon2EvosAttacks:
 	dbbw EVOLVE_ITEM, UP_GRADE, PORYGON_Z
 	db 0 ; no more evolutions
-	db 1, CONVERSION2
 	db 1, TACKLE
-	db 1, CONVERSION
+	db 1, CONVERSION2
 	db 9, AGILITY
 	db 12, PSYBEAM
 	db 17, DEFENSE_CURL
@@ -2535,9 +2545,8 @@ Porygon2EvosAttacks:
 	
 PorygonZEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONVERSION2
 	db 1, TACKLE
-	db 1, CONVERSION
+	db 1, CONVERSION2
 	db 9, AGILITY
 	db 12, PSYBEAM
 	db 24, DOUBLE_TEAM
@@ -2625,6 +2634,7 @@ KabutopsEvosAttacks:
 
 AerodactylEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FIRE_FANG
 	db 1, ICE_FANG
 	db 1, BITE
 	db 1, LEER
@@ -4120,13 +4130,14 @@ HoundourEvosAttacks:
 	db 4, HOWL
 	db 8, SMOG
 	db 12, BITE
-	db 17, ROAR
+	db 15, ROAR
 	db 21, BEAT_UP
-	db 24, SNARL
-	db 27, FIRE_SPIN
-	db 32, FAINT_ATTACK
-	db 39, FLAMETHROWER
-	db 44, CRUNCH
+	db 25, FIRE_FANG
+	db 28, SNARL
+	db 31, FIRE_SPIN
+	db 36, FAINT_ATTACK
+	db 42, FLAMETHROWER
+	db 49, CRUNCH
 	db 0 ; no more level-up moves
 
 HoundoomEvosAttacks:
@@ -4137,11 +4148,12 @@ HoundoomEvosAttacks:
 	db 4, HOWL
 	db 8, SMOG
 	db 12, BITE
-	db 17, ROAR
+	db 15, ROAR
 	db 21, BEAT_UP
-	db 23, SNARL
-	db 29, FIRE_SPIN
-	db 36, FAINT_ATTACK
+	db 27, FIRE_FANG
+	db 30, SNARL
+	db 34, FIRE_SPIN
+	db 39, FAINT_ATTACK
 	db 45, FLAMETHROWER
 	db 52, CRUNCH
 	db 0 ; no more level-up moves
@@ -4162,6 +4174,7 @@ PhanpyEvosAttacks:
 
 DonphanEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FIRE_FANG
 	db 1, RAPID_SPIN
 	db 1, TACKLE
 	db 1, GROWL
@@ -4273,7 +4286,7 @@ EnteiEvosAttacks:
 	db 4, EMBER
 	db 9, HOWL
 	db 13, STOMP
-	db 19, FIRE_SPIN
+	db 19, FIRE_FANG
 	db 25, SCARY_FACE
 	db 32, CRUNCH
 	db 36, SWAGGER
@@ -4337,6 +4350,7 @@ PupitarEvosAttacks:
 
 TyranitarEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FIRE_FANG
 	db 1, HYPER_BEAM
 	db 1, HARDEN
 	db 1, BITE
@@ -4550,12 +4564,13 @@ Charmander_CloneEvosAttacks:
 	db 1, GROWL
 	db 7, EMBER
 	db 10, SMOKESCREEN
-	db 16, METAL_CLAW
-	db 19, SCARY_FACE
-	db 25, DRAGONBREATH
-	db 31, FLAMETHROWER
-	db 37, SLASH
-	db 40, DRAGON_RAGE
+	db 15, METAL_CLAW
+	db 19, FIRE_FANG
+	db 25, DRAGON_RAGE
+	db 28, SCARY_FACE
+	db 34, SLASH
+	db 37, DRAGONBREATH
+	db 40, FLAMETHROWER
 	db 45, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -4566,12 +4581,13 @@ Charmeleon_CloneEvosAttacks:
 	db 1, GROWL
 	db 7, EMBER
 	db 10, SMOKESCREEN
-	db 16, METAL_CLAW
-	db 21, SCARY_FACE
-	db 27, DRAGONBREATH
-	db 34, FLAMETHROWER
-	db 39, SLASH
-	db 46, DRAGON_RAGE
+	db 15, METAL_CLAW
+	db 21, FIRE_FANG
+	db 25, DRAGON_RAGE
+	db 29, SCARY_FACE
+	db 37, SLASH
+	db 43, DRAGONBREATH
+	db 46, FLAMETHROWER
 	db 50, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -4583,12 +4599,13 @@ Charizard_CloneEvosAttacks:
 	db 1, GROWL
 	db 7, EMBER
 	db 10, SMOKESCREEN
-	db 16, METAL_CLAW
-	db 21, SCARY_FACE
-	db 27, DRAGONBREATH
-	db 34, FLAMETHROWER
-	db 42, SLASH
-	db 50, DRAGON_RAGE
+	db 15, METAL_CLAW
+	db 21, FIRE_FANG
+	db 25, DRAGON_RAGE
+	db 29, SCARY_FACE
+	db 38, SLASH
+	db 46, DRAGONBREATH
+	db 50, FLAMETHROWER
 	db 55, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -4663,6 +4680,7 @@ Ekans_DarkEvosAttacks:
 
 Arbok_DarkEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FIRE_FANG
 	db 1, ICE_FANG
 	db 1, SCARY_FACE
 	db 1, WRAP
@@ -4782,7 +4800,8 @@ Growlithe_HisuianEvosAttacks:
 	db 9, HOWL
 	db 14, ANCIENTPOWER
 	db 19, FLAME_WHEEL
-	db 25, TAKE_DOWN
+	db 23, TAKE_DOWN
+	db 28, FIRE_FANG
 	db 34, AGILITY
 	db 39, ROCK_SLIDE
 	db 42, CRUNCH
@@ -4798,7 +4817,8 @@ Arcanine_HisuianEvosAttacks:
 	db 12, ROAR
 	db 17, ANCIENTPOWER
 	db 23, FLAME_WHEEL
-	db 34, TAKE_DOWN
+	db 32, TAKE_DOWN
+	db 38, FIRE_FANG
 	db 42, AGILITY
 	db 50, ROCK_SLIDE
 	db 54, CRUNCH

@@ -9,8 +9,8 @@ WaterPath_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5, 10, PATTERN_BUSH, 1
-	warp_event  5, 11, PATTERN_BUSH, 2
+	warp_event  4, 10, PATTERN_BUSH, 1
+	warp_event  4, 11, PATTERN_BUSH, 2
 	warp_event 13, 19, NEW_BARK_TOWN, 4
 
 	def_coord_events

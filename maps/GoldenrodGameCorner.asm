@@ -271,19 +271,20 @@ GoldenrodGameCornerPrizeMonVendorScript:
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 17, TEXTBOX_Y - 1
+	;menu_coords 0, 2, 17, TEXTBOX_Y - 1
+	menu_coords 0, 0, 17, TEXTBOX_Y - 1
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 6 ; items
+	db STATICMENU_CURSOR ;| STATICMENU_NO_TOP_SPACING ; flags
+	db 5 ; items
 	db "CLEFAIRY    500@"
 	db "BULBASAUR  1000@"
 	db "CHARMANDER 1000@"
 	db "SQUIRTLE   1000@"
 	db "LARVITAR   2000@"
-	db "CANCEL@"
+	;db "CANCEL@"
 
 GoldenrodGameCornerPharmacistScript:
 	faceplayer

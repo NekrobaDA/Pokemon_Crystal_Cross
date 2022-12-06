@@ -117,7 +117,7 @@ CherrygroveCityGuideGent:
 	end
 
 CherrygroveSilverSceneSouth:
-	moveobject CHERRYGROVECITY_SILVER, 39, 7
+	moveobject CHERRYGROVECITY_SILVER, 47, 9
 CherrygroveSilverSceneNorth:
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
@@ -340,10 +340,10 @@ CherrygroveCity_RivalWalksToYou:
 	step LEFT
 	step LEFT
 	step LEFT
-	step LEFT
 	step_end
 
 CherrygroveCity_RivalPushesYouOutOfTheWay:
+	big_step LEFT
 	big_step DOWN
 	turn_head UP
 	step_end

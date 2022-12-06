@@ -2,6 +2,11 @@ icon_pals: MACRO
 	dn PAL_ICON_\1, PAL_ICON_\2
 ENDM
 
+	icon_pals YELLOW, GRAY ; EGG
+	icon_pals YELLOW, GRAY
+	icon_pals YELLOW, GRAY
+	icon_pals YELLOW, GRAY
+
 MonMenuIconPals:
 	icon_pals TEAL, GREEN ; BULBASAUR
 	icon_pals TEAL, GREEN ; IVYSAUR
@@ -301,5 +306,4 @@ MonMenuIconPals:
 	icon_pals PURPLE, BLUE ; ARTICUNO
 	icon_pals RED, YELLOW ; ZAPDOS
 	icon_pals GRAY, RED ; MOLTRES
-	icon_pals YELLOW, GRAY ; EGG
 	

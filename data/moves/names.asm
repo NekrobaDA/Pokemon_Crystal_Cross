@@ -152,7 +152,7 @@ MoveNames::
 	db "ROCK SLIDE@"
 	db "HYPER FANG@"
 	db "SHARPEN@"
-	db "CONVERSION@"
+	db "FIRE FANG@"
 	db "TRI ATTACK@"
 	db "SUPER FANG@"
 	db "SLASH@"

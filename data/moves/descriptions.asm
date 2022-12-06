@@ -153,7 +153,7 @@ MoveDescriptions::
 	dw RockSlideDescription
 	dw HyperFangDescription
 	dw SharpenDescription
-	dw ConversionDescription
+	dw FireFangDescription
 	dw TriAttackDescription
 	dw SuperFangDescription
 	dw SlashDescription
@@ -263,6 +263,9 @@ Move00Description:
 ShadowRushDescription:
 	db   "An evil move that"
 	next "also hurts the user@"
+	
+FireFangDescription:
+	db "?@"
 
 BugBuzzDescription:
 	db "?@"

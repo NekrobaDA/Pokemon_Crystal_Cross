@@ -116,12 +116,22 @@ LoadOW_BGPal7::
 	ld a, [wTimeOfDay]
 	cp NITE_F
 	jr z, .nightpal
+	cp MORN_F
+	jr z, .mornpal
+	cp EVE_F
+	jr z, .evepal
 	ld hl, Palette_TextBG7
 	jr .next
 .nightpal
 	ld hl, Palette_TextBG7Night
+	jr .next
+.mornpal
+	ld hl, Palette_TextBG7Morn
+	jr .next
+.evepal
+	ld hl, Palette_TextBG7Eve
 .next
-	ld de, wBGPals1 palette PAL_BG_GRAY
+	ld de, wBGPals1 palette PAL_BG_TEXT
 	ld bc, 1 palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
@@ -132,6 +142,12 @@ INCLUDE "gfx/font/bg_text.pal"
 
 Palette_TextBG7Night:
 INCLUDE "gfx/font/bg_textnight.pal"
+
+Palette_TextBG7Morn:
+INCLUDE "gfx/font/bg_textmorn.pal"
+
+Palette_TextBG7Eve:
+INCLUDE "gfx/font/bg_texteve.pal"
 
 Function49420::
 	ld hl, MansionPalette1 + 8 palettes

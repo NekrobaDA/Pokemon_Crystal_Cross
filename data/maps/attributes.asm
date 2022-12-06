@@ -407,10 +407,10 @@ ENDM
 	map_attributes FiveIsleMeadow, FIVE_ISLE_MEADOW, $82, WEST
 	connection west, FiveIsland, FIVE_ISLAND, 0
 	
-	map_attributes SixIsland, SIX_ISLAND, $35, EAST
+	map_attributes SixIsland, SIX_ISLAND, $82, EAST
 	connection east, WaterPath, WATER_PATH, -22
 	
-	map_attributes WaterPath, WATER_PATH, $35, SOUTH | WEST
+	map_attributes WaterPath, WATER_PATH, $82, SOUTH | WEST
 	connection south, RuinValley, RUIN_VALLEY, -21
 	connection west, SixIsland, SIX_ISLAND, 22
 	
@@ -761,7 +761,7 @@ ENDM
 	map_attributes ThreeIslandMart, THREE_ISLAND_MART, $00, 0
 	map_attributes ThreeIslandPokecenter1F, THREE_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes BerryForest, BERRY_FOREST, $00, 0
-	map_attributes FourIsland, FOUR_ISLAND, $35, 0
+	map_attributes FourIsland, FOUR_ISLAND, $ec, 0
 	map_attributes FourIslandMart, FOUR_ISLAND_MART, $00, 0
 	map_attributes FourIslandPokecenter1F, FOUR_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes IcefallCave, ICEFALL_CAVE, $00, 0

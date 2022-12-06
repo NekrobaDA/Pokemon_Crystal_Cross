@@ -22,7 +22,7 @@ Moves:
 	move SCRATCH,      EFFECT_NORMAL_HIT,         40, NORMAL,       PHYSICAL, 100, 35,   0
 	move MUD_SHOT,     EFFECT_SPEED_DOWN_HIT,     60, GROUND,       SPECIAL,   95, 15,  20
 	move ASTONISH,     EFFECT_FLINCH_HIT,         30, GHOST,        PHYSICAL, 100, 15,  30
-	move RAZOR_WIND,   EFFECT_NORMAL_HIT,         70, FLYING,       SPECIAL,   75, 10,   0
+	move RAZOR_WIND,   EFFECT_NORMAL_HIT,         70, FLYING,       SPECIAL,   90, 10,   0
 	move SWORDS_DANCE, EFFECT_ATTACK_UP_2,         0, NORMAL,       STATUS,   100, 30,   0
 	move CUT,          EFFECT_NORMAL_HIT,         50, STEEL,        PHYSICAL,  95, 30,   0
 	move GUST,         EFFECT_GUST,               40, FLYING,       SPECIAL,  100, 35,   0
@@ -53,7 +53,7 @@ Moves:
 	move TWINEEDLE,    EFFECT_POISON_MULTI_HIT,   35, BUG,          PHYSICAL, 100, 20,  20
 	move PIN_MISSILE,  EFFECT_SPEED_DOWN_MULTI_HIT, 18, BUG,        PHYSICAL,  85, 20,  50
 	move LEER,         EFFECT_DEFENSE_DOWN,        0, NORMAL,       STATUS,   100, 30,   0
-	move BITE,         EFFECT_FLINCH_HIT,         60, DARK,         PHYSICAL, 100, 25,  30
+	move BITE,         EFFECT_FLINCH_HIT,         55, DARK,         PHYSICAL, 100, 25,  35
 	move GROWL,        EFFECT_ATTACK_DOWN,         0, NORMAL,       STATUS,   100, 40,   0
 	move ROAR,         EFFECT_FORCE_SWITCH,        0, NORMAL,       STATUS,   100, 20,   0
 	move SING,         EFFECT_SLEEP,               0, NORMAL,       STATUS,    65, 15,   0
@@ -165,7 +165,7 @@ Moves:
 	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         75, ROCK,         PHYSICAL,  90, 10,  30
 	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,       PHYSICAL,  90, 15,  10
 	move SHARPEN,      EFFECT_ATTACK_UP,           0, NORMAL,       STATUS,   100, 30,   0
-	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,       STATUS,   100, 30,   0
+	move FIRE_FANG,    EFFECT_BURN_HIT,           65, FIRE,         PHYSICAL,  95, 15,  20
 	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         80, CURSE_TYPE,   SPECIAL,  100, 10,  20
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,       PHYSICAL,  90, 10,   0
 	move SLASH,        EFFECT_NORMAL_HIT,         70, NORMAL,       PHYSICAL, 100, 20,   0

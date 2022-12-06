@@ -1136,18 +1136,28 @@ SeaweedTileFrames:
 	INCBIN "gfx/tilesets/seaweed/1.2bpp"
 	INCBIN "gfx/tilesets/seaweed/2.2bpp"
 
+TilesetSeviiSevenAnim:
+TilesetSeviiSixAnim:
 TilesetSeviiFiveAnim:
 TilesetSeviiOneAnim:
 TilesetSeviiTwoAnim:
 TilesetSeviiThreeAnim:	
 TilesetSeviiFourAnim:
-	dw vTiles2 tile $14, AnimateWaterTile
+; Scrolls tile $14 like cave water.
+	dw vTiles2 tile $14, WriteTileToBuffer
+	dw NULL,  WaitTileAnimation
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw vTiles2 tile $14, WriteTileFromBuffer
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateWaterPalette
+	dw vTiles2 tile $15, WriteTileToBuffer
 	dw NULL,  WaitTileAnimation
+	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw NULL,  AnimateFlowerTile
-	dw NULL,  FlickeringCaveEntrancePalette
-	dw NULL,  WaitTileAnimation
+	dw vTiles2 tile $15, WriteTileFromBuffer
+	dw NULL,  AnimateWaterPalette
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation

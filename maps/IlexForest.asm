@@ -434,10 +434,10 @@ IlexForestAntidote:
 	itemball ANTIDOTE
 
 IlexForestEther:
-	itemball ETHER
+	itemball ELIXER
 
 IlexForestHiddenEther:
-	hiddenitem ETHER, EVENT_ILEX_FOREST_HIDDEN_ETHER
+	hiddenitem ELIXER, EVENT_ILEX_FOREST_HIDDEN_ETHER
 
 IlexForestHiddenSuperPotion:
 	hiddenitem SUPER_POTION, EVENT_ILEX_FOREST_HIDDEN_SUPER_POTION

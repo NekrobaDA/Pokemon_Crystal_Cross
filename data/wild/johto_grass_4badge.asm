@@ -612,7 +612,7 @@ JohtoGrassWildMons4Badge:
 	dbw 20, GEODUDE
 
 	map_id DARK_CAVE_BLACKTHORN_ENTRANCE
-	dbw 4 percent, 4 percent;, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent;, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	dbw 23, GEODUDE
 	dbw 23, ZUBAT

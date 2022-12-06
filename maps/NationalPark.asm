@@ -322,7 +322,7 @@ NationalParkTrainerTipsSign:
 	jumptext NationalParkTrainerTipsText
 
 NationalParkParlyzHeal:
-	itemball PARLYZ_HEAL
+	itemball EXP_SHARE
 
 NationalParkTMDig:
 	itemball TM_DIG

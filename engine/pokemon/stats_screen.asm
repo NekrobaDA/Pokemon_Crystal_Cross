@@ -788,6 +788,7 @@ LoadBluePage:
 	hlcoord 11, 8
 	ld bc, 6
 	predef PrintTempMonStats
+	jr .location
 	ret
 
 .PlaceOTInfo:
@@ -819,12 +820,14 @@ LoadBluePage:
 .got_gender
 	hlcoord 9, 11
 	ld [hl], a
+.done
 	
-.location
+.location:
 	ld de, MetString
 	hlcoord 0, 13
 	call PlaceString
 	ld a, [wTempMonCaughtLocation]
+	and CAUGHT_LOCATION_MASK
 	ld e, a
 	farcall GetLandmarkNameS
 	ld de, wStringBuffer1
@@ -854,9 +857,7 @@ LoadBluePage:
     ld de, HighString
 .got_happiness
     hlcoord 0, 17
-    jp PlaceString
-	
-.done
+    call PlaceString
 	ret
 
 .OTNamePointers:
@@ -865,6 +866,12 @@ LoadBluePage:
 	dw sBoxMonOT
 	dw wBufferMonOT
 	
+GenderStringM:
+	db "♂@"
+	
+GenderStringF:
+	db "♀@"
+
 HappinessString:
 	db "HAPPINESS@"
 	

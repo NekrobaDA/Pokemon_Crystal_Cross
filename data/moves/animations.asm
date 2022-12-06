@@ -154,7 +154,7 @@ BattleAnimations::
 	dw BattleAnim_RockSlide
 	dw BattleAnim_HyperFang
 	dw BattleAnim_Sharpen
-	dw BattleAnim_Conversion
+	dw BattleAnim_Bite ;fire fang
 	dw BattleAnim_TriAttack
 	dw BattleAnim_SuperFang
 	dw BattleAnim_Slash

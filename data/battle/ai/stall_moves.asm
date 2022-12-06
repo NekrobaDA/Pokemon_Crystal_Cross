@@ -29,7 +29,6 @@ StallMoves:
 	db SPLASH
 	db ACID_ARMOR
 	db SHARPEN
-	db CONVERSION
 	db SUBSTITUTE
 	db FLAME_WHEEL
 	db TOXIC

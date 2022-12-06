@@ -186,6 +186,7 @@ VulpixEggMoves:   ;x
 	db DESTINY_BOND
 	db LICK
 	db CONFUSION
+	db FIRE_FANG
 	db -1 ; end
 	
 JigglypuffEggMoves:   ;x
@@ -551,6 +552,7 @@ RhyhornEggMoves:   ;x
 	db SLAM
 	db ICE_FANG
 	db ROLLOUT
+	db FIRE_FANG
 	db -1 ; end
 
 HappinyEggMoves:   ;x
@@ -1076,6 +1078,7 @@ SnubbullEggMoves:   ;x
 	db SUPER_FANG
 	db POWERUPPUNCH
 	db POISON_FANG
+	db FIRE_FANG
 	db -1 ; end
 
 QwilfishEggMoves:   ;x

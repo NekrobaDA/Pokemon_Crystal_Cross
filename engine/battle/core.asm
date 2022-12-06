@@ -756,11 +756,11 @@ ParsePlayerAction:
 	ld a, [wBattlePlayerAction]
 	cp BATTLEPLAYERACTION_SWITCH
 	jr z, .reset_rage
-	;and a
-	;jr nz, .reset_bide
-	;ld a, [wPlayerSubStatus3]
-	;and 1 << SUBSTATUS_BIDE
-	;jr nz, .locked_in
+	and a
+	jr nz, .reset_bide        ;do not edit, breaks running from battle
+	ld a, [wPlayerSubStatus3]
+	and 1 << SUBSTATUS_BIDE
+	jr nz, .locked_in
 	xor a
 	ld [wMoveSelectionMenuType], a
 	inc a ; POUND
@@ -810,7 +810,7 @@ ParsePlayerAction:
 	ld [wPlayerProtectCount], a
 	jr .continue_protect
 
-;.reset_bide
+.reset_bide
 	;ld hl, wPlayerSubStatus3
 	;res SUBSTATUS_BIDE, [hl]
 
@@ -2671,8 +2671,8 @@ WinTrainerBattle:
 	ld hl, BattleText_EnemyWasDefeated
 	call StdBattleTextbox
 
-	call IsMobileBattle
-	jr z, .mobile
+	;call IsMobileBattle
+	;jr z, .mobile
 	ld a, [wLinkMode]
 	and a
 	ret nz
@@ -2699,13 +2699,13 @@ WinTrainerBattle:
 
 	jp .give_money
 
-.mobile
-	call BattleWinSlideInEnemyTrainerFrontpic
-	ld c, 40
-	call DelayFrames
-	ld c, $4 ; win
-	farcall Mobile_PrintOpponentBattleMessage
-	ret
+;.mobile
+	;call BattleWinSlideInEnemyTrainerFrontpic
+	;ld c, 40
+	;call DelayFrames
+	;ld c, $4 ; win
+	;farcall Mobile_PrintOpponentBattleMessage
+	;ret
 
 .battle_tower
 	call BattleWinSlideInEnemyTrainerFrontpic
@@ -3149,14 +3149,14 @@ JumpToPartyMenuAndPrintText:
 	ret
 
 SelectBattleMon:
-	call IsMobileBattle
-	jr z, .mobile
+	;call IsMobileBattle
+	;jr z, .mobile
 	farcall PartyMenuSelect
 	ret
 
-.mobile
-	farcall Mobile_PartyMenuSelect
-	ret
+;.mobile
+	;farcall Mobile_PartyMenuSelect
+	;ret
 
 PickPartyMonInBattle:
 .loop
@@ -4131,7 +4131,6 @@ TryToRunAwayFromBattle:
 	call StdBattleTextbox
 	ld a, TRUE
 	ld [wFailedToFlee], a
-	call LoadTilemapToTempTilemap
 	and a
 	ret
 
@@ -7482,18 +7481,29 @@ GiveExperiencePoints:
 	ld a, [wPlayerID + 1]
 	cp [hl]
 	ld a, 0
-	jr z, .no_boost
+	jr z, .small_boost
 
 .boosted
 	call BoostExp
 	ld a, 1
+	jr .no_boost
 
+.small_boost
+	call SmallBoostExp
+	ld a, 0
 .no_boost
 ; Boost experience for a Trainer Battle
 	ld [wStringBuffer2 + 2], a
 	ld a, [wBattleMode]
 	dec a
-	call nz, BoostExp
+	;call nz, BoostExp
+	jr nz, .boost_trainer
+	call SmallBoostExp
+	jr .nextboost
+.boost_trainer
+	call BoostExp
+	
+.nextboost	
 ; Boost experience for Lucky Egg
 	push bc
 	ld a, MON_ITEM
@@ -7795,6 +7805,30 @@ BoostExp:
 ; halve it
 	srl b
 	rr c
+; add it back to the whole exp value
+	add c
+	ldh [hProduct + 3], a
+	ldh a, [hProduct + 2]
+	adc b
+	ldh [hProduct + 2], a
+	pop bc
+	ret
+	
+SmallBoostExp:
+; Multiply experience by 1.5x
+	push bc
+; load experience value
+	ldh a, [hProduct + 2]
+	ld b, a
+	ldh a, [hProduct + 3]
+	ld c, a
+; halve it
+	srl b   ;1/2
+	srl b   ;1/4
+	;rr c
+	;rr c
+	srl c
+	srl c
 ; add it back to the whole exp value
 	add c
 	ldh [hProduct + 3], a
@@ -8901,9 +8935,9 @@ DisplayLinkBattleResult:
 	ret
 
 .mobile
-	ld c, 200
-	call DelayFrames
-	call ClearTilemap
+	;ld c, 200
+	;call DelayFrames
+	;call ClearTilemap
 	ret
 
 .YouWin:
@@ -9681,10 +9715,10 @@ BattleStartMessage:
 	pop hl
 	call StdBattleTextbox
 
-	call IsMobileBattle2
-	ret nz
+	;call IsMobileBattle2
+	;ret nz
 
-	ld c, $2 ; start
-	farcall Mobile_PrintOpponentBattleMessage
+	;ld c, $2 ; start
+	;farcall Mobile_PrintOpponentBattleMessage
 
 	ret

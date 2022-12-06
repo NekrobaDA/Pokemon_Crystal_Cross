@@ -72,7 +72,7 @@ ExitLeftScene1:
 .HideGirlPlaceholder1
 	disappear PLAYER_F1
 .HidPlaceholder1
-	warpfacing LEFT, CHERRYGROVE_CITY, 36, 6
+	warpfacing LEFT, CHERRYGROVE_CITY, 41, 8
 	end
 	
 ExitLeftScene2:
@@ -99,7 +99,7 @@ ExitLeftScene2:
 .HideGirlPlaceholder2
 	disappear PLAYER_F2
 .HidPlaceholder2
-	warpfacing LEFT, CHERRYGROVE_CITY, 36, 7
+	warpfacing LEFT, CHERRYGROVE_CITY, 41, 9
 	end
 
 

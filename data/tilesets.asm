@@ -60,4 +60,6 @@ Tilesets::
 	tileset TilesetSeviiTwo
 	tileset TilesetSeviiOne
 	tileset TilesetSeviiFive
+	tileset TilesetSeviiSix
+	tileset TilesetSeviiSeven
 	

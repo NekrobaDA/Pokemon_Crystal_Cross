@@ -1,21 +1,3 @@
-; Eggs are negative now
-INCBIN "gfx/pokemon/egg/front.gbcpal", middle_colors
-INCLUDE "gfx/pokemon/egg/shiny.pal"
-
-; -2
-	RGB 30, 26, 11
-	RGB 23, 16, 00
-; -2 shiny
-	RGB 30, 26, 11
-	RGB 23, 16, 00
-
-; -1
-	RGB 23, 23, 23
-	RGB 17, 17, 17
-; -1 shiny
-	RGB 23, 23, 23
-	RGB 17, 17, 17
-
 DittoPalettes:
 ; entries correspond to Pokémon species, two apiece
 
@@ -626,8 +608,16 @@ INCBIN "gfx/pokemon/zapdos_galarian/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/zapdos_galarian/shiny.pal"
 INCBIN "gfx/pokemon/moltres_galarian/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/moltres_galarian/shiny.pal"
+
+
+
 INCBIN "gfx/pokemon/egg/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/egg/shiny.pal"
+INCBIN "gfx/pokemon/egg/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/egg/shiny.pal"
+INCBIN "gfx/pokemon/egg/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/egg/shiny.pal"
+
 
 PokemonPalettes:
 ; entries correspond to Pokémon species, two apiece
@@ -1239,5 +1229,3 @@ INCBIN "gfx/pokemon/zapdos_galarian/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/zapdos_galarian/shiny.pal"
 INCBIN "gfx/pokemon/moltres_galarian/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/moltres_galarian/shiny.pal"
-INCBIN "gfx/pokemon/egg/front.gbcpal", middle_colors
-INCLUDE "gfx/pokemon/egg/shiny.pal"
