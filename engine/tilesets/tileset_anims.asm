@@ -887,7 +887,6 @@ WriteTileToBuffer:
 	ld sp, hl
 
 	ld hl, wTileAnimBuffer
-
 	; fallthrough
 
 WriteTile:
@@ -1144,20 +1143,15 @@ TilesetSeviiTwoAnim:
 TilesetSeviiThreeAnim:	
 TilesetSeviiFourAnim:
 ; Scrolls tile $14 like cave water.
-	dw vTiles2 tile $14, WriteTileToBuffer
-	dw NULL,  WaitTileAnimation
-	dw wTileAnimBuffer, ScrollTileRightLeft
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw vTiles2 tile $14, WriteTileFromBuffer
+	dw vTiles2 tile $14, AnimateWaterTile, vTiles2 tile $15, AnimateDeepWaterTile
+	;dw wTileAnimBuffer, ScrollTileRightLeft
+	;dw vTiles2 tile $14, WriteTileFromBuffer
+	;dw NULL,  AnimateWaterPalette
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
-	dw NULL,  AnimateWaterPalette
-	dw vTiles2 tile $15, WriteTileToBuffer
+	;dw NULL,  AnimateWaterPalette
 	dw NULL,  WaitTileAnimation
-	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw NULL,  AnimateFlowerTile
-	dw vTiles2 tile $15, WriteTileFromBuffer
-	dw NULL,  AnimateWaterPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
