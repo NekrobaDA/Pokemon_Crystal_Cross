@@ -108,6 +108,7 @@ EkansEggMoves:   ;x
 	db DISABLE
 	db DRAGON_DANCE
 	db ICE_FANG
+	db DRAGON_RAGE
 	db -1 ; end
 	
 PichuEggMoves:   ;x
@@ -298,6 +299,7 @@ MankeyEggMoves:   ;x
 	db BELLY_DRUM
 	db POISON_JAB
 	db PSYCH_UP
+	db SPITE
 	db -1 ; end
 
 GrowlitheEggMoves:   ;x
@@ -1013,7 +1015,7 @@ MisdreavusEggMoves:   ;x
 	db PSYCH_UP
 	db -1 ; end
 
-GirafarigEggMoves:   ;x
+OkapakoEggMoves:   ;x
 	db AMNESIA
 	db BEAT_UP
 	db THUNDERSHOCK
@@ -1218,14 +1220,13 @@ MantykeEggMoves:   ;x
 	db AMNESIA
 	db -1 ; end
 
-SkarmoryEggMoves:   ;x
+SkarchicEggMoves:   ;x
 	db PURSUIT
 	db SKY_ATTACK
 	db HAZE
 	db FORESIGHT
 	db MIRROR_MOVE
 	db ENDURE
-	db HARDEN
 	db -1 ; end
 
 HoundourEggMoves:   ;x
@@ -1341,6 +1342,7 @@ Ekans_DarkEggMoves:
 	db DISABLE
 	db DRAGON_DANCE
 	db ICE_FANG
+	db DRAGON_RAGE
 	db -1 ; end
 	
 Pichu_SpikyEggMoves:
@@ -1391,6 +1393,29 @@ RinrinEggMoves:   ;x
 	db MOONLIGHT
 	db SING
 	db PSYCH_UP
+	db -1 ; end
+	
+Wooper_PaldeanEggMoves:   ;x
+	db ANCIENTPOWER
+	db SAFEGUARD
+	db BELLY_DRUM
+	db THUNDERSHOCK
+	db PURSUIT
+	db ENCORE
+	db DOUBLE_KICK
+	db RECOVER
+	db SNORE
+	db ENDURE
+	db HAZE
+	db -1 ; end
+	
+StarlyEggMoves:   ;x
+	db FEATHERDANCE
+	db PURSUIT
+	db FURY_ATTACK
+	db ASTONISH
+	db SAND_ATTACK
+	db ENDURE
 	db -1 ; end
 
 NoEggMoves:

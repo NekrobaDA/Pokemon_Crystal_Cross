@@ -258,6 +258,7 @@ LugiaIcon:        INCBIN "gfx/icons/lugia.2bpp"
 HoOhIcon:         INCBIN "gfx/icons/ho_oh.2bpp"
 CelebiIcon:       INCBIN "gfx/icons/celebi.2bpp"
 EggIcon:          INCBIN "gfx/icons/egg.2bpp"
+StarmieTwoIcon:   INCBIN "gfx/icons/starmie2.2bpp"
 
 SECTION "Mon Icons 3", ROMX
 

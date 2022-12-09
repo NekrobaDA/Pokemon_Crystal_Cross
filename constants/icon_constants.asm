@@ -254,7 +254,8 @@
 	const ICON_LUGIA
 	const ICON_HOOH
 	const ICON_CELEBI
-	const ICON_EGG          
+	const ICON_EGG
+	const ICON_STARMIETWO
 
 ; LoadMenuMon.Jumptable indexes (see engine/gfx/mon_s.asm)
 	const_def

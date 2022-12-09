@@ -58,6 +58,7 @@ FemaleFramesPointers:
 	dba GolduckFrames
 	dba MankeyFrames
 	dba PrimeapeFrames
+	dba AnnihilapeFrames
 	dba GrowlitheFrames
 	dba ArcanineFrames
 	dba PoliwagFrames
@@ -210,6 +211,7 @@ FemaleFramesPointers:
 	dba JumpluffFrames
 	dba AipomFrames
 	dba AmbipomFrames
+	dba SunkernFrames
 	dba SunfloraFrames
 	dba YanmaFrames
 	dba YanmegaFrames
@@ -221,6 +223,7 @@ FemaleFramesPointers:
 	dba MismagiusFrames
 	dba WynautFrames
 	dba WobbuffetFrames
+	dba OkapakoFrames
 	dba GirafarigFrames
 	dba PinecoFrames
 	dba ForretressFrames
@@ -249,6 +252,7 @@ FemaleFramesPointers:
 	dba DelibirdFrames
 	dba MantykeFrames
 	dba MantineFrames
+	dba SkarchicFrames
 	dba SkarmoryFrames
 	dba HoundourFrames
 	dba HoundoomFrames
@@ -297,3 +301,10 @@ FemaleFramesPointers:
 	dba Articuno_GalarianFrames
 	dba Zapdos_GalarianFrames
 	dba Moltres_GalarianFrames
+	dba Arbok_KantoFrames
+	dba Arbok_SeviiFrames
+	dba Wooper_PaldeanFrames
+	dba ClodsireFrames
+	dba StarlyFrames
+	dba StaraviaFrames
+	dba StaraptorFrames

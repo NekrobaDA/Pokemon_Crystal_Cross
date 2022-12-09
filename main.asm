@@ -254,9 +254,7 @@ INCLUDE "engine/pokemon/switchpartymons.asm"
 INCLUDE "engine/gfx/load_pics.asm"
 INCLUDE "engine/pokemon/move_mon_wo_mail.asm"
 INCLUDE "data/pokemon/base_stats.asm"
-;INCLUDE "data/pokemon/names.asm"
-INCLUDE "data/pokemon/unused_pic_banks.asm"
-INCLUDE "engine/battle/getgen1trainerclassname.asm"
+;INCLUDE "engine/battle/getgen1trainerclassname.asm"
 INCLUDE "engine/events/sweet_scent.asm"
 INCLUDE "engine/link/init_list.asm"
 
@@ -503,11 +501,9 @@ INCLUDE "engine/link/time_capsule.asm"
 INCLUDE "engine/events/name_rater.asm"
 INCLUDE "engine/events/play_slow_cry.asm"
 INCLUDE "engine/pokedex/new_pokedex_entry.asm"
-INCLUDE "engine/link/time_capsule_2.asm"
 INCLUDE "engine/pokedex/unown_dex.asm"
 INCLUDE "engine/events/magikarp.asm"
 INCLUDE "engine/battle/hidden_power.asm"
-;INCLUDE "engine/battle/misc.asm"
 
 
 SECTION "bank3F", ROMX
@@ -743,6 +739,8 @@ INCLUDE "engine/battle/swarm_shiny.asm"
 SECTION "ETC", ROMX
 
 INCLUDE "engine/events/egg_move_egg.asm"
+INCLUDE "engine/link/time_capsule_2.asm"
+INCLUDE "data/pokemon/dex_numbers.asm"
 
 
 SECTION "Color", ROMX

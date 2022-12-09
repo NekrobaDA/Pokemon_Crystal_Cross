@@ -60,6 +60,7 @@ EvosAttacksPointers::
 	dw GolduckEvosAttacks
 	dw MankeyEvosAttacks
 	dw PrimeapeEvosAttacks
+	dw AnnihilapeEvosAttacks
 	dw GrowlitheEvosAttacks
 	dw ArcanineEvosAttacks
 	dw PoliwagEvosAttacks
@@ -212,6 +213,7 @@ EvosAttacksPointers::
 	dw JumpluffEvosAttacks
 	dw AipomEvosAttacks
 	dw AmbipomEvosAttacks
+	dw SunkernEvosAttacks
 	dw SunfloraEvosAttacks
 	dw YanmaEvosAttacks
 	dw YanmegaEvosAttacks
@@ -223,6 +225,7 @@ EvosAttacksPointers::
 	dw MismagiusEvosAttacks
 	dw WynautEvosAttacks
 	dw WobbuffetEvosAttacks
+	dw OkapakoEvosAttacks
 	dw GirafarigEvosAttacks
 	dw PinecoEvosAttacks
 	dw ForretressEvosAttacks
@@ -251,6 +254,7 @@ EvosAttacksPointers::
 	dw DelibirdEvosAttacks
 	dw MantykeEvosAttacks
 	dw MantineEvosAttacks
+	dw SkarchicEvosAttacks
 	dw SkarmoryEvosAttacks
 	dw HoundourEvosAttacks
 	dw HoundoomEvosAttacks
@@ -299,3 +303,10 @@ EvosAttacksPointers::
 	dw Articuno_GalarianEvosAttacks
 	dw Zapdos_GalarianEvosAttacks
 	dw Moltres_GalarianEvosAttacks
+	dw Arbok_KantoEvosAttacks
+	dw Arbok_SeviiEvosAttacks
+	dw Wooper_PaldeanEvosAttacks
+	dw ClodsireEvosAttacks
+	dw StarlyEvosAttacks
+	dw StaraviaEvosAttacks
+	dw StaraptorEvosAttacks

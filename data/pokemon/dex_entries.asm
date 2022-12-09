@@ -62,16 +62,17 @@ PsyduckPokedexEntry::    INCLUDE "data/pokemon/dex_entries/psyduck.asm"
 GolduckPokedexEntry::    INCLUDE "data/pokemon/dex_entries/golduck.asm"
 MankeyPokedexEntry::     INCLUDE "data/pokemon/dex_entries/mankey.asm"
 PrimeapePokedexEntry::   INCLUDE "data/pokemon/dex_entries/primeape.asm"
+AnnihilapePokedexEntry:: INCLUDE "data/pokemon/dex_entries/annihilape.asm"
 GrowlithePokedexEntry::  INCLUDE "data/pokemon/dex_entries/growlithe.asm"
 ArcaninePokedexEntry::   INCLUDE "data/pokemon/dex_entries/arcanine.asm"
 PoliwagPokedexEntry::    INCLUDE "data/pokemon/dex_entries/poliwag.asm"
 PoliwhirlPokedexEntry::  INCLUDE "data/pokemon/dex_entries/poliwhirl.asm"
 PoliwrathPokedexEntry::  INCLUDE "data/pokemon/dex_entries/poliwrath.asm"
-PolitoedPokedexEntry::   INCLUDE "data/pokemon/dex_entries/politoed.asm"
 
 
 SECTION "Pokedex Entries 065-128", ROMX
 
+PolitoedPokedexEntry::   INCLUDE "data/pokemon/dex_entries/politoed.asm"
 AbraPokedexEntry::       INCLUDE "data/pokemon/dex_entries/abra.asm"
 KadabraPokedexEntry::    INCLUDE "data/pokemon/dex_entries/kadabra.asm"
 AlakazamPokedexEntry::   INCLUDE "data/pokemon/dex_entries/alakazam.asm"
@@ -137,13 +138,12 @@ SeadraPokedexEntry::     INCLUDE "data/pokemon/dex_entries/seadra.asm"
 KingdraPokedexEntry::    INCLUDE "data/pokemon/dex_entries/kingdra.asm"
 GoldeenPokedexEntry::    INCLUDE "data/pokemon/dex_entries/goldeen.asm"
 SeakingPokedexEntry::    INCLUDE "data/pokemon/dex_entries/seaking.asm"
-
 StaryuPokedexEntry::     INCLUDE "data/pokemon/dex_entries/staryu.asm"
-StarmiePokedexEntry::    INCLUDE "data/pokemon/dex_entries/starmie.asm"
 
 
 SECTION "Pokedex Entries 129-192", ROMX
 
+StarmiePokedexEntry::    INCLUDE "data/pokemon/dex_entries/starmie.asm"
 ScytherPokedexEntry::    INCLUDE "data/pokemon/dex_entries/scyther.asm"
 ScizorPokedexEntry::     INCLUDE "data/pokemon/dex_entries/scizor.asm"
 ElekidPokedexEntry::     INCLUDE "data/pokemon/dex_entries/elekid.asm"
@@ -208,7 +208,6 @@ LanturnPokedexEntry::    INCLUDE "data/pokemon/dex_entries/lanturn.asm"
 TogepiPokedexEntry::     INCLUDE "data/pokemon/dex_entries/togepi.asm"
 TogeticPokedexEntry::    INCLUDE "data/pokemon/dex_entries/togetic.asm"
 TogekissPokedexEntry::   INCLUDE "data/pokemon/dex_entries/togekiss.asm"
-
 NatuPokedexEntry::       INCLUDE "data/pokemon/dex_entries/natu.asm"
 IatuPokedexEntry::       INCLUDE "data/pokemon/dex_entries/iatu.asm"
 XatuPokedexEntry::       INCLUDE "data/pokemon/dex_entries/xatu.asm"
@@ -216,11 +215,11 @@ MareepPokedexEntry::     INCLUDE "data/pokemon/dex_entries/mareep.asm"
 FlaaffyPokedexEntry::    INCLUDE "data/pokemon/dex_entries/flaaffy.asm"
 AmpharosPokedexEntry::   INCLUDE "data/pokemon/dex_entries/ampharos.asm"
 MarillPokedexEntry::     INCLUDE "data/pokemon/dex_entries/marill.asm"
-AzumarillPokedexEntry::  INCLUDE "data/pokemon/dex_entries/azumarill.asm"
 
 
 SECTION "Pokedex Entries 193-251", ROMX
 
+AzumarillPokedexEntry::  INCLUDE "data/pokemon/dex_entries/azumarill.asm"
 BonslyPokedexEntry::     INCLUDE "data/pokemon/dex_entries/bonsly.asm"
 SudowoodoPokedexEntry::  INCLUDE "data/pokemon/dex_entries/sudowoodo.asm"
 HoppipPokedexEntry::     INCLUDE "data/pokemon/dex_entries/hoppip.asm"
@@ -239,6 +238,7 @@ MisdreavusPokedexEntry:: INCLUDE "data/pokemon/dex_entries/misdreavus.asm"
 MismagiusPokedexEntry::  INCLUDE "data/pokemon/dex_entries/mismagius.asm"
 WynautPokedexEntry::     INCLUDE "data/pokemon/dex_entries/wynaut.asm"
 WobbuffetPokedexEntry::  INCLUDE "data/pokemon/dex_entries/wobbuffet.asm"
+OkapakoPokedexEntry::    INCLUDE "data/pokemon/dex_entries/okapako.asm"
 GirafarigPokedexEntry::  INCLUDE "data/pokemon/dex_entries/girafarig.asm"
 PinecoPokedexEntry::     INCLUDE "data/pokemon/dex_entries/pineco.asm"
 ForretressPokedexEntry:: INCLUDE "data/pokemon/dex_entries/forretress.asm"
@@ -315,3 +315,12 @@ Typhlosion_HisuianPokedexEntry::  INCLUDE "data/pokemon/dex_entries/typhlosion_h
 Articuno_GalarianPokedexEntry::   INCLUDE "data/pokemon/dex_entries/articuno_galarian.asm"
 Zapdos_GalarianPokedexEntry::     INCLUDE "data/pokemon/dex_entries/zapdos_galarian.asm"
 Moltres_GalarianPokedexEntry::    INCLUDE "data/pokemon/dex_entries/moltres_galarian.asm"
+Arbok_KantoPokedexEntry::         INCLUDE "data/pokemon/dex_entries/arbok_kanto.asm"
+Arbok_SeviiPokedexEntry::         INCLUDE "data/pokemon/dex_entries/arbok_sevii.asm"
+Wooper_PaldeanPokedexEntry::      INCLUDE "data/pokemon/dex_entries/wooper_paldean.asm"
+ClodsirePokedexEntry::            INCLUDE "data/pokemon/dex_entries/clodsire.asm"
+StarlyPokedexEntry::              INCLUDE "data/pokemon/dex_entries/starly.asm"
+StaraviaPokedexEntry::            INCLUDE "data/pokemon/dex_entries/staravia.asm"
+StaraptorPokedexEntry::           INCLUDE "data/pokemon/dex_entries/staraptor.asm"
+SunkernPokedexEntry::             INCLUDE "data/pokemon/dex_entries/sunkern.asm"
+SkarchicPokedexEntry::            INCLUDE "data/pokemon/dex_entries/skarchic.asm"

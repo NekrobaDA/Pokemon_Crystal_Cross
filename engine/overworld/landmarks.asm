@@ -99,6 +99,9 @@ RegionCheck:
 	call GetWorldMapLocation
 
 .checkagain
+	cp SEVII_LANDMARK
+	jr z, .sevii
+
 	cp KANTO_LANDMARK
 	jr c, .johto
 
@@ -111,4 +114,7 @@ RegionCheck:
 	ret
 .kanto
 	ld e, KANTO_REGION
+	ret
+.sevii
+	ld e, SEVII_REGION
 	ret

@@ -78,6 +78,7 @@
 	const GOLDUCK    ; 37
 	const MANKEY     ; 38
 	const PRIMEAPE   ; 39
+	const ANNIHILAPE
 	const GROWLITHE  ; 3a
 	const ARCANINE   ; 3b
 	const POLIWAG    ; 3c
@@ -231,6 +232,7 @@ JOHTO_POKEMON EQU const_value
 	const JUMPLUFF   ; bd
 	const AIPOM      ; be
 	const AMBIPOM
+	const SUNKERN
 	const SUNFLORA   ; bf
 	const YANMA      ; c0
 	const YANMEGA    ; c1
@@ -242,6 +244,7 @@ JOHTO_POKEMON EQU const_value
 	const MISMAGIUS  ; c9
 	const WYNAUT
 	const WOBBUFFET  ; ca
+	const OKAPAKO
 	const GIRAFARIG  ; cb
 	const PINECO     ; cc
 	const FORRETRESS ; cd
@@ -270,6 +273,7 @@ JOHTO_POKEMON EQU const_value
 	const DELIBIRD   ; e1
 	const MANTYKE
 	const MANTINE    ; e2
+	const SKARCHIC
 	const SKARMORY   ; e3
 	const HOUNDOUR   ; e4
 	const HOUNDOOM   ; e5
@@ -318,6 +322,13 @@ JOHTO_POKEMON EQU const_value
 	const ARTICUNO_GALARIAN
 	const ZAPDOS_GALARIAN
 	const MOLTRES_GALARIAN
+	const ARBOK_KANTO
+	const ARBOK_SEVII
+	const WOOPER_PALDEAN
+	const CLODSIRE
+	const STARLY
+	const STARAVIA
+	const STARAPTOR
 NUM_POKEMON EQU const_value - 1
 
 EGG EQU -3

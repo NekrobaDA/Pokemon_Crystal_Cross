@@ -255,3 +255,4 @@ IconPointers
 	dw HoOhIcon
 	dw CelebiIcon
 	dw EggIcon
+	dw StarmieTwoIcon

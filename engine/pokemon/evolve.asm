@@ -64,7 +64,7 @@ EvolveAfterBattle_MasterLoop:
 	ld b, a
 
 	cp EVOLVE_TRADE
-	jr z, .trade
+	jp z, .trade
 
 	ld a, [wLinkMode]
 	and a
@@ -88,6 +88,12 @@ EvolveAfterBattle_MasterLoop:
 
 	cp EVOLVE_HAPPINESS
 	jr z, .happiness
+	
+	cp EVOLVE_LEVEL_REGION
+	jp z, .level_region
+	
+	cp EVOLVE_LEVEL_REGION_SEVII
+	jp z, .level_sevii
 
 ; EVOLVE_STAT
 	ld a, [wTempMonLevel]
@@ -135,13 +141,13 @@ EvolveAfterBattle_MasterLoop:
 	ld a, [wTimeOfDay]
 	cp NITE_F
 	jp c, .dont_evolve_3
-	jr .proceed
+	jp .proceed
 
 .happiness_daylight
 	ld a, [wTimeOfDay]
 	cp NITE_F
 	jp nc, .dont_evolve_3
-	jr .proceed
+	jp .proceed
 
 .trade
 	ld a, [wLinkMode]
@@ -154,7 +160,7 @@ EvolveAfterBattle_MasterLoop:
 	ld a, [hli]
 	ld b, a
 	inc a
-	jr z, .proceed
+	jp z, .proceed
 
 	ld a, [wLinkMode]
 	cp LINK_TIMECAPSULE
@@ -166,7 +172,7 @@ EvolveAfterBattle_MasterLoop:
 
 	xor a
 	ld [wTempMonItem], a
-	jr .proceed
+	jp .proceed
 
 .item
 	ld a, [hli]
@@ -182,6 +188,48 @@ EvolveAfterBattle_MasterLoop:
 	and a
 	jp nz, .dont_evolve_3
 	jr .proceed
+	
+.level_region
+	ld a, [hli]
+	ld b, a
+	ld a, [wTempMonLevel]
+	cp b
+	jp c, .dont_evolve_2
+	call IsMonHoldingEverstone
+	jp z, .dont_evolve_2
+	
+	push hl
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	pop hl
+	
+	cp KANTO_LANDMARK
+	jp c, .dont_evolve_3
+	jp .proceed
+	
+.level_sevii
+	ld a, [hli]
+	ld b, a
+	ld a, [wTempMonLevel]
+	cp b
+	jp c, .dont_evolve_2
+	call IsMonHoldingEverstone
+	jp z, .dont_evolve_2
+	
+	push hl
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	pop hl
+	
+	cp SEVII_LANDMARK
+	jr z, .proceed
+	jp .dont_evolve_3
 	
 .itemlevel
 	ld a, [hli]

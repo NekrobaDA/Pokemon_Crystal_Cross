@@ -64,7 +64,8 @@ MonMenuIcons:
 	db ICON_PSYDUCK      
 	db ICON_GOLDUCK      
 	db ICON_MANKEY       
-	db ICON_PRIMEAPE     
+	db ICON_PRIMEAPE
+	db ICON_PRIMEAPE   ;annihilape
 	db ICON_GROWLITHE    
 	db ICON_ARCANINE     
 	db ICON_POLIWAG      
@@ -137,7 +138,7 @@ MonMenuIcons:
 	db ICON_GOLDEEN      
 	db ICON_SEAKING
 	db ICON_STARYU       
-	db ICON_STARMIE            
+	db ICON_STARMIETWO
 	db ICON_SCYTHER      
 	db ICON_SCIZOR
 	db ICON_ELEKID
@@ -217,6 +218,7 @@ MonMenuIcons:
 	db ICON_JUMPLUFF
 	db ICON_AIPOM 
 	db ICON_AIPOM 
+	db ICON_SUNFLORA ;sunkern
 	db ICON_SUNFLORA     
 	db ICON_YANMA        
 	db ICON_YANMEGA      
@@ -227,7 +229,8 @@ MonMenuIcons:
 	db ICON_MISDREAVUS   
 	db ICON_MISMAGIUS 
 	db ICON_WOBBUFFET  ;WYNAUT	
-	db ICON_WOBBUFFET    
+	db ICON_WOBBUFFET   
+	db ICON_GIRAFARIG  ;okapako	
 	db ICON_GIRAFARIG    
 	db ICON_PINECO       
 	db ICON_FORRETRESS   
@@ -255,7 +258,8 @@ MonMenuIcons:
 	db ICON_OCTILLERY
 	db ICON_DELIBIRD
 	db ICON_MANTINE	 ;MANTYKE
-	db ICON_MANTINE      
+	db ICON_MANTINE
+	db ICON_SKARMORY  ;skarchic
 	db ICON_SKARMORY     
 	db ICON_HOUNDOUR     
 	db ICON_HOUNDOOM           
@@ -303,4 +307,11 @@ MonMenuIcons:
 	db ICON_TYPHLOSION
 	db ICON_ARTICUNO     
 	db ICON_ZAPDOS       
-	db ICON_MOLTRES	
+	db ICON_MOLTRES
+	db ICON_ARBOK
+	db ICON_ARBOK
+	db ICON_WOOPER       
+	db ICON_QUAGSIRE  ;clodsire
+	db ICON_PIDGEY     ;starly
+	db ICON_PIDGEOTTO  ;staravia
+	db ICON_PIDGEOT    ;staraptor

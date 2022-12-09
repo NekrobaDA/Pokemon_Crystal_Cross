@@ -60,6 +60,7 @@ FirstEvoStages::
 	dw PSYDUCK
 	dw MANKEY     ;38
 	dw MANKEY
+	dw MANKEY
 	dw GROWLITHE
 	dw GROWLITHE
 	dw POLIWAG
@@ -212,7 +213,8 @@ FirstEvoStages::
 	dw HOPPIP
 	dw AIPOM
 	dw AIPOM
-	dw SUNFLORA   ;c0
+	dw SUNKERN
+	dw SUNKERN   ;c0
 	dw YANMA
 	dw YANMA
 	dw WOOPER
@@ -223,7 +225,8 @@ FirstEvoStages::
 	dw MISDREAVUS 
 	dw WYNAUT
 	dw WYNAUT
-	dw GIRAFARIG
+	dw OKAPAKO
+	dw OKAPAKO
 	dw PINECO
 	dw PINECO
 	dw DUNSPARCE
@@ -251,7 +254,8 @@ FirstEvoStages::
 	dw DELIBIRD
 	dw MANTYKE
 	dw MANTYKE
-	dw SKARMORY
+	dw SKARCHIC
+	dw SKARCHIC
 	dw HOUNDOUR
 	dw HOUNDOUR
 	dw PHANPY
@@ -299,4 +303,11 @@ FirstEvoStages::
 	dw ARTICUNO_GALARIAN
 	dw ZAPDOS_GALARIAN
 	dw MOLTRES_GALARIAN
+	dw EKANS
+	dw EKANS
+	dw WOOPER_PALDEAN
+	dw WOOPER_PALDEAN
+	dw STARLY
+	dw STARLY
+	dw STARLY
 	

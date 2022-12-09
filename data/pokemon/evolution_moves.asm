@@ -58,6 +58,7 @@ EvolutionMoves::
 	db PSYBEAM ; Golduck
 	db NO_MOVE ; Mankey
 	db RAGE ; Primeape
+	db SHADOW_PUNCH ; Annihilape
 	db NO_MOVE ; Growlithe
 	db EXTREMESPEED ; Arcanine
 	db NO_MOVE ; Poliwag
@@ -210,6 +211,7 @@ EvolutionMoves::
 	db NO_MOVE ; Jumpluff
 	db NO_MOVE ; Aipom
 	db NO_MOVE ; Ambipom
+	db NO_MOVE ; Sunkern
 	db POUND ; Sunflora
 	db NO_MOVE ; Yanma
 	db LEECH_LIFE ; Yanmega
@@ -221,6 +223,7 @@ EvolutionMoves::
 	db FIRE_SPIN ; Mismagius
 	db NO_MOVE ; Wynaut
 	db NO_MOVE ; Wobbuffet
+	db NO_MOVE ; Okapako
 	db NO_MOVE ; Girafarig
 	db NO_MOVE ; Pineco
 	db IRON_DEFENSE ; Forretress
@@ -249,7 +252,8 @@ EvolutionMoves::
 	db NO_MOVE ; Delibird
 	db NO_MOVE ; Mantyke
 	db PSYBEAM ; Mantine
-	db NO_MOVE ; Skarmory
+	db NO_MOVE ; Skarchic
+	db METAL_CLAW ; Skarmory
 	db NO_MOVE ; Houndour
 	db WILL_O_WISP ; Houndoom
 	db NO_MOVE ; Phanpy
@@ -297,4 +301,11 @@ EvolutionMoves::
 	db NO_MOVE ; Articuno
 	db NO_MOVE ; Zapdos
 	db NO_MOVE ; Moltres
+	db SCARY_FACE ; Arbok
+	db SCARY_FACE ; Arbok
+	db NO_MOVE ; Wooper
+	db MEGAHORN ; Clodsire
+	db NO_MOVE ; Starly
+	db NO_MOVE ; Staravia
+	db SUBMISSION ; Staraptor
 	

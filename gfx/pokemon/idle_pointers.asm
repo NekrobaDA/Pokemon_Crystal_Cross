@@ -58,6 +58,7 @@ AnimationIdlePointers:
 	dw GolduckAnimationIdle
 	dw MankeyAnimationIdle
 	dw PrimeapeAnimationIdle
+	dw AnnihilapeAnimationIdle
 	dw GrowlitheAnimationIdle
 	dw ArcanineAnimationIdle
 	dw PoliwagAnimationIdle
@@ -210,6 +211,7 @@ AnimationIdlePointers:
 	dw JumpluffAnimationIdle
 	dw AipomAnimationIdle
 	dw AmbipomAnimationIdle
+	dw SunkernAnimationIdle
 	dw SunfloraAnimationIdle
 	dw YanmaAnimationIdle
 	dw YanmegaAnimationIdle
@@ -221,6 +223,7 @@ AnimationIdlePointers:
 	dw MismagiusAnimationIdle
 	dw WynautAnimationIdle
 	dw WobbuffetAnimationIdle
+	dw OkapakoAnimationIdle
 	dw GirafarigAnimationIdle
 	dw PinecoAnimationIdle
 	dw ForretressAnimationIdle
@@ -249,6 +252,7 @@ AnimationIdlePointers:
 	dw DelibirdAnimationIdle
 	dw MantykeAnimationIdle
 	dw MantineAnimationIdle
+	dw SkarchicAnimationIdle
 	dw SkarmoryAnimationIdle
 	dw HoundourAnimationIdle
 	dw HoundoomAnimationIdle
@@ -297,3 +301,10 @@ AnimationIdlePointers:
 	dw Articuno_GalarianAnimationIdle
 	dw Zapdos_GalarianAnimationIdle
 	dw Moltres_GalarianAnimationIdle
+	dw Arbok_KantoAnimationIdle
+	dw Arbok_SeviiAnimationIdle
+	dw Wooper_PaldeanAnimationIdle
+	dw ClodsireAnimationIdle
+	dw StarlyAnimationIdle
+	dw StaraviaAnimationIdle
+	dw StaraptorAnimationIdle

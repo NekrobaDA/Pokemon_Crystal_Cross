@@ -208,7 +208,7 @@ GenerateSwarmShiny:
 			cp HIGH(STANTLER)
 		endc
 	endc
-	jr nz, .skipshine
+	jp nz, .skipshine
 	jr .rollshiny
 	
 .larvitar

@@ -59,6 +59,7 @@ PokedexDataPointerTable:
 	dba GolduckPokedexEntry
 	dba MankeyPokedexEntry
 	dba PrimeapePokedexEntry
+	dba AnnihilapePokedexEntry
 	dba GrowlithePokedexEntry
 	dba ArcaninePokedexEntry
 	dba PoliwagPokedexEntry
@@ -211,6 +212,7 @@ PokedexDataPointerTable:
 	dba JumpluffPokedexEntry
 	dba AipomPokedexEntry
 	dba AmbipomPokedexEntry
+	dba SunkernPokedexEntry
 	dba SunfloraPokedexEntry
 	dba YanmaPokedexEntry
 	dba YanmegaPokedexEntry
@@ -222,6 +224,7 @@ PokedexDataPointerTable:
 	dba MismagiusPokedexEntry
 	dba WynautPokedexEntry
 	dba WobbuffetPokedexEntry
+	dba OkapakoPokedexEntry
 	dba GirafarigPokedexEntry
 	dba PinecoPokedexEntry
 	dba ForretressPokedexEntry
@@ -250,6 +253,7 @@ PokedexDataPointerTable:
 	dba DelibirdPokedexEntry
 	dba MantykePokedexEntry
 	dba MantinePokedexEntry
+	dba SkarchicPokedexEntry
 	dba SkarmoryPokedexEntry
 	dba HoundourPokedexEntry
 	dba HoundoomPokedexEntry
@@ -298,3 +302,10 @@ PokedexDataPointerTable:
 	dba Articuno_GalarianPokedexEntry
 	dba Zapdos_GalarianPokedexEntry
 	dba Moltres_GalarianPokedexEntry
+	dba Arbok_KantoPokedexEntry
+	dba Arbok_SeviiPokedexEntry
+	dba Wooper_PaldeanPokedexEntry
+	dba ClodsirePokedexEntry
+	dba StarlyPokedexEntry
+	dba StaraviaPokedexEntry
+	dba StaraptorPokedexEntry

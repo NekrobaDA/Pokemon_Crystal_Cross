@@ -128,6 +128,8 @@ PokemonPicPointers::
 	dba MankeyBackpic
 	dba PrimeapeFrontpic
 	dba PrimeapeBackpic
+	dba AnnihilapeFrontpic
+	dba AnnihilapeBackpic
 	dba GrowlitheFrontpic
 	dba GrowlitheBackpic
 	dba ArcanineFrontpic
@@ -432,6 +434,8 @@ PokemonPicPointers::
 	dba AipomBackpic
 	dba AmbipomFrontpic
 	dba AmbipomBackpic
+	dba SunkernFrontpic
+	dba SunkernBackpic
 	dba SunfloraFrontpic
 	dba SunfloraBackpic
 	dba YanmaFrontpic
@@ -454,6 +458,8 @@ PokemonPicPointers::
 	dba WynautBackpic
 	dba WobbuffetFrontpic
 	dba WobbuffetBackpic
+	dba OkapakoFrontpic
+	dba OkapakoBackpic
 	dba GirafarigFrontpic
 	dba GirafarigBackpic
 	dba PinecoFrontpic
@@ -510,6 +516,8 @@ PokemonPicPointers::
 	dba MantykeBackpic
 	dba MantineFrontpic
 	dba MantineBackpic
+	dba SkarchicFrontpic
+	dba SkarchicBackpic
 	dba SkarmoryFrontpic
 	dba SkarmoryBackpic
 	dba HoundourFrontpic
@@ -607,3 +615,17 @@ PokemonPicPointers::
 	dba Zapdos_GalarianBackpic
 	dba Moltres_GalarianFrontpic
 	dba Moltres_GalarianBackpic
+	dba Arbok_KantoFrontpic
+	dba Arbok_KantoBackpic
+	dba Arbok_SeviiFrontpic
+	dba Arbok_SeviiBackpic
+	dba Wooper_PaldeanFrontpic
+	dba Wooper_PaldeanBackpic
+	dba ClodsireFrontpic
+	dba ClodsireBackpic
+	dba StarlyFrontpic
+	dba StarlyBackpic
+	dba StaraviaFrontpic
+	dba StaraviaBackpic
+	dba StaraptorFrontpic
+	dba StaraptorBackpic

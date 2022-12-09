@@ -58,6 +58,7 @@ BitmasksPointers:
 	dw GolduckBitmasks
 	dw MankeyBitmasks
 	dw PrimeapeBitmasks
+	dw AnnihilapeBitmasks
 	dw GrowlitheBitmasks
 	dw ArcanineBitmasks
 	dw PoliwagBitmasks
@@ -210,6 +211,7 @@ BitmasksPointers:
 	dw JumpluffBitmasks
 	dw AipomBitmasks
 	dw AmbipomBitmasks
+	dw SunkernBitmasks
 	dw SunfloraBitmasks
 	dw YanmaBitmasks
 	dw YanmegaBitmasks
@@ -221,6 +223,7 @@ BitmasksPointers:
 	dw MismagiusBitmasks
 	dw WynautBitmasks
 	dw WobbuffetBitmasks
+	dw OkapakoBitmasks
 	dw GirafarigBitmasks
 	dw PinecoBitmasks
 	dw ForretressBitmasks
@@ -249,6 +252,7 @@ BitmasksPointers:
 	dw DelibirdBitmasks
 	dw MantykeBitmasks
 	dw MantineBitmasks
+	dw SkarchicBitmasks
 	dw SkarmoryBitmasks
 	dw HoundourBitmasks
 	dw HoundoomBitmasks
@@ -297,3 +301,10 @@ BitmasksPointers:
 	dw Articuno_GalarianBitmasks
 	dw Zapdos_GalarianBitmasks
 	dw Moltres_GalarianBitmasks
+	dw Arbok_KantoBitmasks
+	dw Arbok_SeviiBitmasks
+	dw Wooper_PaldeanBitmasks
+	dw ClodsireBitmasks
+	dw StarlyBitmasks
+	dw StaraviaBitmasks
+	dw StaraptorBitmasks

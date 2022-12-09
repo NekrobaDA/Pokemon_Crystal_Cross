@@ -1704,6 +1704,7 @@ Pokedex_PrintNumberIfOldMode:
 	ld a, [wCurDexMode]
 	cp DEXMODE_OLD
 	ret nz
+	
 	push hl
 	push de
 	ld bc, -SCREEN_WIDTH
@@ -1713,8 +1714,14 @@ Pokedex_PrintNumberIfOldMode:
 	ld a, d
 	ld de, wPokedexDisplayNumber
 	ld [de], a
-	lb bc, PRINTNUM_LEADINGZEROS | 2, 3
-	call PrintNum
+	;lb bc, PRINTNUM_LEADINGZEROS | 2, 3
+	;call PrintNum
+	
+	push hl
+	call GetPokemonNumber
+	pop hl
+	call PlaceString
+	
 	pop de
 	pop hl
 	ret

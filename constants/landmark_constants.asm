@@ -100,6 +100,8 @@ KANTO_LANDMARK EQU const_value
 	const LANDMARK_TOHJO_FALLS       ; 5d
 	const LANDMARK_ROUTE_28          ; 5e
 	const LANDMARK_FAST_SHIP         ; 5f
+	
+SEVII_LANDMARK EQU const_value
 	const LANDMARK_ONE_ISLAND
 	const LANDMARK_KINDLE_ROAD
 	const LANDMARK_MT_EMBER
@@ -129,4 +131,5 @@ KANTO_LANDMARK EQU const_value
 	const_def
 	const JOHTO_REGION ; 0
 	const KANTO_REGION ; 1
+	const SEVII_REGION ; 2
 NUM_REGIONS EQU const_value
