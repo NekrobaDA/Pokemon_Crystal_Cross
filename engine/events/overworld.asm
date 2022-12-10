@@ -79,6 +79,61 @@ CheckPartyMove:
 	jr z, .no
 	cp EGG
 	jr z, .next
+	
+	ld [wCurPartySpecies], a 
+	
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld hl, wPartyMon1Moves
+	ld a, e
+	call AddNTimes
+	ld b, NUM_MOVES
+.check
+	ld a, [hli]
+	cp d
+	jr z, .yes	
+	dec b
+	jr nz, .check
+
+	ld a, d
+	ld [wPutativeTMHMMove], a
+	push de
+	predef CanLearnTMHMMove
+	pop de
+	ld a, c
+	and a
+	jr nz, .yes	
+
+.next
+	inc e
+	jr .loop
+
+.yes
+	ld a, e
+	ld [wCurPartyMon], a ; which mon has the move
+	xor a
+	ret
+.no
+	scf
+	ret
+	
+CheckPartyMoveLearned:
+; Check if a monster in your party has move d.
+
+	ld e, 0
+	xor a
+	ld [wCurPartyMon], a
+.loop
+	ld c, e
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr z, .no
+	cp -1
+	jr z, .no
+	cp EGG
+	jr z, .next
 
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld hl, wPartyMon1Moves
@@ -104,7 +159,55 @@ CheckPartyMove:
 .no
 	scf
 	ret
+	
+	
+CheckPartyCanLearnMove:
+; CHECK IF MONSTER IN PARTY CAN LEARN MOVE D
+	ld a, d
+	ld [wPutativeTMHMMove], a
+	
+	ld e, 0                ;load 0 in e
+	xor a                  ;0 ?
+	ld [wCurPartyMon], a   
+.loop
+	ld c, e                ;0 or incremented e into c (position in party)
+	ld b, 0                ;0 in b
+	ld hl, wPartySpecies   ;species in hl
+	add hl, bc             ; hl + 0?
+	ld a, [hl]             ; hl into a
+	and a                  ; cp 0?
+	jr z, .no
+	cp -1
+	jr z, .no
+	cp EGG
+	jr z, .next
 
+	ld [wCurPartySpecies], a
+; Check the TM/HM/Move Tutor list
+	push de
+	predef CanLearnTMHMMove
+	pop de
+	
+.check
+	ld a, c
+	and a
+	jr z, .yes
+
+.next
+	inc e
+	jr .loop
+
+.no
+	scf
+	ret
+
+.yes
+	ld a, e
+	; which mon can learn the move
+	ld [wCurPartyMon], a
+	xor a
+	ret
+	
 FieldMoveFailed:
 	ld hl, .CantUseItemText
 	call MenuTextboxBackup
@@ -506,6 +609,12 @@ TrySurfOW::
 	ld de, ENGINE_FOGBADGE
 	call CheckEngineFlag
 	jr c, .quit
+	
+	ld a, HM_SURF
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .quit
 
 	ld d, SURF
 	call CheckPartyMove
@@ -709,12 +818,20 @@ Script_UsedWaterfall:
 	text_end
 
 TryWaterfallOW::
-	ld d, WATERFALL
-	call CheckPartyMove
-	jr c, .failed
 	ld de, ENGINE_RISINGBADGE
 	call CheckEngineFlag
 	jr c, .failed
+	
+	ld a, HM_WATERFALL
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .failed
+
+	ld d, WATERFALL
+	call CheckPartyMove
+	jr c, .failed
+	
 	call CheckMapCanWaterfall
 	jr c, .failed
 	ld a, BANK(Script_AskWaterfall)
@@ -971,6 +1088,13 @@ StrengthFunction:
 	ld de, ENGINE_PLAINBADGE
 	call CheckBadge
 	jr c, .Failed
+	
+	ld a, HM_STRENGH
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .Failed
+	
 	jr .UseStrength
 
 .AlreadyUsingStrength: ; unreferenced
@@ -1195,12 +1319,20 @@ DisappearWhirlpool:
 	ret
 
 TryWhirlpoolOW::
-	ld d, WHIRLPOOL
-	call CheckPartyMove
-	jr c, .failed
 	ld de, ENGINE_GLACIERBADGE
 	call CheckEngineFlag
 	jr c, .failed
+	
+	ld a, HM_WHIRLPOOL
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .failed
+
+	ld d, WHIRLPOOL
+	call CheckPartyMove
+	jr c, .failed
+	
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, BANK(Script_AskWhirlpoolOW)
@@ -1291,7 +1423,7 @@ HeadbuttScript:
 
 TryHeadbuttOW::
 	ld d, HEADBUTT
-	call CheckPartyMove
+	call CheckPartyMoveLearned
 	jr c, .no
 
 	ld a, BANK(AskHeadbuttScript)
@@ -1422,10 +1554,16 @@ AskRockSmashText:
 	text_end
 
 HasRockSmash:
+	ld a, HM_ROCK_SMASH
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .no
+
 	ld d, ROCK_SMASH
 	call CheckPartyMove
 	jr nc, .yes
-; no
+.no
 	ld a, 1
 	jr .done
 .yes
@@ -1775,20 +1913,27 @@ GotOffBikeText:
 	text_end
 
 TryCutOW::
-	ld d, CUT
-	call CheckPartyMove
-	jr c, .cant_cut
-
 	ld de, ENGINE_HIVEBADGE
 	call CheckEngineFlag
 	jr c, .cant_cut
 
+	ld a, HM_CUT
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .cant_cut
+	
+	ld d, CUT
+	call CheckPartyMove
+	jr c, .cant_cut
+	
+.yes
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
 	call CallScript
 	scf
 	ret
-
+	
 .cant_cut
 	ld a, BANK(CantCutScript)
 	ld hl, CantCutScript
@@ -1888,6 +2033,12 @@ TryRockClimbOW::
 	;ld de, ENGINE_EARTHBADGE
 	;call CheckEngineFlag
 	;jr c, .cant_climb
+	
+	ld a, HM_ROCK_CLIMB
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .cant_climb
 
 	ld d, ROCK_CLIMB
 	call CheckPartyMove
@@ -2055,6 +2206,12 @@ TryDiveOW::
 	;ld de, ENGINE_CASCADEBADGE
 	;call CheckEngineFlag
 	;jr c, .cant
+	
+	ld a, HM_DIVE
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .cant
 
 	ld d, DIVE
 	call CheckPartyMove
