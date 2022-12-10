@@ -60,7 +60,7 @@ CheckBadge:
 .BadgeRequiredText:
 	text_far _BadgeRequiredText
 	text_end
-
+	
 CheckPartyMove:
 ; Check if a monster in your party has move d.
 
@@ -79,61 +79,6 @@ CheckPartyMove:
 	jr z, .no
 	cp EGG
 	jr z, .next
-	
-	ld [wCurPartySpecies], a 
-	
-	ld bc, PARTYMON_STRUCT_LENGTH
-	ld hl, wPartyMon1Moves
-	ld a, e
-	call AddNTimes
-	ld b, NUM_MOVES
-.check
-	ld a, [hli]
-	cp d
-	jr z, .yes	
-	dec b
-	jr nz, .check
-
-	ld a, d
-	ld [wPutativeTMHMMove], a
-	push de
-	predef CanLearnTMHMMove
-	pop de
-	ld a, c
-	and a
-	jr nz, .yes	
-
-.next
-	inc e
-	jr .loop
-
-.yes
-	ld a, e
-	ld [wCurPartyMon], a ; which mon has the move
-	xor a
-	ret
-.no
-	scf
-	ret
-	
-CheckPartyMoveLearned:
-; Check if a monster in your party has move d.
-
-	ld e, 0
-	xor a
-	ld [wCurPartyMon], a
-.loop
-	ld c, e
-	ld b, 0
-	ld hl, wPartySpecies
-	add hl, bc
-	ld a, [hl]
-	and a
-	jr z, .no
-	cp -1
-	jr z, .no
-	cp EGG
-	jr z, .next
 
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld hl, wPartyMon1Moves
@@ -159,54 +104,50 @@ CheckPartyMoveLearned:
 .no
 	scf
 	ret
-	
 	
 CheckPartyCanLearnMove:
 ; CHECK IF MONSTER IN PARTY CAN LEARN MOVE D
-	ld a, d
-	ld [wPutativeTMHMMove], a
-	
-	ld e, 0                ;load 0 in e
-	xor a                  ;0 ?
-	ld [wCurPartyMon], a   
+    ld e, 0
+    xor a
+    ld [wCurPartyMon], a
 .loop
-	ld c, e                ;0 or incremented e into c (position in party)
-	ld b, 0                ;0 in b
-	ld hl, wPartySpecies   ;species in hl
-	add hl, bc             ; hl + 0?
-	ld a, [hl]             ; hl into a
-	and a                  ; cp 0?
-	jr z, .no
-	cp -1
-	jr z, .no
-	cp EGG
-	jr z, .next
+    ld c, e
+    ld b, 0
+    ld hl, wPartySpecies
+    add hl, bc
+    ld a, [hl]
+    and a
+    jr z, .no
+    cp -1
+    jr z, .no
+    cp EGG
+    jr z, .next
 
-	ld [wCurPartySpecies], a
 ; Check the TM/HM/Move Tutor list
-	push de
-	predef CanLearnTMHMMove
-	pop de
-	
+    ld [wCurPartySpecies], a
+    ld a, d
+    ld [wPutativeTMHMMove], a
+    push de
+    farcall CanLearnTMHMMove
+    pop de
 .check
-	ld a, c
-	and a
-	jr z, .yes
-
+    ld a, c
+    and a
+    jr nz, .yes
+; done checking
 .next
-	inc e
-	jr .loop
-
-.no
-	scf
-	ret
+    inc e
+    jr .loop
 
 .yes
-	ld a, e
-	; which mon can learn the move
-	ld [wCurPartyMon], a
-	xor a
-	ret
+    ld a, e
+    ; which mon can learn the move
+    ld [wCurPartyMon], a
+    xor a
+    ret
+.no
+    ld a, 1
+    ret
 	
 FieldMoveFailed:
 	ld hl, .CantUseItemText
@@ -618,8 +559,17 @@ TrySurfOW::
 
 	ld d, SURF
 	call CheckPartyMove
-	jr c, .quit
-
+	jr c, .try_next
+	jr .yes
+	
+.try_next	
+	ld d, SURF
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .quit
+	
+.yes
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .quit
@@ -830,8 +780,17 @@ TryWaterfallOW::
 
 	ld d, WATERFALL
 	call CheckPartyMove
-	jr c, .failed
+	jr c, .try_next
+	jr .yes
 	
+.try_next	
+	ld d, WATERFALL
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .failed
+	
+.yes	
 	call CheckMapCanWaterfall
 	jr c, .failed
 	ld a, BANK(Script_AskWaterfall)
@@ -1089,13 +1048,23 @@ StrengthFunction:
 	call CheckBadge
 	jr c, .Failed
 	
-	ld a, HM_STRENGH
+	ld a, HM_STRENGTH
 	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
 	jr z, .Failed
 	
+	ld d, STRENGTH
+	call CheckPartyMove
+	jr c, .try_next
 	jr .UseStrength
+	
+.try_next	
+	ld d, STRENGTH
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .UseStrength
+	jr .Failed
 
 .AlreadyUsingStrength: ; unreferenced
 	ld hl, .AlreadyUsingStrengthText
@@ -1331,8 +1300,17 @@ TryWhirlpoolOW::
 
 	ld d, WHIRLPOOL
 	call CheckPartyMove
-	jr c, .failed
+	jr c, .try_next
+	jr .yes
 	
+.try_next	
+	ld d, WHIRLPOOL
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .failed
+	
+.yes
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, BANK(Script_AskWhirlpoolOW)
@@ -1423,7 +1401,7 @@ HeadbuttScript:
 
 TryHeadbuttOW::
 	ld d, HEADBUTT
-	call CheckPartyMoveLearned
+	call CheckPartyMove
 	jr c, .no
 
 	ld a, BANK(AskHeadbuttScript)
@@ -1562,7 +1540,15 @@ HasRockSmash:
 
 	ld d, ROCK_SMASH
 	call CheckPartyMove
-	jr nc, .yes
+	jr c, .try_next
+	jr .yes
+	
+.try_next	
+	ld d, ROCK_SMASH
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+
 .no
 	ld a, 1
 	jr .done
@@ -1925,7 +1911,16 @@ TryCutOW::
 	
 	ld d, CUT
 	call CheckPartyMove
-	jr c, .cant_cut
+	;jr c, .cant_cut
+	jr c, .try_next
+	jr .yes
+	
+.try_next	
+	ld d, CUT
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .cant_cut
 	
 .yes
 	ld a, BANK(AskCutScript)
@@ -2042,8 +2037,17 @@ TryRockClimbOW::
 
 	ld d, ROCK_CLIMB
 	call CheckPartyMove
-	jr c, .cant_climb
+	jr c, .try_next
+	jr .yes
+	
+.try_next	
+	ld d,ROCK_CLIMB
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .cant_climb
 
+.yes
 	ld a, BANK(AskRockClimbScript)
 	ld hl, AskRockClimbScript
 	call CallScript
@@ -2211,12 +2215,21 @@ TryDiveOW::
 	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
-	jr z, .cant
+	jr z, .failed
 
 	ld d, DIVE
 	call CheckPartyMove
-	jr c, .cant
+	jr c, .try_next
+	jr .yes
+	
+.try_next	
+	ld d, DIVE
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .failed
 
+.yes
 	call GetPartyNick
 	ld a, BANK(AskDiveScript)
 	ld hl, AskDiveScript
