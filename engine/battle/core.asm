@@ -2516,6 +2516,16 @@ IsAnyMonHoldingExpShare:
 	pop bc
 	pop hl
 	jr z, .next
+	
+	push hl
+	push bc
+	ld bc, MON_LEVEL
+	add hl, bc
+	ld a, [hl]
+	cp MAX_LEVEL
+	pop bc
+	pop hl
+	jr nc, .next
 
 	push hl
 	push bc
@@ -3291,8 +3301,8 @@ LostBattle:
 
 .not_tied
 	ld hl, LostAgainstText
-	call IsMobileBattle
-	jr z, .mobile
+	;call IsMobileBattle
+	;jr z, .mobile
 
 .text
 	call StdBattleTextbox
@@ -3301,20 +3311,20 @@ LostBattle:
 	scf
 	ret
 
-.mobile
+;.mobile
 ; Remove the enemy from the screen.
-	hlcoord 0, 0
-	lb bc, 8, 21
-	call ClearBox
-	call BattleWinSlideInEnemyTrainerFrontpic
+	;hlcoord 0, 0
+	;lb bc, 8, 21
+	;call ClearBox
+	;call BattleWinSlideInEnemyTrainerFrontpic
 
-	ld c, 40
-	call DelayFrames
+	;ld c, 40
+	;call DelayFrames
 
-	ld c, $3 ; lost
-	farcall Mobile_PrintOpponentBattleMessage
-	scf
-	ret
+	;ld c, $3 ; lost
+	;farcall Mobile_PrintOpponentBattleMessage
+	;scf
+	;ret
 
 EnemyMonFaintedAnimation:
 	hlcoord 12, 5
@@ -5252,29 +5262,29 @@ BattleMenu_Fight:
 	ret
 
 LoadBattleMenu2:
-	call IsMobileBattle
-	jr z, .mobile
+	;call IsMobileBattle
+	;jr z, .mobile
 
 	farcall LoadBattleMenu
 	and a
 	ret
 
-.mobile
-	farcall Mobile_LoadBattleMenu
-	ld a, [wcd2b]
-	and a
-	ret z
+;.mobile
+	;farcall Mobile_LoadBattleMenu
+	;ld a, [wcd2b]
+	;and a
+	;ret z
 
-	ld hl, wcd2a
-	bit 4, [hl]
-	jr nz, .error
-	ld hl, BattleText_LinkErrorBattleCanceled
-	call StdBattleTextbox
-	ld c, 60
-	call DelayFrames
-.error
-	scf
-	ret
+	;ld hl, wcd2a
+	;bit 4, [hl]
+	;jr nz, .error
+	;ld hl, BattleText_LinkErrorBattleCanceled
+	;call StdBattleTextbox
+	;ld c, 60
+	;call DelayFrames
+;.error
+	;scf
+	;ret
 
 BattleMenu_Pack:
 	ld a, [wLinkMode]
@@ -5426,14 +5436,14 @@ BattleMenuPKMN_Loop:
 	jp BattleMenu
 
 .GetMenu:
-	call IsMobileBattle
-	jr z, .mobile
+	;call IsMobileBattle
+	;jr z, .mobile
 	farcall BattleMonMenu
 	ret
 
-.mobile
-	farcall MobileBattleMonMenu
-	ret
+;.mobile
+	;farcall MobileBattleMonMenu
+	;ret
 
 Battle_StatsScreen:
 	call DisableLCD
@@ -5649,12 +5659,12 @@ CheckAmuletCoin:
 	ret
 
 MoveSelectionScreen:
-	call IsMobileBattle
-	jr nz, .not_mobile
-	farcall Mobile_MoveSelectionScreen
-	ret
+	;call IsMobileBattle
+	;jr nz, .not_mobile
+	;farcall Mobile_MoveSelectionScreen
+	;ret
 
-.not_mobile
+;.not_mobile
 	ld hl, wEnemyMonMoves
 	ld a, [wMoveSelectionMenuType]
 	dec a
@@ -6039,10 +6049,10 @@ MoveInfoBox:
 
 .PrintPP:
 	hlcoord 5, 11
-	ld a, [wLinkMode] ; What's the point of this check?
-	cp LINK_MOBILE
-	jr c, .ok
-	hlcoord 5, 11
+	;ld a, [wLinkMode] ; What's the point of this check?
+	;cp LINK_MOBILE
+	;jr c, .ok
+	;hlcoord 5, 11
 .ok
 	push hl
 	ld de, wStringBuffer1
@@ -7458,6 +7468,13 @@ GiveExperiencePoints:
 	inc de
 	dec c
 	jr nz, .stat_exp_loop
+	pop bc
+	ld hl, MON_LEVEL
+	add hl, bc
+	ld a, [hl]
+	cp MAX_LEVEL
+	jp nc, .next_mon
+	push bc
 	xor a
 	ldh [hMultiplicand + 0], a
 	ldh [hMultiplicand + 1], a
@@ -7765,12 +7782,28 @@ GiveExperiencePoints:
 	ld a, [wBattleParticipantsNotFainted]
 	ld b, a
 	ld c, PARTY_LENGTH
-	ld d, 0
+	ld de, 0
 .count_loop
+	push bc
+	push de
+	ld a, e
+	ld hl, wPartyMon1Level
+	call GetPartyLocation
+	ld a, [hl]
+	cp MAX_LEVEL
+	pop de
+	pop bc
+	jr c, .gains_exp
+	srl b
+	ld a, d
+	jr .no_exp
+.gains_exp
 	xor a
 	srl b
 	adc d
 	ld d, a
+.no_exp
+	inc e
 	dec c
 	jr nz, .count_loop
 	cp 2
@@ -8928,17 +8961,17 @@ DisplayLinkBattleResult:
 
 	call CloseSRAM
 
-	call IsMobileBattle2
-	jr z, .mobile
+	;call IsMobileBattle2
+	;jr z, .mobile
 	call WaitPressAorB_BlinkCursor
 	call ClearTilemap
 	ret
 
-.mobile
+;.mobile
 	;ld c, 200
 	;call DelayFrames
 	;call ClearTilemap
-	ret
+	;ret
 
 .YouWin:
 	db "YOU WIN@"
