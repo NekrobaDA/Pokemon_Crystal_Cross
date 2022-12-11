@@ -271,6 +271,12 @@ BattleText_EnemyIsAboutToUseWillPlayerChangeMon:
 	line "change #MON?"
 	done
 
+BattleText_ChangeMon:
+	text "Would you like to"
+	line "switch #MON?"
+	done
+
+
 BattleText_EnemySentOut:
 	text "<ENEMY>"
 	line "sent out"
@@ -338,7 +344,7 @@ BattleText_UsersStringBuffer1Activated:
 
 BattleText_ItemsCantBeUsedHere:
 	text "Items can't be"
-	line "used here."
+	line "used right now."
 	prompt
 
 BattleText_MonIsAlreadyOut:

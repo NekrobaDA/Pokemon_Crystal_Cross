@@ -63,6 +63,7 @@ VioletGymFalknerScript:
 	closetext
 	winlosstext Falkner2WinLossText, 0
 	loadtrainer FALKNER, FALKNER2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	; loadtrainer NEKROBA, NEKROBA1 (for testing)
 	startbattle
 	reloadmapafterbattle

@@ -3459,22 +3459,27 @@ EnemySwitch:
 .skip
 	; 'b' contains the PartyNr of the mon the AI will switch to
 	call LoadEnemyMonToSwitchTo
-	call OfferSwitch
-	push af
+	ld a, 1
+	ld [wEnemyIsSwitching], a
 	call ClearEnemyMonBox
 	call ShowBattleTextEnemySentOut
 	call ShowSetEnemyMonAndSendOutAnimation
-	pop af
-	ret c
-	; If we're here, then we're switching too
-	xor a
-	ld [wBattleParticipantsNotFainted], a
-	ld [wBattleParticipantsIncludingFainted], a
-	ld [wBattlePlayerAction], a
-	inc a
-	ld [wEnemyIsSwitching], a
-	call LoadTilemapToTempTilemap
-	jp PlayerSwitch
+
+	;call OfferSwitch
+	
+	ld hl, BattleText_ChangeMon
+	call StdBattleTextbox
+	lb bc, 1, 7
+	call PlaceYesNoBox
+	ld a, [wMenuCursorY]
+	dec a
+	jr nz, .said_no
+	
+	call BattleMenu_PKMN
+
+.said_no
+	ret
+	
 
 EnemySwitch_SetMode:
 	call ResetEnemyBattleVars
@@ -3807,6 +3812,11 @@ CheckWhetherToAskSwitch:
 	ld a, [wOptions]
 	bit BATTLE_SHIFT, a
 	jr nz, .return_nc
+	
+	ld a, [wBattleType]
+	cp BATTLETYPE_SET_NO_ITEMS
+	jr z, .return_nc
+	
 	ld a, [wCurPartyMon]
 	push af
 	ld a, [wCurBattleMon]
@@ -3826,36 +3836,39 @@ CheckWhetherToAskSwitch:
 OfferSwitch:
 	ld a, [wCurPartyMon]
 	push af
-	callfar Battle_GetTrainerName
-	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangeMon
+	
+	ld hl, BattleText_ChangeMon
 	call StdBattleTextbox
 	lb bc, 1, 7
 	call PlaceYesNoBox
 	ld a, [wMenuCursorY]
 	dec a
 	jr nz, .said_no
-	call SetUpBattlePartyMenu
-	call PickSwitchMonInBattle
-	jr c, .canceled_switch
-	ld a, [wCurBattleMon]
-	ld [wLastPlayerMon], a
-	ld a, [wCurPartyMon]
-	ld [wCurBattleMon], a
-	call ClearPalettes
-	call DelayFrame
-	call _LoadHPBar
-	pop af
-	ld [wCurPartyMon], a
-	xor a
-	ld [wCurEnemyMove], a
-	ld [wCurPlayerMove], a
-	and a
 	ret
+	
+	;call SetUpBattlePartyMenu
+	;call PickSwitchMonInBattle
+	;jr c, .canceled_switch
+	
+	;ld a, [wCurBattleMon]
+	;ld [wLastPlayerMon], a
+	;ld a, [wCurPartyMon]
+	;ld [wCurBattleMon], a
+	;call ClearPalettes
+	;call DelayFrame
+	;call _LoadHPBar
+	;pop af
+	;ld [wCurPartyMon], a
+	;xor a
+	;ld [wCurEnemyMove], a
+	;ld [wCurPlayerMove], a
+	;and a
+	;ret
 
-.canceled_switch
-	call ClearPalettes
-	call DelayFrame
-	call _LoadHPBar
+;.canceled_switch
+	;call ClearPalettes
+	;call DelayFrame
+	;call _LoadHPBar
 
 .said_no
 	pop af
@@ -5290,6 +5303,13 @@ BattleMenu_Pack:
 	ld a, [wLinkMode]
 	and a
 	jp nz, .ItemsCantBeUsed
+	
+	ld a, [wBattleType]
+	cp BATTLETYPE_SET_NO_ITEMS
+	jp z, .ItemsCantBeUsed 
+	
+	cp BATTLETYPE_SWITCH_NO_ITEMS
+	jp z, .ItemsCantBeUsed 
 
 	ld a, [wInBattleTowerBattle]
 	and a
