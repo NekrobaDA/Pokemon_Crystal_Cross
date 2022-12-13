@@ -39,7 +39,7 @@ ItemEffects:
 	dw NoEffect            ; LUCKY_PUNCH
 	dw VitaminEffect       ; CALCIUM
 	dw RareCandyEffect     ; RARE_CANDY
-	dw XAccuracyEffect     ; X_ACCURACY
+	dw NoEffect            ; WIDE_LENS
 	dw EvoStoneEffect      ; LEAF_STONE
 	dw NoEffect            ; METAL_POWDER
 	dw NoEffect            ; NUGGET
@@ -47,17 +47,17 @@ ItemEffects:
 	dw StatusHealingEffect ; FULL_HEAL
 	dw ReviveEffect        ; REVIVE
 	dw ReviveEffect        ; MAX_REVIVE
-	dw GuardSpecEffect     ; GUARD_SPEC
+	dw NoEffect            ; PSY_SHIELD
 	dw MaxRepelEffect      ; MAX_REPEL
 	dw EvoStoneEffect      ; SHINY_STONE
 	dw RestoreHPEffect     ; FRESH_WATER
 	dw RestoreHPEffect     ; SODA_POP
 	dw RestoreHPEffect     ; LEMONADE
-	dw XItemEffect         ; X_ATTACK
+	dw NoEffect            ; MUSCLE_BAND
 	dw EvoStoneEffect      ; DUSK_STONE
-	dw XItemEffect         ; X_DEFEND
-	dw XItemEffect         ; X_SPEED
-	dw XItemEffect         ; X_SPECIAL
+	dw NoEffect            ; LIGHT_ARMOR
+	dw NoEffect            ; SWIFT_BOOTS
+	dw NoEffect            ; WISE_GLASSES
 	dw CoinCaseEffect      ; COIN_CASE
 	dw ItemfinderEffect    ; ITEMFINDER
 	dw NoEffect            ; EXP_SHARE
@@ -162,6 +162,15 @@ ItemEffects:
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
+	dw NoEffect            ; OLD_AMBER
+	dw NoEffect            ; DOME_FOSSIL
+	dw NoEffect            ; HELIX_FOSSIL
+	dw NoEffect            ; PECHA_SCARF
+	dw NoEffect            ; PERSIM_BAND
+	dw NoEffect            ; INSOMNISCOPE
+	dw NoEffect            ; LIMBER_BAND
+	dw NoEffect            ; MAGMA_VEST
+	dw NoEffect            ; FROST_RING
 
 PokeBallEffect:
 	ld a, [wBattleMode]

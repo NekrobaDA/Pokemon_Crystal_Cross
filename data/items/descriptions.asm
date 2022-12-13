@@ -26,7 +26,7 @@ ItemDescriptions:
 	dw LuckyPunchDesc
 	dw CalciumDesc
 	dw RareCandyDesc
-	dw XAccuracyDesc
+	dw WideLensDesc
 	dw LeafStoneDesc
 	dw MetalPowderDesc
 	dw NuggetDesc
@@ -34,17 +34,17 @@ ItemDescriptions:
 	dw FullHealDesc
 	dw ReviveDesc
 	dw MaxReviveDesc
-	dw GuardSpecDesc
+	dw PsyShieldDesc
 	dw MaxRepelDesc
 	dw ShinyStoneDesc
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
-	dw XAttackDesc
+	dw MuscleBandDesc
 	dw DuskStoneDesc
-	dw XDefendDesc
-	dw XSpeedDesc
-	dw XSpecialDesc
+	dw LightArmorDesc
+	dw SwiftBootsDesc
+	dw WiseGlassesDesc
 	dw CoinCaseDesc
 	dw ItemfinderDesc
 	dw ExpShareDesc
@@ -149,12 +149,15 @@ ItemDescriptions:
 	dw SquirtBottleDesc
 	dw ParkBallDesc
 	dw RainbowWingDesc
-	dw TeruSama24Desc
-	dw TeruSama25Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
+	dw OldAmberDesc
+	dw DomeFossilDesc
+	dw HelixFossilDesc
+	dw PechaScarfDesc
+	dw PersimBandDesc
+	dw InsomniscopeDesc
+	dw LimberBandDesc
+	dw MagmaVestDesc
+	dw FrostRingDesc
 	dw TeruSama26Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
@@ -252,9 +255,6 @@ ItemDescriptions:
 	dw TeruSama26Desc
 	dw TeruSama26Desc
 	dw TeruSama26Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -386,9 +386,9 @@ RareCandyDesc:
 	db   "Raises level of a"
 	next "#MON by one.@"
 
-XAccuracyDesc:
+WideLensDesc:
 	db   "Raises accuracy."
-	next "(1 BTL)@"
+	next "(HOLD)@"
 
 LeafStoneDesc:
 	db   "Evolves certain"
@@ -418,9 +418,9 @@ MaxReviveDesc:
 	db   "Fully restores a"
 	next "fainted #MON.@"
 
-GuardSpecDesc:
-	db   "Prevents stats"
-	next "reduction. (1 BTL)@"
+PsyShieldDesc:
+	db   "Raises SPECIAL"
+	next "DEFENSE. (HOLD)@"
 
 SuperRepelDesc:
 	db   "Repels weak #-"
@@ -450,25 +450,25 @@ LemonadeDesc:
 	db   "Restores #MON"
 	next "HP by 80.@"
 
-XAttackDesc:
+MuscleBandDesc:
 	db   "Raises ATTACK."
-	next "(1 BTL)@"
+	next "(HOLD)@"
 
 DuskStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-XDefendDesc:
+LightArmorDesc:
 	db   "Raises DEFENSE."
-	next "(1 BTL)@"
+	next "(HOLD)@"
 
-XSpeedDesc:
+SwiftBootsDesc:
 	db   "Raises SPEED."
-	next "(1 BTL)@"
+	next "(HOLD)@"
 
-XSpecialDesc:
+WiseGlassesDesc:
 	db   "Raises SPECIAL"
-	next "ATTACK. (1 BTL)@"
+	next "ATTACK. (HOLD)@"
 
 CoinCaseDesc:
 	db   "Holds up to 9,999"
@@ -988,6 +988,39 @@ MusicMailDesc:
 MirageMailDesc:
 	db   "MEW-print MAIL."
 	next "(HOLD)@"
+	
+PechaScarfDesc:
+	db   "Prevents POISON."
+	next "(HOLD)@"
+	
+PersimBandDesc:
+	db   "Prevents CONFUSION"
+	next "(HOLD)@"
+	
+InsomniscopeDesc:
+	db   "Prevents SLEEP."
+	next "(HOLD)@"
+	
+LimberBandDesc:
+	db   "Prevents PARALYSIS"
+	next "(HOLD)@"
+	
+MagmaVestDesc:
+	db   "Prevents FREEZE."
+	next "(HOLD)@"
+	
+FrostRingDesc:
+	db   "Prevents BURN."
+	next "(HOLD)@"
+
+OldAmberDesc:
+	db   "?@"
+	
+DomeFossilDesc:
+	db   "?@"
+	
+HelixFossilDesc:
+	db   "?@"
 
 TeruSama25Desc:
 	db   "?@"

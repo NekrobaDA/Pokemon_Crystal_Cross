@@ -18,6 +18,7 @@ PewterGymBrockScript:
 	closetext
 	winlosstext BrockWinLossText, 0
 	loadtrainer BROCK, BROCK1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BROCK

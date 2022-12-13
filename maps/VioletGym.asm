@@ -21,6 +21,7 @@ VioletGymFalknerScript:
 	closetext
 	winlosstext FalknerWinLossText, 0
 	loadtrainer FALKNER, FALKNER1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_FALKNER

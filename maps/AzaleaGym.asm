@@ -24,6 +24,7 @@ AzaleaGymBugsyScript:
 	closetext
 	winlosstext BugsyText_ResearchIncomplete, 0
 	loadtrainer BUGSY, BUGSY1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BUGSY
@@ -66,6 +67,7 @@ AzaleaGymBugsyScript:
 	closetext
 	winlosstext Bugsy2WinLossText, 0
 	loadtrainer BUGSY, BUGSY2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setflag ENGINE_BEAT_BUGSY

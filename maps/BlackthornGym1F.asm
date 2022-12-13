@@ -40,6 +40,7 @@ BlackthornGymClairScript:
 	closetext
 	winlosstext ClairWinText, 0
 	loadtrainer CLAIR, CLAIR1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CLAIR
@@ -100,6 +101,7 @@ BlackthornGymClairScript:
 	closetext
 	winlosstext Clair2WinLossText, 0
 	loadtrainer CLAIR, CLAIR2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setflag ENGINE_BEAT_CLAIR

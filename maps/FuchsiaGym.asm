@@ -22,6 +22,7 @@ FuchsiaGymJanineScript:
 	closetext
 	winlosstext JanineText_ToughOne, 0
 	loadtrainer JANINE, JANINE1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_JANINE

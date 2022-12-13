@@ -66,16 +66,13 @@ MartCherrygroveDex:
 	db -1 ; end
 
 MartViolet:
-	db 10 ; # items
+	db 7 ; # items
 	db POKE_BALL
 	db POTION
 	db ESCAPE_ROPE
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
-	db X_DEFEND
-	db X_ATTACK
-	db X_SPEED
 	db FLOWER_MAIL
 	db -1 ; end
 
@@ -337,7 +334,7 @@ MartMahogany2:
 	db -1 ; end
 
 MartBlackthorn:
-	db 9 ; # items
+	db 7 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
@@ -345,8 +342,6 @@ MartBlackthorn:
 	db FULL_HEAL
 	db REVIVE
 	db MAX_REPEL
-	db X_DEFEND
-	db X_ATTACK
 	db -1 ; end
 
 MartViridian:
@@ -374,15 +369,12 @@ MartPewter:
 	db -1 ; end
 
 MartCerulean:
-	db 9 ; # items
+	db 6 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db SUPER_POTION
 	db SUPER_REPEL
 	db FULL_HEAL
-	db X_DEFEND
-	db X_ATTACK
-	db DIRE_HIT
 	db SURF_MAIL
 	db -1 ; end
 
@@ -473,19 +465,12 @@ MartCeladon3F:
 	db -1 ; end
 
 MartCeladon4F:
-	db 12 ; # items
+	db 5 ; # items
 	db HP_UP
 	db PROTEIN
 	db IRON
 	db CARBOS
 	db CALCIUM
-	db X_ACCURACY
-	db GUARD_SPEC
-	db DIRE_HIT
-	db X_ATTACK
-	db X_DEFEND
-	db X_SPEED
-	db X_SPECIAL
 	db -1 ; end
 
 MartCeladon5F1:
@@ -528,14 +513,12 @@ MartFuchsia:
 	db -1 ; end
 
 MartSaffron:
-	db 8 ; # items
+	db 6 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
 	db MAX_POTION
 	db FULL_HEAL
-	db X_ATTACK
-	db X_DEFEND
 	db FLOWER_MAIL
 	db -1 ; end
 
@@ -577,12 +560,19 @@ MartCatallia:
 	db -1 ; end
 
 MartCatalliaDex:
-	db 5 ; # items
-	db POKE_BALL
-	db POTION
-	db ANTIDOTE
-	db PARLYZ_HEAL
-	db AWAKENING
+	db 12 ; # items
+	db MUSCLE_BAND
+	db WISE_GLASSES
+	db WIDE_LENS
+	db SWIFT_BOOTS
+	db LIGHT_ARMOR
+	db PSY_SHIELD
+	db PECHA_SCARF
+	db PERSIM_BAND
+	db INSOMNISCOPE
+	db LIMBER_BAND
+	db MAGMA_VEST
+	db FROST_RING
 	db -1 ; end
 
 DefaultMart:

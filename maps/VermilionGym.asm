@@ -20,6 +20,7 @@ VermilionGymSurgeScript:
 	closetext
 	winlosstext LtSurgeWinLossText, 0
 	loadtrainer LT_SURGE, LT_SURGE1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_LTSURGE

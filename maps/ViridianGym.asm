@@ -17,6 +17,7 @@ ViridianGymBlueScript:
 	closetext
 	winlosstext LeaderBlueWinText, 0
 	loadtrainer BLUE, BLUE1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLUE

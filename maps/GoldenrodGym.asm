@@ -31,6 +31,7 @@ GoldenrodGymWhitneyScript:
 	closetext
 	winlosstext WhitneyShouldntBeSoSeriousText, 0
 	loadtrainer WHITNEY, WHITNEY1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_WHITNEY
@@ -90,6 +91,7 @@ GoldenrodGymWhitneyScript:
 	closetext
 	winlosstext Whitney2WinLossText, 0
 	loadtrainer WHITNEY, WHITNEY2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setflag ENGINE_BEAT_WHITNEY

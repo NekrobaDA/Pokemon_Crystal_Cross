@@ -32,7 +32,7 @@
 	const LUCKY_PUNCH  ; 18
 	const CALCIUM      ; 19
 	const RARE_CANDY   ; 1a
-	const X_ACCURACY   ; 1b assign effect to hold item instead
+	const WIDE_LENS    ; 1b x accuracy
 	const LEAF_STONE   ; 1c
 	const METAL_POWDER ; 1d
 	const NUGGET       ; 1e
@@ -40,17 +40,17 @@
 	const FULL_HEAL    ; 20
 	const REVIVE       ; 21
 	const MAX_REVIVE   ; 22
-	const GUARD_SPEC   ; 23 assign effect to hold item instead
+	const PSY_SHIELD   ; 23 x sp def
 	const MAX_REPEL    ; 24 
 	const SHINY_STONE  ; 25
 	const FRESH_WATER  ; 26
 	const SODA_POP     ; 27
 	const LEMONADE     ; 28
-	const X_ATTACK     ; 29 assign effect to hold item instead
+	const MUSCLE_BAND  ; 29 x attack
 	const DUSK_STONE   ; 2a
-	const X_DEFEND     ; 2b assign effect to hold item instead
-	const X_SPEED      ; 2c assign effect to hold item instead
-	const X_SPECIAL    ; 2d assign effect to hold item instead
+	const LIGHT_ARMOR  ; 2b x defense
+	const SWIFT_BOOTS  ; 2c x speed
+	const WISE_GLASSES ; 2d x sp attack
 	const COIN_CASE    ; 2e
 	const ITEMFINDER   ; 2f
 	const EXP_SHARE    ; 30
@@ -158,12 +158,12 @@
 	const OLD_AMBER    ; 96
 	const DOME_FOSSIL  ; 97
 	const HELIX_FOSSIL ; 98
-	const ITEM_X04     ; 99
-	const ITEM_X05     ; 9a
-	const ITEM_X06     ; 9b
-	const ITEM_X07     ; 9c
-	const ITEM_X08     ; 9d
-	const ITEM_X09     ; 9e
+	const PECHA_SCARF  ; 99
+	const PERSIM_BAND  ; 9a
+	const INSOMNISCOPE ; 9b
+	const LIMBER_BAND  ; 9c
+	const MAGMA_VEST   ; 9d
+	const FROST_RING   ; 9e
 	const ITEM_X10     ; 9f
 	const ITEM_X11     ; a0
 	const ITEM_X12     ; a1
@@ -390,7 +390,14 @@ BLUESKY_MAIL   EQU $84
 MUSIC_MAIL     EQU $84
 MIRAGE_MAIL    EQU $84
 
-DIRE_HIT       EQU $01 ; to be removed
-ETHER          EQU $01
-MAX_ETHER      EQU $01
+DIRE_HIT       EQU $05 ; to be removed
+ETHER          EQU $05
+MAX_ETHER      EQU $05
 EGG_TICKET     EQU $01
+X_ACCURACY     EQU $05
+X_ATTACK       EQU $05
+X_DEFEND       EQU $05
+X_SPEED        EQU $05
+GUARD_SPEC     EQU $05
+X_SPECIAL      EQU $05
+

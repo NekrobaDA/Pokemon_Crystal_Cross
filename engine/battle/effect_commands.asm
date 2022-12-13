@@ -2745,6 +2745,9 @@ PlayerAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+	
+	ld e, 0
+	call DefenseBoost
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_REFLECT, a
@@ -2797,6 +2800,7 @@ PlayerAttackDamage:
 .finish
 	ld hl, wBattleMonAttack
 .boosted
+	push hl
 	call CheckDamageStatsCritical
 	jr c, .thickclub
 
@@ -2804,7 +2808,11 @@ PlayerAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
-	ld hl, wPlayerAttack
+	
+	ld e, 0
+	call  DefenseBoost
+	
+	;pop hl ; ld hl, wPlayerAttack
 	jr .thickclub
 
 .special
@@ -2813,6 +2821,8 @@ PlayerAttackDamage:
 	ld b, a
 	ld c, [hl]
 	
+	ld e, 0
+	call SpecialDefenseBoost
 	call SandstormSpDefBoost
 
 	ld a, [wEnemyScreens]
@@ -2868,6 +2878,7 @@ PlayerAttackDamage:
 .finish2
 	ld hl, wBattleMonSpclAtk
 .boosted2	
+	push hl
 	call CheckDamageStatsCritical
 	jr c, .lightball
 
@@ -2875,15 +2886,25 @@ PlayerAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
-	ld hl, wPlayerSpAtk
+	
+	ld e, 0
+	call SpecialDefenseBoost
+	
+	;pop hl ;ld hl, wPlayerSpAtk
 
 .lightball
 ; Note: Returns player special attack at hl in hl.
+	pop hl
+	ld e, 1
+	call SpecialAttackBoost
 	call LightBallBoost
 	jr .done
 
 .thickclub
 ; Note: Returns player attack at hl in hl.
+	pop hl
+	ld e, 1
+	call AttackBoost
 	call ThickClubBoost
 
 .done
@@ -3093,6 +3114,9 @@ EnemyAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+	
+	ld e, 1
+	call DefenseBoost
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_REFLECT, a
@@ -3145,6 +3169,7 @@ EnemyAttackDamage:
 .finish
 	ld hl, wEnemyMonAttack
 .boosted
+	push hl
 	call CheckDamageStatsCritical
 	jr c, .thickclub
 
@@ -3152,7 +3177,11 @@ EnemyAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
-	ld hl, wEnemyAttack
+	
+	ld e, 1
+	call DefenseBoost
+	
+	;pop hl ;ld hl, wEnemyAttack
 	jr .thickclub
 
 .special
@@ -3161,6 +3190,8 @@ EnemyAttackDamage:
 	ld b, a
 	ld c, [hl]
 	
+	ld e, 1
+	call SpecialDefenseBoost
 	call SandstormSpDefBoost
 
 	ld a, [wPlayerScreens]
@@ -3216,19 +3247,31 @@ EnemyAttackDamage:
 .finish2
 	ld hl, wEnemyMonSpclAtk
 .boosted2
+	push hl
 	call CheckDamageStatsCritical
 	jr c, .lightball
 	ld hl, wPlayerSpDef
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
-	ld hl, wEnemySpAtk
+	
+	ld e, 1
+	call SpecialDefenseBoost
+	call SandstormSpDefBoost
+	
+	;pop hl ;ld hl, wEnemySpAtk
 
 .lightball
+	pop hl
+	ld e, 0
+	call SpecialAttackBoost
 	call LightBallBoost
 	jr .done
 
 .thickclub
+	pop hl
+	ld e, 0
+	call AttackBoost
 	call ThickClubBoost
 
 .done
@@ -4669,6 +4712,174 @@ RaiseStat:
 	ld a, $1
 	ld [wFailedMessage], a
 	ret
+	
+	
+AttackBoost:
+; attackup
+	;check for helditem muscle band
+	;boost by 1.25
+	push hl    ;preserve hl, bc
+	push bc
+	
+	ld a, e
+	cp 1
+	call GetUserItem     ;if user turn, get user item
+	jr z, .player
+	call GetOpponentItem   ;else opponent
+.player
+	ld a, [hl]          ;compare item
+	cp MUSCLE_BAND
+	pop bc
+	pop hl         ;atk and def back into hl and bc
+	ret nz         ;continue only if muscle band
+	
+	call MultiplyStat ;end with atk x1.25 in hl, def in bc
+	ret
+	
+MultiplyStat:
+	push bc        ;preserve bc again
+    ; Load value of atk/sp atk into h and l
+    ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ; Copy value into bc
+    ld b, h
+    ld c, l
+
+    ; quarter bc
+    srl b 
+    rr c
+    srl b 
+    rr c
+
+    add hl, bc ; 4/4 + 1/4 = 5/4
+    pop bc
+
+    ; Load the new value into wBattleMonTempStat
+    ld a, h
+    ld [wBattleMonTempStat], a
+    ld a, l
+    ld [wBattleMonTempStat + 1], a
+
+    ld hl, wBattleMonTempStat  ;atk/sp atk x 1.25 in hl
+	ret
+	
+
+DefenseBoost:
+; defenseup
+	;check for helditem light armor
+	;boost by 1.25
+	push hl    ;opposing atk
+	push bc    ; defense
+	
+	ld a, e
+	cp 1
+	call GetUserItem
+	jr z, .player
+	call GetOpponentItem
+.player
+	ld a, [hl]
+	cp LIGHT_ARMOR
+	pop bc            ;def restored to bc
+	pop hl
+	ret nz
+	
+	call MultiplyStatDef
+	ret
+	
+MultiplyStatDef:
+	push hl ;preserve hl
+	
+	ld h, b  ;load b and c into h and l
+	ld l, c
+
+    ; quarter bc
+    srl b 
+    rr c
+    srl b 
+    rr c
+
+    add hl, bc ; 4/4 + 1/4 = 5/4
+	
+	ld b, h ;load the new value back ito b and c
+	ld c, l
+	
+	pop hl  ;preserved hl
+	ret	
+
+;SpeedBoost:
+; speedup
+	;check for helditem swift boots
+	;boost by 1.25
+;	push hl
+;	ld a, e
+;	cp 1
+;	push bc
+;	call GetUserItem
+;	jr z, .player
+;	call GetOpponentItem
+;.player
+;	ld a, [hl]
+;	cp SWIFT_BOOTS
+;	pop bc
+;	pop hl
+;	ret nz
+	
+;	call MultiplyStat
+;	ret
+
+SpecialAttackBoost:
+; specialattackup
+	;check for helditem wise glasses
+	;boost by 1.25
+	push hl
+	push bc
+	
+	ld a, e
+	cp 1
+	call GetUserItem
+	jr z, .player
+	call GetOpponentItem
+.player
+	ld a, [hl]
+	cp WISE_GLASSES
+	pop bc
+	pop hl
+	ret nz
+	
+	call MultiplyStat
+	ret
+	
+
+SpecialDefenseBoost:
+; specialdefenseup
+	;check for helditem psy shield
+	;boost by 1.25
+	push hl
+	push bc
+	
+	ld a, e
+	cp 1
+	call GetUserItem
+	jr z, .player
+	call GetOpponentItem
+.player
+	ld a, [hl]
+	cp PSY_SHIELD
+	pop bc
+	pop hl
+	ret nz
+	
+	call MultiplyStatDef
+	ret
+	
+
+AccuracyBoost:
+; accuracyup
+	;check for helditem wide lens
+	;boost by 1.25
+	
 
 MinimizeDropSub:
 ; Lower the substitute if we're minimizing
@@ -6489,7 +6700,9 @@ INCLUDE "engine/battle/move_effects/disable.asm"
 
 INCLUDE "engine/battle/move_effects/pay_day.asm"
 
-INCLUDE "engine/battle/move_effects/conversion.asm"
+;INCLUDE "engine/battle/move_effects/conversion.asm"
+BattleCommand_Conversion:
+	ret
 
 BattleCommand_ResetStats:
 ; resetstats
@@ -6867,8 +7080,6 @@ INCLUDE "engine/battle/move_effects/attract.asm"
 INCLUDE "engine/battle/move_effects/return.asm"
 
 INCLUDE "engine/battle/move_effects/present.asm"
-
-INCLUDE "engine/battle/move_effects/frustration.asm"
 
 INCLUDE "engine/battle/move_effects/safeguard.asm"
 

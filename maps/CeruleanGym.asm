@@ -66,6 +66,7 @@ CeruleanGymMistyScript:
 	closetext
 	winlosstext MistyWinLossText, 0
 	loadtrainer MISTY, MISTY1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_MISTY

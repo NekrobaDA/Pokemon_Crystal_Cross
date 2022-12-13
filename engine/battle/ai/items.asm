@@ -275,14 +275,7 @@ AI_Items:
 	dbw HYPER_POTION, .HyperPotion
 	dbw SUPER_POTION, .SuperPotion
 	dbw POTION,       .Potion
-	dbw X_ACCURACY,   .XAccuracy
 	dbw FULL_HEAL,    .FullHeal
-	dbw GUARD_SPEC,   .GuardSpec
-	dbw DIRE_HIT,     .DireHit
-	dbw X_ATTACK,     .XAttack
-	dbw X_DEFEND,     .XDefend
-	dbw X_SPEED,      .XSpeed
-	dbw X_SPECIAL,    .XSpecial
 	db -1 ; end
 
 .FullHeal:

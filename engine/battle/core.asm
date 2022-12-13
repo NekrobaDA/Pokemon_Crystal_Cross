@@ -3464,8 +3464,6 @@ EnemySwitch:
 	call ClearEnemyMonBox
 	call ShowBattleTextEnemySentOut
 	call ShowSetEnemyMonAndSendOutAnimation
-
-	;call OfferSwitch
 	
 	ld hl, BattleText_ChangeMon
 	call StdBattleTextbox
@@ -3831,49 +3829,6 @@ CheckWhetherToAskSwitch:
 
 .return_nc
 	and a
-	ret
-
-OfferSwitch:
-	ld a, [wCurPartyMon]
-	push af
-	
-	ld hl, BattleText_ChangeMon
-	call StdBattleTextbox
-	lb bc, 1, 7
-	call PlaceYesNoBox
-	ld a, [wMenuCursorY]
-	dec a
-	jr nz, .said_no
-	ret
-	
-	;call SetUpBattlePartyMenu
-	;call PickSwitchMonInBattle
-	;jr c, .canceled_switch
-	
-	;ld a, [wCurBattleMon]
-	;ld [wLastPlayerMon], a
-	;ld a, [wCurPartyMon]
-	;ld [wCurBattleMon], a
-	;call ClearPalettes
-	;call DelayFrame
-	;call _LoadHPBar
-	;pop af
-	;ld [wCurPartyMon], a
-	;xor a
-	;ld [wCurEnemyMove], a
-	;ld [wCurPlayerMove], a
-	;and a
-	;ret
-
-;.canceled_switch
-	;call ClearPalettes
-	;call DelayFrame
-	;call _LoadHPBar
-
-.said_no
-	pop af
-	ld [wCurPartyMon], a
-	scf
 	ret
 
 ClearEnemyMonBox:

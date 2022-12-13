@@ -97,7 +97,6 @@ ENDM
 	command happinesspower          ; 5a
 	command present                 ; 5b
 	command damagecalc              ; 5c
-	command frustrationpower        ; 5d
 	command safeguard               ; 5e
 	command checksafeguard          ; 5f
 	command getmagnitude            ; 60

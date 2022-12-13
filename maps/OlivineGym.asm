@@ -19,6 +19,7 @@ OlivineGymJasmineScript:
 	closetext
 	winlosstext Jasmine_BetterTrainer, 0
 	loadtrainer JASMINE, JASMINE1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_JASMINE
@@ -57,6 +58,7 @@ OlivineGymJasmineScript:
 	closetext
 	winlosstext Jasmine2WinLossText, 0
 	loadtrainer JASMINE, JASMINE2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SWITCH_NO_ITEMS
 	startbattle
 	reloadmapafterbattle
 	setflag ENGINE_BEAT_JASMINE
