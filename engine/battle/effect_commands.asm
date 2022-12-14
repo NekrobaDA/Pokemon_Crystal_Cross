@@ -1098,8 +1098,6 @@ BattleCommand_DoTurn:
 	ret
 
 .continuousmoves
-	db EFFECT_RAZOR_WIND
-	db EFFECT_SKY_ATTACK
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
@@ -1705,6 +1703,17 @@ BattleCommand_CheckHit:
 
 	call BattleRandom
 	cp b
+	jr nc, .Try_once_more
+	jr .Hit
+	
+.Try_once_more
+	push bc
+	call GetUserItem
+	cp WIDE_LENS
+	pop bc
+	jr nz, .Miss
+	call BattleRandom
+	cp b
 	jr nc, .Miss
 
 .Hit:
@@ -2089,8 +2098,6 @@ BattleCommand_MoveAnimNoSub:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_MULTI_HIT
-	jr z, .alternate_anim
-	cp EFFECT_CONVERSION
 	jr z, .alternate_anim
 	cp EFFECT_DOUBLE_HIT
 	jr z, .alternate_anim
@@ -3355,9 +3362,6 @@ BattleCommand_DamageCalc:
 	cp EFFECT_MULTI_HIT
 	jr z, .skip_zero_damage_check
 
-	cp EFFECT_CONVERSION
-	jr z, .skip_zero_damage_check
-
 ; No damage if move power is 0.
 	ld a, d
 	and a
@@ -4589,19 +4593,9 @@ BattleCommand_SpeedUp2:
 	ld b, $10 | SPEED
 	jr BattleCommand_StatUp
 
-BattleCommand_SpecialAttackUp2:
-; specialattackup2
-	ld b, $10 | SP_ATTACK
-	jr BattleCommand_StatUp
-
 BattleCommand_SpecialDefenseUp2:
 ; specialdefenseup2
 	ld b, $10 | SP_DEFENSE
-	jr BattleCommand_StatUp
-
-BattleCommand_AccuracyUp2:
-; accuracyup2
-	ld b, $10 | ACCURACY
 	jr BattleCommand_StatUp
 
 BattleCommand_EvasionUp2:
@@ -4875,12 +4869,6 @@ SpecialDefenseBoost:
 	ret
 	
 
-AccuracyBoost:
-; accuracyup
-	;check for helditem wide lens
-	;boost by 1.25
-	
-
 MinimizeDropSub:
 ; Lower the substitute if we're minimizing
 
@@ -4956,25 +4944,6 @@ BattleCommand_SpeedDown2:
 ; speeddown2
 	ld a, $10 | SPEED
 	jr BattleCommand_StatDown
-
-;BattleCommand_SpecialAttackDown2:
-;; specialattackdown2
-	;ld a, $10 | SP_ATTACK
-	;jr BattleCommand_StatDown
-
-;BattleCommand_SpecialDefenseDown2:
-;; specialdefensedown2
-	;ld a, $10 | SP_DEFENSE
-	;jr BattleCommand_StatDown
-
-;BattleCommand_AccuracyDown2:
-;; accuracydown2
-	;ld a, $10 | ACCURACY
-	;jr BattleCommand_StatDown
-
-;BattleCommand_EvasionDown2:
-;; evasiondown2
-	;ld a, $10 | EVASION
 
 BattleCommand_StatDown:
 ; statdown
@@ -6699,10 +6668,6 @@ INCLUDE "engine/battle/move_effects/splash.asm"
 INCLUDE "engine/battle/move_effects/disable.asm"
 
 INCLUDE "engine/battle/move_effects/pay_day.asm"
-
-;INCLUDE "engine/battle/move_effects/conversion.asm"
-BattleCommand_Conversion:
-	ret
 
 BattleCommand_ResetStats:
 ; resetstats

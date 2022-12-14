@@ -30,7 +30,6 @@ MoveEffectsPointers:
 	dw Rampage
 	dw ForceSwitch
 	dw MultiHit
-	dw Conversion
 	dw FlinchHit
 	dw Heal
 	dw Toxic
@@ -53,9 +52,7 @@ MoveEffectsPointers:
 	dw AttackUp2
 	dw DefenseUp2
 	dw SpeedUp2
-	dw SpecialAttackUp2
 	dw SpecialDefenseUp2
-	dw AccuracyUp2
 	dw EvasionUp2
 	dw Transform
 	dw AttackDown2

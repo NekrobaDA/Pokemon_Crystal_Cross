@@ -547,7 +547,10 @@ DetermineMoveOrder:
 	jr .check_enemy_type_rain
 	
 .calc_player_speed_rain
-    ld hl, wBattleMonSpeed
+	ld hl, wBattleMonSpeed
+	ld e, 1
+	call SpeedBoostItem
+	
     ld a, [hli]
     ld l, [hl]
     ld h, a
@@ -577,10 +580,13 @@ DetermineMoveOrder:
 	cp WATER
 	jr z, .calc_enemy_speed_rain
 	ld hl, wEnemyMonSpeed
-	jr .speed_check_sun
+	jp .speed_check_sun
 	
 .calc_enemy_speed_rain
 	ld hl, wEnemyMonSpeed
+	ld e, 0
+	call SpeedBoostItem
+
     ld a, [hli]
     ld l, [hl]
     ld h, a
@@ -616,7 +622,10 @@ DetermineMoveOrder:
 	jr .check_enemy_type
 
 .calc_player_speed
-    ld hl, wBattleMonSpeed
+	ld hl, wBattleMonSpeed
+	ld e, 1
+	call SpeedBoostItem
+	
     ld a, [hli]
     ld l, [hl]
     ld h, a
@@ -648,6 +657,9 @@ DetermineMoveOrder:
  
 .calc_enemy_speed
 	ld hl, wEnemyMonSpeed
+	ld e, 0
+	call SpeedBoostItem
+
     ld a, [hli]
     ld l, [hl]
     ld h, a
@@ -668,8 +680,16 @@ DetermineMoveOrder:
 	jr .speed_check_sun 
  
 .speed_check
-	ld de, wBattleMonSpeed  
+	ld hl, wBattleMonSpeed
+	ld e, 1
+	call SpeedBoostItem
+	ld de, wBattleMonTempStat
+
+	push de
 	ld hl, wEnemyMonSpeed
+	ld e, 0
+	call SpeedBoostItem
+	pop de
 	
 .speed_check_sun
 	ld c, 2
@@ -697,6 +717,44 @@ DetermineMoveOrder:
 
 .enemy_first
 	and a
+	ret
+	
+SpeedBoostItem:
+; speedup
+	;check for helditem swift boots
+	;boost by 1.25
+	push hl
+	ld a, e
+	cp 1
+	push bc
+	farcall GetUserItem
+	jr z, .player
+	farcall GetOpponentItem
+.player
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop bc
+	pop hl
+	ret nz
+	
+	ld a, [hli]
+    ld l, [hl]
+    ld h, a
+
+    ld b, h ; Copy value into bc
+    ld c, l
+    srl b ; quarter bc
+    rr c
+	srl b
+    rr c
+    add hl, bc ; 4/4 + 1/4 = 5/4
+
+    ld a, h
+    ld [wBattleMonTempStat], a
+    ld a, l
+    ld [wBattleMonTempStat + 1], a
+	
+	ld hl, wBattleMonTempStat
 	ret
 
 CheckContestBattleOver:

@@ -35,7 +35,6 @@ BattleCommandPointers:
 	dw BattleCommand_StatUp
 	dw BattleCommand_StatDown
 	dw BattleCommand_PayDay
-	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
@@ -119,9 +118,7 @@ BattleCommandPointers:
 	dw BattleCommand_AttackUp2
 	dw BattleCommand_DefenseUp2
 	dw BattleCommand_SpeedUp2
-	dw BattleCommand_SpecialAttackUp2
 	dw BattleCommand_SpecialDefenseUp2
-	dw BattleCommand_AccuracyUp2
 	dw BattleCommand_EvasionUp2
 	dw BattleCommand_AttackDown
 	dw BattleCommand_DefenseDown

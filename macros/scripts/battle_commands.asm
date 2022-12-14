@@ -35,7 +35,6 @@ ENDM
 	command statup                  ; 1c
 	command statdown                ; 1d
 	command payday                  ; 1e
-	command conversion              ; 1f
 	command resetstats              ; 20
 	command forceswitch             ; 21
 	command endloop                 ; 22
@@ -119,9 +118,7 @@ ENDM
 	command attackup2               ; 71
 	command defenseup2              ; 72
 	command speedup2                ; 73
-	command specialattackup2        ; 74
 	command specialdefenseup2       ; 75
-	command accuracyup2             ; 76
 	command evasionup2              ; 77
 	command attackdown              ; 78
 	command defensedown             ; 79

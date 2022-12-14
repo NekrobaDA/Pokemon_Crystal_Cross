@@ -335,35 +335,11 @@ SpeedUp2:
 	statupfailtext
 	endmove
 
-SpecialAttackUp2:
-	checkobedience
-	usedmovetext
-	doturn
-	specialattackup2
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
 SpecialDefenseUp2:
 	checkobedience
 	usedmovetext
 	doturn
 	specialdefenseup2
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-AccuracyUp2:
-	checkobedience
-	usedmovetext
-	doturn
-	accuracyup2
 	lowersub
 	statupanim
 	raisesub
@@ -753,13 +729,6 @@ PayDay:
 	checkfaint
 	buildopponentrage
 	kingsrock
-	endmove
-
-Conversion:
-	checkobedience
-	usedmovetext
-	doturn
-	conversion
 	endmove
 
 ResetStats:
