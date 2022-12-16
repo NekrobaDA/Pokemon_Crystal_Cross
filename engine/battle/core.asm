@@ -175,12 +175,12 @@ BattleTurn:
 	call UpdateBattleMonInParty
 	farcall AIChooseMove
 
-	call IsMobileBattle
-	jr nz, .not_disconnected
-	farcall Function100da5
-	farcall StartMobileInactivityTimer
-	farcall Function100dd8
-	jp c, .quit
+	;call IsMobileBattle
+	;jr nz, .not_disconnected
+	;farcall Function100da5
+	;farcall StartMobileInactivityTimer
+	;farcall Function100dd8
+	;jp c, .quit
 .not_disconnected
 
 	call CheckPlayerLockedIn
@@ -230,21 +230,21 @@ BattleTurn:
 
 Stubbed_Increments5_a89a:
 	ret
-	ld a, BANK(s5_a89a) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
-	call OpenSRAM
-	ld hl, s5_a89a + 1 ; address of MBC30 bank
-	inc [hl]
-	jr nz, .finish
-	dec hl
-	inc [hl]
-	jr nz, .finish
-	dec [hl]
-	inc hl
-	dec [hl]
+	;ld a, BANK(s5_a89a) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
+	;call OpenSRAM
+	;ld hl, s5_a89a + 1 ; address of MBC30 bank
+	;inc [hl]
+	;jr nz, .finish
+	;dec hl
+	;inc [hl]
+	;jr nz, .finish
+	;dec [hl]
+	;inc hl
+	;dec [hl]
 
-.finish
-	call CloseSRAM
-	ret
+;.finish
+	;call CloseSRAM
+	;ret
 
 HandleBetweenTurnEffects:
 	ldh a, [hSerialConnectionStatus]
@@ -526,10 +526,10 @@ DetermineMoveOrder:
 	jp c, .enemy_first
 	jr .weather_check
 
-.weather_check
-	ld a, [wBattleWeather]
-	cp WEATHER_SUN
-	jr z, .sun_speed
+.weather_check                ;this whole function has become
+	ld a, [wBattleWeather]    ;too long and complicated to
+	cp WEATHER_SUN            ;be readable. I am sorry
+	jp z, .sun_speed
    
 	cp WEATHER_RAIN
 	jp nz, .speed_check
@@ -543,30 +543,45 @@ DetermineMoveOrder:
 	ld a, [hl]
 	cp WATER
 	jr z, .calc_player_speed_rain
+	
+	ld hl, wBattleMonSpeed
+	
+	push hl
+	ld hl, wBattleMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .no_boots
+	
+	call FiveFourthBoost
+	call LoadHLintoBattleMonTemp
+	
+	ld de, wBattleMonTempStat
+	jr .check_enemy_type_rain
+	
+.no_boots
 	ld de, wBattleMonSpeed
 	jr .check_enemy_type_rain
 	
 .calc_player_speed_rain
-	ld hl, wBattleMonSpeed
-	ld e, 1
-	call SpeedBoostItem
+    ld hl, wBattleMonSpeed
 	
-    ld a, [hli]
-    ld l, [hl]
-    ld h, a
-
-    ld b, h ; Copy value into bc
-    ld c, l
-    srl b ; quarter bc
-    rr c
-	srl b
-    rr c
-    add hl, bc ; 4/4 + 1/4 = 5/4
-
-    ld a, h
-    ld [wBattleMonTempStat], a
-    ld a, l
-    ld [wBattleMonTempStat + 1], a
+	push hl
+	ld hl, wBattleMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .skip_boots
+	
+	call FiveFourthBoost
+	call LoadHLintoBattleMonTemp
+	
+	ld hl, wBattleMonTempStat
+	
+.skip_boots
+	
+    call FiveFourthBoost
+	call LoadHLintoBattleMonTemp
    
 	ld de, wBattleMonTempStat
 
@@ -579,34 +594,46 @@ DetermineMoveOrder:
 	ld a, [hl]
 	cp WATER
 	jr z, .calc_enemy_speed_rain
+	
 	ld hl, wEnemyMonSpeed
+	
+	push hl
+	ld hl, wEnemyMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .no_boots2
+	
+	call FiveFourthBoost
+	call LoadHLintoEnemyMonTemp
+	
+	ld hl, wEnemyMonTempStat
+	jp .speed_check_sun
+	
+.no_boots2	
 	jp .speed_check_sun
 	
 .calc_enemy_speed_rain
 	ld hl, wEnemyMonSpeed
-	ld e, 0
-	call SpeedBoostItem
-
-    ld a, [hli]
-    ld l, [hl]
-    ld h, a
-
-    ld b, h ; Copy value into bc
-    ld c, l
-    srl b
-    rr c
-	srl b
-    rr c
-    add hl, bc
-
-    ld a, h
-    ld [wEnemyMonTempStat], a
-    ld a, l
-    ld [wEnemyMonTempStat + 1], a
+	
+	push hl
+	ld hl, wEnemyMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .skip_boots2
+	
+	call FiveFourthBoost
+	call LoadHLintoEnemyMonTemp
 	
 	ld hl, wEnemyMonTempStat
- 
-	jr .speed_check_sun
+	
+.skip_boots2	
+    call FiveFourthBoost
+	call LoadHLintoEnemyMonTemp	
+	
+	ld hl, wEnemyMonTempStat
+	jp .speed_check_sun
   
 .sun_speed
 ;check player types
@@ -618,28 +645,44 @@ DetermineMoveOrder:
 	ld a, [hl]
 	cp GRASS
 	jr z, .calc_player_speed
+	
+	ld hl, wBattleMonSpeed
+	
+	push hl
+	ld hl, wBattleMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .no_boots3
+	
+	call FiveFourthBoost
+	call LoadHLintoBattleMonTemp
+	
+	ld de, wBattleMonTempStat
+	jr .check_enemy_type
+	
+.no_boots3
 	ld de, wBattleMonSpeed
 	jr .check_enemy_type
 
 .calc_player_speed
-	ld hl, wBattleMonSpeed
-	ld e, 1
-	call SpeedBoostItem
+    ld hl, wBattleMonSpeed
 	
-    ld a, [hli]
-    ld l, [hl]
-    ld h, a
-
-    ld b, h ; Copy value into bc
-    ld c, l
-    srl b ; Halve bc
-    rr c
-    add hl, bc ; 2/2 + 1/2 = 3/2
-
-    ld a, h
-    ld [wBattleMonTempStat], a
-    ld a, l
-    ld [wBattleMonTempStat + 1], a
+	push hl
+	ld hl, wBattleMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .skip_boots3
+	
+	call FiveFourthBoost
+	call LoadHLintoBattleMonTemp
+	
+	ld hl, wBattleMonTempStat
+	
+.skip_boots3
+    call ThreeHalfBoost
+	call LoadHLintoBattleMonTemp
    
 	ld de, wBattleMonTempStat
  
@@ -652,44 +695,84 @@ DetermineMoveOrder:
 	ld a, [hl]
 	cp GRASS
 	jr z, .calc_enemy_speed
+	
 	ld hl, wEnemyMonSpeed
+		
+	push hl
+	ld hl, wEnemyMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .no_boots4
+	
+	call FiveFourthBoost
+	call LoadHLintoEnemyMonTemp
+	
+	ld hl, wEnemyMonTempStat
+	jr .speed_check_sun
+	
+.no_boots4
 	jr .speed_check_sun
  
 .calc_enemy_speed
 	ld hl, wEnemyMonSpeed
-	ld e, 0
-	call SpeedBoostItem
-
-    ld a, [hli]
-    ld l, [hl]
-    ld h, a
-
-    ld b, h ; Copy value into bc
-    ld c, l
-    srl b ; Halve bc
-    rr c
-    add hl, bc ; 2/2 + 1/2 = 3/2
-
-    ld a, h
-    ld [wEnemyMonTempStat], a
-    ld a, l
-    ld [wEnemyMonTempStat + 1], a
+	
+	push hl
+	ld hl, wEnemyMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .skip_boots4
+	
+	call FiveFourthBoost
+	call LoadHLintoEnemyMonTemp
 	
 	ld hl, wEnemyMonTempStat
- 
+
+.skip_boots4	
+    call ThreeHalfBoost
+	call LoadHLintoEnemyMonTemp	
+	
+	ld hl, wEnemyMonTempStat
 	jr .speed_check_sun 
  
 .speed_check
 	ld hl, wBattleMonSpeed
-	ld e, 1
-	call SpeedBoostItem
+	
+	push hl
+	ld hl, wBattleMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .skip_player
+	
+	call FiveFourthBoost
+	call LoadHLintoBattleMonTemp
+	
 	ld de, wBattleMonTempStat
+	jr .enemy_next
 
-	push de
+.skip_player
+	ld de, wBattleMonSpeed
+	
+.enemy_next
 	ld hl, wEnemyMonSpeed
-	ld e, 0
-	call SpeedBoostItem
-	pop de
+	
+	push hl
+	ld hl, wEnemyMonItem
+	ld a, [hl]
+	cp SWIFT_BOOTS
+	pop hl
+	jr nz, .end_check
+	
+	call FiveFourthBoost
+	call LoadHLintoEnemyMonTemp	
+	
+	ld hl, wEnemyMonTempStat
+	jr .speed_check_sun
+
+.end_check
+	ld hl, wEnemyMonSpeed
 	
 .speed_check_sun
 	ld c, 2
@@ -717,26 +800,9 @@ DetermineMoveOrder:
 
 .enemy_first
 	and a
-	ret
+	ret	
 	
-SpeedBoostItem:
-; speedup
-	;check for helditem swift boots
-	;boost by 1.25
-	push hl
-	ld a, e
-	cp 1
-	push bc
-	farcall GetUserItem
-	jr z, .player
-	farcall GetOpponentItem
-.player
-	ld a, [hl]
-	cp SWIFT_BOOTS
-	pop bc
-	pop hl
-	ret nz
-	
+FiveFourthBoost:
 	ld a, [hli]
     ld l, [hl]
     ld h, a
@@ -748,13 +814,32 @@ SpeedBoostItem:
 	srl b
     rr c
     add hl, bc ; 4/4 + 1/4 = 5/4
+	ret
+	
+ThreeHalfBoost:
+	ld a, [hli]
+    ld l, [hl]
+    ld h, a
 
-    ld a, h
+    ld b, h ; Copy value into bc
+    ld c, l
+    srl b ; Halve bc
+    rr c
+    add hl, bc ; 2/2 + 1/2 = 3/2
+	ret
+	
+LoadHLintoBattleMonTemp:
+	ld a, h
     ld [wBattleMonTempStat], a
     ld a, l
     ld [wBattleMonTempStat + 1], a
-	
-	ld hl, wBattleMonTempStat
+	ret
+
+LoadHLintoEnemyMonTemp:
+	ld a, h
+    ld [wEnemyMonTempStat], a
+    ld a, l
+    ld [wEnemyMonTempStat + 1], a
 	ret
 
 CheckContestBattleOver:
@@ -3194,10 +3279,10 @@ CheckMobileBattleError:
 	xor a
 	ret
 
-IsMobileBattle:
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	ret
+;IsMobileBattle:
+;	ld a, [wLinkMode]
+;	cp LINK_MOBILE
+;	ret
 
 SetUpBattlePartyMenu:
 	call ClearBGPalettes
@@ -8949,14 +9034,14 @@ ShowLinkBattleParticipantsAfterEnd:
 DisplayLinkBattleResult:
 	farcall CheckMobileBattleError
 	jp c, .Mobile_InvalidBattle
-	call IsMobileBattle2
-	jr nz, .proceed
+	;call IsMobileBattle2
+	;jr nz, .proceed
 
-	ld hl, wcd2a
-	bit 4, [hl]
-	jr z, .proceed
+	;ld hl, wcd2a
+	;bit 4, [hl]
+	;jr z, .proceed
 
-	farcall DetermineLinkBattleResult
+	;farcall DetermineLinkBattleResult
 
 .proceed
 	ld a, [wBattleResult]
@@ -9025,10 +9110,10 @@ DisplayLinkBattleResult:
 .InvalidBattle:
 	db "INVALID BATTLE@"
 
-IsMobileBattle2:
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	ret
+;IsMobileBattle2:
+;	ld a, [wLinkMode]
+;	cp LINK_MOBILE
+;	ret
 
 LINK_BATTLE_RECORD_LENGTH EQUS "(sLinkBattleRecord1End - sLinkBattleRecord1)" ; 18
 NUM_LINK_BATTLE_RECORDS EQUS "((sLinkBattleStatsEnd - sLinkBattleRecord) / LINK_BATTLE_RECORD_LENGTH)" ; 5
