@@ -1,102 +1,73 @@
-# Pokémon Crystal Semi-Vanilla
+# Pokémon Crystal Cross
 
 This is a hack of the Pokémon Crystal disassembly.
 
 Current Features:<br/>
--Added pokemon; Weavile, Yanmega, Honchkrow, Mismagius, Gliscor, Ambipom, Leafeon, Glaceon<br/>
--Wu'duk (madame), Duserpent (dunsparce evo), A-Vulpix + Ninetales, G-Articuno, Zapdos, Moltres<br/>
--Post-game pokemon like Houndour and Murkrow available in Johto<br/>
--Dark type changed to physical, Ghost type to special<br/>
--Changes to Fly, Razor Wind, Sky Attack, Growth, Flash, Cut, Slash<br/>
--Fly now has a chance to cause paralysis; Sky Attack changed to one turn move with recoil<br/>
--Growth raises both physical and special attack; Flash boosts special attack in addition to lower accuracy<br/>
--Razor Wind to single turn flying type attack; Cut is now steel type; Slash is dark type<br/>
--Rock Climb added to the game with coorosponding HM<br/>
--HM moves forgettable at any time<br/>
--Changes to TMs, including Ice Beam, Flamethrower, and Thunderbolt regaining TM status<br/>
--All evolution items purchable in goldenrod; dusk stone and ice stone added<br/>
--Several pokemon type changes; Gyarados water/dragon, Charizard fire/dragon, Ninetales fire/ghost<br/>
--Some type matchup adjustments; dragon no longer resists grass<br/>
--Three new roaming pokemon, in kanto; Articuno, Zapdos, Moltres<br/>
--Roamers no longer jump map when player uses fly<br/>
--Mewtwo added to cave in Cerulean; Mew encounterable via secret method<br/>
--Celebi event has been reactivated, GS ball in Goldenrod pokecenter<br/>
--Some shiny pokemon altered to be more in line with future gens<br/>
--Shiny DVs have been adjusted to allow for female 12.5% ratio shinies<br/>
--More swarms added, with increased shiny chance for swarming pokemon<br/>
--Shiny Ditto mimic transform glitch from gen 1 works, + mimic tutor<br/>
--Unique party icons for every species; used on overworld as well<br/>
--Wild pokemon levels in early areas increase after the 4th and 8th badge<br/>
--Four times of day (morn, day, eve, nite), evening encounters use a mix of day and night<br/>
--Pokemon now inheiret egg moves from both parents when breeding<br/>
--Moves are no longer learned or overwritten in the daycare, and exp has been decresed<br/>
--Experience from battling has been increased<br/>
--Johto gym teams have been altered, and have rematch teams post E4<br/>
--Pokemon learnsets and movepools expanded; added evolution moves<br/>
--Some pokemon have received stat buffs<br/>
--13+ static weekly encounter pokemon, 2 for each day of the week<br/>
--Game corner pokemon prizes altered; all pokemon attainable without trading<br/>
--Pokemon stats screen altered; happiness and met location info added<br/>
--Sevii island region added, accessible via vermillion port<br/>
--Converted to the 16 bit branch to host more than 253 pokemon<br/>
+<br/>
+- New pokemon + regional forms and gender diffs<br/>
+- Unique party icons for every species<br/>
+- Revamped learnsets + movepools<br/>
+- Physical/special split + new moves<br/>
+- Egg moves passed down by both parents<br/>
+- Various stat buffs + type balancing<br/>
+- Expanded weather benefits + effects<br/>
+- Added Hail as a new weather<br/>
+- Automatic battle weather for certian locations<br/>
+- Expanded collection of TMs and HMs<br/>
+- Added the Sevii islands region<br/>
+- Dive and Rock Climb field moves added<br/>
+- Most field moves usable w/o needing to know the move<br/>
+- HM moves forgettable at anytime<br/>
+- Altered johto gym teams + rematch teams post-game<br/>
+- Wild pokemon level increases post 4th and 8th badge<br/>
+- Fire, Water, Thunder, and Leaf stones added to Goldenrod<br/>
+- Various items attainable from smashing rocks<br/>
+- Gen 1 shiny ditto mimic-transform glitch enabled<br/>
+- More swarms added + increased shiny chance in swarms<br/>
+- Some shinies edited to match closer with future gens <br/>
+- Shiny DVs altered to allow for shiny female starters<br/>
+- Pokemon's DVs treated as 15s for stat calculations<br/>
+- Articuno, Zapdos, and Moltres roaming encounters added to Kanto<br/>
+- GS ball event re-enabled + mewtwo and mew encounters<br/>
+- 13 weekly encounter pokemon in addition to Lapras<br/>
+- Altered stats screen w/ happiness + met location info<br/>
+- Increased apricorn and berry yield from trees<br/>
+- New hold items for stat boosts and status prevention<br/>
+- Ongoing graphics updates + map redesigns<br/>
+- Battle colors change to match time of day<br/>
+- More night-time music tracks<br/>
+- Ditto disguses itself as other wild pokemon<br/>
+<br/>
+<br/>
+Being worked on:<br/>
+<br/>
+- Icefall Cave + Mt Ember maps<br/>
+- Additional move tutor npcs<br/>
+- Npc that swaps berries for the status items<br/>
+- Lots of map revamps + new events<br/>
+- So many sevii npcs<br/>
+- Divide TMs among various pokemarts<br/>
+- Lance's overworld Dragonite needs updated sprite<br/>
+- Sevii islands fly/pokegear map<br/>
+- Restore safari zone functionality<br/>
+- Goldenrod-Cherrygrove underground tunnel<br/>
+- Add cameo battles + locations<br/>
+- Program Gold/Kris secondary rival, + Leaf encounter<br/>
+- Raikou 'Legend of Thunder'-style event<br/>
+- Eusine rematch in Tin Tower<br/>
+- Look into auto-spikes/screens for certian battles<br/>
+- BP system + npc to respawn legends
+- Level curve adjustments/ overall game progression<br/>
+<br/>
+<br/>
+Credits:<br/>
+<br/>
+- New pokemon sprites © Myself<br/>
+- Party menu icons © Emi Monserrate (sourced from the 'Add a new party menu icon' tutorial)<br/>
+- Duserpent design © Knazgle on deviantart<br/>
+- New HP/EXP bar HUD graphics © KDLPro<br/>
+- New songs © TriteHexagon<br/>
+- Move Relearner code adapted from TPP Crystal Aniversary repo<br/>
+<br/>
+- Special thanks to the pokecrystal team and pret discord for tutorials and general help
 
-
-Work in progress/to do:<br/>
--Galarian birds need backsprites<br/>
--Sevii islands and Catallia lack npcs and house interiors<br/>
--finish seperating blocksets for johto, revamp some maps<br/>
--Place Nara between Violet and Azela, add npcs<br/>
--sprite bonsly, mantyke, happiny, baby kangashkan; alolan sandslash backsprite<br/>
--togekiss, alolan marrowak, alolan raichu, wyrdeer, h-typhlosion<br/>
--implement all above + munchlax, wynaut, and unused natu middle evo<br/>
--Icons for all new pokemon<br/>
--Trainer sprites and overworlds for Nekroba and Diogo<br/>
--clone charmander, bulbasaur, squirtle, pikachu; charizard 'm<br/>
--Depict sevii islands on pokegear for fly<br/>
--better text for johto gym leader rematches<br/>
--Make swarm encounters for each badge range<br/>
--revamp goldenrod; add connecting subway to cherrygrove<br/>
--unmirror sprites when evolving<br/>
--add more swarms; npc phone calls for swarms<br/>
--finish moving tms to marts, must find tms in overworld first to appear in shop<br/>
--larger safari zone, add Diogo battle<br/>
--finish kindle road, create mt ember and icefall cave maps<br/>
--Five Isle rocket warehouse map, Nekroba battle<br/>
--Rival battle team buffs/alterations<br/>
--Arbok regional forms, dark Arbok, more gender differences<br/>
-
-
-Bugs/to fix:<br/>
--Party icon colors no longer work<br/>
--Headbutt tree encounters are broken<br/>
--Trainers call about their '??????'<br/>
--Glitchy menu sprites when using sevii island ferry menu<br/>
--Pokedex locations are sometimes wrong<br/>
--crash using pokedex when scrolling to the bottom<br/>
--Fix pikachu gender diference<br/>
--unowns also broken<br/>
--do not edit park blockset (you have been warned)<br/>
--move relearner broken<br/>
--ampharos overwold sprite needs more frames<br/>
--Lance's dragon overworld to be replaced with a dragonite<br/>
-
-Removed Sunkurn, Igglybuff, Cleffa, Smoochum, Tangela, Jynx, Mr Mime, and Bellossom<br/>
-This was pre-16 bit, needed to make space, and they may be readded in the future (but I dislike them all)<br/>
-
-
-Credits-<br/>
-Front and back sprites for newly added pokemon sprited by me<br/>
-Party menu icons belong to Emi Monserrate (sourced from the 'Add a new party menu icon' tutorial)<br/>
-Duserpent design credit Knazgle on deviantart<br/>
-Move Relearner code adapted from TPP Crystal Aniversary repo
-New HP/EXP bar HUD graphics created by KDLPro
-
-General credit to those behind Pokecrystal for making this project possible.
-
-## See also
-
-- [**FAQ**](FAQ.md)
-- [**Documentation**][docs]
-- [**Wiki**][wiki] (includes [tutorials][tutorials])
-- **Discord:** [pret][discord]
-- **IRC:** [freenode#pret][irc]
