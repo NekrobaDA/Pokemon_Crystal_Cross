@@ -73,7 +73,7 @@
 	const MUSIC_LIGHTHOUSE                   ; 44
 	const MUSIC_LAKE_OF_RAGE                 ; 45
 	const MUSIC_INDIGO_PLATEAU               ; 46
-	const MUSIC_ROUTE_37                     ; 47
+	const MUSIC_ROUTE_38                     ; 47
 	const MUSIC_ROCKET_HIDEOUT               ; 48
 	const MUSIC_DRAGONS_DEN                  ; 49
 	const MUSIC_JOHTO_WILD_BATTLE_NIGHT      ; 4a
@@ -107,14 +107,32 @@
 	const MUSIC_SUICUNE_BATTLE               ; 64
 	const MUSIC_BATTLE_TOWER_LOBBY           ; 65
 	const MUSIC_MOBILE_CENTER                ; 66
+	const MUSIC_NEW_BARK_TOWN_NIGHT
+	const MUSIC_AZALEA_TOWN_NIGHT
+	const MUSIC_CELADON_CITY_NIGHT
+	const MUSIC_CHERRYGROVE_CITY_NIGHT
+	const MUSIC_ECRUTEAK_CITY_NIGHT
+	const MUSIC_GOLDENROD_CITY_NIGHT
+	const MUSIC_KANTO_WILD_BATTLE_NIGHT
+	const MUSIC_LAVENDER_TOWN_NIGHT
+	const MUSIC_PALLET_TOWN_NIGHT
+	const MUSIC_ROUTE_1_NIGHT
+	const MUSIC_ROUTE_3_NIGHT
+	const MUSIC_ROUTE_12_NIGHT
+	const MUSIC_ROUTE_26_NIGHT
+	const MUSIC_ROUTE_29_NIGHT
+	const MUSIC_ROUTE_30_NIGHT
+	const MUSIC_ROUTE_36_NIGHT
+	const MUSIC_ROUTE_38_NIGHT
+	const MUSIC_LAKE_OF_RAGE_NIGHT
+	const MUSIC_VERMILION_CITY_NIGHT
+	const MUSIC_VIOLET_CITY_NIGHT
+	const MUSIC_VIRIDIAN_CITY_NIGHT
 
-; GetMapMusic picks music for this value (see home/map.asm)
-MUSIC_MAHOGANY_MART EQU $64
+; GetMapMusic picks music for these values (see home/map.asm)
+MUSIC_MAHOGANY_MART EQU $fc
+MUSIC_RADIO_TOWER   EQU $fd
 
 ; ExitPokegearRadio_HandleMusic uses these values
 RESTART_MAP_MUSIC EQU $fe
 ENTER_MAP_MUSIC   EQU $ff
-
-; GetMapMusic picks music for this bit flag
-RADIO_TOWER_MUSIC_F EQU 7
-RADIO_TOWER_MUSIC EQU 1 << RADIO_TOWER_MUSIC_F

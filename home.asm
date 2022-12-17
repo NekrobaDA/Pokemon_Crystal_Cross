@@ -60,6 +60,7 @@ INCLUDE "home/print_bcd.asm"
 INCLUDE "home/battle.asm"
 INCLUDE "home/sprite_anims.asm"
 INCLUDE "home/audio.asm"
+INCLUDE "home/audionighttable.asm"
 INCLUDE "home/mobile.asm"
 
 INCLUDE "home/indirection.asm"

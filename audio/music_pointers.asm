@@ -73,7 +73,7 @@ Music:
 	dba Music_Lighthouse
 	dba Music_LakeOfRage
 	dba Music_IndigoPlateau
-	dba Music_Route37
+	dba Music_Route38
 	dba Music_RocketHideout
 	dba Music_DragonsDen
 	dba Music_JohtoWildBattleNight
@@ -106,3 +106,24 @@ Music:
 	dba Music_SuicuneBattle
 	dba Music_BattleTowerLobby
 	dba Music_MobileCenter
+	dba Music_NewBarkTownNight
+	dba Music_AzaleaTownNight
+	dba Music_CeladonCityNight
+	dba Music_CherrygroveCityNight
+	dba Music_EcruteakCityNight
+	dba Music_GoldenrodCityNight
+	dba Music_KantoWildBattleNight
+	dba Music_LavenderTownNight
+	dba Music_PalletTownNight
+	dba Music_Route1Night
+	dba Music_Route3Night
+	dba Music_Route12Night
+	dba Music_Route26Night
+	dba Music_Route29Night
+	dba Music_Route30Night
+	dba Music_Route36Night
+	dba Music_Route38Night
+	dba Music_LakeOfRageNight
+	dba Music_VermilionCityNight
+	dba Music_VioletCityNight
+	dba Music_ViridianCityNight
