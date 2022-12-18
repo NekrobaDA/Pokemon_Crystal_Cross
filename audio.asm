@@ -167,3 +167,17 @@ INCLUDE "audio/music/lakeofrage.asm"
 INCLUDE "audio/music/vermilioncity.asm"
 INCLUDE "audio/music/violetcity.asm"
 INCLUDE "audio/music/viridiancity.asm"
+
+SECTION "New Songs", ROMX
+
+INCLUDE "audio/music/cinnabarislandFRLG.asm"
+INCLUDE "audio/music/dive.asm"
+INCLUDE "audio/music/route24GBS.asm"
+INCLUDE "audio/music/routes2.asm"
+INCLUDE "audio/music/dungeon2.asm"
+INCLUDE "audio/music/dungeon3.asm"
+INCLUDE "audio/music/dungeon1.asm"
+INCLUDE "audio/music/cities1.asm"
+INCLUDE "audio/music/meetrival.asm"
+INCLUDE "audio/music/safarizone.asm"
+

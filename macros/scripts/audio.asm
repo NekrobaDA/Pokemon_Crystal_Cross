@@ -277,10 +277,11 @@ music0xf8: MACRO
 	db music0xf8_cmd
 ENDM
 
-	const unknownmusic0xf9_cmd ; $f9
-unknownmusic0xf9: MACRO
-	db unknownmusic0xf9_cmd
-ENDM
+	const noisesampleset_cmd ; $f9
+noisesampleset: MACRO
+	db noisesampleset_cmd
+	db \1 ; noise
+ ENDM
 
 	const set_condition_cmd ; $fa
 set_condition: MACRO
@@ -317,4 +318,10 @@ ENDM
 	const sound_ret_cmd ; $ff
 sound_ret: MACRO
 	db sound_ret_cmd
+ENDM
+
+; when enabled, effective frequency used is incremented by 1
+	const toggle_perfect_pitch_cmd ; $e8
+toggle_perfect_pitch: MACRO
+	db toggle_perfect_pitch_cmd
 ENDM

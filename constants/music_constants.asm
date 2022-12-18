@@ -128,6 +128,16 @@
 	const MUSIC_VERMILION_CITY_NIGHT
 	const MUSIC_VIOLET_CITY_NIGHT
 	const MUSIC_VIRIDIAN_CITY_NIGHT
+	const MUSIC_CINNABAR_ISLAND_FRLG
+	const MUSIC_DIVE
+	const MUSIC_ROUTE_24_GBS
+	const MUSIC_ROUTES_2 ;rby route 25
+	const MUSIC_DUNGEON_2 ;rby viridian forest
+	const MUSIC_DUNGEON_3 ; rby mt moon
+	const MUSIC_DUNGEON_1 ;rby rockethideout/powerplant
+	const MUSIC_CITIES_1 ;rby people & places
+	const MUSIC_MEET_RIVAL ;rby rival encounter
+	const MUSIC_SAFARI_ZONE ;rby safari zone
 
 ; GetMapMusic picks music for these values (see home/map.asm)
 MUSIC_MAHOGANY_MART EQU $fc

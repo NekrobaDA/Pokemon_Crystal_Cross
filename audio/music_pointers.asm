@@ -127,3 +127,13 @@ Music:
 	dba Music_VermilionCityNight
 	dba Music_VioletCityNight
 	dba Music_ViridianCityNight
+	dba Music_CinnabarIslandFRLG
+	dba Music_Dive
+	dba Music_Route24GBS
+	dba Music_Routes2
+	dba Music_Dungeon2
+	dba Music_Dungeon3
+	dba Music_Dungeon1
+	dba Music_Cities1
+	dba Music_MeetRival
+	dba Music_SafariZone
