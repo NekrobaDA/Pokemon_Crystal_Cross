@@ -2083,6 +2083,7 @@ wItemsPocketCursor::    db
 wKeyItemsPocketCursor:: db
 wBallsPocketCursor::    db
 wTMHMPocketCursor::     db
+wBerryPocketCursor::    db
 
 wPCItemsScrollPosition::        db
 	ds 1
@@ -2090,6 +2091,7 @@ wItemsPocketScrollPosition::    db
 wKeyItemsPocketScrollPosition:: db
 wBallsPocketScrollPosition::    db
 wTMHMPocketScrollPosition::     db
+wBerryPocketScrollPosition::    db
 
 wSwitchMon::
 wSwitchItem::
@@ -2584,6 +2586,7 @@ wOTPartyDataEnd::
 
 NEXTU
 ; catch tutorial dude pack
+wDudeNumBerries::
 wDudeNumItems:: db
 wDudeItems:: ds 2 * 4 + 1
 
@@ -2836,6 +2839,9 @@ wKeyItems:: ds MAX_KEY_ITEMS + 1
 wNumBalls:: db
 wBalls:: ds MAX_BALLS * 2 + 1
 
+wNumBerries:: db
+wBerries:: ds MAX_BERRIES * 2 + 1
+
 wNumPCItems:: db
 wPCItems:: ds MAX_PC_ITEMS * 2 + 1
 
@@ -2862,7 +2868,7 @@ wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 
-	ds 13
+	;ds 13
 
 ; map scene ids
 wPokecenter2FSceneID::                            db
@@ -2947,7 +2953,7 @@ wMobileBattleRoomSceneID::                        db
 wRoute24SceneID::                                 db
 wCeruleanCitySceneID::                            db
 
-	ds 32
+	;ds 32
 
 ; fight counts
 wJackFightCount::    db

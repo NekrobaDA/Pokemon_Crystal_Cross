@@ -205,6 +205,9 @@ _ResetWRAM:
 
 	ld hl, wNumBalls
 	call .InitList
+	
+	ld hl, wNumBerries
+	call .InitList
 
 	ld hl, wNumPCItems
 	call .InitList
