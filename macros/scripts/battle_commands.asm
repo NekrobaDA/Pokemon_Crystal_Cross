@@ -166,6 +166,7 @@ ENDM
 	command curl                    ; a3
 	command hex                     ; a4
 	command doubleunderwaterdamage  ; a5
+	command checkpowder
 
 	const_def -1, -1
 	command endmove                 ; ff

@@ -166,3 +166,5 @@ BattleCommandPointers:
 	dw BattleCommand_Curl
 	dw BattleCommand_Hex
 	dw BattleCommand_DoubleUnderwaterDamage
+	dw BattleCommand_CheckPowder
+	

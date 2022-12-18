@@ -195,8 +195,8 @@ CyndaquilPokeBallScript:
 	givepoke TYPHLOSION, 100
 	givepoke DUSERPENT, 100
 	givepoke STARMIE, 100
-	givepoke EKANS, 50
-	givepoke STARLY, 100
+	givepoke RINRIN, 100
+	givepoke CHIMEREON, 100
 	givepoke MEW, 100
 	; tms for party
 	giveitem TM_ICE_BEAM
@@ -241,7 +241,6 @@ CyndaquilPokeBallScript:
 	;setflag ENGINE_SOULBADGE
 	;setflag ENGINE_VOLCANOBADGE
 	;setflag ENGINE_EARTHBADGE
-	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	setevent EVENT_BEAT_FALKNER
 	setevent EVENT_FALKNER_REMATCH_ACTIVE
 	setevent EVENT_BUGSY_REMATCH_ACTIVE

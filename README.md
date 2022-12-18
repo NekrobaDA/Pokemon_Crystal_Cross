@@ -1,6 +1,7 @@
 # Pokémon Crystal Cross
 
-This is a hack of the Pokémon Crystal disassembly.
+This is a hack of the Pokémon Crystal disassembly.<br/>
+ATTENTION- game will currently not run on VBA, please use BGB
 
 Current Features:<br/>
 <br/>
@@ -37,6 +38,7 @@ Current Features:<br/>
 - Battle colors change to match time of day<br/>
 - More night-time music tracks<br/>
 - Ditto disguses itself as other wild pokemon<br/>
+- Daily random gift egg that comes with egg moves<br/>
 <br/>
 <br/>
 Being worked on:<br/>
@@ -58,6 +60,7 @@ Being worked on:<br/>
 - Look into auto-spikes/screens for certian battles<br/>
 - BP system + npc to respawn legends
 - Level curve adjustments/ overall game progression<br/>
+- Trainer secret bases/hidden grottos<br/>
 <br/>
 <br/>
 Credits:<br/>
