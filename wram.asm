@@ -3097,7 +3097,7 @@ wSafariTimeRemaining:: dw
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
 
-	ds 22
+	;ds 22
 
 wLuckyNumberShowFlag:: db
 	;ds 1

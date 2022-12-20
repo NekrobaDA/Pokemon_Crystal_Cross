@@ -35,7 +35,6 @@ Landmarks2:
 	landmark1  36,  48, Route39Name2
 	landmark1  36,  60, OlivineCityName2
 	landmark1  38,  62, LighthouseName2
-	landmark1  28,  56, BattleTowerName2
 	landmark1  28,  64, Route40Name2
 	landmark1  28,  92, WhirlIslandsName2
 	landmark1  28, 100, Route41Name2
@@ -119,6 +118,7 @@ Landmarks2:
 	landmark1   0,   0, RuinValleyName2
 	landmark1   0,   0, PatternBushName2
 	landmark1   0,   0, SevenIslandName2
+	landmark1  28,  56, BattleTowerName2
 	landmark1   0,   0, CanyonEntranceName2
 	landmark1   0,   0, SevaultCanyonName2
 

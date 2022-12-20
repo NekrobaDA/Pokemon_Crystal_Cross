@@ -7,120 +7,120 @@ ENDM
 Landmarks:
 ; entries correspond to constants/landmark_constants.asm
 	dbbw       0,   0, SpecialMapName
-	landmark 140, 100, NewBarkTownName
-	landmark 128, 100, Route29Name
-	landmark 100, 100, CherrygroveCityName
-	landmark 100,  80, Route30Name
-	landmark  96,  60, Route31Name
-	landmark  84,  60, VioletCityName
-	landmark  85,  58, SproutTowerName
-	landmark  84,  92, Route32Name
-	landmark  76,  76, RuinsOfAlphName
-	landmark  84, 124, UnionCaveName
-	landmark  82, 124, Route33Name
-	landmark  68, 124, AzaleaTownName
-	landmark  70, 122, SlowpokeWellName
-	landmark  52, 120, IlexForestName
-	landmark  52, 112, Route34Name
-	landmark  52,  92, GoldenrodCityName
-	landmark  50,  92, RadioTowerName
-	landmark  52,  76, Route35Name
-	landmark  52,  60, NationalParkName
-	landmark  64,  60, Route36Name
-	landmark  68,  52, Route37Name
-	landmark  68,  44, EcruteakCityName
-	landmark  70,  42, TinTowerName
-	landmark  66,  42, BurnedTowerName
-	landmark  52,  44, Route38Name
-	landmark  36,  48, Route39Name
-	landmark  36,  60, OlivineCityName
-	landmark  38,  62, LighthouseName
-	landmark  28,  56, BattleTowerName
-	landmark  28,  64, Route40Name
-	landmark  28,  92, WhirlIslandsName
-	landmark  28, 100, Route41Name
-	landmark  20, 100, CianwoodCityName
-	landmark  92,  44, Route42Name
-	landmark  84,  44, MtMortarName
-	landmark 108,  44, MahoganyTownName
-	landmark 108,  36, Route43Name
-	landmark 108,  28, LakeOfRageName
-	landmark 120,  44, Route44Name
-	landmark 130,  38, IcePathName
-	landmark 132,  44, BlackthornCityName
-	landmark 132,  36, DragonsDenName
-	landmark 132,  64, Route45Name
-	landmark 112,  72, DarkCaveName
-	landmark 124,  88, Route46Name
-	landmark 148,  68, SilverCaveName
-	landmark  52, 108, PalletTownName
-	landmark  52,  92, Route1Name
-	landmark  52,  76, ViridianCityName
-	landmark  52,  64, Route2Name
-	landmark  52,  52, PewterCityName
-	landmark  64,  52, Route3Name
-	landmark  76,  52, MtMoonName
-	landmark  88,  52, Route4Name
-	landmark 100,  52, CeruleanCityName
-	landmark 100,  44, Route24Name
-	landmark 108,  36, Route25Name
-	landmark 100,  60, Route5Name
-	landmark 108,  76, UndergroundName
-	landmark 100,  76, Route6Name
-	landmark 100,  84, VermilionCityName
-	landmark  88,  60, DiglettsCaveName
-	landmark  88,  68, Route7Name
-	landmark 116,  68, Route8Name
-	landmark 116,  52, Route9Name
-	landmark 132,  52, RockTunnelName
-	landmark 132,  56, Route10Name
-	landmark 132,  60, PowerPlantName
-	landmark 132,  68, LavenderTownName
-	landmark 140,  68, LavRadioTowerName
-	landmark  76,  68, CeladonCityName
-	landmark 100,  68, SaffronCityName
-	landmark 116,  84, Route11Name
-	landmark 132,  80, Route12Name
-	landmark 124, 100, Route13Name
-	landmark 116, 112, Route14Name
-	landmark 104, 116, Route15Name
-	landmark  68,  68, Route16Name
-	landmark  68,  92, Route17Name
-	landmark  80, 116, Route18Name
-	landmark  92, 116, FuchsiaCityName
-	landmark  92, 128, Route19Name
-	landmark  76, 132, Route20Name
-	landmark  68, 132, SeafoamIslandsName
-	landmark  52, 132, CinnabarIslandName
-	landmark  52, 120, Route21Name
-	landmark  36,  68, Route22Name
-	landmark  28,  52, VictoryRoadName
-	landmark  28,  44, Route23Name
-	landmark  28,  36, IndigoPlateauName
-	landmark  28,  92, Route26Name
-	landmark  20, 100, Route27Name
-	landmark  12, 100, TohjoFallsName
-	landmark  20,  68, Route28Name
+	landmark 140,  92, NewBarkTownName
+	landmark 116,  92, Route29Name
+	landmark 100,  84, CherrygroveCityName
+	landmark 100,  76, Route30Name
+	landmark  92,  52, Route31Name
+	landmark  76,  52, VioletCityName
+	landmark  76,  52, SproutTowerName
+	landmark  76,  68, Route32Name
+	landmark  68,  60, RuinsOfAlphName
+	landmark  76, 116, UnionCaveName
+	landmark  76, 116, Route33Name
+	landmark  60, 116, AzaleaTownName
+	landmark  68, 116, SlowpokeWellName
+	landmark  44, 116, IlexForestName
+	landmark  44,  92, Route34Name
+	landmark  44,  76, GoldenrodCityName
+	landmark  44,  76, RadioTowerName
+	landmark  44,  60, Route35Name
+	landmark  44,  52, NationalParkName
+	landmark  60,  52, Route36Name
+	landmark  60,  44, Route37Name
+	landmark  60,  36, EcruteakCityName
+	landmark  60,  28, TinTowerName
+	landmark  60,  36, BurnedTowerName
+	landmark  44,  36, Route38Name
+	landmark  28,  36, Route39Name
+	landmark  28,  52, OlivineCityName
+	landmark  28,  52, LighthouseName
+	landmark  20,  52, Route40Name
+	landmark  20,  76, WhirlIslandsName
+	landmark  20,  92, Route41Name
+	landmark  12,  92, CianwoodCityName
+	landmark  84,  36, Route42Name
+	landmark  84,  36, MtMortarName
+	landmark 108,  36, MahoganyTownName
+	landmark 108,  28, Route43Name
+	landmark 108,  20, LakeOfRageName
+	landmark 124,  36, Route44Name
+	landmark 124,  36, IcePathName
+	landmark 140,  36, BlackthornCityName
+	landmark 140,  28, DragonsDenName
+	landmark 140,  52, Route45Name
+	landmark 100,  52, DarkCaveName
+	landmark 132,  76, Route46Name
+	landmark 156,  60, SilverCaveName
+	landmark  44, 116, PalletTownName
+	landmark  44, 108, Route1Name
+	landmark  44,  92, ViridianCityName
+	landmark  44,  84, Route2Name
+	landmark  44,  60, PewterCityName
+	landmark  60,  60, Route3Name
+	landmark  68,  60, MtMoonName
+	landmark  76,  60, Route4Name
+	landmark  92,  60, CeruleanCityName
+	landmark  92,  44, Route24Name
+	landmark 100,  36, Route25Name
+	landmark  92,  68, Route5Name
+	landmark  92,  76, UndergroundName
+	landmark  92,  84, Route6Name
+	landmark  92,  92, VermilionCityName
+	landmark 108,  92, DiglettsCaveName
+	landmark  76,  76, Route7Name
+	landmark 108,  76, Route8Name
+	landmark 108,  60, Route9Name
+	landmark 132,  60, RockTunnelName
+	landmark 132,  68, Route10Name
+	landmark 124,  68, PowerPlantName
+	landmark 132,  76, LavenderTownName
+	landmark 132,  76, LavRadioTowerName
+	landmark  68,  76, CeladonCityName
+	landmark  92,  76, SaffronCityName
+	landmark 116,  92, Route11Name
+	landmark 132,  92, Route12Name
+	landmark 124, 108, Route13Name
+	landmark 116, 116, Route14Name
+	landmark 108, 124, Route15Name
+	landmark  60,  76, Route16Name
+	landmark  60, 100, Route17Name
+	landmark  68, 124, Route18Name
+	landmark 100, 124, FuchsiaCityName
+	landmark 100, 132, Route19Name
+	landmark  68, 140, Route20Name
+	landmark  68, 140, SeafoamIslandsName
+	landmark  44, 140, CinnabarIslandName
+	landmark  44, 124, Route21Name
+	landmark  28,  92, Route22Name
+	landmark  20,  52, VictoryRoadName
+	landmark  20,  44, Route23Name
+	landmark  20,  36, IndigoPlateauName
+	landmark  20,  76, Route26Name
+	landmark  04,  92, Route27Name
+	landmark  04,  92, TohjoFallsName
+	landmark  12,  60, Route28Name
 	landmark 140, 116, FastShipName
-	landmark   0,   0, OneIslandName
-	landmark   0,   0, KindleRoadName
-	landmark   0,   0, MtEmberName
-	landmark   0,   0, TwoIslandName
-	landmark   0,   0, CapeBrinkName
-	landmark   0,   0, ThreeIslandName
-	landmark   0,   0, BondBridgeName
-	landmark   0,   0, BerryForestName
-	landmark   0,   0, FourIslandName
-	landmark   0,   0, IcefallCaveName
-	landmark   0,   0, FiveIslandName
-	landmark   0,   0, FiveIsleMeadowName
-	landmark   0,   0, SixIslandName
-	landmark   0,   0, WaterPathName
-	landmark   0,   0, RuinValleyName
-	landmark   0,   0, PatternBushName
-	landmark   0,   0, SevenIslandName
-	landmark   0,   0, CanyonEntranceName
-	landmark   0,   0, SevaultCanyonName
+	landmark  20,  60, OneIslandName
+	landmark  28,  44, KindleRoadName
+	landmark  28,  20, MtEmberName
+	landmark  60,  28, TwoIslandName
+	landmark  60,  20, CapeBrinkName
+	landmark 132,  36, ThreeIslandName
+	landmark 116,  36, BondBridgeName
+	landmark 100,  36, BerryForestName
+	landmark  52,  68, FourIslandName
+	landmark  52,  68, IcefallCaveName
+	landmark  76,  92, FiveIslandName
+	landmark  84,  92, FiveIsleMeadowName
+	landmark 124, 100, SixIslandName
+	landmark 132, 100, WaterPathName
+	landmark 124, 124, RuinValleyName
+	landmark 124,  84, PatternBushName
+	landmark  28, 100, SevenIslandName
+	landmark  28,  84, BattleTowerName
+	landmark  28, 116, CanyonEntranceName
+	landmark  36, 124, SevaultCanyonName
 
 NewBarkTownName:     db "NEW BARK¯TOWN@"
 CherrygroveCityName: db "CHERRYGROVE¯CITY@"
@@ -225,21 +225,21 @@ UndergroundName:     db "UNDERGROUND@"
 BattleTowerName:     db "BATTLE¯TOWER@"
 SpecialMapName:      db "SPECIAL@"
 OneIslandName:       db "ONE ISLAND@"
-KindleRoadName:      db "KINDLE ROAD@"
+KindleRoadName:      db "KINDLE¯ROAD@"
 MtEmberName:         db "MT.EMBER@"
 TwoIslandName:       db "TWO ISLAND@"
 CapeBrinkName:       db "CAPE BRINK@"
-ThreeIslandName:     db "THREE ISLAND@"
+ThreeIslandName:     db "THREE¯ISLAND@"
 BondBridgeName:      db "BOND BRIDGE@"
-BerryForestName:     db "BERRY FOREST@"
+BerryForestName:     db "BERRY¯FOREST@"
 FourIslandName:      db "FOUR ISLAND@"
-IcefallCaveName:     db "ICEFALL CAVE@"
+IcefallCaveName:     db "ICEFALL¯CAVE@"
 FiveIslandName:      db "FIVE ISLAND@"
-FiveIsleMeadowName:  db "FIVE ISLE MEADOW@"
+FiveIsleMeadowName:  db "FIVE ISLE¯MEADOW@"
 SixIslandName:       db "SIX ISLAND@"
 WaterPathName:       db "WATER PATH@"
 RuinValleyName:      db "RUIN VALLEY@"
-PatternBushName:     db "PATTERN BUSH@"
-SevenIslandName:     db "SEVEN ISLAND@"
-CanyonEntranceName:  db "CANYON ENTRANCE@"
-SevaultCanyonName:   db "SEVAULT CANYON@"
+PatternBushName:     db "PATTERN¯BUSH@"
+SevenIslandName:     db "SEVEN¯ISLAND@"
+CanyonEntranceName:  db "CANYON¯ENTRANCE@"
+SevaultCanyonName:   db "SEVAULT¯CANYON@"

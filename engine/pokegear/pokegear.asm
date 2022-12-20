@@ -23,6 +23,8 @@ PHONE_DISPLAY_HEIGHT EQU 4
 	const POKEGEARSTATE_FINISHPHONECALL ; a
 	const POKEGEARSTATE_RADIOINIT       ; b
 	const POKEGEARSTATE_RADIOJOYPAD     ; c
+	const POKEGEARSTATE_SEVIIMAPINIT
+	const POKEGEARSTATE_SEVIIMAPJOYPAD
 
 PokeGear:
 	ld hl, wOptions
@@ -273,12 +275,25 @@ InitPokegearTilemap:
 	jr .finish
 
 .kanto_0
+	dec a
+	and a
+	jr nz, .sevii_0
 	xor a ; LOW(vBGMap1)
 	ldh [hBGMapAddress], a
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	call .UpdateBGMap
 	xor a
+	jr .finish
+	
+.sevii_0
+	xor a ; LOW(vBGMap2)
+	ldh [hBGMapAddress], a
+	ld a, HIGH(vBGMap2)
+	ldh [hBGMapAddress + 1], a
+	call .UpdateBGMap
+	xor a
+	
 .finish
 	ldh [hWY], a
 	; swap region maps
@@ -326,6 +341,8 @@ InitPokegearTilemap:
 	ld a, [wPokegearMapPlayerIconLandmark]
 	cp LANDMARK_FAST_SHIP
 	jr z, .johto
+	cp SEVII_LANDMARK
+	jr nc, .sevii
 	cp KANTO_LANDMARK
 	jr nc, .kanto
 .johto
@@ -334,16 +351,12 @@ InitPokegearTilemap:
 
 .kanto
 	ld e, 1
+	jr .ok
+	
+.sevii
+	ld e, 2
 .ok
 	farcall PokegearMap
-	ld a, $07
-	ld bc, SCREEN_WIDTH - 2
-	hlcoord 1, 2
-	call ByteFill
-	hlcoord 0, 2
-	ld [hl], $06
-	hlcoord 19, 2
-	ld [hl], $17
 	ld a, [wPokegearMapCursorLandmark]
 	call PokegearMap_UpdateLandmarkName
 	ret
@@ -449,6 +462,8 @@ PokegearJumptable:
 	dw PokegearPhone_FinishPhoneCall
 	dw PokegearRadio_Init
 	dw PokegearRadio_Joypad
+	dw PokegearMap_Init
+	dw PokegearMap_SeviiMap
 
 PokegearClock_Init:
 	call InitPokegearTilemap
@@ -532,6 +547,8 @@ PokegearMap_CheckRegion:
 	ld a, [wPokegearMapPlayerIconLandmark]
 	cp LANDMARK_FAST_SHIP
 	jr z, .johto
+	cp SEVII_LANDMARK
+	jr nc, .sevii
 	cp KANTO_LANDMARK
 	jr nc, .kanto
 .johto
@@ -541,6 +558,9 @@ PokegearMap_CheckRegion:
 
 .kanto
 	ld a, POKEGEARSTATE_KANTOMAPINIT
+	jr .done
+.sevii
+	ld a, POKEGEARSTATE_SEVIIMAPINIT
 .done
 	ld [wJumptableIndex], a
 	call ExitPokegearRadio_HandleMusic
@@ -559,6 +579,10 @@ PokegearMap_Init:
 	ld hl, wJumptableIndex
 	inc [hl]
 	ret
+
+PokegearMap_SeviiMap:
+	call TownMap_GetSeviiLandmarkLimits
+	jr PokegearMap_ContinueMap
 
 PokegearMap_KantoMap:
 	call TownMap_GetKantoLandmarkLimits
@@ -735,6 +759,11 @@ TownMap_GetKantoLandmarkLimits:
 .not_hof
 	ld d, LANDMARK_ROUTE_28
 	ld e, LANDMARK_VICTORY_ROAD
+	ret
+	
+TownMap_GetSeviiLandmarkLimits:
+	ld d, LANDMARK_SEVAULT_CANYON
+	ld e, LANDMARK_ONE_ISLAND
 	ret
 
 PokegearRadio_Init:
@@ -1807,6 +1836,8 @@ _TownMap:
 
 .dmg
 	ld a, [wTownMapPlayerIconLandmark]
+	cp SEVII_LANDMARK
+	jr nc, .sevii
 	cp KANTO_LANDMARK
 	jr nc, .kanto
 	ld d, KANTO_LANDMARK - 1
@@ -1816,6 +1847,11 @@ _TownMap:
 
 .kanto
 	call TownMap_GetKantoLandmarkLimits
+	call .loop
+	jr .resume
+
+.sevii
+	call TownMap_GetSeviiLandmarkLimits
 	call .loop
 
 .resume
@@ -1890,33 +1926,21 @@ _TownMap:
 
 .InitTilemap:
 	ld a, [wTownMapPlayerIconLandmark]
+	cp SEVII_LANDMARK
+	jr nc, .sevii2
 	cp KANTO_LANDMARK
 	jr nc, .kanto2
-	ld e, JOHTO_REGION
+	ld e, 0 ;JOHTO_REGION
+	jr .okay_tilemap
+
+.sevii2
+	ld e, 2 ;SEVII_REGION
 	jr .okay_tilemap
 
 .kanto2
-	ld e, KANTO_REGION
+	ld e, 1 ;KANTO_REGION
 .okay_tilemap
 	farcall PokegearMap
-	ld a, $07
-	ld bc, 6
-	hlcoord 1, 0
-	call ByteFill
-	hlcoord 0, 0
-	ld [hl], $06
-	hlcoord 7, 0
-	ld [hl], $17
-	hlcoord 7, 1
-	ld [hl], $16
-	hlcoord 7, 2
-	ld [hl], $26
-	ld a, $07
-	ld bc, NAME_LENGTH
-	hlcoord 8, 2
-	call ByteFill
-	hlcoord 19, 2
-	ld [hl], $17
 	ld a, [wTownMapCursorLandmark]
 	call PokegearMap_UpdateLandmarkName
 	farcall TownMapPals
@@ -2010,6 +2034,8 @@ PlayRadio:
 
 PokegearMap:
 	ld a, e
+	cp 2
+	jr z, .sevii
 	and a
 	jr nz, .kanto
 	call LoadTownMapGFX
@@ -2019,6 +2045,11 @@ PokegearMap:
 .kanto
 	call LoadTownMapGFX
 	call FillKantoMap
+	ret
+	
+.sevii
+	call LoadTownMapGFX
+	call FillSeviiMap
 	ret
 
 _FlyMap:
@@ -2135,29 +2166,22 @@ TownMapBubble:
 ; Draw the bubble containing the location text in the town map HUD
 
 ; Top-left corner
-	hlcoord 1, 0
+	hlcoord 0, 0
 	ld a, $30
 	ld [hli], a
 ; Top row
-	ld bc, 16
+	ld bc, 18
 	ld a, " "
 	call ByteFill
 ; Top-right corner
 	ld a, $31
-	ld [hl], a
-	hlcoord 1, 1
-
-; Middle row
-	ld bc, SCREEN_WIDTH - 2
-	ld a, " "
-	call ByteFill
+	ld [hli], a
 
 ; Bottom-left corner
-	hlcoord 1, 2
 	ld a, $32
 	ld [hli], a
 ; Bottom row
-	ld bc, 16
+	ld bc, 18
 	ld a, " "
 	call ByteFill
 ; Bottom-right corner
@@ -2165,7 +2189,7 @@ TownMapBubble:
 	ld [hl], a
 
 ; Print "Where?"
-	hlcoord 2, 0
+	hlcoord 1, 0
 	ld de, .Where
 	call PlaceString
 ; Print the name of the default flypoint
@@ -2263,6 +2287,8 @@ FlyMap:
 	call GetWorldMapLocation
 .CheckRegion:
 ; The first 46 locations are part of Johto. The rest are in Kanto.
+	cp SEVII_LANDMARK
+	jr nc, .SeviiFlyMap
 	cp KANTO_LANDMARK
 	jr nc, .KantoFlyMap
 ; Johto fly map
@@ -2275,6 +2301,20 @@ FlyMap:
 	ld [wEndFlypoint], a
 ; Fill out the map
 	call FillJohtoMap
+	call .MapHud
+	pop af
+	call TownMapPlayerIcon
+	ret
+	
+.SeviiFlyMap
+	push af
+	ld a, SEVII_FLYPOINT ; first sevii flypoint
+	ld [wTownMapPlayerIconLandmark], a ;one island default
+	ld [wStartFlypoint], a
+	ld a, FLY_SEVEN ; NUM_FLYPOINTS - 1 ; last sevii flypoint
+	ld [wEndFlypoint], a
+; Fill out the map
+	call FillSeviiMap
 	call .MapHud
 	pop af
 	call TownMapPlayerIcon
@@ -2297,7 +2337,7 @@ FlyMap:
 ; Kanto's map is only loaded if we've visited Indigo Plateau
 	ld a, KANTO_FLYPOINT ; first Kanto flypoint
 	ld [wStartFlypoint], a
-	ld a, NUM_FLYPOINTS - 1 ; last Kanto flypoint
+	ld a, SEVII_FLYPOINT - 1 ; last Kanto flypoint
 	ld [wEndFlypoint], a
 	ld [wTownMapPlayerIconLandmark], a ; last one is default (Indigo Plateau)
 ; Fill out the map
@@ -2451,13 +2491,6 @@ Pokedex_GetArea:
 	ld bc, SCREEN_WIDTH
 	ld a, " "
 	call ByteFill
-	hlcoord 0, 1
-	ld a, $06
-	ld [hli], a
-	ld bc, SCREEN_WIDTH - 2
-	ld a, $07
-	call ByteFill
-	ld [hl], $17
 	call GetPokemonName
 	hlcoord 2, 0
 	call PlaceString
@@ -2567,9 +2600,17 @@ Pokedex_GetArea:
 	ld a, [wTownMapPlayerIconLandmark]
 	cp LANDMARK_FAST_SHIP
 	jr z, .johto
+	cp SEVII_LANDMARK
+	jr nc, .sevii
 	cp KANTO_LANDMARK
 	jr c, .johto
 ; kanto
+	ld a, [wTownMapCursorLandmark]
+	and a
+	jr z, .clear
+	jr .ok
+	
+.sevii
 	ld a, [wTownMapCursorLandmark]
 	and a
 	jr z, .clear
@@ -2630,6 +2671,10 @@ TownMapBGUpdate:
 	xor a
 	ldh [hBGMapMode], a
 	ret
+
+FillSeviiMap:
+	ld de, SeviiMap
+	jr FillTownMap
 
 FillJohtoMap:
 	ld de, JohtoMap
@@ -2783,6 +2828,9 @@ INCBIN "gfx/pokegear/johto.bin"
 
 KantoMap:
 INCBIN "gfx/pokegear/kanto.bin"
+
+SeviiMap:
+INCBIN "gfx/pokegear/sevii.bin"	
 
 PokedexNestIconGFX:
 INCBIN "gfx/pokegear/dexmap_nest_icon.2bpp"

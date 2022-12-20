@@ -5,12 +5,8 @@
 
 FiveIsland_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
 
 	def_callbacks
-	
-.DummyScene0:
-	end
 	
 FiveIslandPortScript:
 	opentext
@@ -24,6 +20,10 @@ FiveIslandPortScript:
 	ifequal 3, NotRiding5I
 	
 .ContinueToKanto
+	writetext SetSailText
+	waitbutton
+	closetext
+	special FadeOutPalettes
 	warpfacing UP, VERMILION_PORT, 8, 11
 	end
 	
@@ -38,29 +38,35 @@ FiveIslandPortScript:
 	ifequal 4, .FourIsland
 	ifequal 5, .SixIsland
 	ifequal 6, .SevenIsland
-	end
+	sjump CancelScript
 	
 .OneIsland
+	setflag ENGINE_FLYPOINT_ONE
 	warpfacing RIGHT, ONE_ISLAND, 12, 21
 	end
 
 .TwoIsland
+	setflag ENGINE_FLYPOINT_TWO
 	warpfacing RIGHT, TWO_ISLAND, 10, 13
 	end
 
 .ThreeIsland
+	setflag ENGINE_FLYPOINT_THREE
 	warpfacing RIGHT, THREE_ISLAND, 10, 51
 	end
 
 .FourIsland
+	setflag ENGINE_FLYPOINT_FOUR
 	warpfacing RIGHT, FOUR_ISLAND, 8, 33
 	end
 
 .SixIsland
+	setflag ENGINE_FLYPOINT_SIX
 	warpfacing RIGHT, SIX_ISLAND, 10, 25
 	end
 
 .SevenIsland
+	setflag ENGINE_FLYPOINT_SEVEN
 	warpfacing LEFT, SEVEN_ISLAND, 18, 21
 	end
 	
@@ -71,13 +77,13 @@ NotRiding5I:
 	end
 	
 ListSeviiIslands_MenuHeader5I:
-	db MENU_SPRITE_ANIMS | MENU_BACKUP_TILES ; flags
-	menu_coords 4, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 6, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 5
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
-	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
+	db STATICMENU_CURSOR
 	db 6 ; # items
 	db "One Isle@"
 	db "Two Isle@"

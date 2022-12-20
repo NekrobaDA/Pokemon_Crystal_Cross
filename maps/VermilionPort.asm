@@ -85,6 +85,7 @@ VermilionPortSeviiOneAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
+	setflag ENGINE_FLYPOINT_ONE
 	warpfacing RIGHT, ONE_ISLAND, 12, 21
 	end
 	
@@ -103,6 +104,7 @@ VermilionPortSeviiTwoAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
+	setflag ENGINE_FLYPOINT_TWO
 	warpfacing RIGHT, TWO_ISLAND, 10, 13
 	end
 	
@@ -121,6 +123,7 @@ VermilionPortSeviiThreeAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
+	setflag ENGINE_FLYPOINT_THREE
 	warpfacing RIGHT, THREE_ISLAND, 10, 51
 	end
 	
@@ -139,6 +142,7 @@ VermilionPortSeviiFourAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
+	setflag ENGINE_FLYPOINT_FOUR
 	warpfacing RIGHT, FOUR_ISLAND, 8, 33
 	end
 	
@@ -157,6 +161,7 @@ VermilionPortSeviiFiveAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
+	setflag ENGINE_FLYPOINT_FIVE
 	warpfacing RIGHT, FIVE_ISLAND, 10, 21
 	end
 	
@@ -175,6 +180,7 @@ VermilionPortSeviiSixAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
+	setflag ENGINE_FLYPOINT_SIX
 	warpfacing RIGHT, SIX_ISLAND, 10, 25
 	end
 	
@@ -193,6 +199,7 @@ VermilionPortSeviiSevenAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
+	setflag ENGINE_FLYPOINT_SEVEN
 	warpfacing LEFT, SEVEN_ISLAND, 18, 21
 	end
 
@@ -275,6 +282,8 @@ VermilionPortWalkUpToShipScript:
 	ifequal 5, .FiveIsland
 	ifequal 6, .SixIsland
 	ifequal 7, .SevenIsland
+	sjump VermilionPortNotRidingScript
+	
 .OneIsland
 	applymovement PLAYER, VermilionPortApproachFastShipMovement
 	sjump VermilionPortSeviiOneAtGangwayScript
@@ -298,13 +307,13 @@ VermilionPortWalkUpToShipScript:
 	sjump VermilionPortSeviiSevenAtGangwayScript
 	
 ListSeviiIslands_MenuHeader:
-	db MENU_SPRITE_ANIMS | MENU_BACKUP_TILES ; flags
-	menu_coords 4, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1 ;, TEXTBOX_Y - 1 SCREEN_HEIGHT - 1
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 6, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 4
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
-	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
+	db STATICMENU_CURSOR | STATICMENU_NO_TOP_SPACING
 	db 7 ; # items
 	db "One Isle@"
 	db "Two Isle@"
