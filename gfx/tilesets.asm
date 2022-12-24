@@ -631,3 +631,17 @@ INCLUDE "data/tilesets/sevii_seven_collision.asm"
 
 TilesetSeviiSevenAttr::
 INCBIN "data/tilesets/sevii_seven_attributes.bin"
+
+SECTION "Tileset Data 23", ROMX
+
+TilesetJohto38GFX::
+INCBIN "gfx/tilesets/johto_38.2bpp.lz"
+
+TilesetJohto38Meta::
+INCBIN "data/tilesets/johto_38_metatiles.bin"
+
+TilesetJohto38Coll::
+INCLUDE "data/tilesets/johto_38_collision.asm"
+
+TilesetJohto38Attr::
+INCBIN "data/tilesets/johto_38_attributes.bin"

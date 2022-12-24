@@ -208,8 +208,8 @@ TileCollisionTable::
 	db WATER_TILE        ; cd
 	db WATER_TILE        ; ce
 	db WATER_TILE        ; cf
-	db LAND_TILE         ; d0
-	db LAND_TILE         ; d1
+	db LAND_TILE ; COLL_DIAGONAL_STAIRS_RIGHT
+	db LAND_TILE ; COLL_DIAGONAL_STAIRS_LEFT
 	db LAND_TILE         ; d2
 	db LAND_TILE         ; d3
 	db LAND_TILE         ; d4

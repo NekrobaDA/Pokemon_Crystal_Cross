@@ -49,6 +49,7 @@
 	const TILESET_SEVII_FIVE
 	const TILESET_SEVII_SIX
 	const TILESET_SEVII_SEVEN
+	const TILESET_JOHTO_38
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)

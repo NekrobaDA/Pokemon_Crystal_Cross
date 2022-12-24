@@ -50,7 +50,6 @@ Being worked on:<br/>
 - So many sevii npcs<br/>
 - Divide TMs among various pokemarts<br/>
 - Lance's overworld Dragonite needs updated sprite<br/>
-- Sevii islands fly/pokegear map<br/>
 - Restore safari zone functionality<br/>
 - Goldenrod-Cherrygrove underground tunnel<br/>
 - Add cameo battles + locations<br/>
