@@ -255,7 +255,7 @@ ENDM
 
 	map_const ROUTE_32,                                    10, 45 ;  1
 	map_const ROUTE_35,                                    10, 18 ;  2
-	map_const ROUTE_36,                                    30, 11 ;  3
+	map_const ROUTE_36,                                    31, 11 ;  3
 	map_const ROUTE_37,                                    10, 11 ;  4
 	map_const VIOLET_CITY,                                 20, 18 ;  5
 	map_const VIOLET_MART,                                  6,  4 ;  6
