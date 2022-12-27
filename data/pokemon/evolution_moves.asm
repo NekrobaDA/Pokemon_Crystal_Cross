@@ -137,7 +137,7 @@ EvolutionMoves::
 	db NO_MOVE ; Elekid
 	db THUNDERPUNCH ; Electabuzz
 	db NO_MOVE ; Magby
-	db FIRE_PUNCH ; Magmar
+	db FIRE_SPIN ; Magmar
 	db NO_MOVE ; Pinsir
 	db NO_MOVE ; Mooby
 	db HORN_ATTACK ; Tauros

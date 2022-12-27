@@ -40,8 +40,8 @@ ENDM
 	map_const ROUTE_38_ECRUTEAK_GATE,                       5,  4 ;  9
 	map_const ROUTE_39_BARN,                                4,  4 ; 10
 	map_const ROUTE_39_FARMHOUSE,                           4,  4 ; 11
-	map_const ROUTE_38,                                    20,  9 ; 12
-	map_const ROUTE_39,                                    10, 18 ; 13
+	map_const ROUTE_38,                                    20, 10 ; 12
+	map_const ROUTE_39,                                    11, 19 ; 13
 	map_const OLIVINE_CITY,                                20, 18 ; 14
 
 	newgroup                                                      ;  2
@@ -255,8 +255,8 @@ ENDM
 
 	map_const ROUTE_32,                                    10, 45 ;  1
 	map_const ROUTE_35,                                    10, 18 ;  2
-	map_const ROUTE_36,                                    30,  9 ;  3
-	map_const ROUTE_37,                                    10,  9 ;  4
+	map_const ROUTE_36,                                    30, 11 ;  3
+	map_const ROUTE_37,                                    10, 11 ;  4
 	map_const VIOLET_CITY,                                 20, 18 ;  5
 	map_const VIOLET_MART,                                  6,  4 ;  6
 	map_const VIOLET_GYM,                                   5,  8 ;  7

@@ -2202,12 +2202,15 @@ ElectabuzzEvosAttacks:
 	db 1, QUICK_ATTACK
 	db 1, LEER
 	db 1, THUNDERSHOCK
-	db 22, LOW_KICK
-	db 27, SWIFT
-	db 36, LIGHT_SCREEN
+	db 17, THUNDER_WAVE
+	db 22, SWIFT
+	db 27, LOW_KICK
+	db 31, SCREECH
+	db 36, SLAM
 	db 42, THUNDERBOLT
-	db 47, SCREECH
-	db 58, THUNDER
+	db 47, LIGHT_SCREEN
+	db 55, THUNDER
+	db 59, CROSS_CHOP
 	db 0 ; no more level-up moves
 	
 MagbyEvosAttacks:
@@ -2221,16 +2224,19 @@ MagbyEvosAttacks:
 
 MagmarEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, FIRE_PUNCH
+	db 1, FIRE_SPIN
 	db 1, EMBER
 	db 1, LEER
 	db 1, SMOG
-	db 22, FAINT_ATTACK
-	db 27, FIRE_SPIN
-	db 36, CONFUSE_RAY
+	db 17, SMOKESCREEN
+	db 22, SLUDGE
+	db 27, FLAME_WHEEL
+	db 31, CONFUSE_RAY
+	db 36, FAINT_ATTACK
 	db 42, FLAMETHROWER
 	db 47, SUNNY_DAY
-	db 58, FIRE_BLAST
+	db 55, FIRE_BLAST
+	db 59, SLUDGE_BOMB
 	db 0 ; no more level-up moves
 
 PinsirEvosAttacks:

@@ -305,9 +305,6 @@ Route1_Blocks:
 Route5_Blocks:
 	INCBIN "maps/Route5.ablk"
 
-Route9_Blocks:
-	INCBIN "maps/Route9.ablk"
-
 
 SECTION "Map Blocks 2", ROMX
 
@@ -489,8 +486,11 @@ GoldenrodMagnetTrainStation_Blocks:
 RuinsOfAlphOutside_Blocks:
 	INCBIN "maps/RuinsOfAlphOutside.ablk"
 
-BetaRuinsOfAlphUnsolvedPuzzleRoom_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaRuinsOfAlphUnsolvedPuzzleRoom.ablk"
+;BetaRuinsOfAlphUnsolvedPuzzleRoom_Blocks: ; unreferenced
+	;INCBIN "maps/unused/BetaRuinsOfAlphUnsolvedPuzzleRoom.ablk"
+	
+Route9_Blocks:
+	INCBIN "maps/Route9.ablk"
 
 RuinsOfAlphInnerChamber_Blocks:
 	INCBIN "maps/RuinsOfAlphInnerChamber.ablk"
