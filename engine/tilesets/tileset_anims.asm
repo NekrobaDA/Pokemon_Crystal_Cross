@@ -1135,6 +1135,7 @@ SeaweedTileFrames:
 	INCBIN "gfx/tilesets/seaweed/1.2bpp"
 	INCBIN "gfx/tilesets/seaweed/2.2bpp"
 
+TilesetJohto29Anim:
 TilesetJohto38Anim:
 TilesetSeviiSevenAnim:
 TilesetSeviiSixAnim:

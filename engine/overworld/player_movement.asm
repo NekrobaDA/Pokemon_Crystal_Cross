@@ -123,6 +123,10 @@ DoPlayerMovement::
 ; in a given direction, overriding input.
 
 	ld a, [wPlayerStandingTile]
+	cp COLL_ROCK_SMASH
+	jp z, .down
+
+	ld a, [wPlayerStandingTile]
 	ld c, a
 	call CheckWhirlpoolTile
 	jr c, .not_whirlpool
@@ -208,6 +212,8 @@ DoPlayerMovement::
 .warps
 	ld a, c
 	cp COLL_DOOR
+	jr z, .down
+	cp COLL_ROCK_SMASH
 	jr z, .down
 	cp COLL_DOOR_79
 	jr z, .down

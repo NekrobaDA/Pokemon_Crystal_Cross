@@ -157,6 +157,10 @@ CheckRockyWallTile::
 	cp COLL_ROCKY_WALL
 	ret
 	
+CheckRockSmashWallTile::
+	cp COLL_ROCK_SMASH
+	ret
+	
 CheckDiveTile::
 	cp COLL_RESURFACE
 	ret z

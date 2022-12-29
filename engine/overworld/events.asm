@@ -1106,8 +1106,15 @@ TryTileCollisionEvent::
 .rock_climb
 	ld a, [wFacingTileID]
 	call CheckRockyWallTile
-	jr nz, .surf
+	jr nz, .rock_smash
 	farcall TryRockClimbOW
+	jr .done
+	
+.rock_smash
+	ld a, [wFacingTileID]
+	call CheckRockSmashWallTile
+	jr nz, .surf
+	farcall TryRockSmashWallOW
 	jr .done
 
 .surf

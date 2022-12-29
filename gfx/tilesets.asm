@@ -645,3 +645,17 @@ INCLUDE "data/tilesets/johto_38_collision.asm"
 
 TilesetJohto38Attr::
 INCBIN "data/tilesets/johto_38_attributes.bin"
+
+SECTION "Tileset Data 24", ROMX
+
+TilesetJohto29GFX::
+INCBIN "gfx/tilesets/johto_29.2bpp.lz"
+
+TilesetJohto29Meta::
+INCBIN "data/tilesets/johto_29_metatiles.bin"
+
+TilesetJohto29Coll::
+INCLUDE "data/tilesets/johto_29_collision.asm"
+
+TilesetJohto29Attr::
+INCBIN "data/tilesets/johto_29_attributes.bin"

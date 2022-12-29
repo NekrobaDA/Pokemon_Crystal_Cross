@@ -440,6 +440,19 @@ _AskWhirlpoolText::
 	para "Want to use"
 	line "WHIRLPOOL?"
 	done
+	
+_AskRockSmashWallText::
+	text "This cracked wall"
+	line "looks breakable."
+	
+	para "Want to use"
+	line "ROCK SMASH?"
+	done
+	
+_MayBreakWallText::
+	text "This cracked wall"
+	line "looks breakable..."
+	done
 
 _UseHeadbuttText::
 	text_ram wStringBuffer2

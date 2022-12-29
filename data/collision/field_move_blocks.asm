@@ -80,7 +80,7 @@ CutTreeBlockPointers:
 .johto_38
 ; facing block, replacement block, animation
 	db $f4, $3e, 0 ;tree
-	db $03, $02, 1 ;tree
+	db $03, $02, 1 ;grass
 	db -1 ; end
 
 ; these blocks all use COLL_WHIRLPOOL in one quadrant
@@ -91,4 +91,11 @@ WhirlpoolBlockPointers:
 .johto:
 ; facing block, replacement block, animation
 	db $07, $36, 0
+	db -1 ; end
+	
+RockSmashBlockPointers:
+	dbw TILESET_JOHTO_29, .johto_29
+	
+.johto_29
+	db $73, $53, 0
 	db -1 ; end

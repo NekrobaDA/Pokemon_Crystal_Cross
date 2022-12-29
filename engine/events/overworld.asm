@@ -1558,6 +1558,126 @@ HasRockSmash:
 .done
 	ld [wScriptVar], a
 	ret
+	
+TryRockSmashWallOW::
+	ld a, HM_ROCK_SMASH
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .failed
+
+	ld d, ROCK_SMASH
+	call CheckPartyMove
+	jr c, .try_next
+	jr .yes
+	
+.try_next	
+	ld d, ROCK_SMASH
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .failed
+	
+.yes
+	call TryRockSmashWallMenu
+	jr c, .failed
+	ld a, BANK(Script_AskRockSmashWallOW)
+	ld hl, Script_AskRockSmashWallOW
+	call CallScript
+	scf
+	ret
+
+.failed
+	ld a, BANK(Script_CrackedWall)
+	ld hl, Script_CrackedWall
+	call CallScript
+	scf
+	ret
+	
+Script_CrackedWall:
+	jumptext .MayBreakWallText
+
+.MayBreakWallText:
+	text_far _MayBreakWallText
+	text_end
+
+Script_AskRockSmashWallOW:
+	opentext
+	writetext AskRockSmashWallText
+	yesorno
+	iftrue Script_UsedRockSmash
+	closetext
+	end
+
+AskRockSmashWallText:
+	text_far _AskRockSmashWallText
+	text_end
+	
+Script_UsedRockSmash:
+	callasm GetPartyNick
+	writetext UseRockSmashText
+	closetext
+	special WaitSFX
+	playsound SFX_STRENGTH
+	earthquake 84
+	;applymovementlasttalked MovementData_RockSmash
+	reloadmappart
+	callasm DisappearWall
+	reloadmappart
+	;closetext
+	end
+	
+DisappearWall:
+	ld hl, wCutWhirlpoolOverworldBlockAddr
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [wCutWhirlpoolReplacementBlock]
+	ld [hl], a
+	xor a
+	ldh [hBGMapMode], a
+	call OverworldTextModeSwitch
+	ld a, [wCutWhirlpoolAnimationType]
+	ld e, a
+	;earthquake 84
+	;applymovementlasttalked MovementData_RockSmash
+	;call WaitSFX
+	;ld de, SFX_STRENGTH
+	;call PlaySFX
+	;call WaitSFX
+	;call BufferScreen
+	call GetMovementPermissions
+	ret
+	
+TryRockSmashWallMenu:
+	call GetFacingTileCoord
+	ld c, a
+	push de
+	call CheckRockSmashWallTile
+	pop de
+	jr c, .failed
+	call GetBlockLocation
+	ld c, [hl]
+	push hl
+	ld hl, RockSmashBlockPointers
+	call CheckOverworldTileArrays
+	pop hl
+	jr nc, .failed
+	; Save the Whirlpool field move data
+	ld a, l
+	ld [wCutWhirlpoolOverworldBlockAddr], a
+	ld a, h
+	ld [wCutWhirlpoolOverworldBlockAddr + 1], a
+	ld a, b
+	ld [wCutWhirlpoolReplacementBlock], a
+	ld a, c
+	ld [wCutWhirlpoolAnimationType], a
+	xor a
+	ret
+
+.failed
+	scf
+	ret
 
 FishFunction:
 	ld a, e

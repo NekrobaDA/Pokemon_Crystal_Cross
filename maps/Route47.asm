@@ -9,6 +9,7 @@ Route47_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event  13, 23, NEW_BARK_TOWN, 3
 
 	def_coord_events
 
