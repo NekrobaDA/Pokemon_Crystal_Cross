@@ -154,8 +154,8 @@ ENDM
 	map_attributes Route28, ROUTE_28, $2c, WEST
 	connection west, SilverCaveOutside, SILVER_CAVE_OUTSIDE, -9
 
-	map_attributes Route29, ROUTE_29, $05, NORTH | WEST | EAST
-	connection north, Route47, ROUTE_47, -1
+	map_attributes Route29, ROUTE_29, $32, NORTH | WEST | EAST
+	connection north, Route47, ROUTE_47, 0
 	connection west, CherrygroveCity, CHERRYGROVE_CITY, 0
 	connection east, NewBarkTown, NEW_BARK_TOWN, 1
 	
@@ -375,8 +375,8 @@ ENDM
 	connection north, Route10North, ROUTE_10_NORTH, 0
 	connection south, LavenderTown, LAVENDER_TOWN, 0
 	
-	map_attributes Route47, ROUTE_47, $05, SOUTH | WEST
-	connection south, Route29, ROUTE_29, 1
+	map_attributes Route47, ROUTE_47, $32, SOUTH | WEST
+	connection south, Route29, ROUTE_29, 0
 	connection west, CatalliaTown, CATALLIA_TOWN, -6
 	
 	map_attributes CatalliaTown, CATALLIA_TOWN, $05, WEST | EAST

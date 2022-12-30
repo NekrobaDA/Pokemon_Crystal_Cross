@@ -480,7 +480,7 @@ ENDM
 
 	map_const ROUTE_26,                                    10, 54 ;  1
 	map_const ROUTE_27,                                    40,  9 ;  2
-	map_const ROUTE_29,                                    30, 10 ;  3
+	map_const ROUTE_29,                                    31, 10 ;  3
 	map_const NEW_BARK_TOWN,                               10,  9 ;  4
 	map_const ELMS_LAB,                                     5,  6 ;  5
 	map_const PLAYERS_HOUSE_1F,                             5,  4 ;  6
@@ -524,7 +524,7 @@ ENDM
 	
 	newgroup
 	
-	map_const ROUTE_47,                                    11, 20
+	map_const ROUTE_47,                                    11, 21
 	map_const CATALLIA_TOWN,                               12, 16
 	map_const CATALLIA_MART,                               6,  4
 	map_const CATALLIA_POKECENTER_1F,                      5,  4

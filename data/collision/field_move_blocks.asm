@@ -10,6 +10,7 @@ CutTreeBlockPointers:
 	dbw TILESET_SEVII,        .sevii
 	dbw TILESET_SEVII_FOREST, .sevii_forest
 	dbw TILESET_JOHTO_38,     .johto_38
+	dbw TILESET_JOHTO_29,     .johto_29
 	db -1 ; end
 
 .johto:
@@ -82,6 +83,13 @@ CutTreeBlockPointers:
 	db $f4, $3e, 0 ;tree
 	db $03, $02, 1 ;grass
 	db -1 ; end
+	
+.johto_29
+	db $97, $59, 0 ;tree
+	db $b3, $b1, 0 ;tree
+	db $b0, $a9, 0 ;tree
+	db $03, $02, 1 ;grass
+	db $28, $24, 1 ;grass
 
 ; these blocks all use COLL_WHIRLPOOL in one quadrant
 WhirlpoolBlockPointers:
