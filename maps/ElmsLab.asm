@@ -195,8 +195,8 @@ CyndaquilPokeBallScript:
 	givepoke TYPHLOSION, 100
 	givepoke DUSERPENT, 100
 	givepoke STARMIE, 100
-	givepoke RINRIN, 100
-	givepoke CHIMEREON, 100
+	givepoke STARLY, 50
+	givepoke EKANS, 50
 	givepoke MEW, 100
 	; tms for party
 	giveitem TM_ICE_BEAM

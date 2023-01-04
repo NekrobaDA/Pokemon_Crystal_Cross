@@ -10,6 +10,8 @@ Landmarks2:
 	landmark1 140, 100, NewBarkTownName2
 	landmark1 128, 100, Route29Name2
 	landmark1 100, 100, CherrygroveCityName2
+	landmark1 116,  84, Route47Name2
+	landmark1 108,  76, CatalliaTownName2
 	landmark1 100,  80, Route30Name2
 	landmark1  96,  60, Route31Name2
 	landmark1  84,  60, VioletCityName2
@@ -243,3 +245,5 @@ PatternBushName2:     db "PATRN BUSH@"
 SevenIslandName2:     db "SEVEN ISLE@"
 CanyonEntranceName2:  db "CAN ENTRCE@"
 SevaultCanyonName2:   db "SEV CANYON@"
+Route47Name2:         db "ROUTE 47@"
+CatalliaTownName2:    db "CATALLIA@"

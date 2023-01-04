@@ -11,7 +11,7 @@ OlivineCity_MapScripts:
 	def_scene_scripts
 	scene_script .DummyScene0 ; SCENE_DEFAULT
 	scene_script .DummyScene1 ; SCENE_FINISHED
-
+	
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
@@ -99,6 +99,14 @@ OlivineCityRivalSceneBottom:
 
 OlivineCitySailor1Script:
 	jumptextfaceplayer OlivineCitySailor1Text
+	
+ExitUpOlivine1:
+	warpfacing UP, ROUTE_39, 14, 33
+	end
+	
+ExitUpOlivine2:
+	warpfacing UP, ROUTE_39, 15, 33
+	end
 
 OlivineCityStandingYoungsterScript:
 	faceplayer
@@ -365,6 +373,8 @@ OlivineCity_MapEvents:
 	warp_event 28, 25, OLIVINE_LIGHTHOUSE_1F, 1
 	warp_event 19, 27, OLIVINE_PORT_PASSAGE, 1
 	warp_event 20, 27, OLIVINE_PORT_PASSAGE, 2
+	warp_event 19,  5, ROUTE_39, 3
+	warp_event 20,  5, ROUTE_39, 4
 
 	def_coord_events
 	coord_event 13, 10, SCENE_DEFAULT, OlivineCityRivalSceneTop

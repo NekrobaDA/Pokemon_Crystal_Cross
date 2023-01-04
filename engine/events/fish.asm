@@ -91,13 +91,13 @@ GetFishGroupIndex:
 	;ld hl, wDailyFlags1
 	;bit DAILYFLAGS1_FISH_SWARM_F, [hl]
 	;pop hl
-	;jr z, .done
+	;jr .done
 
-	ld a, d
-	cp FISHGROUP_QWILFISH
-	jr z, .qwilfish
-	cp FISHGROUP_REMORAID
-	jr z, .remoraid
+	;ld a, d
+	;cp FISHGROUP_QWILFISH
+	;jr z, .qwilfish
+	;cp FISHGROUP_REMORAID
+	;jr z, .remoraid
 
 .done
 	dec d

@@ -2,7 +2,7 @@
 ; Each scene_script and coord_event is associated with a current scene ID.
 
 ; Scene variables default to 0.
-SCENE_DEFAULT  EQU 0
+SCENE_DEFAULT    EQU 0
 ; Often a map will have a one-time default event for scene 0, and switch to a
 ; do-nothing scene 1 when the event finishes.
 SCENE_FINISHED EQU 1
@@ -163,3 +163,8 @@ SCENE_FINISHED EQU 1
 ; wTeamRocketBaseB3FSceneID
 	const_def
 	const SCENE_CERULEANCITY_NOTHING         ; 3
+
+;newbark
+	const_def
+	const SCENE_CANT_LEAVE            ; 1
+

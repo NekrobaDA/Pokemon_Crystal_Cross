@@ -41,7 +41,7 @@ ENDM
 	map_const ROUTE_39_BARN,                                4,  4 ; 10
 	map_const ROUTE_39_FARMHOUSE,                           4,  4 ; 11
 	map_const ROUTE_38,                                    20, 10 ; 12
-	map_const ROUTE_39,                                    11, 19 ; 13
+	map_const ROUTE_39,                                    11, 20 ; 13
 	map_const OLIVINE_CITY,                                20, 18 ; 14
 
 	newgroup                                                      ;  2
@@ -481,7 +481,7 @@ ENDM
 	map_const ROUTE_26,                                    10, 54 ;  1
 	map_const ROUTE_27,                                    40,  9 ;  2
 	map_const ROUTE_29,                                    31, 10 ;  3
-	map_const NEW_BARK_TOWN,                               10,  9 ;  4
+	map_const NEW_BARK_TOWN,                               13,  9 ;  4
 	map_const ELMS_LAB,                                     5,  6 ;  5
 	map_const PLAYERS_HOUSE_1F,                             5,  4 ;  6
 	map_const PLAYERS_HOUSE_2F,                             4,  3 ;  7

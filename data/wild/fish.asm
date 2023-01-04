@@ -2,7 +2,7 @@ TIME_GROUP EQU 0 ; use the nth TimeFishGroups entry
 
 fishgroup: MACRO
 ; chance, old rod, good rod, super rod
-	dbww \1, \2, \3, \4
+	dbwww \1, \2, \3, \4
 ENDM
 
 FishGroups:
@@ -19,7 +19,6 @@ FishGroups:
 	fishgroup 50 percent + 1, .WhirlIslands_Old,     .WhirlIslands_Good,     .WhirlIslands_Super
 	fishgroup 50 percent + 1, .Qwilfish_Old,         .Qwilfish_Good,         .Qwilfish_Super
 	fishgroup 50 percent + 1, .Remoraid_Old,         .Remoraid_Good,         .Remoraid_Super
-	fishgroup 50 percent + 1, .Qwilfish_NoSwarm_Old, .Qwilfish_NoSwarm_Good, .Qwilfish_NoSwarm_Super
 
 .Shore_Old:
 	dbbw  70 percent + 1, 10, KRABBY
@@ -171,18 +170,15 @@ FishGroups:
 	dbbw  90 percent + 1, 40, KINGLER
 	dbbw 100 percent,     40, SEADRA
 
-.Qwilfish_NoSwarm_Old:
 .Qwilfish_Old:
 	dbbw  70 percent + 1, 10, MAGIKARP
 	dbbw  85 percent + 1, 10, MAGIKARP
 	dbbw 100 percent,     10, TENTACOOL
-.Qwilfish_NoSwarm_Good:
 .Qwilfish_Good:
 	dbbw  35 percent,     20, MAGIKARP
 	dbbw  70 percent,     20, TENTACOOL
 	dbbw  90 percent + 1, 20, TENTACOOL
 	dbbw 100 percent,     20, TIME_GROUP
-.Qwilfish_NoSwarm_Super:
 .Qwilfish_Super:
 	dbbw  40 percent,     40, TENTACOOL
 	dbbw  50 percent,     21, TIME_GROUP

@@ -2,6 +2,8 @@
 	const NEWBARKTOWN_TEACHER
 	const NEWBARKTOWN_FISHER
 	const NEWBARKTOWN_SILVER
+	const PLAYER_SURF_NB
+	const PLAYER_SURF_NB2
 
 NewBarkTown_MapScripts:
 	def_scene_scripts
@@ -9,6 +11,7 @@ NewBarkTown_MapScripts:
 	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .ResetExitscene
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .DummyScene0:
@@ -21,8 +24,16 @@ NewBarkTown_MapScripts:
 	setflag ENGINE_FLYPOINT_NEW_BARK
 	clearevent EVENT_FIRST_TIME_BANKING_WITH_MOM
 	endcallback
+	
+.ResetExitscene
+	setmapscene, NEW_BARK_TOWN, SCENE_DEFAULT
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	endcallback
 
 NewBarkTown_TeacherStopsYouScene1:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue .end
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
 	opentext
@@ -44,8 +55,13 @@ NewBarkTown_TeacherStopsYouScene1:
 	closetext
 	special RestartMapMusic
 	end
+	
+.end
+	end
 
 NewBarkTown_TeacherStopsYouScene2:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue .end
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
 	opentext
@@ -67,6 +83,9 @@ NewBarkTown_TeacherStopsYouScene2:
 	waitbutton
 	closetext
 	special RestartMapMusic
+	end
+	
+.end
 	end
 
 NewBarkTownTeacherScript:
@@ -136,6 +155,47 @@ NewBarkTownElmsLabSign:
 
 NewBarkTownElmsHouseSign:
 	jumptext NewBarkTownElmsHouseSignText
+	
+	
+ExitRightSceneNewbark1:
+	appear PLAYER_SURF_NB
+.HidePlayer1
+	applymovement PLAYER, HidePersonMovementNB
+	applymovement PLAYER_SURF_NB, ExitsceneMovementNB
+.Scenemove1
+	applymovement PLAYER, ShowPersonMovementNB
+	disappear PLAYER_SURF_NB
+.HidPlaceholder1
+	warpfacing RIGHT, ROUTE_27,  3,  7
+	end
+	
+ExitRightSceneNewbark2:
+	appear PLAYER_SURF_NB2
+.HidePlayer2
+	applymovement PLAYER, HidePersonMovementNB
+	applymovement PLAYER_SURF_NB2, ExitsceneMovementNB
+.Scenemove2
+	applymovement PLAYER, ShowPersonMovementNB
+	disappear PLAYER_SURF_NB2
+.HidPlaceholder2
+	warpfacing RIGHT, ROUTE_27,  3,  8
+	end
+	
+ExitsceneMovementNB:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step_end
+	
+ShowPersonMovementNB:
+	show_object
+	step_end
+
+HidePersonMovementNB:
+	hide_object
+	step_end	
 
 NewBarkTown_TeacherRunsToYouMovement1:
 	step LEFT
@@ -284,22 +344,31 @@ NewBarkTown_MapEvents:
 
 	def_warp_events
 	warp_event  6,  3, ELMS_LAB, 1
-	warp_event 11, 13, PLAYERS_HOUSE_1F, 1
+	warp_event 10, 12, PLAYERS_HOUSE_1F, 1
 	;warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
-	warp_event  3, 11, ROUTE_47, 1
-	warp_event 13,  5, ELMS_HOUSE, 1
+	warp_event  2, 12, ROUTE_47, 1
+	warp_event 13,  4, ELMS_HOUSE, 1
+	warp_event 21,  7, ROUTE_27, 4
+	;warp_event 21,  8, ROUTE_27, 5
+	;warp_event 20,  6, ROUTE_27, 4
+	;warp_event 20,  9, ROUTE_27, 5
 
 	def_coord_events
 	coord_event  1,  8, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene1
 	coord_event  1,  9, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene2
+	coord_event 20,  7, SCENE_DEFAULT, ExitRightSceneNewbark1
+	coord_event 20,  8, SCENE_DEFAULT, ExitRightSceneNewbark2
 
 	def_bg_events
-	bg_event  9,  9, BGEVENT_READ, NewBarkTownSign
+	bg_event  1,  7, BGEVENT_READ, NewBarkTownSign
 	bg_event  9, 13, BGEVENT_READ, NewBarkTownPlayersHouseSign
 	bg_event  3,  3, BGEVENT_READ, NewBarkTownElmsLabSign
-	bg_event 11,  5, BGEVENT_READ, NewBarkTownElmsHouseSign
+	bg_event 12,  5, BGEVENT_READ, NewBarkTownElmsHouseSign
 
 	def_object_events
 	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
-	object_event 12,  9, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, -1
+	object_event 16,  8, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, -1
 	object_event  3,  2, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownSilverScript, EVENT_RIVAL_NEW_BARK_TOWN
+	object_event 20,  7, SPRITE_SURF, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ExitRightSceneNewbark1, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 20,  8, SPRITE_SURF, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ExitRightSceneNewbark2, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	

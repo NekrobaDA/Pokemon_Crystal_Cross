@@ -96,7 +96,7 @@ endc
 ENDM
 
 
-	map_attributes NewBarkTown, NEW_BARK_TOWN, $05, WEST | EAST
+	map_attributes NewBarkTown, NEW_BARK_TOWN, $32, WEST | EAST
 	connection west, Route29, ROUTE_29, -1
 	connection east, Route27, ROUTE_27, 0
 

@@ -354,6 +354,14 @@ DoPlayerMovement::
 
 .ExitWater:
 	call .GetOutOfWater
+
+	ld a, [wPlayerGender]
+	bit PLAYERGENDER_FEMALE_F, a
+	jr nz, .kris
+	ld a, PAL_NPC_RED
+	ld [wPlayerPalette], a
+.kris
+	
 	call PlayMapMusic
 	ld a, STEP_WALK
 	call .DoStep

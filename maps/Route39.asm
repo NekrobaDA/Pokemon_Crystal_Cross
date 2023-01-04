@@ -10,12 +10,28 @@
 	const ROUTE39_FRUIT_TREE
 	const ROUTE39_POKEFAN_F2
 	const FRIDAY_RAPIDASH
+	const PLAYER_M1_39
+	const PLAYER_M2_39
+	const PLAYER_F1_39
+	const PLAYER_F2_39
 
 Route39_MapScripts:
 	def_scene_scripts
+	scene_script .DummyScene0 ; SCENE_DEFAULT
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .Rapidash
+	callback MAPCALLBACK_NEWMAP, .ResetExitscene
+	
+.DummyScene0:
+	end
+	
+.ResetExitscene
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	endcallback
 
 .Rapidash:
 	checkflag ENGINE_FRIDAY_RAPIDASH
@@ -47,6 +63,76 @@ Route39Miltank:
 	waitbutton
 	closetext
 	end
+	
+ExitDown391:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder1
+	appear PLAYER_M1_39
+	sjump .HidePlayer1
+.ShowGirlPlaceholder1
+	appear PLAYER_F1_39
+.HidePlayer1
+	applymovement PLAYER, HidePersonMovement39
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F1Movement
+	applymovement PLAYER_M1_39, ExitsceneMovement39
+	sjump .Scenemove1
+.F1Movement
+	applymovement PLAYER_F1_39, ExitsceneMovement39
+.Scenemove1
+	applymovement PLAYER, ShowPersonMovement39
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder1
+	disappear PLAYER_M1_39
+	sjump .HidPlaceholder1
+.HideGirlPlaceholder1
+	disappear PLAYER_F1_39
+.HidPlaceholder1
+	warpfacing DOWN, OLIVINE_CITY, 19, 6
+	end
+	
+ExitDown392:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder2
+	appear PLAYER_M2_39
+	sjump .HidePlayer2
+.ShowGirlPlaceholder2
+	appear PLAYER_F2_39
+.HidePlayer2
+	applymovement PLAYER, HidePersonMovement39
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F2Movement
+	applymovement PLAYER_M2_39, ExitsceneMovement39
+	sjump .Scenemove2
+.F2Movement
+	applymovement PLAYER_F2_39, ExitsceneMovement39
+.Scenemove2
+	applymovement PLAYER, ShowPersonMovement39
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder2
+	disappear PLAYER_M2_39
+	sjump .HidPlaceholder2
+.HideGirlPlaceholder2
+	disappear PLAYER_F2_39
+.HidPlaceholder2
+	warpfacing DOWN, OLIVINE_CITY, 20, 6
+	end
+	
+ExitsceneMovement39:
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
+	
+ShowPersonMovement39:
+	show_object
+	step_end
+
+HidePersonMovement39:
+	hide_object
+	step_end
 
 TrainerPokefanmDerek:
 	trainer POKEFANM, DEREK1, EVENT_BEAT_POKEFANM_DEREK, PokefanmDerekSeenText, PokefanmDerekBeatenText, 0, .Script
@@ -372,8 +458,12 @@ Route39_MapEvents:
 	def_warp_events
 	warp_event  5,  5, ROUTE_39_BARN, 1
 	warp_event 11,  5, ROUTE_39_FARMHOUSE, 1
+	warp_event 14, 34, OLIVINE_CITY, 12
+	warp_event 15, 34, OLIVINE_CITY, 13
 
 	def_coord_events
+	coord_event 14, 34, SCENE_DEFAULT, ExitDown391
+	coord_event 15, 34, SCENE_DEFAULT, ExitDown392
 
 	def_bg_events
 	bg_event  6, 32, BGEVENT_READ, Route39TrainerTips
@@ -393,3 +483,8 @@ Route39_MapEvents:
 	object_event 17,  7, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39FruitTree, -1
 	object_event  5, 23, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerPokefanfJaime, -1
 	object_event  3,  4, SPRITE_RAPIDASH, SPRITEMOVEDATA_STILL, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FridayRapidash, EVENT_FRIDAY_RAPIDASH
+	object_event 14, 34, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ExitDown391, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 15, 34, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ExitDown392, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event 14, 34, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ExitDown391, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	object_event 15, 34, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ExitDown392, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	

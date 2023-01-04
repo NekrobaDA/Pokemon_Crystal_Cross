@@ -52,7 +52,6 @@ IN_DARKNESS EQU 1 << IN_DARKNESS_F ; masked with a PALETTE_* constant
 	const FISHGROUP_WHIRL_ISLANDS
 	const FISHGROUP_QWILFISH
 	const FISHGROUP_REMORAID
-	const FISHGROUP_QWILFISH_NO_SWARM
 
 ; connection directions (see data/maps/data.asm)
 	const_def

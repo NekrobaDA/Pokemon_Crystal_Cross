@@ -448,6 +448,8 @@ UsedSurfScript:
 	writetext UsedSurfText ; "used SURF!"
 	waitbutton
 	closetext
+	
+	special SurfColor
 
 	callasm .stubbed_fn
 
@@ -455,6 +457,7 @@ UsedSurfScript:
 	writevar VAR_MOVEMENT
 
 	special UpdatePlayerSprite
+	
 	special PlayMapMusic
 ; step into the water (slow_step DIR, step_end)
 	special SurfStartStep

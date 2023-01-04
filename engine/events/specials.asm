@@ -430,3 +430,13 @@ TrainerHouse:
 	ld a, [sMysteryGiftTrainerHouseFlag]
 	ld [wScriptVar], a
 	jp CloseSRAM
+	
+SurfColor:
+	ld a, [wPlayerGender]
+	bit PLAYERGENDER_FEMALE_F, a
+	jr nz, .kris
+	ld a, PAL_NPC_BLUE
+	ld [wPlayerPalette], a
+.kris
+	ret
+	
