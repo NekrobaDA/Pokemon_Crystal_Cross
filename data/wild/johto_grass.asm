@@ -388,9 +388,9 @@ JohtoGrassWildMons:
 	dbw 12, MAGNEMITE
 	dbw 12, SENTRET
 	dbw 10, ABRA
-	dbw 10, DITTO
+	dbw 10, RATTATA
 	dbw 12, MAGNEMITE
-	dbw 10, DITTO
+	dbw 10, PIDGEY
 	; nite
 	dbw 11, RATTATA
 	dbw 12, MAGNEMITE
@@ -398,7 +398,7 @@ JohtoGrassWildMons:
 	dbw 12, HOUNDOUR
 	dbw 10, ABRA
 	dbw 12, RATTATA
-	dbw 10, DITTO
+	dbw 10, HOUNDOUR
 	dbw 12, MEOWTH
 
 	map_id ROUTE_35
@@ -411,7 +411,7 @@ JohtoGrassWildMons:
 	dbw 15, MEOWTH
 	dbw 10, RATTATA
 	dbw 13, SNUBBULL
-	dbw 12, DITTO
+	dbw 12, YANMA
 	; nite
 	dbw 14, HOOTHOOT
 	dbw 12, DROWZEE
@@ -419,7 +419,7 @@ JohtoGrassWildMons:
 	dbw 12, MURKROW
 	dbw 13, RATTATA
 	dbw 13, ABRA
-	dbw 10, DITTO
+	dbw 10, MURKROW
 	dbw 12, MEOWTH
 
 	map_id ROUTE_36

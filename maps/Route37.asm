@@ -239,6 +239,8 @@ Route37_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event  7, 1, ECRUTEAK_CITY, 17
+	warp_event  8, 1, ECRUTEAK_CITY, 18
 
 	def_coord_events
 

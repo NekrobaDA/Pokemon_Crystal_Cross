@@ -1137,6 +1137,16 @@ SeaweedTileFrames:
 
 TilesetJohto29Anim:
 TilesetJohto38Anim:
+	dw vTiles2 tile $14, AnimateWaterTile, vTiles2 tile $15, AnimateDeepWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateWaterPalette
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateFlowerTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
 TilesetSeviiSevenAnim:
 TilesetSeviiSixAnim:
 TilesetSeviiFiveAnim:

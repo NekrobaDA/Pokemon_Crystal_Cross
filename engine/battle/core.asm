@@ -8670,9 +8670,6 @@ InitEnemyWildmon:
 	ld c, a
 	call GetWorldMapLocation
 	cp LANDMARK_ROUTE_34
-	jr z, .next
-	
-	cp LANDMARK_ROUTE_35
 	jr nz, .not_ditto
 	
 .next

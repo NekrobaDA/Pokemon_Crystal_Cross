@@ -8,1183 +8,1153 @@ DittoPalettes:
 	RGB 30, 22, 17
 	RGB 16, 14, 19
 
+	RGB 00, 00, 00 ;bulbasaur
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ivysaur
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;venusaur
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;charmander
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;charmeleon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;charizard
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;squirtle
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;wartortle
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;blastoise
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;caterpie
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/metapod/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;butterfree
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;weedle
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/kakuna/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+INCLUDE "gfx/pokemon/beedrill/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+INCLUDE "gfx/pokemon/pidgey/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+INCLUDE "gfx/pokemon/pidgeotto/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;pidgeot
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 INCLUDE "gfx/pokemon/rattata/ditto.pal"
-INCLUDE "gfx/pokemon/rattata/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
 INCLUDE "gfx/pokemon/raticate/ditto.pal"
-INCLUDE "gfx/pokemon/raticate/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;spearow
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;fearow
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;ekans
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;arbok
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;pichu
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;pikachu
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;raichu
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;sandshrew
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;sandslash
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;nidoranf
+	RGB 00, 00, 00 
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;nidorina
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;nidoqueen
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;nidoranm
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;nidorino
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;nidoking
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;clefairy
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;clefable
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;vulpix
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 
+	RGB 00, 00, 00 ;ninetales
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 
 INCLUDE "gfx/pokemon/jigglypuff/ditto.pal"
-INCLUDE "gfx/pokemon/jigglypuff/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;wigglytuff
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;zubat
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;golbat
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;crobat
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;oddish
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;gloom
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;vileplume
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;paras
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;parasect
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;venonat
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;venomoth
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;diglett
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 ;dugtrio
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 INCLUDE "gfx/pokemon/meowth/ditto.pal"
-INCLUDE "gfx/pokemon/meowth/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
 INCLUDE "gfx/pokemon/persian/ditto.pal"
-INCLUDE "gfx/pokemon/persian/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;psyduck
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;golduck
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;mankey
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;primeape
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;annihilape
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;growlithe
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;arcanine
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;poliwag
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;poliwhirl
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;poliwrath
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 ;politoed
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 INCLUDE "gfx/pokemon/abra/ditto.pal"
-INCLUDE "gfx/pokemon/abra/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;kadabra
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;alakazam
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;machop
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;machoke
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;machamp
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;bellsprout
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;weepinbell
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;victreebel
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/tentacool/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+INCLUDE "gfx/pokemon/tentacruel/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;geodude
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;graveler
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;golem
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ponyta
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;rapidash
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;slowpoke
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;slowbro
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 ;slowking
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 INCLUDE "gfx/pokemon/magnemite/ditto.pal"
-INCLUDE "gfx/pokemon/magnemite/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
 INCLUDE "gfx/pokemon/magneton/ditto.pal"
-INCLUDE "gfx/pokemon/magneton/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;farfetchd
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;wuduk
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;doduo
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;dodrio
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;seel
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;dewgong
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;grimer
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;muk
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;shellder
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;cloyster
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;gastly
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;haunter
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;gengar
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;onix
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 ;steelix
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 INCLUDE "gfx/pokemon/drowzee/ditto.pal"
-INCLUDE "gfx/pokemon/drowzee/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;hypno
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;krabby
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;kingler
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;voltorb
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;electrode
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;exeggcute
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;exeggutor
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;cubone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;marowak
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;tyrogue
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;hitmonlee
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;hitmonchan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;hitmontop
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;lickitung
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;koffing
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;weezing
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;rhyhorn
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;rhydon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;happiny
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;chansey
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;blissey
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;kangaskid
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;kangaskhan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/horsea/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;seadra
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;kingdra
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;goldeen
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;seaking
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/staryu/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;starmie
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;scyther
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;scizor
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;elekid
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;electabuzz
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;magby
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;magmar
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;pinsir
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;mooby
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;tauros
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;miltank
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;magikarp
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;gyarados
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;nessi
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;lapras
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ditto
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;eevee
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;vaporeon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;jolteon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;flareon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;espeon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;umbreon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;leafeon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;glaceon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;sylveon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;porygon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;porygon2
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;porygonz
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;omanyte
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;omastar
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;kabuto
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;kabutops
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;aerodactyl
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;munchlax
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;snorlax
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;articuno
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;zapdos
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;moltres
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;dratini
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;dragonair
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;dragonite
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;mewtwo
+	RGB 00, 00, 00 
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;mew
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;chikorita
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;bayleef
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;meganium
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;cyndaquil
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;quilava
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;typhlosion
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;totdile
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;croconaw
+	RGB 00, 00, 00 
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;feraligatr
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/sentret/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
 INCLUDE "gfx/pokemon/furret/ditto.pal"
-INCLUDE "gfx/pokemon/furret/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+INCLUDE "gfx/pokemon/hoothoot/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;noctowl
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/ledyba/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;ledian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;spinarak
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ariados
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;chinchou
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;lanturn
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;togepi
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;togetic
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;togekiss
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;natu
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;iatu
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;xatu
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;mareep
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;flaaffy
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ampharos
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;marill
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;azumarill
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;bonsly
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;suduwoodo
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;hoppip
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;skiploom
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;jumpluff
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;aipom
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ambipom
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;sunkern
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;sunflora
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;yanma
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;yanmega
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;wooper
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 ;quagsire
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 INCLUDE "gfx/pokemon/murkrow/ditto.pal"
-INCLUDE "gfx/pokemon/murkrow/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;honchkrow
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;misdreavus
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;mismagius
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;wynaut
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;wobbuffet
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;okapako
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;girafarig
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/pineco/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;forretress
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;dunsparce
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;duserpent
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;gligar
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;gliscor
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;rinrin
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 ;belluna
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 INCLUDE "gfx/pokemon/snubbull/ditto.pal"
-INCLUDE "gfx/pokemon/snubbull/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
 INCLUDE "gfx/pokemon/granbull/ditto.pal"
-INCLUDE "gfx/pokemon/granbull/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;qwilfish
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;detoqwil
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;shuckle
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;sneasel
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;weavile
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;teddiursa
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ursaring
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;slugma
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;magcargo
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;swinub
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;piloswine
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;corsola
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+INCLUDE "gfx/pokemon/remoraid/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+INCLUDE "gfx/pokemon/octillery/ditto.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;delibird
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;mantyke
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;mantine
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;skarchic
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 ;skarmory
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 INCLUDE "gfx/pokemon/houndour/ditto.pal"
-INCLUDE "gfx/pokemon/houndour/shiny.pal"
+INCLUDE "gfx/pokemon/ditto/shiny.pal"
+	RGB 00, 00, 00 ;houndoom
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;phanpy
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;donphan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;stantler
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;wyrdeer
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;smeargle
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;heracross
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;unown
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;raikou
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;entei
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;suicune
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;larvitar
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;pupitar
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;tyranitar
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;lugia
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;hooh
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;celebi
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;chimereon
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;bulbasaur clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ivysaur clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;venusaur clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;charmander clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;charmeleon clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;charizard clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;squirtle clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;wartorle clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;blastoise clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ekans dark
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;arbok dark
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;pichu spiky
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;pikachu clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;raichu clone
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;raichu alolan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;sandshrew alolan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;sandslash alolan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;vulpix alolan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;ninetales alolan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;growlithe hisuian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;arcanine hisuian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;voltorb hisuian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;electrode hisuian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;marowak alolan
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;typhlosion hisuian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;articuno galaian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;zapdos galarian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+	RGB 00, 00, 00 ;moltres galarian
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00

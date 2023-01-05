@@ -745,9 +745,9 @@ JohtoGrassWildMons4Badge:
 	dbw 20, MAGNEMITE
 	dbw 22, FURRET
 	dbw 15, ABRA
-	dbw 12, DITTO
+	dbw 12, RATTATA
 	dbw 24, MAGNEMITE
-	dbw 25, DITTO
+	dbw 25, PIDGEOTTO
 	; nite
 	dbw 21, RATTATA
 	dbw 26, MAGNEMITE
@@ -755,7 +755,7 @@ JohtoGrassWildMons4Badge:
 	dbw 24, HOUNDOUR
 	dbw 15, ABRA
 	dbw 24, RATICATE
-	dbw 12, DITTO
+	dbw 12, HOUNDOUR
 	dbw 26, PERSIAN
 
 	map_id ROUTE_35
@@ -768,7 +768,7 @@ JohtoGrassWildMons4Badge:
 	dbw 26, MEOWTH
 	dbw 18, RATTATA
 	dbw 25, GRANBULL
-	dbw 12, DITTO
+	dbw 12, YANMA
 	; nite
 	dbw 17, HOOTHOOT
 	dbw 14, DROWZEE
@@ -777,7 +777,7 @@ JohtoGrassWildMons4Badge:
 	dbw 24, RATTATA
 	dbw 16, ABRA
 	dbw 18, MEOWTH
-	dbw 12, DITTO
+	dbw 12, MURKROW
 
 	map_id ROUTE_36
 	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite

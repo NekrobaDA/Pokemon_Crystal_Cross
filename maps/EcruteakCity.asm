@@ -301,6 +301,8 @@ EcruteakCity_MapEvents:
 	warp_event  0, 18, ROUTE_38_ECRUTEAK_GATE, 3
 	warp_event  0, 19, ROUTE_38_ECRUTEAK_GATE, 4
 	warp_event 13, 17, ECRUTEAK_SWARM_HOUSE, 1
+	warp_event 17, 30, ROUTE_37, 1
+	warp_event 18, 30, ROUTE_37, 2
 
 	def_coord_events
 
