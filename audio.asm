@@ -180,4 +180,5 @@ INCLUDE "audio/music/dungeon1.asm"
 INCLUDE "audio/music/cities1.asm"
 INCLUDE "audio/music/meetrival.asm"
 INCLUDE "audio/music/safarizone.asm"
+INCLUDE "audio/music/koukan.asm"
 

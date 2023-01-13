@@ -49,8 +49,9 @@
 	const TILESET_SEVII_FIVE
 	const TILESET_SEVII_SIX
 	const TILESET_SEVII_SEVEN
-	const TILESET_JOHTO_38
-	const TILESET_JOHTO_29
+	const TILESET_JOHTO_38 ;38, 39, 35, 36, 37
+	const TILESET_JOHTO_29 ;newbark, 29, 47
+	const TILESET_JOHTO_30 ;catallia, 30, 31
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)

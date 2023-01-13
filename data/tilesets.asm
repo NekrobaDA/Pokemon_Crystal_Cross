@@ -64,4 +64,5 @@ Tilesets::
 	tileset TilesetSeviiSeven
 	tileset TilesetJohto38
 	tileset TilesetJohto29
+	tileset TilesetJohto30
 	

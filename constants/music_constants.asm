@@ -138,6 +138,7 @@
 	const MUSIC_CITIES_1 ;rby people & places
 	const MUSIC_MEET_RIVAL ;rby rival encounter
 	const MUSIC_SAFARI_ZONE ;rby safari zone
+	const MUSIC_KOUKAN
 
 ; GetMapMusic picks music for these values (see home/map.asm)
 MUSIC_MAHOGANY_MART EQU $fc

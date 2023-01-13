@@ -1135,6 +1135,7 @@ SeaweedTileFrames:
 	INCBIN "gfx/tilesets/seaweed/1.2bpp"
 	INCBIN "gfx/tilesets/seaweed/2.2bpp"
 
+TilesetJohto30Anim:
 TilesetJohto29Anim:
 TilesetJohto38Anim:
 	dw vTiles2 tile $14, AnimateWaterTile, vTiles2 tile $15, AnimateDeepWaterTile
