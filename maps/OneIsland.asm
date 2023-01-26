@@ -141,7 +141,7 @@ OneIsland_MapEvents:
 
 	def_warp_events
 	warp_event 14,  5, ONE_ISLAND_POKECENTER_1F, 1
-	warp_event  9, 11, NEW_BARK_TOWN, 3
+	warp_event  9, 11, OLIVINE_CITY, 3
 
 	def_coord_events
 

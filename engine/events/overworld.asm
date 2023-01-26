@@ -1681,6 +1681,116 @@ TryRockSmashWallMenu:
 .failed
 	scf
 	ret
+	
+TryCutLogOW::
+	ld a, HM_CUT
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .failed
+
+	ld d, CUT
+	call CheckPartyMove
+	jr c, .try_next
+	jr .yes
+	
+.try_next	
+	ld d, CUT
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .failed
+	
+.yes
+	call TryCutLogMenu
+	jr c, .failed
+	ld a, BANK(Script_AskCutLogOW)
+	ld hl, Script_AskCutLogOW
+	call CallScript
+	scf
+	ret
+
+.failed
+	ld a, BANK(Script_FallenLog)
+	ld hl, Script_FallenLog
+	call CallScript
+	scf
+	ret
+	
+Script_FallenLog:
+	jumptext .MayDestroyLogText
+
+.MayDestroyLogText:
+	text_far _MayDestroyLogText
+	text_end
+
+Script_AskCutLogOW:
+	opentext
+	writetext AskCutLogText
+	yesorno
+	iftrue Script_UsedCut
+	closetext
+	end
+
+AskCutLogText:
+	text_far _AskCutLogText
+	text_end
+	
+Script_UsedCut:
+	callasm GetPartyNick
+	writetext UseCutText
+	closetext
+	special WaitSFX
+	playsound SFX_CUT
+	reloadmappart
+	callasm DisappearLog
+	reloadmappart
+	end
+	
+DisappearLog:
+	ld hl, wCutWhirlpoolOverworldBlockAddr
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [wCutWhirlpoolReplacementBlock]
+	ld [hl], a
+	xor a
+	ldh [hBGMapMode], a
+	call OverworldTextModeSwitch
+	ld a, [wCutWhirlpoolAnimationType]
+	ld e, a
+	call GetMovementPermissions
+	ret
+	
+TryCutLogMenu:
+	call GetFacingTileCoord
+	ld c, a
+	push de
+	call CheckCutLogTile
+	pop de
+	jr c, .failed
+	call GetBlockLocation
+	ld c, [hl]
+	push hl
+	ld hl, LogBlockPointers
+	call CheckOverworldTileArrays
+	pop hl
+	jr nc, .failed
+	; Save the Whirlpool field move data
+	ld a, l
+	ld [wCutWhirlpoolOverworldBlockAddr], a
+	ld a, h
+	ld [wCutWhirlpoolOverworldBlockAddr + 1], a
+	ld a, b
+	ld [wCutWhirlpoolReplacementBlock], a
+	ld a, c
+	ld [wCutWhirlpoolAnimationType], a
+	xor a
+	ret
+
+.failed
+	scf
+	ret
 
 FishFunction:
 	ld a, e

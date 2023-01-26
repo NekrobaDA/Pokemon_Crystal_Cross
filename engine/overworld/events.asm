@@ -1074,7 +1074,7 @@ TryTileCollisionEvent::
 	ld [wFacingTileID], a
 	ld c, a
 	farcall CheckFacingTileForStdScript
-	jr c, .done
+	jp c, .done
 
 	call CheckCutTreeTile
 	jr nz, .whirlpool
@@ -1113,8 +1113,15 @@ TryTileCollisionEvent::
 .rock_smash
 	ld a, [wFacingTileID]
 	call CheckRockSmashWallTile
-	jr nz, .surf
+	jr nz, .cut_log
 	farcall TryRockSmashWallOW
+	jr .done
+	
+.cut_log
+	ld a, [wFacingTileID]
+	call CheckCutLogTile
+	jr nz, .surf
+	farcall TryCutLogOW
 	jr .done
 
 .surf

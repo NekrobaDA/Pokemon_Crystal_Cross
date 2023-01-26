@@ -161,6 +161,10 @@ CheckRockSmashWallTile::
 	cp COLL_ROCK_SMASH
 	ret
 	
+CheckCutLogTile::
+	cp COLL_LOG
+	ret
+	
 CheckDiveTile::
 	cp COLL_RESURFACE
 	ret z

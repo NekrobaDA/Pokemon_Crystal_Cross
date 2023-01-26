@@ -9,7 +9,7 @@ VermilionPort_MapScripts:
 	scene_script .LeaveFastShip ; SCENE_VERMILIONPORT_LEAVE_SHIP
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	;callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .DummyScene0:
 	end
@@ -18,9 +18,9 @@ VermilionPort_MapScripts:
 	prioritysjump .LeaveFastShipScript
 	end
 
-.FlyPoint:
-	setflag ENGINE_FLYPOINT_VERMILION
-	endcallback
+;.FlyPoint:
+	;setflag ENGINE_FLYPOINT_VERMILION
+	;endcallback
 
 .LeaveFastShipScript:
 	applymovement PLAYER, VermilionPortLeaveFastShipMovement

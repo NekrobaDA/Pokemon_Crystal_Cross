@@ -453,6 +453,19 @@ _MayBreakWallText::
 	text "This cracked wall"
 	line "looks breakable..."
 	done
+	
+_AskCutLogText::
+	text "A fallen log is"
+	line "blocking the path."
+	
+	para "Want to use"
+	line "CUT?"
+	done
+	
+_MayDestroyLogText::
+	text "A fallen log is"
+	line "blocking the path."
+	done
 
 _UseHeadbuttText::
 	text_ram wStringBuffer2

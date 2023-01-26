@@ -107,7 +107,7 @@ ENDM
 	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST | EAST
 	connection south, Route32, ROUTE_32, 0
 	connection west, Route36, ROUTE_36, 0
-	connection east, Route31, ROUTE_31, 9
+	;connection east, Route31, ROUTE_31, 9
 
 	map_attributes AzaleaTown, AZALEA_TOWN, $05, WEST | EAST
 	connection west, Route34, ROUTE_34, -18
@@ -164,7 +164,7 @@ ENDM
 	connection south, CherrygroveCity, CHERRYGROVE_CITY, -8
 	connection east, CatalliaTown, CATALLIA_TOWN, 1
 
-	map_attributes Route31, ROUTE_31, $05, SOUTH | WEST
+	map_attributes Route31, ROUTE_31, $44, SOUTH | WEST
 	connection south, Route30, ROUTE_30, 10
 	connection west, VioletCity, VIOLET_CITY, -9
 
