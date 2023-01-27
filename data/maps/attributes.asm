@@ -159,7 +159,7 @@ ENDM
 	connection west, CherrygroveCity, CHERRYGROVE_CITY, 0
 	connection east, NewBarkTown, NEW_BARK_TOWN, 1
 	
-	map_attributes Route30, ROUTE_30, $05, NORTH | SOUTH | EAST
+	map_attributes Route30, ROUTE_30, $44, NORTH | SOUTH | EAST
 	connection north, Route31, ROUTE_31, -10
 	connection south, CherrygroveCity, CHERRYGROVE_CITY, -8
 	connection east, CatalliaTown, CATALLIA_TOWN, 1
@@ -379,9 +379,9 @@ ENDM
 	connection south, Route29, ROUTE_29, 0
 	connection west, CatalliaTown, CATALLIA_TOWN, -6
 	
-	map_attributes CatalliaTown, CATALLIA_TOWN, $05, WEST | EAST
+	map_attributes CatalliaTown, CATALLIA_TOWN, $44, WEST | EAST
 	connection west, Route30, ROUTE_30, -1
-	connection east, Route47, ROUTE_47, 6
+	;connection east, Route47, ROUTE_47, 6
 	
 	map_attributes OneIsland, ONE_ISLAND, $82, EAST
 	connection east, KindleRoad, KINDLE_ROAD, -45

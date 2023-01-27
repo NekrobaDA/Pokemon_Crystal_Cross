@@ -96,6 +96,7 @@ CutTreeBlockPointers:
 .johto_30
 	db $48, $49, 0 ;tree
 	db $03, $02, 1 ;grass
+	db $e4, $78, 0 ;tree
 	db -1 ; end
 
 ; these blocks all use COLL_WHIRLPOOL in one quadrant

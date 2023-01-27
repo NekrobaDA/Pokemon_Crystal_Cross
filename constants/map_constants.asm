@@ -525,7 +525,7 @@ ENDM
 	newgroup
 	
 	map_const ROUTE_47,                                    11, 21
-	map_const CATALLIA_TOWN,                               12, 16
+	map_const CATALLIA_TOWN,                               13, 17
 	map_const CATALLIA_MART,                               6,  4
 	map_const CATALLIA_POKECENTER_1F,                      5,  4
 	map_const CATALLIA_POLICE_STATION,                     4,  8 
