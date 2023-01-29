@@ -234,8 +234,8 @@
 	tilecoll FLOOR, FLOOR, WALL, WALL ; e9
 	tilecoll WALL, FLOOR, WALL, FLOOR ; ea
 	tilecoll WALL, WALL, FLOOR, FLOOR ; eb
-	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; ec
-	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; ed
+	tilecoll FLOOR, FLOOR, HEADBUTT_TREE, WARP_CARPET_DOWN ; ec
+	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, HEADBUTT_TREE ; ed
 	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; ee
 	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; ef
 	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; f0

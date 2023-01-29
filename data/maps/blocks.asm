@@ -537,9 +537,6 @@ RadioTower5F_Blocks:
 NewBarkTown_Blocks:
 	INCBIN "maps/NewBarkTown.ablk"
 
-CherrygroveCity_Blocks:
-	INCBIN "maps/CherrygroveCity.ablk"
-
 VioletCity_Blocks:
 	INCBIN "maps/VioletCity.ablk"
 
@@ -1142,3 +1139,6 @@ SevaultCanyon_Blocks:
 	
 DiveTest_Blocks:
 	INCBIN "maps/DiveTest.ablk"	
+	
+CherrygroveCity_Blocks:
+	INCBIN "maps/CherrygroveCity.ablk"

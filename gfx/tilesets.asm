@@ -673,3 +673,17 @@ INCLUDE "data/tilesets/johto_30_collision.asm"
 
 TilesetJohto30Attr::
 INCBIN "data/tilesets/johto_30_attributes.bin"
+
+SECTION "Tileset Data 26", ROMX
+
+TilesetCherryNewGFX::
+INCBIN "gfx/tilesets/cherry_new.2bpp.lz"
+
+TilesetCherryNewMeta::
+INCBIN "data/tilesets/cherry_new_metatiles.bin"
+
+TilesetCherryNewColl::
+INCLUDE "data/tilesets/cherry_new_collision.asm"
+
+TilesetCherryNewAttr::
+INCBIN "data/tilesets/cherry_new_attributes.bin"

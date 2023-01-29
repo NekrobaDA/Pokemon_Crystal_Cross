@@ -65,4 +65,5 @@ Tilesets::
 	tileset TilesetJohto38
 	tileset TilesetJohto29
 	tileset TilesetJohto30
+	tileset TilesetCherryNew
 	

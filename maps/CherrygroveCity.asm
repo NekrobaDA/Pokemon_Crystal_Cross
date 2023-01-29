@@ -636,29 +636,29 @@ CherrygroveCity_MapEvents:
 	warp_event 33,  5, CHERRYGROVE_POKECENTER_1F, 1
 	warp_event 35, 13, CHERRYGROVE_GYM_SPEECH_HOUSE, 1
 	warp_event 25, 11, GUIDE_GENTS_HOUSE, 1
-	warp_event 39,  5, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 1
+	warp_event 39,  4, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 1
 	warp_event 44,  8, ROUTE_29, 2
 	warp_event 44,  9, ROUTE_29, 3
-	warp_event 22,  3, ROUTE_30, 3
-	warp_event 23,  3, ROUTE_30, 4
+	warp_event 22,  5, ROUTE_30, 3
+	warp_event 23,  5, ROUTE_30, 4
 
 	def_coord_events
 	coord_event 42,  8, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth
 	coord_event 42,  9, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneSouth
 
 	def_bg_events
-	bg_event 26, 13, BGEVENT_READ, CherrygroveCitySign
-	bg_event 30, 13, BGEVENT_READ, GuideGentsHouseSign
+	bg_event 27, 13, BGEVENT_READ, CherrygroveCitySign
+	bg_event 24, 12, BGEVENT_READ, GuideGentsHouseSign
 	bg_event 28,  5, BGEVENT_READ, CherrygroveCityMartSign
 	bg_event 34,  5, BGEVENT_READ, CherrygroveCityPokecenterSign
 
 	def_object_events
-	object_event 38, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, CherrygroveCityGuideGent, EVENT_GUIDE_GENT_IN_HIS_HOUSE
+	object_event 36,  5, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, CherrygroveCityGuideGent, EVENT_GUIDE_GENT_IN_HIS_HOUSE
 	object_event 47,  8, SPRITE_SILVER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_CHERRYGROVE_CITY
-	object_event 27, 19, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
+	object_event 25,  9, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
 	object_event 24,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
 	object_event 11, 20, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
-	object_event 36, 18, SPRITE_BIKER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 4, 0, -1, -1, 0, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, BikerGuyScript, -1
+	object_event 33, 11, SPRITE_BIKER, SPRITEMOVEDATA_WALK_UP_DOWN, 4, 0, -1, -1, 0, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, BikerGuyScript, -1
 	object_event 28, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree1, -1
 	object_event 26, 33, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree2, -1
 	object_event 35, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree3, -1

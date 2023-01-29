@@ -1148,6 +1148,7 @@ TilesetJohto38Anim:
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
+TilesetCherryNewAnim:
 TilesetSeviiSevenAnim:
 TilesetSeviiSixAnim:
 TilesetSeviiFiveAnim:
@@ -1157,12 +1158,8 @@ TilesetSeviiThreeAnim:
 TilesetSeviiFourAnim:
 ; Scrolls tile $14 like cave water.
 	dw vTiles2 tile $14, AnimateWaterTile, vTiles2 tile $15, AnimateDeepWaterTile
-	;dw wTileAnimBuffer, ScrollTileRightLeft
-	;dw vTiles2 tile $14, WriteTileFromBuffer
-	;dw NULL,  AnimateWaterPalette
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
-	;dw NULL,  AnimateWaterPalette
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
 	dw NULL,  WaitTileAnimation

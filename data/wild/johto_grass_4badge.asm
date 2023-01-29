@@ -969,5 +969,26 @@ JohtoGrassWildMons4Badge:
 	dbw 23, GLIGAR
 	dbw 24, RATICATE
 	dbw 22, GLIGAR
+	
+	map_id ROUTE_47
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 19, GEODUDE
+	dbw 12, SPEAROW
+	dbw 18, PIDGEY
+	dbw 11, RATTATA
+	dbw 15, HOPPIP
+	dbw 21, FEAROW
+	dbw 23, SKIPLOOM
+	dbw 25, GRAVELER
+	; nite
+	dbw 19, GEODUDE
+	dbw 12, RATTATA
+	dbw 18, HOOTHOOT
+	dbw 23, RATICATE
+	dbw 22, GEODUDE
+	dbw 26, NOCTOWL
+	dbw 17, RATTATA
+	dbw 25, GRAVELER
 
 	db -1 ; end

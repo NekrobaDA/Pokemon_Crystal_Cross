@@ -568,5 +568,26 @@ JohtoGrassWildMons:
 	dbw 2, GLIGAR
 	dbw 2, RATTATA
 	dbw 4, GLIGAR
+	
+	map_id ROUTE_47
+	db 10 percent, 10 percent;, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 2, GEODUDE
+	dbw 2, SPEAROW
+	dbw 3, PIDGEY
+	dbw 2, RATTATA
+	dbw 2, HOPPIP
+	dbw 3, SPEAROW
+	dbw 2, HOPPIP
+	dbw 4, GEODUDE
+	; nite
+	dbw 2, GEODUDE
+	dbw 2, RATTATA
+	dbw 3, HOOTHOOT
+	dbw 3, RATTATA
+	dbw 2, GEODUDE
+	dbw 2, HOOTHOOT
+	dbw 2, RATTATA
+	dbw 4, GEODUDE
 
 	db -1 ; end

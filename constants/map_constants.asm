@@ -589,7 +589,7 @@ ENDM
 	
 	newgroup
 	
-	map_const CHERRYGROVE_CITY,                            24, 22 ;  3
+	map_const CHERRYGROVE_CITY,                            25, 22 ;  3
 	map_const CHERRYGROVE_MART,                             6,  4 ;  4
 	map_const CHERRYGROVE_POKECENTER_1F,                    5,  4 ;  5
 	map_const CHERRYGROVE_GYM_SPEECH_HOUSE,                 4,  4 ;  6

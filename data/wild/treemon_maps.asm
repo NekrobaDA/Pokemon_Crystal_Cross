@@ -38,6 +38,8 @@ TreeMonMaps:
 	treemon_map BLACKTHORN_CITY,           TREEMON_SET_CITY
 	treemon_map SILVER_CAVE_OUTSIDE,       TREEMON_SET_CITY
 	treemon_map ILEX_FOREST,               TREEMON_SET_FOREST
+	treemon_map CATALLIA_TOWN,             TREEMON_SET_TOWN
+	treemon_map ROUTE_47,                  TREEMON_SET_CANYON
 	db -1
 
 RockMonMaps:
