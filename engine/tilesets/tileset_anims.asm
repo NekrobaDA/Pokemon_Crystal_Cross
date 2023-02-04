@@ -76,7 +76,6 @@ TilesetForestAnim:
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
-TilesetCherrygroveAnim:
 TilesetSeviiAnim:
 TilesetKanjoAnim:
 TilesetJohtoAnim:
@@ -1138,6 +1137,7 @@ SeaweedTileFrames:
 TilesetJohto30Anim:
 TilesetJohto29Anim:
 TilesetJohto38Anim:
+TilesetJohto45Anim:
 	dw vTiles2 tile $14, AnimateWaterTile, vTiles2 tile $15, AnimateDeepWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -1146,8 +1146,14 @@ TilesetJohto38Anim:
 	dw NULL,  AnimateFlowerTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
+	dw vTiles2 tile $16, WriteTileToBuffer
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw vTiles2 tile $16, WriteTileFromBuffer
 	dw NULL,  DoneTileAnimation
 
+TilesetCherryFerryAnim:
 TilesetCherryNewAnim:
 TilesetSeviiSevenAnim:
 TilesetSeviiSixAnim:

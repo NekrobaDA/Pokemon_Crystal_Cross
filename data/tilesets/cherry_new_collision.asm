@@ -242,7 +242,7 @@
 	tilecoll FLOOR, FLOOR, FLOOR, HEADBUTT_TREE ; f1
 	tilecoll DOOR, WALL, FLOOR, WALL ; f2
 	tilecoll FLOOR, WALL, FLOOR, WALL ; f3
-	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; f4
+	tilecoll FLOOR, FLOOR, WALL, WALL ; f4
 	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; f5
 	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; f6
 	tilecoll WALL, FLOOR, WALL, ROCKY_WALL ; f7

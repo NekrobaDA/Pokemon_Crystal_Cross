@@ -1702,6 +1702,10 @@ TryCutLogOW::
 	jr .failed
 	
 .yes
+	ld de, ENGINE_CUT_LV2
+	call CheckEngineFlag
+	jr c, .failed2
+
 	call TryCutLogMenu
 	jr c, .failed
 	ld a, BANK(Script_AskCutLogOW)
@@ -1716,6 +1720,20 @@ TryCutLogOW::
 	call CallScript
 	scf
 	ret
+	
+.failed2
+	ld a, BANK(Script_FallenLog2)
+	ld hl, Script_FallenLog2
+	call CallScript
+	scf
+	ret
+	
+Script_FallenLog2:
+	jumptext .MoreSkilledText
+	
+.MoreSkilledText:
+	text_far _MoreSkilledText
+	text_end
 	
 Script_FallenLog:
 	jumptext .MayDestroyLogText

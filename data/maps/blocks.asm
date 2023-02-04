@@ -73,9 +73,6 @@ Route41_Blocks:
 Route33_Blocks:
 	INCBIN "maps/Route33.ablk"
 
-Route45_Blocks:
-	INCBIN "maps/Route45.ablk"
-
 Route29_Blocks:
 	INCBIN "maps/Route29.ablk"
 
@@ -1142,3 +1139,11 @@ DiveTest_Blocks:
 	
 CherrygroveCity_Blocks:
 	INCBIN "maps/CherrygroveCity.ablk"
+	
+CherrygroveFerry_Blocks:
+	INCBIN "maps/CherrygroveFerry.ablk"
+	
+SECTION "Map Blocks 4", ROMX
+	
+Route45_Blocks:
+	INCBIN "maps/Route45.ablk"

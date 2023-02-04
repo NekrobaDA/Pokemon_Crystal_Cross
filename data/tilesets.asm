@@ -53,7 +53,6 @@ Tilesets::
 	tileset TilesetIcePath2
 	tileset TilesetSevii
 	tileset TilesetSeviiForest
-	tileset TilesetCherrygrove
 	tileset TilesetUnderwater
 	tileset TilesetSeviiFour
 	tileset TilesetSeviiThree
@@ -66,4 +65,6 @@ Tilesets::
 	tileset TilesetJohto29
 	tileset TilesetJohto30
 	tileset TilesetCherryNew
+	tileset TilesetCherryFerry
+	tileset TilesetJohto45
 	

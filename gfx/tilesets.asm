@@ -510,18 +510,6 @@ INCBIN "data/tilesets/sevii_forest_attributes.bin"
 
 SECTION "Tileset Data 15", ROMX
 
-TilesetCherrygroveGFX::
-INCBIN "gfx/tilesets/cherrygrove.2bpp.lz"
-
-TilesetCherrygroveMeta::
-INCBIN "data/tilesets/cherrygrove_metatiles.bin"
-
-TilesetCherrygroveColl::
-INCLUDE "data/tilesets/cherrygrove_collision.asm"
-
-TilesetCherrygroveAttr::
-INCBIN "data/tilesets/cherrygrove_attributes.bin"
-
 TilesetUnderwaterGFX::
 INCBIN "gfx/tilesets/underwater.2bpp.lz"
 
@@ -685,5 +673,33 @@ INCBIN "data/tilesets/cherry_new_metatiles.bin"
 TilesetCherryNewColl::
 INCLUDE "data/tilesets/cherry_new_collision.asm"
 
+SECTION "Tileset Data 27", ROMX
+
 TilesetCherryNewAttr::
 INCBIN "data/tilesets/cherry_new_attributes.bin"
+
+TilesetCherryFerryGFX::
+INCBIN "gfx/tilesets/cherry_ferry.2bpp.lz"
+
+TilesetCherryFerryMeta::
+INCBIN "data/tilesets/cherry_ferry_metatiles.bin"
+
+TilesetCherryFerryColl::
+INCLUDE "data/tilesets/cherry_ferry_collision.asm"
+
+TilesetCherryFerryAttr::
+INCBIN "data/tilesets/cherry_ferry_attributes.bin"
+
+SECTION "Tileset Data 28", ROMX
+
+TilesetJohto45GFX::
+INCBIN "gfx/tilesets/johto_45.2bpp.lz"
+
+TilesetJohto45Meta::
+INCBIN "data/tilesets/johto_45_metatiles.bin"
+
+TilesetJohto45Coll::
+INCLUDE "data/tilesets/johto_45_collision.asm"
+
+TilesetJohto45Attr::
+INCBIN "data/tilesets/johto_45_attributes.bin"

@@ -21,6 +21,8 @@
 	const CHERRYGROVECITY_MAGIKARP_1
 	const CHERRYGROVECITY_MAGIKARP_2
 	const CHERRYGROVECITY_MAGIKARP_3
+	const CHERRYGROVECITY_PLAYER_M1  ;need to allocate more space in
+	const CHERRYGROVECITY_PLAYER_F1  ;wram for map objects, at limit
 
 CherrygroveCity_MapScripts:
 	def_scene_scripts
@@ -28,6 +30,7 @@ CherrygroveCity_MapScripts:
 	scene_script .DummyScene1 ; SCENE_CHERRYGROVECITY_MEET_RIVAL
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .ResetExitscene
 	callback MAPCALLBACK_NEWMAP, .FlyPointandDive
 
 .FlyPointandDive:
@@ -35,11 +38,63 @@ CherrygroveCity_MapScripts:
 	divemap DIVE_TEST, 3, 3
 	endcallback
 	
+.ResetExitscene
+	setmapscene, CHERRYGROVE_CITY, SCENE_DEFAULT
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	endcallback
+	
 .DummyScene0:
 	end
 
 .DummyScene1:
 	end
+
+ExitNorth30Scene2:
+	moveobject CHERRYGROVECITY_PLAYER_M1, 23, 5
+	moveobject CHERRYGROVECITY_PLAYER_F1, 23, 5
+ExitNorth30Scene1:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder
+	appear CHERRYGROVECITY_PLAYER_M1
+	sjump .HidePlayer
+.ShowGirlPlaceholder
+	appear CHERRYGROVECITY_PLAYER_F1
+.HidePlayer
+	applymovement PLAYER, HidePersonMovementCG30
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F1Movement
+	applymovement CHERRYGROVECITY_PLAYER_M1, ExitCG30Movement
+	sjump .Scenemove
+.F1Movement
+	applymovement CHERRYGROVECITY_PLAYER_F1, ExitCG30Movement
+.Scenemove
+	applymovement PLAYER, ShowPersonMovementCG30
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder
+	disappear CHERRYGROVECITY_PLAYER_M1
+	sjump .HidPlaceholder
+.HideGirlPlaceholder
+	disappear CHERRYGROVECITY_PLAYER_F1
+.HidPlaceholder
+	warpfacing UP, ROUTE_30, 6, 49
+	end
+	
+ExitCG30Movement:
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+	
+ShowPersonMovementCG30:
+	show_object
+	step_end
+
+HidePersonMovementCG30:
+	hide_object
+	step_end
 
 CherrygroveCityGuideGent:
 	faceplayer
@@ -117,8 +172,16 @@ CherrygroveCityGuideGent:
 	end
 
 CherrygroveSilverSceneSouth:
+	checkevent EVENT_RIVAL_CHERRYGROVE_CITY
+	iffalse EndScene
+	checkevent EVENT_BEAT_RIVAL_CHERRYGROVE
+	iftrue EndScene
 	moveobject CHERRYGROVECITY_SILVER, 47, 9
 CherrygroveSilverSceneNorth:
+	checkevent EVENT_RIVAL_CHERRYGROVE_CITY
+	iffalse EndScene
+	checkevent EVENT_BEAT_RIVAL_CHERRYGROVE
+	iftrue EndScene
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -142,6 +205,7 @@ CherrygroveSilverSceneNorth:
 	startbattle
 	dontrestartmapmusic
 	reloadmap
+	setevent EVENT_BEAT_RIVAL_CHERRYGROVE
 	iftrue .AfterVictorious
 	sjump .AfterYourDefeat
 
@@ -191,6 +255,10 @@ CherrygroveSilverSceneNorth:
 	special HealParty
 	playmapmusic
 	end
+	
+EndScene:
+	end
+	
 
 CherrygroveTeacherScript:
 	faceplayer
@@ -262,16 +330,11 @@ CherrygroveCityMartSign:
 	jumpstd MartSignScript
 
 GuideGentMovement1:
-	step UP
-	step UP
-	step UP
-	step UP
-	step UP
+	step DOWN
 	step LEFT
 	step LEFT
 	step LEFT
-	step LEFT
-	step LEFT
+	turn_head UP
 	turn_head UP
 	step_end
 
@@ -299,31 +362,27 @@ GuideGentMovement4:
 	step LEFT
 	step DOWN
 	step DOWN
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
 	step DOWN
 	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step LEFT
+	step LEFT
+	step LEFT
+	step UP
 	turn_head LEFT
 	step_end
 
 GuideGentMovement5:
-	step DOWN
 	step RIGHT
 	step RIGHT
 	step RIGHT
 	step RIGHT
 	step RIGHT
 	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step DOWN
-	step DOWN
-	step DOWN
 	step RIGHT
 	step RIGHT
 	turn_head UP
@@ -583,10 +642,6 @@ BikerGuyText:
 	done
 	
 KarpStatue:
-	opentext
-	writetext KarpText
-	waitbutton
-	closetext
 	end
 	
 KarpText:
@@ -641,10 +696,13 @@ CherrygroveCity_MapEvents:
 	warp_event 44,  9, ROUTE_29, 3
 	warp_event 22,  5, ROUTE_30, 3
 	warp_event 23,  5, ROUTE_30, 4
+	warp_event 24, 21, CHERRYGROVE_FERRY, 1
 
 	def_coord_events
 	coord_event 42,  8, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth
 	coord_event 42,  9, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneSouth
+	;coord_event 22,  5, SCENE_DEFAULT, ExitNorth30Scene1
+	;coord_event 23,  5, SCENE_DEFAULT, ExitNorth30Scene2
 
 	def_bg_events
 	bg_event 27, 13, BGEVENT_READ, CherrygroveCitySign
@@ -675,3 +733,5 @@ CherrygroveCity_MapEvents:
 	object_event 39, 19, SPRITE_MAGIKARP_1, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
 	object_event 34, 20, SPRITE_MAGIKARP_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
 	object_event 34, 19, SPRITE_MAGIKARP_3, SPRITEMOVEDATA_OVERLAY, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarpStatue, -1
+	;object_event 22,  5, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	;object_event 22,  5, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2

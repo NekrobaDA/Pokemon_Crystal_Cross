@@ -121,7 +121,14 @@ NewBarkTownTeacherScript:
 	end
 
 NewBarkTownFisherScript:
-	jumptextfaceplayer Text_ElmDiscoveredNewMon
+	;jumptextfaceplayer Text_ElmDiscoveredNewMon
+	faceplayer
+	opentext
+	writetext FlagActiveText
+	setflag ENGINE_CUT_LV2
+	waitbutton
+	closetext
+	end
 
 NewBarkTownSilverScript:
 	opentext
@@ -338,6 +345,10 @@ NewBarkTownElmsLabSignText:
 NewBarkTownElmsHouseSignText:
 	text "ELM'S HOUSE"
 	done
+	
+FlagActiveText:
+	text "Flag Active"
+	done
 
 NewBarkTown_MapEvents:
 	db 0, 0 ; filler
@@ -346,7 +357,7 @@ NewBarkTown_MapEvents:
 	warp_event  6,  3, ELMS_LAB, 1
 	warp_event 10, 12, PLAYERS_HOUSE_1F, 1
 	;warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
-	warp_event  2, 12, ROUTE_47, 1
+	warp_event  2, 12, ROUTE_45, 1
 	warp_event 13,  4, ELMS_HOUSE, 1
 	warp_event 21,  7, ROUTE_27, 4
 	;warp_event 21,  8, ROUTE_27, 5

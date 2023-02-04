@@ -466,6 +466,17 @@ _MayDestroyLogText::
 	text "A fallen log is"
 	line "blocking the path."
 	done
+	
+_MoreSkilledText::
+	text "A fallen log is"
+	line "blocking the path."
+	
+	para "A more skillful"
+	line "trainer's #MON"
+	
+	para "might be able to"
+	line "CUT this."
+	done
 
 _UseHeadbuttText::
 	text_ram wStringBuffer2

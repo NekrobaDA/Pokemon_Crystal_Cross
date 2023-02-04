@@ -100,11 +100,11 @@ ENDM
 	connection west, Route29, ROUTE_29, -1
 	connection east, Route27, ROUTE_27, 0
 
-	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $05, NORTH | EAST
+	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $6c, NORTH
 	connection north, Route30, ROUTE_30, 8
 	;connection east, Route29, ROUTE_29, 0
 
-	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST | EAST
+	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST
 	connection south, Route32, ROUTE_32, 0
 	connection west, Route36, ROUTE_36, 0
 	;connection east, Route31, ROUTE_31, 9
@@ -154,7 +154,7 @@ ENDM
 	map_attributes Route28, ROUTE_28, $2c, WEST
 	connection west, SilverCaveOutside, SILVER_CAVE_OUTSIDE, -9
 
-	map_attributes Route29, ROUTE_29, $32, NORTH | WEST | EAST
+	map_attributes Route29, ROUTE_29, $32, NORTH | EAST
 	connection north, Route47, ROUTE_47, 0
 	;connection west, CherrygroveCity, CHERRYGROVE_CITY, 0
 	connection east, NewBarkTown, NEW_BARK_TOWN, 1
@@ -221,7 +221,7 @@ ENDM
 	connection west, MahoganyTown, MAHOGANY_TOWN, 0
 	connection east, BlackthornCity, BLACKTHORN_CITY, -9
 
-	map_attributes Route45, ROUTE_45, $71, NORTH | WEST
+	map_attributes Route45, ROUTE_45, $0d, NORTH | WEST
 	connection north, BlackthornCity, BLACKTHORN_CITY, 1
 	connection west, Route46, ROUTE_46, 36
 
@@ -379,7 +379,7 @@ ENDM
 	connection south, Route29, ROUTE_29, 0
 	connection west, CatalliaTown, CATALLIA_TOWN, -6
 	
-	map_attributes CatalliaTown, CATALLIA_TOWN, $44, WEST | EAST
+	map_attributes CatalliaTown, CATALLIA_TOWN, $44, WEST
 	connection west, Route30, ROUTE_30, -1
 	;connection east, Route47, ROUTE_47, 6
 	
@@ -775,3 +775,4 @@ ENDM
 	map_attributes SevenIslandPokecenter1F, SEVEN_ISLAND_POKECENTER_1F, $00, 0
 	map_attributes DiveTest, DIVE_TEST, $1d, 0
 	map_attributes EcruteakSwarmHouse, ECRUTEAK_SWARM_HOUSE, $00, 0
+	map_attributes CherrygroveFerry, CHERRYGROVE_FERRY, $00, 0

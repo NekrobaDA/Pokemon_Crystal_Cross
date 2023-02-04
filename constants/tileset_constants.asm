@@ -40,19 +40,20 @@
 	const TILESET_ICE_PATH_2
 	const TILESET_SEVII
 	const TILESET_SEVII_FOREST
-	const TILESET_CHERRYGROVE
 	const TILESET_UNDERWATER
-	const TILESET_SEVII_FOUR
-	const TILESET_SEVII_THREE
-	const TILESET_SEVII_TWO
-	const TILESET_SEVII_ONE
-	const TILESET_SEVII_FIVE
-	const TILESET_SEVII_SIX
-	const TILESET_SEVII_SEVEN
+	const TILESET_SEVII_FOUR ;four island
+	const TILESET_SEVII_THREE ;three island, bond bridge
+	const TILESET_SEVII_TWO ;two island, cape brink
+	const TILESET_SEVII_ONE ;one island, kindle road
+	const TILESET_SEVII_FIVE ;five island, five isle meadow
+	const TILESET_SEVII_SIX ;six island, water path, ruin valley
+	const TILESET_SEVII_SEVEN ;seven island, canyon entrance, sevault canyon
 	const TILESET_JOHTO_38 ;38, 39, 35, 36, 37
 	const TILESET_JOHTO_29 ;newbark, 29, 47
 	const TILESET_JOHTO_30 ;catallia, 30, 31
-	const TILESET_CHERRY_NEW
+	const TILESET_CHERRY_NEW ;cherrygrove
+	const TILESET_CHERRY_FERRY ;cherrygrove special boat map
+	const TILESET_JOHTO_45 ;45
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)
