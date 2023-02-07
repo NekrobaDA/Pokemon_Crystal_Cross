@@ -73,10 +73,6 @@ EvolveAfterBattle_MasterLoop:
 	ld a, b
 	cp EVOLVE_ITEM
 	jp z, .item
-	
-	ld a, b
-	cp EVOLVE_ITEM_LEVEL
-	jp z, .itemlevel
 
 	ld a, [wForceEvolution]
 	and a
@@ -230,25 +226,6 @@ EvolveAfterBattle_MasterLoop:
 	cp SEVII_LANDMARK
 	jr z, .proceed
 	jp .dont_evolve_3
-	
-.itemlevel
-	ld a, [hli]
-	ld b, a
-	ld a, [wCurItem]
-	cp b
-	jp nz, .dont_evolve_3
-	
-	ld a, [wTempMonLevel]
-	cp 25
-	jp c, .dont_evolve_3
-
-	ld a, [wForceEvolution]
-	and a
-	jp z, .dont_evolve_3
-	ld a, [wLinkMode]
-	and a
-	jp nz, .dont_evolve_3
-	jr .proceed
 
 .level
 	ld a, [hli]
@@ -758,16 +735,11 @@ DetermineEvolutionItemResults::
 	inc hl
 .no_extra_increase
 	cp EVOLVE_ITEM ; will fail if the EVOLVE_STAT check passed
-	jr z, .item
-	cp EVOLVE_ITEM_LEVEL
 	jr nz, .no_item_check
-	;ld a, MON_LEVEL
-	;cp 25
-	;jr c, .no_item_check
-.item
 	ld a, [wCurItem]
 	cp [hl]
 	jr z, .get_species
+	
 .no_item_check
 	inc hl
 	inc hl
@@ -780,3 +752,4 @@ DetermineEvolutionItemResults::
 	ld e, a
 	ld d, [hl]
 	ret
+	

@@ -1837,9 +1837,9 @@ MarowakEvosAttacks:
 	db 0 ; no more level-up moves
 	
 TyrogueEvosAttacks:
-	dbbw EVOLVE_STAT, 20, ATK_LT_DEF, HITMONCHAN
-	dbbw EVOLVE_STAT, 20, ATK_GT_DEF, HITMONLEE
-	dbbw EVOLVE_STAT, 20, ATK_EQ_DEF, HITMONTOP
+	dbbbw EVOLVE_STAT, 20, ATK_LT_DEF, HITMONCHAN
+	dbbbw EVOLVE_STAT, 20, ATK_GT_DEF, HITMONLEE
+	dbbbw EVOLVE_STAT, 20, ATK_EQ_DEF, HITMONTOP
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 7, FORESIGHT
