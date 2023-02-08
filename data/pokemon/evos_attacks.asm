@@ -2256,10 +2256,9 @@ PinsirEvosAttacks:
 	db 0 ; no more level-up moves
 	
 MoobyEvosAttacks:
-	dbbw EVOLVE_STAT, 15, ATK_LT_DEF, MILTANK
-	dbbw EVOLVE_STAT, 15, ATK_GT_DEF, TAUROS
-	dbbw EVOLVE_STAT, 15, ATK_EQ_DEF, MILTANK ;temporary arrangement
-	db 0
+	dbbbw EVOLVE_GENDER, 15, EVO_FEMALE, MILTANK
+	dbbbw EVOLVE_GENDER, 15, EVO_MALE, TAUROS
+	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
 	db 1, TAIL_WHIP
@@ -2268,7 +2267,7 @@ MoobyEvosAttacks:
 	db 17, PURSUIT
 	db 26, HEADBUTT
 	db 35, TAKE_DOWN
-	db 0
+	db 0 ; no more level-up moves
 
 TaurosEvosAttacks:
 	db 0 ; no more evolutions

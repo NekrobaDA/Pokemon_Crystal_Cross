@@ -90,6 +90,9 @@ EvolveAfterBattle_MasterLoop:
 	
 	cp EVOLVE_LEVEL_REGION_SEVII
 	jp z, .level_sevii
+	
+	cp EVOLVE_GENDER
+	jp z, .gender
 
 ; EVOLVE_STAT
 	ld a, [wTempMonLevel]
@@ -112,6 +115,32 @@ EvolveAfterBattle_MasterLoop:
 .got_tyrogue_evo
 	pop hl
 
+	inc hl
+	cp [hl]
+	jp nz, .dont_evolve_2
+
+	inc hl
+	jp .proceed
+	
+.gender
+	ld a, [wTempMonLevel]
+	cp [hl]
+	jp c, .dont_evolve_1
+
+	call IsMonHoldingEverstone
+	jp z, .dont_evolve_1
+	
+	push hl
+	ld a, TEMPMON
+	ld [wMonType], a
+	predef GetGender
+	ld a, EVO_MALE
+	jr nz, .got_gender
+	ld a, EVO_FEMALE
+	
+.got_gender
+	pop hl
+	
 	inc hl
 	cp [hl]
 	jp nz, .dont_evolve_2
@@ -381,6 +410,8 @@ EvolveAfterBattle_MasterLoop:
 	
 .dont_evolve_check
 	ld a, b
+	cp EVOLVE_GENDER
+	jr z, .dont_evolve_1
 	cp EVOLVE_STAT
 	jr nz, .dont_evolve_2
 
@@ -711,8 +742,11 @@ SkipEvolutions::
 	ld a, [hli]
 	and a
 	ret z
+	cp EVOLVE_GENDER
+	jr z, .extra_skip
 	cp EVOLVE_STAT
 	jr nz, .no_extra_skip
+.extra_skip
 	inc hl
 .no_extra_skip
 	inc hl
@@ -731,6 +765,11 @@ DetermineEvolutionItemResults::
 	and a
 	ret z
 	cp EVOLVE_STAT
+	jr nz, .check_next
+	inc hl
+	jr .no_extra_increase
+.check_next
+	cp EVOLVE_GENDER
 	jr nz, .no_extra_increase
 	inc hl
 .no_extra_increase

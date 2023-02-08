@@ -754,5 +754,4 @@ Daycare_CheckAlternateOffspring:
 	dw NIDORAN_F, NIDORAN_M
 	dw NIDORINA, NIDORAN_M
 	dw NIDOQUEEN, NIDORAN_M
-	dw MILTANK, TAUROS
 	dw -1

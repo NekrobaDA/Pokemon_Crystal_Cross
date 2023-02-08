@@ -135,6 +135,7 @@ NUM_HOF_TEAMS EQU 30
 	const EVOLVE_ITEM_LEVEL
 	const EVOLVE_LEVEL_REGION
 	const EVOLVE_LEVEL_REGION_SEVII
+	const EVOLVE_GENDER
 
 ; EVOLVE_HAPPINESS triggers
 	const_def 1
@@ -147,6 +148,11 @@ NUM_HOF_TEAMS EQU 30
 	const ATK_GT_DEF
 	const ATK_LT_DEF
 	const ATK_EQ_DEF
+	
+;Evolve gender triggers
+	const_def 1
+	const EVO_MALE
+	const EVO_FEMALE
 
 ; wild data
 
