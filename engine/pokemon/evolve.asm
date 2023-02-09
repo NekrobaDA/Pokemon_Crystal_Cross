@@ -73,6 +73,9 @@ EvolveAfterBattle_MasterLoop:
 	ld a, b
 	cp EVOLVE_ITEM
 	jp z, .item
+	
+	cp EVOLVE_ITEM_LEVEL
+	jp z, .item_level
 
 	ld a, [wForceEvolution]
 	and a
@@ -83,7 +86,7 @@ EvolveAfterBattle_MasterLoop:
 	jp z, .level
 
 	cp EVOLVE_HAPPINESS
-	jr z, .happiness
+	jp z, .happiness
 	
 	cp EVOLVE_LEVEL_REGION
 	jp z, .level_region
@@ -141,11 +144,26 @@ EvolveAfterBattle_MasterLoop:
 .got_gender
 	pop hl
 	
-	inc hl
+	inc hl   
 	cp [hl]
-	jp nz, .dont_evolve_2
+	jp nz, .dont_evolve_2 
 
 	inc hl
+	jp .proceed
+	
+.item_level
+	ld a, [hli]             ;item -> level
+	ld b, a
+	ld a, [wCurItem]
+	cp b
+	jp nz, .dont_evolve_2
+	
+	ld a, [wTempMonLevel]
+	cp [hl]
+	jp c, .dont_evolve_2
+
+	inc hl                  ;level -> mon
+
 	jp .proceed
 
 .happiness
@@ -257,11 +275,11 @@ EvolveAfterBattle_MasterLoop:
 	jp .dont_evolve_3
 
 .level
-	ld a, [hli]
+	ld a, [hli]      ;level -> pokemon (end)
 	ld b, a
 	ld a, [wTempMonLevel]
 	cp b
-	jp c, .dont_evolve_3
+	jp c, .dont_evolve_3    ;+2
 	call IsMonHoldingEverstone
 	jp z, .dont_evolve_3
 
@@ -411,6 +429,8 @@ EvolveAfterBattle_MasterLoop:
 .dont_evolve_check
 	ld a, b
 	cp EVOLVE_GENDER
+	jr z, .dont_evolve_1
+	cp EVOLVE_ITEM_LEVEL
 	jr z, .dont_evolve_1
 	cp EVOLVE_STAT
 	jr nz, .dont_evolve_2
@@ -744,6 +764,8 @@ SkipEvolutions::
 	ret z
 	cp EVOLVE_GENDER
 	jr z, .extra_skip
+	cp EVOLVE_ITEM_LEVEL
+	jr z, .extra_skip
 	cp EVOLVE_STAT
 	jr nz, .no_extra_skip
 .extra_skip
@@ -761,16 +783,32 @@ DetermineEvolutionItemResults::
 	ld l, e
 	ld de, 0
 .loop
-	ld a, [hli]
+	ld a, [hli]  ;evo method -> item
 	and a
 	ret z
+
+	cp EVOLVE_ITEM_LEVEL
+	jr nz, .next
+	
+	ld b,b
+	ld a, [wCurItem]
+	cp [hl]
+	jr nz, .increase	
+
+	inc hl           ;item -> level
+	ld a, [wTempMonLevel]
+	cp [hl]
+	jr c, .no_item_check
+	jr .get_species
+
+.next
 	cp EVOLVE_STAT
-	jr nz, .check_next
-	inc hl
-	jr .no_extra_increase
-.check_next
+	jr z, .increase
 	cp EVOLVE_GENDER
-	jr nz, .no_extra_increase
+	jr z, .increase
+	jr .no_extra_increase
+
+.increase	
 	inc hl
 .no_extra_increase
 	cp EVOLVE_ITEM ; will fail if the EVOLVE_STAT check passed
@@ -786,7 +824,7 @@ DetermineEvolutionItemResults::
 	jr .loop
 
 .get_species
-	inc hl
+	inc hl      ;level -> species
 	ld a, [hli]
 	ld e, a
 	ld d, [hl]

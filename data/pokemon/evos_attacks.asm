@@ -557,7 +557,7 @@ NidokingEvosAttacks:
 	db 0 ; no more level-up moves
 
 ClefairyEvosAttacks:
-	dbbw EVOLVE_ITEM, MOON_STONE, CLEFABLE
+	dbbbw EVOLVE_ITEM_LEVEL, MOON_STONE, 20, CLEFABLE
 	db 0 ; no more evolutions
 	db 1, POUND
 	db 1, DEFENSE_CURL
@@ -595,7 +595,7 @@ ClefableEvosAttacks:
 	db 0 ; no more level-up moves
 
 VulpixEvosAttacks:
-	dbbw EVOLVE_ITEM, FIRE_STONE, NINETALES
+	dbbbw EVOLVE_ITEM_LEVEL, FIRE_STONE, 25, NINETALES
 	db 0 ; no more evolutions
 	db 1, EMBER
 	db 1, TAIL_WHIP
@@ -628,7 +628,7 @@ NinetalesEvosAttacks:
 	db 0 ; no more level-up moves
 
 JigglypuffEvosAttacks:
-	dbbw EVOLVE_ITEM, MOON_STONE, WIGGLYTUFF
+	dbbbw EVOLVE_ITEM_LEVEL, MOON_STONE, 20, WIGGLYTUFF
 	db 0 ; no more evolutions
 	db 1, SING
 	db 1, POUND
@@ -981,7 +981,7 @@ AnnihilapeEvosAttacks:
 	db 0 ; no more level-up moves
 
 GrowlitheEvosAttacks:
-	dbbw EVOLVE_ITEM, FIRE_STONE, ARCANINE
+	dbbbw EVOLVE_ITEM_LEVEL, FIRE_STONE, 25, ARCANINE
 	db 0 ; no more evolutions
 	db 1, EMBER
 	db 1, LEER
@@ -1087,7 +1087,7 @@ AbraEvosAttacks:
 	db 0 ; no more level-up moves
 
 KadabraEvosAttacks:
-	dbbw EVOLVE_ITEM, SHINY_STONE, ALAKAZAM
+	dbbbw EVOLVE_ITEM_LEVEL, SHINY_STONE, 42, ALAKAZAM
 	db 0 ; no more evolutions
 	db 1, CONFUSION
 	db 1, TELEPORT
@@ -1133,7 +1133,7 @@ MachopEvosAttacks:
 	db 0 ; no more level-up moves
 
 MachokeEvosAttacks:
-	dbbw EVOLVE_LEVEL, 50, MACHAMP
+	dbbw EVOLVE_LEVEL, 42, MACHAMP
 	db 0 ; no more evolutions
 	db 1, LOW_KICK
 	db 1, LEER
@@ -1323,7 +1323,7 @@ RapidashEvosAttacks:
 
 SlowpokeEvosAttacks:
 	dbbw EVOLVE_LEVEL, 37, SLOWBRO
-	dbbw EVOLVE_ITEM, KINGS_ROCK, SLOWKING
+	dbbbw EVOLVE_ITEM_LEVEL, KINGS_ROCK, 37, SLOWKING 
 	db 0 ; no more evolutions
 	db 1, CURSE
 	db 1, TACKLE
@@ -1531,7 +1531,6 @@ GrimerEvosAttacks:
 
 MukEvosAttacks:
 	db 0 ; no more evolutions
-	; moves are not sorted by level
 	db 1, SMOG
 	db 1, POUND
 	db 4, HARDEN
@@ -1548,7 +1547,7 @@ MukEvosAttacks:
 	db 0 ; no more level-up moves
 
 ShellderEvosAttacks:
-	dbbw EVOLVE_ITEM, WATER_STONE, CLOYSTER
+	dbbbw EVOLVE_ITEM_LEVEL, WATER_STONE, 28, CLOYSTER
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, HARDEN
@@ -1595,7 +1594,7 @@ GastlyEvosAttacks:
 	db 0 ; no more level-up moves
 
 HaunterEvosAttacks:
-	dbbw EVOLVE_ITEM, DUSK_STONE, GENGAR
+	dbbbw EVOLVE_ITEM_LEVEL, DUSK_STONE, 42, GENGAR
 	db 0 ; no more evolutions
 	db 1, SHADOW_PUNCH
 	db 1, LICK
@@ -1631,7 +1630,7 @@ GengarEvosAttacks:
 	db 0 ; no more level-up moves
 
 OnixEvosAttacks:
-	dbbw EVOLVE_ITEM, METAL_COAT, STEELIX
+	dbbbw EVOLVE_ITEM_LEVEL, METAL_COAT, 30, STEELIX
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, HARDEN
@@ -1770,7 +1769,7 @@ ElectrodeEvosAttacks:
 	db 0 ; no more level-up moves
 
 ExeggcuteEvosAttacks:
-	dbbw EVOLVE_ITEM, LEAF_STONE, EXEGGUTOR
+	dbbbw EVOLVE_ITEM_LEVEL, LEAF_STONE, 25, EXEGGUTOR
 	db 0 ; no more evolutions
 	db 1, CONFUSION
 	db 1, HYPNOSIS
@@ -1802,7 +1801,7 @@ ExeggutorEvosAttacks:
 
 CuboneEvosAttacks:
 	dbbw EVOLVE_LEVEL, 28, MAROWAK
-	dbbw EVOLVE_ITEM, DUSK_STONE, MAROWAK_ALOLAN
+	dbbbw EVOLVE_ITEM_LEVEL, DUSK_STONE, 28, MAROWAK_ALOLAN
 	db 0 ; no more evolutions
 	db 1, POUND
 	db 1, GROWL
@@ -2120,7 +2119,7 @@ SeakingEvosAttacks:
 	db 0 ; no more level-up moves
 
 StaryuEvosAttacks:
-	dbbw EVOLVE_ITEM, WATER_STONE, STARMIE
+	dbbbw EVOLVE_ITEM_LEVEL, WATER_STONE, 25, STARMIE
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, HARDEN
@@ -2155,7 +2154,7 @@ StarmieEvosAttacks:
 	db 0 ; no more level-up moves
 
 ScytherEvosAttacks:
-	dbbw EVOLVE_ITEM, METAL_COAT, SCIZOR
+	dbbbw EVOLVE_ITEM_LEVEL, METAL_COAT, 25, SCIZOR
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
@@ -2918,7 +2917,7 @@ CyndaquilEvosAttacks:
 
 QuilavaEvosAttacks:
 	dbbw EVOLVE_LEVEL, 36, TYPHLOSION
-	dbbw EVOLVE_ITEM, DUSK_STONE, TYPHLOSION_HISUIAN
+	dbbbw EVOLVE_ITEM_LEVEL, DUSK_STONE, 36, TYPHLOSION_HISUIAN
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, LEER
@@ -3444,7 +3443,7 @@ JumpluffEvosAttacks:
 	db 0 ; no more level-up moves
 
 AipomEvosAttacks:
-	dbbw EVOLVE_ITEM, SHINY_STONE, AMBIPOM
+	dbbbw EVOLVE_ITEM_LEVEL, SHINY_STONE, 28, AMBIPOM
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, TAIL_WHIP
@@ -3477,7 +3476,7 @@ AmbipomEvosAttacks:
 	db 0 ; no more level-up moves
 	
 SunkernEvosAttacks:
-	dbbw EVOLVE_ITEM, SUN_STONE, SUNFLORA
+	dbbbw EVOLVE_ITEM_LEVEL, SUN_STONE, 15, SUNFLORA
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, GROWTH
@@ -3577,7 +3576,7 @@ QuagsireEvosAttacks:
 	db 0 ; no more level-up moves
 
 MurkrowEvosAttacks:
-	dbbw EVOLVE_ITEM, DUSK_STONE, HONCHKROW
+	dbbbw EVOLVE_ITEM_LEVEL, DUSK_STONE, 25, HONCHKROW
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, SPITE
@@ -3609,7 +3608,7 @@ HonchkrowEvosAttacks:
 	db 0 ; no more level-up moves
 
 MisdreavusEvosAttacks:
-	dbbw EVOLVE_ITEM, DUSK_STONE, MISMAGIUS
+	dbbbw EVOLVE_ITEM_LEVEL, DUSK_STONE, 25, MISMAGIUS
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, CONFUSION
@@ -3728,7 +3727,7 @@ ForretressEvosAttacks:
 	db 0 ; no more level-up moves
 
 DunsparceEvosAttacks:
-	dbbw EVOLVE_ITEM, DRAGON_SCALE, DUSERPENT
+	dbbbw EVOLVE_ITEM_LEVEL, DRAGON_SCALE, 25, DUSERPENT
 	db 0 ; no more evolutions
 	db 1, RAGE
 	db 1, DEFENSE_CURL
@@ -3799,7 +3798,7 @@ GliscorEvosAttacks:
 	db 0 ; no more level-up moves
 
 RinrinEvosAttacks:
-	dbbw EVOLVE_ITEM_LEVEL, MOON_STONE, BELLUNA
+	dbbbw EVOLVE_ITEM_LEVEL, MOON_STONE, 20, BELLUNA
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, GROWL
@@ -3864,7 +3863,7 @@ GranbullEvosAttacks:
 	db 0 ; no more level-up moves
 
 QwilfishEvosAttacks:
-	dbbw EVOLVE_ITEM, METAL_COAT, DETOQWIL
+	dbbbw EVOLVE_ITEM_LEVEL, METAL_COAT, 28, DETOQWIL
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, POISON_STING
@@ -4489,7 +4488,7 @@ CelebiEvosAttacks:
 	db 0 ; no more level-up moves
 	
 Vulpix_AlolanEvosAttacks:
-	dbbw EVOLVE_ITEM, ICE_STONE, NINETALES_ALOLAN
+	dbbbw EVOLVE_ITEM_LEVEL, ICE_STONE, 25, NINETALES_ALOLAN
 	db 0 ; no more evolutions
 	db 1, POWDER_SNOW
 	db 1, TAIL_WHIP
@@ -4857,7 +4856,7 @@ Sandslash_AlolanEvosAttacks:
 	db 0 ; no more level-up moves
 
 Growlithe_HisuianEvosAttacks:
-	dbbw EVOLVE_ITEM, FIRE_STONE, ARCANINE_HISUIAN
+	dbbbw EVOLVE_ITEM_LEVEL, FIRE_STONE, 25, ARCANINE_HISUIAN
 	db 0 ; no more evolutions
 	db 1, EMBER
 	db 1, LEER

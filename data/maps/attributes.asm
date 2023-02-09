@@ -180,7 +180,7 @@ ENDM
 	connection north, GoldenrodCity, GOLDENROD_CITY, -5
 	connection east, AzaleaTown, AZALEA_TOWN, 18
 
-	map_attributes Route35, ROUTE_35, $05, NORTH | SOUTH
+	map_attributes Route35, ROUTE_35, $2e, NORTH | SOUTH
 	connection north, Route36, ROUTE_36, 0
 	connection south, GoldenrodCity, GOLDENROD_CITY, -5
 
