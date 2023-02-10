@@ -3504,7 +3504,8 @@ SunfloraEvosAttacks:
 	db 0 ; no more level-up moves
 
 YanmaEvosAttacks:
-	dbbw EVOLVE_LEVEL, 33, YANMEGA
+	;dbbw EVOLVE_LEVEL, 33, YANMEGA
+	dbbw EVOLVE_MOVE, ANCIENTPOWER, YANMEGA
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, FORESIGHT

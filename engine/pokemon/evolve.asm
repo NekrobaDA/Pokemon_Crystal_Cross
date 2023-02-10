@@ -96,6 +96,9 @@ EvolveAfterBattle_MasterLoop:
 	
 	cp EVOLVE_GENDER
 	jp z, .gender
+	
+	cp EVOLVE_MOVE
+	jp z, .move
 
 ; EVOLVE_STAT
 	ld a, [wTempMonLevel]
@@ -163,7 +166,26 @@ EvolveAfterBattle_MasterLoop:
 	jp c, .dont_evolve_2
 
 	inc hl                  ;level -> mon
-
+	jp .proceed
+	
+.move
+	ld a, [hli]
+	push hl
+	push bc
+	ld b, a
+	ld hl, wTempMonMoves
+rept NUM_MOVES
+	ld a, [hli]
+	cp b
+	jr z, .move_proceed
+endr
+	pop bc
+	pop hl
+	jp .dont_evolve_3
+	
+.move_proceed
+	pop bc
+	pop hl
 	jp .proceed
 
 .happiness
@@ -790,7 +812,6 @@ DetermineEvolutionItemResults::
 	cp EVOLVE_ITEM_LEVEL
 	jr nz, .next
 	
-	ld b,b
 	ld a, [wCurItem]
 	cp [hl]
 	jr nz, .increase	
