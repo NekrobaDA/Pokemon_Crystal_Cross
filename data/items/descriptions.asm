@@ -158,8 +158,8 @@ ItemDescriptions:
 	dw LimberBandDesc
 	dw MagmaVestDesc
 	dw FrostRingDesc
-	dw TeruSama26Desc
-	dw TeruSama27Desc
+	dw RazorFangDesc
+	dw RazorClawDesc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
@@ -1021,7 +1021,13 @@ DomeFossilDesc:
 	
 HelixFossilDesc:
 	db   "?@"
+	
+RazorFangDesc:
+	db   "?@"
 
+RazorClawDesc:
+	db   "?@"
+	
 TeruSama25Desc:
 	db   "?@"
 

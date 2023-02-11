@@ -195,9 +195,9 @@ CyndaquilPokeBallScript:
 	givepoke TYPHLOSION, 100
 	givepoke DUSERPENT, 100
 	givepoke STARMIE, 100
-	givepoke STARLY, 50
-	givepoke EKANS, 50
-	givepoke MEW, 100
+	givepoke SCYTHER, 25
+	givepoke SCYTHER, 5
+	givepoke DITTO, 100
 	; tms for party
 	giveitem TM_ICE_BEAM
 	giveitem TM_FLAMETHROWER
@@ -303,6 +303,7 @@ CyndaquilPokeBallScript:
 	giveitem MAX_ELIXER, 99
 	giveitem RARE_CANDY, 99
 	giveitem ESCAPE_ROPE, 99
+	giveitem METAL_COAT, 99
 	; all balls
 	giveitem MASTER_BALL, 99
 	giveitem POKE_BALL, 99

@@ -164,8 +164,8 @@
 	const LIMBER_BAND  ; 9c
 	const MAGMA_VEST   ; 9d
 	const FROST_RING   ; 9e
-	const ITEM_X10     ; 9f
-	const ITEM_X11     ; a0
+	const RAZOR_FANG   ; 9f
+	const RAZOR_CLAW   ; a0
 	const ITEM_X12     ; a1
 	const ITEM_X13     ; a2
 	const ITEM_X14     ; a3

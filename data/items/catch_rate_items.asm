@@ -3,9 +3,5 @@
 ; item associated with the table entry is used instead.
 
 TimeCapsule_CatchRateItems:
-	db ICE_STONE, LEFTOVERS
-	db SHINY_STONE, BITTER_BERRY
-	db DUSK_STONE, GOLD_BERRY
-	db TRISTONE, BERRY
 	db -1,      BERRY
 	db 0 ; end

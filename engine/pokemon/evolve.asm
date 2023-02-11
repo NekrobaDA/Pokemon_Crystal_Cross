@@ -76,6 +76,9 @@ EvolveAfterBattle_MasterLoop:
 	
 	cp EVOLVE_ITEM_LEVEL
 	jp z, .item_level
+	
+	cp EVOLVE_ITEM_REGION_SEVII
+	jp z, .item_sevii
 
 	ld a, [wForceEvolution]
 	and a
@@ -99,6 +102,12 @@ EvolveAfterBattle_MasterLoop:
 	
 	cp EVOLVE_MOVE
 	jp z, .move
+	
+	cp EVOLVE_HOLD_LEVEL
+	jp z, .hold_level
+	
+	cp EVOLVE_HOLD
+	jp z, .hold
 
 ; EVOLVE_STAT
 	ld a, [wTempMonLevel]
@@ -167,6 +176,52 @@ EvolveAfterBattle_MasterLoop:
 
 	inc hl                  ;level -> mon
 	jp .proceed
+	
+.hold_level
+	ld a, [hli]             ;item -> level
+	ld b, a
+	ld a, [wTempMonItem]
+	cp b
+	jp nz, .dont_evolve_2
+	
+	ld a, [wTempMonLevel]
+	cp [hl]
+	jp c, .dont_evolve_2
+
+	xor a
+	ld [wTempMonItem], a
+	inc hl                  ;level -> mon
+	jp .proceed
+	
+.hold
+	ld a, [hli]             ;item -> mon
+	ld b, a
+	ld a, [wTempMonItem]
+	cp b
+	jp nz, .dont_evolve_3
+
+	xor a
+	ld [wTempMonItem], a
+	jp .proceed
+	
+.item_sevii
+	ld a, [hli]             ;item -> mon
+	ld b, a
+	ld a, [wCurItem]
+	cp b
+	jp nz, .dont_evolve_3
+	
+	push hl
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	pop hl
+	
+	cp SEVII_LANDMARK
+	jp z, .proceed
+	jp .dont_evolve_3
 	
 .move
 	ld a, [hli]
@@ -259,9 +314,9 @@ endr
 	ld b, a
 	ld a, [wTempMonLevel]
 	cp b
-	jp c, .dont_evolve_2
+	jp c, .dont_evolve_3
 	call IsMonHoldingEverstone
-	jp z, .dont_evolve_2
+	jp z, .dont_evolve_3
 	
 	push hl
 	ld a, [wMapGroup]
@@ -280,9 +335,9 @@ endr
 	ld b, a
 	ld a, [wTempMonLevel]
 	cp b
-	jp c, .dont_evolve_2
+	jp c, .dont_evolve_3
 	call IsMonHoldingEverstone
-	jp z, .dont_evolve_2
+	jp z, .dont_evolve_3
 	
 	push hl
 	ld a, [wMapGroup]
@@ -450,6 +505,8 @@ endr
 	
 .dont_evolve_check
 	ld a, b
+	cp EVOLVE_HOLD_LEVEL
+	jr z, .dont_evolve_1
 	cp EVOLVE_GENDER
 	jr z, .dont_evolve_1
 	cp EVOLVE_ITEM_LEVEL
@@ -784,6 +841,8 @@ SkipEvolutions::
 	ld a, [hli]
 	and a
 	ret z
+	cp EVOLVE_HOLD_LEVEL
+	jr z, .extra_skip
 	cp EVOLVE_GENDER
 	jr z, .extra_skip
 	cp EVOLVE_ITEM_LEVEL
@@ -823,6 +882,8 @@ DetermineEvolutionItemResults::
 	jr .get_species
 
 .next
+	cp EVOLVE_HOLD_LEVEL
+	jr z, .increase
 	cp EVOLVE_STAT
 	jr z, .increase
 	cp EVOLVE_GENDER

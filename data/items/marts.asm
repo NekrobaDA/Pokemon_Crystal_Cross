@@ -122,7 +122,7 @@ MartGoldenrod2F2:
 	db -1 ; end
 
 MartGoldenrod3F:
-	db 14 ; # items
+	db 16 ; # items
 	db FIRE_STONE
 	db THUNDERSTONE
 	db WATER_STONE
@@ -137,6 +137,8 @@ MartGoldenrod3F:
 	db DRAGON_SCALE
 	db UP_GRADE
 	db TRISTONE
+	db RAZOR_FANG
+	db RAZOR_CLAW
 	db -1 ; end
 
 MartGoldenrod4F:
