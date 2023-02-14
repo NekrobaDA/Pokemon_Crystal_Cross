@@ -6,7 +6,7 @@
 	db WATER, FLYING ; type
 	db 25 ; catch rate
 	db 210 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db MYSTIC_WATER, RAWST_BERRY ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 12 ; step cycles to hatch

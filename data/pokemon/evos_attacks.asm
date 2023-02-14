@@ -2669,16 +2669,18 @@ AerodactylEvosAttacks:
 	db 1, ICE_FANG
 	db 1, BITE
 	db 1, LEER
-	db 1, SUPERSONIC
-	db 8, ROAR
-	db 15, WING_ATTACK
-	db 19, AGILITY
-	db 25, ANCIENTPOWER
-	db 33, SCARY_FACE
-	db 40, TAKE_DOWN
-	db 46, CRUNCH
-	db 52, ROCK_SLIDE
-	db 57, HYPER_BEAM
+	db 1, GUST
+	db 8, SUPERSONIC
+	db 15, SCARY_FACE
+	db 19, ANCIENTPOWER
+	db 25, WING_ATTACK
+	db 28, DRAGONBREATH
+	db 34, AGILITY
+	db 41, CRUNCH
+	db 49, ROCK_SLIDE
+	db 55, DRAGON_CLAW
+	db 59, TAKE_DOWN
+	db 65, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 MunchlaxEvosAttacks:

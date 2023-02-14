@@ -6,7 +6,7 @@
 	db GROUND, FLYING ; type
 	db 60 ; catch rate
 	db 135 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db NO_ITEM, POISON_BARB ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 10 ; step cycles to hatch

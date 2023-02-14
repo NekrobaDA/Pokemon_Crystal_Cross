@@ -303,7 +303,13 @@ CyndaquilPokeBallScript:
 	giveitem MAX_ELIXER, 99
 	giveitem RARE_CANDY, 99
 	giveitem ESCAPE_ROPE, 99
-	giveitem METAL_COAT, 99
+	giveitem RARE_SODA, 99
+	giveitem PURPLE_JUICE, 99
+	giveitem RED_JUICE, 99
+	giveitem YELLOW_JUICE, 99
+	giveitem PINK_JUICE, 99
+	giveitem BLUE_JUICE, 99
+	giveitem PRISM_SHAKE, 99
 	; all balls
 	giveitem MASTER_BALL, 99
 	giveitem POKE_BALL, 99

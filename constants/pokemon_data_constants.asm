@@ -129,11 +129,11 @@ NUM_HOF_TEAMS EQU 30
 	const_def 1
 	const EVOLVE_LEVEL
 	const EVOLVE_ITEM
-	const EVOLVE_TRADE
+	const EVOLVE_TRADE               ;no longer used
 	const EVOLVE_HAPPINESS
 	const EVOLVE_STAT
 	const EVOLVE_ITEM_LEVEL
-	const EVOLVE_LEVEL_REGION
+	const EVOLVE_LEVEL_REGION        ;kanto
 	const EVOLVE_LEVEL_REGION_SEVII
 	const EVOLVE_GENDER
 	const EVOLVE_MOVE
@@ -210,6 +210,7 @@ NUM_TREEMON_SETS EQU const_value
 	const HAPPINESS_REVIVALHERB       ; 11
 	const HAPPINESS_GROOMING          ; 12
 	const HAPPINESS_GAINLEVELATHOME   ; 13
+	const HAPPINESS_PRISMSHAKE
 
 ; significant happiness values
 BASE_HAPPINESS        EQU 70

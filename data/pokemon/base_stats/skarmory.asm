@@ -6,7 +6,7 @@
 	db STEEL, FLYING ; type
 	db 25 ; catch rate
 	db 210 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db SHARP_BEAK, METAL_COAT ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 12 ; step cycles to hatch

@@ -6,7 +6,7 @@
 	db FIRE, POISON ; type
 	db 45 ; catch rate
 	db 209 ; base exp
-	db BURNT_BERRY, BURNT_BERRY ; items
+	db RAWST_BERRY, SMOKE_BALL ; items
 	db GENDER_F25 ; gender ratio
 	db 100 ; unknown 1
 	db 25 ; step cycles to hatch

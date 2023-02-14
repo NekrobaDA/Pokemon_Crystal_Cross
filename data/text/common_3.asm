@@ -1261,6 +1261,13 @@ _ItemStatRoseText::
 	text_ram wStringBuffer2
 	text " rose."
 	prompt
+	
+_HappinessRoseText::
+	text_ram wStringBuffer1
+	text "'s"
+	line "@"
+	text "HAPPINESS rose."
+	prompt
 
 _ItemCantUseOnMonText::
 	text "That can't be used"

@@ -6,7 +6,7 @@
 	db ICE, FLYING ; type
 	db 45 ; catch rate
 	db 229 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db NEVERMELTICE, LUCKY_EGG ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 10 ; step cycles to hatch

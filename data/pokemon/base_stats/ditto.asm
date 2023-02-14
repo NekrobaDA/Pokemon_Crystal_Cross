@@ -6,7 +6,7 @@
 	db NORMAL, NORMAL ; type
 	db 35 ; catch rate
 	db 77 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db METAL_POWDER, BRIGHTPOWDER ; items
 	db GENDER_UNKNOWN ; gender ratio
 	db 100 ; unknown 1
 	db 10 ; step cycles to hatch

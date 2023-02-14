@@ -148,7 +148,7 @@
 	const NORMAL_BOX   ; 8c  ??
 	const GORGEOUS_BOX ; 8d  ??
 	const SUN_STONE    ; 8e
-	const POLKADOT_BOW ; 8f
+	const SHARP_HORN   ; 8f
 	const UP_GRADE     ; 90
 	const ORAN_BERRY   ; 91 rename to g3+ equivilents
 	const SITRUS_BERRY ; 92 rename to g3+ equivilents
@@ -166,18 +166,18 @@
 	const FROST_RING   ; 9e
 	const RAZOR_FANG   ; 9f
 	const RAZOR_CLAW   ; a0
-	const ITEM_X12     ; a1
-	const ITEM_X13     ; a2
-	const ITEM_X14     ; a3
-	const ITEM_X15     ; a4
-	const ITEM_X16     ; a5
-	const ITEM_X17     ; a6
-	const ITEM_X18     ; a7
-	const ITEM_X19     ; a8
-	const ITEM_X20     ; a9
-	const ITEM_X21     ; aa
-	const ITEM_X22     ; ab
-	const ITEM_X23     ; ac
+	const SILVER_SCALE ; a1
+	const GOLD_SCALE   ; a2
+	const STATIC_ORB   ; a3
+	const FROZEN_ORB   ; a4
+	const FIERY_ORB    ; a5
+	const PURPLE_JUICE ; a6
+	const RED_JUICE    ; a7
+	const YELLOW_JUICE ; a8
+	const PINK_JUICE   ; a9
+	const BLUE_JUICE   ; aa
+	const RARE_SODA    ; ab
+	const PRISM_SHAKE  ; ac
 	const ITEM_X24     ; ad
 	const ITEM_X25     ; ae
 	const ITEM_X26     ; af
@@ -389,6 +389,7 @@ MORPH_MAIL     EQU $84
 BLUESKY_MAIL   EQU $84
 MUSIC_MAIL     EQU $84
 MIRAGE_MAIL    EQU $84
+POLKADOT_BOW   EQU $8f
 
 DIRE_HIT       EQU $05 ; to be removed
 ETHER          EQU $05

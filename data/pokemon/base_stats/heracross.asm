@@ -6,7 +6,7 @@
 	db BUG, FIGHTING ; type
 	db 45 ; catch rate
 	db 250 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db CHESTO_BERRY, BLACKBELT_I ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 12 ; step cycles to hatch

@@ -160,18 +160,18 @@ ItemDescriptions:
 	dw FrostRingDesc
 	dw RazorFangDesc
 	dw RazorClawDesc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
+	dw SilverScaleDesc
+	dw GoldScaleDesc
+	dw StaticOrbDesc
+	dw FrozenOrbDesc
+	dw FieryOrbDesc
+	dw PurpleJuiceDesc
+	dw RedJuiceDesc
+	dw YellowJuiceDesc
+	dw PinkJuiceDesc
+	dw BlueJuiceDesc
+	dw RareSodaDesc
+	dw PrismShakeDesc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
@@ -1012,6 +1012,42 @@ MagmaVestDesc:
 FrostRingDesc:
 	db   "Prevents BURN."
 	next "(HOLD)@"
+	
+SilverScaleDesc:
+	db   "A silvery scale."
+	next "Sell low.@"
+
+GoldScaleDesc:
+	db   "A gleaming, gold"
+	next "scale. Sell high.@"
+	
+PurpleJuiceDesc:
+	db   "A cooling drink."
+	next "Raises HP.@"
+	
+RedJuiceDesc:
+	db   "A fruity drink."
+	next "Raises ATK.@"
+	
+YellowJuiceDesc:
+	db   "A tangy drink."
+	next "Raises DEF.@"
+	
+PinkJuiceDesc:
+	db   "A sweet drink."
+	next "Raises SPD.@"
+	
+BlueJuiceDesc:
+	db   "A bitter drink."
+	next "Raises SPC.@"
+	
+RareSodaDesc:
+	db   "A fizzy drink."
+	next "Raises LV by 2.@"
+	
+PrismShakeDesc:
+	db   "A colorful drink."
+	next "Raises happiness.@"
 
 OldAmberDesc:
 	db   "?@"
@@ -1026,6 +1062,15 @@ RazorFangDesc:
 	db   "?@"
 
 RazorClawDesc:
+	db   "?@"
+	
+StaticOrbDesc:
+	db   "?@"
+	
+FrozenOrbDesc:
+	db   "?@"
+	
+FieryOrbDesc:
 	db   "?@"
 	
 TeruSama25Desc:

@@ -3,10 +3,10 @@
 	db  60,  50,  70, 140,  80,  80
 	;   hp  atk  def  spd  sat  sdf
 
-	db ELECTRIC, ELECTRIC ; type
+	db ELECTRIC, GRASS ; type
 	db 60 ; catch rate
 	db 188 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db RED_APRICORN, BLK_APRICORN ; items
 	db GENDER_UNKNOWN ; gender ratio
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch

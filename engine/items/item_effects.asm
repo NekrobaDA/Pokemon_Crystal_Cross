@@ -173,6 +173,18 @@ ItemEffects:
 	dw NoEffect            ; FROST_RING
 	dw NoEffect            ; RAZOR_FANG
 	dw NoEffect            ; RAZOR_CLAW
+	dw NoEffect            ; SILVER SCALE
+	dw NoEffect            ; GOLD SCALE
+	dw NoEffect            ; STATIC ORB
+	dw NoEffect            ; FROZEN ORB
+	dw NoEffect            ; FIERY ORB
+	dw DrinkEffect         ; PURPLE JUICE
+	dw DrinkEffect         ; RED JUICE
+	dw DrinkEffect         ; YELLOW JUICE
+	dw DrinkEffect         ; PINK JUICE
+	dw DrinkEffect         ; BLUE JUICE
+	dw RareCandyEffect     ; RARE SODA
+	dw PrismShakeEffect    ; PRISM SHAKE
 
 PokeBallEffect:
 	ld a, [wBattleMode]
@@ -1191,6 +1203,10 @@ RareCandy_StatBooster_ExitMenu:
 ItemStatRoseText:
 	text_far _ItemStatRoseText
 	text_end
+	
+HappinessRoseText:
+	text_far _HappinessRoseText
+	text_end
 
 StatStrings:
 	dw .health
@@ -1220,6 +1236,49 @@ GetStatExpRelativePointer:
 	ld c, a
 	ld b, 0
 	ret
+	
+DrinkEffect:
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+
+	jp c, RareCandy_StatBooster_ExitMenu
+
+	call RareCandy_StatBooster_GetParameters
+
+	call GetStatExpRelativePointer
+
+	ld a, MON_STAT_EXP
+	call GetPartyParamLocation
+
+	add hl, bc
+	ld a, [hl]
+	cp 255
+	jp nc, NoEffectMessage
+
+	add 4
+	ld [hl], a
+	call UpdateStatsAfterItem
+
+	call GetStatExpRelativePointer
+
+	ld hl, StatStrings
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld de, wStringBuffer2
+	ld bc, ITEM_NAME_LENGTH
+	call CopyBytes
+
+	call Play_SFX_FULL_HEAL
+
+	ld hl, ItemStatRoseText
+	call PrintText
+
+	ld c, HAPPINESS_USEDITEM
+	farcall ChangeHappiness
+
+	jp UseDisposableItem
 
 StatExpItemPointerOffsets:
 	db HP_UP,    MON_HP_EXP - MON_STAT_EXP
@@ -1227,6 +1286,11 @@ StatExpItemPointerOffsets:
 	db IRON,    MON_DEF_EXP - MON_STAT_EXP
 	db CARBOS,  MON_SPD_EXP - MON_STAT_EXP
 	db CALCIUM, MON_SPC_EXP - MON_STAT_EXP
+	db PURPLE_JUICE, MON_HP_EXP - MON_STAT_EXP   ;persim+oran
+	db RED_JUICE,    MON_ATK_EXP - MON_STAT_EXP  ;cheri  x2
+	db YELLOW_JUICE, MON_DEF_EXP - MON_STAT_EXP  ;aspear x2
+	db PINK_JUICE,   MON_SPD_EXP - MON_STAT_EXP  ;pecha  x2
+	db BLUE_JUICE,   MON_SPC_EXP - MON_STAT_EXP  ;rawst+oran
 
 RareCandy_StatBooster_GetParameters:
 	ld a, [wCurPartySpecies]
@@ -1241,6 +1305,22 @@ RareCandy_StatBooster_GetParameters:
 	ld hl, wPartyMonNicknames
 	call GetNick
 	ret
+	
+PrismShakeEffect:
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+	jp c, RareCandy_StatBooster_ExitMenu
+	call RareCandy_StatBooster_GetParameters
+
+	call Play_SFX_FULL_HEAL
+
+	ld hl, HappinessRoseText
+	call PrintText
+
+	ld c, HAPPINESS_PRISMSHAKE
+	farcall ChangeHappiness
+
+	jp UseDisposableItem
 
 RareCandyEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM
@@ -1256,8 +1336,19 @@ RareCandyEffect:
 	ld a, [hl]
 	cp MAX_LEVEL
 	jp nc, NoEffectMessage
-
+	
 	inc a
+	cp MAX_LEVEL
+	jr nc, .no_extra_lv
+	
+	ld b, a
+	ld a, [wCurItem]
+	cp RARE_SODA
+	ld a, b
+	jr nz, .no_extra_lv
+	inc a
+
+.no_extra_lv	
 	ld [hl], a
 	ld [wCurPartyLevel], a
 	push de

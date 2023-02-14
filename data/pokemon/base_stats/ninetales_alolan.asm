@@ -6,7 +6,7 @@
 	db ICE, GHOST ; type
 	db 75 ; catch rate
 	db 223 ; base exp
-	db BURNT_BERRY, BURNT_BERRY ; items
+	db ASPEAR_BERRY, CLEANSE_TAG ; items
 	db GENDER_F75 ; gender ratio
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch

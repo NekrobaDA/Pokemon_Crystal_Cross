@@ -6,7 +6,7 @@
 	db GROUND, ROCK ; type
 	db 120 ; catch rate
 	db 169 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db HARD_STONE, SHARP_HORN ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 10 ; step cycles to hatch

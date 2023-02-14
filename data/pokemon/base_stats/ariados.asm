@@ -6,7 +6,7 @@
 	db BUG, POISON ; type
 	db 90 ; catch rate
 	db 168 ; base exp
-	db NO_ITEM, NO_ITEM ; items
+	db CHESTO_BERRY, POISON_BARB ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 15 ; step cycles to hatch

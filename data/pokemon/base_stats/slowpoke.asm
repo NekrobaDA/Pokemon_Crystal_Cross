@@ -6,7 +6,7 @@
 	db WATER, PSYCHIC_TYPE ; type
 	db 190 ; catch rate
 	db 124 ; base exp
-	db NO_ITEM, KINGS_ROCK ; items
+	db SLOWPOKETAIL, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 10 ; step cycles to hatch
