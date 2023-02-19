@@ -741,6 +741,7 @@ SECTION "ETC", ROMX
 INCLUDE "engine/events/egg_move_egg.asm"
 INCLUDE "engine/link/time_capsule_2.asm"
 INCLUDE "data/pokemon/dex_numbers.asm"
+INCLUDE "engine/events/CCafeBerries.asm"
 
 
 SECTION "Color", ROMX

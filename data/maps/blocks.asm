@@ -1147,3 +1147,6 @@ SECTION "Map Blocks 4", ROMX
 	
 Route45_Blocks:
 	INCBIN "maps/Route45.ablk"
+	
+CherrygroveCafe_Blocks:
+	INCBIN "maps/CherrygroveCafe.ablk"

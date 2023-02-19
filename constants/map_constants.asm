@@ -596,6 +596,7 @@ ENDM
 	map_const GUIDE_GENTS_HOUSE,                            4,  4 ;  7
 	map_const CHERRYGROVE_EVOLUTION_SPEECH_HOUSE,           4,  4 ;  8
 	map_const CHERRYGROVE_FERRY,                           11, 11 
+	map_const CHERRYGROVE_CAFE,                             4,  4 
 	
 	newgroup
 	

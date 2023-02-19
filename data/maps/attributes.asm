@@ -776,3 +776,4 @@ ENDM
 	map_attributes DiveTest, DIVE_TEST, $1d, 0
 	map_attributes EcruteakSwarmHouse, ECRUTEAK_SWARM_HOUSE, $00, 0
 	map_attributes CherrygroveFerry, CHERRYGROVE_FERRY, $00, 0
+	map_attributes CherrygroveCafe, CHERRYGROVE_CAFE, $00, 0

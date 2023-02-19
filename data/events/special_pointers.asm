@@ -183,6 +183,7 @@ SpecialsPointers::
 	add_special LoadMapPalettes
 	add_special UnusedFindItemInPCOrBag
 	add_special SurfColor
+	add_special CherrygroveCafeBerryScript
 
 	add_special InitialSetDSTFlag
 	add_special InitialClearDSTFlag
