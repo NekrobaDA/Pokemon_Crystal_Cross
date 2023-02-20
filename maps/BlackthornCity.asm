@@ -8,13 +8,24 @@
 	const BLACKTHORNCITY_YOUNGSTER1
 	const BLACKTHORNCITY_SANTOS
 	const BLACKTHORNCITY_COOLTRAINER_F2
+	const BLACKTHORNCITY_PLAYER_M1
+	const BLACKTHORNCITY_PLAYER_F1
 
 BlackthornCity_MapScripts:
 	def_scene_scripts
-
+	scene_script .DummyScene0
+	scene_script .DummyScene1
+	
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .ResetExitscene
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 	callback MAPCALLBACK_OBJECTS, .Santos
+	
+.ResetExitscene
+	setmapscene, BLACKTHORN_CITY, SCENE_DEFAULT
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	endcallback
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_BLACKTHORN
@@ -29,6 +40,58 @@ BlackthornCity_MapScripts:
 .SantosAppears:
 	appear BLACKTHORNCITY_SANTOS
 	endcallback
+	
+.DummyScene0:
+	end
+
+.DummyScene1:
+	end
+	
+ExitSouthBTScene2:
+	moveobject BLACKTHORNCITY_PLAYER_M1, 15, 34
+	moveobject BLACKTHORNCITY_PLAYER_F1, 15, 34
+ExitSouthBTScene1:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder
+	appear BLACKTHORNCITY_PLAYER_M1
+	sjump .HidePlayer
+.ShowGirlPlaceholder
+	appear BLACKTHORNCITY_PLAYER_F1
+.HidePlayer
+	applymovement PLAYER, HidePersonMovementBT45
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F1Movement
+	applymovement BLACKTHORNCITY_PLAYER_M1, ExitBT45Movement
+	sjump .Scenemove
+.F1Movement
+	applymovement BLACKTHORNCITY_PLAYER_F1, ExitBT45Movement
+.Scenemove
+	applymovement PLAYER, ShowPersonMovementBT45
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder
+	disappear BLACKTHORNCITY_PLAYER_M1
+	sjump .HidPlaceholder
+.HideGirlPlaceholder
+	disappear BLACKTHORNCITY_PLAYER_F1
+.HidPlaceholder
+	warpfacing DOWN, ROUTE_45, 20, 5
+	end
+	
+ExitBT45Movement:
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
+	
+ShowPersonMovementBT45:
+	show_object
+	step_end
+
+HidePersonMovementBT45:
+	hide_object
+	step_end
 
 BlackthornSuperNerdScript:
 	faceplayer
@@ -322,8 +385,12 @@ BlackthornCity_MapEvents:
 	warp_event 13, 23, MOVE_DELETERS_HOUSE, 1
 	warp_event 10,  7, ICE_PATH_1F, 2
 	warp_event 32,  7, DRAGONS_DEN_1F, 1
+	warp_event 14, 34, ROUTE_45, 2
+	warp_event 15, 34, ROUTE_45, 3
 
 	def_coord_events
+	coord_event 14, 34, SCENE_DEFAULT, ExitSouthBTScene1
+	coord_event 15, 34, SCENE_DEFAULT, ExitSouthBTScene2
 
 	def_bg_events
 	bg_event 29, 23, BGEVENT_READ, BlackthornCitySign
@@ -344,3 +411,5 @@ BlackthornCity_MapEvents:
 	object_event  9, 32, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornYoungsterScript, -1
 	object_event 32, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SantosScript, EVENT_BLACKTHORN_CITY_SANTOS_OF_SATURDAY
 	object_event 13, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BlackthornCooltrainerF2Script, -1
+	object_event 14, 34, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 14, 34, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2

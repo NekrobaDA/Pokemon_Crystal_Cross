@@ -5,11 +5,74 @@
 	const ROUTE46_FRUIT_TREE1
 	const ROUTE46_FRUIT_TREE2
 	const ROUTE46_POKE_BALL
+	const ROUTE46_PLAYER_M1
+	const ROUTE46_PLAYER_F1 
 
 Route46_MapScripts:
 	def_scene_scripts
+	scene_script .DummyScene0
+	scene_script .DummyScene1
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .ResetExitscene
+	
+.ResetExitscene
+	setmapscene, ROUTE_46, SCENE_DEFAULT
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	endcallback
+	
+.DummyScene0:
+	end
+
+.DummyScene1:
+	end
+	
+ExitEast46Scene2:
+	moveobject ROUTE46_PLAYER_M1, 16, 7
+	moveobject ROUTE46_PLAYER_F1, 16, 7
+ExitEast46Scene1:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder
+	appear ROUTE46_PLAYER_M1
+	sjump .HidePlayer
+.ShowGirlPlaceholder
+	appear ROUTE46_PLAYER_F1
+.HidePlayer
+	applymovement PLAYER, HidePersonMovement4645
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F1Movement
+	applymovement ROUTE46_PLAYER_M1, Exit4645Movement
+	sjump .Scenemove
+.F1Movement
+	applymovement ROUTE46_PLAYER_F1, Exit4645Movement
+.Scenemove
+	applymovement PLAYER, ShowPersonMovement4645
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder
+	disappear ROUTE46_PLAYER_M1
+	sjump .HidPlaceholder
+.HideGirlPlaceholder
+	disappear ROUTE46_PLAYER_F1
+.HidPlaceholder
+	warpfacing RIGHT, ROUTE_45, 6, 94
+	end
+	
+Exit4645Movement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step_end
+	
+ShowPersonMovement4645:
+	show_object
+	step_end
+
+HidePersonMovement4645:
+	hide_object
+	step_end
 
 TrainerCamperTed:
 	trainer CAMPER, TED, EVENT_BEAT_CAMPER_TED, CamperTedSeenText, CamperTedBeatenText, 0, .Script
@@ -249,8 +312,12 @@ Route46_MapEvents:
 	warp_event  7, 31, ROUTE_29_ROUTE_46_GATE, 1
 	warp_event  8, 31, ROUTE_29_ROUTE_46_GATE, 2
 	warp_event  6,  3, DARK_CAVE_VIOLET_ENTRANCE, 3
+	warp_event 16,  6, ROUTE_45, 4
+	warp_event 16,  7, ROUTE_45, 4
 
 	def_coord_events
+	coord_event 16, 6, SCENE_DEFAULT, ExitEast46Scene1
+	coord_event 16, 7, SCENE_DEFAULT, ExitEast46Scene2
 
 	def_bg_events
 	bg_event  9, 27, BGEVENT_READ, Route46Sign
@@ -262,3 +329,5 @@ Route46_MapEvents:
 	object_event 12, 21, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route46FruitTree1, -1
 	object_event 10, 12, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route46FruitTree2, -1
 	object_event  9,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route46XSpeed, EVENT_ROUTE_46_X_SPEED
+	object_event 16,  6, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 16,  6, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2

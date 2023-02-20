@@ -12,11 +12,117 @@
 	const ROUTE45_POKE_BALL3
 	const ROUTE45_POKE_BALL4
 	const ROUTE45_YOUNGSTER
+	const ROUTE45_PLAYER_M1
+	const ROUTE45_PLAYER_F1 
 
 Route45_MapScripts:
 	def_scene_scripts
+	scene_script .DummyScene0
+	scene_script .DummyScene1
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .ResetExitscene
+	
+.ResetExitscene
+	setmapscene, ROUTE_45, SCENE_DEFAULT
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	endcallback
+	
+.DummyScene0:
+	end
+
+.DummyScene1:
+	end
+
+ExitNorth45Scene2:
+	moveobject ROUTE45_PLAYER_M1, 21, 5
+	moveobject ROUTE45_PLAYER_F1, 21, 5
+ExitNorth45Scene1:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder
+	appear ROUTE45_PLAYER_M1
+	sjump .HidePlayer
+.ShowGirlPlaceholder
+	appear ROUTE45_PLAYER_F1
+.HidePlayer
+	applymovement PLAYER, HidePersonMovement45BT
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F1Movement
+	applymovement ROUTE45_PLAYER_M1, Exit45BTMovement
+	sjump .Scenemove
+.F1Movement
+	applymovement ROUTE45_PLAYER_F1, Exit45BTMovement
+.Scenemove
+	applymovement PLAYER, ShowPersonMovement45BT
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder
+	disappear ROUTE45_PLAYER_M1
+	sjump .HidPlaceholder
+.HideGirlPlaceholder
+	disappear ROUTE45_PLAYER_F1
+.HidPlaceholder
+	warpfacing UP, BLACKTHORN_CITY, 14, 34
+	end
+	
+Exit45BTMovement:
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+	
+ShowPersonMovement45BT:
+	show_object
+	step_end
+
+HidePersonMovement45BT:
+	hide_object
+	step_end
+	
+ExitWest45Scene:
+	moveobject ROUTE45_PLAYER_M1, 5, 94
+	moveobject ROUTE45_PLAYER_F1, 5, 94
+	applymovement ROUTE45_PLAYER_M1, FaceLeft
+	applymovement ROUTE45_PLAYER_F1, FaceLeft
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .ShowGirlPlaceholder
+	appear ROUTE45_PLAYER_M1
+	sjump .HidePlayer
+.ShowGirlPlaceholder
+	appear ROUTE45_PLAYER_F1
+.HidePlayer
+	applymovement PLAYER, HidePersonMovement45BT
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .F1Movement
+	applymovement ROUTE45_PLAYER_M1, Exit4546Movement
+	sjump .Scenemove
+.F1Movement
+	applymovement ROUTE45_PLAYER_F1, Exit4546Movement
+.Scenemove
+	applymovement PLAYER, ShowPersonMovement45BT
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .HideGirlPlaceholder
+	disappear ROUTE45_PLAYER_M1
+	sjump .HidPlaceholder
+.HideGirlPlaceholder
+	disappear ROUTE45_PLAYER_F1
+.HidPlaceholder
+	warpfacing LEFT, ROUTE_46, 16, 6
+	end
+	
+Exit4546Movement:
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end
+	
+FaceLeft:
+	turn_head LEFT
+	step_end	
 
 TrainerBlackbeltKenji:
 	trainer BLACKBELT_T, KENJI3, EVENT_BEAT_BLACKBELT_KENJI, BlackbeltKenji3SeenText, BlackbeltKenji3BeatenText, 0, .Script
@@ -528,8 +634,14 @@ Route45_MapEvents:
 
 	def_warp_events
 	warp_event  8,  5, DARK_CAVE_BLACKTHORN_ENTRANCE, 1
+	warp_event 20,  5, BLACKTHORN_CITY, 9
+	warp_event 21,  5, BLACKTHORN_CITY, 10
+	warp_event  5, 94, ROUTE_46, 4
 
 	def_coord_events
+	coord_event 20,  5, SCENE_DEFAULT, ExitNorth45Scene1
+	coord_event 21,  5, SCENE_DEFAULT, ExitNorth45Scene2
+	coord_event  5, 94, SCENE_DEFAULT, ExitWest45Scene
 
 	def_bg_events
 	bg_event  7,  6, BGEVENT_READ, Route45Sign
@@ -549,3 +661,5 @@ Route45_MapEvents:
 	object_event 21, 19, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Elixer, EVENT_ROUTE_45_ELIXER
 	object_event  7, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45MaxPotion, EVENT_ROUTE_45_MAX_POTION
 	object_event 11, 85, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TrainerCamperQuentin, -1
+	object_event 20,  5, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 20,  5, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
