@@ -10,6 +10,214 @@ TwoIsland_MapScripts:
 
 	def_callbacks
 	
+TwoIslandBerryTraderScript:
+	opentext
+	writetext BerryTraderText
+	promptbutton
+	loadmenu ItemChoice_MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .PechaTrade
+	ifequal 2, .PersimTrade
+	ifequal 3, .ChestoTrade
+	ifequal 4, .CheriTrade
+	ifequal 5, .AspearTrade
+	ifequal 6, .RawstTrade
+	sjump CancelScriptBT
+	
+	.PechaTrade
+	checkitem PECHA_BERRY, 99
+	iffalse .DontHaveBerries
+	
+	writetext WillBe99PechaBerries
+	yesorno
+	iffalse CancelScriptBT
+	
+	takeitem PECHA_BERRY, 99
+	playsound SFX_TRANSACTION
+	giveitem PECHA_SCARF
+	
+	opentext
+	writetext HereYouGoText
+	promptbutton
+	closetext
+	end
+	
+	.PersimTrade
+	checkitem PERSIM_BERRY, 99
+	iffalse .DontHaveBerries
+	
+	writetext WillBe99PersimBerries
+	yesorno
+	iffalse CancelScriptBT
+	
+	takeitem PERSIM_BERRY, 99
+	playsound SFX_TRANSACTION
+	giveitem PERSIM_BAND
+	
+	opentext
+	writetext HereYouGoText
+	promptbutton
+	closetext
+	end
+	
+	.ChestoTrade
+	checkitem CHESTO_BERRY, 99
+	iffalse .DontHaveBerries
+	
+	writetext WillBe99ChestoBerries
+	yesorno
+	iffalse CancelScriptBT
+	
+	takeitem CHESTO_BERRY, 99
+	playsound SFX_TRANSACTION
+	giveitem INSOMNISCOPE
+	
+	opentext
+	writetext HereYouGoText
+	promptbutton
+	closetext
+	end
+	
+	.CheriTrade
+	checkitem CHERI_BERRY, 99
+	iffalse .DontHaveBerries
+	
+	writetext WillBe99CheriBerries
+	yesorno
+	iffalse CancelScriptBT
+	
+	takeitem CHERI_BERRY, 99
+	playsound SFX_TRANSACTION
+	giveitem LIMBER_BAND
+	
+	opentext
+	writetext HereYouGoText
+	promptbutton
+	closetext
+	end
+	
+	.AspearTrade
+	checkitem ASPEAR_BERRY, 99
+	iffalse .DontHaveBerries
+	
+	writetext WillBe99AspearBerries
+	yesorno
+	iffalse CancelScriptBT
+	
+	takeitem ASPEAR_BERRY, 99
+	playsound SFX_TRANSACTION
+	giveitem MAGMA_VEST
+	
+	opentext
+	writetext HereYouGoText
+	promptbutton
+	closetext
+	end
+	
+	.RawstTrade
+	checkitem RAWST_BERRY, 99
+	iffalse .DontHaveBerries
+	
+	writetext WillBe99RawstBerries
+	yesorno
+	iffalse CancelScriptBT
+	
+	takeitem RAWST_BERRY, 99
+	playsound SFX_TRANSACTION
+	giveitem FROST_RING
+	
+	opentext
+	writetext HereYouGoText
+	promptbutton
+	closetext
+	end
+	
+.DontHaveBerries
+	opentext
+	writetext NotEnoughBerriesText
+	waitbutton
+	closetext
+	end
+	
+CancelScriptBT:
+	opentext
+	writetext ComeAgainTextBT
+	waitbutton
+	closetext
+	end
+	
+HereYouGoText:
+	text "Here you go!"
+	done
+	
+NotEnoughBerriesText:
+	text "You don't have"
+	line "enough berries."
+	done
+	
+WillBe99RawstBerries:
+	text "That will be 99"
+	line "RAWST berries."
+	done
+	
+WillBe99AspearBerries:
+	text "That will be 99"
+	line "ASPEAR berries."
+	done
+	
+WillBe99CheriBerries:
+	text "That will be 99"
+	line "CHERI berries."
+	done
+	
+WillBe99ChestoBerries:
+	text "That will be 99"
+	line "CHESTO berries."
+	done
+	
+WillBe99PersimBerries:
+	text "That will be 99"
+	line "PERSIM berries."
+	done
+	
+WillBe99PechaBerries:
+	text "That will be 99"
+	line "PECHA berries."
+	done
+	
+ComeAgainTextBT:
+	text "We hope to see you"
+	line "again!"
+	done
+	
+BerryTraderText:
+	text "Hello, I am the"
+	line "Berry Trader."
+	cont "I trade items"
+	cont "for berries."
+	
+	para "Would you like"
+	line "to trade?"
+	done
+	
+ItemChoice_MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 6, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 5
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR
+	db 6 ; # items
+	db "PECHA SCARF@"
+	db "PERSIM BAND@"
+	db "INSOMNISCOPE@"
+	db "LIMBER BAND@"
+	db "MAGMA VEST@"
+	db "FROST RING@"
+	end
+	
 TwoIslandPortScript:
 	opentext
 	writetext AskIfSailing2I
@@ -139,3 +347,5 @@ TwoIsland_MapEvents:
 
 	def_object_events
 	object_event 10, 15, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TwoIslandPortScript, -1
+	object_event 34,  5, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TwoIslandBerryTraderScript, -1
+	
