@@ -14,9 +14,9 @@
 	const BICYCLE      ; 06
 	const MOON_STONE   ; 07
 	const FULL_RESTORE ; 08
-	const MAX_POTION   ; 09
-	const HYPER_POTION ; 0a
-	const SUPER_POTION ; 0b
+	const DUBIOUS_DISC ; 09
+	const HYPER_POTION ; 0a 
+	const SUPER_POTION ; 0b 
 	const POTION       ; 0c
 	const ESCAPE_ROPE  ; 0d
 	const REPEL        ; 0e
@@ -29,7 +29,7 @@
 	const PROTEIN      ; 15
 	const IRON         ; 16
 	const CARBOS       ; 17
-	const LUCKY_PUNCH  ; 18
+	const ITEM_18      ; 18 x just a bad item
 	const CALCIUM      ; 19
 	const RARE_CANDY   ; 1a
 	const WIDE_LENS    ; 1b x accuracy
@@ -52,7 +52,7 @@
 	const SWIFT_BOOTS  ; 2c x speed
 	const WISE_GLASSES ; 2d x sp attack
 	const COIN_CASE    ; 2e
-	const ITEMFINDER   ; 2f
+	const ITEMFINDER   ; 2f does anyone ever use this
 	const EXP_SHARE    ; 30
 	const OLD_ROD      ; 31
 	const GOOD_ROD     ; 32
@@ -145,8 +145,8 @@
 	const FRIEND_BALL  ; 89
 	const MOON_BALL    ; 8a
 	const LOVE_BALL    ; 8b
-	const NORMAL_BOX   ; 8c  ??
-	const GORGEOUS_BOX ; 8d  ??
+	const ITEM_8C      ; 8c  ?? x just give deco contained
+	const ITEM_8D      ; 8d  ?? x just give deco contained
 	const SUN_STONE    ; 8e
 	const SHARP_HORN   ; 8f
 	const UP_GRADE     ; 90
@@ -390,6 +390,7 @@ BLUESKY_MAIL   EQU $84
 MUSIC_MAIL     EQU $84
 MIRAGE_MAIL    EQU $84
 POLKADOT_BOW   EQU $8f
+MAX_POTION     EQU $08
 
 DIRE_HIT       EQU $05 ; to be removed
 ETHER          EQU $05

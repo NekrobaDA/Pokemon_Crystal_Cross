@@ -8,7 +8,7 @@ ItemDescriptions:
 	dw BicycleDesc
 	dw MoonStoneDesc
 	dw FullRestoreDesc
-	dw MaxPotionDesc
+	dw DubiousDiscDesc
 	dw HyperPotionDesc
 	dw SuperPotionDesc
 	dw PotionDesc
@@ -321,11 +321,11 @@ HyperPotionDesc:
 
 SuperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 75.@"
 
 PotionDesc:
 	db   "Restores #MON"
-	next "HP by 20.@"
+	next "HP by 30.@"
 
 EscapeRopeDesc:
 	db   "Use for escaping"
@@ -732,7 +732,7 @@ TeruSama8Desc:
 
 EnergyPowderDesc:
 	db   "Restores #MON"
-	next "HP by 50. Bitter.@"
+	next "HP by 75. Bitter.@"
 
 EnergyRootDesc:
 	db   "Restores #MON"
@@ -800,7 +800,7 @@ CharcoalDesc:
 
 BerryJuiceDesc:
 	db   "Restores #MON"
-	next "HP by 20.@"
+	next "HP by 70.@"
 
 ScopeLensDesc:
 	db   "Raises critical"
@@ -925,11 +925,11 @@ UpGradeDesc:
 
 BerryDesc:
 	db   "A self-restore"
-	next "item. (10HP, HOLD)@"
+	next "item. (20HP, HOLD)@"
 
 GoldBerryDesc:
 	db   "A self-restore"
-	next "item. (30HP, HOLD)@"
+	next "item. (50HP, HOLD)@"
 
 SquirtBottleDesc:
 	db   "A bottle used for"
@@ -1071,6 +1071,9 @@ FrozenOrbDesc:
 	db   "?@"
 	
 FieryOrbDesc:
+	db   "?@"
+	
+DubiousDiscDesc:
 	db   "?@"
 	
 TeruSama25Desc:

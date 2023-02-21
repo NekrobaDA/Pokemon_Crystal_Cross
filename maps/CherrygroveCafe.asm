@@ -1,6 +1,7 @@
 JUICE_PRICE EQU 400
 SODA_PRICE  EQU 20000
 SHAKE_PRICE EQU 1000
+BERRYJUICE_PRICE EQU 800
 	
 	object_const_def
 	const CHERRYGROVECAFE_CLERK
@@ -120,7 +121,7 @@ CherrygroveCafeClerkScript:
 	ifequal 7, .OranPechaPurpleJuice
 	ifequal 8, .OranPersimPrismShake
 	ifequal 9, .OranRawstBlueJuice
-	ifequal 10, .OranSitrusPrismShake
+	ifequal 10, .OranSitrusBerryJuice
 	sjump CancelScriptCC
 	end
 	
@@ -180,7 +181,7 @@ CherrygroveCafeClerkScript:
 	ifequal 3, .ChestoSitrusPrismShake
 	ifequal 4, .LeppaSitrusPrismShake
 	ifequal 5, .LumSitrusRareSoda
-	ifequal 6, .OranSitrusPrismShake
+	ifequal 6, .OranSitrusBerryJuice
 	ifequal 7, .PechaSitrusPrismShake
 	ifequal 8, .PersimSitrusPrismShake
 	ifequal 9, .RawstSitrusPrismShake
@@ -795,18 +796,18 @@ CherrygroveCafeClerkScript:
 	takeitem PERSIM_BERRY
 	sjump PrismShake
 	
-.OranSitrusPrismShake
+.OranSitrusBerryJuice
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem ORAN_BERRY
 	takeitem SITRUS_BERRY
-	sjump PrismShake
+	sjump BerryJuice
 	
 .PechaRawstPrismShake
 	checkitem PECHA_BERRY
@@ -884,6 +885,19 @@ CherrygroveCafeClerkScript:
 	opentext
 	writetext CCOutOfBerriesText
 	waitbutton
+	closetext
+	end
+	
+BerryJuice:
+	opentext
+	special PlaceMoneyTopRight
+	writetext ComeAgainTextCC2
+	takemoney YOUR_MONEY, BERRYJUICE_PRICE
+	special PlaceMoneyTopRight
+	waitsfx
+	playsound SFX_TRANSACTION
+	giveitem BERRY_JUICE
+	promptbutton
 	closetext
 	end
 	

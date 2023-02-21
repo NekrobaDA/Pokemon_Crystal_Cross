@@ -3,15 +3,14 @@ HealingHPAmounts:
 	dbw SODA_POP,      60
 	dbw LEMONADE,      80
 	dbw HYPER_POTION, 200
-	dbw SUPER_POTION,  50
-	dbw POTION,        20
-	dbw MAX_POTION,   MAX_STAT_VALUE
+	dbw SUPER_POTION,  75
+	dbw POTION,        30
 	dbw FULL_RESTORE, MAX_STAT_VALUE
 	dbw MOOMOO_MILK,  100
-	dbw BERRY,         10
-	dbw GOLD_BERRY,    30
-	dbw ENERGYPOWDER,  50
+	dbw ORAN_BERRY,    20
+	dbw SITRUS_BERRY,  50 ;ideally 30%
+	dbw ENERGYPOWDER,  75
 	dbw ENERGY_ROOT,  200
-	dbw RAGECANDYBAR,  20
-	dbw BERRY_JUICE,   20
+	dbw RAGECANDYBAR,  30
+	dbw BERRY_JUICE,   70
 	dbw -1, 0 ; end

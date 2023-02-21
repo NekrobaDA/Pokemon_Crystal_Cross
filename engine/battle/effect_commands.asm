@@ -1160,28 +1160,6 @@ BattleCommand_Critical:
 	ld b, [hl]
 	call GetPokemonIndexFromID
 
-	ld a, l
-	sub LOW(CHANSEY)
-	if HIGH(CHANSEY) == 0
-		or h
-	else
-		jr nz, .Farfetchd
-		if HIGH(CHANSEY) == 1
-			dec h
-		else
-			ld a, h
-			cp HIGH(CHANSEY)
-		endc
-	endc
-	jr nz, .Farfetchd
-	ld a, b
-	cp LUCKY_PUNCH
-	jr nz, .FocusEnergy
-
-; +2 critical level
-	ld c, 2
-	jr .Tally
-
 .Farfetchd:
 	ld a, l
 	sub LOW(FARFETCH_D)

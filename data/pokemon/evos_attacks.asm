@@ -2545,6 +2545,7 @@ ChimereonEvosAttacks:
 
 PorygonEvosAttacks:
 	dbbw EVOLVE_HOLD, UP_GRADE, PORYGON2
+	dbbw EVOLVE_HOLD, DUBIOUS_DISC, PORYGON_Z
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, CONVERSION2
@@ -2559,7 +2560,6 @@ PorygonEvosAttacks:
 	db 0 ; no more level-up moves
 	
 Porygon2EvosAttacks:
-	dbbw EVOLVE_HOLD, UP_GRADE, PORYGON_Z
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, CONVERSION2

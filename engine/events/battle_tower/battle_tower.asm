@@ -954,8 +954,6 @@ BattleTower_RandomlyChooseReward:
 	sub 6
 .okay
 	add HP_UP
-	cp LUCKY_PUNCH
-	jr z, .loop
 	push af
 	ld a, BANK(sBattleTowerReward)
 	call OpenSRAM

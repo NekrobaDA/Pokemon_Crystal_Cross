@@ -21,7 +21,7 @@ ItemEffects:
 	dw BicycleEffect       ; BICYCLE
 	dw EvoStoneEffect      ; MOON_STONE
 	dw FullRestoreEffect   ; FULL_RESTORE
-	dw RestoreHPEffect     ; MAX_POTION
+	dw NoEffect            ; DUBIOUS_DISC
 	dw RestoreHPEffect     ; HYPER_POTION
 	dw RestoreHPEffect     ; SUPER_POTION
 	dw RestoreHPEffect     ; POTION
@@ -36,7 +36,7 @@ ItemEffects:
 	dw VitaminEffect       ; PROTEIN
 	dw VitaminEffect       ; IRON
 	dw VitaminEffect       ; CARBOS
-	dw NoEffect            ; LUCKY_PUNCH
+	dw NoEffect            ; ITEM_18
 	dw VitaminEffect       ; CALCIUM
 	dw RareCandyEffect     ; RARE_CANDY
 	dw NoEffect            ; WIDE_LENS
@@ -152,8 +152,8 @@ ItemEffects:
 	dw PokeBallEffect      ; FRIEND_BALL
 	dw PokeBallEffect      ; MOON_BALL
 	dw PokeBallEffect      ; LOVE_BALL
-	dw NormalBoxEffect     ; NORMAL_BOX
-	dw GorgeousBoxEffect   ; GORGEOUS_BOX
+	dw NoEffect            ; ITEM_8C
+	dw NoEffect            ; ITEM_8D
 	dw EvoStoneEffect      ; SUN_STONE
 	dw NoEffect            ; POLKADOT_BOW
 	dw NoEffect            ; UP_GRADE
