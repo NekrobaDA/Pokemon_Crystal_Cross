@@ -94,7 +94,7 @@ Route47_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  13, 23, NEW_BARK_TOWN, 3
+	warp_event  13, 23, ROCK_BASE, 1
 	warp_event 4, 6, CATALLIA_TOWN, 3
 	warp_event 4, 7, CATALLIA_TOWN, 4
 

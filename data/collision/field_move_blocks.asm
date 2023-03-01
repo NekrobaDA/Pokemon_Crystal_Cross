@@ -12,6 +12,7 @@ CutTreeBlockPointers:
 	dbw TILESET_JOHTO_38,     .johto_38
 	dbw TILESET_JOHTO_29,     .johto_29
 	dbw TILESET_JOHTO_30,     .johto_30
+	dbw TILESET_CHERRY_NEW,   .cherry_new
 	db -1 ; end
 
 .johto:

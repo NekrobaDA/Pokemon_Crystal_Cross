@@ -777,3 +777,5 @@ ENDM
 	map_attributes EcruteakSwarmHouse, ECRUTEAK_SWARM_HOUSE, $00, 0
 	map_attributes CherrygroveFerry, CHERRYGROVE_FERRY, $00, 0
 	map_attributes CherrygroveCafe, CHERRYGROVE_CAFE, $00, 0
+	map_attributes RockBase, ROCK_BASE, $0d, 0
+	map_attributes BushBase, BUSH_BASE, $30, 0

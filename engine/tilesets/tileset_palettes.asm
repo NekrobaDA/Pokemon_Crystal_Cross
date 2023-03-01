@@ -26,6 +26,8 @@ LoadSpecialMapPalette:
 	jr z, .mansion_mobile
 	cp TILESET_DARK_CAVE
 	jr z, .mount_mortar
+	cp TILESET_SECRET_BASE
+	jr z, .secret_base
 	jr .do_nothing
 
 .darkness
@@ -83,6 +85,11 @@ LoadSpecialMapPalette:
 	
 .mount_mortar
 	call LoadMortarPalette
+	scf
+	ret
+	
+.secret_base
+	call LoadSecretBasePalette
 	scf
 	ret
 
@@ -163,9 +170,20 @@ LoadUnderwaterPalette:
 	ld bc, 8 palettes
 	call FarCopyWRAM
 	ret
-
+	
 UnderwaterPalette:
 INCLUDE "gfx/tilesets/underwater.pal"
+	
+LoadSecretBasePalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, SecretBasePalette
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	ret
+	
+SecretBasePalette:
+INCLUDE "gfx/tilesets/secret_base.pal"
 
 LoadHousePalette:
 	ld a, BANK(wBGPals1)
@@ -274,4 +292,3 @@ LoadUnderwaterObjectPalette:
 
 UnderwaterObjectPalette:
 INCLUDE "gfx/tilesets/underwater_sprites.pal"
-

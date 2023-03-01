@@ -703,3 +703,17 @@ INCLUDE "data/tilesets/johto_45_collision.asm"
 
 TilesetJohto45Attr::
 INCBIN "data/tilesets/johto_45_attributes.bin"
+
+SECTION "Tileset Data 29", ROMX
+
+TilesetSecretBaseGFX::
+INCBIN "gfx/tilesets/secret_base.2bpp.lz"
+
+TilesetSecretBaseMeta::
+INCBIN "data/tilesets/secret_base_metatiles.bin"
+
+TilesetSecretBaseColl::
+INCLUDE "data/tilesets/secret_base_collision.asm"
+
+TilesetSecretBaseAttr::
+INCBIN "data/tilesets/secret_base_attributes.bin"

@@ -50,6 +50,7 @@ OutdoorSprites:
 	dw SeviiSevenGroupSprites
 	dw CherrygroveNeoGroupSprites
 	dw UnderwaterGroupSprites
+	dw SecretBaseGroupSprites
 
 ; Route1 and ViridianCity are connected
 ; Route2 and PewterCity are connected
@@ -374,7 +375,8 @@ FastShipGroupSprites:
 	db SPRITE_SUPER_NERD
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_YOUNGSTER
-	; 5 of max 9 walking sprites
+	db SPRITE_GRAMPS
+	; 6 of max 9 walking sprites
 	db SPRITE_HO_OH
 	db SPRITE_FAIRY
 	db SPRITE_ROCK
@@ -404,6 +406,10 @@ CherrygroveNeoGroupSprites:
 	db 0 ; end
 	
 UnderwaterGroupSprites:
+	; 0 of max 9 walking sprites
+	db 0 ; end
+	
+SecretBaseGroupSprites:
 	; 0 of max 9 walking sprites
 	db 0 ; end
 	

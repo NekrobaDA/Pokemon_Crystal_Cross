@@ -54,6 +54,7 @@
 	const TILESET_CHERRY_NEW ;cherrygrove
 	const TILESET_CHERRY_FERRY ;cherrygrove special boat map
 	const TILESET_JOHTO_45 ;45
+	const TILESET_SECRET_BASE
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)

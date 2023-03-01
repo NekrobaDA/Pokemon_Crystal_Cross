@@ -1150,3 +1150,9 @@ Route45_Blocks:
 	
 CherrygroveCafe_Blocks:
 	INCBIN "maps/CherrygroveCafe.ablk"
+	
+RockBase_Blocks:
+	INCBIN "maps/RockBase.ablk"
+	
+BushBase_Blocks:
+	INCBIN "maps/BushBase.ablk"

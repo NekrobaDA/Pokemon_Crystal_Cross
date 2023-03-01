@@ -698,6 +698,7 @@ CherrygroveCity_MapEvents:
 	warp_event 23,  5, ROUTE_30, 4
 	warp_event 24, 21, CHERRYGROVE_FERRY, 1
 	warp_event 29, 13, CHERRYGROVE_CAFE, 1
+	warp_event 44, 32, BUSH_BASE, 1
 
 	def_coord_events
 	coord_event 42,  8, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth

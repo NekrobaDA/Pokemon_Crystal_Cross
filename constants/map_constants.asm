@@ -601,5 +601,10 @@ ENDM
 	newgroup
 	
 	map_const DIVE_TEST,                                    5,  5
+	
+	newgroup
+	
+	map_const ROCK_BASE,                                    6,  5
+	map_const BUSH_BASE,                                    6,  5
 
 NUM_MAP_GROUPS EQU const_value ; 28
