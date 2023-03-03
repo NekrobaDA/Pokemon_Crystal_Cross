@@ -1079,7 +1079,7 @@ TryTileCollisionEvent::
 	call CheckCutTreeTile
 	jr nz, .whirlpool
 	farcall TryCutOW
-	jr .done
+	jp .done
 
 .whirlpool
 	ld a, [wFacingTileID]
@@ -1120,8 +1120,15 @@ TryTileCollisionEvent::
 .cut_log
 	ld a, [wFacingTileID]
 	call CheckCutLogTile
-	jr nz, .surf
+	jr nz, .cut_bush
 	farcall TryCutLogOW
+	jr .done
+	
+.cut_bush
+	ld a, [wFacingTileID]
+	call CheckBushTile
+	jr nz, .surf
+	farcall TryCutBushOW
 	jr .done
 
 .surf

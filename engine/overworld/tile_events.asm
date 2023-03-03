@@ -42,6 +42,7 @@ CheckWarpFacingDown:
 	ret
 
 .blocks
+	db COLL_BUSH
 	db COLL_ROCK_SMASH
 	db COLL_DOOR
 	db COLL_DOOR_79

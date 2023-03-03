@@ -120,6 +120,7 @@ COLL_DIAGONAL_STAIRS_RIGHT EQU $d0
 COLL_DIAGONAL_STAIRS_LEFT  EQU $d1
 COLL_ROCK_SMASH        EQU $d2
 COLL_LOG               EQU $d3
+COLL_BUSH              EQU $d4
 COLL_FF                EQU $ff ; garbage
 
 ; collision data type nybbles

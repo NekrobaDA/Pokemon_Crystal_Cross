@@ -212,7 +212,7 @@ TileCollisionTable::
 	db LAND_TILE ; COLL_DIAGONAL_STAIRS_LEFT
 	db WALL_TILE | TALK  ; coll rock smash
 	db WALL_TILE | TALK  ; coll log
-	db LAND_TILE         ; d4
+	db WALL_TILE | TALK  ; coll bush
 	db LAND_TILE         ; d5
 	db LAND_TILE         ; d6
 	db LAND_TILE         ; d7

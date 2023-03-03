@@ -125,6 +125,8 @@ DoPlayerMovement::
 	ld a, [wPlayerStandingTile]
 	cp COLL_ROCK_SMASH
 	jp z, .down
+	cp COLL_BUSH
+	jp z, .down
 
 	ld a, [wPlayerStandingTile]
 	ld c, a
@@ -214,6 +216,8 @@ DoPlayerMovement::
 	cp COLL_DOOR
 	jr z, .down
 	cp COLL_ROCK_SMASH
+	jr z, .down
+	cp COLL_BUSH
 	jr z, .down
 	cp COLL_DOOR_79
 	jr z, .down

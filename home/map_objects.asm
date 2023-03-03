@@ -165,6 +165,10 @@ CheckCutLogTile::
 	cp COLL_LOG
 	ret
 	
+CheckBushTile::
+	cp COLL_BUSH
+	ret
+	
 CheckDiveTile::
 	cp COLL_RESURFACE
 	ret z

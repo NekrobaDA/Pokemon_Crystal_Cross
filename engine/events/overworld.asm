@@ -1642,13 +1642,6 @@ DisappearWall:
 	call OverworldTextModeSwitch
 	ld a, [wCutWhirlpoolAnimationType]
 	ld e, a
-	;earthquake 84
-	;applymovementlasttalked MovementData_RockSmash
-	;call WaitSFX
-	;ld de, SFX_STRENGTH
-	;call PlaySFX
-	;call WaitSFX
-	;call BufferScreen
 	call GetMovementPermissions
 	ret
 	
@@ -1807,6 +1800,107 @@ TryCutLogMenu:
 	ret
 
 .failed
+	scf
+	ret
+	
+TryCutBushOW::
+	ld de, ENGINE_HIVEBADGE
+	call CheckEngineFlag
+	jr c, .cant_cut
+
+	ld a, HM_CUT
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr z, .cant_cut
+	
+	ld d, CUT
+	call CheckPartyMove
+	jr c, .try_next
+	jr .yes
+	
+.try_next	
+	ld d, CUT
+	call CheckPartyCanLearnMove
+	and a
+	jr z, .yes
+	jr .cant_cut
+	
+.yes
+	ld a, BANK(AskCutScript)
+	ld hl, AskCutBushScript
+	call CallScript
+	scf
+	ret
+	
+.cant_cut
+	ld a, BANK(CantCutScript)
+	ld hl, CantCutBushScript
+	call CallScript
+	scf
+	ret
+
+AskCutBushScript:
+	opentext
+	writetext AskCutBushText
+	yesorno
+	iffalse .declined
+	callasm .CheckMap
+	iftrue Script_Cut
+.declined
+	closetext
+	end
+
+.CheckMap:
+	xor a
+	ld [wScriptVar], a
+	call CheckMapForBushToCut
+	ret c
+	ld a, TRUE
+	ld [wScriptVar], a
+	ret
+
+AskCutBushText:
+	text_far _AskCutBushText
+	text_end
+
+CantCutBushScript:
+	jumptext CanCutBushText
+
+CanCutBushText:
+	text_far _CanCutBushText
+	text_end
+
+CheckMapForBushToCut:
+	; Does the collision data of the facing tile permit cutting?
+	call GetFacingTileCoord
+	ld c, a
+	push de
+	farcall CheckBushTile
+	pop de
+	jr nc, .fail
+	; Get the location of the current block in wOverworldMapBlocks.
+	call GetBlockLocation
+	ld c, [hl]
+	; See if that block contains something that can be cut.
+	push hl
+	ld hl, BushBlockPointers
+	call CheckOverworldTileArrays
+	pop hl
+	jr nc, .fail
+	; Save the Cut field move data
+	ld a, l
+	ld [wCutWhirlpoolOverworldBlockAddr], a
+	ld a, h
+	ld [wCutWhirlpoolOverworldBlockAddr + 1], a
+	ld a, b
+	ld [wCutWhirlpoolReplacementBlock], a
+	ld a, c
+	ld [wCutWhirlpoolAnimationType], a
+	xor a
+	ret
+
+.fail
 	scf
 	ret
 
@@ -2162,7 +2256,6 @@ TryCutOW::
 	
 	ld d, CUT
 	call CheckPartyMove
-	;jr c, .cant_cut
 	jr c, .try_next
 	jr .yes
 	

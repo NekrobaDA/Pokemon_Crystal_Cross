@@ -102,8 +102,6 @@ CutTreeBlockPointers:
 	
 .cherry_new
 	db $9c, $9d, 0 ;tree
-	db $e5, $f2, 1 ;bush
-	db -1 ; end
 
 ; these blocks all use COLL_WHIRLPOOL in one quadrant
 WhirlpoolBlockPointers:
@@ -118,6 +116,7 @@ WhirlpoolBlockPointers:
 RockSmashBlockPointers:
 	dbw TILESET_JOHTO_29, .johto_29
 	dbw TILESET_JOHTO_45, .johto_45
+	db -1 ; end
 	
 .johto_29
 	db $73, $53, 0
@@ -131,7 +130,16 @@ RockSmashBlockPointers:
 	
 LogBlockPointers:
 	dbw TILESET_JOHTO_30, .johto_30
+	db -1 ; end
 	
 .johto_30
 	db $b6, $07, 0
+	db -1 ; end
+	
+BushBlockPointers:
+	dbw TILESET_CHERRY_NEW, .cherry_new
+	db -1 ; end
+	
+.cherry_new
+	db $e5, $f2, 1 ;bush
 	db -1 ; end

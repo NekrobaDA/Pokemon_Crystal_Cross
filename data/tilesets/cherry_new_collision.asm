@@ -227,7 +227,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; e2
 	tilecoll WALL, WATER, WATER, WATER ; e3
 	tilecoll WALL, WALL, WALL, FLOOR ; e4
-	tilecoll CUT_TREE, WALL, FLOOR, WALL ; e5
+	tilecoll BUSH, WALL, FLOOR, WALL ; e5
 	tilecoll WALL, WALL, WALL, WALL ; e6
 	tilecoll WALL, WALL, WALL, WALL ; e7
 	tilecoll WALL, WALL, WALL, WALL ; e8

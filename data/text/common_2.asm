@@ -559,6 +559,18 @@ _CanCutText::
 	text "This tree can be"
 	line "CUT!"
 	done
+	
+_AskCutBushText::
+	text "This bush can be"
+	line "CUT!"
+
+	para "Want to use CUT?"
+	done
+
+_CanCutBushText::
+	text "This bush may be"
+	line "able to be cut.."
+	done
 
 _FoundItemText::
 	text "<PLAYER> found"
