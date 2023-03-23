@@ -51,6 +51,7 @@ OutdoorSprites:
 	dw CherrygroveNeoGroupSprites
 	dw UnderwaterGroupSprites
 	dw SecretBaseGroupSprites
+	dw JohtoSafariGroupSprites
 
 ; Route1 and ViridianCity are connected
 ; Route2 and PewterCity are connected
@@ -383,6 +384,7 @@ FastShipGroupSprites:
 	db SPRITE_ZAPDOS
 	db 0 ; end
 
+JohtoSafariGroupSprites:
 CableClubGroupSprites:
 ; (no outdoor maps)
 	; 0 of max 9 walking sprites

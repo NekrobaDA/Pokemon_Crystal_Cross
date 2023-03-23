@@ -440,3 +440,10 @@ SurfColor:
 .kris
 	ret
 	
+SafariID:
+	ld a, [wPlayerID] ;11111111
+	and $0f ; 00001111
+	ld [wScriptVar], a
+	ret
+
+	

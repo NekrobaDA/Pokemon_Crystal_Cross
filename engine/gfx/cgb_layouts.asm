@@ -501,14 +501,14 @@ INCLUDE "gfx/intro/gs_shellder_lapras_ob.pal"
 	ret
 
 _CGB_BetaPoker:
-	ld hl, BetaPokerPals
-	ld de, wBGPals1
-	ld bc, 5 palettes
-	ld a, BANK(wBGPals1)
-	call FarCopyWRAM
-	call ApplyPals
-	call WipeAttrmap
-	call ApplyAttrmap
+;	ld hl, BetaPokerPals
+;	ld de, wBGPals1
+;	ld bc, 5 palettes
+;	ld a, BANK(wBGPals1)
+;	call FarCopyWRAM
+;	call ApplyPals
+;	call WipeAttrmap
+;	call ApplyAttrmap
 	ret
 
 _CGB_Diploma:

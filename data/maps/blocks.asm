@@ -1156,3 +1156,54 @@ RockBase_Blocks:
 	
 BushBase_Blocks:
 	INCBIN "maps/BushBase.ablk"
+
+JohtoSafariGate_Blocks:
+	INCBIN "maps/JohtoSafariGate.ablk"
+	
+JohtoSafariNormal_Blocks:
+	INCBIN "maps/JohtoSafariNormal.ablk"
+	
+JohtoSafariGrass_Blocks:
+	INCBIN "maps/JohtoSafariGrass.ablk"
+	
+JohtoSafariFire_Blocks:
+	INCBIN "maps/JohtoSafariFire.ablk"
+	
+JohtoSafariWater_Blocks:
+	INCBIN "maps/JohtoSafariWater.ablk"
+	
+JohtoSafariBug_Blocks:
+	INCBIN "maps/JohtoSafariBug.ablk"
+	
+JohtoSafariFlying_Blocks:
+	INCBIN "maps/JohtoSafariFlying.ablk"
+	
+JohtoSafariPoison_Blocks:
+	INCBIN "maps/JohtoSafariPoison.ablk"
+	
+JohtoSafariFighting_Blocks:
+	INCBIN "maps/JohtoSafariFighting.ablk"
+	
+JohtoSafariElectric_Blocks:
+	INCBIN "maps/JohtoSafariElectric.ablk"
+	
+JohtoSafariRock_Blocks:
+	INCBIN "maps/JohtoSafariRock.ablk"
+	
+JohtoSafariGround_Blocks:
+	INCBIN "maps/JohtoSafariGround.ablk"
+	
+JohtoSafariPsychic_Blocks:
+	INCBIN "maps/JohtoSafariPsychic.ablk"
+	
+JohtoSafariIce_Blocks:
+	INCBIN "maps/JohtoSafariIce.ablk"
+	
+JohtoSafariDragon_Blocks:
+	INCBIN "maps/JohtoSafariDragon.ablk"
+	
+JohtoSafariGhostSteel_Blocks:
+	INCBIN "maps/JohtoSafariGhostSteel.ablk"
+	
+JohtoSafariDark_Blocks:
+	INCBIN "maps/JohtoSafariDark.ablk"

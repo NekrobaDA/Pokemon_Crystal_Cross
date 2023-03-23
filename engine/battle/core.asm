@@ -6467,7 +6467,25 @@ LoadEnemyMon:
 	jp .UpdateDVs
 
 .GenerateDVs:
+	ld a, [wMapGroup]
+	cp GROUP_JOHTO_SAFARI_GATE
+	jr nz, .nope
 
+	call Random
+	cp 7
+	jr nc, .trynext
+	ld b, ATKDEFDV_SHINY ; $ea
+	ld c, SPDSPCDV_SHINY ; $aa
+	jr .UpdateDVs
+.trynext:
+	call Random
+	cp 7
+	jr nc, .skipshine
+	ld b, ATKDEFDV_SHINYF ; $ea
+	ld c, SPDSPCDV_SHINY ; $aa
+	jr .UpdateDVs
+
+.nope
 ;checkswarm
 	ld hl, wDailyFlags1
 	bit DAILYFLAGS1_SWARM_F, [hl]

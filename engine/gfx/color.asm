@@ -50,29 +50,29 @@ InitPartyMenuPalettes:
 
 ; SGB layout for SCGB_PARTY_MENU_HP_BARS
 SGB_ApplyPartyMenuHPPals:
-	ld hl, wHPPals
-	ld a, [wSGBPals]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld e, l
-	ld d, h
-	ld a, [de]
-	and a
-	ld e, $5
-	jr z, .okay
-	dec a
-	ld e, $a
-	jr z, .okay
-	ld e, $f
-.okay
-	push de
-	ld hl, wSGBPals + 10
-	ld bc, $6
-	ld a, [wSGBPals]
-	call AddNTimes
-	pop de
-	ld [hl], e
+;	ld hl, wHPPals
+;	ld a, [wSGBPals]
+;	ld e, a
+;	ld d, 0
+;	add hl, de
+;	ld e, l
+;	ld d, h
+;	ld a, [de]
+;	and a
+;	ld e, $5
+;	jr z, .okay
+;	dec a
+;	ld e, $a
+;	jr z, .okay
+;	ld e, $f
+;.okay
+;	push de
+;	ld hl, wSGBPals + 10
+;	ld bc, $6
+;	ld a, [wSGBPals]
+;	call AddNTimes
+;	pop de
+;	ld [hl], e
 	ret
 
 Intro_LoadMagikarpPalettes: ; unreferenced
@@ -126,35 +126,35 @@ LoadNthMiddleBGPal:
 	call LoadPalette_White_Col1_Col2_Black
 	ret
 
-LoadBetaPokerPalettes: ; unreferenced
-	ldh a, [hCGB]
-	and a
-	jr nz, .cgb
-	ld hl, wBetaPokerSGBPals
-	jp PushSGBPals
+;LoadBetaPokerPalettes: ; unreferenced
+;	ldh a, [hCGB]
+;	and a
+;	jr nz, .cgb
+;	ld hl, wBetaPokerSGBPals
+;	jp PushSGBPals
 
-.cgb
-	ld a, [wBetaPokerSGBCol]
-	ld c, a
-	ld a, [wBetaPokerSGBRow]
-	hlcoord 0, 0, wAttrmap
-	ld de, SCREEN_WIDTH
-.loop
-	and a
-	jr z, .done
-	add hl, de
-	dec a
-	jr .loop
+;.cgb
+;	ld a, [wBetaPokerSGBCol]
+;	ld c, a
+;	ld a, [wBetaPokerSGBRow]
+;	hlcoord 0, 0, wAttrmap
+;	ld de, SCREEN_WIDTH
+;.loop
+;	and a
+;	jr z, .done
+;	add hl, de
+;	dec a
+;	jr .loop
 
-.done
-	ld b, 0
-	add hl, bc
-	lb bc, 6, 4
-	ld a, [wBetaPokerSGBAttr]
-	and $3
-	call FillBoxCGB
-	call CopyTilemapAtOnce
-	ret
+;.done
+;	ld b, 0
+;	add hl, bc
+;	lb bc, 6, 4
+;	ld a, [wBetaPokerSGBAttr]
+;	and $3
+;	call FillBoxCGB
+;	call CopyTilemapAtOnce
+;	ret
 
 ApplyMonOrTrainerPals:
 	call CheckCGB
@@ -882,53 +882,53 @@ _GetMonPalettePointerDitto:
 	ret
 
 PushSGBPals:
-	ld a, [wJoypadDisable]
-	push af
-	set JOYPAD_DISABLE_SGB_TRANSFER_F, a
-	ld [wJoypadDisable], a
-	call _PushSGBPals
-	pop af
-	ld [wJoypadDisable], a
+;	ld a, [wJoypadDisable]
+;	push af
+;	set JOYPAD_DISABLE_SGB_TRANSFER_F, a
+;	ld [wJoypadDisable], a
+;	call _PushSGBPals
+;	pop af
+;	ld [wJoypadDisable], a
 	ret
 
 _PushSGBPals:
-	ld a, [hl]
-	and $7
-	ret z
-	ld b, a
-.loop
-	push bc
-	xor a
-	ldh [rJOYP], a
-	ld a, $30
-	ldh [rJOYP], a
-	ld b, $10
-.loop2
-	ld e, $8
-	ld a, [hli]
-	ld d, a
-.loop3
-	bit 0, d
-	ld a, $10
-	jr nz, .okay
-	ld a, $20
-.okay
-	ldh [rJOYP], a
-	ld a, $30
-	ldh [rJOYP], a
-	rr d
-	dec e
-	jr nz, .loop3
-	dec b
-	jr nz, .loop2
-	ld a, $20
-	ldh [rJOYP], a
-	ld a, $30
-	ldh [rJOYP], a
-	call SGBDelayCycles
-	pop bc
-	dec b
-	jr nz, .loop
+;	ld a, [hl]
+;	and $7
+;	ret z
+;	ld b, a
+;.loop
+;	push bc
+;	xor a
+;	ldh [rJOYP], a
+;	ld a, $30
+;	ldh [rJOYP], a
+;	ld b, $10
+;.loop2
+;	ld e, $8
+;	ld a, [hli]
+;	ld d, a
+;.loop3
+;	bit 0, d
+;	ld a, $10
+;	jr nz, .okay
+;	ld a, $20
+;.okay
+;	ldh [rJOYP], a
+;	ld a, $30
+;	ldh [rJOYP], a
+;	rr d
+;	dec e
+;	jr nz, .loop3
+;	dec b
+;	jr nz, .loop2
+;	ld a, $20
+;	ldh [rJOYP], a
+;	ld a, $30
+;	ldh [rJOYP], a
+;	call SGBDelayCycles
+;	pop bc
+;	dec b
+;	jr nz, .loop
 	ret
 
 InitSGBBorder:
@@ -936,33 +936,33 @@ InitSGBBorder:
 	ret nz
 
 ; SGB/DMG only
-	di
-	ld a, [wJoypadDisable]
-	push af
-	set JOYPAD_DISABLE_SGB_TRANSFER_F, a
-	ld [wJoypadDisable], a
+;	di
+;	ld a, [wJoypadDisable]
+;	push af
+;	set JOYPAD_DISABLE_SGB_TRANSFER_F, a
+;	ld [wJoypadDisable], a
 
-	xor a
-	ldh [rJOYP], a
-	ldh [hSGB], a
-	call PushSGBBorderPalsAndWait
-	jr nc, .skip
-	ld a, $1
-	ldh [hSGB], a
-	call _InitSGBBorderPals
-	call SGBBorder_PushBGPals
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	call PushSGBBorder
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	ld hl, MaskEnCancelPacket
-	call _PushSGBPals
+;	xor a
+;	ldh [rJOYP], a
+;	ldh [hSGB], a
+;	call PushSGBBorderPalsAndWait
+;	jr nc, .skip
+;	ld a, $1
+;	ldh [hSGB], a
+;	call _InitSGBBorderPals
+;	call SGBBorder_PushBGPals
+;	call SGBDelayCycles
+;	call SGB_ClearVRAM
+;	call PushSGBBorder
+;	call SGBDelayCycles
+;	call SGB_ClearVRAM
+;	ld hl, MaskEnCancelPacket
+;	call _PushSGBPals
 
-.skip
-	pop af
-	ld [wJoypadDisable], a
-	ei
+;.skip
+;	pop af
+;	ld [wJoypadDisable], a
+;	ei
 	ret
 
 InitCGBPals::
@@ -1315,7 +1315,7 @@ LoadMapPals:
 	ld h, 0
 	add hl, hl
 	add hl, hl
-	add hl, hl
+	add hl, hl	
 	ld de, TilesetBGPalette
 	add hl, de
 	ld e, l
@@ -1429,8 +1429,8 @@ INCLUDE "gfx/pokegear/pokegear.pal"
 FemalePokegearPals:
 INCLUDE "gfx/pokegear/pokegear_f.pal"
 
-BetaPokerPals:
-INCLUDE "gfx/beta_poker/beta_poker.pal"
+;BetaPokerPals:
+;INCLUDE "gfx/beta_poker/beta_poker.pal"
 
 SlotMachinePals:
 INCLUDE "gfx/slots/slots.pal"

@@ -184,6 +184,8 @@ SpecialsPointers::
 	add_special UnusedFindItemInPCOrBag
 	add_special SurfColor
 	add_special CherrygroveCafeBerryScript
+	
+	add_special SafariID
 
 	add_special InitialSetDSTFlag
 	add_special InitialClearDSTFlag

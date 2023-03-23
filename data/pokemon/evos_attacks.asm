@@ -1014,7 +1014,7 @@ ArcanineEvosAttacks:
 	db 0 ; no more level-up moves
 
 PoliwagEvosAttacks:
-	dbbw EVOLVE_LEVEL, 25, POLIWHIRL
+	dbbw EVOLVE_LEVEL, 22, POLIWHIRL
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 5, HYPNOSIS
@@ -1022,7 +1022,7 @@ PoliwagEvosAttacks:
 	db 13, WATER_GUN
 	db 17, RAIN_DANCE
 	db 21, SLAM
-	db 25, BUBBLEBEAM
+	db 24, BUBBLEBEAM
 	db 31, MUD_SHOT
 	db 37, BELLY_DRUM
 	db 45, HYDRO_PUMP
@@ -1039,7 +1039,7 @@ PoliwhirlEvosAttacks:
 	db 13, WATER_GUN
 	db 17, RAIN_DANCE
 	db 21, SLAM
-	db 24, BUBBLEBEAM
+	db 27, BUBBLEBEAM
 	db 35, MUD_SHOT
 	db 41, BELLY_DRUM
 	db 48, HYDRO_PUMP

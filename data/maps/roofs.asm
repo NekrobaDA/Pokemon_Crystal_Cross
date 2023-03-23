@@ -58,6 +58,7 @@ MapGroupRoofs:
 	db -1   ; neo cherrygrove
 	db -1	; underwater
 	db -1   ; secret base
+	db -1   ;johto safari
 
 Roofs:
 ; entries correspond to ROOF_* constants

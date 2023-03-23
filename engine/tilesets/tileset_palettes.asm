@@ -28,6 +28,8 @@ LoadSpecialMapPalette:
 	jr z, .mount_mortar
 	cp TILESET_SECRET_BASE
 	jr z, .secret_base
+	cp TILESET_JOHTO_SAFARI
+	jr z, .johto_safari
 	jr .do_nothing
 
 .darkness
@@ -92,10 +94,61 @@ LoadSpecialMapPalette:
 	call LoadSecretBasePalette
 	scf
 	ret
+	
+.johto_safari
+	call LoadSafariPalette
+	scf
+	ret
 
 .do_nothing
 	and a
 	ret
+
+LoadSafariPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	push af
+	ld a, [wTimeOfDay]
+	
+ 	cp EVE_F
+	jr z, .evepal
+
+	cp NITE_F
+	jr z, .nightpal
+
+	cp MORN_F
+	jr z, .mornpal
+	jr .daypal
+
+.evepal
+	ld hl, SafariEvePalette
+	jr .continuepals
+.nightpal
+	ld hl, SafariNightPalette
+	jr .continuepals
+.mornpal
+	ld hl, SafariMornPalette
+	jr .continuepals
+
+.daypal	
+	ld hl, SafariDayPalette
+.continuepals
+	pop af
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	ret
+	
+SafariDayPalette:
+INCLUDE "gfx/tilesets/safari_day.pal"
+
+SafariEvePalette:
+INCLUDE "gfx/tilesets/safari_eve.pal"
+
+SafariMornPalette:
+INCLUDE "gfx/tilesets/safari_morn.pal"
+
+SafariNightPalette:
+INCLUDE "gfx/tilesets/safari_night.pal"
 
 LoadDarknessPalette:
 	ld a, BANK(wBGPals1)

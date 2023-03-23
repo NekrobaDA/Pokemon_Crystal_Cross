@@ -53,7 +53,7 @@
 	RGB 21,21,21, 17,08,07 ; nite
 	RGB 18,16,16, 09,08,08 ; eve
 
-;group 3 (caves)
+; group 3 (caves)
 	RGB 21,21,21, 11,11,11 ; morn/day
 	RGB 21,21,21, 17,08,07 ; nite
 	RGB 18,16,16, 09,08,08 ; eve
@@ -242,3 +242,8 @@
 	RGB 31,14,28, 31,05,21 ; morn/day
 	RGB 14,07,17, 13,00,08 ; nite
 	RGB 25,10,20, 25,03,16 ; eve
+	
+; group 39 (johto safari)
+	RGB 10,27,31, 16,11,31
+	RGB 10,27,31, 16,11,31 ;temp
+	RGB 10,27,31, 16,11,31 ;temp

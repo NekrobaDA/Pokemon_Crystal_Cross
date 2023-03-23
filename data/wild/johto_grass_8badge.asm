@@ -1118,5 +1118,341 @@ JohtoGrassWildMons8Badge:
 	dbw 43, LANTURN
 	dbw 43, CORSOLA
 	dbw 39, DRATINI
+	
+	map_id JOHTO_SAFARI_NORMAL
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, EEVEE
+	dbw 21, FURRET
+	dbw 17, AIPOM     
+	dbw 23, SMEARGLE
+	dbw 18, JIGGLYPUFF 
+	dbw 24, JIGGLYPUFF 
+	dbw 19, AIPOM      
+	dbw 25, SMEARGLE
+	; nite
+	dbw 15, MEOWTH    
+	dbw 21, FURRET
+	dbw 17, TEDDIURSA  
+	dbw 23, SMEARGLE
+	dbw 18, CLEFAIRY
+	dbw 24, CLEFAIRY 
+	dbw 19, TEDDIURSA     
+	dbw 25, SMEARGLE
 
+	map_id JOHTO_SAFARI_GRASS
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, BULBASAUR
+	dbw 21, SKIPLOOM
+	dbw 17, BELLSPROUT
+	dbw 23, SUNFLORA
+	dbw 18, EXEGGCUTE
+	dbw 24, EXEGGCUTE
+	dbw 19, BELLSPROUT
+	dbw 25, SUNFLORA
+	; nite
+	dbw 15, BULBASAUR
+	dbw 21, SKIPLOOM
+	dbw 17, ODDISH     
+	dbw 23, PARASECT   
+	dbw 18, EXEGGCUTE
+	dbw 24, EXEGGCUTE
+	dbw 19, ODDISH    
+	dbw 25, PARASECT  
+
+	map_id JOHTO_SAFARI_FIRE
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, CHARMANDER
+	dbw 21, VULPIX  
+	dbw 17, GROWLITHE 
+	dbw 23, MAGMAR 
+	dbw 18, PONYTA
+	dbw 24, PONYTA   
+	dbw 19, GROWLITHE  
+	dbw 25, MAGMAR 
+	; nite
+	dbw 15, CHARMANDER 
+	dbw 21, VULPIX  
+	dbw 17, HOUNDOUR 
+	dbw 23, MAGMAR  
+	dbw 18, SLUGMA 
+	dbw 24, SLUGMA 
+	dbw 19, HOUNDOUR 
+	dbw 25, MAGMAR
+
+	map_id JOHTO_SAFARI_WATER
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, SQUIRTLE 
+	dbw 21, MARILL 
+	dbw 17, KRABBY
+	dbw 23, CORSOLA
+	dbw 18, PSYDUCK
+	dbw 24, PSYDUCK
+	dbw 19, KRABBY
+	dbw 25, CORSOLA
+	;nite
+	dbw 15, SQUIRTLE 
+	dbw 21, MARILL   
+	dbw 17, KRABBY
+	dbw 23, CORSOLA
+	dbw 18, PSYDUCK
+	dbw 24, PSYDUCK
+	dbw 19, KRABBY
+	dbw 25, CORSOLA
+
+	map_id JOHTO_SAFARI_BUG
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, CATERPIE
+	dbw 21, PINSIR
+	dbw 17, YANMA
+	dbw 23, LEDIAN
+	dbw 18, SCYTHER
+	dbw 24, SCYTHER
+	dbw 19, YANMA
+	dbw 25, LEDIAN
+	; nite
+	dbw 15, WEEDLE
+	dbw 21, PINSIR
+	dbw 17, VENONAT
+	dbw 23, ARIADOS
+	dbw 18, SCYTHER
+	dbw 24, SCYTHER
+	dbw 19, VENONAT
+	dbw 25, ARIADOS
+	
+	map_id JOHTO_SAFARI_FLYING
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, PIDGEY 
+	dbw 21, DODUO
+	dbw 17, SPEAROW 
+	dbw 23, TOGETIC 
+	dbw 18, FARFETCH_D
+	dbw 24, FARFETCH_D
+	dbw 19, SPEAROW
+	dbw 25, TOGETIC  
+	; nite
+	dbw 15, HOOTHOOT
+	dbw 21, DODUO
+	dbw 17, SPEAROW 
+	dbw 23, GOLBAT
+	dbw 18, FARFETCH_D
+	dbw 24, FARFETCH_D
+	dbw 19, SPEAROW
+	dbw 25, GOLBAT
+	
+	map_id JOHTO_SAFARI_POISON
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, NIDORAN_F
+	dbw 21, KOFFING
+	dbw 17, NIDORAN_M
+	dbw 23, ARBOK
+	dbw 18, GRIMER
+	dbw 24, GRIMER
+	dbw 19, NIDORAN_M
+	dbw 25, ARBOK
+	; nite
+	dbw 15, ZUBAT
+	dbw 21, KOFFING
+	dbw 17, SPINARAK
+	dbw 23, ARBOK
+	dbw 18, GRIMER
+	dbw 24, GRIMER
+	dbw 19, SPINARAK
+	dbw 25, ARBOK
+
+	map_id JOHTO_SAFARI_FIGHTING
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, MANKEY
+	dbw 21, TYROGUE
+	dbw 17, MACHOP
+	dbw 23, FARFETCH_D
+	dbw 18, HERACROSS
+	dbw 24, HERACROSS
+	dbw 19, MACHOP
+	dbw 25, FARFETCH_D
+	; nite
+	dbw 15, MANKEY
+	dbw 21, TYROGUE
+	dbw 17, MACHOP
+	dbw 23, POLIWHIRL
+	dbw 18, HERACROSS
+	dbw 24, HERACROSS
+	dbw 19, MACHOP
+	dbw 25, POLIWHIRL
+
+	map_id JOHTO_SAFARI_ELECTRIC
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, MAREEP
+	dbw 21, MAGNEMITE
+	dbw 17, VOLTORB  
+	dbw 23, ELECTABUZZ
+	dbw 18, PIKACHU
+	dbw 24, PIKACHU
+	dbw 19, VOLTORB  
+	dbw 25, ELECTABUZZ
+	; nite
+	dbw 15, MAREEP
+	dbw 21, MAGNEMITE
+	dbw 17, VOLTORB_HISUIAN
+	dbw 23, ELECTABUZZ
+	dbw 18, PIKACHU
+	dbw 24, PIKACHU
+	dbw 19, VOLTORB_HISUIAN
+	dbw 25, ELECTABUZZ
+
+	map_id JOHTO_SAFARI_ROCK
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, SHUCKLE
+	dbw 21, GROWLITHE_HISUIAN
+	dbw 17, RHYHORN
+	dbw 23, SUDOWOODO
+	dbw 18, ONIX
+	dbw 24, ONIX
+	dbw 19, RHYHORN
+	dbw 25, SUDOWOODO
+	; nite
+	dbw 15, SHUCKLE
+	dbw 21, GROWLITHE_HISUIAN
+	dbw 17, RHYHORN
+	dbw 23, SUDOWOODO
+	dbw 18, ONIX
+	dbw 24, ONIX
+	dbw 19, RHYHORN
+	dbw 25, SUDOWOODO
+
+	map_id JOHTO_SAFARI_GROUND
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, GEODUDE 
+	dbw 21, DIGLETT
+	dbw 17, PHANPY   
+	dbw 23, SANDSLASH
+	dbw 18, GLIGAR
+	dbw 24, GLIGAR
+	dbw 19, PHANPY   
+	dbw 25, SANDSLASH
+	; nite
+	dbw 15, GEODUDE  
+	dbw 21, DIGLETT
+	dbw 17, CUBONE
+	dbw 23, SANDSLASH
+	dbw 18, GLIGAR
+	dbw 24, GLIGAR
+	dbw 19, CUBONE
+	dbw 25, SANDSLASH
+
+	map_id JOHTO_SAFARI_PSYCHIC
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, NATU
+	dbw 21, OKAPAKO
+	dbw 17, SLOWPOKE
+	dbw 23, KADABRA
+	dbw 18, WOBBUFFET 
+	dbw 24, WOBBUFFET 
+	dbw 19, SLOWPOKE
+	dbw 25, KADABRA
+	; nite
+	dbw 15, NATU
+	dbw 21, STANTLER
+	dbw 17, SLOWPOKE
+	dbw 23, KADABRA
+	dbw 18, DROWZEE
+	dbw 24, DROWZEE
+	dbw 19, SLOWPOKE
+	dbw 25, KADABRA
+
+	map_id JOHTO_SAFARI_ICE
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, SEEL        
+	dbw 21, SNEASEL
+	dbw 17, SANDSHREW_ALOLAN
+	dbw 23, DELIBIRD
+	dbw 18, SWINUB
+	dbw 24, SWINUB
+	dbw 19, SANDSHREW_ALOLAN
+	dbw 25, DELIBIRD
+	; nite
+	dbw 15, SEEL
+	dbw 21, SNEASEL
+	dbw 17, VULPIX_ALOLAN
+	dbw 23, DELIBIRD
+	dbw 18, SWINUB
+	dbw 24, SWINUB
+	dbw 19, VULPIX_ALOLAN
+	dbw 25, DELIBIRD
+
+	map_id JOHTO_SAFARI_DRAGON
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, CHARMANDER
+	dbw 21, DRATINI
+	dbw 17, FLAAFFY
+	dbw 23, ARBOK_SEVII
+	dbw 18, DUNSPARCE
+	dbw 24, DUNSPARCE
+	dbw 19, FLAAFFY
+	dbw 25, ARBOK_SEVII
+	; nite
+	dbw 15, CHARMANDER
+	dbw 21, DRATINI
+	dbw 17, FLAAFFY
+	dbw 23, ARBOK_SEVII
+	dbw 18, DUNSPARCE
+	dbw 24, DUNSPARCE
+	dbw 19, FLAAFFY
+	dbw 25, ARBOK_SEVII
+	
+	map_id JOHTO_SAFARI_GHOSTSTEEL
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, PINECO
+	dbw 21, MAGNEMITE
+	dbw 17, MISDREAVUS
+	dbw 23, SKARMORY
+	dbw 18, CUBONE 
+	dbw 24, CUBONE
+	dbw 19, MISDREAVUS
+	dbw 25, SKARMORY
+	; nite
+	dbw 15, PINECO
+	dbw 21, MAGNEMITE
+	dbw 17, GASTLY
+	dbw 23, SKARMORY
+	dbw 18, VULPIX
+	dbw 24, VULPIX
+	dbw 19, GASTLY
+	dbw 25, SKARMORY
+
+	map_id JOHTO_SAFARI_DARK
+	db 15 percent, 15 percent
+	; morn
+	dbw 15, LARVITAR
+	dbw 21, SNEASEL
+	dbw 17, HOUNDOUR
+	dbw 23, BELLUNA
+	dbw 18, MURKROW
+	dbw 24, MURKROW
+	dbw 19, HOUNDOUR
+	dbw 25, BELLUNA
+	; nite
+	dbw 15, LARVITAR
+	dbw 21, SNEASEL
+	dbw 17, HOUNDOUR
+	dbw 23, BELLUNA
+	dbw 18, MURKROW
+	dbw 24, MURKROW
+	dbw 19, HOUNDOUR
+	dbw 25, BELLUNA
+	
 	db -1 ; end

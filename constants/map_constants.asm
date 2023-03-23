@@ -606,5 +606,25 @@ ENDM
 	
 	map_const ROCK_BASE,                                    6,  5
 	map_const BUSH_BASE,                                    6,  5
+	
+	newgroup
+	
+	map_const JOHTO_SAFARI_GATE,                            6,  3
+	map_const JOHTO_SAFARI_NORMAL,                         10, 11
+	map_const JOHTO_SAFARI_GRASS,                          10, 11
+	map_const JOHTO_SAFARI_FIRE,                           10, 11
+	map_const JOHTO_SAFARI_WATER,                          10, 11
+	map_const JOHTO_SAFARI_BUG,                            10, 11
+	map_const JOHTO_SAFARI_FLYING,                         10, 11
+	map_const JOHTO_SAFARI_POISON,                         10, 11
+	map_const JOHTO_SAFARI_FIGHTING,                       10, 11
+	map_const JOHTO_SAFARI_ELECTRIC,                       10, 11
+	map_const JOHTO_SAFARI_ROCK,                           10, 11
+	map_const JOHTO_SAFARI_GROUND,                         10, 11
+	map_const JOHTO_SAFARI_PSYCHIC,                        10, 11
+	map_const JOHTO_SAFARI_ICE,                            10, 11
+	map_const JOHTO_SAFARI_DRAGON,                         10, 11
+	map_const JOHTO_SAFARI_GHOSTSTEEL,                     10, 11
+	map_const JOHTO_SAFARI_DARK,                           10, 11
 
 NUM_MAP_GROUPS EQU const_value ; 28

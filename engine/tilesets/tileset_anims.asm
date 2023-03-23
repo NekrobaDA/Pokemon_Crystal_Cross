@@ -272,6 +272,7 @@ TilesetUnderwaterAnim:
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
+TilesetJohtoSafariAnim:
 TilesetSecretBaseAnim:
 TilesetBattleTowerOutsideAnim:
 TilesetHouseAnim:

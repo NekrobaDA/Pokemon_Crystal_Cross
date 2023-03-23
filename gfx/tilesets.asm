@@ -717,3 +717,17 @@ INCLUDE "data/tilesets/secret_base_collision.asm"
 
 TilesetSecretBaseAttr::
 INCBIN "data/tilesets/secret_base_attributes.bin"
+
+SECTION "Tileset Data 30", ROMX
+
+TilesetJohtoSafariGFX::
+INCBIN "gfx/tilesets/johto_safari.2bpp.lz"
+
+TilesetJohtoSafariMeta::
+INCBIN "data/tilesets/johto_safari_metatiles.bin"
+
+TilesetJohtoSafariColl::
+INCLUDE "data/tilesets/johto_safari_collision.asm"
+
+TilesetJohtoSafariAttr::
+INCBIN "data/tilesets/johto_safari_attributes.bin"

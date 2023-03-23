@@ -68,4 +68,5 @@ Tilesets::
 	tileset TilesetCherryFerry
 	tileset TilesetJohto45
 	tileset TilesetSecretBase
+	tileset TilesetJohtoSafari
 	

@@ -242,9 +242,51 @@ JohtoWaterWildMons:
 
 	map_id SILVER_CAVE_OUTSIDE
 	db 2 percent ; encounter rate
-	dbw 35, POLIWHIRL
-	dbw 32, POLIWAG
-	dbw 40, POLIWHIRL
-	dbw 35, POLIWAG
+	dbw 35, POLIWHIRL          ;40
+	dbw 32, POLIWAG            ;30
+	dbw 40, POLIWHIRL          ;20
+	dbw 35, POLIWAG            ;10
+	
+	map_id JOHTO_SAFARI_WATER
+	db 10 percent ; encounter rate
+	dbw 15, GOLDEEN
+	dbw 18, REMORAID
+	dbw 23, CHINCHOU
+	dbw 25, MANTINE
+	
+	map_id JOHTO_SAFARI_POISON
+	db 10 percent ; encounter rate
+	dbw 15, TENTACOOL
+	dbw 18, WOOPER_PALDEAN
+	dbw 23, QWILFISH
+	dbw 25, QWILFISH
+	
+	map_id JOHTO_SAFARI_GROUND
+	db 10 percent ; encounter rate
+	dbw 15, WOOPER_PALDEAN
+	dbw 18, WOOPER
+	dbw 23, WOOPER
+	dbw 25, WOOPER_PALDEAN
+	
+	map_id JOHTO_SAFARI_PSYCHIC
+	db 10 percent ; encounter rate
+	dbw 15, STARYU
+	dbw 18, SLOWPOKE
+	dbw 23, SLOWPOKE
+	dbw 25, STARYU
+	
+	map_id JOHTO_SAFARI_ICE
+	db 10 percent ; encounter rate
+	dbw 15, SHELLDER
+	dbw 18, SEEL
+	dbw 23, LAPRAS
+	dbw 25, LAPRAS
+	
+	map_id JOHTO_SAFARI_DRAGON
+	db 10 percent ; encounter rate
+	dbw 15, MAGIKARP
+	dbw 18, DRATINI
+	dbw 23, SEADRA
+	dbw 25, SEADRA
 
 	db -1 ; end

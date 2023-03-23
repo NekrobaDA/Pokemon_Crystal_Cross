@@ -779,3 +779,20 @@ ENDM
 	map_attributes CherrygroveCafe, CHERRYGROVE_CAFE, $00, 0
 	map_attributes RockBase, ROCK_BASE, $0d, 0
 	map_attributes BushBase, BUSH_BASE, $30, 0
+	map_attributes JohtoSafariGate, JOHTO_SAFARI_GATE, $00, 0
+	map_attributes JohtoSafariNormal, JOHTO_SAFARI_NORMAL, $0d, 0
+	map_attributes JohtoSafariGrass, JOHTO_SAFARI_GRASS, $0d, 0
+	map_attributes JohtoSafariFire, JOHTO_SAFARI_FIRE, $0d, 0
+	map_attributes JohtoSafariWater, JOHTO_SAFARI_WATER, $0d, 0
+	map_attributes JohtoSafariBug, JOHTO_SAFARI_BUG, $0d, 0
+	map_attributes JohtoSafariFlying, JOHTO_SAFARI_FLYING, $0d, 0
+	map_attributes JohtoSafariPoison, JOHTO_SAFARI_POISON, $0d, 0
+	map_attributes JohtoSafariFighting, JOHTO_SAFARI_FIGHTING, $0d, 0
+	map_attributes JohtoSafariElectric, JOHTO_SAFARI_ELECTRIC, $0d, 0
+	map_attributes JohtoSafariRock, JOHTO_SAFARI_ROCK, $0d, 0
+	map_attributes JohtoSafariGround, JOHTO_SAFARI_GROUND, $0d, 0
+	map_attributes JohtoSafariPsychic, JOHTO_SAFARI_PSYCHIC, $0d, 0
+	map_attributes JohtoSafariIce, JOHTO_SAFARI_ICE, $0d, 0
+	map_attributes JohtoSafariDragon, JOHTO_SAFARI_DRAGON, $0d, 0
+	map_attributes JohtoSafariGhostSteel, JOHTO_SAFARI_GHOSTSTEEL, $0d, 0
+	map_attributes JohtoSafariDark, JOHTO_SAFARI_DARK, $0d, 0
