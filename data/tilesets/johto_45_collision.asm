@@ -206,7 +206,7 @@
 	tilecoll WALL, WALL, HEADBUTT_TREE, HEADBUTT_TREE ; cd
 	tilecoll WALL, WALL, HEADBUTT_TREE, WALL ; ce
 	tilecoll FLOOR, TALL_GRASS, FLOOR, TALL_GRASS ; cf
-	tilecoll WALL, FLOOR, WALL, FLOOR ; d0
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; d0
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; d1
 	tilecoll WATER, WATER, WATER, WATER ; d2
 	tilecoll WATER, WATER, WATER, WATER ; d3

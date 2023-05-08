@@ -53,6 +53,7 @@ TypeMatchups:
 	db POISON,       ROCK,         NOT_VERY_EFFECTIVE
 	db POISON,       GHOST,        NOT_VERY_EFFECTIVE
 	db POISON,       STEEL,        NO_EFFECT
+	db POISON,       NORMAL,       SUPER_EFFECTIVE
 	db GROUND,       FIRE,         SUPER_EFFECTIVE
 	db GROUND,       ELECTRIC,     SUPER_EFFECTIVE
 	db GROUND,       GRASS,        NOT_VERY_EFFECTIVE
@@ -101,12 +102,11 @@ TypeMatchups:
 	db STEEL,        ROCK,         SUPER_EFFECTIVE
 	db STEEL,        STEEL,        NOT_VERY_EFFECTIVE
 
-	db -2 ; end (with Foresight)
+	db -3 ; end (with Foresight)
 
 ; Foresight removes Ghost's immunities.
 	db NORMAL,       GHOST,        NO_EFFECT
 	db FIGHTING,     GHOST,        NO_EFFECT
-	
 	db PSYCHIC_TYPE, DARK,         NO_EFFECT 
 
 	db -1 ; end

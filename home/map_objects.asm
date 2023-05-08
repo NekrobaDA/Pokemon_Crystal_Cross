@@ -322,9 +322,9 @@ CheckObjectTime::
 	ret
 
 CopyMapObjectStruct:: ; unreferenced
-	ldh [hMapObjectIndex], a
-	call GetMapObject
-	call CopyObjectStruct
+;	ldh [hMapObjectIndex], a
+;	call GetMapObject
+;	call CopyObjectStruct
 	ret
 
 UnmaskCopyMapObjectStruct::
@@ -566,13 +566,13 @@ _GetMovementByte::
 	ret
 
 SetVramState_Bit0:: ; unreferenced
-	ld hl, wVramState
-	set 0, [hl]
+;	ld hl, wVramState
+;	set 0, [hl]
 	ret
 
 ResetVramState_Bit0:: ; unreferenced
-	ld hl, wVramState
-	res 0, [hl]
+;	ld hl, wVramState
+;	res 0, [hl]
 	ret
 
 UpdateSprites::

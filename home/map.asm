@@ -389,11 +389,11 @@ CheckIndoorMap::
 	ret
 
 CheckUnknownMap:: ; unreferenced
-	cp INDOOR
-	ret z
-	cp GATE
-	ret z
-	cp ENVIRONMENT_5
+;	cp INDOOR
+;	ret z
+;	cp GATE
+;	ret z
+;	cp ENVIRONMENT_5
 	ret
 
 LoadMapAttributes::
@@ -1130,14 +1130,14 @@ ObjectEventText::
 	text_end
 
 BGEvent:: ; unreferenced
-	jumptext BGEventText
+;	jumptext BGEventText
 
 BGEventText::
 	text_far _BGEventText
 	text_end
 
 CoordinatesEvent:: ; unreferenced
-	jumptext CoordinatesEventText
+;	jumptext CoordinatesEventText
 
 CoordinatesEventText::
 	text_far _CoordinatesEventText
@@ -1359,10 +1359,10 @@ UpdateBGMapColumn::
 	ret
 
 ClearBGMapBuffer:: ; unreferenced
-	ld hl, wBGMapBuffer
-	ld bc, wBGMapBufferEnd - wBGMapBuffer
-	xor a
-	call ByteFill
+;	ld hl, wBGMapBuffer
+;	ld bc, wBGMapBufferEnd - wBGMapBuffer
+;	xor a
+;	call ByteFill
 	ret
 
 LoadTilesetGFX::
@@ -2096,10 +2096,10 @@ SwitchToAnyMapAttributesBank::
 	ret
 
 GetMapAttributesBank:: ; unreferenced
-	ld a, [wMapGroup]
-	ld b, a
-	ld a, [wMapNumber]
-	ld c, a
+;	ld a, [wMapGroup]
+;	ld b, a
+;	ld a, [wMapNumber]
+;	ld c, a
 GetAnyMapAttributesBank::
 	push hl
 	push de

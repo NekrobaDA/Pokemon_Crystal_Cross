@@ -285,9 +285,9 @@ Serial_PrintWaitingTextAndSyncAndExchangeNybble::
 	jp SafeLoadTempTilemapToTilemap
 
 Serial_SyncAndExchangeNybble:: ; unreferenced
-	call LoadTilemapToTempTilemap
-	callfar PlaceWaitingText
-	jp WaitLinkTransfer ; pointless
+;	call LoadTilemapToTempTilemap
+;	callfar PlaceWaitingText
+;	jp WaitLinkTransfer ; pointless
 
 WaitLinkTransfer::
 	ld a, $ff

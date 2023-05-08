@@ -61,7 +61,7 @@ CopyTilemapAtOnce::
 	jr _CopyTilemapAtOnce
 
 CopyAttrmapAndTilemapToWRAMBank3: ; unreferenced
-	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
+;	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
 	ret
 
 _CopyTilemapAtOnce:

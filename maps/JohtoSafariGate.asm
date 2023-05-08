@@ -10,8 +10,33 @@ JohtoSafariGateClerkScript:
 	opentext
 	writetext JSGWelcomeText
 	yesorno
-	iffalse .No
+	iftrue .Yes
+.No
+	writetext JSGSeeYouAgainText
+	waitbutton
+	closetext
+	applymovement PLAYER, NoEntryMovement
+	end	
+
 .Yes
+	readvar VAR_PARTYCOUNT
+	ifgreater 1, JohtoSafari_LeaveTheRestBehind
+	special ContestDropOffMons
+	clearevent EVENT_LEFT_MONS_WITH_CONTEST_OFFICER
+	
+JohtoSafari_OkayToProceed
+	;setflag ENGINE_BUG_CONTEST_TIMER
+	special PlayMapMusic
+	writetext JohtoSafariGiveParkBallsText
+	promptbutton
+	writetext JohtoSafariPlayerReceivedParkBallsText
+	playsound SFX_ITEM
+	waitsfx
+	writetext JohtoSafariExplainsRulesText
+	waitbutton
+	closetext
+	special GiveParkBalls
+	
 	writetext JSGHaveFunText
 	closetext
 	applymovement PLAYER, EnterSafariMovement
@@ -96,12 +121,52 @@ JohtoSafariGateClerkScript:
 .Dark
 	warpfacing UP, JOHTO_SAFARI_DARK, 9, 16
 	end
+	
+JohtoSafari_LeaveTheRestBehind:
+	readvar VAR_PARTYCOUNT
+	ifless PARTY_LENGTH, JohtoSafari_LessThanFullParty
+	readvar VAR_BOXSPACE
+	ifequal 0, JohtoSafari_NoRoomInBox
+	
+JohtoSafari_LessThanFullParty:
+	special CheckFirstMonIsEgg
+	ifequal TRUE, JohtoSafari_FirstMonIsEgg
+	writetext JohtoSafariAskToUseFirstMonText
+	yesorno
+	iffalse JohtoSafari_DeclinedToLeaveMonsBehind
+	special ContestDropOffMons
+	iftrue JohtoSafari_FirstMonIsFainted
+	setevent EVENT_LEFT_MONS_WITH_CONTEST_OFFICER
+	writetext JohtoSafariWellHoldYourMonText
+	promptbutton
+	writetext JohtoSafariPlayersMonLeftWithHelperText
+	playsound SFX_GOT_SAFARI_BALLS
+	waitsfx
+	promptbutton
+	sjump JohtoSafari_OkayToProceed
 
-.No
-	writetext JSGSeeYouAgainText
+JohtoSafari_NoRoomInBox:
+	writetext JohtoSafariMakeRoomText
 	waitbutton
 	closetext
-	applymovement PLAYER, NoEntryMovement
+	end
+	
+JohtoSafari_FirstMonIsEgg:
+	writetext JohtoSafariEggAsFirstMonText
+	waitbutton
+	closetext
+	end
+	
+JohtoSafari_DeclinedToLeaveMonsBehind:
+	writetext JohtoSafariChooseMonAndComeBackText
+	waitbutton
+	closetext
+	end
+	
+JohtoSafari_FirstMonIsFainted:
+	writetext JohtoSafariFirstMonCantBattleText
+	waitbutton
+	closetext
 	end
 
 NoEntryMovement:
@@ -133,6 +198,114 @@ JSGHaveFunText:
 
 JSGSeeYouAgainText:
 	text "Come again!"
+	done
+	
+JohtoSafariAskToUseFirstMonText:
+	text "Uh-oh…"
+
+	para "You have more than"
+	line "one #MON."
+
+	para "You'll have to use"
+	line "@"
+	text_ram wStringBuffer3
+	text ", the"
+
+	para "first #MON in"
+	line "your party."
+
+	para "Is that OK with"
+	line "you?"
+	done
+	
+JohtoSafariWellHoldYourMonText:
+	text "Fine, we'll hold"
+	line "your other #MON"
+	cont "while you compete."
+	done
+
+JohtoSafariPlayersMonLeftWithHelperText:
+	text "<PLAYER>'s #MON"
+	line "were left with the"
+	cont "safari warden."
+	done
+
+JohtoSafariChooseMonAndComeBackText:
+	text "Please choose the"
+	line "#MON to be used"
+
+	para "in the safari,"
+	line "then come see me."
+	done
+	
+JohtoSafariFirstMonCantBattleText:
+	text "Uh-oh…"
+	line "The first #MON"
+
+	para "in your party"
+	line "can't battle."
+
+	para "Please switch it"
+	line "with the #MON"
+
+	para "you want to use,"
+	line "then come see me."
+	done
+	
+JohtoSafariMakeRoomText:
+	text "Uh-oh…"
+	line "Both your party"
+
+	para "and your PC BOX"
+	line "are full."
+
+	para "You have no room"
+	line "to put the bug"
+	cont "#MON you catch."
+
+	para "Please make room"
+	line "in your party or"
+
+	para "your PC BOX, then"
+	line "come see me."
+	done
+
+JohtoSafariEggAsFirstMonText:
+	text "Uh-oh…"
+	line "You have an EGG as"
+
+	para "the first #MON"
+	line "in your party."
+
+	para "Please switch it"
+	line "with the #MON"
+
+	para "you want to use,"
+	line "then come see me."
+	done
+	
+JohtoSafariExplainsRulesText:
+	text "You have 20"
+	line "minutes."
+
+	para "If you run out of"
+	line "PARK BALLS, you're"
+	cont "done."
+
+	para "You can keep the"
+	line "last #MON you"
+	cont "catch as your own."
+	done
+	
+JohtoSafariGiveParkBallsText:
+	text "Here are the PARK"
+	line "BALLS for the"
+	cont "Contest."
+	done
+
+JohtoSafariPlayerReceivedParkBallsText:
+	text "<PLAYER> received"
+	line "20 PARK BALLS."
 	done
 	
 JohtoSafariGate_MapEvents:

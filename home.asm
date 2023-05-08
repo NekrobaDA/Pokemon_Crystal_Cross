@@ -66,3 +66,5 @@ INCLUDE "home/mobile.asm"
 INCLUDE "home/indirection.asm"
 INCLUDE "home/16bit.asm"
 INCLUDE "home/powder_moves.asm"
+INCLUDE "home/eq_exceptions.asm"
+

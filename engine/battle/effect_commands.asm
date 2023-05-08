@@ -1575,6 +1575,9 @@ BattleCommand_DamageVariation:
 
 BattleCommand_CheckHit:
 ; checkhit
+	call EarthquakeMiss
+	cp 0
+	jp z, .Miss
 
 	call .DreamEater
 	jp z, .Miss
@@ -2366,9 +2369,12 @@ GetFailureResultText:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	;cp EFFECT_FUTURE_SIGHT
-	;ld hl, ButItFailedText
-	;ld de, ItFailedText
-	;jr z, .got_text
+	cp EFFECT_EARTHQUAKE
+	ld hl, ButItFailedText
+	ld de, ItFailedText
+	jr z, .got_text
+	cp EFFECT_MAGNITUDE
+	jr z, .got_text
 	ld hl, AttackMissedText
 	ld de, AttackMissed2Text
 	ld a, [wCriticalHit]

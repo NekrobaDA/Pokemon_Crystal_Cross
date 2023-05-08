@@ -1,3 +1,5 @@
+;Do not remove unref'd stuff in this file, breaks stuff
+
 Load2DMenuData::
 	push hl
 	push bc
@@ -424,6 +426,7 @@ PlaceYesNoBox::
 PlaceGenericTwoOptionBox:: ; unreferenced
 	call LoadMenuHeader
 	jr InterpretTwoOptionMenu
+;	ret
 
 _YesNoBox::
 ; Return nc (yes) or c (no).
