@@ -6303,7 +6303,32 @@ INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
 BattleCommand_Recoil:
 ; recoil
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .check_player_type
 
+.check_enemy_type
+	ld hl, wEnemyMonType1
+	ld a, [hli]
+	cp ROCK
+	ret z
+.next_enemy_type
+	ld a, [hl]
+	cp ROCK
+	ret z
+	jr .do_hp
+
+.check_player_type	
+	ld hl, wBattleMonType1
+	ld a, [hli]
+	cp ROCK
+	ret z
+.next_type
+	ld a, [hl]
+	cp ROCK
+	ret z
+
+.do_hp
 	ld hl, wBattleMonMaxHP
 	ldh a, [hBattleTurn]
 	and a
