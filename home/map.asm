@@ -2325,9 +2325,9 @@ LoadMapTileset::
 
 DummyEndPredef::
 ; Unused function at the end of PredefPointers.
-rept 16
-	nop
-endr
+;rept 16
+;	nop
+;endr
 	ret
 	
 ChangeMusicIfNight::

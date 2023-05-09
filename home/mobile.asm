@@ -51,21 +51,21 @@ Function3e60::
 	ret
 
 MobileReceive::
-	ldh a, [hROMBank]
-	push af
-	ld a, BANK(_MobileReceive)
-	ld [$c981], a
-	rst Bankswitch
+;	ldh a, [hROMBank]
+;	push af
+;	ld a, BANK(_MobileReceive)
+;	ld [$c981], a
+;	rst Bankswitch
 
-	call _MobileReceive
-	pop bc
-	ld a, b
-	ld [$c981], a
-	rst Bankswitch
+;	call _MobileReceive
+;	pop bc
+;	ld a, b
+;	ld [$c981], a
+;	rst Bankswitch
 
 	ret
 
-MobileTimer::
+MobileTimer::  ;deleting this breaks things
 	push af
 	push bc
 	push de
@@ -165,16 +165,16 @@ Function3f35::
 	ret
 
 MobileHome_PlaceBox:
-	push bc
-	call .FillTop
-	pop bc
-.RowLoop:
-	push bc
-	call .FillMiddle
-	pop bc
-	dec b
-	jr nz, .RowLoop
-	call .FillBottom
+;	push bc
+;	call .FillTop
+;	pop bc
+;.RowLoop:
+;	push bc
+;	call .FillMiddle
+;	pop bc
+;	dec b
+;	jr nz, .RowLoop
+;	call .FillBottom
 	ret
 
 .FillTop:

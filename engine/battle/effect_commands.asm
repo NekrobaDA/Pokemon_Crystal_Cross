@@ -1323,7 +1323,8 @@ BattleCommand_Stab:
 	jr z, .end
 
 	; foresight
-	cp -2
+	;cp -2
+	cp -3
 	jr nz, .SkipForesightCheck
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
@@ -2488,6 +2489,28 @@ BattleCommand_SuperEffectiveLoopText:
 BattleCommand_SuperEffectiveText:
 ; supereffectivetext
 
+	call GustMovesArray
+	jr nc, .skip
+
+; If the opponent is Fire-type, the move is SE
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .CheckFireType
+	ld hl, wBattleMonType1
+
+.CheckFireType:
+	ld a, [hli]
+	cp FIRE
+	jr z, .SuperEffective
+	ld a, [hl]
+	cp FIRE
+	jr nz, .skip
+.SuperEffective
+	ld hl, SuperEffectiveText
+	jr .print
+
+.skip
 	ld a, [wTypeModifier]
 	and $7f
 	cp 10 ; 1.0
@@ -2585,16 +2608,43 @@ BattleCommand_CheckFaint:
 .finish
 	jp EndMoveEffect
 
-BattleCommand_BuildOpponentRage:
+BattleCommand_BuildOpponentRage: ;hijacked for other stuff too
 ; buildopponentrage
 
-	jp .start
+	jp .start  ;what?
 
 .start
 	ld a, [wAttackMissed]
 	and a
 	ret nz
 
+	call GustMovesArray
+	jr nc, .continuerage
+	
+	; If the opponent is Fire-type, boost opp sp atk
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .CheckFireType
+	ld hl, wBattleMonType1
+
+.CheckFireType:
+	ld a, [hli]
+	cp FIRE
+	jr z, .boostspecial
+	ld a, [hl]
+	cp FIRE
+	jr nz, .continuerage
+	
+.boostspecial
+	call BattleCommand_SwitchTurn
+	ld a, 2
+	ld [wc708], a                       ;effectfailed bypass
+	call BattleCommand_SpecialAttackUp
+	call BattleCommand_StatUpMessage
+	call BattleCommand_SwitchTurn
+	
+.continuerage
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
 	call GetBattleVar
 	bit SUBSTATUS_RAGE, a
@@ -3447,6 +3497,7 @@ BattleCommand_DamageCalc:
 .DoneItem:
 ; Critical hits
 	call .CriticalMultiplier
+	call GustMovesMultiplier
 
 ; Update wCurDamage. Max 999 (capped at 997, then add 2).
 MAX_DAMAGE EQU 999
@@ -4607,9 +4658,13 @@ RaiseStat:
 	ld a, [wAttackMissed]
 	and a
 	jp nz, .stat_raise_failed
+	ld a, [wc708]
+	cp 2
+	jr z, .skipeffectchance
 	ld a, [wEffectFailed]
 	and a
 	jp nz, .stat_raise_failed
+.skipeffectchance
 	ld a, [wLoweredStat]
 	and $f
 	ld c, a
@@ -7252,9 +7307,10 @@ INCLUDE "engine/battle/move_effects/thunder.asm"
 
 CheckHiddenOpponent:
 ; BUG: This routine is completely redundant and introduces a bug, since BattleCommand_CheckHit does these checks properly.
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+;	ld a, BATTLE_VARS_SUBSTATUS3_OPP
+;	call GetBattleVar
+;	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	xor a
 	ret
 
 GetUserItem:
@@ -7521,10 +7577,7 @@ SandstormSpDefBoost:
 BattleCommand_CheckPowder:
 ; Checks if the move is powder/spore-based and 
 ; if the opponent is Grass-type
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-	ld hl, PowderMoves
-	call IsInByteArray
+	call PowderMovesArray
 	ret nc
 
 ; If the opponent is Grass-type, the move fails.
