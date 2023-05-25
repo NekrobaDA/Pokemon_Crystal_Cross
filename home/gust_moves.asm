@@ -48,3 +48,10 @@ GustMovesArray::
 	ld hl, GustMoves
 	call IsInByteArray
 	ret
+	
+IsElectricMove::
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVarAddr
+	and TYPE_MASK
+	cp ELECTRIC
+	ret

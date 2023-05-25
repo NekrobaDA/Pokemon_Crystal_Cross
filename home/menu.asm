@@ -833,8 +833,8 @@ InterpretBattleMenu::
 	ret
 
 InterpretMobileMenu:: ; unreferenced
-	ldh a, [hROMBank]
-	ld [wMenuData_2DMenuItemStringsBank], a
-	farcall _InterpretMobileMenu
-	ld a, [wMenuCursorPosition]
+;	ldh a, [hROMBank]
+;	ld [wMenuData_2DMenuItemStringsBank], a
+;	farcall _InterpretMobileMenu
+;	ld a, [wMenuCursorPosition]
 	ret

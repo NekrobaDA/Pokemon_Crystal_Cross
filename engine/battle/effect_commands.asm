@@ -2618,6 +2618,27 @@ BattleCommand_BuildOpponentRage: ;hijacked for other stuff too
 	and a
 	ret nz
 
+	call IsElectricMove
+	jr nz, .checkgust
+	
+	; If the opponent is Electric-type, boost opp sp atk
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .CheckElecType
+	ld hl, wBattleMonType1
+	
+.CheckElecType:
+	ld a, [hli]
+	cp ELECTRIC
+	jr z, .boostspecial
+	ld a, [hl]
+	cp ELECTRIC
+	jr nz, .continuerage
+	
+	jr .boostspecial
+
+.checkgust
 	call GustMovesArray
 	jr nc, .continuerage
 	
@@ -5101,10 +5122,10 @@ BattleCommand_StatDown:
 	ret
 
 .Mist:
-	ld a, 2
-	ld [wFailedMessage], a
-	ld a, 1
-	ld [wAttackMissed], a
+;	ld a, 2
+;	ld [wFailedMessage], a
+;	ld a, 1
+;	ld [wAttackMissed], a
 	ret
 
 CheckMist:
@@ -7575,27 +7596,5 @@ SandstormSpDefBoost:
 	ret
 	
 BattleCommand_CheckPowder:
-; Checks if the move is powder/spore-based and 
-; if the opponent is Grass-type
-	call PowderMovesArray
-	ret nc
-
-; If the opponent is Grass-type, the move fails.
-	ld hl, wEnemyMonType1
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .CheckGrassType
-	ld hl, wBattleMonType1
-
-.CheckGrassType:
-	ld a, [hli]
-	cp GRASS
-	jr z, .Immune
-	ld a, [hl]
-	cp GRASS
-	ret nz
-	;fallthrough
-.Immune:
-	ld a, 1
-	ld [wAttackMissed], a
+	call BattleCommand_CheckPowder2
 	ret	

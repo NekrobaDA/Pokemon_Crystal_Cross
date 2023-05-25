@@ -255,10 +255,11 @@ ENDM
 	jp NextChar
 
 MobileScriptChar::
-	ld c, l
-	ld b, h
-	farcall RunMobileScript
-	jp PlaceNextChar
+;	ld c, l
+;	ld b, h
+;	farcall RunMobileScript
+;	jp PlaceNextChar
+	ret
 
 print_name: MACRO
 	push de
