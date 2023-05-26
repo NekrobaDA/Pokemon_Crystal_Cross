@@ -1576,6 +1576,26 @@ BattleCommand_DamageVariation:
 
 BattleCommand_CheckHit:
 ; checkhit
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp THUNDER_WAVE
+	jr nz, .skipcheck
+	
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .checkopptype
+	ld hl, wBattleMonType1
+	
+.checkopptype
+	ld a, [hli]
+	cp ELECTRIC
+	jp z, .Miss
+	ld a, [hl]
+	cp ELECTRIC
+	jp z, .Miss
+
+.skipcheck
 	call EarthquakeMiss
 	cp 0
 	jp z, .Miss
@@ -2375,6 +2395,10 @@ GetFailureResultText:
 	ld de, ItFailedText
 	jr z, .got_text
 	cp EFFECT_MAGNITUDE
+	jr z, .got_text
+	ld a, BATTLE_VARS_MOVE
+	call GetBattleVar
+	cp THUNDER_WAVE
 	jr z, .got_text
 	ld hl, AttackMissedText
 	ld de, AttackMissed2Text
@@ -5010,8 +5034,8 @@ BattleCommand_StatDown:
 
 	ld [wLoweredStat], a
 
-	call CheckMist
-	jp nz, .Mist
+;	call CheckMist
+;	jp nz, .Mist
 
 	ld hl, wEnemyStatLevels
 	ldh a, [hBattleTurn]
@@ -5121,35 +5145,35 @@ BattleCommand_StatDown:
 	ld [wAttackMissed], a
 	ret
 
-.Mist:
+;.Mist:
 ;	ld a, 2
 ;	ld [wFailedMessage], a
 ;	ld a, 1
 ;	ld [wAttackMissed], a
-	ret
+;	ret
 
-CheckMist:
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_ATTACK_DOWN
-	jr c, .dont_check_mist
-	cp EFFECT_EVASION_DOWN + 1
-	jr c, .check_mist
-	cp EFFECT_ATTACK_DOWN_2
-	jr c, .dont_check_mist
-	cp EFFECT_ATTACK_DOWN_HIT
-	jr c, .dont_check_mist
-	cp EFFECT_EVASION_DOWN_HIT + 1
-	jr c, .check_mist
-.dont_check_mist
-	xor a
-	ret
+;CheckMist:
+;	ld a, BATTLE_VARS_MOVE_EFFECT
+;	call GetBattleVar
+;	cp EFFECT_ATTACK_DOWN
+;	jr c, .dont_check_mist
+;	cp EFFECT_EVASION_DOWN + 1
+;	jr c, .check_mist
+;	cp EFFECT_ATTACK_DOWN_2
+;	jr c, .dont_check_mist
+;	cp EFFECT_ATTACK_DOWN_HIT
+;	jr c, .dont_check_mist
+;	cp EFFECT_EVASION_DOWN_HIT + 1
+;	jr c, .check_mist
+;.dont_check_mist
+;	xor a
+;	ret
 
-.check_mist
-	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVar
-	bit SUBSTATUS_MIST, a
-	ret
+;.check_mist
+;	ld a, BATTLE_VARS_SUBSTATUS4_OPP
+;	call GetBattleVar
+;	bit SUBSTATUS_MIST, a
+;	ret
 
 BattleCommand_StatUpMessage:
 	ld a, [wFailedMessage]
