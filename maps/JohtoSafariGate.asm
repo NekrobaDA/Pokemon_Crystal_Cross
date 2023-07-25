@@ -19,10 +19,10 @@ JohtoSafariGateClerkScript:
 	end	
 
 .Yes
-	readvar VAR_PARTYCOUNT
-	ifgreater 1, JohtoSafari_LeaveTheRestBehind
-	special ContestDropOffMons
-	clearevent EVENT_LEFT_MONS_WITH_CONTEST_OFFICER
+	;readvar VAR_PARTYCOUNT
+	;ifgreater 1, JohtoSafari_LeaveTheRestBehind
+	;special ContestDropOffMons
+	;clearevent EVENT_LEFT_MONS_WITH_CONTEST_OFFICER
 	
 JohtoSafari_OkayToProceed
 	;setflag ENGINE_BUG_CONTEST_TIMER

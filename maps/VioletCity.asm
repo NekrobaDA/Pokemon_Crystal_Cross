@@ -289,7 +289,9 @@ VioletCity_MapEvents:
 	warp_event 17, 17, SPROUT_TOWER_1F, 1
 	warp_event 39, 24, ROUTE_31_VIOLET_GATE, 1
 	warp_event 39, 25, ROUTE_31_VIOLET_GATE, 2
-
+	warp_event  5,  8, ROUTE_36, 5
+	warp_event  5,  9, ROUTE_36, 6
+	
 	def_coord_events
 
 	def_bg_events
