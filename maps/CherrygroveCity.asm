@@ -30,7 +30,7 @@ CherrygroveCity_MapScripts:
 	scene_script .DummyScene1 ; SCENE_CHERRYGROVECITY_MEET_RIVAL
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, .ResetExitscene
+	;callback MAPCALLBACK_NEWMAP, .ResetExitscene ;breaks rival battle, does not appear
 	callback MAPCALLBACK_NEWMAP, .FlyPointandDive
 
 .FlyPointandDive:
@@ -172,16 +172,16 @@ CherrygroveCityGuideGent:
 	end
 
 CherrygroveSilverSceneSouth:
-	checkevent EVENT_RIVAL_CHERRYGROVE_CITY
-	iffalse EndScene
-	checkevent EVENT_BEAT_RIVAL_CHERRYGROVE
-	iftrue EndScene
+	;checkevent EVENT_RIVAL_CHERRYGROVE_CITY
+	;iffalse EndScene
+	;checkevent EVENT_BEAT_RIVAL_CHERRYGROVE
+	;iftrue EndScene
 	moveobject CHERRYGROVECITY_SILVER, 47, 9
 CherrygroveSilverSceneNorth:
-	checkevent EVENT_RIVAL_CHERRYGROVE_CITY
-	iffalse EndScene
-	checkevent EVENT_BEAT_RIVAL_CHERRYGROVE
-	iftrue EndScene
+	;checkevent EVENT_RIVAL_CHERRYGROVE_CITY
+	;iffalse EndScene
+	;checkevent EVENT_BEAT_RIVAL_CHERRYGROVE
+	;iftrue EndScene
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -718,7 +718,7 @@ CherrygroveCity_MapEvents:
 	object_event 25,  9, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
 	object_event 24,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
 	object_event 11, 20, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
-	object_event 33, 11, SPRITE_BIKER, SPRITEMOVEDATA_WALK_UP_DOWN, 4, 0, -1, -1, 0, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, BikerGuyScript, -1
+	object_event 33, 11, SPRITE_BIKER, SPRITEMOVEDATA_WALK_UP_DOWN, 2, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, BikerGuyScript, -1
 	object_event 28, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree1, -1
 	object_event 26, 33, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree2, -1
 	object_event 35, 30, SPRITE_CHERRY_0, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFruitTree3, -1

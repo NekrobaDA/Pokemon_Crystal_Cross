@@ -555,7 +555,7 @@ MartUnderground:
 	
 MartCatallia:
 	db 4 ; # items
-	db POTION
+	db RARE_CANDY
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
@@ -569,7 +569,7 @@ MartCatalliaDex:
 	db SWIFT_BOOTS
 	db LIGHT_ARMOR
 	db PSY_SHIELD
-	db PECHA_BERRY
+	db RARE_CANDY
 	db PERSIM_BERRY
 	db CHESTO_BERRY
 	db CHERI_BERRY
