@@ -7197,8 +7197,8 @@ INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 
 BattleCommand_HealMorn:
 ; healmorn
-	ld b, MORN_F
-	push bc
+	ld a, MORN_F
+	ld [wc708], a
 	ld b, DAY_F
 	jr BattleCommand_TimeBasedHealContinue
 
@@ -7209,8 +7209,8 @@ BattleCommand_HealDay:
 
 BattleCommand_HealNite:
 ; healnite
-	ld b, NITE_F
-	push bc
+	ld a, NITE_F
+	ld [wc708], a
 	ld b, EVE_F
 	; fallthrough
 
@@ -7244,7 +7244,9 @@ BattleCommand_TimeBasedHealContinue:
 	ld a, [wTimeOfDay]
 	cp b
 	jr z, .Weather
-	pop bc
+	ld a, [wc708]
+	ld b, a
+	ld a, [wTimeOfDay]
 	cp b
 	jr z, .Weather
 	dec c
