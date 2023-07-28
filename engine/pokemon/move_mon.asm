@@ -1515,7 +1515,7 @@ CalcMonStatC:
 	jr z, .Special
 ; DV_HP = (DV_ATK & 1) << 3 | (DV_DEF & 1) << 2 | (DV_SPD & 1) << 1 | (DV_SPC & 1)
 	push bc
-	ld a, 15
+	ld a, 240
 	swap a
 	and 1
 	add a
@@ -1528,7 +1528,7 @@ CalcMonStatC:
 	add a
 	add b
 	ld b, a
-	ld a, 15
+	ld a, 240
 	swap a
 	and 1
 	add a
@@ -1541,7 +1541,7 @@ CalcMonStatC:
 	jr .GotDV
 
 .Attack:
-	ld a, 15
+	ld a, 240
 	swap a
 	and $f
 	jr .GotDV
@@ -1553,7 +1553,7 @@ CalcMonStatC:
 
 .Speed:
 	inc hl
-	ld a, 15
+	ld a, 240
 	swap a
 	and $f
 	jr .GotDV

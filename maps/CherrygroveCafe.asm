@@ -195,6 +195,11 @@ CherrygroveCafeClerkScript:
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -205,6 +210,11 @@ CherrygroveCafeClerkScript:
 .ChestoChestoPurpleJuice
 	checkitem CHESTO_BERRY, 2
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -217,6 +227,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -231,6 +246,11 @@ CherrygroveCafeClerkScript:
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -241,6 +261,11 @@ CherrygroveCafeClerkScript:
 .CheriCheriRedJuice
 	checkitem CHERI_BERRY, 2
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -254,6 +279,11 @@ CherrygroveCafeClerkScript:
 	checkitem LEPPA_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -265,6 +295,11 @@ CherrygroveCafeClerkScript:
 	checkitem LEPPA_BERRY, 2
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -274,6 +309,11 @@ CherrygroveCafeClerkScript:
 .AspearAspearYellowJuice
 	checkitem ASPEAR_BERRY, 2
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -287,6 +327,11 @@ CherrygroveCafeClerkScript:
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -298,6 +343,11 @@ CherrygroveCafeClerkScript:
 	checkitem SITRUS_BERRY, 2
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -307,6 +357,11 @@ CherrygroveCafeClerkScript:
 .PechaPechaPinkJuice
 	checkitem PECHA_BERRY, 2
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -320,6 +375,11 @@ CherrygroveCafeClerkScript:
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -330,6 +390,11 @@ CherrygroveCafeClerkScript:
 .PersimPersimPinkJuice
 	checkitem PERSIM_BERRY, 2
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -342,6 +407,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -356,6 +426,11 @@ CherrygroveCafeClerkScript:
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -366,6 +441,11 @@ CherrygroveCafeClerkScript:
 .OranOranBlueJuice
 	checkitem ORAN_BERRY, 2
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -379,6 +459,11 @@ CherrygroveCafeClerkScript:
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -389,6 +474,11 @@ CherrygroveCafeClerkScript:
 .RawstRawstBlueJuice
 	checkitem RAWST_BERRY, 2
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbejuiceprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -401,6 +491,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbesodaprice
+	yesorno
+	iffalse CancelScriptCC
 
 	checkmoney YOUR_MONEY, SODA_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -415,6 +510,11 @@ CherrygroveCafeClerkScript:
 	checkitem CHERI_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -427,6 +527,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem CHESTO_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -441,6 +546,11 @@ CherrygroveCafeClerkScript:
 	checkitem LEPPA_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -453,6 +563,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -467,6 +582,11 @@ CherrygroveCafeClerkScript:
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -479,6 +599,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -493,6 +618,11 @@ CherrygroveCafeClerkScript:
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -505,6 +635,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -519,6 +654,11 @@ CherrygroveCafeClerkScript:
 	checkitem CHESTO_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -531,6 +671,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -545,6 +690,11 @@ CherrygroveCafeClerkScript:
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -557,6 +707,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -571,6 +726,11 @@ CherrygroveCafeClerkScript:
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -583,6 +743,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -597,6 +762,11 @@ CherrygroveCafeClerkScript:
 	checkitem LEPPA_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -609,6 +779,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -623,6 +798,11 @@ CherrygroveCafeClerkScript:
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -635,6 +815,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -649,6 +834,11 @@ CherrygroveCafeClerkScript:
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -661,6 +851,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -675,6 +870,11 @@ CherrygroveCafeClerkScript:
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -687,6 +887,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -701,6 +906,11 @@ CherrygroveCafeClerkScript:
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -713,6 +923,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -727,6 +942,11 @@ CherrygroveCafeClerkScript:
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -740,6 +960,11 @@ CherrygroveCafeClerkScript:
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -750,6 +975,11 @@ CherrygroveCafeClerkScript:
 .LumLumPrismShake
 	checkitem LUM_BERRY, 2
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -762,6 +992,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -776,6 +1011,11 @@ CherrygroveCafeClerkScript:
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -788,6 +1028,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -802,6 +1047,11 @@ CherrygroveCafeClerkScript:
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeberryjuiceprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -814,6 +1064,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -828,6 +1083,11 @@ CherrygroveCafeClerkScript:
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -840,6 +1100,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -854,6 +1119,11 @@ CherrygroveCafeClerkScript:
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
+	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
@@ -866,6 +1136,11 @@ CherrygroveCafeClerkScript:
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbeshakeprice
+	yesorno
+	iffalse CancelScriptCC
 	
 	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
@@ -1021,6 +1296,26 @@ CCWelcomeText:
 	
 	para "to use to mix"
 	line "a drink today?"
+	done
+
+willbeberryjuiceprice:
+	text "That will be ¥800."
+	line "Is that okay?"
+	done
+
+willbejuiceprice:
+	text "That will be ¥400."
+	line "Is that okay?"
+	done
+	
+willbesodaprice:
+	text "That will be ¥20000."
+	line "Is that okay?"
+	done
+
+willbeshakeprice:
+	text "That will be ¥1000."
+	line "Is that okay?"
 	done
 	
 ComeAgainScriptCC2:
