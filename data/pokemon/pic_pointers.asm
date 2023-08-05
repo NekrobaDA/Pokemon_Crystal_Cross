@@ -104,6 +104,8 @@ PokemonPicPointers::
 	dba GloomBackpic
 	dba VileplumeFrontpic
 	dba VileplumeBackpic
+	dba BellossomFrontpic
+	dba BellossomBackpic
 	dba ParasFrontpic
 	dba ParasBackpic
 	dba ParasectFrontpic
@@ -258,6 +260,8 @@ PokemonPicPointers::
 	dba ChanseyBackpic
 	dba BlisseyFrontpic
 	dba BlisseyBackpic
+	dba TangelaFrontpic
+	dba TangelaBackpic
 	dba KangaskidFrontpic
 	dba KangaskidBackpic
 	dba KangaskhanFrontpic
@@ -338,6 +342,8 @@ PokemonPicPointers::
 	dba KabutoBackpic
 	dba KabutopsFrontpic
 	dba KabutopsBackpic
+	dba AerodonFrontpic
+	dba AerodonBackpic
 	dba AerodactylFrontpic
 	dba AerodactylBackpic
 	dba MunchlaxFrontpic
@@ -629,3 +635,17 @@ PokemonPicPointers::
 	dba StaraviaBackpic
 	dba StaraptorFrontpic
 	dba StaraptorBackpic
+	dba SuicudraxFrontpic
+	dba SuicudraxBackpic
+	dba RaiensuiFrontpic
+	dba RaiensuiBackpic
+	dba Omastar_FossilFrontpic
+	dba Omastar_FossilBackpic
+	dba Kabutops_FossilFrontpic
+	dba Kabutops_FossilBackpic
+	dba Aerodactyl_FossilFrontpic
+	dba Aerodactyl_FossilBackpic
+	dba MissingnoFrontpic
+	dba MissingnoBackpic
+	dba Charizard_MFrontpic
+	dba Charizard_MBackpic

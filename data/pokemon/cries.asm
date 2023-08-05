@@ -52,6 +52,7 @@ PokemonCries::
 	mon_cry CRY_ODDISH,      221,  129 ; ODDISH
 	mon_cry CRY_ODDISH,      170,  192 ; GLOOM
 	mon_cry CRY_VILEPLUME,    34,  383 ; VILEPLUME
+	mon_cry CRY_CLEFFA,      132,  336 ; BELLOSSOM
 	mon_cry CRY_PARAS,        32,  352 ; PARAS
 	mon_cry CRY_PARAS,        66,  383 ; PARASECT
 	mon_cry CRY_VENONAT,      68,  192 ; VENONAT
@@ -129,6 +130,7 @@ PokemonCries::
 	mon_cry CRY_PIDGEOTTO,    10,  320 ; HAPPINY
 	mon_cry CRY_PIDGEOTTO,    10,  320 ; CHANSEY
 	mon_cry CRY_SLOWKING,    659,  320 ; BLISSEY
+	mon_cry CRY_GOLEM,         0,  256 ; TANGELA
 	mon_cry CRY_KANGASKHAN,    0,  256 ; KANGASKID
 	mon_cry CRY_KANGASKHAN,    0,  256 ; KANGASKHAN
 	mon_cry CRY_CLEFAIRY,    153,  144 ; HORSEA
@@ -169,6 +171,7 @@ PokemonCries::
 	mon_cry CRY_GROWLITHE,   255,  192 ; OMASTAR
 	mon_cry CRY_CATERPIE,    187,  192 ; KABUTO
 	mon_cry CRY_FEAROW,      238,  129 ; KABUTOPS
+	mon_cry CRY_VILEPLUME,    32,  368 ; AERODON
 	mon_cry CRY_VILEPLUME,    32,  368 ; AERODACTYL
 	mon_cry CRY_GRIMER,       85,  129 ; MUNCHLAX
 	mon_cry CRY_GRIMER,       85,  129 ; SNORLAX
@@ -314,3 +317,10 @@ PokemonCries::
 	mon_cry CRY_PIDGEY,      223,  132 ; STARLY
 	mon_cry CRY_PIDGEOTTO,    40,  320 ; STARAVIA
 	mon_cry CRY_PIDGEOTTO,    17,  383 ; STARAPTOR
+	mon_cry CRY_MAGCARGO,      0,  384 ; SUICUNE
+	mon_cry CRY_MAGCARGO,      0,  384 ; SUICUNE
+	mon_cry CRY_GROWLITHE,   255,  192 ; OMASTAR
+	mon_cry CRY_FEAROW,      238,  129 ; KABUTOPS
+	mon_cry CRY_VILEPLUME,    32,  368 ; AERODACTYL
+	mon_cry CRY_FEAROW,      255,  256 ; ZAPDOS
+	mon_cry CRY_CHARMANDER,    0,  256 ; CHARIZARD

@@ -46,6 +46,7 @@ EvolutionMoves::
 	db NO_MOVE ; Oddish
 	db NO_MOVE ; Gloom
 	db NO_MOVE ; Vileplume
+	db PETAL_DANCE ; Bellossom
 	db NO_MOVE ; Paras
 	db SLASH ; Parasect
 	db NO_MOVE ; Venonat
@@ -123,6 +124,7 @@ EvolutionMoves::
 	db NO_MOVE ; Happiny
 	db SOFTBOILED ; Chansey
 	db NO_MOVE ; Blissey
+	db NO_MOVE ; Tangela
 	db NO_MOVE ; Kangaskid
 	db NO_MOVE ; Kangaskhan
 	db NO_MOVE ; Horsea
@@ -163,6 +165,7 @@ EvolutionMoves::
 	db SPIKE_CANNON ; Omastar
 	db NO_MOVE ; Kabuto
 	db SLASH ; Kabutops
+	db NO_MOVE ; Aerodon
 	db NO_MOVE ; Aerodactyl
 	db NO_MOVE ; Munchlax
 	db REST ; Snorlax
@@ -308,4 +311,11 @@ EvolutionMoves::
 	db NO_MOVE ; Starly
 	db NO_MOVE ; Staravia
 	db SUBMISSION ; Staraptor
+	db NO_MOVE ; 
+	db NO_MOVE ; 
+	db NO_MOVE ; 
+	db NO_MOVE ; 
+	db NO_MOVE ; 
+	db NO_MOVE ; 
+	db NO_MOVE ; 
 	

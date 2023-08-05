@@ -731,6 +731,7 @@ OddishEvosAttacks:
 
 GloomEvosAttacks:
 	dbbw EVOLVE_ITEM, LEAF_STONE, VILEPLUME
+	dbbw EVOLVE_ITEM, SUN_STONE, BELLOSSOM
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, CHARM
@@ -5083,4 +5084,172 @@ StaraptorEvosAttacks:
 	db 46, AGILITY
 	db 55, SKY_ATTACK
 	db 59, REVERSAL
+	db 0 ; no more level-up moves
+	
+TangelaEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, WRAP
+	db 4, SLEEP_POWDER
+	db 10, ABSORB
+	db 13, POISONPOWDER
+	db 19, VINE_WHIP
+	db 25, THIEF
+	db 31, MEGA_DRAIN
+	db 34, STUN_SPORE
+	db 40, SLAM
+	db 46, GROWTH
+	db 0 ; no more level-up moves
+	
+BellossomEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, PETAL_DANCE
+	db 1, ABSORB
+	db 1, CHARM
+	db 5, SWEET_SCENT
+	db 9, SLUDGE
+	db 13, POISONPOWDER
+	db 15, STUN_SPORE
+	db 17, SLEEP_POWDER
+	db 25, MEGA_DRAIN
+	db 36, MORNING_SUN
+	db 39, FLAIL
+	db 45, ENERGY_BALL
+	db 52, SOLARBEAM
+	db 0 ; no more level-up moves
+	
+AerodonEvosAttacks:
+	dbbw EVOLVE_LEVEL, 30, AERODACTYL
+	db 0 ; no more evolutions
+	db 1, BITE
+	db 1, LEER
+	db 7, ROCK_THROW
+	db 13, SUPERSONIC
+	db 17, ANCIENTPOWER
+	db 26, DRAGONBREATH
+	db 31, AGILITY
+	db 37, ROCK_SLIDE
+	db 45, TAKE_DOWN
+	db 0 ; no more level-up moves
+	
+SuicudraxEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, FIRE_FANG
+	db 1, BITE
+	db 1, LEER
+	db 4, EMBER
+	db 9, TWISTER
+	db 13, WATER_PULSE
+	db 19, ROAR
+	db 25, DRAGONBREATH
+	db 32, SCARY_FACE
+	db 36, DRAGON_CLAW
+	db 41, FLAMETHROWER
+	db 47, DRAGON_DANCE
+	db 54, HYDRO_PUMP
+	db 65, OUTRAGE
+	db 71, EXTREMESPEED
+	db 0 ; no more level-up moves
+	
+RaiensuiEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, SACRED_FIRE
+	db 1, AEROBLAST
+	db 1, MIST
+	db 1, BITE
+	db 1, LEER
+	db 4, EMBER
+	db 9, HOWL
+	db 13, STOMP
+	db 19, SPARK
+	db 25, REFLECT
+	db 32, WATER_PULSE ;adjust next 4 for boss level
+	db 36, TRI_ATTACK
+	db 41, FLAMETHROWER
+	db 47, VOLT_TACKLE
+	db 54, RECOVER
+	db 65, SHADOW_RUSH
+	db 71, EXTREMESPEED
+	db 0 ; no more level-up moves
+	
+Omastar_FossilEvosAttacks:      ;changed to ketsuban
+	db 0 ; no more evolutions
+	db 1, POUND
+	db 1, GROWL
+	db 5, SPITE
+	db 11, NIGHT_SHADE
+	db 17, CURSE
+	db 24, ICY_WIND
+	db 27, SUBSTITUTE
+	db 34, MEGA_PUNCH
+	db 40, MEAN_LOOK
+	db 45, TRI_ATTACK
+	db 51, SHADOW_PUNCH
+	db 54, DESTINY_BOND
+	db 60, FLY
+	db 0 ; no more level-up moves
+	
+Kabutops_FossilEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, SLASH
+	db 1, SCRATCH
+	db 1, HARDEN
+	db 1, LEER
+	db 7, ABSORB
+	db 10, WATER_GUN
+	db 13, SAND_ATTACK
+	db 16, MUD_SHOT
+	db 21, ENDURE
+	db 26, NIGHT_SHADE
+	db 31, MEGA_DRAIN
+	db 35, X_SCISSOR
+	db 39, RAZOR_SHELL
+	db 45, LEECH_LIFE
+	db 52, SHADOW_BALL
+	db 0 ; no more level-up moves
+	
+Aerodactyl_FossilEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, FIRE_FANG
+	db 1, ICE_FANG
+	db 1, BITE
+	db 1, LEER
+	db 1, GUST
+	db 8, SUPERSONIC
+	db 15, SCARY_FACE
+	db 19, NIGHT_SHADE
+	db 25, WING_ATTACK
+	db 28, DRAGONBREATH
+	db 34, AGILITY
+	db 41, CRUNCH
+	db 49, SHADOW_BALL
+	db 55, DRAGON_CLAW
+	db 59, TAKE_DOWN
+	db 65, HYPER_BEAM
+	db 0 ; no more level-up moves
+	
+MissingnoEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, WATER_GUN
+	db 1, WATER_GUN
+	db 5, SKY_ATTACK
+	db 50, TRI_ATTACK
+	db 0 ; no more level-up moves
+	
+Charizard_MEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, SWORDS_DANCE
+	db 1, HORN_DRILL
+	db 1, SCRATCH
+	db 1, GROWL
+	db 7, EMBER
+	db 10, SMOKESCREEN
+	db 15, METAL_CLAW
+	db 21, FIRE_FANG
+	db 25, SCARY_FACE
+	db 32, AURORA_BEAM
+	db 36, WING_ATTACK
+	db 41, SLASH
+	db 46, FLAMETHROWER
+	db 50, SLAM
+	db 55, FIRE_SPIN
 	db 0 ; no more level-up moves

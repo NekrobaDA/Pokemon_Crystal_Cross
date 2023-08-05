@@ -48,6 +48,7 @@ EggMovePointers::
 	dw OddishEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
+	dw NoEggMoves
 	dw ParasEggMoves
 	dw NoEggMoves
 	dw VenonatEggMoves
@@ -125,6 +126,7 @@ EggMovePointers::
 	dw HappinyEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
+	dw TangelaEggMoves
 	dw KangaskidEggMoves
 	dw NoEggMoves
 	dw HorseaEggMoves
@@ -165,7 +167,8 @@ EggMovePointers::
 	dw NoEggMoves
 	dw KabutoEggMoves
 	dw NoEggMoves
-	dw AerodactylEggMoves
+	dw AerodonEggMoves
+	dw NoEggMoves
 	dw MunchlaxEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
@@ -307,5 +310,12 @@ EggMovePointers::
 	dw Wooper_PaldeanEggMoves
 	dw NoEggMoves
 	dw StarlyEggMoves
+	dw NoEggMoves
+	dw NoEggMoves
+	dw NoEggMoves
+	dw NoEggMoves
+	dw NoEggMoves
+	dw NoEggMoves
+	dw NoEggMoves
 	dw NoEggMoves
 	dw NoEggMoves

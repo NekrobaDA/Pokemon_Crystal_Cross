@@ -48,6 +48,7 @@ EvosAttacksPointers::
 	dw OddishEvosAttacks
 	dw GloomEvosAttacks
 	dw VileplumeEvosAttacks
+	dw BellossomEvosAttacks
 	dw ParasEvosAttacks
 	dw ParasectEvosAttacks
 	dw VenonatEvosAttacks
@@ -125,6 +126,7 @@ EvosAttacksPointers::
 	dw HappinyEvosAttacks
 	dw ChanseyEvosAttacks
 	dw BlisseyEvosAttacks
+	dw TangelaEvosAttacks
 	dw KangaskidEvosAttacks
 	dw KangaskhanEvosAttacks
 	dw HorseaEvosAttacks
@@ -165,6 +167,7 @@ EvosAttacksPointers::
 	dw OmastarEvosAttacks
 	dw KabutoEvosAttacks
 	dw KabutopsEvosAttacks
+	dw AerodonEvosAttacks
 	dw AerodactylEvosAttacks
 	dw MunchlaxEvosAttacks
 	dw SnorlaxEvosAttacks
@@ -310,3 +313,10 @@ EvosAttacksPointers::
 	dw StarlyEvosAttacks
 	dw StaraviaEvosAttacks
 	dw StaraptorEvosAttacks
+	dw SuicudraxEvosAttacks
+	dw RaiensuiEvosAttacks
+	dw Omastar_FossilEvosAttacks
+	dw Kabutops_FossilEvosAttacks
+	dw Aerodactyl_FossilEvosAttacks
+	dw MissingnoEvosAttacks
+	dw Charizard_MEvosAttacks

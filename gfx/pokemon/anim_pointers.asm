@@ -46,6 +46,7 @@ AnimationPointers:
 	dw OddishAnimation
 	dw GloomAnimation
 	dw VileplumeAnimation
+	dw BellossomAnimation
 	dw ParasAnimation
 	dw ParasectAnimation
 	dw VenonatAnimation
@@ -123,6 +124,7 @@ AnimationPointers:
 	dw HappinyAnimation
 	dw ChanseyAnimation
 	dw BlisseyAnimation
+	dw TangelaAnimation
 	dw KangaskidAnimation
 	dw KangaskhanAnimation
 	dw HorseaAnimation
@@ -163,6 +165,7 @@ AnimationPointers:
 	dw OmastarAnimation
 	dw KabutoAnimation
 	dw KabutopsAnimation
+	dw AerodonAnimation
 	dw AerodactylAnimation
 	dw MunchlaxAnimation
 	dw SnorlaxAnimation
@@ -308,3 +311,10 @@ AnimationPointers:
 	dw StarlyAnimation
 	dw StaraviaAnimation
 	dw StaraptorAnimation
+	dw SuicudraxAnimation
+	dw RaiensuiAnimation
+	dw Omastar_FossilAnimation
+	dw Kabutops_FossilAnimation
+	dw Aerodactyl_FossilAnimation
+	dw MissingnoAnimation
+	dw Charizard_MAnimation

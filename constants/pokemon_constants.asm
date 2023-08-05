@@ -66,6 +66,7 @@
 	const ODDISH     ; 2b
 	const GLOOM      ; 2c
 	const VILEPLUME  ; 2d
+	const BELLOSSOM
 	const PARAS      ; 2e
 	const PARASECT   ; 2f
 	const VENONAT    ; 30
@@ -143,6 +144,7 @@
 	const HAPPINY
 	const CHANSEY    ; 71
 	const BLISSEY    ; f2
+	const TANGELA
 	const KANGASKID
 	const KANGASKHAN ; 73
 	const HORSEA     ; 74
@@ -183,6 +185,7 @@
 	const OMASTAR    ; 8b
 	const KABUTO     ; 8c
 	const KABUTOPS   ; 8d
+	const AERODON
 	const AERODACTYL ; 8e
 	const MUNCHLAX
 	const SNORLAX    ; 8f
@@ -329,6 +332,13 @@ JOHTO_POKEMON EQU const_value
 	const STARLY
 	const STARAVIA
 	const STARAPTOR
+	const SUICUDRAX
+	const RAIENSUI
+	const OMASTAR_FOSSIL
+	const KABUTOPS_FOSSIL
+	const AERODACTYL_FOSSIL
+	const MISSINGNO
+	const CHARIZARD_M
 NUM_POKEMON EQU const_value - 1
 
 EGG EQU -3

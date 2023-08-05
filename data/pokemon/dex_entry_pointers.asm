@@ -47,6 +47,7 @@ PokedexDataPointerTable:
 	dba OddishPokedexEntry
 	dba GloomPokedexEntry
 	dba VileplumePokedexEntry
+	dba BellossomPokedexEntry
 	dba ParasPokedexEntry
 	dba ParasectPokedexEntry
 	dba VenonatPokedexEntry
@@ -124,6 +125,7 @@ PokedexDataPointerTable:
 	dba HappinyPokedexEntry
 	dba ChanseyPokedexEntry
 	dba BlisseyPokedexEntry
+	dba TangelaPokedexEntry
 	dba KangaskidPokedexEntry
 	dba KangaskhanPokedexEntry
 	dba HorseaPokedexEntry
@@ -164,6 +166,7 @@ PokedexDataPointerTable:
 	dba OmastarPokedexEntry
 	dba KabutoPokedexEntry
 	dba KabutopsPokedexEntry
+	dba AerodonPokedexEntry
 	dba AerodactylPokedexEntry
 	dba MunchlaxPokedexEntry
 	dba SnorlaxPokedexEntry
@@ -309,3 +312,10 @@ PokedexDataPointerTable:
 	dba StarlyPokedexEntry
 	dba StaraviaPokedexEntry
 	dba StaraptorPokedexEntry
+	dba SuicudraxPokedexEntry
+	dba RaiensuiPokedexEntry
+	dba Omastar_FossilPokedexEntry
+	dba Kabutops_FossilPokedexEntry
+	dba Aerodactyl_FossilPokedexEntry
+	dba MissingnoPokedexEntry
+	dba Charizard_MPokedexEntry

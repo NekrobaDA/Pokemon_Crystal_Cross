@@ -180,6 +180,10 @@ INCLUDE "gfx/pokemon/ditto/shiny.pal"
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;bellossom
+	RGB 00, 00, 00
+	RGB 00, 00, 00
+	RGB 00, 00, 00
 	RGB 00, 00, 00 ;paras
 	RGB 00, 00, 00
 	RGB 00, 00, 00
@@ -469,6 +473,10 @@ INCLUDE "gfx/pokemon/ditto/shiny.pal"
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00 ;blissey
+	RGB 00, 00, 00
+	RGB 00, 00, 00
+	RGB 00, 00, 00
+	RGB 00, 00, 00 ;tangela
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
@@ -1002,162 +1010,162 @@ INCLUDE "gfx/pokemon/ditto/shiny.pal"
 	RGB 00, 00, 00
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-	RGB 00, 00, 00 ;unown
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;raikou
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;entei
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;suicune
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;larvitar
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;pupitar
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;tyranitar
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;lugia
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;hooh
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;celebi
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;chimereon
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;bulbasaur clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;ivysaur clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;venusaur clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;charmander clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;charmeleon clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;charizard clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;squirtle clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;wartorle clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;blastoise clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;ekans dark
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;arbok dark
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;pichu spiky
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;pikachu clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;raichu clone
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;raichu alolan
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;sandshrew alolan
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;sandslash alolan
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;vulpix alolan
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;ninetales alolan
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;growlithe hisuian
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;arcanine hisuian
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;voltorb hisuian
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;electrode hisuian
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;marowak alolan
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;typhlosion hisuian
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;articuno galaian
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;zapdos galarian
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00 ;moltres galarian
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;unown
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;raikou
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;entei
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;suicune
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;larvitar
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;pupitar
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;tyranitar
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;lugia
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;hooh
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;celebi
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;chimereon
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;bulbasaur clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;ivysaur clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;venusaur clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;charmander clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;charmeleon clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;charizard clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;squirtle clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;wartorle clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;blastoise clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;ekans dark
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;arbok dark
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;pichu spiky
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;pikachu clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;raichu clone
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;raichu alolan
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;sandshrew alolan
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;sandslash alolan
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;vulpix alolan
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;ninetales alolan
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;growlithe hisuian
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;arcanine hisuian
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;voltorb hisuian
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;electrode hisuian
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;marowak alolan
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;typhlosion hisuian
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;articuno galaian
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;zapdos galarian
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00 ;moltres galarian
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
+;	RGB 00, 00, 00
 
 
 
@@ -1277,6 +1285,8 @@ INCBIN "gfx/pokemon/gloom/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/gloom/shiny.pal"
 INCBIN "gfx/pokemon/vileplume/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/vileplume/shiny.pal"
+INCBIN "gfx/pokemon/bellossom/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/bellossom/shiny.pal"
 INCBIN "gfx/pokemon/paras/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/paras/shiny.pal"
 INCBIN "gfx/pokemon/parasect/front.gbcpal", middle_colors
@@ -1431,6 +1441,8 @@ INCBIN "gfx/pokemon/chansey/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/chansey/shiny.pal"
 INCBIN "gfx/pokemon/blissey/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/blissey/shiny.pal"
+INCBIN "gfx/pokemon/tangela/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/tangela/shiny.pal"
 INCBIN "gfx/pokemon/kangaskid/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/kangaskid/shiny.pal"
 INCBIN "gfx/pokemon/kangaskhan/front.gbcpal", middle_colors
@@ -1511,6 +1523,8 @@ INCBIN "gfx/pokemon/kabuto/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/kabuto/shiny.pal"
 INCBIN "gfx/pokemon/kabutops/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/kabutops/shiny.pal"
+INCBIN "gfx/pokemon/aerodon/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/aerodon/shiny.pal"
 INCBIN "gfx/pokemon/aerodactyl/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/aerodactyl/shiny.pal"
 INCBIN "gfx/pokemon/munchlax/front.gbcpal", middle_colors
@@ -1763,8 +1777,8 @@ INCBIN "gfx/pokemon/raichu_alolan/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/raichu_alolan/shiny.pal"
 INCBIN "gfx/pokemon/sandshrew_alolan/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/sandshrew_alolan/shiny.pal"
-INCBIN "gfx/pokemon/sandslash/front.gbcpal", middle_colors
-INCLUDE "gfx/pokemon/sandslash/shiny.pal"
+INCBIN "gfx/pokemon/sandslash_alolan/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/sandslash_alolan/shiny.pal"
 INCBIN "gfx/pokemon/vulpix_alolan/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/vulpix_alolan/shiny.pal"
 INCBIN "gfx/pokemon/ninetales_alolan/front.gbcpal", middle_colors
@@ -1801,3 +1815,17 @@ INCBIN "gfx/pokemon/staravia/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/staravia/shiny.pal"
 INCBIN "gfx/pokemon/staraptor/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/staraptor/shiny.pal"
+INCBIN "gfx/pokemon/suicudrax/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/suicudrax/shiny.pal"
+INCBIN "gfx/pokemon/raiensui/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/raiensui/shiny.pal"
+INCBIN "gfx/pokemon/omastar_fossil/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/omastar_fossil/shiny.pal"
+INCBIN "gfx/pokemon/kabutops_fossil/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/kabutops_fossil/shiny.pal"
+INCBIN "gfx/pokemon/aerodactyl_fossil/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/aerodactyl_fossil/shiny.pal"
+INCBIN "gfx/pokemon/missingno/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/missingno/shiny.pal"
+INCBIN "gfx/pokemon/charizard_m/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/charizard_m/shiny.pal"

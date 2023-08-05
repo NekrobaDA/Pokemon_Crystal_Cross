@@ -256,6 +256,8 @@
 	const ICON_CELEBI
 	const ICON_EGG
 	const ICON_STARMIETWO
+	const ICON_BELLOSSOM
+	const ICON_TANGELA
 
 ; LoadMenuMon.Jumptable indexes (see engine/gfx/mon_s.asm)
 	const_def

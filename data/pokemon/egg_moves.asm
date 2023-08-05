@@ -732,7 +732,7 @@ KabutoEggMoves:   ;x
 	db ROLLOUT
 	db -1 ; end
 
-AerodactylEggMoves:   ;x
+AerodonEggMoves:   ;x
 	db WHIRLWIND
 	db PURSUIT
 	db FORESIGHT
@@ -1416,6 +1416,16 @@ StarlyEggMoves:   ;x
 	db ASTONISH
 	db SAND_ATTACK
 	db ENDURE
+	db -1 ; end
+	
+TangelaEggMoves:
+	db ANCIENTPOWER
+	db SLAM
+	db SPARK
+	db CONFUSION
+	db AMNESIA
+	db LEECH_SEED
+	db FLAIL
 	db -1 ; end
 
 NoEggMoves:

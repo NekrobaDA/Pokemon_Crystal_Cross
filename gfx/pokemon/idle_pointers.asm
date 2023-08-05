@@ -46,6 +46,7 @@ AnimationIdlePointers:
 	dw OddishAnimationIdle
 	dw GloomAnimationIdle
 	dw VileplumeAnimationIdle
+	dw BellossomAnimationIdle
 	dw ParasAnimationIdle
 	dw ParasectAnimationIdle
 	dw VenonatAnimationIdle
@@ -123,6 +124,7 @@ AnimationIdlePointers:
 	dw HappinyAnimationIdle
 	dw ChanseyAnimationIdle
 	dw BlisseyAnimationIdle
+	dw TangelaAnimationIdle
 	dw KangaskidAnimationIdle
 	dw KangaskhanAnimationIdle
 	dw HorseaAnimationIdle
@@ -163,6 +165,7 @@ AnimationIdlePointers:
 	dw OmastarAnimationIdle
 	dw KabutoAnimationIdle
 	dw KabutopsAnimationIdle
+	dw AerodonAnimationIdle
 	dw AerodactylAnimationIdle
 	dw MunchlaxAnimationIdle
 	dw SnorlaxAnimationIdle
@@ -308,3 +311,10 @@ AnimationIdlePointers:
 	dw StarlyAnimationIdle
 	dw StaraviaAnimationIdle
 	dw StaraptorAnimationIdle
+	dw SuicudraxAnimationIdle
+	dw RaiensuiAnimationIdle
+	dw Omastar_FossilAnimationIdle
+	dw Kabutops_FossilAnimationIdle
+	dw Aerodactyl_FossilAnimationIdle
+	dw MissingnoAnimationIdle
+	dw Charizard_MAnimationIdle

@@ -255,12 +255,11 @@ INCLUDE "engine/gfx/load_pics.asm"
 INCLUDE "engine/pokemon/move_mon_wo_mail.asm"
 INCLUDE "data/pokemon/base_stats.asm"
 ;INCLUDE "engine/battle/getgen1trainerclassname.asm"
-INCLUDE "engine/events/sweet_scent.asm"
 INCLUDE "engine/link/init_list.asm"
 
 UnusedEggPic::
 ; The G/S Egg pic. This is shifted up a few pixels.
-INCBIN "gfx/pokemon/egg/unused_front.2bpp.lz"
+;INCBIN "gfx/pokemon/egg/unused_front.2bpp.lz"
 
 
 SECTION "Crystal Phone Text", ROMX
@@ -452,7 +451,6 @@ INCLUDE "gfx/pokemon/bitmask_pointers.asm"
 INCLUDE "gfx/pokemon/female_bitmask_pointers.asm"
 INCLUDE "gfx/pokemon/bitmasks.asm"
 INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
-INCLUDE "gfx/pokemon/unown_bitmasks.asm"
 
 
 SECTION "Pic Animations 2", ROMX
@@ -501,7 +499,6 @@ INCLUDE "engine/link/time_capsule.asm"
 INCLUDE "engine/events/name_rater.asm"
 INCLUDE "engine/events/play_slow_cry.asm"
 INCLUDE "engine/pokedex/new_pokedex_entry.asm"
-INCLUDE "engine/pokedex/unown_dex.asm"
 INCLUDE "engine/events/magikarp.asm"
 INCLUDE "engine/battle/hidden_power.asm"
 
@@ -742,6 +739,9 @@ INCLUDE "engine/events/egg_move_egg.asm"
 INCLUDE "engine/link/time_capsule_2.asm"
 INCLUDE "data/pokemon/dex_numbers.asm"
 INCLUDE "engine/events/CCafeBerries.asm"
+INCLUDE "engine/events/sweet_scent.asm"               ;moved from bank14
+INCLUDE "gfx/pokemon/unown_bitmasks.asm"           ;moved from pic animations 1
+INCLUDE "engine/pokedex/unown_dex.asm"           ;moved from bank3e
 
 
 SECTION "Color", ROMX

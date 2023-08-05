@@ -52,7 +52,8 @@ MonMenuIcons:
 	db ICON_CROBAT
 	db ICON_ODDISH       
 	db ICON_GLOOM        
-	db ICON_VILEPLUME    
+	db ICON_VILEPLUME 
+	db ICON_BELLOSSOM
 	db ICON_PARAS        
 	db ICON_PARASECT     
 	db ICON_VENONAT      
@@ -130,6 +131,7 @@ MonMenuIcons:
 	db ICON_CHANSEY  ;HAPPINY
 	db ICON_CHANSEY      
 	db ICON_BLISSEY  
+	db ICON_TANGELA
 	db ICON_KANGASKHAN  ;KANGASKID    
 	db ICON_KANGASKHAN   
 	db ICON_HORSEA       
@@ -170,6 +172,7 @@ MonMenuIcons:
 	db ICON_OMASTAR      
 	db ICON_KABUTO       
 	db ICON_KABUTOPS     
+	db ICON_AERODACTYL ;AERODON
 	db ICON_AERODACTYL 
 	db ICON_SNORLAX   ;MUNCHLAX
 	db ICON_SNORLAX      
@@ -315,3 +318,10 @@ MonMenuIcons:
 	db ICON_PIDGEY     ;starly
 	db ICON_PIDGEOTTO  ;staravia
 	db ICON_PIDGEOT    ;staraptor
+	db ICON_SUICUNE  ;suicudrax
+	db ICON_SUICUNE  ;raiensui
+	db ICON_OMASTAR
+	db ICON_KABUTOPS
+	db ICON_AERODACTYL
+	db ICON_AERODACTYL  ;missingno
+	db ICON_CHARIZARD

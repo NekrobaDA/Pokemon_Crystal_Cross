@@ -48,6 +48,7 @@ FirstEvoStages::
 	dw ODDISH
 	dw ODDISH
 	dw ODDISH
+	dw ODDISH
 	dw PARAS
 	dw PARAS
 	dw VENONAT    ;30
@@ -125,6 +126,7 @@ FirstEvoStages::
 	dw HAPPINY
 	dw HAPPINY
 	dw HAPPINY
+	dw TANGELA
 	dw KANGASKID
 	dw KANGASKID
 	dw HORSEA
@@ -165,7 +167,8 @@ FirstEvoStages::
 	dw OMANYTE
 	dw KABUTO
 	dw KABUTO
-	dw AERODACTYL
+	dw AERODON
+	dw AERODON
 	dw MUNCHLAX
 	dw MUNCHLAX
 	dw ARTICUNO   ;90
@@ -310,4 +313,11 @@ FirstEvoStages::
 	dw STARLY
 	dw STARLY
 	dw STARLY
+	dw SUICUDRAX
+	dw RAIENSUI
+	dw OMASTAR_FOSSIL
+	dw KABUTOPS_FOSSIL
+	dw AERODACTYL_FOSSIL
+	dw MISSINGNO
+	dw CHARIZARD_M
 	

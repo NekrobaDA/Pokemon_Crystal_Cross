@@ -46,6 +46,7 @@ FramesPointers:
 	dba OddishFrames
 	dba GloomFrames
 	dba VileplumeFrames
+	dba BellossomFrames
 	dba ParasFrames
 	dba ParasectFrames
 	dba VenonatFrames
@@ -123,6 +124,7 @@ FramesPointers:
 	dba HappinyFrames
 	dba ChanseyFrames
 	dba BlisseyFrames
+	dba TangelaFrames
 	dba KangaskidFrames
 	dba KangaskhanFrames
 	dba HorseaFrames
@@ -163,6 +165,7 @@ FramesPointers:
 	dba OmastarFrames
 	dba KabutoFrames
 	dba KabutopsFrames
+	dba AerodonFrames
 	dba AerodactylFrames
 	dba MunchlaxFrames
 	dba SnorlaxFrames
@@ -308,3 +311,10 @@ FramesPointers:
 	dba StarlyFrames
 	dba StaraviaFrames
 	dba StaraptorFrames
+	dba SuicudraxFrames
+	dba RaiensuiFrames
+	dba Omastar_FossilFrames
+	dba Kabutops_FossilFrames
+	dba Aerodactyl_FossilFrames
+	dba MissingnoFrames
+	dba Charizard_MFrames

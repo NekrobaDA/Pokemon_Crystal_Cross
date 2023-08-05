@@ -55,6 +55,7 @@ MonMenuIconPals:
 	icon_pals GREEN, TEAL ; ODDISH
 	icon_pals RED, YELLOW ; GLOOM
 	icon_pals RED, GREEN ; VILEPLUME
+	icon_pals GREEN, PURPLE ; BELLOSSOM
 	icon_pals RED, YELLOW ; PARAS
 	icon_pals RED, YELLOW ; PARASECT
 	icon_pals PURPLE, BLUE ; VENONAT
@@ -132,6 +133,7 @@ MonMenuIconPals:
 	icon_pals RED, GREEN ; HAPPINY
 	icon_pals RED, GREEN ; CHANSEY
 	icon_pals RED, GRAY ; BLISSEY
+	icon_pals TEAL, GREEN ; TANGELA
 	icon_pals BROWN, GRAY ; KANGASKID
 	icon_pals BROWN, GRAY ; KANGASKHAN
 	icon_pals BLUE, RED ; HORSEA
@@ -172,7 +174,8 @@ MonMenuIconPals:
 	icon_pals BLUE, GRAY ; OMASTAR
 	icon_pals BROWN, GRAY ; KABUTO
 	icon_pals BROWN, GRAY ; KABUTOPS
-	icon_pals BROWN, PURPLE ; AERODACTYL
+	icon_pals GRAY, PURPLE ; AERODON
+	icon_pals GRAY, PURPLE ; AERODACTYL
 	icon_pals GREEN, BLUE ; MUNCHLAX
 	icon_pals GREEN, BLUE ; SNORLAX
 	icon_pals BLUE, GRAY ; ARTICUNO
@@ -317,4 +320,11 @@ MonMenuIconPals:
 	icon_pals GRAY, BROWN ; STARLY
 	icon_pals GRAY, BROWN ; STARAVIA
 	icon_pals GRAY, BROWN ; STARAPTOR
+	icon_pals BLUE, GRAY
+	icon_pals BLUE, GRAY
+	icon_pals GRAY, BROWN
+	icon_pals GRAY, BROWN
+	icon_pals GRAY, BROWN
+	icon_pals GRAY, BLUE
+	icon_pals RED, GRAY
 	

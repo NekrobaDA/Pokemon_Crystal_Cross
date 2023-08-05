@@ -46,6 +46,7 @@ BitmasksPointers:
 	dw OddishBitmasks
 	dw GloomBitmasks
 	dw VileplumeBitmasks
+	dw BellossomBitmasks
 	dw ParasBitmasks
 	dw ParasectBitmasks
 	dw VenonatBitmasks
@@ -123,6 +124,7 @@ BitmasksPointers:
 	dw HappinyBitmasks
 	dw ChanseyBitmasks
 	dw BlisseyBitmasks
+	dw TangelaBitmasks
 	dw KangaskidBitmasks
 	dw KangaskhanBitmasks
 	dw HorseaBitmasks
@@ -163,6 +165,7 @@ BitmasksPointers:
 	dw OmastarBitmasks
 	dw KabutoBitmasks
 	dw KabutopsBitmasks
+	dw AerodonBitmasks
 	dw AerodactylBitmasks
 	dw MunchlaxBitmasks
 	dw SnorlaxBitmasks
@@ -308,3 +311,10 @@ BitmasksPointers:
 	dw StarlyBitmasks
 	dw StaraviaBitmasks
 	dw StaraptorBitmasks
+	dw SuicudraxBitmasks
+	dw RaiensuiBitmasks
+	dw Omastar_FossilBitmasks
+	dw Kabutops_FossilBitmasks
+	dw Aerodactyl_FossilBitmasks
+	dw MissingnoBitmasks
+	dw Charizard_MBitmasks
