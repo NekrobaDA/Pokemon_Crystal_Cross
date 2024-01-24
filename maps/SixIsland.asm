@@ -125,6 +125,54 @@ WhichIsland6I:
 	text ""
 	line "Which island?"
 	done
+	
+SixIslandHikerScript:
+	faceplayer
+	opentext
+	writetext Text_6IHiker
+	waitbutton
+	closetext
+	end
+	
+Text_6IHiker:
+	text "Keep going east"
+	line "and you'll get to"
+	cont "the WATER PATH."
+	
+	para "You can get to the"
+	line "RUIN VALLEY from"
+	cont "there."
+	done
+	
+SixIslandCooltrainerScript:
+	faceplayer
+	opentext
+	writetext Text_6ICooltrainer
+	waitbutton
+	closetext
+	end
+	
+Text_6ICooltrainer:
+	text "I've heard rumors"
+	line "of strong #MON"
+	cont "living in the"
+	cont "canyon."
+	done
+	
+SixIslandTeacherScript:
+	faceplayer
+	opentext
+	writetext Text_6ITeacher
+	waitbutton
+	closetext
+	end
+	
+Text_6ITeacher:
+	text "The sky at night"
+	line "is fantastic here"
+	cont "away from all the" 
+	cont "city lights."
+	done
 
 SixIsland_MapEvents:
 	db 0, 0 ; filler
@@ -139,3 +187,6 @@ SixIsland_MapEvents:
 
 	def_object_events
 	object_event  9, 25, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SixIslandPortScript, -1
+	object_event 18,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 1, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, SixIslandHikerScript, -1
+	object_event 20, 17, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SixIslandCooltrainerScript, -1
+	object_event 14, 15, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SixIslandTeacherScript, -1

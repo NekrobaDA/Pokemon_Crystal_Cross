@@ -126,6 +126,66 @@ WhichIsland3I:
 	text ""
 	line "Which island?"
 	done
+	
+ThreeIslandLadyScript:
+	faceplayer
+	opentext
+	writetext Text_3ILady
+	waitbutton
+	closetext
+	end
+	
+Text_3ILady:
+	text "Despite being the"
+	line "most populated"
+	cont "island, it's"
+	cont "very quiet here."
+	done
+	
+ThreeIslandYoungsterScript:
+	faceplayer
+	opentext
+	writetext Text_3IYoungster
+	waitbutton
+	closetext
+	end
+	
+Text_3IYoungster:
+	text "Have you been to"
+	line "BERRY FOREST?"
+	done
+	
+ThreeIslandBeautyScript:
+	faceplayer
+	opentext
+	writetext Text_3IBeauty
+	waitbutton
+	closetext
+	end
+	
+Text_3IBeauty:
+	text "Some guy tried to"
+	line "dig a tunnel here."
+	
+	para "It collapsed"
+	line "overnight."
+	done
+	
+ThreeIslandBikerScript:
+	faceplayer
+	opentext
+	writetext Text_3IBiker
+	waitbutton
+	closetext
+	end
+	
+Text_3IBiker:
+	text "I've settled down"
+	line "here."
+	
+	para "My wild days are"
+	line "behind me."
+	done
 
 ThreeIsland_MapEvents:
 	db 0, 0 ; filler
@@ -140,3 +200,7 @@ ThreeIsland_MapEvents:
 
 	def_object_events
 	object_event  9, 51, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ThreeIslandPortScript, -1
+	object_event 12, 24, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, ThreeIslandLadyScript, -1
+	object_event 16,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, ThreeIslandYoungsterScript, -1
+	object_event 14, 45, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ThreeIslandBeautyScript, -1
+	object_event  7, 31, SPRITE_BIKER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ThreeIslandBikerScript, -1

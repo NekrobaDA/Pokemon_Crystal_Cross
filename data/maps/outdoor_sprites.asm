@@ -362,13 +362,6 @@ DungeonsGroupSprites:
 	db SPRITE_POKE_BALL
 	db 0 ; end
 
-SeviiOneGroupSprites:
-SeviiTwoGroupSprites:
-SeviiThreeGroupSprites:
-SeviiFourGroupSprites:
-SeviiFiveGroupSprites:
-SeviiSixGroupSprites:
-SeviiSevenGroupSprites:
 FastShipGroupSprites:
 ; OlivinePort, VermilionPort, MountMoonSquare, TinTowerRoof
 	db SPRITE_SAILOR
@@ -415,3 +408,44 @@ SecretBaseGroupSprites:
 	; 0 of max 9 walking sprites
 	db 0 ; end
 	
+SeviiOneGroupSprites:
+SeviiTwoGroupSprites:
+	db SPRITE_SAILOR
+	db SPRITE_GRAMPS
+	db SPRITE_GYM_GUIDE
+	db SPRITE_ROCKER
+	db SPRITE_LASS
+	db SPRITE_BUG_CATCHER
+	db SPRITE_POKEFAN_F
+	; 7 of max 9 walking sprites
+	db SPRITE_CLERK
+	db 0 ; end
+
+SeviiThreeGroupSprites:
+SeviiFourGroupSprites:
+	db SPRITE_SAILOR
+	db SPRITE_RECEPTIONIST
+	db SPRITE_YOUNGSTER
+	db SPRITE_BEAUTY
+	db SPRITE_BIKER
+	db SPRITE_POKEFAN_M
+	db SPRITE_GRANNY
+	db SPRITE_TWIN
+	; 8 of max 9 walking sprites
+	db SPRITE_GRAMPS
+	db SPRITE_ROCK
+	db 0 ; end
+	
+SeviiFiveGroupSprites:
+SeviiSixGroupSprites:
+SeviiSevenGroupSprites:
+	db SPRITE_SAILOR
+	db SPRITE_FISHING_GURU
+	db SPRITE_FISHER
+	db SPRITE_POKEFAN_M
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_TEACHER
+	db SPRITE_GRANNY
+	db SPRITE_SCIENTIST
+	; 8 of max 9 walking sprites
+	db 0 ; end

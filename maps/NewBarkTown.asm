@@ -209,9 +209,11 @@ NewBarkTown_TeacherRunsToYouMovement1:
 	step LEFT
 	step LEFT
 	step LEFT
+	step LEFT
 	step_end
 
 NewBarkTown_TeacherRunsToYouMovement2:
+	step LEFT
 	step LEFT
 	step LEFT
 	step LEFT
@@ -225,10 +227,12 @@ NewBarkTown_TeacherBringsYouBackMovement1:
 	step RIGHT
 	step RIGHT
 	step RIGHT
+	step RIGHT
 	turn_head LEFT
 	step_end
 
 NewBarkTown_TeacherBringsYouBackMovement2:
+	step RIGHT
 	step RIGHT
 	step RIGHT
 	step RIGHT
@@ -240,6 +244,7 @@ NewBarkTown_TeacherBringsYouBackMovement2:
 NewBarkTown_SilverPushesYouAwayMovement:
 	turn_head UP
 	step DOWN
+	step DOWN
 	step_end
 
 NewBarkTown_SilverShovesYouOutMovement:
@@ -250,6 +255,7 @@ NewBarkTown_SilverShovesYouOutMovement:
 	step_end
 
 NewBarkTown_SilverReturnsToTheShadowsMovement:
+	step UP
 	step RIGHT
 	step_end
 
@@ -360,13 +366,12 @@ NewBarkTown_MapEvents:
 	warp_event  2, 12, JOHTO_SAFARI_GATE, 1
 	warp_event 13,  4, ELMS_HOUSE, 1
 	warp_event 21,  7, ROUTE_27, 4
-	;warp_event 21,  8, ROUTE_27, 5
-	;warp_event 20,  6, ROUTE_27, 4
-	;warp_event 20,  9, ROUTE_27, 5
+	warp_event  7,  3, ELMS_LAB, 2
+
 
 	def_coord_events
-	coord_event  1,  8, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene1
-	coord_event  1,  9, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene2
+	coord_event  0,  8, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene1
+	coord_event  0,  9, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene2
 	coord_event 20,  7, SCENE_DEFAULT, ExitRightSceneNewbark1
 	coord_event 20,  8, SCENE_DEFAULT, ExitRightSceneNewbark2
 

@@ -125,6 +125,56 @@ WhichIsland7I:
 	text ""
 	line "Which island?"
 	done
+	
+SevenIslandGrannyScript:
+	faceplayer
+	opentext
+	writetext Text_7IGranny
+	waitbutton
+	closetext
+	end
+	
+Text_7IGranny:
+	text "These islands are"
+	line "named not for the"
+	cont "number, but the"
+	cont "number of days in"
+	cont "which they were" 
+	cont "created."
+	done
+	
+SevenIslandScientistScript:
+	faceplayer
+	opentext
+	writetext Text_7IScientist
+	waitbutton
+	closetext
+	end
+	
+Text_7IScientist:
+	text "This island hasn't"
+	line "been developed."
+	
+	para "It's a diffcult hike"
+	line "because of that."
+	done
+	
+SevenIslandCooltrainerScript:
+	faceplayer
+	opentext
+	writetext Text_7ICooltrainer
+	waitbutton
+	closetext
+	end
+	
+Text_7ICooltrainer:
+	text "Not many people"
+	line "come out here."
+	
+	para "If I train here I'm"
+	line "convinced I'll grow"
+	cont "stronger."
+	done
 
 SevenIsland_MapEvents:
 	db 0, 0 ; filler
@@ -140,3 +190,6 @@ SevenIsland_MapEvents:
 
 	def_object_events
 	object_event 19, 25, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SevenIslandPortScript, -1
+	object_event  6, 18, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SevenIslandGrannyScript, -1
+	object_event 15, 11, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SevenIslandScientistScript, -1
+	object_event 10, 27, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SevenIslandCooltrainerScript, -1

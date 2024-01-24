@@ -1,5 +1,6 @@
 	object_const_def
 	const TWOISLAND_SAILOR
+	const TWOISLAND_CLERK
 	const TWOISLAND_ROCKER
 	const TWOISLAND_LASS
 	const TWOISLAND_BUG_CATCHER
@@ -335,6 +336,69 @@ WhichIsland2I:
 	line "Which island?"
 	done
 	
+TwoIslandRockerScript:
+	faceplayer
+	opentext
+	writetext Text_2IRocker
+	waitbutton
+	closetext
+	end
+	
+Text_2IRocker:
+	text "I moved here"
+	line "from CELADON."
+	
+	para "It's been quite"
+	line "the adjustment."
+	done
+	
+TwoIslandLassScript:
+	faceplayer
+	opentext
+	writetext Text_2ILass
+	waitbutton
+	closetext
+	end
+	
+Text_2ILass:
+	text "The shopkeeper's"
+	line "brother works at"
+	cont "the Game Preserve."
+	done
+	
+TwoIslandBugcatcherScript:
+	faceplayer
+	opentext
+	writetext Text_2IBugcatcher
+	waitbutton
+	closetext
+	end
+	
+Text_2IBugcatcher:
+	text "An old woman"
+	line "lives in the house"
+	cont "out on the cape."
+	
+	para "She's knowledgeable,"
+	line "but a bit creepy..."
+	done
+	
+TwoIslandPokefanScript:
+	faceplayer
+	opentext
+	writetext Text_2IPokefan
+	waitbutton
+	closetext
+	end
+	
+Text_2IPokefan:
+	text "I like to walk"
+	line "here and look out"
+	cont "to sea."
+	
+	para "It's peaceful."
+	done
+	
 TwoIsland_MapEvents:
 	db 0, 0 ; filler
 
@@ -348,4 +412,8 @@ TwoIsland_MapEvents:
 	def_object_events
 	object_event 10, 15, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TwoIslandPortScript, -1
 	object_event 34,  5, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TwoIslandBerryTraderScript, -1
+	object_event 39, 13, SPRITE_ROCKER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_, OBJECTTYPE_SCRIPT, 0, TwoIslandRockerScript, -1
+	object_event 28,  8, SPRITE_LASS, SPRITEMOVEDATA_STILL, 0, 1, -1, -1, PAL_NPC_, OBJECTTYPE_SCRIPT, 0, TwoIslandLassScript, -1
+	object_event 31, 17, SPRITE_BUGCATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_, OBJECTTYPE_SCRIPT, 0, TwoIslandBugcatcherScript, -1
+	object_event 12,  7, SPRITE_POKEFAN_F, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 1, -1, -1, PAL_NPC_, OBJECTTYPE_SCRIPT, 0, TwoIslandPokefanScript, -1
 	

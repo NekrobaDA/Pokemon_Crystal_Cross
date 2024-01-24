@@ -220,6 +220,54 @@ WhichIsland4I:
 	
 FourIslandRock:
 	jumpstd SmashRockScript
+	
+FourIslandPokefanScript:
+	faceplayer
+	opentext
+	writetext Text_4IPokefan
+	waitbutton
+	closetext
+	end
+	
+Text_4IPokefan:
+	text "I made a slushie"
+	line "with ice from"
+	cont "ICEFALL CAVE."
+	
+	para "It's tasty!"
+	done
+	
+FourIslandGrannyScript:
+	faceplayer
+	opentext
+	writetext Text_4IGranny
+	waitbutton
+	closetext
+	end
+	
+Text_4IGranny:
+	text "LORELEI used to"
+	line "be a member of the"
+	cont "ELITE FOUR."
+	
+	para "Now her brother"
+	line "WILL has taken"
+	cont "her place."
+	done
+	
+FourIslandTwinScript:
+	faceplayer
+	opentext
+	writetext Text_4ITwin
+	waitbutton
+	closetext
+	end
+	
+Text_4ITwin:
+	text "Did you know that"
+	line "LORELEI has lots"
+	cont "of stuffed dolls?"
+	done
 
 FourIsland_MapEvents:
 	db 0, 0 ; filler
@@ -237,3 +285,6 @@ FourIsland_MapEvents:
 	object_event 24, 33, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FourIslandRock, -1
 	object_event 22, 35, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FourIslandRock, -1
 	object_event 17, 13, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EggManScript, -1
+	object_event 41, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, FourIslandPokefanScript, -1
+	object_event 28, 18, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, FourIslandGrannyScript, -1
+	object_event 19, 27, SPRITE_TWIN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FourIslandTwinScript, -1
