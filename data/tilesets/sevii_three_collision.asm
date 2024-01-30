@@ -10,7 +10,7 @@
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 09
 	tilecoll WALL, WALL, WALL, WALL ; 0a
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 0b
-	tilecoll WALL, WALL, WALL, WALL ; 0c
+	tilecoll CUT_TREE, WALL, WALL, WALL ; 0c
 	tilecoll WALL, WALL, WALL, WALL ; 0d
 	tilecoll WALL, WALL, WALL, WALL ; 0e
 	tilecoll WALL, FLOOR, WALL, WALL ; 0f
@@ -242,13 +242,13 @@
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; f1
 	tilecoll WALL, FLOOR, WALL, WALL ; f2
 	tilecoll WALL, WALL, WALL, WALL ; f3
-	tilecoll WALL, WALL, WALL, WALL ; f4
-	tilecoll WALL, WALL, WALL, WALL ; f5
-	tilecoll WALL, DOOR, FLOOR, FLOOR ; f6
-	tilecoll WALL, WALL, FLOOR, FLOOR ; f7
-	tilecoll WALL, WALL, WALL, WALL ; f8
-	tilecoll WALL, WALL, FLOOR, WALL ; f9
-	tilecoll FLOOR, WALL, FLOOR, WALL ; fa
+	tilecoll WALL, WALL, WALL, ROCK_SMASH ; f4
+	tilecoll WALL, WALL, WALL, CAVE ; f5
+	tilecoll WATER, WATER, WATER, WATER ; f6
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f7
+	tilecoll WATER, WATER, WATER, WATER ; f8
+	tilecoll WATER, WATER, WATER, WATER ; f9
+	tilecoll WATER, WATER, WATER, WATER ; fa
 	tilecoll WALL, WALL, WALL, WALL ; fb
 	tilecoll WALL, WALL, CAVE, WALL ; fc
 	tilecoll FLOOR, FLOOR, WATER, WATER ; fd

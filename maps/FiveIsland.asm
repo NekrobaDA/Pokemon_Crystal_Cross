@@ -150,7 +150,7 @@ FiveIslandFisherScript:
 Text_5IFisher:
 	text "There hasn't been"
 	line "as many fish since"
-	cont "the weird building"
+	cont "that weird building"
 	cont "appeared in the"
 	cont "MEADOW."
 	done
@@ -166,6 +166,6 @@ FiveIsland_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9, 21, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FiveIslandPortScript, -1
+	object_event 10, 21, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FiveIslandPortScript, -1
 	object_event  4,  8, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_LEFT, 0, 1, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, FiveIslandFishermanScript, -1
-	object_event 15, 10, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FiveIslandFisherScript, -1
+	object_event 15,  7, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FiveIslandFisherScript, -1

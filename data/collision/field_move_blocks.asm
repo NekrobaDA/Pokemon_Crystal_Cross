@@ -13,6 +13,9 @@ CutTreeBlockPointers:
 	dbw TILESET_JOHTO_29,     .johto_29
 	dbw TILESET_JOHTO_30,     .johto_30
 	dbw TILESET_CHERRY_NEW,   .cherry_new
+	dbw TILESET_SEVII_TWO,    .sevii_two
+	dbw TILESET_SEVII_THREE,  .sevii_three
+	dbw TILESET_SEVII_FIVE,   .sevii_five
 	db -1 ; end
 
 .johto:
@@ -102,6 +105,22 @@ CutTreeBlockPointers:
 	
 .cherry_new
 	db $9c, $9d, 0 ;tree
+	db -1 ; end
+	
+.sevii_two
+	db $1e, $1c, 0
+	db -1 ; end
+	
+.sevii_three
+	db $1c, $8f, 0
+	db $0c, $0d, 0
+	db $ce, $02, 0
+	db -1 ; end
+	
+.sevii_five
+	db $98, $9c, 0
+	db $62, $66, 0
+	db -1 ; end
 
 ; these blocks all use COLL_WHIRLPOOL in one quadrant
 WhirlpoolBlockPointers:
@@ -116,6 +135,8 @@ WhirlpoolBlockPointers:
 RockSmashBlockPointers:
 	dbw TILESET_JOHTO_29, .johto_29
 	dbw TILESET_JOHTO_45, .johto_45
+	dbw TILESET_SEVII_SEVEN, .sevii_seven
+	dbw TILESET_SEVII_THREE, .sevii_three
 	db -1 ; end
 	
 .johto_29
@@ -126,6 +147,14 @@ RockSmashBlockPointers:
 	db $17, $06, 0
 	db $fa, $1b, 0
 	db $01, $13, 0
+	db -1 ; end
+	
+.sevii_seven
+	db $4a, $ff, 0
+	db -1 ; end
+	
+.sevii_three
+	db $f4, $f5, 0
 	db -1 ; end
 	
 LogBlockPointers:

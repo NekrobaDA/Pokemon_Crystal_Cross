@@ -1172,4 +1172,9 @@ TilesetSeviiFourAnim:
 	dw NULL,  AnimateFlowerTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
+	dw vTiles2 tile $16, WriteTileToBuffer
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw vTiles2 tile $16, WriteTileFromBuffer
 	dw NULL,  DoneTileAnimation

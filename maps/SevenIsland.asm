@@ -137,7 +137,7 @@ SevenIslandGrannyScript:
 Text_7IGranny:
 	text "These islands are"
 	line "named not for the"
-	cont "number, but the"
+	cont "number, but for the"
 	cont "number of days in"
 	cont "which they were" 
 	cont "created."
@@ -152,8 +152,8 @@ SevenIslandScientistScript:
 	end
 	
 Text_7IScientist:
-	text "This island hasn't"
-	line "been developed."
+	text "This island has not"
+	line "been very developed."
 	
 	para "It's a diffcult hike"
 	line "because of that."
@@ -168,10 +168,10 @@ SevenIslandCooltrainerScript:
 	end
 	
 Text_7ICooltrainer:
-	text "Not many people"
-	line "come out here."
+	text "Not many people come"
+	line "out here."
 	
-	para "If I train here I'm"
+	para "If I train here, I'm"
 	line "convinced I'll grow"
 	cont "stronger."
 	done
@@ -180,8 +180,8 @@ SevenIsland_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 11,  3, ROUTE_40_BATTLE_TOWER_GATE, 1
-	warp_event 13,  9, SEVEN_ISLAND_POKECENTER_1F, 1
+	warp_event 12,  3, ROUTE_40_BATTLE_TOWER_GATE, 1
+	warp_event 14,  9, SEVEN_ISLAND_POKECENTER_1F, 1
 	warp_event  7, 15, SEVEN_ISLAND_MART, 1
 
 	def_coord_events
@@ -192,4 +192,4 @@ SevenIsland_MapEvents:
 	object_event 19, 25, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SevenIslandPortScript, -1
 	object_event  6, 18, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SevenIslandGrannyScript, -1
 	object_event 15, 11, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SevenIslandScientistScript, -1
-	object_event 10, 27, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SevenIslandCooltrainerScript, -1
+	object_event 10, 27, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SevenIslandCooltrainerScript, -1

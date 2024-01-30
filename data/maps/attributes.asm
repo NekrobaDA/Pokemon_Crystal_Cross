@@ -417,15 +417,15 @@ ENDM
 	map_attributes RuinValley, RUIN_VALLEY, $71, NORTH
 	connection north, WaterPath, WATER_PATH, 21
 	
-	map_attributes SevenIsland, SEVEN_ISLAND, $35, SOUTH
+	map_attributes SevenIsland, SEVEN_ISLAND, $82, SOUTH
 	connection south, CanyonEntrance, CANYON_ENTRANCE, 1
 	
 	map_attributes CanyonEntrance, CANYON_ENTRANCE, $35, NORTH | EAST
 	connection north, SevenIsland, SEVEN_ISLAND, -1
-	connection east, SevaultCanyon, SEVAULT_CANYON, 8
+	connection east, SevaultCanyon, SEVAULT_CANYON, 9
 	
 	map_attributes SevaultCanyon, SEVAULT_CANYON, $71, WEST
-	connection west, CanyonEntrance, CANYON_ENTRANCE, -8
+	connection west, CanyonEntrance, CANYON_ENTRANCE, -9
 
 	map_attributes Route23, ROUTE_23, $0f, 0
 	map_attributes SproutTower1F, SPROUT_TOWER_1F, $00, 0

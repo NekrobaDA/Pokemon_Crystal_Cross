@@ -419,6 +419,7 @@ SeviiTwoGroupSprites:
 	db SPRITE_POKEFAN_F
 	; 7 of max 9 walking sprites
 	db SPRITE_CLERK
+	db SPRITE_ROCK
 	db 0 ; end
 
 SeviiThreeGroupSprites:
@@ -448,4 +449,5 @@ SeviiSevenGroupSprites:
 	db SPRITE_GRANNY
 	db SPRITE_SCIENTIST
 	; 8 of max 9 walking sprites
+	db SPRITE_ROCK
 	db 0 ; end
