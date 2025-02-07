@@ -55,7 +55,6 @@ PredefPointers::
 	add_predef GetVariant
 	add_predef LoadPoisonBGPals
 	add_predef DummyPredef2F
-	add_predef InitSGBBorder
 	add_predef LoadSGBLayout
 	add_predef Pokedex_GetArea
 	add_predef DoBattleTransition

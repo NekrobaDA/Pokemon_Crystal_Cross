@@ -1,4 +1,7 @@
 ; Replaces the functionality of sgb.asm to work with CGB hardware.
+LoadSGBLayout:
+	jp LoadSGBLayoutCGB
+	ret
 
 CheckCGB:
 	ldh a, [hCGB]
@@ -320,25 +323,6 @@ _CGB_BillsPC:
 	ret
 
 _CGB_Unknown: ; unreferenced
-	ld hl, BillsPCOrangePalette
-	call LoadHLPaletteIntoDE
-	jr .GotPalette
-
-.GetMonPalette: ; unreferenced
-	ld bc, wTempMonDVs
-	call GetPlayerOrMonPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-.GotPalette:
-	call WipeAttrmap
-	hlcoord 1, 1, wAttrmap
-	lb bc, 7, 7
-	ld a, $1
-	call FillBoxCGB
-	call InitPartyMenuOBPals
-	call ApplyAttrmap
-	call ApplyPals
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
 	ret
 
 BillsPCOrangePalette:
@@ -418,88 +402,12 @@ _CGB_SlotMachine:
 	ret
 
 _CGB_BetaTitleScreen:
-	ld hl, PalPacket_BetaTitleScreen + 1
-	call CopyFourPalettes
-	call WipeAttrmap
-	ld de, wOBPals1
-	ld a, PREDEFPAL_PACK
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-	hlcoord 0, 6, wAttrmap
-	lb bc, 12, SCREEN_WIDTH
-	ld a, $1
-	call FillBoxCGB
-	call ApplyAttrmap
-	call ApplyPals
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
 	ret
 
 _CGB_GSIntro:
-	ld b, 0
-	ld hl, .Jumptable
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jp hl
-
-.Jumptable:
-	dw .ShellderLaprasScene
-	dw .JigglypuffPikachuScene
-	dw .StartersCharizardScene
-
-.ShellderLaprasScene:
-	ld hl, .ShellderLaprasBGPalette
-	ld de, wBGPals1
-	call LoadHLPaletteIntoDE
-	ld hl, .ShellderLaprasOBPals
-	ld de, wOBPals1
-	ld bc, 2 palettes
-	ld a, BANK(wOBPals1)
-	call FarCopyWRAM
-	call WipeAttrmap
-	ret
-
-.ShellderLaprasBGPalette:
-INCLUDE "gfx/intro/gs_shellder_lapras_bg.pal"
-
-.ShellderLaprasOBPals:
-INCLUDE "gfx/intro/gs_shellder_lapras_ob.pal"
-
-.JigglypuffPikachuScene:
-	ld de, wBGPals1
-	ld a, PREDEFPAL_GS_INTRO_JIGGLYPUFF_PIKACHU_BG
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-
-	ld de, wOBPals1
-	ld a, PREDEFPAL_GS_INTRO_JIGGLYPUFF_PIKACHU_OB
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-	call WipeAttrmap
-	ret
-
-.StartersCharizardScene:
-	ld hl, PalPacket_Pack + 1
-	call CopyFourPalettes
-	ld de, wOBPals1
-	ld a, PREDEFPAL_GS_INTRO_STARTERS_TRANSITION
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-	call WipeAttrmap
 	ret
 
 _CGB_BetaPoker:
-;	ld hl, BetaPokerPals
-;	ld de, wBGPals1
-;	ld bc, 5 palettes
-;	ld a, BANK(wBGPals1)
-;	call FarCopyWRAM
-;	call ApplyPals
-;	call WipeAttrmap
-;	call ApplyAttrmap
 	ret
 
 _CGB_Diploma:
@@ -565,28 +473,9 @@ _CGB_Evolution:
 	ret
 
 _CGB_GSTitleScreen:
-;	ld hl, UnusedGSTitleBGPals
-;	ld de, wBGPals1
-;	ld bc, 5 palettes
-;	ld a, BANK(wBGPals1)
-;	call FarCopyWRAM
-;	ld hl, UnusedGSTitleOBPals
-;	ld de, wOBPals1
-;	ld bc, 2 palettes
-;	ld a, BANK(wOBPals1)
-;	call FarCopyWRAM
-;	ld a, SCGB_DIPLOMA
-;	ld [wDefaultSGBLayout], a
-;	call ApplyPals
-;	ld a, TRUE
-;	ldh [hCGBPalUpdate], a
 	ret
 
 _CGB_Unused0D:
-	ld hl, PalPacket_Diploma + 1
-	call CopyFourPalettes
-	call WipeAttrmap
-	call ApplyAttrmap
 	ret
 
 _CGB_UnownPuzzle:
@@ -741,13 +630,6 @@ _CGB_MoveList:
 	ret
 
 _CGB_BetaPikachuMinigame:
-	ld hl, PalPacket_BetaPikachuMinigame + 1
-	call CopyFourPalettes
-	call WipeAttrmap
-	call ApplyAttrmap
-	call ApplyPals
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
 	ret
 
 _CGB_PokedexSearchOption:
@@ -899,12 +781,6 @@ _CGB_PlayerOrMonFrontpicPals:
 	ret
 
 _CGB_Unused1E:
-	ld de, wBGPals1
-	ld a, [wCurPartySpecies]
-	call GetMonPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-	call WipeAttrmap
-	call ApplyAttrmap
 	ret
 
 _CGB_TradeTube:
@@ -968,15 +844,5 @@ _CGB_MysteryGift:
 INCLUDE "gfx/mystery_gift/mystery_gift.pal"
 
 GS_CGB_MysteryGift: ; unreferenced
-	ld hl, .MysteryGiftPalette
-	ld de, wBGPals1
-	ld bc, 1 palettes
-	ld a, BANK(wBGPals1)
-	call FarCopyWRAM
-	call ApplyPals
-	call WipeAttrmap
-	call ApplyAttrmap
 	ret
 
-.MysteryGiftPalette:
-INCLUDE "gfx/mystery_gift/gs_mystery_gift.pal"
