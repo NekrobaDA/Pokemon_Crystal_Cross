@@ -789,6 +789,8 @@ Moves1:
 ;WYRM_WIND - 75bp special dragon move, chance to lower sp atk
 	
 ;BASILISK FANG - dragon move w/ venomstrike effect ?
+
+;WISH (also heal status?)
 	
 ;fog map weather?
 	

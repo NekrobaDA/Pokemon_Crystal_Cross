@@ -1,4 +1,4 @@
-SHINY_ATK_BIT EQU 5
+;SHINY_ATK_BIT EQU 5
 SHINY_DEF_VAL EQU 10
 SHINY_SPD_VAL EQU 10
 SHINY_SPC_VAL EQU 10
@@ -26,6 +26,44 @@ CheckShininess:
 	ld a, [hl]
 	and $f
 	cp  SHINY_SPC_VAL
+	jr nz, .not_shiny
+
+; shiny
+	scf
+	ret
+
+.not_shiny
+	and a
+	ret
+	
+;SHINYALT_ATK_BIT EQU 5
+SHINYALT_DEF_VAL EQU 13
+SHINYALT_SPD_VAL EQU 13
+SHINYALT_SPC_VAL EQU 13
+
+CheckShininessAlt:
+; Check if a mon is shiny by DVs at bc.
+; Return carry if shiny.
+
+	ld l, c
+	ld h, b
+
+; Defense
+	ld a, [hli]
+	and $f
+	cp  SHINYALT_DEF_VAL
+	jr nz, .not_shiny
+
+; Speed
+	ld a, [hl]
+	and $f0
+	cp  SHINYALT_SPD_VAL << 4
+	jr nz, .not_shiny
+
+; Special
+	ld a, [hl]
+	and $f
+	cp  SHINYALT_SPC_VAL
 	jr nz, .not_shiny
 
 ; shiny
@@ -680,11 +718,11 @@ GetEnemyFrontpicPalettePointer:
 
 .not_ditto
 	push de
-	farcall GetEnemyMonDVs
+	farcall GetEnemyMonDVs     ;hl loaded into bc just for bc to get loaded back in hl?
 	ld c, l
 	ld b, h
 	ld a, [wTempEnemyMonSpecies]
-	call GetFrontpicPalettePointer
+	call GetFrontpicPalettePointer   ;hl, bc, a in
 	pop de
 .end
 	ret
@@ -740,40 +778,58 @@ _GetMonPalettePointer:
 	call GetPokemonIndexFromID
 	add hl, hl
 	add hl, hl
-	add hl, hl
 	ld bc, PokemonPalettes
+	add hl, bc
+	ret
+	
+_GetMonPalettePointerShiny
+	call GetPokemonIndexFromID
+	add hl, hl
+	add hl, hl
+	ld bc, PokemonPalettesShiny
+	add hl, bc
+	ret
+	
+_GetMonPalettePointerShinyAlt
+	call GetPokemonIndexFromID
+	add hl, hl
+	add hl, hl
+	ld bc, PokemonPalettesShinyAlt
 	add hl, bc
 	ret
 
 GetMonNormalOrShinyPalettePointer:
-	push bc
-	call _GetMonPalettePointer
-	pop bc
+	push af
 	push hl
 	call CheckShininess
 	pop hl
-	ret nc
-rept 4
-	inc hl
-endr
+	jr c, .shiny
+	push hl
+	call CheckShininessAlt
+	pop hl
+	jr c, .shinyalt
+	
+	pop af
+	call _GetMonPalettePointer
+	jr .end
+	
+.shiny
+	pop af
+	call _GetMonPalettePointerShiny
+	jr .end
+	
+.shinyalt
+	pop af
+	call _GetMonPalettePointerShinyAlt
+.end
 	ret
 	
 GetMonNormalOrShinyPalettePointerDitto:
-	push bc
 	call _GetMonPalettePointerDitto
-	pop bc
-	push hl
-	call CheckShininess
-	pop hl
-	ret nc
-rept 4
-	inc hl
-endr
 	ret
 	
 _GetMonPalettePointerDitto:
 	call GetPokemonIndexFromID
-	add hl, hl
 	add hl, hl
 	add hl, hl
 	ld bc, DittoPalettes
