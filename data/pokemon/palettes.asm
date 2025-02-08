@@ -1271,7 +1271,6 @@ INCLUDE "gfx/pokemon/missingno/shiny.pal"
 INCLUDE "gfx/pokemon/charizard_m/shiny.pal"
 
 
-
 INCLUDE "gfx/pokemon/egg/shiny.pal"
 INCLUDE "gfx/pokemon/egg/shiny.pal"
 INCLUDE "gfx/pokemon/egg/shiny.pal"
@@ -1441,7 +1440,7 @@ INCLUDE "gfx/pokemon/ditto/shiny.pal"
 INCLUDE "gfx/pokemon/eevee/shiny.pal"
 INCLUDE "gfx/pokemon/vaporeon/shiny.pal"
 INCLUDE "gfx/pokemon/jolteon/shiny.pal"
-INCLUDE "gfx/pokemon/flareon/shiny.pal"
+INCLUDE "gfx/pokemon/flareon/shinyalt.pal"
 INCLUDE "gfx/pokemon/espeon/shiny.pal"
 INCLUDE "gfx/pokemon/umbreon/shiny.pal"
 INCLUDE "gfx/pokemon/leafeon/shiny.pal"

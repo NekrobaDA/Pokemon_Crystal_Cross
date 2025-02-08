@@ -4,6 +4,8 @@ BattleCommand_Teleport:
 	ld a, [wBattleType]
 	cp BATTLETYPE_SHINY
 	jr z, .failed
+	cp BATTLETYPE_SHINY_ALT
+	jr z, .failed
 	cp BATTLETYPE_TRAP
 	jr z, .failed
 	cp BATTLETYPE_CELEBI

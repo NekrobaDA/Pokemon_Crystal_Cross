@@ -4151,6 +4151,8 @@ TryToRunAwayFromBattle:
 	jp z, .cant_escape
 	cp BATTLETYPE_SHINY
 	jp z, .cant_escape
+	cp BATTLETYPE_SHINY_ALT
+	jp z, .cant_escape
 	cp BATTLETYPE_SUICUNE
 	jp z, .cant_escape
 
@@ -4360,6 +4362,9 @@ BattleCheckShininess:
 	ld b, h
 	ld c, l
 	callfar CheckShininess
+	jr c, .skipnext
+	callfar CheckShininessAlt
+.skipnext
 	ret
 
 GetPartyMonDVs:
@@ -6563,8 +6568,15 @@ LoadEnemyMon:
 ; Forced shiny battle type
 ; Used by Red Gyarados at Lake of Rage
 	cp BATTLETYPE_SHINY
-	jr nz, .GenerateDVs
+	jr z, .BattletypeShiny
+	cp BATTLETYPE_SHINY_ALT
+	jp nz, .GenerateDVs
+	
+	ld b, ATKDEFDV_SHINY_ALT ; $ed
+	ld c, SPDSPCDV_SHINY_ALT ; $dd
+	jp .UpdateDVs
 
+.BattletypeShiny
 	ld b, ATKDEFDV_SHINY ; $ea
 	ld c, SPDSPCDV_SHINY ; $aa
 	jp .UpdateDVs

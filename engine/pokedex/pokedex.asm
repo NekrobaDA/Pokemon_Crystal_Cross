@@ -457,14 +457,22 @@ Pokedex_UpdateDexEntryScreen:
 	
 .toggle_shininess
 ; toggle the current shininess setting
-	ld hl, wPokedexShinyToggle
-	bit 0, [hl]
+	ld a, [wPokedexShinyToggle]
+	and a
 	jr z, .set
-	; already set, so clear it
-	res 0, [hl]
-	jr .update_palettes
-.set ; bit is not set, so set it
-	set 0, [hl]
+	cp 1
+	jr z, .set2
+	ld a, 0
+	ld [wPokedexShinyToggle], a
+	jr .update_palettes	
+.set
+	ld a, 1
+	ld [wPokedexShinyToggle], a
+	jr .update_palettes	
+.set2
+	ld a, 2
+	ld [wPokedexShinyToggle], a
+
 .update_palettes
 ; refresh palettes
 	ld a, SCGB_POKEDEX

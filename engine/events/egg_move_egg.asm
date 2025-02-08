@@ -305,12 +305,16 @@ ENDM
 BaseStructEggProbabilities:
 prob_totalegg = 0
 ;male
-	probegg 49	
+	probegg 48	
 ;female
-	probegg 49
+	probegg 48
 ;shiny male
 	probegg 1
 ;shiny female
+	probegg 1
+;shiny male alt
+	probegg 1
+;shiny female alt
 	probegg 1
 
 BaseStructEgg:
@@ -405,6 +409,58 @@ BaseStructEgg:
 	bigdw 0
 	bigdw 0
 	dn 0, 10, 10, 10 ; DVs
+	db 5, 5, 5, 5 ; PP
+	db 5 ; Step cycles to hatch
+	db 0, 0, 0 ; Pokerus, Caught data
+	db 5 ; Level
+	db 0, 0 ; Status
+	bigdw 0 ; HP
+	bigdw 10 ; Max HP
+	bigdw 5 ; Atk
+	bigdw 5 ; Def
+	bigdw 5 ; Spd
+	bigdw 5 ; SAtk
+	bigdw 5 ; SDef
+	db "EGG@@@@@@@@"
+	
+	db 0 ; base
+	db NO_ITEM
+	db 0, 0, 0, 0 ; Moves, will be filled on load
+	dw 02048 ; OT ID
+	dt 125 ; Exp
+	; Stat exp
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	dn 10, 13, 13, 13 ; DVs
+	db 5, 5, 5, 5 ; PP
+	db 5 ; Step cycles to hatch
+	db 0, 0, 0 ; Pokerus, Caught data
+	db 5 ; Level
+	db 0, 0 ; Status
+	bigdw 0 ; HP
+	bigdw 10 ; Max HP
+	bigdw 5 ; Atk
+	bigdw 5 ; Def
+	bigdw 5 ; Spd
+	bigdw 5 ; SAtk
+	bigdw 5 ; SDef
+	db "EGG@@@@@@@@"
+	
+	db 0 ; base
+	db NO_ITEM
+	db 0, 0, 0, 0 ; Moves, will be filled on load
+	dw 02048 ; OT ID
+	dt 125 ; Exp
+	; Stat exp
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	bigdw 0
+	dn 0, 13, 13, 13 ; DVs
 	db 5, 5, 5, 5 ; PP
 	db 5 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
