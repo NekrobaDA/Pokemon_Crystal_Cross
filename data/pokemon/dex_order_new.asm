@@ -116,13 +116,13 @@ NewPokedexOrder:
 	dw RAICHU
 	dw NIDORAN_M
 	dw NIDORINO
-	dw NIDOQUEEN
+	dw NIDOKING
 	dw NIDORAN_F
 	dw NIDORINA
 	dw NIDOQUEEN
 	dw PSYDUCK
 	dw GOLDUCK
-	;dw SUNKERN
+	dw SUNKERN
 	dw SUNFLORA
 	dw SCYTHER
 	dw SCIZOR
@@ -163,9 +163,9 @@ NewPokedexOrder:
 	dw HITMONCHAN
 	dw HITMONTOP
 	dw MACHAMP
-	dw SLUGMA
 	dw MACHOP
 	dw MACHOKE
+	dw SLUGMA
 	dw MAGCARGO
 	dw MAGBY
 	dw MAGMAR
@@ -198,8 +198,8 @@ NewPokedexOrder:
 	dw QWILFISH
 	dw DETOQWIL
 	dw GIRAFARIG
+;	dw UNOWN
 	dw SHUCKLE
-	dw UNOWN
 	dw PORYGON
 	dw PORYGON2
 	dw PORYGON_Z

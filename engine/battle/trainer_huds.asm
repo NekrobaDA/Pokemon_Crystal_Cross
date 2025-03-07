@@ -153,7 +153,7 @@ DrawEnemyHUDBorder:
 
 .tiles
 	;db $6d ; left side
-	db $6b
+	db $75
 	db $74 ; bottom left
 	db $78 ; bottom right
 	db $76 ; bottom side

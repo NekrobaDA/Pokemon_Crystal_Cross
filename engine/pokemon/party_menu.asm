@@ -131,7 +131,7 @@ PlacePartyHPBar:
 	pop hl
 	ld d, $6
 	ld b, $0
-	call DrawBattleHPBar
+	call DrawPartyHPBar
 	ld hl, wHPPals
 	ld a, [wSGBPals]
 	ld c, a

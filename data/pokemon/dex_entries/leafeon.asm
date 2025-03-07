@@ -2,8 +2,9 @@
 	dw 303, 562 ; height, weight
 
 	db   "Just like a plant,"
-	next "it uses photosynthesis."
-	next "As a result, it is"
+	next "it uses photosyn-"
+	next "thesis. Resulting"
 
-	page "always surrounded"
+	page "from this, it is"
+	next "always surrounded"
 	next "in clean air.@"

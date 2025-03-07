@@ -136,7 +136,7 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 87
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 88
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 89
-	tilecoll FLOOR, CUT_TREE, FLOOR, WALL ; 8a
+	tilecoll FLOOR, CUT_TREE, WALL, FLOOR ; 8a
 	tilecoll FLOOR, FLOOR, CUT_TREE, FLOOR ; 8b
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 8c
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 8d

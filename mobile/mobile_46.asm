@@ -378,83 +378,36 @@ BattleTowerRoomMenu_PlaceYesNoMenu:                ;idk
 
 	ld hl, MenuHeader_11a2de
 	call LoadMenuHeader
-	call MenuBox
-	call MenuBoxCoord2Tile
-	call ApplyTilemap
-	hlcoord 16, 8
-	ld de, String_11a2cf
-	call PlaceString
-	hlcoord 16, 10
-	ld de, String_11a2d3
-	call PlaceString
-	hlcoord 15, 8
-	ld a, $ed
-	ld [hl], a
+;	call MenuBox
+;	call MenuBoxCoord2Tile
+;	call ApplyTilemap
+;	hlcoord 16, 8
+;	ld de, String_11a2cf
+;	call PlaceString
+;	hlcoord 16, 10
+;	ld de, String_11a2d3
+;	call PlaceString
+;	hlcoord 15, 8
+;	ld a, $ed
+;	ld [hl], a
 
 	call BattleTowerRoomMenu_IncrementJumptable
 
 BattleTowerRoomMenu_UpdateYesNoMenu:               ;idk x2, this ended up working
 	; Only ever called when [wBattleTowerRoomMenu2JumptableIndex] is $10
-	ld hl, hJoyPressed
-	ld a, [hl]
+	
+.loop
+	call GetJoypad
+	ldh a, [hJoyPressed]
 	and A_BUTTON
 	jr nz, .a_button
-	ld a, [hl]
-	and B_BUTTON
-	jr nz, .b_button
-	ld a, [hl]
-	and D_UP
-	jr nz, .d_up
-	ld a, [hl]
-	and D_DOWN
-	jr nz, .d_down
-.asm_11a24c
-	call Function11a9f0
-	scf
-	ret
-
-.d_up
-	xor a
-	ld [wcd8a], a
-	ld [wcd8b], a
-	ld a, [wMobileInactivityTimerMinutes]
-	and a
-	jr z, .asm_11a24c
-	xor a
-	ld [wMobileInactivityTimerMinutes], a
-	hlcoord 15, 8
-	ld a, $ed
-	ld [hl], a
-	hlcoord 15, 10
-	ld a, $7f
-	ld [hl], a
-	jr .asm_11a24c
-
-.d_down
-	xor a
-	ld [wcd8a], a
-	ld [wcd8b], a
-	ld a, [wMobileInactivityTimerMinutes]
-	and a
-	jr nz, .asm_11a24c
-	inc a
-	ld [wMobileInactivityTimerMinutes], a
-	hlcoord 15, 8
-	ld a, $7f
-	ld [hl], a
-	hlcoord 15, 10
-	ld a, $ed
-	ld [hl], a
-	jr .asm_11a24c
+	jr .loop
 
 .a_button
 	xor a
 	ld [wcd8a], a
 	ld [wcd8b], a
 	call PlayClickSFX
-	ld a, [wMobileInactivityTimerMinutes]
-	and a
-	jr nz, .exit_no_carry
 	call ExitMenu
 	farcall ReloadMapPart
 	ld a, [wMobileInactivityTimerFrames]
@@ -471,15 +424,6 @@ BattleTowerRoomMenu_UpdateYesNoMenu:               ;idk x2, this ended up workin
 	ld a, $a
 	ld [wMobileErrorCodeBuffer], a
 	scf
-	ret
-
-.b_button
-	call PlayClickSFX
-
-.exit_no_carry
-	call ExitMenu
-	farcall ReloadMapPart
-	and a
 	ret
 	
 Function11a9f0:
@@ -662,8 +606,8 @@ Text_UberRestriction:
 	done
 
 Text_CancelBattleRoomChallenge:
-	text "Cancel your BATTLE"
-	line "ROOM challenge?"
+	text "Your challenge has"
+	line "been cancelled."
 	done
 	
 Text_WhatLevelDoYouWantToChallenge:

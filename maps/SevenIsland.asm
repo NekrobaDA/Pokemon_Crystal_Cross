@@ -137,10 +137,10 @@ SevenIslandGrannyScript:
 Text_7IGranny:
 	text "These islands are"
 	line "named not for the"
-	cont "number, but for the"
-	cont "number of days in"
-	cont "which they were" 
-	cont "created."
+	cont "number, but for"
+	cont "the number of days"
+	cont "in which they" 
+	cont "were created."
 	done
 	
 SevenIslandScientistScript:
@@ -152,11 +152,11 @@ SevenIslandScientistScript:
 	end
 	
 Text_7IScientist:
-	text "This island has not"
-	line "been very developed."
+	text "This island hasn't"
+	line "been developed."
 	
-	para "It's a diffcult hike"
-	line "because of that."
+	para "It's a difficult"
+	line "hike due to that."
 	done
 	
 SevenIslandCooltrainerScript:
@@ -168,12 +168,12 @@ SevenIslandCooltrainerScript:
 	end
 	
 Text_7ICooltrainer:
-	text "Not many people come"
-	line "out here."
+	text "Not many people"
+	line "come out here."
 	
-	para "If I train here, I'm"
-	line "convinced I'll grow"
-	cont "stronger."
+	para "If I train here,"
+	line "I'm convinced I'll"
+	cont "grow stronger."
 	done
 
 SevenIsland_MapEvents:

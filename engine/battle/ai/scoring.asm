@@ -2861,7 +2861,6 @@ AIHasMoveInArray:
 	pop hl
 	pop bc
 	pop de
-	pop hl
 	ret
 
 INCLUDE "data/battle/ai/useful_moves.asm"

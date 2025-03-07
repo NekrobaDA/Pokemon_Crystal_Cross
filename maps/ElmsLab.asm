@@ -224,6 +224,7 @@ CyndaquilPokeBallScript:
 	setflag ENGINE_EXPN_CARD
 	; pokedex
 	setflag ENGINE_POKEDEX
+;	special CompleteDex
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE

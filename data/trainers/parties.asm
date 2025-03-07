@@ -1521,6 +1521,7 @@ LtSurgeGroup:
 	dw PIKACHU
 	db LIGHT_BALL
 	dw RAIN_DANCE, THUNDER, DOUBLE_TEAM, SURF
+;	dw QUICK_ATTACK, THUNDER, DOUBLE_TEAM, SURF
 	dw FEMALE_DVS
 	dw 35K,   0, 25K, 45K, 45K ; 150k
 	;   hp, atk, def, spd, spc

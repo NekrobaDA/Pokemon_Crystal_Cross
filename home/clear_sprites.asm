@@ -21,3 +21,17 @@ HideSprites::
 	dec b
 	jr nz, .loop
 	ret
+
+CompleteDex::
+	ld a, $FF
+	; Set all species as seen and caught
+    ld hl, wPokedexSeen
+    ld bc, wEndPokedexSeen - wPokedexSeen - 1
+    call ByteFill
+    ld hl, wPokedexCaught
+    ld bc, wEndPokedexCaught - wPokedexCaught - 1
+    call ByteFill
+    ld a, $ff >> (8 - NUM_POKEMON % 8)  ; Except the last one, to avoid wrapping.
+    ld [wEndPokedexSeen - 1], a
+    ld [wEndPokedexCaught - 1], a
+	

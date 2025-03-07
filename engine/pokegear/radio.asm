@@ -194,7 +194,7 @@ OaksPKMNTalk4:
 .sample
 	call Random
 	and %11111 ; maskbits NUM_OAKS_POKEMON_TALK_ROUTES would be more efficient
-	cp NUM_OAKS_POKEMON_TALK_ROUTES
+	cp (OaksPKMNTalkRoutes.End - OaksPKMNTalkRoutes) / 2
 	jr nc, .sample
 	; We now have a number between 0 and NUM_OAKS_POKEMON_TALK_ROUTES - 1.
 	ld hl, OaksPKMNTalkRoutes
@@ -211,10 +211,6 @@ OaksPKMNTalk4:
 	
 	; Generate a number, either 0, 1, or 2, to choose a time of day.
 .loop2
-	call Random
-	maskbits NUM_DAYTIMES
-	cp EVE_F
-	jr z, .loop2
 	; Point hl to the list of Pokémon for that time of day, skipping the map ID and the percentages
 	ld bc, 5
 	add hl, bc
