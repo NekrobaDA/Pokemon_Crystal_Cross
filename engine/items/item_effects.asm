@@ -3006,4 +3006,3 @@ GetMthMoveOfCurrentMon:
 	ld b, 0
 	add hl, bc
 	ret
-

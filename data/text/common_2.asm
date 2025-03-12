@@ -641,6 +641,11 @@ _UseSacredAshText::
 	text "<PLAYER>'s #MON"
 	line "were all healed!"
 	done
+	
+_UseTonicWaterText::
+	text "Party's ailments"
+	line "were cured!"
+	done
 
 _AnEggCantHoldAnItemText::
 	text "An EGG can't hold"

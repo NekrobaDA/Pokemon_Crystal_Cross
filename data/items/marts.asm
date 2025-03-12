@@ -556,7 +556,7 @@ MartUnderground:
 MartCatallia:
 	db 4 ; # items
 	db RARE_CANDY
-	db ANTIDOTE
+	db ENERGYPOWDER
 	db PARLYZ_HEAL
 	db AWAKENING
 	db -1 ; end
@@ -573,7 +573,7 @@ MartCatalliaDex:
 	db TM_THUNDERBOLT
 	db TM_ICE_BEAM
 	db TM_FLAMETHROWER
-	db ASPEAR_BERRY
+	db ENERGYPOWDER
 	db RAWST_BERRY
 	db -1 ; end
 

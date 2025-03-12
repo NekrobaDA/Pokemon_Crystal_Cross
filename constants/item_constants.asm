@@ -113,9 +113,9 @@
 	const MIRACLE_SEED ; 69
 	const THICK_CLUB   ; 6a
 	const FOCUS_BAND   ; 6b
-	const ENERGYPOWDER ; 6c
+	const GREEN_TEA    ; 6c
 	const ENERGY_ROOT  ; 6d
-	const HEAL_POWDER  ; 6e
+	const SOOTHE_BALM  ; 6e
 	const REVIVAL_HERB ; 6f
 	const HARD_STONE   ; 70
 	const LUCKY_EGG    ; 71
@@ -404,4 +404,5 @@ X_DEFEND       EQU $05
 X_SPEED        EQU $05
 GUARD_SPEC     EQU $05
 X_SPECIAL      EQU $05
-
+ENERGYPOWDER   EQU $6c
+HEAL_POWDER    EQU $6e

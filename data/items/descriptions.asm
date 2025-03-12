@@ -736,7 +736,7 @@ TeruSama8Desc:
 
 EnergyPowderDesc:
 	db   "Restores #MON"
-	next "HP by 75. Bitter.@"
+	next "HP by 70. Bitter.@"
 
 EnergyRootDesc:
 	db   "Restores #MON"

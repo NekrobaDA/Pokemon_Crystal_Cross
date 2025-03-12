@@ -70,7 +70,7 @@ SacredAshScript:
 _TonicWater:
 	ld a, $0
 	ld [wItemEffectSucceeded], a
-	call CheckAnyFaintedMon
+	call CheckAnyStatusedMon
 	ret nc
 
 	ld hl, TonicWaterScript
@@ -82,23 +82,15 @@ _TonicWater:
 TonicWaterScript:
 	special HealPartyStatus
 	reloadmappart
-	playsound SFX_WARP_TO
-	special FadeOutPalettes
-	special FadeInPalettes
-	special FadeOutPalettes
-	special FadeInPalettes
-	special FadeOutPalettes
-	special FadeInPalettes
-	waitsfx
-	writetext .UseSacredAshText
-	playsound SFX_CAUGHT_MON
+	playsound SFX_FULL_HEAL
+	writetext .UseTonicWaterText
 	waitsfx
 	waitbutton
 	closetext
 	end
 	
-.UseSacredAshText:
-	text_far _UseSacredAshText
+.UseTonicWaterText:
+	text_far _UseTonicWaterText
 	text_end
 	
 HealPartyStatus:
@@ -136,4 +128,35 @@ HealPartyMonStatus:
 	xor a
 	ld [hli], a
 	ld [hl], a
+	ret
+	
+CheckAnyStatusedMon:
+	ld de, PARTYMON_STRUCT_LENGTH
+	ld hl, wPartyMon1Status
+	ld a, [wPartyCount]
+	and a
+	ret z
+
+.loop
+	push af
+	push hl
+
+	ld a, [hli]
+	or [hl]
+	jr z, .next
+	jr .done
+
+.next
+	pop hl
+	add hl, de
+	pop af
+	dec a
+	jr nz, .loop
+	xor a
+	ret
+
+.done
+	pop hl
+	pop af
+	scf
 	ret
