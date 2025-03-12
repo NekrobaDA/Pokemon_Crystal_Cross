@@ -36,7 +36,7 @@ ItemEffects:
 	dw VitaminEffect       ; PROTEIN
 	dw VitaminEffect       ; IRON
 	dw VitaminEffect       ; CARBOS
-	dw NoEffect            ; ITEM_18
+	dw RestoreHPEffect     ; BERRY_JUICE_EX
 	dw VitaminEffect       ; CALCIUM
 	dw RareCandyEffect     ; RARE_CANDY
 	dw NoEffect            ; WIDE_LENS
@@ -139,7 +139,7 @@ ItemEffects:
 	dw NoEffect            ; METAL_COAT
 	dw NoEffect            ; DRAGON_FANG
 	dw NoEffect            ; LEFTOVERS
-	dw RestorePPEffect     ; MYSTERYBERRY
+	dw RestorePPEffect     ; LEPPA_BERRY
 	dw NoEffect            ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
 	dw SacredAshEffect     ; SACRED_ASH
@@ -152,8 +152,8 @@ ItemEffects:
 	dw PokeBallEffect      ; FRIEND_BALL
 	dw PokeBallEffect      ; MOON_BALL
 	dw PokeBallEffect      ; LOVE_BALL
-	dw NoEffect            ; ITEM_8C
-	dw NoEffect            ; ITEM_8D
+	dw TonicWaterEffect    ; TONIC_WATER
+	dw ReviveEffect        ; REVIVALADE
 	dw EvoStoneEffect      ; SUN_STONE
 	dw NoEffect            ; POLKADOT_BOW
 	dw NoEffect            ; UP_GRADE
@@ -173,18 +173,19 @@ ItemEffects:
 	dw NoEffect            ; FROST_RING
 	dw NoEffect            ; RAZOR_FANG
 	dw NoEffect            ; RAZOR_CLAW
-	dw NoEffect            ; SILVER SCALE
-	dw NoEffect            ; GOLD SCALE
-	dw NoEffect            ; STATIC ORB
-	dw NoEffect            ; FROZEN ORB
-	dw NoEffect            ; FIERY ORB
-	dw DrinkEffect         ; PURPLE JUICE
-	dw DrinkEffect         ; RED JUICE
-	dw DrinkEffect         ; YELLOW JUICE
-	dw DrinkEffect         ; PINK JUICE
-	dw DrinkEffect         ; BLUE JUICE
-	dw RareCandyEffect     ; RARE SODA
-	dw PrismShakeEffect    ; PRISM SHAKE
+	dw NoEffect            ; SILVER_SCALE
+	dw NoEffect            ; GOLD_SCALE
+	dw NoEffect            ; STATIC_ORB
+	dw NoEffect            ; FROZEN_ORB
+	dw NoEffect            ; FIERY_ORB
+	dw DrinkEffect         ; PURPLE_JUICE
+	dw DrinkEffect         ; RED_JUICE
+	dw DrinkEffect         ; YELLOW_JUICE
+	dw DrinkEffect         ; PINK_JUICE
+	dw DrinkEffect         ; GREEN_JUICE
+	dw RareCandyEffect     ; RARE_SODA
+	dw PrismShakeEffect    ; PRISM_SHAKE
+	dw RestorePPEffect     ; SWEET_CIDER
 
 PokeBallEffect:
 	ld a, [wBattleMode]
@@ -1284,11 +1285,11 @@ StatExpItemPointerOffsets:
 	db IRON,    MON_DEF_EXP - MON_STAT_EXP
 	db CARBOS,  MON_SPD_EXP - MON_STAT_EXP
 	db CALCIUM, MON_SPC_EXP - MON_STAT_EXP
-	db PURPLE_JUICE, MON_HP_EXP - MON_STAT_EXP   ;persim+oran
-	db RED_JUICE,    MON_ATK_EXP - MON_STAT_EXP  ;cheri  x2
-	db YELLOW_JUICE, MON_DEF_EXP - MON_STAT_EXP  ;aspear x2
-	db PINK_JUICE,   MON_SPD_EXP - MON_STAT_EXP  ;pecha  x2
-	db BLUE_JUICE,   MON_SPC_EXP - MON_STAT_EXP  ;rawst+oran
+	db PURPLE_JUICE, MON_HP_EXP - MON_STAT_EXP   ;chesto
+	db RED_JUICE,    MON_ATK_EXP - MON_STAT_EXP  ;cheri
+	db YELLOW_JUICE, MON_DEF_EXP - MON_STAT_EXP  ;aspear
+	db PINK_JUICE,   MON_SPD_EXP - MON_STAT_EXP  ;pecha
+	db GREEN_JUICE,  MON_SPC_EXP - MON_STAT_EXP  ;rawst
 
 RareCandy_StatBooster_GetParameters:
 	ld a, [wCurPartySpecies]
@@ -1611,6 +1612,8 @@ RevivePokemon:
 	ld [wLowHealthAlarm], a
 	ld a, [wCurItem]
 	cp REVIVE
+	jr z, .revive_half_hp
+	cp REVIVALADE
 	jr z, .revive_half_hp
 
 	call ReviveFullHP
@@ -2357,6 +2360,8 @@ RestorePPEffect:
 	jp z, Elixer_RestorePPofAllMoves
 	cp ELIXER
 	jp z, Elixer_RestorePPofAllMoves
+	cp SWEET_CIDER
+	jp z, Elixer_RestorePPofAllMoves
 
 	ld hl, RaiseThePPOfWhichMoveText
 	ld a, [wTempRestorePPItem]
@@ -2452,6 +2457,10 @@ BattleRestorePP:
 	call .UpdateBattleMonPP
 
 .not_in_battle
+	ldh a, [hTemp]
+	and a	
+	jr nz, FinishPPRestore
+
 	call Play_SFX_FULL_HEAL
 	ld hl, PPRestoredText
 	call PrintText
@@ -2558,7 +2567,9 @@ RestorePP:
 	jr z, .restore_all
 
 	ld c, 5
-	cp MYSTERYBERRY
+	cp LEPPA_BERRY
+	jr z, .restore_some
+	cp SWEET_CIDER
 	jr z, .restore_some
 
 	ld c, 10
@@ -2612,6 +2623,14 @@ CardKeyEffect:
 
 BasementKeyEffect:
 	farcall _BasementKey
+	ret
+
+TonicWaterEffect:
+	farcall _TonicWater
+	ld a, [wItemEffectSucceeded]
+	cp $1
+	ret nz
+	call UseDisposableItem
 	ret
 
 SacredAshEffect:
@@ -2987,3 +3006,4 @@ GetMthMoveOfCurrentMon:
 	ld b, 0
 	add hl, bc
 	ret
+

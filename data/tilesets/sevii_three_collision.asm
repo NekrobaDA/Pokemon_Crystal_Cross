@@ -10,7 +10,7 @@
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 09
 	tilecoll WALL, WALL, WALL, WALL ; 0a
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 0b
-	tilecoll CUT_TREE, WALL, WALL, WALL ; 0c
+	tilecoll CUT_TREE, WALL, FLOOR, FLOOR ; 0c
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 0d
 	tilecoll WALL, WALL, WALL, WALL ; 0e
 	tilecoll WALL, FLOOR, WALL, WALL ; 0f

@@ -1,7 +1,11 @@
-JUICE_PRICE EQU 400
-SODA_PRICE  EQU 20000
-SHAKE_PRICE EQU 1000
-BERRYJUICE_PRICE EQU 800
+JUICE_PRICE EQU 1200
+SODA_PRICE  EQU 5000
+SHAKE_PRICE EQU 1050
+BERRYJUICE_PRICE EQU 375
+FRUITPUNCH_PRICE EQU 850
+REVIVALADE_PRICE EQU 1275
+TONIC_PRICE EQU 1500
+CIDER_PRICE EQU 750
 	
 	object_const_def
 	const CHERRYGROVECAFE_CLERK
@@ -36,12 +40,12 @@ CherrygroveCafeClerkScript:
 	ifequal 2, .AspearCheriPrismShake
 	ifequal 3, .AspearChestoPrismShake
 	ifequal 4, .AspearLeppaPrismShake
-	ifequal 5, .AspearLumPrismShake
-	ifequal 6, .AspearOranPrismShake
+	ifequal 5, .AspearLumYellowJuice
+	ifequal 6, .AspearOranBerryJuice
 	ifequal 7, .AspearPechaPrismShake
 	ifequal 8, .AspearPersimPrismShake
 	ifequal 9, .AspearRawstPrismShake
-	ifequal 10, .AspearSitrusYellowJuice
+	ifequal 10, .AspearSitrusFruitPunch
 	sjump CancelScriptCC
 	end
 
@@ -51,13 +55,13 @@ CherrygroveCafeClerkScript:
 	ifequal 1, .AspearCheriPrismShake
 	ifequal 2, .CheriCheriRedJuice
 	ifequal 3, .CheriChestoPrismShake
-	ifequal 4, .CheriLeppaRedJuice
-	ifequal 5, .CheriLumPrismShake
-	ifequal 6, .CheriOranPurpleJuice
+	ifequal 4, .CheriLeppaPrismShake
+	ifequal 5, .CheriLumRedJuice
+	ifequal 6, .CheriOranBerryJuice
 	ifequal 7, .CheriPechaPrismShake
 	ifequal 8, .CheriPersimPrismShake
 	ifequal 9, .CheriRawstPrismShake
-	ifequal 10, .CheriSitrusPrismShake
+	ifequal 10, .CheriSitrusFruitPunch
 	sjump CancelScriptCC
 	end
 
@@ -68,12 +72,12 @@ CherrygroveCafeClerkScript:
 	ifequal 2, .CheriChestoPrismShake
 	ifequal 3, .ChestoChestoPurpleJuice
 	ifequal 4, .ChestoLeppaPrismShake
-	ifequal 5, .ChestoLumPrismShake
-	ifequal 6, .ChestoOranPrismShake
+	ifequal 5, .ChestoLumPurpleJuice
+	ifequal 6, .ChestoOranBerryJuice
 	ifequal 7, .ChestoPechaPrismShake
 	ifequal 8, .ChestoPersimPrismShake
 	ifequal 9, .ChestoRawstPrismShake
-	ifequal 10, .ChestoSitrusPrismShake
+	ifequal 10, .ChestoSitrusFruitPunch
 	sjump CancelScriptCC
 	end
 
@@ -81,30 +85,30 @@ CherrygroveCafeClerkScript:
 	special CherrygroveCafeBerryScript
 	closetext
 	ifequal 1, .AspearLeppaPrismShake
-	ifequal 2, .CheriLeppaRedJuice
+	ifequal 2, .CheriLeppaPrismShake
 	ifequal 3, .ChestoLeppaPrismShake
-	ifequal 4, .LeppaLeppaRedJuice
+	ifequal 4, .LeppaLeppaSweetCider
 	ifequal 5, .LeppaLumPrismShake
-	ifequal 6, .LeppaOranPurpleJuice
+	ifequal 6, .LeppaOranBerryJuice
 	ifequal 7, .LeppaPechaPrismShake
 	ifequal 8, .LeppaPersimPrismShake
 	ifequal 9, .LeppaRawstPrismShake
-	ifequal 10, .LeppaSitrusPrismShake
+	ifequal 10, .LeppaSitrusFruitPunch
 	sjump CancelScriptCC
 	end
 
 .LumMenu
 	special CherrygroveCafeBerryScript
 	closetext
-	ifequal 1, .AspearLumPrismShake
-	ifequal 2, .CheriLumPrismShake
-	ifequal 3, .ChestoLumPrismShake
+	ifequal 1, .AspearLumYellowJuice
+	ifequal 2, .CheriLumRedJuice
+	ifequal 3, .ChestoLumPurpleJuice
 	ifequal 4, .LeppaLumPrismShake
-	ifequal 5, .LumLumPrismShake
-	ifequal 6, .LumOranBlueJuice
-	ifequal 7, .LumPechaPrismShake
+	ifequal 5, .LumLumTonicWater
+	ifequal 6, .LumOranBerryJuice
+	ifequal 7, .LumPechaPinkJuice
 	ifequal 8, .LumPersimPrismShake
-	ifequal 9, .LumRawstBlueJuice
+	ifequal 9, .LumRawstGreenJuice
 	ifequal 10, .LumSitrusRareSoda
 	sjump CancelScriptCC
 	end
@@ -112,16 +116,16 @@ CherrygroveCafeClerkScript:
 .OranMenu
 	special CherrygroveCafeBerryScript
 	closetext
-	ifequal 1, .AspearOranPrismShake
-	ifequal 2, .CheriOranPurpleJuice
-	ifequal 3, .ChestoOranPrismShake
-	ifequal 4, .LeppaOranPurpleJuice
-	ifequal 5, .LumOranBlueJuice
-	ifequal 6, .OranOranBlueJuice
-	ifequal 7, .OranPechaPurpleJuice
-	ifequal 8, .OranPersimPrismShake
-	ifequal 9, .OranRawstBlueJuice
-	ifequal 10, .OranSitrusBerryJuice
+	ifequal 1, .AspearOranBerryJuice
+	ifequal 2, .CheriOranBerryJuice
+	ifequal 3, .ChestoOranBerryJuice
+	ifequal 4, .LeppaOranBerryJuice
+	ifequal 5, .LumOranBerryJuice
+	ifequal 6, .OranOranBerryJuice
+	ifequal 7, .OranPechaBerryJuice
+	ifequal 8, .OranPersimBerryJuice
+	ifequal 9, .OranRawstBerryJuice
+	ifequal 10, .OranSitrusFruitPunch
 	sjump CancelScriptCC
 	end
 	
@@ -132,12 +136,12 @@ CherrygroveCafeClerkScript:
 	ifequal 2, .CheriPechaPrismShake
 	ifequal 3, .ChestoPechaPrismShake
 	ifequal 4, .LeppaPechaPrismShake
-	ifequal 5, .LumPechaPrismShake
-	ifequal 6, .OranPechaPurpleJuice
+	ifequal 5, .LumPechaPinkJuice
+	ifequal 6, .OranPechaBerryJuice
 	ifequal 7, .PechaPechaPinkJuice
-	ifequal 8, .PechaPersimPinkJuice
+	ifequal 8, .PechaPersimPrismShake
 	ifequal 9, .PechaRawstPrismShake
-	ifequal 10, .PechaSitrusPrismShake
+	ifequal 10, .PechaSitrusFruitPunch
 	sjump CancelScriptCC
 	end
 	
@@ -149,11 +153,11 @@ CherrygroveCafeClerkScript:
 	ifequal 3, .ChestoPersimPrismShake
 	ifequal 4, .LeppaPersimPrismShake
 	ifequal 5, .LumPersimPrismShake
-	ifequal 6, .OranPersimPrismShake
-	ifequal 7, .PechaPersimPinkJuice
-	ifequal 8, .PersimPersimPinkJuice
+	ifequal 6, .OranPersimBerryJuice
+	ifequal 7, .PechaPersimPrismShake
+	ifequal 8, .PersimPersimPrismShake
 	ifequal 9, .PersimRawstPrismShake
-	ifequal 10, .PersimSitrusPrismShake
+	ifequal 10, .PersimSitrusFruitPunch
 	sjump CancelScriptCC
 	end
 	
@@ -164,48 +168,48 @@ CherrygroveCafeClerkScript:
 	ifequal 2, .CheriRawstPrismShake
 	ifequal 3, .ChestoRawstPrismShake
 	ifequal 4, .LeppaRawstPrismShake
-	ifequal 5, .LumRawstBlueJuice
-	ifequal 6, .OranRawstBlueJuice
+	ifequal 5, .LumRawstGreenJuice
+	ifequal 6, .OranRawstBerryJuice
 	ifequal 7, .PechaRawstPrismShake
 	ifequal 8, .PersimRawstPrismShake
-	ifequal 9, .RawstRawstBlueJuice
-	ifequal 10, .RawstSitrusPrismShake
+	ifequal 9, .RawstRawstGreenJuice
+	ifequal 10, .RawstSitrusFruitPunch
 	sjump CancelScriptCC
 	end
 	
 .SitrusMenu
 	special CherrygroveCafeBerryScript
 	closetext
-	ifequal 1, .AspearSitrusYellowJuice
-	ifequal 2, .CheriSitrusPrismShake
-	ifequal 3, .ChestoSitrusPrismShake
-	ifequal 4, .LeppaSitrusPrismShake
+	ifequal 1, .AspearSitrusFruitPunch
+	ifequal 2, .CheriSitrusFruitPunch
+	ifequal 3, .ChestoSitrusFruitPunch
+	ifequal 4, .LeppaSitrusFruitPunch
 	ifequal 5, .LumSitrusRareSoda
-	ifequal 6, .OranSitrusBerryJuice
-	ifequal 7, .PechaSitrusPrismShake
-	ifequal 8, .PersimSitrusPrismShake
-	ifequal 9, .RawstSitrusPrismShake
-	ifequal 10, .SitrusSitrusYellowJuice
+	ifequal 6, .OranSitrusFruitPunch
+	ifequal 7, .PechaSitrusFruitPunch
+	ifequal 8, .PersimSitrusFruitPunch
+	ifequal 9, .RawstSitrusFruitPunch
+	ifequal 10, .SitrusSitrusRevivalade
 	sjump CancelScriptCC
 	end
 
-.CheriOranPurpleJuice
+.CheriOranBerryJuice
 	checkitem CHERI_BERRY
 	iffalse .DontHaveBerries
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeberryjuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem CHERI_BERRY
 	takeitem ORAN_BERRY
-	sjump PurpleJuice
+	sjump BerryJuice
 
 .ChestoChestoPurpleJuice
 	checkitem CHESTO_BERRY, 2
@@ -222,41 +226,41 @@ CherrygroveCafeClerkScript:
 	takeitem CHESTO_BERRY, 2
 	sjump PurpleJuice
 
-.LeppaOranPurpleJuice
+.LeppaOranBerryJuice
 	checkitem LEPPA_BERRY
 	iffalse .DontHaveBerries
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeberryjuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem LEPPA_BERRY
 	takeitem ORAN_BERRY
-	sjump PurpleJuice
+	sjump BerryJuice
 
-.OranPechaPurpleJuice
+.OranPechaBerryJuice
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeberryjuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem ORAN_BERRY
 	takeitem PECHA_BERRY
-	sjump PurpleJuice
+	sjump BerryJuice
 
 .CheriCheriRedJuice
 	checkitem CHERI_BERRY, 2
@@ -273,38 +277,38 @@ CherrygroveCafeClerkScript:
 	takeitem CHERI_BERRY, 2
 	sjump RedJuice
 
-.CheriLeppaRedJuice
+.CheriLeppaPrismShake
 	checkitem CHERI_BERRY
 	iffalse .DontHaveBerries
 	checkitem LEPPA_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeshakeprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem CHERI_BERRY
 	takeitem LEPPA_BERRY
-	sjump RedJuice
+	sjump PrismShake
 
-.LeppaLeppaRedJuice
+.LeppaLeppaSweetCider
 	checkitem LEPPA_BERRY, 2
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeciderprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, CIDER_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem LEPPA_BERRY, 2
-	sjump RedJuice
+	sjump SweetCider
 
 .AspearAspearYellowJuice
 	checkitem ASPEAR_BERRY, 2
@@ -321,38 +325,38 @@ CherrygroveCafeClerkScript:
 	takeitem ASPEAR_BERRY, 2
 	sjump YellowJuice
 
-.AspearSitrusYellowJuice
+.AspearSitrusFruitPunch
 	checkitem ASPEAR_BERRY
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbefruitpunchprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, FRUITPUNCH_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem ASPEAR_BERRY
 	takeitem SITRUS_BERRY
-	sjump YellowJuice
+	sjump FruitPunch
 
-.SitrusSitrusYellowJuice
+.SitrusSitrusRevivalade
 	checkitem SITRUS_BERRY, 2
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willberevivaladeprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, REVIVALADE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem SITRUS_BERRY, 2
-	sjump YellowJuice
+	sjump Revivalade
 
 .PechaPechaPinkJuice
 	checkitem PECHA_BERRY, 2
@@ -369,58 +373,58 @@ CherrygroveCafeClerkScript:
 	takeitem PECHA_BERRY, 2
 	sjump PinkJuice
 
-.PechaPersimPinkJuice
+.PechaPersimPrismShake
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeshakeprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem PECHA_BERRY
 	takeitem PERSIM_BERRY
-	sjump PinkJuice
+	sjump PrismShake
 
-.PersimPersimPinkJuice
+.PersimPersimPrismShake
 	checkitem PERSIM_BERRY, 2
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeshakeprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, SHAKE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem PERSIM_BERRY, 2
-	sjump PinkJuice
+	sjump PrismShake
 
-.LumOranBlueJuice
+.LumOranBerryJuice
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeberryjuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem LUM_BERRY
 	takeitem ORAN_BERRY
-	sjump BlueJuice
+	sjump BerryJuice
 	
-.LumRawstBlueJuice
+.LumRawstGreenJuice
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
 	checkitem RAWST_BERRY
@@ -436,42 +440,42 @@ CherrygroveCafeClerkScript:
 	
 	takeitem LUM_BERRY
 	takeitem RAWST_BERRY
-	sjump BlueJuice
+	sjump GreenJuice
 	
-.OranOranBlueJuice
+.OranOranBerryJuice
 	checkitem ORAN_BERRY, 2
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeberryjuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem ORAN_BERRY, 2
-	sjump BlueJuice
+	sjump BerryJuice
 	
-.OranRawstBlueJuice
+.OranRawstBerryJuice
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbejuiceprice
+	writetext willbeberryjuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, JUICE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem ORAN_BERRY
 	takeitem RAWST_BERRY
-	sjump BlueJuice
+	sjump BerryJuice
 
-.RawstRawstBlueJuice
+.RawstRawstGreenJuice
 	checkitem RAWST_BERRY, 2
 	iffalse .DontHaveBerries
 	
@@ -484,7 +488,7 @@ CherrygroveCafeClerkScript:
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem RAWST_BERRY, 2
-	sjump BlueJuice
+	sjump GreenJuice
 	
 .LumSitrusRareSoda
 	checkitem LUM_BERRY
@@ -558,41 +562,41 @@ CherrygroveCafeClerkScript:
 	takeitem LEPPA_BERRY
 	sjump PrismShake
 	
-.AspearLumPrismShake
+.AspearLumYellowJuice
 	checkitem ASPEAR_BERRY
 	iffalse .DontHaveBerries
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbejuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem ASPEAR_BERRY
 	takeitem LUM_BERRY
-	sjump PrismShake
+	sjump YellowJuice
 	
-.AspearOranPrismShake
+.AspearOranBerryJuice
 	checkitem ASPEAR_BERRY
 	iffalse .DontHaveBerries
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbeberryjuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem ASPEAR_BERRY
 	takeitem ORAN_BERRY
-	sjump PrismShake
+	sjump BerryJuice
 	
 .AspearPechaPrismShake
 	checkitem ASPEAR_BERRY
@@ -666,23 +670,23 @@ CherrygroveCafeClerkScript:
 	takeitem CHESTO_BERRY
 	sjump PrismShake
 	
-.CheriLumPrismShake
+.CheriLumRedJuice
 	checkitem CHERI_BERRY
 	iffalse .DontHaveBerries
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbejuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem CHERI_BERRY
 	takeitem LUM_BERRY
-	sjump PrismShake
+	sjump RedJuice
 	
 .CheriPechaPrismShake
 	checkitem CHERI_BERRY
@@ -738,23 +742,23 @@ CherrygroveCafeClerkScript:
 	takeitem RAWST_BERRY
 	sjump PrismShake
 	
-.CheriSitrusPrismShake
+.CheriSitrusFruitPunch
 	checkitem CHERI_BERRY
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbefruitpunchprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, FRUITPUNCH_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem CHERI_BERRY
 	takeitem SITRUS_BERRY
-	sjump PrismShake
+	sjump FruitPunch
 	
 .ChestoLeppaPrismShake
 	checkitem CHESTO_BERRY
@@ -774,41 +778,41 @@ CherrygroveCafeClerkScript:
 	takeitem LEPPA_BERRY
 	sjump PrismShake
 	
-.ChestoLumPrismShake
+.ChestoLumPurpleJuice
 	checkitem CHESTO_BERRY
 	iffalse .DontHaveBerries
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbejuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem CHESTO_BERRY
 	takeitem LUM_BERRY
-	sjump PrismShake
+	sjump PurpleJuice
 	
-.ChestoOranPrismShake
+.ChestoOranBerryJuice
 	checkitem CHESTO_BERRY
 	iffalse .DontHaveBerries
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbeberryjuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, BERRYJUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem CHESTO_BERRY
 	takeitem ORAN_BERRY
-	sjump PrismShake
+	sjump BerryJuice
 	
 .ChestoPechaPrismShake
 	checkitem CHESTO_BERRY
@@ -864,23 +868,23 @@ CherrygroveCafeClerkScript:
 	takeitem RAWST_BERRY
 	sjump PrismShake
 	
-.ChestoSitrusPrismShake
+.ChestoSitrusFruitPunch
 	checkitem CHESTO_BERRY
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbefruitpunchprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, FRUITPUNCH_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem CHESTO_BERRY
 	takeitem SITRUS_BERRY
-	sjump PrismShake
+	sjump FruitPunch
 	
 .LeppaLumPrismShake
 	checkitem LEPPA_BERRY
@@ -954,56 +958,56 @@ CherrygroveCafeClerkScript:
 	takeitem RAWST_BERRY
 	sjump PrismShake
 	
-.LeppaSitrusPrismShake
+.LeppaSitrusFruitPunch
 	checkitem LEPPA_BERRY
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbefruitpunchprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, FRUITPUNCH_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem LEPPA_BERRY
 	takeitem SITRUS_BERRY
-	sjump PrismShake
+	sjump FruitPunch
 	
-.LumLumPrismShake
+.LumLumTonicWater
 	checkitem LUM_BERRY, 2
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbetonicprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, TONIC_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem LUM_BERRY, 2
-	sjump PrismShake
+	sjump TonicWater
 	
-.LumPechaPrismShake
+.LumPechaPinkJuice
 	checkitem LUM_BERRY
 	iffalse .DontHaveBerries
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbejuiceprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, JUICE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem LUM_BERRY
 	takeitem PECHA_BERRY
-	sjump PrismShake
+	sjump PinkJuice
 	
 .LumPersimPrismShake
 	checkitem LUM_BERRY
@@ -1023,28 +1027,10 @@ CherrygroveCafeClerkScript:
 	takeitem PERSIM_BERRY
 	sjump PrismShake
 	
-.OranPersimPrismShake
+.OranPersimBerryJuice
 	checkitem ORAN_BERRY
 	iffalse .DontHaveBerries
 	checkitem PERSIM_BERRY
-	iffalse .DontHaveBerries
-	
-	opentext
-	writetext willbeshakeprice
-	yesorno
-	iffalse CancelScriptCC
-	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
-	ifequal HAVE_LESS, .NotEnoughMoney
-	
-	takeitem ORAN_BERRY
-	takeitem PERSIM_BERRY
-	sjump PrismShake
-	
-.OranSitrusBerryJuice
-	checkitem ORAN_BERRY
-	iffalse .DontHaveBerries
-	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
@@ -1056,8 +1042,26 @@ CherrygroveCafeClerkScript:
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem ORAN_BERRY
-	takeitem SITRUS_BERRY
+	takeitem PERSIM_BERRY
 	sjump BerryJuice
+	
+.OranSitrusFruitPunch
+	checkitem ORAN_BERRY
+	iffalse .DontHaveBerries
+	checkitem SITRUS_BERRY
+	iffalse .DontHaveBerries
+	
+	opentext
+	writetext willbefruitpunchprice
+	yesorno
+	iffalse CancelScriptCC
+	
+	checkmoney YOUR_MONEY, FRUITPUNCH_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	
+	takeitem ORAN_BERRY
+	takeitem SITRUS_BERRY
+	sjump FruitPunch
 	
 .PechaRawstPrismShake
 	checkitem PECHA_BERRY
@@ -1077,23 +1081,23 @@ CherrygroveCafeClerkScript:
 	takeitem RAWST_BERRY
 	sjump PrismShake
 	
-.PechaSitrusPrismShake
+.PechaSitrusFruitPunch
 	checkitem PECHA_BERRY
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbefruitpunchprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, FRUITPUNCH_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem PECHA_BERRY
 	takeitem SITRUS_BERRY
-	sjump PrismShake
+	sjump FruitPunch
 	
 .PersimRawstPrismShake
 	checkitem PERSIM_BERRY
@@ -1113,41 +1117,41 @@ CherrygroveCafeClerkScript:
 	takeitem RAWST_BERRY
 	sjump PrismShake
 	
-.PersimSitrusPrismShake
+.PersimSitrusFruitPunch
 	checkitem PERSIM_BERRY
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbefruitpunchprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, FRUITPUNCH_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem PERSIM_BERRY
 	takeitem SITRUS_BERRY
-	sjump PrismShake
+	sjump FruitPunch
 
-.RawstSitrusPrismShake
+.RawstSitrusFruitPunch
 	checkitem RAWST_BERRY
 	iffalse .DontHaveBerries
 	checkitem SITRUS_BERRY
 	iffalse .DontHaveBerries
 	
 	opentext
-	writetext willbeshakeprice
+	writetext willbefruitpunchprice
 	yesorno
 	iffalse CancelScriptCC
 	
-	checkmoney YOUR_MONEY, SHAKE_PRICE
+	checkmoney YOUR_MONEY, FRUITPUNCH_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	
 	takeitem RAWST_BERRY
 	takeitem SITRUS_BERRY
-	sjump PrismShake
+	sjump FruitPunch
 	
 .NotEnoughMoney
 	opentext
@@ -1172,6 +1176,19 @@ BerryJuice:
 	waitsfx
 	playsound SFX_TRANSACTION
 	giveitem BERRY_JUICE
+	promptbutton
+	closetext
+	end
+	
+FruitPunch:
+	opentext
+	special PlaceMoneyTopRight
+	writetext ComeAgainTextCC2
+	takemoney YOUR_MONEY, FRUITPUNCH_PRICE
+	special PlaceMoneyTopRight
+	waitsfx
+	playsound SFX_TRANSACTION
+	giveitem FRUIT_PUNCH
 	promptbutton
 	closetext
 	end
@@ -1228,7 +1245,7 @@ PinkJuice:
 	closetext
 	end
 
-BlueJuice:
+GreenJuice:
 	opentext
 	special PlaceMoneyTopRight
 	writetext ComeAgainTextCC2
@@ -1236,7 +1253,7 @@ BlueJuice:
 	special PlaceMoneyTopRight
 	waitsfx
 	playsound SFX_TRANSACTION
-	giveitem BLUE_JUICE
+	giveitem GREEN_JUICE
 	promptbutton
 	closetext
 	end
@@ -1263,6 +1280,45 @@ PrismShake:
 	waitsfx
 	playsound SFX_TRANSACTION
 	giveitem PRISM_SHAKE
+	promptbutton
+	closetext
+	end
+	
+SweetCider:
+	opentext
+	special PlaceMoneyTopRight
+	writetext ComeAgainTextCC2
+	takemoney YOUR_MONEY, CIDER_PRICE
+	special PlaceMoneyTopRight
+	waitsfx
+	playsound SFX_TRANSACTION
+	giveitem SWEET_CIDER
+	promptbutton
+	closetext
+	end
+	
+TonicWater:
+	opentext
+	special PlaceMoneyTopRight
+	writetext ComeAgainTextCC2
+	takemoney YOUR_MONEY, TONIC_PRICE
+	special PlaceMoneyTopRight
+	waitsfx
+	playsound SFX_TRANSACTION
+	giveitem TONIC_WATER
+	promptbutton
+	closetext
+	end
+	
+Revivalade:
+	opentext
+	special PlaceMoneyTopRight
+	writetext ComeAgainTextCC2
+	takemoney YOUR_MONEY, REVIVALADE_PRICE
+	special PlaceMoneyTopRight
+	waitsfx
+	playsound SFX_TRANSACTION
+	giveitem REVIVALADE
 	promptbutton
 	closetext
 	end
@@ -1299,22 +1355,42 @@ CCWelcomeText:
 	done
 
 willbeberryjuiceprice:
-	text "That will be ¥800."
+	text "That'll be ¥375."
+	line "Is that okay?"
+	done
+	
+willbefruitpunchprice:
+	text "That'll be ¥850."
 	line "Is that okay?"
 	done
 
 willbejuiceprice:
-	text "That will be ¥400."
+	text "That'll be ¥1200."
 	line "Is that okay?"
 	done
 	
 willbesodaprice:
-	text "That will be ¥20000."
+	text "That'll be ¥5000."
 	line "Is that okay?"
 	done
 
 willbeshakeprice:
-	text "That will be ¥1000."
+	text "That'll be ¥1050."
+	line "Is that okay?"
+	done
+	
+willbeciderprice:
+	text "That'll be ¥750."
+	line "Is that okay?"
+	done
+	
+willbetonicprice:
+	text "That'll be ¥1500."
+	line "Is that okay?"
+	done
+	
+willberevivaladeprice:
+	text "That'll be ¥1275."
 	line "Is that okay?"
 	done
 	

@@ -160,3 +160,4 @@ SpecialsPointers::
 	add_special InitialClearDSTFlag
 	add_special UnusedDummySpecial ; unused
 	add_special CompleteDex
+	add_special HealPartyStatus

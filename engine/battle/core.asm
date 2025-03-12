@@ -1660,8 +1660,24 @@ HandleMysteryberry:
 .do_it
 	callfar GetUserItem
 	ld a, b
+	cp HELD_RESTORE_PPSC
+	jr nz, .nextcheck
+	
+	ld a, 1 
+	ldh [hTemp], a
+	jr .nextcheck2
+.sweetcider_loop	
+	ld a, 1 
+	ldh [hTemp], a
+	ld a, SWEET_CIDER
+	ld [wTempRestorePPItem], a
+	farcall Elixer_RestorePPofAllMoves
+	
+	jp .check_transform
+.nextcheck	
 	cp HELD_RESTORE_PP
 	jr nz, .quit
+.nextcheck2
 	ld hl, wPartyMon1PP
 	ld a, [wCurBattleMon]
 	call GetPartyLocation
@@ -1707,6 +1723,10 @@ HandleMysteryberry:
 	ret
 
 .restore
+	ldh a, [hTemp]
+	and a
+	jr nz, .sweetcider_loop
+
 	; lousy hack
 	ld a, [hl]
 	push hl

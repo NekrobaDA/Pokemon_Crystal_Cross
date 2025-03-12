@@ -298,17 +298,17 @@ CyndaquilPokeBallScript:
 	setevent EVENT_RESTORED_POWER_TO_KANTO
 	giveitem PASS
 	; useful items
-	giveitem MAX_REPEL, 99
-	giveitem MAX_REVIVE, 99
-	giveitem FULL_RESTORE, 99
-	giveitem MAX_ELIXER, 99
-	giveitem RARE_CANDY, 99
-	giveitem ESCAPE_ROPE, 99
-	giveitem RAZOR_CLAW, 99
-	giveitem DUSK_STONE, 99
-	giveitem SUN_STONE, 99
-	giveitem RED_JUICE, 99
-	giveitem YELLOW_JUICE, 99
+	giveitem ORAN_BERRY, 99
+	giveitem CHESTO_BERRY, 99
+	giveitem RAWST_BERRY, 99
+	giveitem ASPEAR_BERRY, 99
+	giveitem CHERI_BERRY, 99
+	giveitem PECHA_BERRY, 99
+	giveitem LUM_BERRY, 99
+	giveitem PERSIM_BERRY, 99
+	giveitem LEPPA_BERRY, 99
+	giveitem SITRUS_BERRY, 99
+	giveitem FRUIT_PUNCH, 99
 	
 	; all balls
 	giveitem MASTER_BALL, 99

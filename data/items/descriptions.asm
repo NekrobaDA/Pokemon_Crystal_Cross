@@ -23,7 +23,7 @@ ItemDescriptions:
 	dw ProteinDesc
 	dw IronDesc
 	dw CarbosDesc
-	dw LuckyPunchDesc
+	dw FruitPunchDesc
 	dw CalciumDesc
 	dw RareCandyDesc
 	dw WideLensDesc
@@ -139,8 +139,8 @@ ItemDescriptions:
 	dw FriendBallDesc
 	dw MoonBallDesc
 	dw LoveBallDesc
-	dw NormalBoxDesc
-	dw GorgeousBoxDesc
+	dw TonicWaterDesc
+	dw RevivaladeDesc
 	dw SunStoneDesc
 	dw PolkadotBowDesc
 	dw UpGradeDesc
@@ -169,10 +169,10 @@ ItemDescriptions:
 	dw RedJuiceDesc
 	dw YellowJuiceDesc
 	dw PinkJuiceDesc
-	dw BlueJuiceDesc
+	dw GreenJuiceDesc
 	dw RareSodaDesc
 	dw PrismShakeDesc
-	dw TeruSama27Desc
+	dw SweetCiderDesc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
@@ -516,6 +516,10 @@ MaxEtherDesc:
 ElixerDesc:
 	db   "Restores PP of all"
 	next "moves by 10.@"
+	
+SweetCiderDesc:
+	db   "Restores PP of all"
+	next "moves by 5.@"
 
 RedScaleDesc:
 	db   "A scale from the"
@@ -800,7 +804,11 @@ CharcoalDesc:
 
 BerryJuiceDesc:
 	db   "Restores #MON"
-	next "HP by 70.@"
+	next "HP by 40.@"
+	
+FruitPunchDesc:
+	db   "Restores #MON"
+	next "HP by 100.@"
 
 ScopeLensDesc:
 	db   "Raises critical"
@@ -900,13 +908,13 @@ LoveBallDesc:
 	db   "For catching the"
 	next "opposite gender.@"
 
-NormalBoxDesc:
-	db   "Open it and see"
-	next "what's inside.@"
+TonicWaterDesc:
+	db   "Cures status for"
+	next "the whole party.@"
 
-GorgeousBoxDesc:
-	db   "Open it and see"
-	next "what's inside.@"
+RevivaladeDesc:
+	db   "Restores a fainted"
+	next "#MON to 1/2 HP.@"
 
 SunStoneDesc:
 	db   "Evolves certain"
@@ -1037,7 +1045,7 @@ PinkJuiceDesc:
 	db   "A sweet drink."
 	next "Raises SPD.@"
 	
-BlueJuiceDesc:
+GreenJuiceDesc:
 	db   "A bitter drink."
 	next "Raises SPC.@"
 	

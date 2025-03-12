@@ -67,7 +67,7 @@ MAIL_STRUCT_LENGTH EQU $2f ; mailmsg struct
 	const_skip
 	const HELD_5
 	const HELD_RESTORE_PP
-	const_skip
+	const HELD_RESTORE_PPSC
 	const HELD_CLEANSE_TAG
 
 	const_next 10

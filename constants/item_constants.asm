@@ -29,7 +29,7 @@
 	const PROTEIN      ; 15
 	const IRON         ; 16
 	const CARBOS       ; 17
-	const ITEM_18      ; 18 x just a bad item
+	const FRUIT_PUNCH  ; 18
 	const CALCIUM      ; 19
 	const RARE_CANDY   ; 1a
 	const WIDE_LENS    ; 1b x accuracy
@@ -145,10 +145,10 @@
 	const FRIEND_BALL  ; 89
 	const MOON_BALL    ; 8a
 	const LOVE_BALL    ; 8b
-	const ITEM_8C      ; 8c  ?? x just give deco contained
-	const ITEM_8D      ; 8d  ?? x just give deco contained
+	const TONIC_WATER  ; 8c
+	const REVIVALADE   ; 8d
 	const SUN_STONE    ; 8e
-	const SHARP_HORN   ; 8f
+	const SHARP_HORN   ; 8f ;x
 	const UP_GRADE     ; 90
 	const ORAN_BERRY   ; 91 rename to g3+ equivilents
 	const SITRUS_BERRY ; 92 rename to g3+ equivilents
@@ -166,7 +166,7 @@
 	const FROST_RING   ; 9e
 	const RAZOR_FANG   ; 9f
 	const RAZOR_CLAW   ; a0
-	const SILVER_SCALE ; a1
+	const SILVER_SCALE ; a1 ;x
 	const GOLD_SCALE   ; a2
 	const STATIC_ORB   ; a3
 	const FROZEN_ORB   ; a4
@@ -175,10 +175,10 @@
 	const RED_JUICE    ; a7
 	const YELLOW_JUICE ; a8
 	const PINK_JUICE   ; a9
-	const BLUE_JUICE   ; aa
+	const GREEN_JUICE  ; aa
 	const RARE_SODA    ; ab
 	const PRISM_SHAKE  ; ac
-	const ITEM_X24     ; ad
+	const SWEET_CIDER  ; ad
 	const ITEM_X25     ; ae
 	const ITEM_X26     ; af
 	const ITEM_X27     ; b0

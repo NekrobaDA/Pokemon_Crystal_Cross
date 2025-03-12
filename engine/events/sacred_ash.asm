@@ -66,3 +66,74 @@ SacredAshScript:
 .UseSacredAshText:
 	text_far _UseSacredAshText
 	text_end
+
+_TonicWater:
+	ld a, $0
+	ld [wItemEffectSucceeded], a
+	call CheckAnyFaintedMon
+	ret nc
+
+	ld hl, TonicWaterScript
+	call QueueScript
+	ld a, $1
+	ld [wItemEffectSucceeded], a
+	ret
+	
+TonicWaterScript:
+	special HealPartyStatus
+	reloadmappart
+	playsound SFX_WARP_TO
+	special FadeOutPalettes
+	special FadeInPalettes
+	special FadeOutPalettes
+	special FadeInPalettes
+	special FadeOutPalettes
+	special FadeInPalettes
+	waitsfx
+	writetext .UseSacredAshText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	waitbutton
+	closetext
+	end
+	
+.UseSacredAshText:
+	text_far _UseSacredAshText
+	text_end
+	
+HealPartyStatus:
+	xor a
+	ld [wCurPartyMon], a
+	ld hl, wPartySpecies
+.loop
+	ld a, [hli]
+	cp -1
+	jr z, .done
+	cp EGG
+	jr z, .next
+
+	push hl
+	call HealPartyMonStatus
+	pop hl
+
+.next
+	ld a, [wCurPartyMon]
+	inc a
+	ld [wCurPartyMon], a
+	jr .loop
+
+.done
+	ret
+
+HealPartyMonStatus:
+	ld a, MON_SPECIES
+	call GetPartyParamLocation
+	ld d, h
+	ld e, l
+
+	ld hl, MON_STATUS
+	add hl, de
+	xor a
+	ld [hli], a
+	ld [hl], a
+	ret
