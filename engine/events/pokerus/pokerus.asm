@@ -124,9 +124,9 @@ GivePokerusAndConvertBerries:
 ConvertBerriesToBerryJuice:
 ; If we haven't been to Goldenrod City at least once,
 ; prevent Shuckle from turning held Berry into Berry Juice.
-	ld hl, wStatusFlags2
-	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
-	ret z
+;	ld hl, wStatusFlags2
+;	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
+;	ret z
 	call Random
 	cp 1 out_of 16 ; 6.25% chance
 	ret nc
@@ -144,8 +144,30 @@ ConvertBerriesToBerryJuice:
 	ld bc, MON_ITEM
 	add hl, bc
 	ld a, [hl]
-	cp BERRY
+	cp ORAN_BERRY
 	jr z, .convertToJuice
+	cp CHESTO_BERRY
+	jr z, .convertToPurpleJuice
+	cp RAWST_BERRY
+	jr z, .convertToGreenJuice
+	cp ASPEAR_BERRY
+	jr z, .convertToYellowJuice
+	cp CHERI_BERRY
+	jr z, .convertToRedJuice
+	cp PECHA_BERRY
+	jr z, .convertToPinkJuice
+	cp PERSIM_BERRY
+	jr z, .convertToRandomJuice
+	cp LEPPA_BERRY
+	jr z, .convertToSweetCider
+	cp LUM_BERRY
+	jr z, .convertToTonicWater
+	cp SITRUS_BERRY
+	jr z, .convertToRevivalade
+	cp BERRY_JUICE
+	jr z, .convertToRareCandy
+	cp REVIVALADE
+	jr z, .convertToMaxRevive
 
 .loopMon
 	pop hl
@@ -159,9 +181,69 @@ ConvertBerriesToBerryJuice:
 	ld [wTempSpecies], a
 	ret
 
-.convertToJuice
-	ld a, BERRY_JUICE
+.convertToJuice         ;if there are multiple of these
+	ld a, BERRY_JUICE   ;in the party at once, they will
+	jr .endconvert      ;all convert at once, or roll
+						;additional convert-chance at once
+.convertToPurpleJuice
+	ld a, PURPLE_JUICE
+	jr .endconvert
+
+.convertToGreenJuice
+	ld a, GREEN_JUICE
+	jr .endconvert
+	
+.convertToYellowJuice
+	ld a, YELLOW_JUICE
+	jr .endconvert
+	
+.convertToRedJuice
+	ld a, RED_JUICE
+	jr .endconvert
+	
+.convertToPinkJuice
+	ld a, PINK_JUICE
+	jr .endconvert
+	
+.convertToRandomJuice
+	ld a, PRISM_SHAKE  ;may change
+	jr .endconvert
+	
+.convertToSweetCider
+	call Random
+	cp 1 out_of 2 ; 3.125% chance
+	jr nc, .extrachancefail
+	ld a, SWEET_CIDER
+	jr .endconvert
+	
+.convertToTonicWater
+	call Random
+	cp 1 out_of 2 ; 3.125% chance
+	jr nc, .extrachancefail
+	ld a, TONIC_WATER
+	jr .endconvert
+	
+.convertToRevivalade
+	call Random
+	cp 1 out_of 2 ; 3.125% chance
+	jr nc, .extrachancefail
+	ld a, REVIVALADE
+	jr .endconvert
+	
+.convertToRareCandy
+	call Random
+	cp 1 out_of 4 ; 1.56% chance
+	jr nc, .extrachancefail
+	ld a, RARE_CANDY
+	jr .endconvert
+	
+.convertToMaxRevive
+	call Random
+	cp 1 out_of 4 ; 1.56% chance
+	jr nc, .extrachancefail
+	ld a, MAX_REVIVE
+	
+.endconvert
 	ld [hl], a
-	pop hl
-	pop af
-	jr .done
+.extrachancefail	
+	jr .loopMon

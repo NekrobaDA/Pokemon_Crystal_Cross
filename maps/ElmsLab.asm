@@ -193,10 +193,10 @@ CyndaquilPokeBallScript:
 	givecoins 50000
 	; good party
 	givepoke QUILAVA, 50
-	givepoke MOLTRES_GALARIAN, 40
-	givepoke ARTICUNO_GALARIAN, 40
-	givepoke ZAPDOS_GALARIAN, 40
-	givepoke ARBOK, 40
+	givepoke SHUCKLE, 40
+	givepoke SHUCKLE, 40
+	givepoke SHUCKLE, 40
+	givepoke SHUCKLE, 40
 	givepoke MEW, 70
 	; tms for party
 	giveitem TM_ICE_BEAM
@@ -309,6 +309,7 @@ CyndaquilPokeBallScript:
 	giveitem LEPPA_BERRY, 99
 	giveitem SITRUS_BERRY, 99
 	giveitem FRUIT_PUNCH, 99
+	giveitem BICYCLE
 	
 	; all balls
 	giveitem MASTER_BALL, 99
