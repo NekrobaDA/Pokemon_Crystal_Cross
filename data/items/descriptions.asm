@@ -744,7 +744,7 @@ EnergyRootDesc:
 
 HealPowderDesc:
 	db   "Cures all status"
-	next "problems. Bitter.@"
+	next "problems. Pungent.@"
 
 RevivalHerbDesc:
 	db   "Revives fainted"

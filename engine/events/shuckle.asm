@@ -16,7 +16,7 @@ GiveShuckle:
 	jr nc, .NotGiven
 
 ; Caught data.
-	ld b, CAUGHT_BY_UNKNOWN
+	ld b, CAUGHT_BY_BOY ;CAUGHT_BY_UNKNOWN
 	farcall SetGiftPartyMonCaughtData
 
 ; Holding a Berry.
@@ -53,6 +53,25 @@ GiveShuckle:
 	call SkipNames
 	ld de, SpecialShuckleOT
 	call CopyName2
+
+;DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMon1DVs
+	call AddNTimes
+	ld a, $aa
+	ld [hli], a
+	ld [hl], a
+	
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMon1CaughtLocation
+	call GetPartyLocation
+	ld a, [hl]
+	and CAUGHT_LOCATION_MASK
+	ld a, LANDMARK_CIANWOOD_CITY
+	ld [hl], a
 
 ; Engine flag for this event.
 	ld hl, wDailyFlags1

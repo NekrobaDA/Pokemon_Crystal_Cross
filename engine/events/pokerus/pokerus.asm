@@ -177,6 +177,11 @@ ConvertBerriesToBerryJuice:
 	dec a
 	jr nz, .partyMonLoop
 	.done
+	ldh a, [hTemp]
+	and a
+	jr z, .no_fanfare
+	call Play_SFX_ConvertSuccess
+.no_fanfare
 	xor a
 	ld [wTempSpecies], a
 	ret
@@ -245,5 +250,15 @@ ConvertBerriesToBerryJuice:
 	
 .endconvert
 	ld [hl], a
-.extrachancefail	
+	ld a, 1          ;so sfx only triggers once
+	ldh [hTemp], a   ;even if there are multiple conversions
+.extrachancefail
 	jr .loopMon
+
+Play_SFX_ConvertSuccess:
+	push de
+	ld de, SFX_FULL_HEAL
+	call WaitPlaySFX
+	pop de
+	ret
+	
