@@ -6,7 +6,7 @@
 	db FIRE, FIRE ; type
 	db 60 ; catch rate
 	db 240 ; base exp
-	db RAWST_BERRY, SHARP_HORN ; items
+	db RAWST_BERRY, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/rapidash/front.dimensions"

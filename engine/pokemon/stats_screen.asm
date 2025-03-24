@@ -913,7 +913,7 @@ StatsScreen_PlaceFrontpic:
 	ld a, h
 	;hlcoord 0, 0
 	hlcoord 12, 0
-	jp nz, PrepMonFrontpic
+	jp nz, PrepMonFrontpicAlt ;PrepMonFrontpic
 	if HIGH(UNOWN) == 0
 		and a
 	elif HIGH(UNOWN) == 1
@@ -921,7 +921,7 @@ StatsScreen_PlaceFrontpic:
 	else
 		cp HIGH(UNOWN)
 	endc
-	jp nz, PrepMonFrontpic
+	jp nz, PrepMonFrontpicAlt ;PrepMonFrontpic
 	xor a
 	ld [wBoxAlignment], a
 	jp _PrepMonFrontpic

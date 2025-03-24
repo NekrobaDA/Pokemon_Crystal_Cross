@@ -6,7 +6,7 @@
 	db GROUND, ROCK ; type
 	db 120 ; catch rate
 	db 169 ; base exp
-	db HARD_STONE, SHARP_HORN ; items
+	db HARD_STONE, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 10 ; step cycles to hatch
 	INCBIN "gfx/pokemon/rhyhorn/front.dimensions"

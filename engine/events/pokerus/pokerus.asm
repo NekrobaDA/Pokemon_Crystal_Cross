@@ -23,11 +23,11 @@ GivePokerusAndConvertBerries:
 	ret z
 	call Random
 	ldh a, [hRandomAdd]
-	and a
-	ret nz
+	cp 18
+	ret nc
 	ldh a, [hRandomSub]
-	cp 3
-	ret nc ; 3/65536 chance (00 00, 00 01 or 00 02)
+	cp 18
+	ret nc ; 324/65536 chance (00 00, 00 00 to 12 12, 12 12)
 	ld a, [wPartyCount]
 	ld b, a
 .randomMonSelectLoop
@@ -122,13 +122,8 @@ GivePokerusAndConvertBerries:
 	ret
 
 ConvertBerriesToBerryJuice:
-; If we haven't been to Goldenrod City at least once,
-; prevent Shuckle from turning held Berry into Berry Juice.
-;	ld hl, wStatusFlags2
-;	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
-;	ret z
 	call Random
-	cp 1 out_of 16 ; 6.25% chance
+	cp 1 out_of 8 ; 12.5% chance
 	ret nc
 	ld hl, SHUCKLE
 	call GetPokemonIDFromIndex
@@ -216,35 +211,35 @@ ConvertBerriesToBerryJuice:
 	
 .convertToSweetCider
 	call Random
-	cp 1 out_of 2 ; 3.125% chance
+	cp 1 out_of 2 ; 6.25% chance
 	jr nc, .extrachancefail
 	ld a, SWEET_CIDER
 	jr .endconvert
 	
 .convertToTonicWater
 	call Random
-	cp 1 out_of 2 ; 3.125% chance
+	cp 1 out_of 2 ; 6.25% chance
 	jr nc, .extrachancefail
 	ld a, TONIC_WATER
 	jr .endconvert
 	
 .convertToRevivalade
 	call Random
-	cp 1 out_of 2 ; 3.125% chance
+	cp 1 out_of 2 ; 6.25% chance
 	jr nc, .extrachancefail
 	ld a, REVIVALADE
 	jr .endconvert
 	
 .convertToRareCandy
 	call Random
-	cp 1 out_of 4 ; 1.56% chance
+	cp 1 out_of 3 ; 4.17% chance
 	jr nc, .extrachancefail
 	ld a, RARE_CANDY
 	jr .endconvert
 	
 .convertToMaxRevive
 	call Random
-	cp 1 out_of 4 ; 1.56% chance
+	cp 1 out_of 3 ; 4.17% chance
 	jr nc, .extrachancefail
 	ld a, MAX_REVIVE
 	
@@ -256,9 +251,7 @@ ConvertBerriesToBerryJuice:
 	jr .loopMon
 
 Play_SFX_ConvertSuccess:
-	push de
-	ld de, SFX_FULL_HEAL
-	call WaitPlaySFX
-	pop de
+	ld a, [wTempSpecies]
+	call PlayMonCry
 	ret
 	

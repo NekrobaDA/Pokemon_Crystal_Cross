@@ -6,7 +6,7 @@
 	db NORMAL, NORMAL ; type
 	db 45 ; catch rate
 	db 207 ; base exp
-	db CHESTO_BERRY, SHARP_HORN ; items
+	db CHESTO_BERRY, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 10 ; step cycles to hatch
 	INCBIN "gfx/pokemon/stantler/front.dimensions"
