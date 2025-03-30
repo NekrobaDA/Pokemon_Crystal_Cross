@@ -145,8 +145,251 @@ SetPowerTo80CheckWeather:
 	ld a, [wBattleWeather]
 	ret
 
+MurkrowPickpocketChance:
+	xor a
+	ldh [hTemp], a
+;	call Random
+;	cp 1 out_of 4 ; 25.0% chance
+;	ret nc
+	ld hl, MURKROW
+	call GetPokemonIDFromIndex
+	ld [wTempSpecies], a
+	ld hl, wPartyMons
+	ld a, [wPartyCount]
+.partyMonLoopPP
+	push af
+	push hl
+	ld a, [wTempSpecies]
+	cp [hl]
+	jr nz, .loopMonPP
+	ld bc, MON_ITEM
+	add hl, bc
+	ld a, [hl]
+	cp NO_ITEM
+	jr z, .pickpocket_table
 
+.loopMonPP
+	pop hl
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	pop af
+	dec a
+	jr nz, .partyMonLoopPP
+.donePP
+	ldh a, [hTemp]
+	and a
+	jr z, .no_fanfarePP
+	farcall Play_SFX_ConvertSuccess
+.no_fanfarePP
+	xor a
+	ld [wTempSpecies], a
+	ret
 
+.pickpocket_table
+;	call Random
+;	cp 1 out_of 2 ; 12.5% chance
+;	jr nc, .extrachancefailPP
+	push hl
+;	ld hl, PickpocketItemSet_Default
+	call DeterminePickpocketItemSet
+	
+.nextPP	
+	call Random
+.loopPP
+	sub [hl]
+	jr c, .okPP
+	inc hl
+	inc hl
+	jr .loopPP
 
+.okPP
+	ld a, [hli]
+	inc a
+	jr z, .endPP
+	ld a, [hli]
+.endPP
+	pop hl
+	
+.endpickpocket
+	cp NO_ITEM
+	jr z, .extrachancefailPP
+	ld [hl], a
+	ld a, 1          ;so sfx only triggers once
+	ldh [hTemp], a   ;even if there are multiple conversions
 
+.extrachancefailPP
+	jr .loopMonPP	
 
+DeterminePickpocketItemSet:
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	
+	cp LANDMARK_ILEX_FOREST
+	jr z, .forest
+;	cp LANDMARK_BERRY_FOREST
+;	jr z, .forest
+	cp LANDMARK_MT_MORTAR
+	jr z, .volcano
+;	cp LANDMARK_KINDLE_ROAD
+;	jr z, .volcano
+;	cp LANDMARK_FOUR_ISLAND
+;	jr z, .shore
+	cp LANDMARK_ROUTE_40
+	jr z, .shore
+	cp LANDMARK_CIANWOOD_CITY
+	jr z, .shore
+	cp LANDMARK_ROUTE_41
+	jr z, .water
+	cp LANDMARK_ROUTE_39
+	jr z, .plains
+	cp LANDMARK_ROUTE_38
+	jr z, .plains
+	cp LANDMARK_GOLDENROD_CITY
+	jr z, .urban
+	cp LANDMARK_ROUTE_34
+	jr z, .urban
+;	cp LANDMARK_ROUTE_35
+;	jr z, .urban
+	cp LANDMARK_ICE_PATH
+	jr z, .ice
+	cp LANDMARK_DRAGONS_DEN
+	jr z, .dragon
+	cp LANDMARK_UNION_CAVE
+	jr z, .cave
+	cp LANDMARK_ROUTE_29
+	jr z, .grassland
+	
+	ld hl, PickpocketItemSet_Default
+	ret
+
+.forest
+	ld hl, PickpocketItemSet_Forest
+	ret
+
+.volcano
+	ld hl, PickpocketItemSet_Volcano
+	ret
+
+.shore
+	ld hl, PickpocketItemSet_Shore
+	ret
+
+.water
+	ld hl, PickpocketItemSet_Water
+	ret
+
+.plains
+	ld hl, PickpocketItemSet_Plains
+	ret
+
+.urban
+	ld hl, PickpocketItemSet_Urban
+	ret
+
+.ice
+	ld hl, PickpocketItemSet_Ice
+	ret
+
+.dragon
+	ld hl, PickpocketItemSet_Dragon
+	ret
+
+.cave
+	ld hl, PickpocketItemSet_Cave
+	ret
+
+.grassland
+	ld hl, PickpocketItemSet_Grassland
+	ret
+	
+PickpocketItemSet_Default:
+;db # / 256 chance
+	db  2, GOLD_BAND
+	db  4, SHINY_STONE
+	db  6, PECHA_BERRY
+	db  8, BOTTLE_CAP
+	db 12, GOLD_LEAF
+	db -1
+	
+PickpocketItemSet_Forest:
+	db  2, LEPPA_BERRY
+	db  4, LEAF_SHARD
+	db  6, RED_APRICORN
+	db  8, GOLD_LEAF
+	db 12, STICK
+	db -1
+	
+PickpocketItemSet_Plains:
+	db  2, LUM_BERRY
+	db  4, THUNDERSHARD
+	db  6, YLW_APRICORN
+	db  8, THICK_CLUB    ;rare bone
+	db 13, HARD_STONE
+	db -1
+	
+PickpocketItemSet_Water:
+	db  2, PEARL
+	db  4, WATER_SHARD
+	db  6, BOTTLE_CAP
+	db  8, SILVER_SCALE
+	db 13, MYSTIC_WATER
+	db -1
+	
+PickpocketItemSet_Shore:
+	db  2, STAR_PIECE
+	db  4, WATER_SHARD
+	db  6, BOTTLE_CAP
+	db  8, SHOAL_SHELL
+	db 13, SOFT_SAND
+	db -1
+	
+PickpocketItemSet_Grassland:
+	db  2, SITRUS_BERRY
+	db  4, LEAF_SHARD
+	db  6, BLU_APRICORN
+	db  8, GOLD_LEAF
+	db 13, MIRACLE_SEED
+	db -1
+	
+PickpocketItemSet_Volcano:
+	db  2, STAR_PIECE
+	db  4, FIRE_SHARD
+	db  6, RAWST_BERRY
+	db  8, THICK_CLUB    ;rare bone
+	db 13, HARD_STONE
+	db -1
+	
+PickpocketItemSet_Urban:
+	db  2, GOLD_BAND
+	db  4, METAL_COAT
+	db  6, PERSIM_BERRY
+	db  8, BOTTLE_CAP
+	db 13, MAGNET
+	db -1
+	
+PickpocketItemSet_Ice:
+	db  2, GOLD_BAND
+	db  4, ICE_STONE
+	db  6, ASPEAR_BERRY
+	db  8, STICK
+	db 13, NEVERMELTICE
+	db -1
+	
+PickpocketItemSet_Dragon:
+	db  2, PEARL
+	db  4, DRAGON_SCALE
+	db  6, CHERI_BERRY
+	db  8, SILVER_SCALE
+	db 13, EVERSTONE
+	db -1
+	
+PickpocketItemSet_Cave:
+	db  2, STAR_PIECE
+	db  4, MOON_STONE
+	db  6, CHESTO_BERRY
+	db  8, EVERSTONE
+	db 13, HARD_STONE
+	db -1

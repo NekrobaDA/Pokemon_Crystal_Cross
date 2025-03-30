@@ -145,7 +145,7 @@ ItemDescriptions:
 	dw GoldLeafDesc
 	dw PearlDesc
 	dw SilverScaleDesc
-	dw GoldScaleDesc
+	dw ShoalShellDesc
 	dw StarPieceDesc
 	dw BottleCapDesc
 	dw GoldBandDesc
@@ -761,13 +761,13 @@ SilverScaleDesc:
 	db   "A silvery scale."
 	next "Sell low.@"
 
-GoldScaleDesc:
-	db   "A gleaming, gold"
-	next "scale. Sell high.@"
+ShoalShellDesc:
+	db   "A pretty seashell."
+	next "Sell low.@"
 
 StarPieceDesc:
 	db   "A hunk of red gem."
-	next "Sell very high.@"
+	next "Sell high.@"
 
 BottleCapDesc:
 	db   "A silver cap. Some"

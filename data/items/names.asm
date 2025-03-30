@@ -130,7 +130,7 @@ ItemNames::
 	db "LUCKY EGG@"
 	db "SMOKE BALL@"
 	db "STICK@"
-	db "THICK CLUB@"
+	db "RARE BONE@"  ;thick club
 	db "LIGHT BALL@"
 	db "EVERSTONE@"
 	db "BERSERK GENE@"
@@ -144,7 +144,7 @@ ItemNames::
 	db "GOLD LEAF@"
 	db "PEARL@"
 	db "SILVER SCALE@"
-	db "GOLD SCALE@"
+	db "SHOAL SHELL@"
 	db "STAR PIECE@"
 	db "BOTTLE CAP@"
 	db "GOLD BAND@"

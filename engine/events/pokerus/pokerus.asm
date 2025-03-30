@@ -1,5 +1,6 @@
 GivePokerusAndConvertBerries:
 	call ConvertBerriesToBerryJuice
+	farcall MurkrowPickpocketChance
 	ld hl, wPartyMon1PokerusStatus
 	ld a, [wPartyCount]
 	ld b, a
@@ -122,6 +123,8 @@ GivePokerusAndConvertBerries:
 	ret
 
 ConvertBerriesToBerryJuice:
+	xor a
+	ldh [hTemp], a
 	call Random
 	cp 1 out_of 8 ; 12.5% chance
 	ret nc
@@ -171,7 +174,7 @@ ConvertBerriesToBerryJuice:
 	pop af
 	dec a
 	jr nz, .partyMonLoop
-	.done
+.done
 	ldh a, [hTemp]
 	and a
 	jr z, .no_fanfare
@@ -254,4 +257,3 @@ Play_SFX_ConvertSuccess:
 	ld a, [wTempSpecies]
 	call PlayMonCry
 	ret
-	

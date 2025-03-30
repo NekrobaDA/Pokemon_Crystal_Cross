@@ -193,10 +193,10 @@ CyndaquilPokeBallScript:
 	givecoins 50000
 	; good party
 	givepoke QUILAVA, 50
-	givepoke SHUCKLE, 40
-	givepoke SHUCKLE, 40
-	givepoke SHUCKLE, 40
-	givepoke SHUCKLE, 40
+	givepoke MURKROW, 40
+	givepoke MURKROW, 40
+	givepoke MURKROW, 40
+	givepoke MURKROW, 40
 	givepoke MEW, 70
 	; tms for party
 	giveitem TM_ICE_BEAM
