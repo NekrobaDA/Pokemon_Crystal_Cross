@@ -148,9 +148,6 @@ SetPowerTo80CheckWeather:
 MurkrowPickpocketChance:
 	xor a
 	ldh [hTemp], a
-;	call Random
-;	cp 1 out_of 4 ; 25.0% chance
-;	ret nc
 	ld hl, MURKROW
 	call GetPokemonIDFromIndex
 	ld [wTempSpecies], a
@@ -190,7 +187,6 @@ MurkrowPickpocketChance:
 ;	cp 1 out_of 2 ; 12.5% chance
 ;	jr nc, .extrachancefailPP
 	push hl
-;	ld hl, PickpocketItemSet_Default
 	call DeterminePickpocketItemSet
 	
 .nextPP	
@@ -226,83 +222,33 @@ DeterminePickpocketItemSet:
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
+	ld b, a     ; current location in b
 	
-	cp LANDMARK_ILEX_FOREST
-	jr z, .forest
-;	cp LANDMARK_BERRY_FOREST
-;	jr z, .forest
-	cp LANDMARK_MT_MORTAR
-	jr z, .volcano
-;	cp LANDMARK_KINDLE_ROAD
-;	jr z, .volcano
-;	cp LANDMARK_FOUR_ISLAND
-;	jr z, .shore
-	cp LANDMARK_ROUTE_40
-	jr z, .shore
-	cp LANDMARK_CIANWOOD_CITY
-	jr z, .shore
-	cp LANDMARK_ROUTE_41
-	jr z, .water
-	cp LANDMARK_ROUTE_39
-	jr z, .plains
-	cp LANDMARK_ROUTE_38
-	jr z, .plains
-	cp LANDMARK_GOLDENROD_CITY
-	jr z, .urban
-	cp LANDMARK_ROUTE_34
-	jr z, .urban
-;	cp LANDMARK_ROUTE_35
-;	jr z, .urban
-	cp LANDMARK_ICE_PATH
-	jr z, .ice
-	cp LANDMARK_DRAGONS_DEN
-	jr z, .dragon
-	cp LANDMARK_UNION_CAVE
-	jr z, .cave
-	cp LANDMARK_ROUTE_29
-	jr z, .grassland
+	ld hl, PickpocketMaps
+.loop_itemset
+	ld a, [hli] ; landmark -> itemset number
+	cp -1
+	jr z, .defaultset
+	cp b
+	jr nz, .wrong_map
 	
+	ld a, [hl]  ; this is a stupid hack but it works
+	ld c, a
+	ld b, 0
+	ld hl, PickpocketTables
+	add hl, bc
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ret
+	
+.wrong_map
+	inc hl
+	jr .loop_itemset
+	
+.defaultset
 	ld hl, PickpocketItemSet_Default
-	ret
-
-.forest
-	ld hl, PickpocketItemSet_Forest
-	ret
-
-.volcano
-	ld hl, PickpocketItemSet_Volcano
-	ret
-
-.shore
-	ld hl, PickpocketItemSet_Shore
-	ret
-
-.water
-	ld hl, PickpocketItemSet_Water
-	ret
-
-.plains
-	ld hl, PickpocketItemSet_Plains
-	ret
-
-.urban
-	ld hl, PickpocketItemSet_Urban
-	ret
-
-.ice
-	ld hl, PickpocketItemSet_Ice
-	ret
-
-.dragon
-	ld hl, PickpocketItemSet_Dragon
-	ret
-
-.cave
-	ld hl, PickpocketItemSet_Cave
-	ret
-
-.grassland
-	ld hl, PickpocketItemSet_Grassland
 	ret
 	
 PickpocketItemSet_Default:
@@ -313,6 +259,19 @@ PickpocketItemSet_Default:
 	db  8, BOTTLE_CAP
 	db 12, GOLD_LEAF
 	db -1
+	
+PickpocketTables:
+	dw PickpocketItemSet_Forest    ;0
+	dw PickpocketItemSet_Plains    ;1
+	dw PickpocketItemSet_Water     ;2
+	dw PickpocketItemSet_Shore     ;3
+	dw PickpocketItemSet_Grassland ;4
+	dw PickpocketItemSet_Volcano   ;5
+	dw PickpocketItemSet_Urban     ;6
+	dw PickpocketItemSet_Ice       ;7
+	dw PickpocketItemSet_Dragon    ;8
+	dw PickpocketItemSet_Cave      ;9
+	
 	
 PickpocketItemSet_Forest:
 	db  2, LEPPA_BERRY
@@ -367,7 +326,7 @@ PickpocketItemSet_Urban:
 	db  4, METAL_COAT
 	db  6, PERSIM_BERRY
 	db  8, BOTTLE_CAP
-	db 13, MAGNET
+	db 13, RAGECANDYBAR
 	db -1
 	
 PickpocketItemSet_Ice:
@@ -393,3 +352,24 @@ PickpocketItemSet_Cave:
 	db  8, EVERSTONE
 	db 13, HARD_STONE
 	db -1
+
+PickpocketMaps:
+	db LANDMARK_ILEX_FOREST, 0    ;forest
+	db LANDMARK_BERRY_FOREST, 0   ;forest
+	db LANDMARK_MT_MORTAR, 5      ;volcano
+	db LANDMARK_KINDLE_ROAD, 5    ;volcano
+	db LANDMARK_ICE_PATH, 7       ;ice
+	db LANDMARK_DRAGONS_DEN, 8    ;dragon
+	db LANDMARK_FOUR_ISLAND, 3    ;shore
+	db LANDMARK_ROUTE_40, 3       ;shore
+	db LANDMARK_CIANWOOD_CITY, 3  ;shore
+	db LANDMARK_ROUTE_41, 2       ;water
+	db LANDMARK_ROUTE_39, 1       ;plains
+	db LANDMARK_ROUTE_38, 1       ;plains
+	db LANDMARK_GOLDENROD_CITY, 6 ;urban
+	db LANDMARK_ROUTE_34, 6       ;urban
+	db LANDMARK_UNION_CAVE, 9     ;cave
+	db LANDMARK_DARK_CAVE, 9      ;cave
+	db LANDMARK_ROUTE_29, 4       ;grassland
+	db -1 ; end
+	
