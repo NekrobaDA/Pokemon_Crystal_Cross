@@ -1660,6 +1660,7 @@ _CantDiveText::
 	prompt
 	
 HidUnderwaterText::
-	text_start
+	text "<USER>"
 	line "hid underwater!"
 	prompt
+
