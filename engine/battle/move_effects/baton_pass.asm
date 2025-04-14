@@ -11,9 +11,7 @@ BattleCommand_BatonPass:
 
 	call UpdateBattleMonInParty
 	
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_U_TURN
+	call CompareUturn
 	jr z, .skipanim
 	call AnimateCurrentMove
 	
@@ -60,7 +58,12 @@ BattleCommand_BatonPass:
 	jp z, FailedBatonPass
 
 	call UpdateEnemyMonInParty
+	
+	call CompareUturn
+	jr z, .skipanimenemy
 	call AnimateCurrentMove
+	
+.skipanimenemy
 	call BatonPass_LinkEnemySwitch
 
 ; Mobile link battles handle entrances differently
@@ -128,6 +131,10 @@ BatonPass_LinkEnemySwitch:
 
 FailedBatonPass:
 	call AnimateFailedMove
+	
+	call CompareUturn
+	ret z
+	
 	jp PrintButItFailed
 
 ResetBatonPassStatus:
@@ -220,4 +227,10 @@ CheckAnyOtherAliveMons:
 .done
 	ld a, b
 	and a
+	ret
+
+CompareUturn:
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_U_TURN
 	ret
