@@ -373,5 +373,5 @@ MoveNames::
 	db "SHELL SMASH@"
 	db "DOUBLE EDGE@"
 	db "U-TURN@"
-	db "TERA SURGE@"
+	db "TERA BURST@"
 	db "STRUGGLE@"

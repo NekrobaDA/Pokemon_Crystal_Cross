@@ -94,37 +94,40 @@ BattleCommand_WeatherBall2:
 	ld a, [wAttackMissed]
 	and a
 	ret nz
+	
+	call SetPowerTo80CheckWeather
+	cp WEATHER_NONE              ;and a is probably cheaper, but this is more readable
+	jr z, .noweather
 
-	call SetPowerTo80CheckWeather
 	cp WEATHER_HAIL
-	ld a, ICE
+	ld b, ICE
 	jr z, .finish
 	
-	call SetPowerTo80CheckWeather
 	cp WEATHER_SUN
-	ld a, FIRE
+	ld b, FIRE
 	jr z, .finish
 	
-	call SetPowerTo80CheckWeather
 	cp WEATHER_RAIN
-	ld a, WATER
+	ld b, WATER
 	jr z, .finish
 	
-	call SetPowerTo80CheckWeather
 	cp WEATHER_SANDSTORM
-	ld a, ROCK
+	ld b, ROCK
 	jr z, .finish
 	
-	call SetPowerTo80CheckWeather
 	cp WEATHER_ACID_RAIN
 	ld a, POISON
 	jr z, .finish
-	
-	ld a, 50                       ;this is all horribly inefficient
+
+.noweather	
+	ld a, 50
 	ld d, a
 	ld a, NORMAL
+	jr .finishnoweather
 
 .finish
+	ld a, b
+.finishnoweather
 	push af
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
@@ -378,39 +381,38 @@ BattleCommand_TeraBurst2:
 	and a
 	ret nz
 
-	call SetPowerTo80CheckShard
-	cp FIRE_SHARD
-	ld a, FIRE
+	call SetPowerTo80CheckShard  ;load battlemon item into a and power into d
+	cp NO_ITEM
+	jr z, .noshard
+	
+	cp FIRE_SHARD                ;store type in b based on held shard
+	ld b, FIRE
 	jr z, .finishshard
 	
-	call SetPowerTo80CheckShard
 	cp WATER_SHARD
-	ld a, WATER
+	ld b, WATER
 	jr z, .finishshard
 	
-	call SetPowerTo80CheckShard
 	cp THUNDERSHARD
-	ld a, ELECTRIC
+	ld b, ELECTRIC
 	jr z, .finishshard
 	
-	call SetPowerTo80CheckShard
 	cp LEAF_SHARD
-	ld a, GRASS
+	ld b, GRASS
 	jr z, .finishshard
 	
-	call SetPowerTo80CheckShard
 	cp ICE_SHARD_I
-	ld a, ICE
+	ld b, ICE
 	jr z, .finishshard
-	
-	ld a, 50                       ;this is all horribly inefficient
+
+.noshard	
+	ld a, 50                     ;if no shard, set to weaker power
 	ld d, a
 	ld a, NORMAL
 	jr .finishnoshard
 
-.finishshard
-	push af
-	push de
+.finishshard                     ;consume held shard upon successful attack
+	push de                      ;then shift type value stored in b to a
 	ld a, 1
 	call BattlePartyAttr
 	ld d, h
@@ -420,7 +422,7 @@ BattleCommand_TeraBurst2:
 	ld [hl], a
 	ld [de], a
 	pop de
-	pop af
+	ld a, b
 
 .finishnoshard
 	push af
@@ -438,14 +440,12 @@ BattleCommand_TeraBurst2:
 	ret
 
 SetPowerTo80CheckShard:
-	ld a, 80
-	ld d, a
-	push de
 	ld a, 1
 	call BattlePartyAttr
 	ld d, h
 	ld e, l
-	ld hl, wBattleMonItem
+	ld hl, wBattleMonItem	
+	ld a, 80
+	ld d, a
 	ld a, [hl]
-	pop de
 	ret
