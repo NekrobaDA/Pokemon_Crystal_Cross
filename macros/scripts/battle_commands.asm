@@ -185,6 +185,7 @@ ENDM
 	command disablehit
 	command auroraveil
 	command weatherball
+	command teraburst
 
 	const_def -1, -1
 	command endmove                 ; ff

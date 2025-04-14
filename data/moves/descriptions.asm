@@ -243,7 +243,7 @@ MoveDescriptions1:
 	dw MirrorShotDescription
 	dw PsystrikeDescription
 	dw VacuumWaveDescription
-	dw ShadowStrikeDescription
+	dw ShadowBoneDescription
 	dw EchoedVoiceDescription
 	dw DireClawDescription
 	dw AquaJetDescription
@@ -299,7 +299,6 @@ MoveDescriptions1:
 	dw BulletSeedDescription
 	dw HornLeechDescription
 	dw MagicalLeafDescription
-	dw PowerWhipDescription
 	dw SeedBombDescription
 	dw SandTombDescription
 	dw SearingSandDescription
@@ -349,7 +348,6 @@ MoveDescriptions1:
 	dw SoulDrainDescription
 	dw InfernalParadeDescription
 	dw DarkVoidDescription
-	dw AcidDownpourDescription
 	dw PsychoBoostDescription
 	dw DragonRushDescription
 	dw AuroraVeilDescription
@@ -362,10 +360,9 @@ MoveDescriptions1:
 	dw MuddyWaterDescription
 	dw ClampDescription
 	dw PetalStormDescription
-	dw FalconDiveDescription
 	dw AirSlashDescription
 	dw GaleWindDescription
-	dw TormentDescription
+	dw TauntDescription
 	dw KnockOffDescription
 	dw NightmareDescription
 	dw AromatherapyDescription
@@ -375,17 +372,19 @@ MoveDescriptions1:
 	dw MiracleEyeDescription
 	dw PsychoShiftDescription
 	dw SnatchDescription
-	dw CorrosionDescription
 	dw WorkUpDescription
 	dw SmogDescription
 	dw SuperpowerDescription
 	dw RockPolishDescription
 	dw ShellSmashDescription
 	dw DoubleEdgeDescription
-	dw SkyAttackDescription
+	dw UTurnDescription
+	dw TeraBurstDescription
 	dw StruggleDescription
 
 
+TeraBurstDescription:
+UTurnDescription:
 SkyAttackDescription:
 RockPolishDescription:
 ShellSmashDescription:
@@ -500,7 +499,7 @@ ExtrasensoryDescription:
 AstonishDescription:
 AirSlashDescription:	
 IronHeadDescription:
-ShadowStrikeDescription:
+ShadowBoneDescription:
 DragonRushDescription:
 	db   "An attack that may"
 	next "cause flinching.@"
@@ -529,9 +528,9 @@ GaleWindDescription:
 	db   "Summons a windstorm"
 	next "for 8 turns.@"
 	
-TormentDescription:
+TauntDescription:
 	db   "Disables the foe's"
-	next "most recent move.@"
+	next "status moves.@"
 	
 KnockOffDescription:
 	db   "Attack removes"

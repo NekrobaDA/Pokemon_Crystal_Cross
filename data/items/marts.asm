@@ -448,7 +448,7 @@ MartCeladon2F2:
 
 MartCeladon3F:
 	db 16 ; # items
-	db TM_SLEEP_TALK   ; e3
+	db TM_U_TURN       ; e3
 	db TM_SLUDGE_BOMB  ; e4
 	db TM_SANDSTORM    ; e5
 	db TM_FIRE_BLAST   ; e6

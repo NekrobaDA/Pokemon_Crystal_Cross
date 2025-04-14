@@ -191,4 +191,5 @@ MoveEffectsPointers:
 	dw AuroraVeil
 	dw LandsWrath
 	dw WeatherBall
+	dw TeraBurst
 	

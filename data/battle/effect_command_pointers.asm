@@ -185,4 +185,5 @@ BattleCommandPointers:
 	dw BattleCommand_DisableHit
 	dw BattleCommand_AuroraVeil
 	dw BattleCommand_WeatherBall
+	dw BattleCommand_TeraBurst
 	

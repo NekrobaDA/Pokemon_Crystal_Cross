@@ -373,3 +373,79 @@ PickpocketMaps:
 	db LANDMARK_ROUTE_29, 4       ;grassland
 	db -1 ; end
 	
+BattleCommand_TeraBurst2:
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+
+	call SetPowerTo80CheckShard
+	cp FIRE_SHARD
+	ld a, FIRE
+	jr z, .finishshard
+	
+	call SetPowerTo80CheckShard
+	cp WATER_SHARD
+	ld a, WATER
+	jr z, .finishshard
+	
+	call SetPowerTo80CheckShard
+	cp THUNDERSHARD
+	ld a, ELECTRIC
+	jr z, .finishshard
+	
+	call SetPowerTo80CheckShard
+	cp LEAF_SHARD
+	ld a, GRASS
+	jr z, .finishshard
+	
+	call SetPowerTo80CheckShard
+	cp ICE_SHARD_I
+	ld a, ICE
+	jr z, .finishshard
+	
+	ld a, 50                       ;this is all horribly inefficient
+	ld d, a
+	ld a, NORMAL
+	jr .finishnoshard
+
+.finishshard
+	push af
+	push de
+	ld a, 1
+	call BattlePartyAttr
+	ld d, h
+	ld e, l
+	ld hl, wBattleMonItem
+	xor a
+	ld [hl], a
+	ld [de], a
+	pop de
+	pop af
+
+.finishnoshard
+	push af
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVarAddr
+	pop af
+	or PHYSICAL
+	ld [hl], a                     ;load type into hl
+	
+	ld a, d
+	push af
+	farcall BattleCommand_DamageStats
+	pop af
+	ld d, a                        ;load power into d
+	ret
+
+SetPowerTo80CheckShard:
+	ld a, 80
+	ld d, a
+	push de
+	ld a, 1
+	call BattlePartyAttr
+	ld d, h
+	ld e, l
+	ld hl, wBattleMonItem
+	ld a, [hl]
+	pop de
+	ret

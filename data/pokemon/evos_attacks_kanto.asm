@@ -3326,8 +3326,8 @@ MewEvosAttacks:                      ;final
 	;for testing
 	dbw 70, DIRE_CLAW
 	dbw 70, TRI_ATTACK
-	dbw 70, ACIDDOWNPOUR
-	dbw 70, PIN_MISSILE
+	dbw 70, TERA_BURST
+	dbw 70, DOUBLE_EDGE
 	dbw 70, HIDDEN_POWER
 	dbw 70, WEATHER_BALL
 	dbw 70, HAIL

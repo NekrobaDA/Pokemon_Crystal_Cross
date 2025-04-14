@@ -57,162 +57,162 @@
 	const DUSK_STONE   ; 2a	
 	const ICE_STONE    ; 2b
 ;shards
-	const FIRE_SHARD   ; 2c red    shard, tutor cost, tristone component
-	const THUNDERSHARD ; 2d yellow shard, tutor cost, tristone component
-	const WATER_SHARD  ; 2e blue   shard, tutor cost, tristone component
-	const LEAF_SHARD   ; 2f green  shard, tutor cost
+	const FIRE_SHARD   ; 2c red    shard, tutor cost, tristone component, terra burst crystal
+	const THUNDERSHARD ; 2d yellow shard, tutor cost, tristone component, terra burst crystal
+	const WATER_SHARD  ; 2e blue   shard, tutor cost, tristone component, terra burst crystal
+	const LEAF_SHARD   ; 2f green  shard, tutor cost, terra burst crystal
+	const ICE_SHARD_I  ; 30 terra burst crystal
 ;type boost hold items
-	const PINK_BOW     ; 30 boost normal moves
-	const CHARCOAL     ; 31 boost fire moves
-	const MYSTIC_WATER ; 32 boost water moves
-	const MIRACLE_SEED ; 33 boost grass moves
-	const SILVERPOWDER ; 34 boost bug moves
-	const SHARP_BEAK   ; 35 boost flying moves
-	const BLACKBELT_I  ; 36 boost fighting moves
-	const HARD_STONE   ; 37 boost rock moves
-	const SOFT_SAND    ; 38 boost ground moves
-	const POISON_BARB  ; 39 boost poison moves
-	const MAGNET       ; 3a boost electric moves
-	const NEVERMELTICE ; 3b boost ice moves
-	const SPELL_TAG    ; 3c boost ghost moves
-	const TWISTEDSPOON ; 3d boost psychic moves
-	const BLACKGLASSES ; 3e boost dark moves
-	const METAL_COAT   ; 3f boost steel moves, boost ditto defense
-	const DRAGON_SCALE ; 40 boost dragon moves
+	const PINK_BOW     ; 31 boost normal moves
+	const CHARCOAL     ; 32 boost fire moves
+	const MYSTIC_WATER ; 33 boost water moves
+	const MIRACLE_SEED ; 34 boost grass moves
+	const SILVERPOWDER ; 35 boost bug moves
+	const SHARP_BEAK   ; 36 boost flying moves
+	const BLACKBELT_I  ; 37 boost fighting moves
+	const HARD_STONE   ; 38 boost rock moves
+	const SOFT_SAND    ; 39 boost ground moves
+	const POISON_BARB  ; 3a boost poison moves
+	const MAGNET       ; 3b boost electric moves
+	const NEVERMELTICE ; 3c boost ice moves
+	const SPELL_TAG    ; 3d boost ghost moves
+	const TWISTEDSPOON ; 3e boost psychic moves
+	const BLACKGLASSES ; 3f boost dark moves
+	const METAL_COAT   ; 40 boost steel moves, boost ditto defense
+	const DRAGON_SCALE ; 41 boost dragon moves
 ;misc evo items
-	const KINGS_ROCK   ; 41 boost flinch chance
-	const UP_GRADE     ; 42
-	const DUBIOUS_DISC ; 43
-	const RAZOR_FANG   ; 44
-	const RAZOR_CLAW   ; 45
-	const TRISTONE     ; 46 craft with water, fire, and thunder shards
+	const KINGS_ROCK   ; 42 boost flinch chance
+	const UP_GRADE     ; 43
+	const DUBIOUS_DISC ; 44
+	const RAZOR_FANG   ; 45
+	const RAZOR_CLAW   ; 46
+	const TRISTONE     ; 47 craft with water, fire, and thunder shards
 ;apricorns
-	const BLU_APRICORN ; 47
-	const GRN_APRICORN ; 48
-	const YLW_APRICORN ; 49
-	const RED_APRICORN ; 4a
-	const WHT_APRICORN ; 4b
-	const BLK_APRICORN ; 4c
-	const PNK_APRICORN ; 4d
+	const BLU_APRICORN ; 48
+	const GRN_APRICORN ; 49
+	const YLW_APRICORN ; 4a
+	const RED_APRICORN ; 4b
+	const WHT_APRICORN ; 4c
+	const BLK_APRICORN ; 4d
+	const PNK_APRICORN ; 4e
 ;apricorn balls
-	const LURE_BALL    ; 4e
-	const FRIEND_BALL  ; 4f
-	const MOON_BALL    ; 50
-	const LEVEL_BALL   ; 51
-	const FAST_BALL    ; 52
-	const HEAVY_BALL   ; 53
-	const LOVE_BALL    ; 54
+	const LURE_BALL    ; 4f
+	const FRIEND_BALL  ; 50
+	const MOON_BALL    ; 51
+	const LEVEL_BALL   ; 52
+	const FAST_BALL    ; 53
+	const HEAVY_BALL   ; 54
+	const LOVE_BALL    ; 55
 ;park ball
-	const PARK_BALL    ; 55
+	const PARK_BALL    ; 56
 ;berries
-	const ORAN_BERRY   ; 56 hp recovery, mixed, berry juice
-	const CHESTO_BERRY ; 57 sleep cure, dry, purple juice
-	const RAWST_BERRY  ; 58 burn cure, bitter, green juice
-	const ASPEAR_BERRY ; 59 freeze cure, sour, yellow juice
-	const CHERI_BERRY  ; 5a paralyze cure, spicy, red juice
-	const PECHA_BERRY  ; 5b poison cure, sweet, pink juice
-	const LEPPA_BERRY  ; 5c pp recover, mixed, sweet cider
-	const PERSIM_BERRY ; 5d confusion cure, mixed, prism drink
-	const LUM_BERRY    ; 5e all-cure, mixed, tonic water
-	const SITRUS_BERRY ; 5f hp recovery, mixed, revivalade
+	const ORAN_BERRY   ; 57 hp recovery, mixed, berry juice
+	const CHESTO_BERRY ; 58 sleep cure, dry, purple juice
+	const RAWST_BERRY  ; 59 burn cure, bitter, green juice
+	const ASPEAR_BERRY ; 5a freeze cure, sour, yellow juice
+	const CHERI_BERRY  ; 5b paralyze cure, spicy, red juice
+	const PECHA_BERRY  ; 5c poison cure, sweet, pink juice
+	const LEPPA_BERRY  ; 5d pp recover, mixed, sweet cider
+	const PERSIM_BERRY ; 5e confusion cure, mixed, prism drink
+	const LUM_BERRY    ; 5f all-cure, mixed, tonic water
+	const SITRUS_BERRY ; 60 hp recovery, mixed, revivalade
 ;berry juices
-	const BERRY_JUICE  ; 60 HP restore drink	
-	const PURPLE_JUICE ; 61 +HP EVs drink
-	const GREEN_JUICE  ; 62 +Spec EVs drink
-	const YELLOW_JUICE ; 63 +Def EVs drink
-	const RED_JUICE    ; 64 +Atk EVs drink	
-	const PINK_JUICE   ; 65 +Sped EVs drink
-	const SWEET_CIDER  ; 66 PP restore drink
-	const PRISM_SHAKE  ; 67 + happiness drink
-	const TONIC_WATER  ; 68 status restore drink
-	const REVIVALADE   ; 69 mon revival drink
-	const FRUIT_PUNCH  ; 6a HP restore drink
-	const RARE_SODA    ; 6b x2 rare candy drink
+	const BERRY_JUICE  ; 61 HP restore drink	
+	const PURPLE_JUICE ; 62 +HP EVs drink
+	const GREEN_JUICE  ; 63 +Spec EVs drink
+	const YELLOW_JUICE ; 64 +Def EVs drink
+	const RED_JUICE    ; 65 +Atk EVs drink	
+	const PINK_JUICE   ; 66 +Spd EVs drink
+	const SWEET_CIDER  ; 67 PP restore drink
+	const PRISM_SHAKE  ; 68 + happiness drink
+	const TONIC_WATER  ; 69 status restore drink
+	const REVIVALADE   ; 6a mon revival drink
+	const FRUIT_PUNCH  ; 6b HP restore drink
+	const RARE_SODA    ; 6c x2 rare candy drink
 ;berry trader items
-	const PECHA_SCARF  ; 6c poison immune hold
-	const LIMBER_BAND  ; 6d paralyze immune hold
-	const INSOMNISCOPE ; 6e sleep immune hold
-	const PERSIM_BAND  ; 6f confusion immune hold	
-	const MAGMA_VEST   ; 70 freeze immune hold
-	const FROST_RING   ; 71 burn immune hold
+	const PECHA_SCARF  ; 6d poison immune hold
+	const LIMBER_BAND  ; 6e paralyze immune hold
+	const INSOMNISCOPE ; 6f sleep immune hold
+	const PERSIM_BAND  ; 70 confusion immune hold	
+	const MAGMA_VEST   ; 71 freeze immune hold
+	const FROST_RING   ; 72 burn immune hold
 ;stat boost hold items
-	const SCOPE_LENS   ; 72 + crit hold
-	const MUSCLE_BAND  ; 73 + attack hold
-	const LIGHT_ARMOR  ; 74 + defense hold
-	const SWIFT_BOOTS  ; 75 + speed hold
-	const WISE_GLASSES ; 76 + sp atk hold
-	const PSY_SHIELD   ; 77 + sp def hold
-	const WIDE_LENS    ; 78 + accuracy hold
-	const BRIGHTPOWDER ; 79 + evade hold
-	const LIFE_ORB     ; 7a (effect wip)
+	const SCOPE_LENS   ; 73 + crit hold
+	const MUSCLE_BAND  ; 74 + attack hold
+	const LIGHT_ARMOR  ; 75 + defense hold
+	const SWIFT_BOOTS  ; 76 + speed hold
+	const WISE_GLASSES ; 77 + sp atk hold
+	const PSY_SHIELD   ; 78 + sp def hold
+	const WIDE_LENS    ; 79 + accuracy hold
+	const BRIGHTPOWDER ; 7a + evade hold
+	const LIFE_ORB     ; 7b (effect wip)
 ;misc hold items
-	const LEFTOVERS    ; 7b
-	const QUICK_CLAW   ; 7c
-	const EXP_SHARE    ; 7d
-	const AMULET_COIN  ; 7e
-	const FOCUS_BAND   ; 7f
-	const CLEANSE_TAG  ; 80
-	const LUCKY_EGG    ; 81
-	const SMOKE_BALL   ; 82
-	const STICK        ; 83
-	const THICK_CLUB   ; 84
-	const LIGHT_BALL   ; 85
-	const EVERSTONE    ; 86
+	const LEFTOVERS    ; 7c
+	const QUICK_CLAW   ; 7d
+	const EXP_SHARE    ; 7e
+	const AMULET_COIN  ; 7f
+	const FOCUS_BAND   ; 80
+	const CLEANSE_TAG  ; 81
+	const LUCKY_EGG    ; 82
+	const SMOKE_BALL   ; 83
+	const STICK        ; 84
+	const THICK_CLUB   ; 85
+	const LIGHT_BALL   ; 86
+	const EVERSTONE    ; 87
 ;legendary
-	const BERSERK_GENE ; 87
-	const SACRED_ASH   ; 88
+	const BERSERK_GENE ; 88
+	const SACRED_ASH   ; 89
 ;rock items
-	const GOLD_ORE     ; 89
-	const DOME_FOSSIL  ; 8a
-	const HELIX_FOSSIL ; 8b
-	const OLD_AMBER    ; 8c
+	const GOLD_ORE     ; 8a
+	const DOME_FOSSIL  ; 8b
+	const HELIX_FOSSIL ; 8c
+	const OLD_AMBER    ; 8d
 ;misc treature items
-	const SLOWPOKETAIL ; 8d
-	const RAREMUSHROOM ; 8e
-	const GOLD_LEAF    ; 8f make a use for
-	const PEARL        ; 90
-	const SILVER_SCALE ; 91
-	const SHOAL_SHELL  ; 92
-	const STAR_PIECE   ; 93
-	const BOTTLE_CAP   ; 94 move reminder cost
-	const GOLD_BAND    ; 95
+	const SLOWPOKETAIL ; 8e
+	const RAREMUSHROOM ; 8f
+	const GOLD_LEAF    ; 90 make a use for
+	const PEARL        ; 91
+	const SILVER_SCALE ; 92
+	const SHOAL_SHELL  ; 93
+	const STAR_PIECE   ; 94
+	const BOTTLE_CAP   ; 95 move reminder cost
+	const GOLD_BAND    ; 96
 ;key items	
-	const BICYCLE      ; 96
-	const OLD_ROD      ; 97
-	const GOOD_ROD     ; 98
-	const SUPER_ROD    ; 99
-	const ITEMFINDER   ; 9a does anyone ever use this
-	const COIN_CASE    ; 9b
-	const MYSTERY_EGG  ; 9c
-	const BLUE_CARD    ; 9d
-	const SQUIRTBOTTLE ; 9e
-	const BASEMENT_KEY ; 9f
-	const RED_SCALE    ; a0
-	const SECRETPOTION ; a1
-	const CARD_KEY     ; a2
-	const S_S_TICKET   ; a3
-	const MACHINE_PART ; a4
-	const LOST_ITEM    ; a5
-	const PASS         ; a6
-	const CLEAR_BELL   ; a7
-	const RAINBOW_WING ; a8
-	const SILVER_WING  ; a9
-	const GS_BALL      ; aa
-	const FROZEN_ORB   ; ab articuno-related item
-	const STATIC_ORB   ; ac zapdos-related item
-	const FIERY_ORB    ; ad moltres-related item
+	const BICYCLE      ; 97
+	const OLD_ROD      ; 98
+	const GOOD_ROD     ; 99
+	const SUPER_ROD    ; 9a
+	const ITEMFINDER   ; 9b does anyone ever use this
+	const COIN_CASE    ; 9c
+	const MYSTERY_EGG  ; 9d
+	const BLUE_CARD    ; 9e
+	const SQUIRTBOTTLE ; 9f
+	const BASEMENT_KEY ; a0
+	const RED_SCALE    ; a1
+	const SECRETPOTION ; a2
+	const CARD_KEY     ; a3
+	const S_S_TICKET   ; a4
+	const MACHINE_PART ; a5
+	const LOST_ITEM    ; a6
+	const PASS         ; a7
+	const CLEAR_BELL   ; a8
+	const RAINBOW_WING ; a9
+	const SILVER_WING  ; aa
+	const GS_BALL      ; ab
+	const FROZEN_ORB   ; ac articuno-related item
+	const STATIC_ORB   ; ad zapdos-related item
+	const FIERY_ORB    ; ae moltres-related item
 ;unused slots
-	const ITEM_X25     ; ae
-	const ITEM_X26     ; af
-	const ITEM_X27     ; b0
-	const ITEM_X28     ; b1
-	const ITEM_X29     ; b2
-	const ITEM_X30     ; b3
-	const ITEM_X31     ; b4
-	const ITEM_X32     ; b5
-	const ITEM_X33     ; b6
-	const ITEM_X34     ; b7
-	const ITEM_X35     ; b8
+	const POWER_HERB   ; af
+	const WHITE_HERB   ; b0
+	const LINK_BRACE   ; b1 (skill link hold item)
+	const ITEM_X28     ; b2 maybe macho brace
+	const ITEM_X29     ; b3 maybe dusk shard
+	const ITEM_X30     ; b4
+	const ITEM_X31     ; b5
+	const ITEM_X32     ; b6
+	const ITEM_X33     ; b7
+	const ITEM_X34     ; b8
 
 __tmhm_value__ = 1
 
@@ -249,7 +249,7 @@ ENDM
 	add_tm HEADBUTT     ; c1  9 x
 	add_tm HIDDEN_POWER ; c2 10 x
 	add_tm SUNNY_DAY    ; c3 11 x
-	add_tm SLEEP_TALK   ; c4 12 x
+	add_tm U_TURN       ; c4 12 x
 	add_tm ICE_BEAM     ; c5 13 x
 	add_tm BLIZZARD     ; c6 14 x
 	add_tm HYPER_BEAM   ; c7 15 x
@@ -292,12 +292,12 @@ ENDM
 	add_tm AURA_SPHERE  ; ec 52 x
 	add_tm ENERGY_BALL  ; ed 53 x
 	add_tm POISON_JAB   ; ee 54 x
-	add_tm SHADOWSTRIKE ; ef 55 x
+	add_tm SHADOW_CLAW  ; ef 55 x
 	add_tm FLASH_CANNON ; f0 56 x
 	add_tm CHARGE_BEAM  ; f1 57 x
 	add_tm DARK_PULSE   ; f2 58 x
 	add_tm DRAGONBREATH ; f3 59 x
-	add_tm SHADOW_RUSH  ; f4 60 x
+	add_tm TERA_BURST   ; f4 60 x
 NUM_TMS EQU __tmhm_value__ - 1
 
 add_hm: MACRO
@@ -354,13 +354,13 @@ ENDM
 
 	add_mt MIMIC          ; x
 	add_mt SWIFT          ; x
+	add_mt SLEEP_TALK     ; x
 	add_mt OUTRAGE        ; x
 	add_mt MEGA_PUNCH     ; x
 	add_mt MEGA_KICK      ; x
 	add_mt SWORDS_DANCE   ; x
 	add_mt SEISMIC_TOSS   ; x
 	add_mt COUNTER        ; x
-	add_mt LASER_FOCUS    ; x
 	add_mt SELFDESTRUCT   ; x
 	add_mt NIGHT_SHADE    ; x
 	add_mt EARTH_POWER    ; x
@@ -371,11 +371,13 @@ ENDM
 	add_mt PAIN_SPLIT     ; x
 	add_mt HEAL_BELL      ; x
 	add_mt SPIKES         ; x
-	add_mt WAVE_CRASH     ; x
+	add_mt HEAT_WAVE      ; x
 	add_mt BULLDOZE       ; x
+	add_mt AQUA_TAIL      ; x
 	add_mt SACRED_FIRE    ; x
 	add_mt AEROBLAST      ; x
 	add_mt VOLT_TACKLE    ; x
+	add_mt SHADOW_RUSH
 NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 NUM_TM_HM_TUTOR EQU __tmhm_value__ - 1
@@ -388,21 +390,21 @@ SAFARI_BALL    EQU $08 ; MOON_STONE
 MOON_STONE_RED EQU $0a ; BURN_HEAL
 FULL_HEAL_RED  EQU $34 ; X_SPEED
 
-BERRY          EQU $56
-GOLD_BERRY     EQU $5f
-PSNCUREBERRY   EQU $5b
-PRZCUREBERRY   EQU $5a
-BURNT_BERRY    EQU $59
-ICE_BERRY      EQU $58
-BITTER_BERRY   EQU $5d
-MINT_BERRY     EQU $57
-MIRACLEBERRY   EQU $5e
-MYSTERYBERRY   EQU $5c
-ANTIDOTE       EQU $5b
-BURN_HEAL      EQU $58
-ICE_HEAL       EQU $59
-AWAKENING      EQU $57
-PARLYZ_HEAL    EQU $5a
+BERRY          EQU $57
+GOLD_BERRY     EQU $60
+PSNCUREBERRY   EQU $5c
+PRZCUREBERRY   EQU $5b
+BURNT_BERRY    EQU $5a
+ICE_BERRY      EQU $59
+BITTER_BERRY   EQU $5e
+MINT_BERRY     EQU $58
+MIRACLEBERRY   EQU $5f
+MYSTERYBERRY   EQU $5d
+ANTIDOTE       EQU $08
+BURN_HEAL      EQU $08
+ICE_HEAL       EQU $08
+AWAKENING      EQU $08
+PARLYZ_HEAL    EQU $08
 SUPER_REPEL    EQU $0e
 FLOWER_MAIL    EQU $13
 SURF_MAIL      EQU $13
@@ -414,7 +416,7 @@ MORPH_MAIL     EQU $13
 BLUESKY_MAIL   EQU $13
 MUSIC_MAIL     EQU $13
 MIRAGE_MAIL    EQU $13
-POLKADOT_BOW   EQU $30
+POLKADOT_BOW   EQU $31
 MAX_POTION     EQU $07
 
 DIRE_HIT       EQU $05 ; to be removed
@@ -429,12 +431,12 @@ GUARD_SPEC     EQU $05
 X_SPECIAL      EQU $05
 ENERGYPOWDER   EQU $14
 HEAL_POWDER    EQU $16
-TINYMUSHROOM   EQU $8e
-BIG_MUSHROOM   EQU $8e
-METAL_POWDER   EQU $3f
-NUGGET         EQU $89
-SILVER_LEAF    EQU $8f
-BIG_PEARL      EQU $90
-STARDUST       EQU $93
-DRAGON_FANG    EQU $40
-GOLD_SCALE     EQU $91
+TINYMUSHROOM   EQU $8f
+BIG_MUSHROOM   EQU $8f
+METAL_POWDER   EQU $40
+NUGGET         EQU $8a
+SILVER_LEAF    EQU $90
+BIG_PEARL      EQU $91
+STARDUST       EQU $94
+DRAGON_FANG    EQU $41
+GOLD_SCALE     EQU $92

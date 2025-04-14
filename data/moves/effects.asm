@@ -2615,3 +2615,22 @@ WeatherBall:
 	checkfaint
 	kingsrock
 	endmove
+	
+TeraBurst:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	teraburst
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	kingsrock
+	endmove

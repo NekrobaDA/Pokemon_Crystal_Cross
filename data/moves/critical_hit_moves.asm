@@ -2,7 +2,6 @@ CriticalHitMoves:
 	dw LEAF_BLADE
 	dw RAZOR_WIND
 	dw RAZOR_LEAF
-	dw CRABHAMMER
 	dw SLASH
 	dw AEROBLAST
 	dw CROSS_CHOP

@@ -244,7 +244,7 @@
 	const MIRROR_SHOT
 	const PSYSTRIKE
 	const VACUUM_WAVE
-	const SHADOWSTRIKE
+	const SHADOW_BONE
 	const ECHOED_VOICE
 	const DIRE_CLAW
 	const AQUA_JET
@@ -300,7 +300,6 @@
 	const BULLET_SEED
 	const HORN_LEECH
 	const MAGICAL_LEAF
-	const POWER_WHIP
 	const SEED_BOMB
 	const SAND_TOMB
 	const SEARING_SAND
@@ -350,7 +349,6 @@
 	const SOUL_DRAIN
 	const INFERNALPARADE
 	const DARK_VOID
-	const ACIDDOWNPOUR
 	const PSYCHO_BOOST
 	const DRAGON_RUSH
 	const AURORA_VEIL
@@ -363,10 +361,9 @@
 	const MUDDY_WATER
 	const CLAMP
 	const PETAL_STORM
-	const FALCON_DIVE
 	const AIR_SLASH
 	const GALE_WIND
-	const TORMENT
+	const TAUNT
 	const KNOCK_OFF
 	const NIGHTMARE
 	const AROMATHERAPY
@@ -376,14 +373,14 @@
 	const MIRACLE_EYE
 	const PSYCHO_SHIFT
 	const SNATCH
-	const CORROSION
 	const WORK_UP
 	const SMOG
 	const SUPERPOWER
 	const ROCK_POLISH
 	const SHELL_SMASH
 	const DOUBLE_EDGE
-	const SKY_ATTACK
+	const U_TURN
+	const TERA_BURST
 	const STRUGGLE
 	
 NUM_ATTACKS EQU const_value + - 1
@@ -435,3 +432,7 @@ const_value = -$16 ;fix if more negative values are added
 	const BATTLEANIM_WOBBLE
 	const BATTLEANIM_SHAKE
 	const BATTLEANIM_HIT_CONFUSION
+
+
+SHADOWSTRIKE EQU SHADOW_CLAW
+SKY_ATTACK   EQU BRAVE_BIRD

@@ -47,6 +47,7 @@ ItemDescriptions:
 	dw ThunderShardDesc
 	dw WaterShardDesc
 	dw LeafShardDesc
+	dw IceShardDesc
 	dw PinkBowDesc
 	dw CharcoalDesc
 	dw MysticWaterDesc
@@ -183,7 +184,6 @@ ItemDescriptions:
 	dw TeruSama8Desc
 	dw TeruSama9Desc
 	dw TeruSama10Desc
-	dw TeruSama11Desc
 
 
 PokeBallDesc:
@@ -372,6 +372,10 @@ WaterShardDesc:
 
 LeafShardDesc:
 	db   "Green shard of"
+	next "unknown origin.@"
+	
+IceShardDesc:
+	db   "White shard of"
 	next "unknown origin.@"
 
 PinkBowDesc:

@@ -60,6 +60,7 @@ ItemEffects:
 	dw NoEffect            ; THUNDERSHARD
 	dw NoEffect            ; WATER_SHARD
 	dw NoEffect            ; LEAF_SHARD
+	dw NoEffect            ; ICE_SHARD
 	dw NoEffect            ; PINK_BOW
 	dw NoEffect            ; CHARCOAL
 	dw NoEffect            ; MYSTIC_WATER

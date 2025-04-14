@@ -262,7 +262,7 @@ BattleAnimations::
 	dw BattleAnim_MirrorCoat   ;mirror shot
 	dw BattleAnim_Slam         ;psystrike
 	dw BattleAnim_CometPunch   ;vacuum wave
-	dw BattleAnim_FaintAttack  ;shadow strike
+	dw BattleAnim_BoneRush     ;shadow bone
 	dw BattleAnim_Roar         ;echoed voice
 	dw BattleAnim_Slash        ;dire claw
 	dw BattleAnim_Dive         ;aqua jet
@@ -318,7 +318,6 @@ BattleAnimations::
 	dw BattleAnim_SpikeCannon  ;bullet seed
 	dw BattleAnim_HornAttack   ;horn leech
 	dw BattleAnim_RazorLeaf    ;magical leaf
-	dw BattleAnim_VineWhip     ;power whip
 	dw BattleAnim_Barrage      ;seed bomb
 	dw BattleAnim_Gust         ;sand tomb
 	dw BattleAnim_SandAttack   ;searing sand
@@ -368,7 +367,6 @@ BattleAnimations::
 	dw BattleAnim_GigaDrain    ;souldrain
 	dw BattleAnim_NightShade   ;infernalparade
 	dw BattleAnim_Nightmare    ;dark void
-	dw BattleAnim_SludgeBomb   ;aciddownpour
 	dw BattleAnim_PsychicM     ;psycho boost
 	dw BattleAnim_TakeDown     ;dragon rush
 	dw BattleAnim_LightScreen  ;aurora veil
@@ -381,10 +379,9 @@ BattleAnimations::
 	dw BattleAnim_Surf         ;muddy water
 	dw BattleAnim_Clamp
 	dw BattleAnim_PetalDance   ;petal storm
-	dw BattleAnim_Extremespeed ;falcon dive
 	dw BattleAnim_Slash        ;air slash
 	dw BattleAnim_Gust         ;gale wind
-	dw BattleAnim_Amnesia      ;torment
+	dw BattleAnim_Amnesia      ;taunt
 	dw BattleAnim_Slam         ;knock off
 	dw BattleAnim_Nightmare
 	dw BattleAnim_SweetScent   ;aromatherapy
@@ -394,14 +391,14 @@ BattleAnimations::
 	dw BattleAnim_MeanLook     ;miracle eye
 	dw BattleAnim_ConfuseRay   ;psycho shift
 	dw BattleAnim_ScaryFace    ;snatch
-	dw BattleAnim_Toxic        ;corrosion
 	dw BattleAnim_Frustration  ;work up
 	dw BattleAnim_Smog
 	dw BattleAnim_Submission   ;superpower
 	dw BattleAnim_Harden       ;rock polish
 	dw BattleAnim_ShellSmash   ;shell smash
 	dw BattleAnim_DoubleEdge
-	dw BattleAnim_SkyAttack
+	dw BattleAnim_QuickAttack  ;u-turn
+	dw BattleAnim_Headbutt     ;tera burst
 	dw BattleAnim_Struggle
 
 BattleAnim_0:

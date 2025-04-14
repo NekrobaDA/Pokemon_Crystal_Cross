@@ -7845,6 +7845,11 @@ BattleCommand_WeatherBall:
 	farcall BattleCommand_WeatherBall2
 	ret
 	
+BattleCommand_TeraBurst:
+; teraburst
+	farcall BattleCommand_TeraBurst2
+	ret
+	
 CompareMove:
 	; checks if the move ID in a matches the move in bc
 	push hl

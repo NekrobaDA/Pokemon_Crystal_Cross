@@ -310,6 +310,11 @@ CyndaquilPokeBallScript:
 	giveitem SITRUS_BERRY, 99
 	giveitem FRUIT_PUNCH, 99
 	giveitem BICYCLE
+	giveitem FIRE_SHARD, 10
+	giveitem WATER_SHARD, 10
+	giveitem THUNDERSHARD, 10
+	giveitem LEAF_SHARD, 10
+	giveitem ICE_SHARD_I, 10
 	
 	; all balls
 	giveitem MASTER_BALL, 99
