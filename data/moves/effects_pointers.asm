@@ -192,4 +192,5 @@ MoveEffectsPointers:
 	dw LandsWrath
 	dw WeatherBall
 	dw TeraBurst
+	dw UTurn
 	

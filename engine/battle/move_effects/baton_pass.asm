@@ -10,8 +10,14 @@ BattleCommand_BatonPass:
 	jp z, FailedBatonPass
 
 	call UpdateBattleMonInParty
+	
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_U_TURN
+	jr z, .skipanim
 	call AnimateCurrentMove
-
+	
+.skipanim
 	ld c, 50
 	call DelayFrames
 

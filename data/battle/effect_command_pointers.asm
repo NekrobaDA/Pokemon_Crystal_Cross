@@ -186,4 +186,5 @@ BattleCommandPointers:
 	dw BattleCommand_AuroraVeil
 	dw BattleCommand_WeatherBall
 	dw BattleCommand_TeraBurst
+	dw BattleCommand_UTurn
 	

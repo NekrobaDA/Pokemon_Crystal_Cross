@@ -776,7 +776,7 @@ Moves1:
 ;DOUBLE_EDGE
 	move EFFECT_RECOIL_HIT,        120, NORMAL,       PHYSICAL,  100, 15,  0
 ;U_TURN (effect temp)
-	move EFFECT_NORMAL_HIT,         60, BUG,          PHYSICAL,  100, 15,  0
+	move EFFECT_U_TURN,             70, BUG,          PHYSICAL,  100, 15,  0
 ;TERA_BURST - 80bp w/ shard; fire=fire, water=water, thunder=elec, leaf=grass, ice=ice
 	move EFFECT_TERA_BURST,         50, NORMAL,       PHYSICAL,  100,  10,  0
 	

@@ -449,3 +449,19 @@ SetPowerTo80CheckShard:
 	ld d, a
 	ld a, [hl]
 	ret
+	
+BattleCommand_UTurn2:
+; reset stats on switch
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+	
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .enemyreset
+	farcall ResetPlayerStatLevels
+	ret
+
+.enemyreset
+	farcall ResetEnemyStatLevels
+	ret

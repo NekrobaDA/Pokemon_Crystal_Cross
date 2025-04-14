@@ -7850,6 +7850,11 @@ BattleCommand_TeraBurst:
 	farcall BattleCommand_TeraBurst2
 	ret
 	
+BattleCommand_UTurn:
+; uturnresetstats
+	farcall BattleCommand_UTurn2
+	ret
+	
 CompareMove:
 	; checks if the move ID in a matches the move in bc
 	push hl

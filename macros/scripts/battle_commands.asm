@@ -186,6 +186,7 @@ ENDM
 	command auroraveil
 	command weatherball
 	command teraburst
+	command uturnresetstats
 
 	const_def -1, -1
 	command endmove                 ; ff

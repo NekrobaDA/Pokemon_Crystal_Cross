@@ -3328,10 +3328,10 @@ MewEvosAttacks:                      ;final
 	dbw 70, TRI_ATTACK
 	dbw 70, TERA_BURST
 	dbw 70, DOUBLE_EDGE
-	dbw 70, HIDDEN_POWER
+	dbw 70, SWORDS_DANCE
 	dbw 70, WEATHER_BALL
 	dbw 70, HAIL
-	dbw 70, SANDSTORM
+	dbw 70, U_TURN
 	dbw 70, SUNNY_DAY
 	dbw 70, RAIN_DANCE
 	dbw 70, ACID_RAIN
