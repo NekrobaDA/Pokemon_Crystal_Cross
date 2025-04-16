@@ -381,6 +381,37 @@
 	const DOUBLE_EDGE
 	const U_TURN
 	const TERA_BURST
+	const WISH
+	const POWER_WHIP
+	const SOLAR_BLADE
+	const FRENZY_PLANT
+	const LEAF_TORNADO
+	const INGRAIN
+	const FLAME_CHARGE
+	const BURN_UP
+	const PURIFY
+	const AQUA_RING
+	const MIST
+	const BOLT_STRIKE
+	const FALCON_DIVE
+	const HURRICANE
+	const SLAG_STORM
+	const ICE_BALL
+	const FREEZE_DRY
+	const GUNK_SHOT
+	const PSYSHOCK
+	const SUCKER_PUNCH
+	const BASILISKFANG
+	const WYRM_WIND
+	const SHADOW_STORM
+	const MAGNITUDE
+	const NATURE_POWER
+	const SHARPEN
+	const RAGE
+	const DRAGONS_CRY
+	const FACADE
+	const HEAL_BLOCK
+	const FOUL_PLAY
 	const STRUGGLE
 	
 NUM_ATTACKS EQU const_value + - 1

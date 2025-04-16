@@ -419,9 +419,6 @@ INCLUDE "engine/battle_anims/bg_effects.asm"
 INCLUDE "data/moves/animations.asm"
 INCLUDE "engine/events/poisonstep_pals.asm"
 
-TheEndGFX::
-INCBIN "gfx/credits/theend.2bpp"
-
 
 SECTION "Move Animations", ROMX
 
@@ -701,6 +698,9 @@ INCLUDE "data/battle_tower/unknown.asm"
 SECTION "Mobile News Data", ROMX
 
 ;empty space
+
+TheEndGFX::                        ;moved from bank 32
+INCBIN "gfx/credits/theend.2bpp"
 
 
 SECTION "Crystal Events", ROMX

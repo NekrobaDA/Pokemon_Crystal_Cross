@@ -778,66 +778,87 @@ Moves1:
 ;U_TURN (effect temp)
 	move EFFECT_U_TURN,             70, BUG,          PHYSICAL,  100, 15,  0
 ;TERA_BURST - 80bp w/ shard; fire=fire, water=water, thunder=elec, leaf=grass, ice=ice
-	move EFFECT_TERA_BURST,         50, NORMAL,       PHYSICAL,  100,  10,  0
-	
-;WYRM_WIND - 75bp special dragon move, chance to lower sp atk
-	
+	move EFFECT_TERA_BURST,         50, NORMAL,       PHYSICAL,  100, 10,  0
+;WISH (effect temp) (also heal status?)
+	move EFFECT_BATON_PASS,          0, NORMAL,       STATUS,    100, 10,  0
+;POWER_WHIP
+	move EFFECT_NORMAL_HIT,        100, GRASS,        PHYSICAL,   85, 10,  0
+;SOLAR_BLADE
+	move EFFECT_SOLARBEAM,         120, GRASS,        PHYSICAL,  100, 10,  0
+;FRENZY_PLANT
+	move EFFECT_RAMPAGE,           120, GRASS,        PHYSICAL,  100, 10,  0
+;LEAF_TORNADO
+	move EFFECT_TRAP_TARGET,        50, GRASS,        SPECIAL,    85, 15,  0
+;INGRAIN (give leftovers effect)
+	move EFFECT_LEECH_SEED,          0, GRASS,        STATUS,    100, 20,  0
+;FLAME_CHARGE
+	move EFFECT_FLAME_WHEEL,        50, FIRE,         PHYSICAL,  100, 20, 50
+;BURN_UP (effect temp)
+	move EFFECT_NORMAL_HIT,        130, FIRE,         SPECIAL,   100,  5,  0
+;PURIFY (wip) (heals hp if heals status, otherwise does nothing) (heal status of party member in ow)
+	move EFFECT_MIST,                0, WATER,        STATUS,    100, 20,  0
+;AQUA_RING (give leftovers effect)
+	move EFFECT_LEECH_SEED,          0, WATER,        STATUS,    100, 20,  0
+;MIST (effect temp)
+	move EFFECT_SAFEGUARD,           0, WATER,        STATUS,    100, 30,  0
+;BOLT_STRIKE
+	move EFFECT_PARALYZE_HIT,      100, ELECTRIC,     PHYSICAL,  85,   5, 20
+;FALCON_DIVE (add flinch effect)
+	move EFFECT_JUMP_KICK,          70, FLYING,       PHYSICAL,  90,  20, 30
+;HURRICANE (effect wip)
+	move EFFECT_CONFUSE_HIT,       110, FLYING,       SPECIAL,   70,  10, 30
+;SLAG_STORM (add burn chance)
+	move EFFECT_TRAP_TARGET,        50, STEEL,        SPECIAL,   85,  15,  0
+;ICE_BALL
+	move EFFECT_ROLLOUT,            30, ICE,          PHYSICAL,  90,  20,  0
+;FREEZE_DRY (effect temp)
+	move EFFECT_NORMAL_HIT,         70, ICE,          SPECIAL,  100,  20,  0
+;GUNK_SHOT
+	move EFFECT_POISON_HIT,        120, POISON,       SPECIAL,   80,   5, 30
+;PSYSHOCK (temp, use sp atk to deal phys damage)
+	move EFFECT_NORMAL_HIT,         80, PSYCHIC_TYPE, PHYSICAL, 100,  10,  0
+;SUCKER_PUNCH
+	move EFFECT_PRIORITY_HIT,       70, DARK,         PHYSICAL, 100,   5,  0
+;BASILISKFANG
+	move EFFECT_POISON_FANG,        70, DRAGON,       PHYSICAL,  95,  15, 30
+;WYRM_WIND
+	move EFFECT_SP_ATK_DOWN_HIT,    75, DRAGON,       SPECIAL,  100,  10, 20
+;SHADOW_STORM
+	move EFFECT_FLINCH_HIT,        130, CURSE_TYPE,   SPECIAL,   85,   5, 30
+;MAGNITUDE (efect temp)
+	move EFFECT_NORMAL_HIT,          1, GROUND,       PHYSICAL, 100,  30,  0
+;NATURE_POWER (efect temp)
+	move EFFECT_MIRROR_MOVE,         0, NORMAL,       STATUS,   100,  20,  0
+;SHARPEN
+	move EFFECT_ATTACK_UP,           0, NORMAL,       STATUS,   100,  30,  0
+;RAGE (effect temp)
+	move EFFECT_NORMAL_HIT,         20, NORMAL,       PHYSICAL, 100,  20,  0
+;DRAGONS_CRY (effect wip)
+	move EFFECT_FOCUS_ENERGY,        0, DRAGON,       STATUS,   100,  15,  0
+;FACADE (effect temp)
+	move EFFECT_NORMAL_HIT,         70, NORMAL,       PHYSICAL, 100,  20,  0
+;HEAL_BLOCK (effect temp)
+	move EFFECT_DISABLE,             0, PSYCHIC_TYPE, STATUS,   100,  15,  0
+;FOUL_PLAY (effect temp)
+	move EFFECT_NORMAL_HIT,         95, DARK,         PHYSICAL, 100,  15,  0
+
+;need to change refresh effect name from mist to refresh	
+		
 ;BASILISK FANG - dragon move w/ venomstrike effect ?
-
-;WISH (also heal status?)
-
-;ice ball
-
-;ingrain ?
-
-;purify ? for suicune (heals hp if heals status, otherwise does nothing) (heal status of party member in ow)
-
-;sucker punch
-
-;solar blade
-
-;nature power
-
-;shadow storm
-
-;tera burst (phys move similar to natural gift but type based on held shard)
-
-;rage ? (buff)
 
 ;readd mist w/ safeguard buff?
 
-;sharpen
-
-;foul play
-
-;stored power ?
-
-;bolt strike for zapdos ? (possibly remove flash strike, or change to be like sucker punch)
-
-;burn up
-
-;possibly buff flame wheel to 70 and re-add flame charge?
-
-;freeze dry
+;(possibly remove flash strike, or change to be like sucker punch)
 
 ;(I still like the idea of Falcon Dive, and could even turn it into a Jump-Kick like move w/ flinch but mm)
 
-;frenzy plant
-
-;leaf tornado as a trapping move?
-
-;readd magnitude ?
-
-;u-turn
-
 ;add gunk shot, (does acid rain cause corrosion too?)
 
-;slag storm molten steel trapping move burn chance
+;dragon's cry crit up opp atk down?
 
-;aqua ring
+;facade, make tutor in place of swift
 
 ;'terrain' moves? (burning land?)
-
 	
 ;fog map weather?
 	

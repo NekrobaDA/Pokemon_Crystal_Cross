@@ -380,9 +380,68 @@ MoveDescriptions1:
 	dw DoubleEdgeDescription
 	dw UTurnDescription
 	dw TeraBurstDescription
+	dw WishDescription
+	dw PowerWhipDescription
+	dw SolarBladeDescription
+	dw FrenzyPlantDescription
+	dw LeafTornadoDescription
+	dw IngrainDescription
+	dw FlameChargeDescription
+	dw BurnUpDescription
+	dw PurifyDescription
+	dw AquaRingDescription
+	dw MistDescription
+	dw BoltStrikeDescription
+	dw FalconDiveDescription
+	dw HurricaneDescription
+	dw SlagStormDescription
+	dw IceBallDescription
+	dw FreezeDryDescription
+	dw GunkShotDescription
+	dw PsyshockDescription
+	dw SuckerPunchDescription
+	dw BasiliskFangDescription
+	dw WyrmWindDescription
+	dw ShadowStormDescription
+	dw MagnitudeDescription
+	dw NaturePowerDescription
+	dw SharpenDescription
+	dw RageDescription
+	dw DragonsCryDescription
+	dw FacadeDescription
+	dw HealBlockDescription
 	dw StruggleDescription
+	dw FoulPlayDescription
 
 
+FoulPlayDescription:
+WishDescription:
+SolarBladeDescription:
+FrenzyPlantDescription:
+LeafTornadoDescription:
+IngrainDescription:
+BurnUpDescription:
+PurifyDescription:
+AquaRingDescription:
+MistDescription:
+BoltStrikeDescription:
+HurricaneDescription:
+SlagStormDescription:
+IceBallDescription:
+FreezeDryDescription:
+GunkShotDescription:
+PsyshockDescription:
+SuckerPunchDescription:
+BasiliskFangDescription:
+WyrmWindDescription:
+ShadowStormDescription:
+MagnitudeDescription:
+NaturePowerDescription:
+SharpenDescription:
+RageDescription:
+DragonsCryDescription:
+FacadeDescription:
+HealBlockDescription:
 TeraBurstDescription:
 UTurnDescription:
 SkyAttackDescription:

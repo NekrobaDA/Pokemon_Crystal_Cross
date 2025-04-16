@@ -399,6 +399,37 @@ BattleAnimations::
 	dw BattleAnim_DoubleEdge
 	dw BattleAnim_QuickAttack  ;u-turn
 	dw BattleAnim_Headbutt     ;tera burst
+	dw BattleAnim_Moonlight    ;wish
+	dw BattleAnim_VineWhip     ;power whip
+	dw BattleAnim_MetalClaw    ;solar blade
+	dw BattleAnim_Thrash       ;frenzy plant
+	dw BattleAnim_Twister      ;leaf tornado
+	dw BattleAnim_Synthesis    ;ingrain
+	dw BattleAnim_FlameWheel   ;flame charge
+	dw BattleAnim_SacredFire   ;burn up
+	dw BattleAnim_HealBell     ;purify
+	dw BattleAnim_Recover      ;aqua ring
+	dw BattleAnim_Mist
+	dw BattleAnim_Spark        ;bolt strike
+	dw BattleAnim_Fly          ;falcon dive
+	dw BattleAnim_Aeroblast    ;hurricane
+	dw BattleAnim_Twister      ;slag storm
+	dw BattleAnim_Rollout      ;ice ball
+	dw BattleAnim_IceBeam      ;freeze dry
+	dw BattleAnim_SludgeBomb   ;gunk shot
+	dw BattleAnim_Disable      ;psyshock
+	dw BattleAnim_FaintAttack  ;sucker punch
+	dw BattleAnim_Bite         ;basilisk fang
+	dw BattleAnim_RazorWind    ;wyrm wind
+	dw BattleAnim_NightShade   ;shadow storm
+	dw BattleAnim_Magnitude
+	dw BattleAnim_MirrorMove   ;nature power (wouldn't actually have an anim of its own)
+	dw BattleAnim_Sharpen
+	dw BattleAnim_Rage
+	dw BattleAnim_Growl        ;dragons cry
+	dw BattleAnim_Return       ;facade
+	dw BattleAnim_Moonlight    ;heal block
+	dw BattleAnim_FaintAttack  ;foul play
 	dw BattleAnim_Struggle
 
 BattleAnim_0:
