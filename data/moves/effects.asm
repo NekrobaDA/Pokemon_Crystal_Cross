@@ -861,11 +861,11 @@ RecoilHit:
 	kingsrock
 	endmove
 
-Mist:
+Refresh:
 	checkobedience
 	usedmovetext
 	doturn
-	mist
+	refresh
 	endmove
 
 FocusEnergy:
@@ -1013,8 +1013,8 @@ HyperBeam:
 	applydamage
 	criticaltext
 	supereffectivetext
-	rechargenextturn
 	checkfaint
+	rechargenextturn
 	kingsrock
 	endmove
 
@@ -2654,4 +2654,11 @@ UTurn:
 	checkfaint
 	batonpass
 	uturnresetstats
+	endmove
+Mist:
+	checkobedience
+	usedmovetext
+	doturn
+	mist
+;	safeguard
 	endmove

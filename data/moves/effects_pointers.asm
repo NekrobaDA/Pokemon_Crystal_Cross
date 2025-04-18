@@ -45,7 +45,7 @@ MoveEffectsPointers:
 	dw Hail
 	dw MultiHit
 	dw NormalHit
-	dw Mist
+	dw Refresh
 	dw FocusEnergy
 	dw RecoilHit
 	dw DoConfuse
@@ -193,4 +193,5 @@ MoveEffectsPointers:
 	dw WeatherBall
 	dw TeraBurst
 	dw UTurn
+	dw Mist
 	

@@ -41,7 +41,7 @@ ENDM
 	command flinchtarget            ; 23
 	command ohko                    ; 24
 	command recoil                  ; 25
-	command mist                    ; 26
+	command refresh                 ; 26
 	command focusenergy             ; 27
 	command confuse                 ; 28
 	command confusetarget           ; 29
@@ -187,6 +187,7 @@ ENDM
 	command weatherball
 	command teraburst
 	command uturnresetstats
+	command mist
 
 	const_def -1, -1
 	command endmove                 ; ff

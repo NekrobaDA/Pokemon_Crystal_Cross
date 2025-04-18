@@ -5150,9 +5150,11 @@ BattleCommand_StatDown:
 ; statdown
 
 	ld [wLoweredStat], a
-
-;	call CheckMist
-;	jp nz, .Mist
+	
+	ld a, BATTLE_VARS_SUBSTATUS4_OPP
+	call GetBattleVar
+	bit SUBSTATUS_MIST, a
+	jp nz, .Mist
 
 	ld hl, wEnemyStatLevels
 	ldh a, [hBattleTurn]
@@ -5180,33 +5182,6 @@ BattleCommand_StatDown:
 	inc b
 
 .ComputerMiss:
-; Computer opponents have a 25% chance of failing.
-;	ldh a, [hBattleTurn]
-;	and a
-;	jr z, .DidntMiss
-
-;	ld a, [wLinkMode]
-;	and a
-;	jr nz, .DidntMiss
-
-;	ld a, [wInBattleTowerBattle]
-;	and a
-;	jr nz, .DidntMiss
-
-; Lock-On still always works.
-;	ld a, [wPlayerSubStatus5]
-;	bit SUBSTATUS_LOCK_ON, a
-;	jr nz, .DidntMiss
-
-; Attacking moves that also lower accuracy are unaffected.
-;	ld a, BATTLE_VARS_MOVE_EFFECT
-;	call GetBattleVar
-;	cp EFFECT_ACCURACY_DOWN_HIT
-;	jr z, .DidntMiss
-
-;	call BattleRandom
-;	cp 25 percent + 1 ; 25% chance AI fails
-;	jr c, .Failed
 
 .DidntMiss:
 	call CheckSubstituteOpp
@@ -5262,35 +5237,12 @@ BattleCommand_StatDown:
 	ld [wAttackMissed], a
 	ret
 
-;.Mist:
-;	ld a, 2
-;	ld [wFailedMessage], a
-;	ld a, 1
-;	ld [wAttackMissed], a
-;	ret
-
-;CheckMist:
-;	ld a, BATTLE_VARS_MOVE_EFFECT
-;	call GetBattleVar
-;	cp EFFECT_ATTACK_DOWN
-;	jr c, .dont_check_mist
-;	cp EFFECT_EVASION_DOWN + 1
-;	jr c, .check_mist
-;	cp EFFECT_ATTACK_DOWN_2
-;	jr c, .dont_check_mist
-;	cp EFFECT_ATTACK_DOWN_HIT
-;	jr c, .dont_check_mist
-;	cp EFFECT_EVASION_DOWN_HIT + 1
-;	jr c, .check_mist
-;.dont_check_mist
-;	xor a
-;	ret
-
-;.check_mist
-;	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-;	call GetBattleVar
-;	bit SUBSTATUS_MIST, a
-;	ret
+.Mist:
+	ld a, 2
+	ld [wFailedMessage], a
+	ld a, 1
+	ld [wAttackMissed], a
+	ret
 
 BattleCommand_StatUpMessage:
 	ld a, [wFailedMessage]
@@ -6589,8 +6541,6 @@ BattleCommand_TrapTarget:
 	dw MAELSTROM, MaelstromTrapText ; 'was trapped!'
 	dw INFESTATION, InfestationTrapText ; 'was trapped!'
 
-INCLUDE "engine/battle/move_effects/mist.asm"
-
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
 BattleCommand_Recoil:
@@ -7511,23 +7461,23 @@ INCLUDE "engine/battle/move_effects/mirror_coat.asm"
 BattleCommand_DoubleMinimizeDamage:
 ; doubleminimizedamage
 
-	ld hl, wEnemyMinimized
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wPlayerMinimized
-.ok
-	ld a, [hl]
-	and a
-	ret z
-	ld hl, wCurDamage + 1
-	sla [hl]
-	dec hl
-	rl [hl]
-	ret nc
-	ld a, $ff
-	ld [hli], a
-	ld [hl], a
+;	ld hl, wEnemyMinimized
+;	ldh a, [hBattleTurn]
+;	and a
+;	jr z, .ok
+;	ld hl, wPlayerMinimized
+;.ok
+;	ld a, [hl]
+;	and a
+;	ret z
+;	ld hl, wCurDamage + 1
+;	sla [hl]
+;	dec hl
+;	rl [hl]
+;	ret nc
+;	ld a, $ff
+;	ld [hli], a
+;	ld [hl], a
 	ret
 
 BattleCommand_SkipSunCharge:
@@ -7853,6 +7803,16 @@ BattleCommand_TeraBurst:
 BattleCommand_UTurn:
 ; uturnresetstats
 	farcall BattleCommand_UTurn2
+	ret
+	
+BattleCommand_Refresh:
+; refresh
+	farcall BattleCommand_Refresh2
+	ret
+	
+BattleCommand_Mist:
+;mist
+	farcall BattleCommand_Mist2
 	ret
 	
 CompareMove:

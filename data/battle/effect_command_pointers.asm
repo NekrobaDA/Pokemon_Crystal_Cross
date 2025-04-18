@@ -41,7 +41,7 @@ BattleCommandPointers:
 	dw BattleCommand_FlinchTarget
 	dw BattleCommand_OHKO
 	dw BattleCommand_Recoil
-	dw BattleCommand_Mist
+	dw BattleCommand_Refresh
 	dw BattleCommand_FocusEnergy
 	dw BattleCommand_Confuse
 	dw BattleCommand_ConfuseTarget
@@ -187,4 +187,5 @@ BattleCommandPointers:
 	dw BattleCommand_WeatherBall
 	dw BattleCommand_TeraBurst
 	dw BattleCommand_UTurn
+	dw BattleCommand_Mist
 	

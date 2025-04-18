@@ -45,7 +45,7 @@
 	const EFFECT_HAIL
 	const EFFECT_DOUBLE_HIT
 	const EFFECT_JUMP_KICK
-	const EFFECT_MIST          ;REFRESH
+	const EFFECT_REFRESH
 	const EFFECT_FOCUS_ENERGY  ;which is this actually
 	const EFFECT_RECOIL_HIT
 	const EFFECT_CONFUSE
@@ -193,3 +193,4 @@
 	const EFFECT_WEATHER_BALL
 	const EFFECT_TERA_BURST
 	const EFFECT_U_TURN
+	const EFFECT_MIST

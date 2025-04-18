@@ -852,9 +852,14 @@ EnemyHitTimesText:
 	text " times!"
 	prompt
 
-MistText:
+RefreshText:
 	text "<USER>"
 	line "was cured!"
+	prompt
+	
+MistText:
+	text "<USER>'s"
+	line "shrouded in MIST!"
 	prompt
 
 ProtectedByMistText:

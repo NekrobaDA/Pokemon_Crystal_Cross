@@ -465,3 +465,37 @@ BattleCommand_UTurn2:
 .enemyreset
 	farcall ResetEnemyStatLevels
 	ret
+	
+BattleCommand_Refresh2:
+; refresh
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVar
+	and a
+	jr z, .RefreshFailed
+
+	farcall HealStatus
+	farcall AnimateCurrentMove
+
+	ld hl, RefreshText
+	jp StdBattleTextbox
+
+.RefreshFailed
+	farcall AnimateFailedMove
+	farcall PrintButItFailed
+	ret
+	
+BattleCommand_Mist2:
+	ld a, BATTLE_VARS_SUBSTATUS4
+	call GetBattleVarAddr
+	bit SUBSTATUS_MIST, [hl]
+	jr nz, .already_mist
+	set SUBSTATUS_MIST, [hl]
+	farcall AnimateCurrentMove
+	ld hl, MistText
+	jp StdBattleTextbox
+
+.already_mist
+	farcall AnimateFailedMove
+	farcall PrintButItFailed
+	ret
+

@@ -182,10 +182,17 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 ; wPlayerSubStatus2 or wEnemySubStatus2 bit flags
 	const_def
 	const SUBSTATUS_CURLED
+	;const SUBSTATUS_AQUARING
+	;const SUBSTATUS_TAUNTED
+	;const SUBSTATUS_BURNUP
+	;const SUBSTATUS_HEALBLOCK
+	;const SUBSTATUS_ROOSTED     ;?
+	;const SUBSTATUS_ROOTED
+	;const SUBSTATUS_DROWSY      ;yawn  (other possible substatus- charge (elec move), uproared)
 
 ; wPlayerSubStatus3 or wEnemySubStatus3 bit flags
 	const_def
-	const SUBSTATUS_BIDE
+	const SUBSTATUS_BIDE         ;const SUBSTATUS_VANISHED ;phantom force
 	const SUBSTATUS_RAMPAGE
 	const SUBSTATUS_IN_LOOP
 	const SUBSTATUS_FLINCHED
@@ -223,6 +230,7 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 	const SCREENS_SAFEGUARD
 	const SCREENS_LIGHT_SCREEN
 	const SCREENS_REFLECT
+	;const SCREENS_WISH      ;does Snatch need to be a substatus?
 
 ; values in wBattleWeather
 	const_def
