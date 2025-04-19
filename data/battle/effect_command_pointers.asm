@@ -190,4 +190,6 @@ BattleCommandPointers:
 	dw BattleCommand_Mist
 	dw BattleCommand_AquaRing
 	dw BattleCommand_Ingrain
+	dw BattleCommand_BurnUp
+	dw BattleCommand_AttackBurnUp
 	

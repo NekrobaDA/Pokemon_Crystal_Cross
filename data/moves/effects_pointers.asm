@@ -196,4 +196,5 @@ MoveEffectsPointers:
 	dw Mist
 	dw AquaRing
 	dw Ingrain
+	dw BurnUp
 	

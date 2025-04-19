@@ -2290,6 +2290,13 @@ BattleCommand_FailureText:
 ; If the move missed or failed, load the appropriate
 ; text, and end the effects of multi-turn or multi-
 ; hit moves.
+	ld a, [wFailedMessage]
+	cp 4
+	jr nz, .notburnup
+	call PrintButItFailed
+	jp EndMoveEffect
+
+ .notburnup
 	ld a, [wAttackMissed]
 	and a
 	ret z
@@ -7770,29 +7777,13 @@ BattleCommand_Ingrain:
 	farcall BattleCommand_Ingrain2
 	ret
 	
-CompareMove:
-	; checks if the move ID in a matches the move in bc
-	push hl
-	call GetMoveIndexFromID
-	ld a, h
-	cp b
-	ld a, l
-	pop hl
-	ret nz
-	cp c
+BattleCommand_BurnUp:
+;burnup
+	farcall BattleCommand_BurnUp2
 	ret
 
-CheckMoveInList:
-	; checks if the move ID in a belongs to a list of moves in hl
-	push bc
-	push de
-	push hl
-	call GetMoveIndexFromID
-	ld b, h
-	ld c, l
-	pop hl
-	ld de, 2
-	call IsInHalfwordArray
-	pop de
-	pop bc
+BattleCommand_AttackBurnUp:
+;checkburnup
+	farcall BattleCommand_AttackBurnUp2
 	ret
+	

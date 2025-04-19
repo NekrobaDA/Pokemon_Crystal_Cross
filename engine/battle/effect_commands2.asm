@@ -542,3 +542,34 @@ AnimateFailPrintText:
 	farcall AnimateFailedMove
 	farcall PrintButItFailed
 	ret
+	
+BattleCommand_BurnUp2:
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_BURNUP, [hl]
+	jr nz, .already_burntup
+	set SUBSTATUS_BURNUP, [hl]
+;	farcall AnimateCurrentMove
+	ld hl, BurnUpText
+	jp StdBattleTextbox
+
+.already_burntup
+	call AnimateFailPrintText
+	ret
+	
+BattleCommand_AttackBurnUp2:
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_BURNUP, [hl]
+	jr z, .proceedhitcheck
+;Failed:
+	ld a, 4
+	ld [wFailedMessage], a
+	ld a, 1
+	ld [wAttackMissed], a
+	jr .endburnup
+
+.proceedhitcheck
+	farcall BattleCommand_CheckHit
+.endburnup
+	ret

@@ -190,6 +190,8 @@ ENDM
 	command mist
 	command aquaring
 	command ingrain
+	command burnup
+	command checkburnup
 
 	const_def -1, -1
 	command endmove                 ; ff

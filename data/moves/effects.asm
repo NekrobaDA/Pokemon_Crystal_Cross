@@ -2676,3 +2676,24 @@ Ingrain:
 	doturn
 	ingrain
 	endmove
+	
+BurnUp:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+;	checkhit
+	checkburnup
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	burnup
+	checkfaint
+	kingsrock
+	endmove

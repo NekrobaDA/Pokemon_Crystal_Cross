@@ -184,8 +184,8 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 	const SUBSTATUS_CURLED
 	const SUBSTATUS_AQUARING
 	const SUBSTATUS_ROOTED
+	const SUBSTATUS_BURNUP
 	;const SUBSTATUS_TAUNTED
-	;const SUBSTATUS_BURNUP
 	;const SUBSTATUS_HEALBLOCK
 	;const SUBSTATUS_ROOSTED     ;?
 	;const SUBSTATUS_DROWSY      ;yawn  (other possible substatus- charge (elec move), uproared)

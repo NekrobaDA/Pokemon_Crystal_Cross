@@ -125,6 +125,11 @@ BattleText_IngrainRestore:
 	text "Intook nutrients"
 	line "from roots!"
 	prompt
+	
+BurnUpText:
+	text "<USER>"
+	line "burnt up!"
+	prompt
 
 BattleText_UserRecoveredPPUsing:
 	text "<USER>"

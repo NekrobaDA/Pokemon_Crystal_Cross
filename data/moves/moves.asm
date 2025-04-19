@@ -789,12 +789,12 @@ Moves1:
 	move EFFECT_RAMPAGE,           120, GRASS,        PHYSICAL,  100, 10,  0
 ;LEAF_TORNADO
 	move EFFECT_TRAP_TARGET,        50, GRASS,        SPECIAL,    85, 15,  0
-;INGRAIN (give leftovers effect)
+;INGRAIN - restore hp at end of turn + prevent phazing
 	move EFFECT_INGRAIN,             0, GRASS,        STATUS,    100, 20,  0
 ;FLAME_CHARGE
 	move EFFECT_FLAME_WHEEL,        50, FIRE,         PHYSICAL,  100, 20, 70
 ;BURN_UP (effect temp)
-	move EFFECT_NORMAL_HIT,        130, FIRE,         SPECIAL,   100,  5,  0
+	move EFFECT_BURNUP,            130, FIRE,         SPECIAL,   100,  5,  0
 ;PURIFY (wip) (heals hp if heals status, otherwise does nothing) (heal status of party member in ow)
 	move EFFECT_MIST,                0, WATER,        STATUS,    100, 20,  0
 ;AQUA_RING - restore hp at end of turn + prevent burn
