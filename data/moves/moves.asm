@@ -662,7 +662,7 @@ Moves1:
 ;FORESIGHT
 	move EFFECT_FORESIGHT,           0, FIGHTING,     STATUS,   100, 40,   0
 ;SNORE
-	move EFFECT_SNORE,              70, NORMAL,       PHYSICAL, 100, 15,  30
+	move EFFECT_SNORE,              70, NORMAL,       SPECIAL,  100, 15,  30
 ;PAYBACK (effect currently inaccurate)
 	move EFFECT_NEGATIVE_PRIORITY_HIT, 100, DARK,     PHYSICAL, 100, 10,   0
 ;AVALANCHE (effect currently inaccurate)

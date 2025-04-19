@@ -2686,14 +2686,13 @@ BurnUp:
 	damagecalc
 	stab
 	damagevariation
-;	checkhit
 	checkburnup
 	moveanim
 	failuretext
 	applydamage
 	criticaltext
 	supereffectivetext
-	burnup
+	burnup     ;apply burnup status after first attack
 	checkfaint
 	kingsrock
 	endmove

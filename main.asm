@@ -742,6 +742,7 @@ INCLUDE "engine/gfx/color.asm"
 SECTION "Effect Commands 2", ROMX
 
 INCLUDE "engine/battle/effect_commands2.asm"
+INCLUDE "home/eq_exceptions.asm"
 
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]

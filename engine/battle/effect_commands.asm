@@ -1275,24 +1275,33 @@ BattleCommand_Stab:
 	ld bc, STRUGGLE
 	call CompareMove
 	ret z
+	
+	farcall DoBurnupTypeReplace
+	
+	ldh a, [hBattleTurn]   ; Who Attacks and who Defends
+	and a
+	jr nz, .enemyattack
 
+;playerattack
+;load player types into bc	
 	ld hl, wBattleMonType1
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+;load enemy types into de	
 	ld hl, wEnemyMonType1
 	ld a, [hli]
 	ld d, a
 	ld e, [hl]
+	jr .go
 
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .go ; Who Attacks and who Defends
-
+.enemyattack
+;load enemy types into bc
 	ld hl, wEnemyMonType1
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+;load player types into de	
 	ld hl, wBattleMonType1
 	ld a, [hli]
 	ld d, a
@@ -1676,7 +1685,7 @@ BattleCommand_CheckHit:
 	jp z, .Miss
 
 .skipcheck
-	call EarthquakeMiss
+	farcall EarthquakeMiss
 	cp 0
 	jp z, .Miss
 
@@ -2290,11 +2299,15 @@ BattleCommand_FailureText:
 ; If the move missed or failed, load the appropriate
 ; text, and end the effects of multi-turn or multi-
 ; hit moves.
-	ld a, [wFailedMessage]
-	cp 4
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_BURNUP
 	jr nz, .notburnup
-	call PrintButItFailed
-	jp EndMoveEffect
+
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_BURNUP, [hl]
+	jp nz, EndMoveEffect
 
  .notburnup
 	ld a, [wAttackMissed]
@@ -3098,51 +3111,6 @@ PlayerAttackDamage:
 
 	ld a, 1
 	and a
-	ret
-
-TruncateHL_BC:
-.loop
-; Truncate 16-bit values hl and bc to 8-bit values b and c respectively.
-; b = hl, c = bc
-
-	ld a, h
-	or b
-	jr z, .finish
-
-	srl b
-	rr c
-	srl b
-	rr c
-
-	ld a, c
-	or b
-	jr nz, .done_bc
-	inc c
-
-.done_bc
-	srl h
-	rr l
-	srl h
-	rr l
-
-	ld a, l
-	or h
-	jr nz, .finish
-	inc l
-
-.finish
-	ld a, [wLinkMode]
-	cp LINK_COLOSSEUM
-	jr z, .done
-; If we go back to the loop point,
-; it's the same as doing this exact
-; same check twice.
-	ld a, h
-	or b
-	jr nz, .loop
-
-.done
-	ld b, l
 	ret
 
 CheckDamageStatsCritical:

@@ -38,3 +38,43 @@ CheckMoveInList::
 	pop de
 	pop bc
 	ret
+
+TruncateHL_BC::
+.loop
+; Truncate 16-bit values hl and bc to 8-bit values b and c respectively.
+; b = hl, c = bc
+
+	ld a, h
+	or b
+	jr z, .finish
+
+	srl b
+	rr c
+	srl b
+	rr c
+
+	ld a, c
+	or b
+	jr nz, .done_bc
+	inc c
+
+.done_bc
+	srl h
+	rr l
+	srl h
+	rr l
+
+	ld a, l
+	or h
+	jr nz, .finish
+	inc l
+.finish
+; If we go back to the loop point,
+; it's the same as doing this exact
+; same check twice.
+	ld a, h
+	or b
+	jr nz, .loop
+
+	ld b, l
+	ret

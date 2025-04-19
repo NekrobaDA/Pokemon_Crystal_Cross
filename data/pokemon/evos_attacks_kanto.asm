@@ -3325,7 +3325,7 @@ MewEvosAttacks:                      ;final
 	dbw 70, SKETCH
 	;for testing
 	dbw 70, REST
-	dbw 70, ROAR
+	dbw 70, WATER_GUN
 	dbw 70, SNORE
 	dbw 70, INGRAIN
 	dbw 70, BURN_UP

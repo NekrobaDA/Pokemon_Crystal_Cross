@@ -549,7 +549,6 @@ BattleCommand_BurnUp2:
 	bit SUBSTATUS_BURNUP, [hl]
 	jr nz, .already_burntup
 	set SUBSTATUS_BURNUP, [hl]
-;	farcall AnimateCurrentMove
 	ld hl, BurnUpText
 	jp StdBattleTextbox
 
@@ -562,14 +561,63 @@ BattleCommand_AttackBurnUp2:
 	call GetBattleVarAddr
 	bit SUBSTATUS_BURNUP, [hl]
 	jr z, .proceedhitcheck
-;Failed:
-	ld a, 4
-	ld [wFailedMessage], a
 	ld a, 1
 	ld [wAttackMissed], a
+	farcall PrintButItFailed
 	jr .endburnup
 
 .proceedhitcheck
 	farcall BattleCommand_CheckHit
 .endburnup
+	ret
+	
+LoadCurseType:
+	ld a, CURSE_TYPE
+	ret
+
+DoBurnupTypeReplace:
+	call DoBurnupCheckPlayer
+	call DoBurnupCheckEnemy
+	ret
+	
+DoBurnupCheckPlayer:
+;	ld a, BATTLE_VARS_SUBSTATUS2
+;	call GetBattleVarAddr
+	ld hl, wPlayerSubStatus2
+	bit SUBSTATUS_BURNUP, [hl]
+	jr z, .endburnupreplace
+	
+	ld a, [wBattleMonType1]
+	cp FIRE
+	jr nz, .skiptype1
+	call LoadCurseType
+	ld [wBattleMonType1], a
+.skiptype1	
+	ld a, [wBattleMonType2]
+	cp FIRE
+	jr nz, .endburnupreplace	
+	call LoadCurseType
+	ld [wBattleMonType2], a
+.endburnupreplace	
+	ret
+	
+DoBurnupCheckEnemy:
+;	ld a, BATTLE_VARS_SUBSTATUS2;_OPP
+;	call GetBattleVarAddr
+	ld hl, wEnemySubStatus2
+	bit SUBSTATUS_BURNUP, [hl]
+	jr z, .endburnupreplaceenemy
+
+	ld a, [wEnemyMonType1]
+	cp FIRE
+	jr nz, .skiptype1enemy
+	call LoadCurseType
+	ld [wEnemyMonType1], a
+.skiptype1enemy
+	ld a, [wEnemyMonType2]
+	cp FIRE
+	jr nz, .endburnupreplaceenemy	
+	call LoadCurseType
+	ld [wEnemyMonType2], a
+.endburnupreplaceenemy	
 	ret

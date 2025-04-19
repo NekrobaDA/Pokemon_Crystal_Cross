@@ -1,4 +1,4 @@
-EarthquakeMiss::
+EarthquakeMiss:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_EARTHQUAKE
