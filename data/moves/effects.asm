@@ -2662,3 +2662,10 @@ Mist:
 	mist
 ;	safeguard
 	endmove
+	
+AquaRing:
+	checkobedience
+	usedmovetext
+	doturn
+	aquaring
+	endmove

@@ -798,7 +798,7 @@ Moves1:
 ;PURIFY (wip) (heals hp if heals status, otherwise does nothing) (heal status of party member in ow)
 	move EFFECT_MIST,                0, WATER,        STATUS,    100, 20,  0
 ;AQUA_RING (give leftovers effect)
-	move EFFECT_LEECH_SEED,          0, WATER,        STATUS,    100, 20,  0
+	move EFFECT_AQUA_RING,           0, WATER,        STATUS,    100, 20,  0
 ;MIST (effect temp)
 	move EFFECT_MIST,                0, WATER,        STATUS,    100, 30,  0
 ;BOLT_STRIKE

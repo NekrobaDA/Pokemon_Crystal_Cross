@@ -110,6 +110,11 @@ BattleText_TargetRecoveredWithItem:
 	text_ram wStringBuffer1
 	text "."
 	prompt
+	
+BattleText_AquaRingRestore:
+	text "AQUA RING"
+	line "restored health!"
+	prompt
 
 BattleText_UserRecoveredPPUsing:
 	text "<USER>"
@@ -860,6 +865,11 @@ RefreshText:
 MistText:
 	text "<USER>'s"
 	line "shrouded in MIST!"
+	prompt
+	
+AquaRingText:
+	text "<USER>'s"
+	line "veiled in water!"
 	prompt
 
 ProtectedByMistText:

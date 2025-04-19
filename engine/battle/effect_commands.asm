@@ -4220,8 +4220,6 @@ BattleCommand_SleepTarget:
 	jp nz, PrintDidntAffect2
 
 	ld hl, DidntAffect1Text
-	call .CheckAIRandomFail
-	jr c, .fail
 
 	ld a, [de]
 	and a
@@ -4268,34 +4266,6 @@ BattleCommand_SleepTarget:
 	call AnimateFailedMove
 	pop hl
 	jp StdBattleTextbox
-
-.CheckAIRandomFail:
-	; Enemy turn
-;	ldh a, [hBattleTurn]
-;	and a
-;	jr z, .dont_fail
-
-;	; Not in link battle
-;	ld a, [wLinkMode]
-;	and a
-;	jr nz, .dont_fail
-
-;	ld a, [wInBattleTowerBattle]
-;	and a
-;	jr nz, .dont_fail
-
-;	; Not locked-on by the enemy
-;	ld a, [wPlayerSubStatus5]
-;	bit SUBSTATUS_LOCK_ON, a
-;	jr nz, .dont_fail
-
-;	call BattleRandom
-;	cp 25 percent + 1 ; 25% chance AI fails
-;	ret c
-
-.dont_fail
-	xor a
-	ret
 
 BattleCommand_PoisonTarget:
 ; poisontarget
@@ -4366,27 +4336,6 @@ BattleCommand_Poison:
 	and a
 	jr nz, .failed
 
-;	ldh a, [hBattleTurn]
-;	and a
-;	jr z, .dont_sample_failure
-
-;	ld a, [wLinkMode]
-;	and a
-;	jr nz, .dont_sample_failure
-
-;	ld a, [wInBattleTowerBattle]
-;	and a
-;	jr nz, .dont_sample_failure
-
-;	ld a, [wPlayerSubStatus5]
-;	bit SUBSTATUS_LOCK_ON, a
-;	jr nz, .dont_sample_failure
-
-;	call BattleRandom
-;	cp 25 percent + 1 ; 25% chance AI fails
-;	jr c, .failed
-
-.dont_sample_failure
 	call CheckSubstituteOpp
 	jr nz, .failed
 	ld a, [wAttackMissed]
@@ -4584,16 +4533,22 @@ BattleCommand_BurnTarget:
 	and $7f
 	ret z
 	call CheckMoveTypeMatchesTarget ; Don't burn a Fire-type
-	ret z
+	jr z, .checkwillowisp
+	
+	farcall CheckAquaRing
+	jr nz, .checkwillowisp
+	
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_BURN
-	ret z
+	jr z, .checkwillowisp
+	
 	ld a, [wEffectFailed]
 	and a
 	ret nz
 	call SafeCheckSafeguard
-	ret nz
+	jr nz, .checkwillowisp
+	
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set BRN, [hl]
@@ -4609,6 +4564,14 @@ BattleCommand_BurnTarget:
 
 	farcall UseHeldStatusHealingItem
 	ret
+	
+.checkwillowisp
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_WILL_O_WISP
+	ret nz
+	call AnimateFailedMove
+	jp PrintButItFailed
 
 Defrost:
 	ld a, [hl]
@@ -5176,13 +5139,11 @@ BattleCommand_StatDown:
 ; Sharply lower the stat if applicable.
 	ld a, [wLoweredStat]
 	and $f0
-	jr z, .ComputerMiss
+	jr z, .DidntMiss
 	dec b
-	jr nz, .ComputerMiss
+	jr nz, .DidntMiss
 	inc b
-
-.ComputerMiss:
-
+	
 .DidntMiss:
 	call CheckSubstituteOpp
 	jr nz, .Failed
@@ -6753,27 +6714,6 @@ BattleCommand_Paralyze:
 	jp StdBattleTextbox
 
 .no_item_protection
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .dont_sample_failure
-
-	ld a, [wLinkMode]
-	and a
-	jr nz, .dont_sample_failure
-
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .dont_sample_failure
-
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .dont_sample_failure
-
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	jr c, .failed
-
-.dont_sample_failure
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
@@ -7813,6 +7753,11 @@ BattleCommand_Refresh:
 BattleCommand_Mist:
 ;mist
 	farcall BattleCommand_Mist2
+	ret
+	
+BattleCommand_AquaRing:
+;aquaring
+	farcall BattleCommand_AquaRing2
 	ret
 	
 CompareMove:

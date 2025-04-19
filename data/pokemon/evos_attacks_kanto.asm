@@ -3330,7 +3330,7 @@ MewEvosAttacks:                      ;final
 	dbw 70, DOUBLE_EDGE
 	dbw 70, SWORDS_DANCE
 	dbw 70, WEATHER_BALL
-	dbw 70, HYPER_BEAM
+	dbw 70, AQUA_RING
 	dbw 70, U_TURN
 	dbw 70, MIST
 	dbw 70, REFRESH

@@ -299,7 +299,8 @@ HandleBetweenTurnEffects:
 	ret c
 
 .NoMoreFaintingConditions:
-	call HandleLeftovers
+	call DoAquaRing
+	call DoLeftovers
 	call HandleMysteryberry
 	call HandleDefrost
 	call HandleSafeguard
@@ -1594,7 +1595,7 @@ SwitchTurnCore:
 	ldh [hBattleTurn], a
 	ret
 
-HandleLeftovers:
+DoAquaRing:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .DoEnemyFirst
@@ -1608,7 +1609,31 @@ HandleLeftovers:
 	call .do_it
 	call SetPlayerTurn
 .do_it
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_AQUARING, [hl]
+	ret z
+	call SwitchTurnCore
+	call ItemRecoveryAnim
+	call SwitchTurnCore
+	call ContinueLeftovers
+	ld hl, BattleText_AquaRingRestore
+	jp StdBattleTextbox
 
+DoLeftovers:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	call .do_it
+	call SetEnemyTurn
+	jp .do_it
+
+.DoEnemyFirst:               ;would like to do this more efficiently but oh well
+	call SetEnemyTurn
+	call .do_it
+	call SetPlayerTurn
+.do_it
 	callfar GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
@@ -1616,7 +1641,11 @@ HandleLeftovers:
 	ld a, b
 	cp HELD_LEFTOVERS
 	ret nz
-
+	call ContinueLeftovers
+	ld hl, BattleText_TargetRecoveredWithItem
+	jp StdBattleTextbox
+	
+ContinueLeftovers:
 	ld hl, wBattleMonHP
 	ldh a, [hBattleTurn]
 	and a
@@ -1640,8 +1669,7 @@ HandleLeftovers:
 	call GetSixteenthMaxHP
 	call SwitchTurnCore
 	call RestoreHP
-	ld hl, BattleText_TargetRecoveredWithItem
-	jp StdBattleTextbox
+	ret
 
 HandleMysteryberry:
 	ldh a, [hSerialConnectionStatus]

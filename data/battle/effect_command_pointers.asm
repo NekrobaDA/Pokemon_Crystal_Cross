@@ -188,4 +188,5 @@ BattleCommandPointers:
 	dw BattleCommand_TeraBurst
 	dw BattleCommand_UTurn
 	dw BattleCommand_Mist
+	dw BattleCommand_AquaRing
 	

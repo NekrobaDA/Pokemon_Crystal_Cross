@@ -498,4 +498,31 @@ BattleCommand_Mist2:
 	farcall AnimateFailedMove
 	farcall PrintButItFailed
 	ret
+	
+BattleCommand_AquaRing2:
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_AQUARING, [hl]
+	jr nz, .already_aquaring
+	set SUBSTATUS_AQUARING, [hl]
+	farcall AnimateCurrentMove
+	ld hl, AquaRingText
+	jp StdBattleTextbox
 
+.already_aquaring
+	farcall AnimateFailedMove
+	farcall PrintButItFailed
+	ret
+	
+CheckAquaRing:
+	push hl
+	ld hl, wEnemySubStatus2
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_turn
+	ld hl, wPlayerSubStatus2
+
+.got_turn
+	bit SUBSTATUS_AQUARING, [hl]
+	pop hl
+	ret

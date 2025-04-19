@@ -188,6 +188,7 @@ ENDM
 	command teraburst
 	command uturnresetstats
 	command mist
+	command aquaring
 
 	const_def -1, -1
 	command endmove                 ; ff

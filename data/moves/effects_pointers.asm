@@ -194,4 +194,5 @@ MoveEffectsPointers:
 	dw TeraBurst
 	dw UTurn
 	dw Mist
+	dw AquaRing
 	
