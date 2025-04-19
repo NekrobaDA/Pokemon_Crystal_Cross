@@ -5740,6 +5740,11 @@ SetBattleDraw:
 BattleCommand_ForceSwitch:
 ; forceswitch
 
+	ld a, BATTLE_VARS_SUBSTATUS2_OPP
+	call GetBattleVarAddr
+	bit SUBSTATUS_ROOTED, [hl]
+	jp nz, .fail
+
 	ld a, [wBattleType]
 	cp BATTLETYPE_SHINY
 	jp z, .fail
@@ -7758,6 +7763,11 @@ BattleCommand_Mist:
 BattleCommand_AquaRing:
 ;aquaring
 	farcall BattleCommand_AquaRing2
+	ret
+	
+BattleCommand_Ingrain:
+;ingrain
+	farcall BattleCommand_Ingrain2
 	ret
 	
 CompareMove:

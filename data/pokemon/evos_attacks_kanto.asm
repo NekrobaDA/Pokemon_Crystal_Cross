@@ -3325,9 +3325,9 @@ MewEvosAttacks:                      ;final
 	dbw 70, SKETCH
 	;for testing
 	dbw 70, DIRE_CLAW
-	dbw 70, TRI_ATTACK
+	dbw 70, ROAR
 	dbw 70, TERA_BURST
-	dbw 70, DOUBLE_EDGE
+	dbw 70, INGRAIN
 	dbw 70, SWORDS_DANCE
 	dbw 70, WEATHER_BALL
 	dbw 70, AQUA_RING

@@ -300,6 +300,7 @@ HandleBetweenTurnEffects:
 
 .NoMoreFaintingConditions:
 	call DoAquaRing
+	call DoIngrain
 	call DoLeftovers
 	call HandleMysteryberry
 	call HandleDefrost
@@ -1618,6 +1619,31 @@ DoAquaRing:
 	call SwitchTurnCore
 	call ContinueLeftovers
 	ld hl, BattleText_AquaRingRestore
+	jp StdBattleTextbox
+	
+DoIngrain:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	call .do_it
+	call SetEnemyTurn
+	jp .do_it
+
+.DoEnemyFirst:
+	call SetEnemyTurn
+	call .do_it
+	call SetPlayerTurn
+.do_it
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_ROOTED, [hl]
+	ret z
+;	call SwitchTurnCore
+;	call ItemRecoveryAnim
+;	call SwitchTurnCore
+	call ContinueLeftovers
+	ld hl, BattleText_IngrainRestore
 	jp StdBattleTextbox
 
 DoLeftovers:

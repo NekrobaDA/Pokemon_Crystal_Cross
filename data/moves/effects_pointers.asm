@@ -195,4 +195,5 @@ MoveEffectsPointers:
 	dw UTurn
 	dw Mist
 	dw AquaRing
+	dw Ingrain
 	

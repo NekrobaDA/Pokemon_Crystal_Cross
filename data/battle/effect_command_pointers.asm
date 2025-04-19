@@ -189,4 +189,5 @@ BattleCommandPointers:
 	dw BattleCommand_UTurn
 	dw BattleCommand_Mist
 	dw BattleCommand_AquaRing
+	dw BattleCommand_Ingrain
 	

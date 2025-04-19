@@ -115,6 +115,16 @@ BattleText_AquaRingRestore:
 	text "AQUA RING"
 	line "restored health!"
 	prompt
+	
+IngrainText:
+	text "<USER>"
+	line "planted roots."
+	prompt
+	
+BattleText_IngrainRestore:
+	text "Intook nutrients"
+	line "from roots!"
+	prompt
 
 BattleText_UserRecoveredPPUsing:
 	text "<USER>"

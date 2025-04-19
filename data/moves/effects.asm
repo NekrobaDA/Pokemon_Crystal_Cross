@@ -2669,3 +2669,10 @@ AquaRing:
 	doturn
 	aquaring
 	endmove
+	
+Ingrain:
+	checkobedience
+	usedmovetext
+	doturn
+	ingrain
+	endmove

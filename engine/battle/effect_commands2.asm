@@ -480,8 +480,7 @@ BattleCommand_Refresh2:
 	jp StdBattleTextbox
 
 .RefreshFailed
-	farcall AnimateFailedMove
-	farcall PrintButItFailed
+	call AnimateFailPrintText
 	ret
 	
 BattleCommand_Mist2:
@@ -495,8 +494,7 @@ BattleCommand_Mist2:
 	jp StdBattleTextbox
 
 .already_mist
-	farcall AnimateFailedMove
-	farcall PrintButItFailed
+	call AnimateFailPrintText
 	ret
 	
 BattleCommand_AquaRing2:
@@ -510,8 +508,7 @@ BattleCommand_AquaRing2:
 	jp StdBattleTextbox
 
 .already_aquaring
-	farcall AnimateFailedMove
-	farcall PrintButItFailed
+	call AnimateFailPrintText
 	ret
 	
 CheckAquaRing:
@@ -525,4 +522,23 @@ CheckAquaRing:
 .got_turn
 	bit SUBSTATUS_AQUARING, [hl]
 	pop hl
+	ret
+	
+BattleCommand_Ingrain2:
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_ROOTED, [hl]
+	jr nz, .already_rooted
+	set SUBSTATUS_ROOTED, [hl]
+	farcall AnimateCurrentMove
+	ld hl, IngrainText
+	jp StdBattleTextbox
+
+.already_rooted
+	call AnimateFailPrintText
+	ret
+	
+AnimateFailPrintText:
+	farcall AnimateFailedMove
+	farcall PrintButItFailed
 	ret

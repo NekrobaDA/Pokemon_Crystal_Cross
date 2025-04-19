@@ -189,6 +189,7 @@ ENDM
 	command uturnresetstats
 	command mist
 	command aquaring
+	command ingrain
 
 	const_def -1, -1
 	command endmove                 ; ff
