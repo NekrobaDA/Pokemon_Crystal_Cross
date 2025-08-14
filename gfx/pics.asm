@@ -55,7 +55,7 @@ ArbokFrontpic:       INCBIN "gfx/pokemon/arbok/front.animated.2bpp.lz"
 MewtwoFrontpic:      INCBIN "gfx/pokemon/mewtwo/front.animated.2bpp.lz"
 FearowFrontpic:      INCBIN "gfx/pokemon/fearow/front.animated.2bpp.lz"
 CharizardFrontpic:   INCBIN "gfx/pokemon/charizard/front.animated.2bpp.lz"
-QuilavaFrontpic:     INCBIN "gfx/pokemon/quilava/front.animated.2bpp.lz"
+;QuilavaFrontpic:     INCBIN "gfx/pokemon/quilava/front.animated.2bpp.lz"
 
 
 SECTION "Pics 3", ROMX
@@ -875,3 +875,4 @@ Charizard_MFrontpic: INCBIN "gfx/pokemon/charizard_m/front.animated.2bpp.lz"
 Charizard_MBackpic: INCBIN "gfx/pokemon/charizard_m/back.2bpp.lz"
 Pichu_SpikyFrontpic: INCBIN "gfx/pokemon/pichu_spiky/front.animated.2bpp.lz"
 Pichu_SpikyBackpic: INCBIN "gfx/pokemon/pichu_spiky/back.2bpp.lz"
+QuilavaFrontpic:     INCBIN "gfx/pokemon/quilava/front.animated.2bpp.lz"

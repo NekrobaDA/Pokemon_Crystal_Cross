@@ -192,7 +192,7 @@ CyndaquilPokeBallScript:
 	giveitem COIN_CASE
 	givecoins 50000
 	; good party
-	givepoke QUILAVA, 50
+	givepoke CYNDAQUIL, 50
 	givepoke MURKROW, 40
 	givepoke MURKROW, 40
 	givepoke MURKROW, 40

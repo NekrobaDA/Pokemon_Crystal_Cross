@@ -197,4 +197,5 @@ MoveEffectsPointers:
 	dw AquaRing
 	dw Ingrain
 	dw BurnUp
+	dw Purify
 	

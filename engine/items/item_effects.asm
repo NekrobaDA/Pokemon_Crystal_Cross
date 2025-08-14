@@ -2044,6 +2044,80 @@ GetHealingItemAmount:
 
 INCLUDE "data/items/heal_hp.asm"
 
+PurifyFunction:
+	ld a, [wPartyMenuCursor]
+	dec a
+	ld b, a                ; purify user
+	push bc
+	
+	ld hl, wPartyMon1Moves
+	ld bc, PARTYMON_STRUCT_LENGTH
+;	ld a, [wCurPartyMon]   ; already in a
+	call AddNTimes         ; add bc * a to hl
+	farcall CheckMoveIsPurify ; check move is purify
+	                       ; if yes store move number and jump to pp check
+	ret nc
+;	ld hl, wPartyMon1PP
+;	ld bc, PARTYMON_STRUCT_LENGTH
+;	ld a, [wCurPartyMon]
+;	call AddNTimes
+;	ld a, [wCurMoveNum]
+;.hl_loop
+;	and a
+;	jr z, .endloop
+;	inc hl
+;	dec a
+;	jr .hl_loop
+;.endloop
+;	ld a, [hl]
+;	and PP_MASK
+;	ret z                  ; no pp, end
+	
+	pop bc
+	
+	
+	call .SelectPurifyRecipient ; select pokemon
+	jr c, .skip
+	ld [wCurPartyMon], a
+	
+	ld a, MON_STATUS
+	call GetPartyParamLocation
+	xor a
+	ld [hli], a
+	ld [hl], a
+	
+	call HealStatus
+	call Play_SFX_FULL_HEAL
+	ld a, PARTYMENUTEXT_PURIFY
+	call ItemActionText
+	call JoyWaitAorB
+.skip
+	ld a, b
+	inc a
+	ld [wPartyMenuCursor], a
+	ret
+	
+.SelectPurifyRecipient
+	push bc
+	ld a, PARTYMENUACTION_HEALING_ITEM
+	ld [wPartyMenuActionText], a
+	call ChooseMonToUseItemOn
+	pop bc
+	jr c, .set_carry
+;	ld a, [wPartyMenuCursor]      ;need to figure out how to cost PP
+;	dec a
+;	ld c, a
+;	ld a, b
+;	cp c
+;	jr z, .cant_use ; chose the same mon as user
+;	ld a, c
+;	ld [wCurPartyMon], a
+;	xor a
+	ret
+.set_carry
+	scf
+	ret
+
 Softboiled_MilkDrinkFunction:
 ; Softboiled/Milk Drink in the field
 	ld a, [wPartyMenuCursor]

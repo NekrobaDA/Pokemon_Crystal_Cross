@@ -861,6 +861,7 @@ RecoilHit:
 	kingsrock
 	endmove
 
+Purify:
 Refresh:
 	checkobedience
 	usedmovetext

@@ -89,7 +89,7 @@ Moves1:
 	move EFFECT_OHKO,                1, NORMAL,       PHYSICAL,  30,  5,   0
 ;TACKLE
 	move EFFECT_NORMAL_HIT,         35, NORMAL,       PHYSICAL,  95, 35,   0
-;POWER_GEM
+;POWER_GEM (make status chance based on held shard?)
 	move EFFECT_NORMAL_HIT,         80, ROCK,         SPECIAL,  100, 20,   0
 ;WRAP
 	move EFFECT_TRAP_TARGET,        20, NORMAL,       PHYSICAL,  90, 20,   0
@@ -793,13 +793,13 @@ Moves1:
 	move EFFECT_INGRAIN,             0, GRASS,        STATUS,    100, 20,  0
 ;FLAME_CHARGE
 	move EFFECT_FLAME_WHEEL,        50, FIRE,         PHYSICAL,  100, 20, 70
-;BURN_UP (effect temp)
+;BURN_UP - strong attack that removes user's fire typing
 	move EFFECT_BURNUP,            130, FIRE,         SPECIAL,   100,  5,  0
 ;PURIFY (wip) (heals hp if heals status, otherwise does nothing) (heal status of party member in ow)
-	move EFFECT_MIST,                0, WATER,        STATUS,    100, 20,  0
+	move EFFECT_PURIFY,              0, WATER,        STATUS,    100, 10,  0
 ;AQUA_RING - restore hp at end of turn + prevent burn
 	move EFFECT_AQUA_RING,           0, WATER,        STATUS,    100, 20,  0
-;MIST (effect temp)
+;MIST
 	move EFFECT_MIST,                0, WATER,        STATUS,    100, 30,  0
 ;BOLT_STRIKE
 	move EFFECT_PARALYZE_HIT,      130, ELECTRIC,     PHYSICAL,   70,  5, 10

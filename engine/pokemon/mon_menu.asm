@@ -146,6 +146,7 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_SWEETSCENT, MonMenu_SweetScent
 	dbw MONMENUITEM_ROCKCLIMB,  MonMenu_RockClimb
 	dbw MONMENUITEM_DIVE,       MonMenu_Dive
+	dbw MONMENUITEM_PURIFY,     MonMenu_Purify
 	dbw MONMENUITEM_STATS,      OpenPartyStats
 	dbw MONMENUITEM_SWITCH,     SwitchPartyMons
 	dbw MONMENUITEM_ITEM,       GiveTakePartyMonItem
@@ -723,6 +724,10 @@ MonMenu_Dig:
 
 .Fail:
 	ld a, $3
+	ret
+	
+MonMenu_Purify:
+	farcall PurifyFunction
 	ret
 
 MonMenu_Softboiled_MilkDrink:

@@ -131,6 +131,12 @@ _CameToItsSensesText::
 	text " came"
 	line "to its senses."
 	done
+	
+_WasCuredText::
+	text_ram wStringBuffer1
+	text ""
+	line "was cured."
+	done
 
 _EnterNewPasscodeText::
 	text "Please enter any"

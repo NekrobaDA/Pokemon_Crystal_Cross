@@ -475,8 +475,21 @@ BattleCommand_Refresh2:
 
 	farcall HealStatus
 	farcall AnimateCurrentMove
+	
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_PURIFY
+	jr z, .restoreHP
 
 	ld hl, RefreshText
+	jp StdBattleTextbox
+	
+.restoreHP
+	farcall GetQuarterMaxHP
+	farcall SwitchTurnCore
+	farcall RestoreHP
+	farcall SwitchTurnCore
+	ld hl, PurifyText
 	jp StdBattleTextbox
 
 .RefreshFailed
@@ -621,3 +634,7 @@ DoBurnupCheckEnemy:
 	ld [wEnemyMonType2], a
 .endburnupreplaceenemy	
 	ret
+	
+CheckMoveIsPurify:
+
+	ret	

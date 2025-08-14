@@ -407,7 +407,7 @@ BattleAnimations::
 	dw BattleAnim_Synthesis    ;ingrain
 	dw BattleAnim_FlameWheel   ;flame charge
 	dw BattleAnim_SacredFire   ;burn up
-	dw BattleAnim_HealBell     ;purify
+	dw BattleAnim_Synthesis    ;purify
 	dw BattleAnim_Recover      ;aqua ring
 	dw BattleAnim_Mist
 	dw BattleAnim_Spark        ;bolt strike

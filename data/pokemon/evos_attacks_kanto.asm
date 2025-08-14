@@ -3328,7 +3328,7 @@ MewEvosAttacks:                      ;final
 	dbw 70, WATER_GUN
 	dbw 70, SNORE
 	dbw 70, INGRAIN
-	dbw 70, BURN_UP
+	dbw 70, PURIFY
 	dbw 70, WEATHER_BALL
 	dbw 70, AQUA_RING
 	dbw 70, U_TURN

@@ -877,6 +877,11 @@ RefreshText:
 	line "was cured!"
 	prompt
 	
+PurifyText:
+	text "<USER>"
+	line "was purified!"
+	prompt
+	
 MistText:
 	text "<USER>'s"
 	line "shrouded in MIST!"
