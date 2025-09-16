@@ -699,14 +699,15 @@ OakSpeech:
 	call RotateThreePalettesRight
 	call ClearTilemap
 
-	ld hl, WOOPER
+	ld hl, SPINARAK
 	call GetPokemonIDFromIndex
 	ld [wCurSpecies], a
 	ld [wCurPartySpecies], a
 	call GetBaseData
 
 	hlcoord 6, 4
-	call PrepMonFrontpic
+;	call PrepMonFrontpic
+	call _PrepMonFrontpic
 
 	xor a
 	ld [wTempMonDVs], a
@@ -760,7 +761,7 @@ OakText1:
 OakText2:
 	text_far _OakText2
 	text_asm
-	ld hl, WOOPER
+	ld hl, SPINARAK
 	call GetPokemonIDFromIndex
 	call PlayMonCry
 	call WaitSFX
@@ -828,7 +829,7 @@ NamePlayer:
 	ret
 
 .Chris:
-	db "CHRIS@@@@@@"
+	db "GOLD@@@@@@@"
 .Kris:
 	db "KRIS@@@@@@@"
 

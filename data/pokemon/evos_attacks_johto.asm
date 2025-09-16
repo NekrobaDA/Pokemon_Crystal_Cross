@@ -2440,7 +2440,7 @@ Arbok_SeviiEvosAttacks:              ;final
 	db 0 ; no more level-up moves
 	
 Wooper_PaldeanEvosAttacks:           ;final
-	dbbw EVOLVE_LEVEL, 20, QUAGSIRE
+	dbbw EVOLVE_LEVEL, 20, CLODSIRE
 	db 0 ; no more evolutions
 	dbw 1, POISON_STING
 	dbw 1, TAIL_WHIP
