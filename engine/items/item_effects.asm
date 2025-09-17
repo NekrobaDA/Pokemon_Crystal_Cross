@@ -2049,39 +2049,79 @@ PurifyFunction:
 	dec a
 	ld b, a                ; purify user
 	push bc
+
+;so I wrote a code that checks that the mon does indeed know the move, but how to
+	ld hl, PURIFY              ;make it save and move slot and check the slot's PP now..
+	call GetMoveIDFromIndex
+	ld c, a
 	
-	ld hl, wPartyMon1Moves
-	ld bc, PARTYMON_STRUCT_LENGTH
-;	ld a, [wCurPartyMon]   ; already in a
-	call AddNTimes         ; add bc * a to hl
-	farcall CheckMoveIsPurify ; check move is purify
-	                       ; if yes store move number and jump to pp check
-	ret nc
-;	ld hl, wPartyMon1PP
-;	ld bc, PARTYMON_STRUCT_LENGTH
-;	ld a, [wCurPartyMon]
-;	call AddNTimes
-;	ld a, [wCurMoveNum]
-;.hl_loop
-;	and a
-;	jr z, .endloop
-;	inc hl
-;	dec a
-;	jr .hl_loop
-;.endloop
-;	ld a, [hl]
-;	and PP_MASK
-;	ret z                  ; no pp, end
+	ld a, c
+	push hl
+	push bc
+	ld c, a
+	ld a, MON_MOVES
+	call GetPartyParamLocation
+	ld b, 4
+.loop
+	ld a, [hli]
+	cp c
+	jr z, .yes
+	dec b
+	jr nz, .loop
+	pop bc
+	pop hl
+	and a
+	ret
+.yes
+	ld a, b
+	ld d, a   ;decimented b in d. d=4 is first move, d=3 is second move, etc
+	pop bc
+	pop hl
 	
+.move_proceed
 	pop bc
 	
-	
+;check pp of move (curpartymon is already stored)
+	ld a, MON_PP
+	call GetPartyParamLocation
+	ld a, d
+	cp 4
+	jr z, .NextPPcheck
+	inc hl
+	cp 3
+	jr z, .NextPPcheck
+	inc hl
+	cp 2
+	jr z, .NextPPcheck
+	inc hl
+.NextPPcheck
+	; keep moveslot value in d
+	ld a, [wCurPartyMon]
+	ld e, a   ; (backup for later)
+	ld a, [hl]
+	and a
+	ret z     ;function ends if no PP (add 'no PP' message)
+	push de   ;apparently this has to be up here, gets overwritten otherwise
+		
 	call .SelectPurifyRecipient ; select pokemon
 	jr c, .skip
 	ld [wCurPartyMon], a
 	
-	ld a, MON_STATUS
+	ld a, MON_STATUS            ; check if has status
 	call GetPartyParamLocation
+	ld a, [hl]
+	cp 1 << PSN
+	jr z, .ContinuePurifyStatusCure
+	cp 1 << BRN
+	jr z, .ContinuePurifyStatusCure
+	cp 1 << FRZ
+	jr z, .ContinuePurifyStatusCure
+	cp 1 << PAR
+	jr z, .ContinuePurifyStatusCure
+	cp SLP
+	jr nz, .skip                ; if no status, fail (add fail message)
+                                ; else, continue to cure function 
+.ContinuePurifyStatusCure
 	xor a
 	ld [hli], a
 	ld [hl], a
@@ -2091,6 +2131,32 @@ PurifyFunction:
 	ld a, PARTYMENUTEXT_PURIFY
 	call ItemActionText
 	call JoyWaitAorB
+	
+	pop de
+;need to figure out how to cost PP
+	ld a, e
+	ld [wCurPartyMon], a
+	ld a, MON_PP
+	call GetPartyParamLocation
+	ld a, d
+	cp 4                ; yes these could probably be dec loops, bite me
+	jr z, .SubtractPP
+	inc hl
+	cp 3
+	jr z, .SubtractPP
+	inc hl
+	cp 2
+	jr z, .SubtractPP
+	inc hl
+.SubtractPP
+	push bc     ;not sure why overwriting c causes problems here, but it does
+	ld a, 1
+	ld c, a
+	ld a, [hl]
+	sub c
+	ld [hl], a  ;finally subtract 1 from PP
+	pop bc
+	
 .skip
 	ld a, b
 	inc a
@@ -2104,15 +2170,6 @@ PurifyFunction:
 	call ChooseMonToUseItemOn
 	pop bc
 	jr c, .set_carry
-;	ld a, [wPartyMenuCursor]      ;need to figure out how to cost PP
-;	dec a
-;	ld c, a
-;	ld a, b
-;	cp c
-;	jr z, .cant_use ; chose the same mon as user
-;	ld a, c
-;	ld [wCurPartyMon], a
-;	xor a
 	ret
 .set_carry
 	scf

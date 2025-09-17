@@ -13,7 +13,7 @@ MalePlayerNameArray:
 	db "GOLD@"
 	db "ETHAN@"
 	db "KENTA@"
-	db "CHRIS@"
+	db "JACK@"
 	db 2 ; displacement
 	db " NAME @" ; title
 
@@ -32,6 +32,6 @@ FemalePlayerNameArray:
 	db "KRIS@"
 	db "LYRA@"
 	db "MARINA@"
-	db "JORDAN@"
+	db "CARLY@"
 	db 2 ; title indent
 	db " NAME @" ; title

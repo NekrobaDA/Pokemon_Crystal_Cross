@@ -40,7 +40,7 @@ INCLUDE "engine/pokemon/bills_pc_top.asm"
 INCLUDE "engine/pokemon/breedmon_level_growth.asm"
 INCLUDE "engine/events/bug_contest/caught_mon.asm"
 INCLUDE "engine/items/item_effects.asm"
-INCLUDE "engine/battle_anims/pokeball_wobble.asm"
+;INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
 
 
@@ -743,6 +743,7 @@ SECTION "Effect Commands 2", ROMX
 
 INCLUDE "engine/battle/effect_commands2.asm"
 INCLUDE "home/eq_exceptions.asm"
+INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]
