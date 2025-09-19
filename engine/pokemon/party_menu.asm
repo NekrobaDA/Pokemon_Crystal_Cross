@@ -775,6 +775,8 @@ PrintPartyMenuActionText:
 	dw .GrewToLevelText
 	dw .CameToItsSensesText
 	dw .WasCuredText
+	dw .WontHaveEffectText ;purify fail text
+	dw .NoPPToUseMove
 
 .RecoveredSomeHPText:
 	text_far _RecoveredSomeHPText
@@ -818,6 +820,14 @@ PrintPartyMenuActionText:
 	
 .WasCuredText:
 	text_far _WasCuredText
+	text_end
+	
+.WontHaveEffectText::
+	text_far _ItemWontHaveEffectText
+	text_end
+	
+.NoPPToUseMove::
+	text_far BattleText_TheresNoPPLeftForThisMove
 	text_end
 
 .PrintText:

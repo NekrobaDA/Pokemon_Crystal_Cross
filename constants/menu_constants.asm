@@ -102,6 +102,8 @@ HMENURETURN_ASM    EQU %11111111
 	const PARTYMENUTEXT_LEVEL_UP
 	const PARTYMENUTEXT_HEAL_CONFUSION
 	const PARTYMENUTEXT_PURIFY
+	const PARTYMENUTEXT_PURIFY_FAIL
+	const PARTYMENUTEXT_NO_PP
 
 ; Naming types (see engine/menus/naming_screen.asm)
 	const_def

@@ -2050,8 +2050,8 @@ PurifyFunction:
 	ld b, a                ; purify user
 	push bc
 
-;so I wrote a code that checks that the mon does indeed know the move, but how to
-	ld hl, PURIFY              ;make it save and move slot and check the slot's PP now..
+;so I wrote code that checks that the mon does indeed know the move, because I needed
+	ld hl, PURIFY              ;to make it save the move slot and check the slot's PP
 	call GetMoveIDFromIndex
 	ld c, a
 	
@@ -2074,13 +2074,11 @@ PurifyFunction:
 	ret
 .yes
 	ld a, b
-	ld d, a   ;decimented b in d. d=4 is first move, d=3 is second move, etc
+	ld d, a   ;decrimented b in d. d=4 is first move, d=3 is second move, etc
 	pop bc
 	pop hl
-	
+
 .move_proceed
-	pop bc
-	
 ;check pp of move (curpartymon is already stored)
 	ld a, MON_PP
 	call GetPartyParamLocation
@@ -2100,9 +2098,15 @@ PurifyFunction:
 	ld e, a   ; (backup for later)
 	ld a, [hl]
 	and a
-	ret z     ;function ends if no PP (add 'no PP' message)
+	jr nz, .hasPP
+	
+	ld a, PARTYMENUTEXT_NO_PP   ; if no PP, fail
+	call ItemActionText
+	jp .skip
+
+.hasPP
 	push de   ;apparently this has to be up here, gets overwritten otherwise
-		
+
 	call .SelectPurifyRecipient ; select pokemon
 	jr c, .skip
 	ld [wCurPartyMon], a
@@ -2119,9 +2123,14 @@ PurifyFunction:
 	cp 1 << PAR
 	jr z, .ContinuePurifyStatusCure
 	cp SLP
-	jr nz, .skip                ; if no status, fail (add fail message)
-                                ; else, continue to cure function 
-.ContinuePurifyStatusCure
+	jr z, .ContinuePurifyStatusCure 
+
+	ld a, PARTYMENUTEXT_PURIFY_FAIL  ; if no status, fail
+	call ItemActionText              ; (not sure why this fail message reloads the menu)
+	pop bc                           ; (when the PP fail message exits menu, but it works)
+	jr .skip
+
+.ContinuePurifyStatusCure            ; else, continue to cure function
 	xor a
 	ld [hli], a
 	ld [hl], a
@@ -2133,7 +2142,7 @@ PurifyFunction:
 	call JoyWaitAorB
 	
 	pop de
-;need to figure out how to cost PP
+;move needs to cost PP now
 	ld a, e
 	ld [wCurPartyMon], a
 	ld a, MON_PP
@@ -2159,7 +2168,6 @@ PurifyFunction:
 	
 .skip
 	ld a, b
-	inc a
 	ld [wPartyMenuCursor], a
 	ret
 	
