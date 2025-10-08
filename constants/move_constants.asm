@@ -412,6 +412,8 @@
 	const FACADE
 	const HEAL_BLOCK
 	const FOUL_PLAY
+	const PARABOLCHARGE
+	const STRUGGLE_BUG
 	const STRUGGLE
 	
 NUM_ATTACKS EQU const_value + - 1

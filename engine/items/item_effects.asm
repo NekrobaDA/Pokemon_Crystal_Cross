@@ -431,7 +431,7 @@ PokeBallEffect:
 	bit SUBSTATUS_TRANSFORMED, a
 	jr nz, .ditto
 	
-	ld a, [wDittoFlag]
+	ld a, [wd010] ;[wDittoFlag]
 	cp 0
 	jr z, .not_ditto
 
@@ -902,16 +902,12 @@ MoonBallMultiplier:
 
 
 LoveBallMultiplier:
-; This function is buggy.
-; Intent:  multiply catch rate by 8 if mons are of same species, different sex
-; Reality: multiply catch rate by 8 if mons are of same species, same sex
+; Intent:  multiply catch rate by 4 if mons are of same egg group, different sex
 
-	; does species match?
-	ld a, [wTempEnemyMonSpecies]
-	ld c, a
-	ld a, [wTempBattleMonSpecies]
-	cp c
-	ret nz
+	push bc
+	call .CheckBreedCompatibilityLoveball
+	pop bc
+	ret nc
 
 	; check player mon species
 	push bc
@@ -925,9 +921,9 @@ LoveBallMultiplier:
 	jr c, .done1 ; no effect on genderless
 
 	ld d, 0 ; male
-	jr nz, .playermale
+	jr nz, .gotplayergender
 	inc d   ; female
-.playermale
+.gotplayergender
 
 	; check wild mon species
 	push de
@@ -939,9 +935,9 @@ LoveBallMultiplier:
 	jr c, .done2 ; no effect on genderless
 
 	ld d, 0 ; male
-	jr nz, .wildmale
+	jr nz, .gotwildgender
 	inc d   ; female
-.wildmale
+.gotwildgender
 
 	ld a, d
 	pop de
@@ -949,14 +945,13 @@ LoveBallMultiplier:
 	pop bc
 	ret z ; for the intended effect, this should be "ret z"
 
-	sla b
+	sla b          ;reduced to x4
 	jr c, .max
 	sla b
-	jr c, .max
-	sla b
-	ret nc
+	jr nc, .done
 .max
 	ld b, $ff
+.done
 	ret
 
 .done2
@@ -964,6 +959,55 @@ LoveBallMultiplier:
 
 .done1
 	pop bc
+	ret
+	
+.CheckBreedCompatibilityLoveball
+;load the breeding groups into b/c and d/e.
+	ld a, [wTempEnemyMonSpecies]
+	ld [wCurSpecies], a
+	call GetBaseData
+	ld a, [wBaseEggGroups]
+	push af
+	and $f
+	ld b, a
+	pop af
+	and $f0
+	swap a
+	ld c, a
+
+	ld a, [wTempBattleMonSpecies]
+	cp d
+	jr z, .Compatible
+	ld [wCurSpecies], a
+	push bc
+	call GetBaseData
+	pop bc
+	ld a, [wBaseEggGroups]
+	push af
+	and $f
+	ld d, a
+	pop af
+	and $f0
+	swap a
+	ld e, a
+
+	ld a, d
+	cp b
+	jr z, .Compatible
+	cp c
+	jr z, .Compatible
+
+	ld a, e
+	cp b
+	jr z, .Compatible
+	cp c
+	jr z, .Compatible
+
+.Incompatible:
+	ret
+
+.Compatible:
+	scf
 	ret
 
 FastBallMultiplier:

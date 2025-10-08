@@ -430,6 +430,8 @@ BattleAnimations::
 	dw BattleAnim_Return       ;facade
 	dw BattleAnim_Moonlight    ;heal block
 	dw BattleAnim_FaintAttack  ;foul play
+	dw BattleAnim_Thundershock ;parabolcharge
+	dw BattleAnim_Splash       ;struggle bug
 	dw BattleAnim_Struggle
 
 BattleAnim_0:

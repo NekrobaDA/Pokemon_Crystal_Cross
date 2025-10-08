@@ -703,7 +703,7 @@ GetBattlemonBackpicPalettePointer:
 	ret
 
 GetEnemyFrontpicPalettePointer:
-	ld a, [wDittoFlag]
+	ld a, [wd010] ;[wDittoFlag]
 	cp 0
 	jr z, .not_ditto
 

@@ -50,6 +50,7 @@
 	charmap " ",         $7f ; gfx/frames/space.png
 
 	; needed for StatsScreen_PlaceShinyIcon and PrintPartyMonPage1
+	charmap "<altshiny>", $37
 	charmap "⁂",         $3f ; gfx/stats/stats_tiles.png, tile 14
 
 ; Actual characters (from gfx/font/font.png)

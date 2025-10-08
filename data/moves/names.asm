@@ -405,4 +405,6 @@ MoveNames::
 	db "FACADE@"
 	db "HEAL BLOCK@"
 	db "FOUL PLAY@"
+	db "PARABOLCHRGE@"
+	db "STRUGGLE BUG@"
 	db "STRUGGLE@"

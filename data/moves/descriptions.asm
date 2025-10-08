@@ -412,8 +412,12 @@ MoveDescriptions1:
 	dw HealBlockDescription
 	dw StruggleDescription
 	dw FoulPlayDescription
+	dw ParabolChargeDescription
+	dw StruggleBugDescription
 
 
+StruggleBugDescription:
+ParabolChargeDescription:
 FoulPlayDescription:
 WishDescription:
 SolarBladeDescription:

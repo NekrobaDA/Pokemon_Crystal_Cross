@@ -400,28 +400,25 @@ StatsScreen_InitUpperHalf:
 	ld hl, sp + 0
 	ld d, h
 	ld e, l
-	;hlcoord 8, 0
-	hlcoord 1, 0
-	ld a, "№"
-	ld [hli], a
-	ld a, "."
-	ld [hli], a
-	lb bc, PRINTNUM_LEADINGZEROS | 2, 3
-	call PrintNum
+;	hlcoord 1, 0  ;place ball graphic here
+;	ld a, "№"
+;	ld [hli], a
+;	ld a, "."
+;	ld [hli], a
+;	lb bc, PRINTNUM_LEADINGZEROS | 2, 3
+;	call PrintNum
 	add sp, 2
-	;hlcoord 14, 0
-	hlcoord 7, 0
+;	hlcoord 7, 0
+	hlcoord 2, 0
 	call PrintLevel
 	ld hl, .NicknamePointers
 	call GetNicknamePointer
 	call CopyNickname
-	;hlcoord 8, 2
 	hlcoord 1, 2
 	call PlaceString
-	;hlcoord 18, 0
-	hlcoord 10, 0
+;	hlcoord 10, 0
+	hlcoord 5, 0
 	call .PlaceGenderChar
-	;hlcoord 9, 4
 	hlcoord 1, 4
 	ld a, "/"
 	ld [hli], a
@@ -504,10 +501,19 @@ StatsScreen_PlacePageSwitchArrows:
 StatsScreen_PlaceShinyIcon:
 	ld bc, wTempMonDVs
 	farcall CheckShininess
-	ret nc
-	;hlcoord 19, 0
-	hlcoord 10, 6
+;	ret nc
+	jr nc, .tryalt
+;	hlcoord 10, 6
+	hlcoord 7, 0
 	ld [hl], "⁂"
+	jr .endshine
+.tryalt
+	ld bc, wTempMonDVs
+	farcall CheckShininessAlt
+	ret nc
+	hlcoord 7, 0
+	ld [hl], "<altshiny>"
+.endshine
 	ret
 
 StatsScreen_LoadGFX:
@@ -1178,28 +1184,43 @@ StatsScreen_AnimateEgg:
 	ret
 
 StatsScreen_LoadPageIndicators:
-	;hlcoord 13, 5
 	hlcoord 2, 5
-	ld a, $36 ; first of 4 small square tiles
-	call .load_square
-	;hlcoord 15, 5
+	ld a, $36
+	ld [hli], a
+	hlcoord 3, 5
+	ld [hl], a
+;	hlcoord 2, 5
+	hlcoord 2, 6
+	ld a, $38 ; first of 4 small square tiles
+	call .load_square_alt
 	hlcoord 4, 5
-	ld a, $36 ; " " " "
-	call .load_square
-	;hlcoord 17, 5
+	ld a, $36
+	ld [hli], a
+	hlcoord 5, 5
+	ld [hl], a
+;	hlcoord 4, 5
+	hlcoord 4, 6
+	ld a, $38 ; " "
+	call .load_square_alt
 	hlcoord 6, 5
-	ld a, $36 ; " " " "
-	call .load_square
+	ld a, $36
+	ld [hli], a
+	hlcoord 7, 5
+	ld [hl], a
+;	hlcoord 6, 5
+	hlcoord 6, 6
+	ld a, $38 ; " "
+	call .load_square_alt
 	ld a, c
 	cp GREEN_PAGE
 	ld a, $3a ; first of 4 large square tiles
-	;hlcoord 13, 5 ; PINK_PAGE (< GREEN_PAGE)
+	; PINK_PAGE (< GREEN_PAGE)
 	hlcoord 2, 5
 	jr c, .load_square
-	;hlcoord 15, 5 ; GREEN_PAGE (= GREEN_PAGE)
+	; GREEN_PAGE (= GREEN_PAGE)
 	hlcoord 4, 5 
 	jr z, .load_square
-	;hlcoord 17, 5 ; BLUE_PAGE (> GREEN_PAGE)
+	; BLUE_PAGE (> GREEN_PAGE)
 	hlcoord 6, 5
 .load_square
 	push bc
@@ -1212,6 +1233,15 @@ StatsScreen_LoadPageIndicators:
 	ld [hli], a
 	inc a
 	ld [hl], a
+	pop bc
+	ret
+.load_square_alt
+	push bc
+	ld [hli], a
+	inc a
+	ld [hld], a
+	ld bc, SCREEN_WIDTH
+	add hl, bc
 	pop bc
 	ret
 

@@ -278,7 +278,7 @@ Moves1:
 ;FLASH_CANNON
 	move EFFECT_SP_DEF_DOWN_HIT,    80, STEEL,        SPECIAL,  100, 10,  15
 ;LEECH_LIFE
-	move EFFECT_LEECH_HIT,          40, BUG,          PHYSICAL, 100, 15,   0
+	move EFFECT_LEECH_HIT,          80, BUG,          PHYSICAL, 100, 15,   0
 ;ROOST (effect technically incorrect)
 	move EFFECT_HEAL,                0, FLYING,       STATUS,   100, 10,   0
 ;BRAVE_BIRD
@@ -795,7 +795,7 @@ Moves1:
 	move EFFECT_FLAME_WHEEL,        50, FIRE,         PHYSICAL,  100, 20, 70
 ;BURN_UP - strong attack that removes user's fire typing
 	move EFFECT_BURNUP,            130, FIRE,         SPECIAL,   100,  5,  0
-;PURIFY (wip) (heals hp if heals status, otherwise does nothing) (heal status of party member in ow)
+;PURIFY (heals hp if heals status, otherwise does nothing) (heal status of party member in ow)
 	move EFFECT_PURIFY,              0, WATER,        STATUS,    100, 10,  0
 ;AQUA_RING - restore hp at end of turn + prevent burn
 	move EFFECT_AQUA_RING,           0, WATER,        STATUS,    100, 20,  0
@@ -841,18 +841,17 @@ Moves1:
 	move EFFECT_DISABLE,             0, PSYCHIC_TYPE, STATUS,    100, 15,  0
 ;FOUL_PLAY (effect temp)
 	move EFFECT_NORMAL_HIT,         95, DARK,         PHYSICAL,  100, 15,  0
+;PARABOLCHARGE
+	move EFFECT_LEECH_HIT,          65, ELECTRIC,     SPECIAL,   100, 20,  0
+;STRUGGLE_BUG
+	move EFFECT_SP_ATK_DOWN_HIT,    40, BUG,          PHYSICAL,   90, 15, 30
 
-;need to change refresh effect name from mist to refresh	
-		
-;BASILISK FANG - dragon move w/ venomstrike effect ?
 
 ;readd mist w/ safeguard buff?
 
 ;(possibly remove flash strike, or change to be like sucker punch)
 
-;(I still like the idea of Falcon Dive, and could even turn it into a Jump-Kick like move w/ flinch but mm)
-
-;add gunk shot, (does acid rain cause corrosion too?)
+;(does acid rain cause corrosion too?)
 
 ;dragon's cry crit up opp atk down?
 

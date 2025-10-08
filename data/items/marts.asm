@@ -558,7 +558,8 @@ MartCatallia:
 	db RARE_CANDY
 	db ENERGYPOWDER
 	db PARLYZ_HEAL
-	db AWAKENING
+;	db AWAKENING
+	db LOVE_BALL
 	db -1 ; end
 
 MartCatalliaDex:

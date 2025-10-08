@@ -25,7 +25,7 @@ CrystalOnix:
 	setevent EVENT_FOUGHT_ONIX
 ;	loadwildmon ONIX, 30
 ;	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
-	loadwildmon FLAREON, 30
+	loadwildmon ONIX, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY_ALT
 
 	startbattle

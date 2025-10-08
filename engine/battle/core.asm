@@ -8740,7 +8740,7 @@ LoadTrainerOrWildMonPic:
 
 InitEnemy:
 	ld a, 0
-	ld [wDittoFlag], a
+	ld [wd010], a ;[wDittoFlag]
 	ld a, [wOtherTrainerClass]
 	and a
 	jp nz, InitEnemyTrainer ; trainer
@@ -8921,12 +8921,12 @@ InitEnemyWildmon:
 	jp z, .not_ditto
 	
 	ld a, 1
-	ld [wDittoFlag], a
-	jr .end
+	ld [wd010], a ;[wDittoFlag] | Flag changed because ran into a bug where the wram address
+	jr .end       ;for the flag is shared with wSwitchItemBuffer, which causes issues
 	
 .not_ditto
 	ld a, 0
-	ld [wDittoFlag], a
+	ld [wd010], a ;[wDittoFlag]
 .end
 	ret
 
