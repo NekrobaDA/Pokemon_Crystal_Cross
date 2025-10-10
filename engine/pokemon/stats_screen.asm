@@ -774,12 +774,15 @@ LoadBluePage:
 
 .PlaceOTInfo:
 	ld de, IDNoString
-	hlcoord 0, 8
-	call PlaceString
-	ld de, OTString
+;	hlcoord 0, 8
 	hlcoord 0, 10
 	call PlaceString
-	hlcoord 2, 9
+	ld de, OTString
+;	hlcoord 0, 10
+	hlcoord 0, 8
+	call PlaceString
+;	hlcoord 2, 9
+	hlcoord 2, 11
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	ld de, wTempMonID
 	call PrintNum
@@ -787,20 +790,21 @@ LoadBluePage:
 	call GetNicknamePointer
 	call CopyNickname
 	farcall CorrectNickErrors
-	hlcoord 2, 11
+;	hlcoord 2, 11
+	hlcoord 2, 9
 	call PlaceString
-	ld a, [wTempMonCaughtGender]
-	and a
-	jr z, .done
-	cp $7f
-	jr z, .done
-	and CAUGHT_GENDER_MASK
-	ld a, "♂"
-	jr z, .got_gender
-	ld a, "♀"
-.got_gender
-	hlcoord 9, 11
-	ld [hl], a
+;	ld a, [wTempMonCaughtGender]
+;	and a
+;	jr z, .done
+;	cp $7f
+;	jr z, .done
+;	and CAUGHT_GENDER_MASK
+;	ld a, "♂"
+;	jr z, .got_gender
+;	ld a, "♀"
+;.got_gender
+;	hlcoord 9, 11
+;	ld [hl], a
 .done
 	
 .location:

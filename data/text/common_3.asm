@@ -292,7 +292,9 @@ _SeerCantTellAThingText::
 
 	para "How could I not"
 	line "know of this?"
-	done
+	
+	para "Ahem.."
+	prompt
 
 _SeerNameLocationText::
 	text "Hm… I see you met"
@@ -304,16 +306,16 @@ _SeerNameLocationText::
 	text "!"
 	prompt
 
-_SeerTimeLevelText::
-	text "The time was"
-	line "@"
-	text_ram wSeerTimeOfDay
+_SeerHiddenPowerText::
+	text "If this #MON"
+	line "were to tap into"
+	cont "its hidden power,"
+	
+	para "the type would"
+	line "be @"
+	text_ram wStringBuffer1
 	text "!"
-
-	para "Its level was @"
-	text_ram wSeerCaughtLevelString
-	text "!"
-
+	
 	para "Am I good or what?"
 	prompt
 
@@ -340,19 +342,11 @@ _SeerTradeText::
 _SeerNoLocationText::
 	text "What!? Incredible!"
 
-	para "I don't understand"
-	line "how, but it is"
-
-	para "incredible!"
-	line "You are special."
-
 	para "I can't tell where"
 	line "you met it, but it"
-	cont "was at level @"
-	text_ram wSeerCaughtLevelString
-	text "."
 
-	para "Am I good or what?"
+	para "was fate!"
+	line "You are special."
 	prompt
 
 _SeerEggText::

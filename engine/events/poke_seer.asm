@@ -2,11 +2,11 @@
 	const SEER_INTRO
 	const SEER_CANT_TELL
 	const SEER_MET_AT
-	const SEER_TIME_LEVEL
+	const SEER_HIDDEN_POWER
 	const SEER_TRADED
 	const SEER_CANCEL
 	const SEER_EGG
-	const SEER_LEVEL_ONLY
+	const SEER_EVENT_ONLY
 
 	const_def
 	const SEERACTION_MET
@@ -23,6 +23,9 @@ PokeSeer:
 	ld b, PARTY_LENGTH
 	farcall SelectMonFromParty
 	jr c, .cancel
+	
+	ld a, [wCurPartyMon]
+	ld [wTempMon], a
 
 	ld a, [wCurPartySpecies]
 	cp EGG
@@ -64,7 +67,7 @@ SeerActions:
 SeerAction0:
 	ld a, SEER_MET_AT
 	call PrintSeerText
-	ld a, SEER_TIME_LEVEL
+	ld a, SEER_HIDDEN_POWER
 	call PrintSeerText
 	call SeerAdvice
 	ret
@@ -73,23 +76,24 @@ SeerAction1:
 	call GetCaughtOT
 	ld a, SEER_TRADED
 	call PrintSeerText
-	ld a, SEER_TIME_LEVEL
+	ld a, SEER_HIDDEN_POWER
 	call PrintSeerText
 	call SeerAdvice
 	ret
 
 SeerAction2:
-	ld a, SEER_CANT_TELL
-	call PrintSeerText
-	ret
-
 SeerAction3:
 	ld a, SEER_CANT_TELL
 	call PrintSeerText
+	ld a, SEER_HIDDEN_POWER
+	call PrintSeerText
+	call SeerAdvice
 	ret
 
 SeerAction4:
-	ld a, SEER_LEVEL_ONLY
+	ld a, SEER_EVENT_ONLY
+	call PrintSeerText
+	ld a, SEER_HIDDEN_POWER
 	call PrintSeerText
 	call SeerAdvice
 	ret
@@ -115,18 +119,17 @@ ReadCaughtData:
 
 	inc hl
 	ld a, [wPlayerID + 1]
-	; cp [hl]
+	cp [hl]
 	jr nz, .traded
 
 	ld a, SEERACTION_MET
 	ld [wSeerAction], a
 
 .traded
-	call GetCaughtLevel
 	call GetCaughtOT
 	call GetCaughtName
-	call GetCaughtTime
 	call GetCaughtLocation
+	call GetHiddenPower
 	and a
 	ret
 
@@ -144,62 +147,6 @@ GetCaughtName:
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
 	ret
-
-GetCaughtLevel:
-	ld a, "@"
-	ld hl, wSeerCaughtLevelString
-	ld bc, 4
-	call ByteFill
-
-	; caught level
-	; Limited to between 1 and 63 since it's a 6-bit quantity.
-	ld a, [wSeerCaughtData]
-	and CAUGHT_LEVEL_MASK
-	jr z, .unknown
-	cp CAUGHT_EGG_LEVEL ; egg marker value
-	jr nz, .print
-	ld a, EGG_LEVEL ; egg hatch level
-
-.print
-	ld [wSeerCaughtLevel], a
-	ld hl, wSeerCaughtLevelString
-	ld de, wSeerCaughtLevel
-	lb bc, PRINTNUM_LEFTALIGN | 1, 3
-	call PrintNum
-	ret
-
-.unknown
-	ld de, wSeerCaughtLevelString
-	ld hl, .unknown_level
-	ld bc, 4
-	call CopyBytes
-	ret
-
-.unknown_level
-	db "???@"
-
-GetCaughtTime:
-	ld a, [wSeerCaughtData]
-	and CAUGHT_TIME_MASK
-
-	rlca
-	rlca
-	dec a
-	maskbits NUM_DAYTIMES
-	ld hl, .times
-	call GetNthString
-	ld d, h
-	ld e, l
-	ld hl, wSeerTimeOfDay
-	call CopyName2
-	and a
-	ret
-
-.times
-	db "Morning@"
-	db "Day@"
-	db "Night@"
-	db "Evening@"
 
 UnknownCaughtData:
 	ld hl, .unknown
@@ -232,9 +179,6 @@ GetCaughtLocation:
 	jp UnknownCaughtData
 
 .event
-	ld a, SEERACTION_LEVEL_ONLY
-	ld [wSeerAction], a
-	scf
 	ret
 
 .fail
@@ -251,24 +195,7 @@ GetCaughtOT:
 	ld de, wSeerOTName
 	ld bc, NAME_LENGTH
 	call CopyBytes
-
-; this routine is useless in Western localizations
-	ld hl, .male
-	ld a, [wSeerCaughtGender]
-	bit 7, a
-	jr z, .got_grammar
-	ld hl, .female
-
-.got_grammar
-	ld de, wSeerOTNameGrammar
-	ld a, "@"
-	ld [de], a
 	ret
-
-.male
-	db "@"
-.female
-	db "@"
 
 PrintSeerText:
 	ld e, a
@@ -286,7 +213,7 @@ SeerTexts:
 	dw SeerSeeAllText
 	dw SeerCantTellAThingText
 	dw SeerNameLocationText
-	dw SeerTimeLevelText
+	dw SeerHiddenPowerText
 	dw SeerTradeText
 	dw SeerDoNothingText
 	dw SeerEggText
@@ -304,8 +231,8 @@ SeerNameLocationText:
 	text_far _SeerNameLocationText
 	text_end
 
-SeerTimeLevelText:
-	text_far _SeerTimeLevelText
+SeerHiddenPowerText:
+	text_far _SeerHiddenPowerText
 	text_end
 
 SeerTradeText:
@@ -325,13 +252,9 @@ SeerDoNothingText:
 	text_end
 
 SeerAdvice:
-	ld a, MON_LEVEL
+	ld a, MON_ATK_EXP
 	call GetPartyParamLocation
-	ld a, [wSeerCaughtLevel]
-	ld c, a
 	ld a, [hl]
-	sub c
-	ld c, a
 
 	ld hl, SeerAdviceTexts
 	ld de, 3
@@ -351,13 +274,12 @@ SeerAdvice:
 	ret
 
 SeerAdviceTexts:
-; level, text
-	dbw 9,   SeerMoreCareText
-	dbw 29,  SeerMoreConfidentText
-	dbw 59,  SeerMuchStrengthText
-	dbw 89,  SeerMightyText
-	dbw 100, SeerImpressedText
-	dbw 255, SeerMoreCareText
+; exp, text
+	dbw 50,  SeerMoreCareText
+	dbw 100, SeerMoreConfidentText
+	dbw 150, SeerMuchStrengthText
+	dbw 200, SeerMightyText
+	dbw 255, SeerImpressedText
 
 SeerMoreCareText:
 	text_far _SeerMoreCareText
@@ -402,3 +324,42 @@ GetCaughtGender:
 .genderless
 	ld c, CAUGHT_BY_UNKNOWN
 	ret
+	
+GetHiddenPower:
+	ld a, [wTempMon]
+	ld [wCurPartyMon], a
+	
+	ld hl, wPartyMon1DVs
+	call GetPartyLocation
+
+	; Def & 3
+	ld a, [hl]
+	and %0011
+	ld b, a
+
+	; + (Atk & 3) << 2
+	ld a, [hl]
+	and %0011 << 4
+	swap a
+	add a
+	add a
+	or b
+
+; Skip Normal
+	inc a
+
+; Skip Bird
+	cp BIRD
+	jr c, .done
+	inc a
+
+; Skip unused types
+	cp UNUSED_TYPES
+	jr c, .done
+	add UNUSED_TYPES_END - UNUSED_TYPES
+
+.done
+	ld [wNamedObjectIndex], a
+	predef GetTypeName
+	ret
+	

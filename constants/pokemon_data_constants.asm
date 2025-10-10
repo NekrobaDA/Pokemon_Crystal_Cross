@@ -77,8 +77,8 @@ MON_HAPPINESS          EQUS "(wPartyMon1Happiness - wPartyMon1)"
 MON_PKRUS              EQUS "(wPartyMon1PokerusStatus - wPartyMon1)"
 MON_CAUGHTDATA         EQUS "(wPartyMon1CaughtData - wPartyMon1)"
 MON_CAUGHTLEVEL        EQUS "(wPartyMon1CaughtLevel - wPartyMon1)"
-MON_CAUGHTTIME         EQUS "(wPartyMon1CaughtTime - wPartyMon1)"
-MON_CAUGHTGENDER       EQUS "(wPartyMon1CaughtGender - wPartyMon1)"
+MON_CAUGHTTIME         EQUS "(wPartyMon1CaughtTime - wPartyMon1)"     ;replace
+MON_CAUGHTGENDER       EQUS "(wPartyMon1CaughtGender - wPartyMon1)"   ;replace
 MON_CAUGHTLOCATION     EQUS "(wPartyMon1CaughtLocation - wPartyMon1)"
 MON_LEVEL              EQUS "(wPartyMon1Level - wPartyMon1)"
 MON_STATUS             EQUS "(wPartyMon1Status - wPartyMon1)"
@@ -97,11 +97,11 @@ REDMON_STRUCT_LENGTH EQU 44
 
 ; caught data
 
-CAUGHT_TIME_MASK  EQU %11000000
-CAUGHT_LEVEL_MASK EQU %00111111
+CAUGHT_TIME_MASK  EQU %11000000      ;4   (repurpose for something in the future)
+CAUGHT_LEVEL_MASK EQU %00111111      ;64  [repurpose for caught ball?]
 
-CAUGHT_GENDER_MASK   EQU %10000000
-CAUGHT_LOCATION_MASK EQU %01111111
+CAUGHT_GENDER_MASK   EQU %10000000   ;2   [will be deleted when locations exceed 127]
+CAUGHT_LOCATION_MASK EQU %01111111   ;127
 
 CAUGHT_BY_UNKNOWN EQU 0
 CAUGHT_BY_GIRL    EQU 1
