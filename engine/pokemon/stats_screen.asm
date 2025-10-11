@@ -504,14 +504,14 @@ StatsScreen_PlaceShinyIcon:
 ;	ret nc
 	jr nc, .tryalt
 ;	hlcoord 10, 6
-	hlcoord 7, 0
+	hlcoord 8, 0
 	ld [hl], "⁂"
 	jr .endshine
 .tryalt
 	ld bc, wTempMonDVs
 	farcall CheckShininessAlt
 	ret nc
-	hlcoord 7, 0
+	hlcoord 8, 0
 	ld [hl], "<altshiny>"
 .endshine
 	ret
@@ -591,8 +591,11 @@ LoadPinkPage:
 	ld a, [wMonType]
 	cp BOXMON
 	jr z, .StatusOK
-	hlcoord 6, 13
+;	hlcoord 6, 13
+	hlcoord 7, 0
 	push hl
+	xor a
+	ld [hTemp], a
 	ld de, wTempMonStatus
 	predef PlaceStatusString
 	pop hl
@@ -604,10 +607,11 @@ LoadPinkPage:
 	call PlaceString
 	jr .done_status
 .StatusOK:
-	ld de, .OK_str
-	call PlaceString
+;	ld de, .OK_str
+;	call PlaceString
 .done_status
-	hlcoord 1, 15
+;	hlcoord 1, 15
+	hlcoord 1, 13
 	predef PrintMonTypes
 	hlcoord 9, 8
 	ld de, SCREEN_WIDTH
@@ -693,8 +697,9 @@ LoadPinkPage:
 	ret
 
 .Status_Type:
-	db   "STATUS/"
-	next "TYPE/@"
+;	db   "STATUS/"
+;	next "TYPE/@"
+	db   "TYPE/@"
 
 .OK_str:
 	db "OK @"

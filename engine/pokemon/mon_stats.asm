@@ -416,13 +416,7 @@ FntString:
 
 CopyStatusString:
 	ld a, [de]
-	inc de
 	ld [hli], a
-	ld a, [de]
-	inc de
-	ld [hli], a
-	ld a, [de]
-	ld [hl], a
 	ret
 
 PlaceNonFaintStatus:
@@ -445,19 +439,36 @@ PlaceNonFaintStatus:
 	jr z, .no_status
 
 .place
+	ld a, [hTemp]
+	cp 7
+	jr nz, .skip_party
+	call CopyStatusStringP
+	jr .continuestatusstring
+.skip_party
 	call CopyStatusString
+.continuestatusstring
 	ld a, TRUE
 	and a
 
 .no_status
 	pop de
+	xor a
+	ld [hTemp], a
 	ret
 
-SlpString: db "SLP@"
-PsnString: db "PSN@"
-BrnString: db "BRN@"
-FrzString: db "FRZ@"
-ParString: db "PAR@"
+SlpString: db "<SLP>@"
+PsnString: db "<PSN>@"
+BrnString: db "<BRN>@"
+FrzString: db "<FRZ>@"
+ParString: db "<PAR>@"
+	
+CopyStatusStringP:
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, $75
+	ld [hli], a
+	ret
 
 ListMoves:
 ; List moves at hl, spaced every [wListMovesLineSpacing] tiles.

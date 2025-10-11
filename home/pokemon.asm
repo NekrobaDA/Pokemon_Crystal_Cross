@@ -383,8 +383,10 @@ DrawPartyHPBar::
 
 ; Place 'HP:'
 	ld a, $60
+;	ld a, $7f
 	ld [hli], a
 	ld a, $61
+;	ld a, $75
 	ld [hli], a
 
 ; Draw a template

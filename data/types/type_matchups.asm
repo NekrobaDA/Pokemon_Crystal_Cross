@@ -22,6 +22,7 @@ TypeMatchups:
 	db ELECTRIC,     GRASS,        NOT_VERY_EFFECTIVE
 	db ELECTRIC,     GROUND,       NO_EFFECT
 	db ELECTRIC,     FLYING,       SUPER_EFFECTIVE
+	db ELECTRIC,     DRAGON,       NOT_VERY_EFFECTIVE ;re-adding
 	db GRASS,        FIRE,         NOT_VERY_EFFECTIVE
 	db GRASS,        WATER,        SUPER_EFFECTIVE
 	db GRASS,        GRASS,        NOT_VERY_EFFECTIVE
@@ -31,7 +32,7 @@ TypeMatchups:
 	db GRASS,        BUG,          NOT_VERY_EFFECTIVE
 	db GRASS,        ROCK,         SUPER_EFFECTIVE
 	db GRASS,        STEEL,        NOT_VERY_EFFECTIVE
-	db GRASS,        DRAGON,       NOT_VERY_EFFECTIVE
+;	db GRASS,        DRAGON,       NOT_VERY_EFFECTIVE
 	db ICE,          WATER,        NOT_VERY_EFFECTIVE
 	db ICE,          GRASS,        SUPER_EFFECTIVE
 	db ICE,          ICE,          NOT_VERY_EFFECTIVE
@@ -39,7 +40,7 @@ TypeMatchups:
 	db ICE,          FLYING,       SUPER_EFFECTIVE
 	db ICE,          DRAGON,       SUPER_EFFECTIVE
 	db ICE,          STEEL,        NOT_VERY_EFFECTIVE
-	db ICE,          FIRE,         NOT_VERY_EFFECTIVE
+;	db ICE,          FIRE,         NOT_VERY_EFFECTIVE  ice vs fire is neutral in gen 1
 	db FIGHTING,     NORMAL,       SUPER_EFFECTIVE
 	db FIGHTING,     POISON,       NOT_VERY_EFFECTIVE
 	db FIGHTING,     FLYING,       NOT_VERY_EFFECTIVE
@@ -62,11 +63,12 @@ TypeMatchups:
 	db GROUND,       BUG,          NOT_VERY_EFFECTIVE
 	db GROUND,       ROCK,         SUPER_EFFECTIVE
 	db GROUND,       STEEL,        SUPER_EFFECTIVE
-	db FLYING,       ELECTRIC,     NOT_VERY_EFFECTIVE
+;	db FLYING,       ELECTRIC,     NOT_VERY_EFFECTIVE
 	db FLYING,       FIGHTING,     SUPER_EFFECTIVE
 	db FLYING,       BUG,          SUPER_EFFECTIVE
 	db FLYING,       ROCK,         NOT_VERY_EFFECTIVE
 	db FLYING,       STEEL,        NOT_VERY_EFFECTIVE
+	db FLYING,       GRASS,        SUPER_EFFECTIVE    ;re-adding
 	db PSYCHIC_TYPE, FIGHTING,     SUPER_EFFECTIVE
 	db PSYCHIC_TYPE, POISON,       SUPER_EFFECTIVE
 	db PSYCHIC_TYPE, PSYCHIC_TYPE, NOT_VERY_EFFECTIVE

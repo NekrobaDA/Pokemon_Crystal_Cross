@@ -269,7 +269,8 @@ PlacePartyMonStatus:
 	ret z
 	ld c, a
 	ld b, 0
-	hlcoord 5, 2
+;	hlcoord 5, 2
+	hlcoord 11, 2
 .loop
 	push bc
 	push hl
@@ -283,6 +284,8 @@ PlacePartyMonStatus:
 	ld e, l
 	ld d, h
 	pop hl
+	ld a, 7
+	ld [hTemp], a
 	call PlaceStatusString
 
 .next

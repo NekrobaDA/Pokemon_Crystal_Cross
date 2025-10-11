@@ -122,6 +122,13 @@
 	charmap "│",         $bd
 	charmap "└",         $be
 	charmap "┘",         $bf
+	
+	charmap "<PSN>",      $c0
+	charmap "<PAR>",      $c1
+	charmap "<BRN>",      $c2
+	charmap "<FRZ>",      $c3
+	charmap "<SLP>",      $c4
+	charmap "<PKRS>",     $c5
 
 	charmap "′",         $ce
 	charmap "″",         $cf
