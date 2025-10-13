@@ -95,7 +95,7 @@ StatsScreen_WaitAnim:
 	jr nz, .try_anim
 	bit 5, [hl]
 	jr nz, .finish
-	call DelayFrame
+;	call DelayFrame          ;why is this even a thing
 	ret
 
 .try_anim
@@ -226,8 +226,8 @@ MonStatsJoypad:
 	jp StatsScreen_JoypadAction
 
 StatsScreenWaitCry:
-	call IsSFXPlaying
-	ret nc
+;	call IsSFXPlaying        ;disabling this removes so much artificial lag wow
+;	ret nc
 	ld a, [wJumptableIndex]
 	inc a
 	ld [wJumptableIndex], a
@@ -390,6 +390,7 @@ StatsScreen_InitUpperHalf:
 	call .PlaceHPBar
 	xor a
 	ldh [hBGMapMode], a
+	
 	ld a, [wBaseSpecies]
 	ld [wCurSpecies], a
 	call GetPokemonIndexFromID
@@ -400,15 +401,10 @@ StatsScreen_InitUpperHalf:
 	ld hl, sp + 0
 	ld d, h
 	ld e, l
+	
 ;	hlcoord 1, 0  ;place ball graphic here
-;	ld a, "№"
-;	ld [hli], a
-;	ld a, "."
-;	ld [hli], a
-;	lb bc, PRINTNUM_LEADINGZEROS | 2, 3
-;	call PrintNum
 	add sp, 2
-;	hlcoord 7, 0
+	
 	hlcoord 2, 0
 	call PrintLevel
 	ld hl, .NicknamePointers
@@ -416,16 +412,13 @@ StatsScreen_InitUpperHalf:
 	call CopyNickname
 	hlcoord 1, 2
 	call PlaceString
-;	hlcoord 10, 0
 	hlcoord 5, 0
 	call .PlaceGenderChar
-	hlcoord 1, 4
-	ld a, "/"
-	ld [hli], a
-	ld a, [wBaseSpecies]
-	ld [wNamedObjectIndex], a
-	call GetPokemonName
-	call PlaceString
+	
+	hlcoord 1, 3
+	ld b, $0
+	predef DrawPlayerHP
+
 	call StatsScreen_PlaceHorizontalDivider
 	call StatsScreen_PlacePageSwitchArrows
 	call StatsScreen_PlaceShinyIcon
@@ -445,7 +438,7 @@ StatsScreen_InitUpperHalf:
 	call SetHPPal
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	call DelayFrame
+;	call DelayFrame
 	ret
 
 .PlaceGenderChar:
@@ -466,19 +459,6 @@ StatsScreen_InitUpperHalf:
 	dw sBoxMonNicknames
 	dw wBufferMonNick
 
-StatsScreen_PlaceVerticalDivider: ; unreferenced
-; The Japanese stats screen has a vertical divider.
-	hlcoord 7, 0
-	ld bc, SCREEN_WIDTH
-	ld d, SCREEN_HEIGHT
-.loop
-	ld a, $31 ; vertical divider
-	ld [hl], a
-	add hl, bc
-	dec d
-	jr nz, .loop
-	ret
-
 StatsScreen_PlaceHorizontalDivider:
 	hlcoord 0, 7
 	ld b, SCREEN_WIDTH
@@ -490,10 +470,8 @@ StatsScreen_PlaceHorizontalDivider:
 	ret
 
 StatsScreen_PlacePageSwitchArrows:
-	;hlcoord 12, 6
 	hlcoord 1, 6
 	ld [hl], "◀"
-	;hlcoord 19, 6
 	hlcoord 8, 6
 	ld [hl], "▶"
 	ret
@@ -550,7 +528,7 @@ StatsScreen_LoadGFX:
 	maskbits NUM_STAT_PAGES
 	ld c, a
 	farcall LoadStatsScreenPals
-	call DelayFrame
+;	call DelayFrame
 	ld hl, wStatsScreenFlags
 	set 5, [hl]
 	ret
@@ -570,13 +548,11 @@ StatsScreen_LoadGFX:
 	dw LoadBluePage
 
 LoadPinkPage:
-	hlcoord 0, 9
-	ld b, $0
-	predef DrawPlayerHP
-	;hlcoord 8, 9
-	;ld [hl], $41 ; right HP/exp bar end cap
 	ld de, .Status_Type
-	hlcoord 0, 12
+	hlcoord 0, 9
+	call PlaceString
+	ld de, .NoneStr
+	hlcoord 1, 11
 	call PlaceString
 	ld a, [wTempMonPokerusStatus]
 	ld b, a
@@ -591,7 +567,6 @@ LoadPinkPage:
 	ld a, [wMonType]
 	cp BOXMON
 	jr z, .StatusOK
-;	hlcoord 6, 13
 	hlcoord 7, 0
 	push hl
 	xor a
@@ -607,11 +582,8 @@ LoadPinkPage:
 	call PlaceString
 	jr .done_status
 .StatusOK:
-;	ld de, .OK_str
-;	call PlaceString
 .done_status
-;	hlcoord 1, 15
-	hlcoord 1, 13
+	hlcoord 1, 10
 	predef PrintMonTypes
 	hlcoord 9, 8
 	ld de, SCREEN_WIDTH
@@ -622,35 +594,34 @@ LoadPinkPage:
 	add hl, de
 	dec b
 	jr nz, .vertical_divider
-	ld de, .ExpPointStr
-	hlcoord 10, 9
+	ld de, .ExpPointStr2
+	hlcoord 0, 14
 	call PlaceString
-	hlcoord 17, 14
-	call .PrintNextLevel
-	hlcoord 13, 10
+	hlcoord 2, 15
 	lb bc, 3, 7
 	ld de, wTempMonExp
 	call PrintNum
 	call .CalcExpToNextLevel
-	hlcoord 13, 13
+	hlcoord 2, 17
 	lb bc, 3, 7
 	ld de, wExpToNextLevel
 	call PrintNum
-	ld de, .LevelUpStr
-	hlcoord 10, 12
-	call PlaceString
 	ld de, .ToStr
-	hlcoord 14, 14
+	hlcoord 0, 17
 	call PlaceString
-	hlcoord 11, 16
+	hlcoord 1, 16
 	ld a, [wTempMonLevel]
 	ld b, a
 	ld de, wTempMonExp + 2
 	predef FillInExpBar
-	hlcoord 10, 16
+	hlcoord 0, 16
 	ld [hl], $40 ; left exp bar end cap
-	hlcoord 19, 16
+	hlcoord 8, 16
 	ld [hl], $41 ; right exp bar end cap
+
+	hlcoord 11, 8
+	ld bc, 6
+	predef PrintTempMonStats
 	ret
 
 .PrintNextLevel:
@@ -697,21 +668,25 @@ LoadPinkPage:
 	ret
 
 .Status_Type:
-;	db   "STATUS/"
-;	next "TYPE/@"
 	db   "TYPE/@"
+
+.NoneStr:
+	db "NONE@"
 
 .OK_str:
 	db "OK @"
 
 .ExpPointStr:
-	db "EXP POINTS@"
+	db "<EX><P:>@"
+
+.ExpPointStr2:
+	db "EXP:@"
 
 .LevelUpStr:
 	db "LEVEL UP@"
 
 .ToStr:
-	db "TO@"
+	db "<TO>< N><EX><T:>@"
 
 .PkrsStr:
 	db "#RUS@"
@@ -771,22 +746,16 @@ LoadBluePage:
 	add hl, de
 	dec b
 	jr nz, .vertical_divider
-	hlcoord 11, 8
-	ld bc, 6
-	predef PrintTempMonStats
 	jr .location
 	ret
 
 .PlaceOTInfo:
 	ld de, IDNoString
-;	hlcoord 0, 8
 	hlcoord 0, 10
 	call PlaceString
 	ld de, OTString
-;	hlcoord 0, 10
 	hlcoord 0, 8
 	call PlaceString
-;	hlcoord 2, 9
 	hlcoord 2, 11
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	ld de, wTempMonID
@@ -795,21 +764,8 @@ LoadBluePage:
 	call GetNicknamePointer
 	call CopyNickname
 	farcall CorrectNickErrors
-;	hlcoord 2, 11
 	hlcoord 2, 9
 	call PlaceString
-;	ld a, [wTempMonCaughtGender]
-;	and a
-;	jr z, .done
-;	cp $7f
-;	jr z, .done
-;	and CAUGHT_GENDER_MASK
-;	ld a, "♂"
-;	jr z, .got_gender
-;	ld a, "♀"
-;.got_gender
-;	hlcoord 9, 11
-;	ld [hl], a
 .done
 	
 .location:
@@ -829,25 +785,25 @@ LoadBluePage:
 	hlcoord 0, 16
 	call PlaceString
 	ld a, [wTempMonHappiness]
-    ld de, MaxString
-    cp 255
-    jr z, .got_happiness
-    ld de, PoorString
-    cp 30
-    jr c, .got_happiness
-    ld de, LowString
-    cp 70
-    jr c, .got_happiness
+	ld de, MaxString
+	cp 255
+	jr z, .got_happiness
+	ld de, PoorString
+	cp 30
+	jr c, .got_happiness
+	ld de, LowString
+	cp 70
+	jr c, .got_happiness
 	ld de, MidString
-    cp 150
-    jr c, .got_happiness
-    ld de, GoodString
-    cp 220
-    jr c, .got_happiness
-    ld de, HighString
+	cp 150
+	jr c, .got_happiness
+	ld de, GoodString
+	cp 220
+	jr c, .got_happiness
+	ld de, HighString
 .got_happiness
-    hlcoord 0, 17
-    call PlaceString
+	hlcoord 0, 17
+	call PlaceString
 	ret
 
 .OTNamePointers:
@@ -975,7 +931,6 @@ StatsScreen_PlaceFrontpic:
 	call StatsScreen_LoadTextboxSpaceGFX
 	ld de, vTiles2 tile $00
 	predef GetAnimatedFrontpic
-	;hlcoord 0, 0
 	hlcoord 12, 0
 	ld d, $0
 	ld e, ANIM_MON_MENU
@@ -1055,7 +1010,7 @@ StatsScreen_LoadTextboxSpaceGFX:
 	push de
 	push bc
 	push af
-	call DelayFrame
+;	call DelayFrame
 	ldh a, [rVBK]
 	push af
 	ld a, $1
@@ -1198,7 +1153,6 @@ StatsScreen_LoadPageIndicators:
 	ld [hli], a
 	hlcoord 3, 5
 	ld [hl], a
-;	hlcoord 2, 5
 	hlcoord 2, 6
 	ld a, $38 ; first of 4 small square tiles
 	call .load_square_alt
@@ -1207,7 +1161,6 @@ StatsScreen_LoadPageIndicators:
 	ld [hli], a
 	hlcoord 5, 5
 	ld [hl], a
-;	hlcoord 4, 5
 	hlcoord 4, 6
 	ld a, $38 ; " "
 	call .load_square_alt
@@ -1216,7 +1169,6 @@ StatsScreen_LoadPageIndicators:
 	ld [hli], a
 	hlcoord 7, 5
 	ld [hl], a
-;	hlcoord 6, 5
 	hlcoord 6, 6
 	ld a, $38 ; " "
 	call .load_square_alt

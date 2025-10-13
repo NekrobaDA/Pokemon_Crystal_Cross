@@ -130,6 +130,11 @@
 	charmap "<SLP>",      $c4
 	charmap "<PKRS>",     $c5
 
+	charmap "<TO>",      $c7
+	charmap "<T:>",      $ca
+	charmap "< N>",      $cb
+	charmap "<EX>",      $cc
+	charmap "<P:>",      $cd
 	charmap "′",         $ce
 	charmap "″",         $cf
 

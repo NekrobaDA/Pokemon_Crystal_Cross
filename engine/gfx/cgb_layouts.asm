@@ -204,7 +204,7 @@ _CGB_StatsScreenHPPals:
 	call LoadPalette_White_Col1_Col2_Black ; exp palette
 	ld hl, StatsScreenPagePals
 	ld de, wBGPals1 palette 3
-	ld bc, 3 palettes ; pink, green, and blue page palettes
+	ld bc, 1 palettes ; pink, green, and blue page palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 	call WipeAttrmap
@@ -213,11 +213,19 @@ _CGB_StatsScreenHPPals:
 	lb bc, 8, SCREEN_WIDTH
 	ld a, $1 ; mon palette
 	call FillBoxCGB
-
-	hlcoord 10, 16, wAttrmap
-	ld bc, 10
-	ld a, $2 ; exp palette
+	
+	hlcoord 1, 3, wAttrmap
+	ld bc, 9
+	ld a, $0 ; hp palette
 	call ByteFill
+
+;	hlcoord 10, 16, wAttrmap
+	hlcoord 0, 8, wAttrmap     ;this is a lousy hack, but it works
+;	ld bc, 10
+	lb bc, 10, SCREEN_WIDTH
+	ld a, $2 ; exp palette
+;	call ByteFill
+	call FillBoxCGB
 
 	hlcoord 2, 5, wAttrmap
 	lb bc, 2, 2
@@ -226,12 +234,12 @@ _CGB_StatsScreenHPPals:
 
 	hlcoord 4, 5, wAttrmap
 	lb bc, 2, 2
-	ld a, $4 ; green page palette
+	ld a, $3 ; green page palette
 	call FillBoxCGB
 
 	hlcoord 6, 5, wAttrmap
 	lb bc, 2, 2
-	ld a, $5 ; blue page palette
+	ld a, $3 ; blue page palette
 	call FillBoxCGB
 
 	call ApplyAttrmap
