@@ -1,0 +1,48 @@
+; pokeball
+	RGB 31, 17, 14
+	RGB 31, 08, 05
+; great ball
+	RGB 26, 08, 08
+	RGB 10, 16, 30
+; ultra ball
+	RGB 27, 22, 05
+	RGB 09, 09, 09
+;master ball
+	RGB 28, 02, 22
+	RGB 17, 08, 18
+; fast ball
+	RGB 31, 26, 11
+	RGB 30, 17, 08
+; level ball
+	RGB 31, 08, 05
+	RGB 31, 23, 06
+; lure ball
+	RGB 26, 08, 08
+	RGB 05, 22, 23
+; heavy ball
+	RGB 06, 09, 23
+	RGB 13, 11, 10
+; love ball
+	RGB 31, 19, 24
+	RGB 30, 05, 18
+; friend ball
+	RGB 31, 08, 05
+	RGB 11, 19, 04
+; moon ball
+	RGB 31, 23, 06
+	RGB 05, 17, 18
+; sport ball
+	RGB 14, 22, 06
+	RGB 02, 14, 10
+; safari ball
+	RGB 24, 19, 10
+	RGB 10, 15, 09
+; (reserved 1)
+	RGB 25, 25, 25
+	RGB 10, 10, 10
+; (reserved 2)
+	RGB 25, 25, 25
+	RGB 10, 10, 10
+; park ball
+	RGB 31, 29, 15
+	RGB 31, 23, 06

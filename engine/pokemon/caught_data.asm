@@ -166,15 +166,57 @@ SetCaughtData:
 	ld hl, wPartyMon1CaughtLevel
 	call GetPartyLocation
 SetBoxmonOrEggmonCaughtData:
-	ld a, [wTimeOfDay]
-	inc a
-	rrca
-	rrca
-	and CAUGHT_TIME_MASK
-	ld b, a
-	ld a, [wCurPartyLevel]
-	or b
-	ld [hli], a
+;	ld a, [wTimeOfDay]
+;	inc a
+;	rrca
+;	rrca
+;	and CAUGHT_TIME_MASK
+;	ld b, a
+;	ld a, [wCurPartyLevel]
+;	or b
+;	ld [hli], a
+;new store caught ball code
+	ld a, [wCurItem]
+	cp POKE_BALL
+	ld [hl], 0
+	jr z, .nextcaughtdata	
+	cp GREAT_BALL
+	ld [hl], 1
+	jr z, .nextcaughtdata	
+	cp ULTRA_BALL
+	ld [hl], 2
+	jr z, .nextcaughtdata	
+	cp MASTER_BALL
+	ld [hl], 3
+	jr z, .nextcaughtdata	
+	cp FAST_BALL
+	ld [hl], 4
+	jr z, .nextcaughtdata	
+	cp LEVEL_BALL
+	ld [hl], 5
+	jr z, .nextcaughtdata	
+	cp LURE_BALL
+	ld [hl], 6
+	jr z, .nextcaughtdata
+	cp HEAVY_BALL
+	ld [hl], 7
+	jr z, .nextcaughtdata	
+	cp LOVE_BALL
+	ld [hl], 8
+	jr z, .nextcaughtdata	
+	cp FRIEND_BALL
+	ld [hl], 9
+	jr z, .nextcaughtdata	
+	cp MOON_BALL
+	ld [hl], 10
+	jr z, .nextcaughtdata	
+	cp PARK_BALL
+	ld [hl], 11
+	jr z, .nextcaughtdata
+	ld [hl], 15
+	
+.nextcaughtdata
+	inc hl              ;move onto wPartyMon1CaughtLocation
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]

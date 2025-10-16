@@ -402,7 +402,24 @@ StatsScreen_InitUpperHalf:
 	ld d, h
 	ld e, l
 	
-;	hlcoord 1, 0  ;place ball graphic here
+	hlcoord 1, 0
+	ld a, $42
+	ld b, a
+	ld a, [wTempMonCaughtLevel]  ;repurposed to caught ball index
+	and CAUGHT_BALL_MASK
+	and a
+	jr z, .endball
+.ball_loop
+	inc b
+	dec a
+	and a
+	jr nz, .ball_loop
+	
+.endball
+	ld a, b
+	ld [wCurHPPal], a
+	ld [hl], a
+
 	add sp, 2
 	
 	hlcoord 2, 0
@@ -414,6 +431,32 @@ StatsScreen_InitUpperHalf:
 	call PlaceString
 	hlcoord 5, 0
 	call .PlaceGenderChar
+	ld a, [wTempMonPokerusStatus]
+	ld b, a
+	and $f
+	jr nz, .HasPokerus
+	ld a, b
+	and $f0
+	jr z, .NotImmuneToPkrs
+	hlcoord 6, 0
+	ld [hl], "." ; Pokérus immunity dot
+.NotImmuneToPkrs:
+	ld a, [wMonType]
+	cp BOXMON
+	jr .done_status
+.HasPokerus:
+	ld de, .PkrsStr
+	hlcoord 6, 0
+	call PlaceString
+.done_status
+;	hlcoord 7, 0
+	hlcoord 1, 4
+	push hl
+	xor a
+	ld [hTemp], a
+	ld de, wTempMonStatus
+	predef PlaceStatusString
+	pop hl
 	
 	hlcoord 1, 3
 	ld b, $0
@@ -423,6 +466,9 @@ StatsScreen_InitUpperHalf:
 	call StatsScreen_PlacePageSwitchArrows
 	call StatsScreen_PlaceShinyIcon
 	ret
+	
+.PkrsStr:
+	db "<PKRS>@"
 
 .PlaceHPBar:
 	ld hl, wTempMonHP
@@ -459,6 +505,12 @@ StatsScreen_InitUpperHalf:
 	dw sBoxMonNicknames
 	dw wBufferMonNick
 
+BallsSummaryGFX:
+INCBIN "gfx/font/balls_summary.2bpp"
+
+;BallsSummaryPals:
+;INCLUDE "gfx/font/balls_summary_pals.pal"
+
 StatsScreen_PlaceHorizontalDivider:
 	hlcoord 0, 7
 	ld b, SCREEN_WIDTH
@@ -479,9 +531,7 @@ StatsScreen_PlacePageSwitchArrows:
 StatsScreen_PlaceShinyIcon:
 	ld bc, wTempMonDVs
 	farcall CheckShininess
-;	ret nc
 	jr nc, .tryalt
-;	hlcoord 10, 6
 	hlcoord 8, 0
 	ld [hl], "⁂"
 	jr .endshine
@@ -554,38 +604,9 @@ LoadPinkPage:
 	ld de, .NoneStr
 	hlcoord 1, 11
 	call PlaceString
-	ld a, [wTempMonPokerusStatus]
-	ld b, a
-	and $f
-	jr nz, .HasPokerus
-	ld a, b
-	and $f0
-	jr z, .NotImmuneToPkrs
-	hlcoord 8, 8
-	ld [hl], "." ; Pokérus immunity dot
-.NotImmuneToPkrs:
-	ld a, [wMonType]
-	cp BOXMON
-	jr z, .StatusOK
-	hlcoord 7, 0
-	push hl
-	xor a
-	ld [hTemp], a
-	ld de, wTempMonStatus
-	predef PlaceStatusString
-	pop hl
-	jr nz, .done_status
-	jr .StatusOK
-.HasPokerus:
-	ld de, .PkrsStr
-	hlcoord 1, 13
-	call PlaceString
-	jr .done_status
-.StatusOK:
-.done_status
 	hlcoord 1, 10
 	predef PrintMonTypes
-	hlcoord 9, 8
+	hlcoord 10, 8
 	ld de, SCREEN_WIDTH
 	ld b, 10
 	ld a, $31 ; vertical divider
@@ -597,12 +618,12 @@ LoadPinkPage:
 	ld de, .ExpPointStr2
 	hlcoord 0, 14
 	call PlaceString
-	hlcoord 2, 15
+	hlcoord 3, 15
 	lb bc, 3, 7
 	ld de, wTempMonExp
 	call PrintNum
 	call .CalcExpToNextLevel
-	hlcoord 2, 17
+	hlcoord 3, 17
 	lb bc, 3, 7
 	ld de, wExpToNextLevel
 	call PrintNum
@@ -616,7 +637,7 @@ LoadPinkPage:
 	predef FillInExpBar
 	hlcoord 0, 16
 	ld [hl], $40 ; left exp bar end cap
-	hlcoord 8, 16
+	hlcoord 9, 16
 	ld [hl], $41 ; right exp bar end cap
 
 	hlcoord 11, 8
@@ -668,13 +689,10 @@ LoadPinkPage:
 	ret
 
 .Status_Type:
-	db   "TYPE/@"
+	db "TYPE/@"
 
 .NoneStr:
 	db "NONE@"
-
-.OK_str:
-	db "OK @"
 
 .ExpPointStr:
 	db "<EX><P:>@"
@@ -682,14 +700,8 @@ LoadPinkPage:
 .ExpPointStr2:
 	db "EXP:@"
 
-.LevelUpStr:
-	db "LEVEL UP@"
-
 .ToStr:
 	db "<TO>< N><EX><T:>@"
-
-.PkrsStr:
-	db "#RUS@"
 
 LoadGreenPage:
 	ld de, .Item

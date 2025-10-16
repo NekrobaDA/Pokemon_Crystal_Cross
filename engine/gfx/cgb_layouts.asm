@@ -207,6 +207,16 @@ _CGB_StatsScreenHPPals:
 	ld bc, 1 palettes ; pink, green, and blue page palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
+;balls summary	
+	ld a, [wTempMonCaughtLevel]  ;repurposed to caught ball index
+	and CAUGHT_BALL_MASK
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	ld bc, BallsSummaryPals
+	add hl, bc
+	call LoadPalette_White_Col1_Col2_Black ; caught ball palette
 	call WipeAttrmap
 
 	hlcoord 0, 0, wAttrmap
@@ -217,6 +227,11 @@ _CGB_StatsScreenHPPals:
 	hlcoord 1, 3, wAttrmap
 	ld bc, 9
 	ld a, $0 ; hp palette
+	call ByteFill
+	
+	hlcoord 1, 0, wAttrmap
+	ld bc, 1
+	ld a, $4 ; caught ball palette
 	call ByteFill
 
 ;	hlcoord 10, 16, wAttrmap
@@ -247,6 +262,9 @@ _CGB_StatsScreenHPPals:
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret
+
+BallsSummaryPals:
+INCLUDE "gfx/font/balls_summary_pals.pal"
 
 StatsScreenPagePals:
 INCLUDE "gfx/stats/pages.pal"

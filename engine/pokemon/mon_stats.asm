@@ -404,15 +404,24 @@ PlaceStatusString:
 	pop de
 	jr nz, PlaceNonFaintStatus
 	push de
+;place
+	ld a, [hTemp]
+	cp 7
+	jr nz, .skip_partyfnt
+	ld de, FntString
+	call CopyStatusStringP
+	jr .endstatus
+.skip_partyfnt	
 	ld de, FntString
 	call CopyStatusString
+.endstatus
 	pop de
 	ld a, TRUE
 	and a
 	ret
 
 FntString:
-	db "FNT@"
+	db "<FNT>@"
 
 CopyStatusString:
 	ld a, [de]

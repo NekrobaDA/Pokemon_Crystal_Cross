@@ -134,7 +134,7 @@
 	charmap "<T:>",      $ca
 	charmap "< N>",      $cb
 	charmap "<EX>",      $cc
-	charmap "<P:>",      $cd
+	charmap "<FNT>",     $cd
 	charmap "′",         $ce
 	charmap "″",         $cf
 

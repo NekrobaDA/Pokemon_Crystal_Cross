@@ -5240,11 +5240,11 @@ PrintPlayerHUD:
 .got_gender_char
 ;	hlcoord 17, 8
 ;	ld [hl], a
-;	hlcoord 14, 8
+	hlcoord 10, 10
 	push af ; back up gender
 	push hl
 	ld de, wBattleMonStatus
-;	predef PlaceNonFaintStatus
+	predef PlaceNonFaintStatus
 	pop hl
 	pop bc
 	ret nz
@@ -5317,10 +5317,12 @@ DrawEnemyHUD:
 .got_gender
 	hlcoord 5, 0
 	ld [hl], a
+;add shiny icon
 
 	hlcoord 2, 0
 	push af
 	push hl
+	hlcoord 7, 0
 	ld de, wEnemyMonStatus
 	predef PlaceNonFaintStatus
 	pop hl

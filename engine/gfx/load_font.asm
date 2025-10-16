@@ -113,4 +113,12 @@ LoadStatsScreenPageTilesGFX:
 	ld hl, vTiles2 tile $31
 	lb bc, BANK(StatsScreenPageTilesGFX), 17
 	call Get2bppViaHDMA
+	call _LoadBallsSummaryGFX
 	ret
+	
+_LoadBallsSummaryGFX:
+	ld de, BallsSummaryGFX
+	ld hl, vTiles2 tile $42
+	lb bc, BANK(BallsSummaryGFX), 16
+	call Get2bppViaHDMA
+	jp LoadFrame
