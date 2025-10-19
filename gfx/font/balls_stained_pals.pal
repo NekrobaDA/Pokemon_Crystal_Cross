@@ -1,0 +1,24 @@
+;placeholder
+	RGB 20, 20, 20
+	RGB 15, 15, 15
+;ruby
+	RGB 31, 10, 20
+	RGB 24, 00, 01
+;sapphire
+	RGB 11, 24, 28
+	RGB 04, 08, 25
+;emerald
+	RGB 15, 26, 09
+	RGB 01, 17, 07
+;gold
+	RGB 31, 25, 09
+	RGB 22, 17, 05
+;silver
+	RGB 23, 23, 23
+	RGB 14, 16, 17
+;amethyst
+	RGB 24, 14, 25
+	RGB 11, 03, 17
+;onyx
+	RGB 14, 10, 11
+	RGB 05, 04, 04

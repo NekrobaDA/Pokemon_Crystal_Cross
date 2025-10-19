@@ -407,7 +407,7 @@ StatsScreen_InitUpperHalf:
 	ld b, a
 	ld a, [wTempMonCaughtLevel]  ;repurposed to caught ball index
 	and CAUGHT_BALL_MASK
-	and a
+;	and a
 	jr z, .endball
 .ball_loop
 	inc b

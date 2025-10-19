@@ -207,17 +207,99 @@ _CGB_StatsScreenHPPals:
 	ld bc, 1 palettes ; pink, green, and blue page palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
-;balls summary	
-	ld a, [wTempMonCaughtLevel]  ;repurposed to caught ball index
-	and CAUGHT_BALL_MASK
-	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	ld bc, BallsSummaryPals
+;colored balls check	
+	ld a, [wTempMonCaughtLevel]  ;repurposed to caught ball data
+	and CAUGHTBALL_DYE_MASK
+	jr z, .skip_dye
+	rlca
+	rlca
+	rlca
+	rlca
+	call load_hl_a
+	ld bc, BallsStainedPals
 	add hl, bc
 	call LoadPalette_White_Col1_Col2_Black ; caught ball palette
 	call WipeAttrmap
+	jr .end_balls
+.skip_dye	
+;balls summary	
+	ld a, [wTempMonCaughtLevel]
+	and CAUGHTBALL_ACCENT_MASK
+	jr z, .nopartialdye
+	
+.attempt_partial_dye
+	ld a, [wTempMonCaughtLevel]  ;load accent color from caught ball
+	and CAUGHT_BALL_MASK
+	call load_hl_a
+	ld bc, BallsSummaryPals
+	add hl, bc
+
+	ldh a, [rSVBK]           ;this is a stupid solution, but it seems to work
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+	ld a, LOW(PALRGB_WHITE)
+	ld [de], a
+	inc de
+	ld a, HIGH(PALRGB_WHITE)
+	ld [de], a
+	inc de
+	
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+
+	push hl
+	push de
+	ld a, [wTempMonCaughtLevel]  ;load base color from dyed ball
+	and CAUGHTBALL_DYE_MASK
+	rlca
+	rlca
+	rlca
+	rlca
+	call load_hl_a
+	ld bc, BallsStainedPals
+	add hl, bc
+	inc hl
+	inc hl
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	pop de
+	pop hl
+
+	ld a, b
+	ld [de], a
+	inc de
+	ld a, c
+	ld [de], a
+	inc de
+	
+	xor a
+	ld [de], a
+	inc de
+	ld [de], a
+	inc de
+
+	pop af
+	ldh [rSVBK], a
+	jr .endpartialdye
+
+.nopartialdye
+	ld a, [wTempMonCaughtLevel]  ;repurposed to caught ball index
+	and CAUGHT_BALL_MASK
+	call load_hl_a
+	ld bc, BallsSummaryPals
+	add hl, bc
+	call LoadPalette_White_Col1_Col2_Black ; caught ball palette
+.endpartialdye
+	call WipeAttrmap
+.end_balls
 
 	hlcoord 0, 0, wAttrmap
 	lb bc, 8, SCREEN_WIDTH
@@ -262,6 +344,16 @@ _CGB_StatsScreenHPPals:
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret
+	
+load_hl_a:
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	ret
+
+BallsStainedPals:
+INCLUDE "gfx/font/balls_stained_pals.pal"
 
 BallsSummaryPals:
 INCLUDE "gfx/font/balls_summary_pals.pal"
