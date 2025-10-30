@@ -4,6 +4,7 @@
 	const KURTSHOUSE_SLOWPOKE
 	const KURTSHOUSE_KURT2
 	const KURTSHOUSE_TWIN2
+	const KURTHOUSE_MOTHER
 
 KurtsHouse_MapScripts:
 	def_scene_scripts
@@ -14,6 +15,7 @@ KurtsHouse_MapScripts:
 .KurtCallback:
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
 	iffalse .Done
+	appear KURTHOUSE_MOTHER
 	checkevent EVENT_FOREST_IS_RESTLESS
 	iftrue .Done
 	checkflag ENGINE_KURT_MAKING_BALLS
@@ -31,7 +33,29 @@ KurtsHouse_MapScripts:
 	appear KURTSHOUSE_TWIN2
 .Done:
 	endcallback
-
+	
+KidMother:
+	faceplayer
+	opentext
+;add a check to see if ball is painted to begin with
+	writetext CleanBallText
+	yesorno
+	iffalse .NoDialogueMom   ;change to jump to otherwise normal dialogue for period of time
+	special CleanBallScript
+	reloadmap
+	opentext
+	writetext BallCleanedText
+	waitbutton
+	closetext
+	end
+	
+.NoDialogueMom
+	opentext
+	writetext SkipCleanText
+	waitbutton
+	closetext
+	end
+	
 Kurt1:
 	faceplayer
 	opentext
@@ -351,14 +375,46 @@ KurtsGranddaughter1:
 	iftrue KurtsGranddaughterFunScript
 	checkevent EVENT_FOREST_IS_RESTLESS
 	iftrue .Lonely
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iftrue .Dad
-	checkevent EVENT_CLEARED_SLOWPOKE_WELL
+	checkevent EVENT_BEAT_BUGSY
+	iftrue .PaintBallScript
+	checkevent EVENT_CLEARED_SLOWPOKE_WELL ;though this can be seen before beating Bugsy
 	iftrue .SlowpokeBack
 	checkevent EVENT_AZALEA_TOWN_SLOWPOKETAIL_ROCKET
 	iftrue .Lonely
 	opentext
 	writetext KurtsGranddaughterSlowpokeGoneText
+	waitbutton
+	closetext
+	end
+	
+.PaintBallScript
+;add a check to see if ball is already painted
+;make once per day?
+	opentext
+	writetext WouldYouLikeToPaintMonsBallText
+	yesorno
+	iffalse .TryOtherDialogue    ;change to jump to otherwise normal dialogue for period of time
+	writetext WhichColorText
+	special KurtGranddaughterPaintScript
+	ifequal FALSE, .NoDialogue  ;retain as a 'maybe next time' dialogue
+	writetext StartPaintText
+	waitbutton
+	reloadmap
+	opentext
+	writetext FinishedPaintText
+	waitbutton
+	closetext
+	end
+
+.TryOtherDialogue 
+	checkevent EVENT_FAST_SHIP_FIRST_TIME
+	iftrue .Dad
+	sjump .SlowpokeBack
+	end
+	
+.NoDialogue
+	opentext
+	writetext RefusedPaintText
 	waitbutton
 	closetext
 	end
@@ -383,6 +439,52 @@ KurtsGranddaughter1:
 	waitbutton
 	closetext
 	end
+	
+WouldYouLikeToPaintMonsBallText:
+	text "I help my grandpa"
+	line "paint BALLS."
+	
+	para "Would you like me"
+	line "to paint your"
+	cont "#MON's ball too?"
+	done
+	
+WhichColorText:
+	text ""  ;blank box, more sketchy solution to place text faster
+	done     ;via the special call instead
+	
+RefusedPaintText:
+	text "Aw, okay."
+	done
+	
+StartPaintText:
+	text "Okay, I'll make it"
+	line "pretty for you!"
+	done
+	
+FinishedPaintText:
+	text "All finished!"
+	done
+	
+CleanBallText:
+	text "Oh did my daughter"
+	line "get carried away"
+	cont "again?"
+	para "I can clean that"
+	line "for you."
+	done
+	
+SkipCleanText:
+	text "I work in the city"
+	line "all day, but there"
+	cont "is always some-"
+	cont "thing to clean at"
+	cont "home too."
+	done
+
+BallCleanedText:
+	text "There you go."
+	done
 
 KurtsGranddaughter2:
 	faceplayer
@@ -698,3 +800,4 @@ KurtsHouse_MapEvents:
 	object_event  6,  3, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsHouseSlowpoke, EVENT_KURTS_HOUSE_SLOWPOKE
 	object_event 14,  3, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Kurt2, EVENT_KURTS_HOUSE_KURT_2
 	object_event 11,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsGranddaughter2, EVENT_KURTS_HOUSE_GRANDDAUGHTER_2
+	object_event  8,  1, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, 17, 7, 0, OBJECTTYPE_SCRIPT, 0, KidMother, -1

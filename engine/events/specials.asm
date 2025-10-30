@@ -446,4 +446,31 @@ SafariID:
 	ld [wScriptVar], a
 	ret
 
-	
+PaintBallTemp:
+;paint color
+	ld hl, wPartyMon1CaughtLevel
+	push hl
+	ld a, 6  ;color here, 1-7, 0 = unchanged
+	rlca
+	rlca
+	rlca
+	rlca
+;	and CAUGHTBALL_DYE_MASK
+	ld b, a
+;accent	
+	ld a, 1  ;accent here, 0 = no accent
+	rrca
+;	and CAUGHTBALL_ACCENT_MASK
+	ld c, a
+;merge
+	ld a, c
+	or b
+	ld b, a
+;apply to caughtball
+	ld a, [wPartyMon1CaughtLevel]
+	and CAUGHT_BALL_MASK
+	or b
+	pop hl
+	ld [hl], a
+	ret
+;add happiness gain to customized partymon?

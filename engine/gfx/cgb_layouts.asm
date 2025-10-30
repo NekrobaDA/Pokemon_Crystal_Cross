@@ -208,6 +208,9 @@ _CGB_StatsScreenHPPals:
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 ;colored balls check	
+	ld a, [wTempMonCaughtLevel]
+	and CAUGHTBALL_ACCENT_MASK
+	jr nz, .skip_dye
 	ld a, [wTempMonCaughtLevel]  ;repurposed to caught ball data
 	and CAUGHTBALL_DYE_MASK
 	jr z, .skip_dye
@@ -225,14 +228,31 @@ _CGB_StatsScreenHPPals:
 ;balls summary	
 	ld a, [wTempMonCaughtLevel]
 	and CAUGHTBALL_ACCENT_MASK
-	jr z, .nopartialdye
-	
-.attempt_partial_dye
+	jr z, .nopartialdye	
+;partial dye
+	ld a, [wTempMonCaughtLevel]  ;repurposed to caught ball data
+	and CAUGHTBALL_DYE_MASK
+	rlca
+	rlca
+	rlca
+	rlca
+	call load_hl_a
+	ld bc, BallsStainedPals
+	add hl, bc
+	inc hl
+	inc hl
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	push bc
+
 	ld a, [wTempMonCaughtLevel]  ;load accent color from caught ball
 	and CAUGHT_BALL_MASK
 	call load_hl_a
 	ld bc, BallsSummaryPals
 	add hl, bc
+	pop bc
 
 	ldh a, [rSVBK]           ;this is a stupid solution, but it seems to work
 	push af
@@ -252,26 +272,6 @@ _CGB_StatsScreenHPPals:
 	ld a, [hli]
 	ld [de], a
 	inc de
-
-	push hl
-	push de
-	ld a, [wTempMonCaughtLevel]  ;load base color from dyed ball
-	and CAUGHTBALL_DYE_MASK
-	rlca
-	rlca
-	rlca
-	rlca
-	call load_hl_a
-	ld bc, BallsStainedPals
-	add hl, bc
-	inc hl
-	inc hl
-	ld a, [hli]
-	ld b, a
-	ld a, [hli]
-	ld c, a
-	pop de
-	pop hl
 
 	ld a, b
 	ld [de], a

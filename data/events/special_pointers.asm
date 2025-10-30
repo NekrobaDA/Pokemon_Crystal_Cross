@@ -161,3 +161,5 @@ SpecialsPointers::
 	add_special UnusedDummySpecial ; unused
 	add_special CompleteDex
 	add_special HealPartyStatus
+	add_special CleanBallScript
+	add_special KurtGranddaughterPaintScript

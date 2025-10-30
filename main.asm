@@ -733,6 +733,7 @@ INCLUDE "engine/events/CCafeBerries.asm"
 INCLUDE "engine/events/sweet_scent.asm"               ;moved from bank14
 INCLUDE "gfx/pokemon/unown_bitmasks.asm"           ;moved from pic animations 1
 INCLUDE "engine/pokedex/unown_dex.asm"           ;moved from bank3e
+INCLUDE "engine/events/paint.asm"
 
 
 SECTION "Color", ROMX
