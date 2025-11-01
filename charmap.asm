@@ -130,7 +130,10 @@
 	charmap "<SLP>",      $c4
 	charmap "<PKRS>",     $c5
 
+	charmap "<H2>",      $c6
 	charmap "<TO>",      $c7
+	charmap "<EH>",      $c8
+	charmap "<FH>",      $c9
 	charmap "<T:>",      $ca
 	charmap "< N>",      $cb
 	charmap "<EX>",      $cc
@@ -177,7 +180,8 @@
 	charmap "▼",         $ee
 	charmap "♂",         $ef
 	charmap "¥",         $f0
-	charmap "×",         $f1
+;	charmap "×",         $f1
+	charmap "<E2>",      $f1
 	charmap "…",         $f2 ; ellipsis
 	charmap "/",         $f3
 	charmap ",",         $f4

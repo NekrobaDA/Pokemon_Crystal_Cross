@@ -599,13 +599,43 @@ StatsScreen_LoadGFX:
 
 LoadPinkPage:
 	ld de, .Status_Type
-	hlcoord 0, 9
+;	hlcoord 0, 9
+	hlcoord 0, 8
 	call PlaceString
 	ld de, .NoneStr
-	hlcoord 1, 11
-	call PlaceString
+;	hlcoord 1, 11
 	hlcoord 1, 10
+	call PlaceString
+;	hlcoord 1, 10
+	hlcoord 1, 9
 	predef PrintMonTypes
+
+.happiness	
+	ld de, HappinessString
+	hlcoord 0, 12
+	call PlaceString
+	
+	ld a, [wTempMonHappiness]
+	ld de, MaxString
+	cp 255
+	jr z, .got_happiness
+	ld de, PoorString
+	cp 30
+	jr c, .got_happiness
+	ld de, LowString
+	cp 70
+	jr c, .got_happiness
+	ld de, MidString
+	cp 150
+	jr c, .got_happiness
+	ld de, GoodString
+	cp 220
+	jr c, .got_happiness
+	ld de, HighString
+.got_happiness
+	hlcoord 5, 13
+	call PlaceString
+	
 	hlcoord 10, 8
 	ld de, SCREEN_WIDTH
 	ld b, 10
@@ -698,7 +728,7 @@ LoadPinkPage:
 	db "<EX><P:>@"
 
 .ExpPointStr2:
-	db "EXP:@"
+	db "<E2>XP:@"
 
 .ToStr:
 	db "<TO>< N><EX><T:>@"
@@ -749,26 +779,17 @@ LoadGreenPage:
 
 LoadBluePage:
 	call .PlaceOTInfo
-	hlcoord 10, 8
-	ld de, SCREEN_WIDTH
-	ld b, 10
-	ld a, $31 ; vertical divider
-.vertical_divider
-	ld [hl], a
-	add hl, de
-	dec b
-	jr nz, .vertical_divider
-	jr .location
-	ret
 
 .PlaceOTInfo:
 	ld de, IDNoString
-	hlcoord 0, 10
+;	hlcoord 0, 10
+	hlcoord 9, 8
 	call PlaceString
 	ld de, OTString
 	hlcoord 0, 8
 	call PlaceString
-	hlcoord 2, 11
+;	hlcoord 2, 11
+	hlcoord 10, 9
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	ld de, wTempMonID
 	call PrintNum
@@ -778,44 +799,41 @@ LoadBluePage:
 	farcall CorrectNickErrors
 	hlcoord 2, 9
 	call PlaceString
-.done
-	
+
 .location:
 	ld de, MetString
-	hlcoord 0, 13
+	hlcoord 1, 11
 	call PlaceString
 	ld a, [wTempMonCaughtLocation]
 	and CAUGHT_LOCATION_MASK
 	ld e, a
 	farcall GetLandmarkNameS
 	ld de, wStringBuffer1
-	hlcoord 0, 14
+	hlcoord 2, 12
 	call PlaceString
 	
-.happiness
-	ld de, HappinessString
+	hlcoord 1, 13
+	ld b, SCREEN_WIDTH
+	dec b
+	dec b
+	ld a, $76 ; horizontal divider (empty HP/exp bar)
+.loop
+	ld [hli], a
+	dec b
+	jr nz, .loop
+	
+;traits
+	farcall GeneratePersonalityTrait
 	hlcoord 0, 16
-	call PlaceString
-	ld a, [wTempMonHappiness]
-	ld de, MaxString
-	cp 255
-	jr z, .got_happiness
-	ld de, PoorString
-	cp 30
-	jr c, .got_happiness
-	ld de, LowString
-	cp 70
-	jr c, .got_happiness
-	ld de, MidString
-	cp 150
-	jr c, .got_happiness
-	ld de, GoodString
-	cp 220
-	jr c, .got_happiness
-	ld de, HighString
-.got_happiness
-	hlcoord 0, 17
-	call PlaceString
+	ld a, d
+	call PrintTrait
+	
+	farcall GetNature
+	hlcoord 1, 15
+	ld a, d
+	call PrintNature
+	
+;eventual E4 ribbon at 17, 8 or so (17-18, 8-9)
 	ret
 
 .OTNamePointers:
@@ -831,25 +849,31 @@ GenderStringF:
 	db "♀@"
 
 HappinessString:
-	db "HAPPINESS@"
+	db "<H2>APPINESS@"
 	
 MaxString:
-	db "/OVERJOYED@"
+;	db "/OVERJOYED@"
+	db "<FH><FH><FH><FH><FH>@"
 	
 HighString:
-	db "/HAPPY@"
+;	db "/HAPPY@"
+	db "<FH><FH><FH><FH><EH>@"
 	
 GoodString:
-	db "/CONTENT@"
+;	db "/CONTENT@"
+	db "<FH><FH><FH><EH><EH>@"
 	
 MidString:
-	db "/AVERAGE@"
+;	db "/AVERAGE@"
+	db "<FH><FH><EH><EH><EH>@"
 	
 LowString:
-	db "/UNHAPPY@"
+;	db "/UNHAPPY@"
+	db "<FH><EH><EH><EH><EH>@"
 	
 PoorString:
-	db "/MISERABLE@"
+;	db "/MISERABLE@"
+	db "<EH><EH><EH><EH><EH>@"
 
 IDNoString:
 	db "<ID>№.@"
@@ -1272,3 +1296,241 @@ CheckFaintedFrzSlp:
 .fainted_frz_slp
 	scf
 	ret
+	
+TraitStrings:
+	dw TraitString1
+	dw TraitString2
+	dw TraitString3
+	dw TraitString4
+	dw TraitString5
+	dw TraitString6
+	dw TraitString7
+	dw TraitString8
+	dw TraitString9
+	dw TraitString10
+	dw TraitString11
+	dw TraitString12
+	dw TraitString14
+	dw TraitString15
+	dw TraitString16
+	dw TraitString17
+	dw TraitString18
+	dw TraitString19
+	dw TraitString20
+	dw TraitString21
+	dw TraitString22
+	dw TraitString23
+	dw TraitString24
+	dw TraitString25
+	dw TraitString26
+	dw TraitString27
+	dw TraitString28
+	dw TraitString29
+	dw TraitString30
+	dw TraitString31
+	dw TraitString32
+	dw TraitString33
+	dw TraitString34
+	dw TraitString35
+	dw TraitString36
+	dw TraitString37
+	dw TraitString38
+	dw TraitString39
+	dw TraitString40
+	dw TraitString13
+
+;character strings (40 total)
+TraitString1:
+	db " Likes to eat.@"
+TraitString2:	
+	db " Often dozes off.@"
+TraitString3:
+	db " Absent-minded.@"
+TraitString4:
+	db " Likes to relax.@"
+TraitString5:
+	db " Proud of its power.@"
+TraitString6:
+	db " Quick-tempered.@"
+TraitString7:
+	db " Loves to battle.@"
+TraitString8:
+	db " Somewhat impatient.@"
+TraitString9:
+	db " Easily bored.@"
+TraitString10:
+	db " Able to take hits.@"
+TraitString11:
+	db " Highly persistent.@"
+TraitString12:
+	db " Good endurance.@"
+TraitString14:
+	db " Likes to run.@"
+TraitString15:
+	db " Alert to sounds.@"
+TraitString16:
+	db " Impetuous and silly@"
+TraitString17:
+	db " Likes teasing foes.@"
+TraitString18:
+	db " Quick to flee.@"
+TraitString19:
+	db " Highly curious.@"
+TraitString20:                   ;slot for female shiny
+	db " Mischievous.@"
+TraitString21:
+	db " Thoroughly cunning.@"
+TraitString22:
+	db " Lost in thought.@"
+TraitString23:
+	db " Very finicky.@"
+TraitString24:
+	db " Strong-willed.@"
+TraitString25:
+	db " Somewhat vain.@"
+TraitString26:
+	db " Strongly defiant.@"
+TraitString27:
+	db " Hates to lose.@"
+TraitString28:
+	db " Somewhat stubborn.@"
+TraitString29:
+	db " Carefree and lazy.@"
+TraitString30:
+	db " Somewhat obsessive.@"
+TraitString31:
+	db " Easily jealous.@"
+TraitString32:
+	db " Prefers observing.@"
+TraitString33:
+	db " Overly confident.@"
+TraitString34:
+	db " Friendly & playful.@"
+TraitString35:
+	db " Somewhat shy.@"
+TraitString36:
+	db " Easily anxious.@"
+TraitString37:
+	db " Highly sensitive.@"
+TraitString38:
+	db " Quick-witted.@"
+TraitString39:
+	db " Highly vocal.@"
+TraitString40:                   ;slot for both set-dv male shiny and alt shiny
+	db " Thrashes about.@"
+TraitString13:
+	db " Quiet & thoughtful.@"
+
+PrintTrait:
+; Print type b at hl.
+
+;	ld a, b
+	push hl
+	add a
+	ld hl, TraitStrings
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hli]
+	ld e, a
+	ld d, [hl]
+	pop hl
+
+	jp PlaceString
+	
+NatureStrings:
+	dw HardyString
+	dw LonelyString
+	dw NaughtyString ;female shiny slot
+	dw CarefulString
+	dw BraveString
+	dw BoldString    ;never seems to hit this number
+	dw DocileString
+	dw RelaxedString
+	dw ImpishString
+	dw HastyString
+	dw TimidString
+	dw LaxString
+	dw SeriousString
+	dw JollyString
+	dw NaiveString
+	dw ModestString
+	dw MildString
+	dw QuietString
+	dw CalmString
+	dw RashString
+	dw BashfulString
+	dw GentleString
+	dw SassyString
+	dw AdamantString ;male shiny slot
+	dw QuirkyString
+	dw BoldString    ;extra because there's somehow 26, not 25
+
+;nature strings	
+HardyString:
+	db "HARDY by nature.@"
+LonelyString:
+	db "LONELY by nature.@"
+BraveString:
+	db "BRAVE by nature.@"
+AdamantString:
+	db "ADAMANT by nature.@"
+NaughtyString:
+	db "NAUGHTY by nature.@"
+BoldString:
+	db "BOLD by nature.@"
+DocileString:
+	db "DOCILE by nature.@"
+RelaxedString:
+	db "RELAXED by nature.@"
+ImpishString:
+	db "IMPISH by nature.@"
+LaxString:
+	db "LAX by nature.@"
+TimidString:
+	db "TIMID by nature.@"
+HastyString:
+	db "HASTY by nature.@"
+SeriousString:
+	db "SERIOUS by nature.@"
+JollyString:
+	db "JOLLY by nature.@"
+NaiveString:
+	db "NAIVE by nature.@"
+ModestString:
+	db "MODEST by nature.@"
+MildString:
+	db "MILD by nature.@"
+QuietString:
+	db "QUIET by nature.@"
+BashfulString:
+	db "BASHFUL by nature.@"
+RashString:
+	db "RASH by nature.@"
+CalmString:
+	db "CALM by nature.@"
+GentleString:
+	db "GENTLE by nature.@"
+SassyString:
+	db "SASSY by nature.@"
+CarefulString:
+	db "CAREFUL by nature.@"
+QuirkyString:
+	db "QUIRKY by nature.@"
+	
+PrintNature:
+; Print type b at hl.
+
+;	ld a, b
+	push hl
+	add a
+	ld hl, NatureStrings
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hli]
+	ld e, a
+	ld d, [hl]
+	pop hl
+
+	jp PlaceString

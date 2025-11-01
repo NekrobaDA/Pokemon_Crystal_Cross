@@ -61,7 +61,7 @@ SafariBattleMenuHeader:
 	dba .PrintSafariBallsRemaining
 
 .Text:
-	db "サファりボール×　　@" ; "SAFARI BALL×  @"
+	db "サファりボールx　　@" ; "SAFARI BALL×  @"
 	db "エサをなげる@" ; "THROW BAIT"
 	db "いしをなげる@" ; "THROW ROCK"
 	db "にげる@" ; "RUN"
@@ -89,7 +89,7 @@ ContestBattleMenuHeader:
 .Text:
 	db "FIGHT@"
 	db "<PKMN>@"
-	db "PARKBALL×  @"
+	db "PARKBALLx  @"
 	db "RUN@"
 
 .PrintParkBallsRemaining:

@@ -393,7 +393,7 @@ TMHM_DisplayPocketItems:
 	jr nc, .hm2
 	ld bc, SCREEN_WIDTH + 9
 	add hl, bc
-	ld [hl], "×"
+	ld [hl], "x"
 	inc hl
 	ld a, "0" ; why are we doing this?
 	pop bc
