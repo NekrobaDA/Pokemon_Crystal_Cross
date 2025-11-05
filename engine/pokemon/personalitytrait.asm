@@ -64,11 +64,7 @@ GetNature:
 	ld a, b
 	
 	ld d, a
-	
-;check if defense is less than  or equal to 9, and if so, add to get final 9 natures ?
-;	add ;some number to catch the remaining 9 natures
 	ret
 
-
-;trait strings could not be called from here without breaking things,
-;so nature strings will likely be the same
+;trait and nature strings could not be called from here without breaking things
+;so now they clutter stats_screen.asm

@@ -219,7 +219,7 @@ GenerateSwarmShiny:
 	if HIGH(LARVITAR) == 0
 		or h
 	else
-		jr nz, .skipshine
+		jp nz, .skipshine
 		if HIGH(LARVITAR) == 1
 			dec h
 		else
@@ -227,7 +227,7 @@ GenerateSwarmShiny:
 			cp HIGH(LARVITAR)
 		endc
 	endc
-	jr nz, .skipshine
+	jp nz, .skipshine
 	jr .rollshiny
 	
 .dratini
@@ -246,7 +246,7 @@ GenerateSwarmShiny:
 			cp HIGH(DRATINI)
 		endc
 	endc
-	jr nz, .skipshine
+	jp nz, .skipshine
 	jr .rollshiny
 	
 .slugma
@@ -343,16 +343,19 @@ GenerateSwarmShiny:
 	
 .rollshiny
 	call Random
-	cp 7
-	jr nc, .trynext
-	ld b, ATKDEFDV_SHINY ; $ea
-	ld c, SPDSPCDV_SHINY ; $aa
-	jr .UpdateDVs
-.trynext:
-	call Random
-	cp 7
+	cp 16
 	jr nc, .skipshine
-	ld b, ATKDEFDV_SHINYF ; $ea
+	call Random
+	and %1111 ;0-15
+	rrca
+	rrca
+	rrca
+	rrca
+	ld b, a
+	ld a, $a
+	or b
+	ld b, a
+.gotDV
 	ld c, SPDSPCDV_SHINY ; $aa
 	jr .UpdateDVs
 
