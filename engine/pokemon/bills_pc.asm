@@ -1126,7 +1126,7 @@ BillsPC_LoadMonStats:
 	and a
 	jr z, .party
 	cp NUM_BOXES + 1
-	jr z, .sBox
+	jp z, .sBox
 	ld b, a
 	call GetBoxPointer
 	ld a, b
@@ -1140,6 +1140,7 @@ BillsPC_LoadMonStats:
 	ld a, [hl]
 	ld [wTempMonLevel], a
 	pop hl
+	
 	push hl
 	ld bc, sBoxMon1Item - sBox
 	add hl, bc
@@ -1149,11 +1150,12 @@ BillsPC_LoadMonStats:
 	ld a, [hl]
 	ld [wTempMonItem], a
 	pop hl
+	
 	ld bc, sBoxMon1DVs - sBox
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	call AddNTimes	
 	ld de, wTempMonDVs
 	ld a, [hli]
 	ld [de], a
@@ -1204,6 +1206,13 @@ BillsPC_LoadMonStats:
 	call AddNTimes
 	ld a, [hl]
 	ld [wTempMonItem], a
+	
+	ld hl, sBoxMon1CaughtGender    ;needed to display correct gender + variant
+	ld bc, BOXMON_STRUCT_LENGTH
+	ld a, e
+	call AddNTimes
+	ld a, [hl]
+	ld [wTempMonCaughtGender], a
 
 	ld hl, sBoxMon1DVs
 	ld bc, BOXMON_STRUCT_LENGTH

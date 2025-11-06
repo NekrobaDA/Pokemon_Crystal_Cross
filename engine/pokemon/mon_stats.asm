@@ -171,7 +171,6 @@ GetGender:
 ; 4: WildMon
 ;	ld hl, wEnemyMonDVs
 ;	ld hl, wEnemyMonCaughtGender        ;doens't exist- probably needs to
-;	ld hl, wTempMonCaughtGender
 	ld hl, wSeerCaughtGender
 	dec a
 	jr z, .DVs
@@ -412,13 +411,13 @@ PlaceStatusString:
 	jr nz, PlaceNonFaintStatus
 	push de
 ;place
-	ld a, [hTemp]
-	cp 7
-	jr nz, .skip_partyfnt
-	ld de, FntString
-	call CopyStatusStringP
-	jr .endstatus
-.skip_partyfnt	
+;	ld a, [hTemp]
+;	cp 7
+;	jr nz, .skip_partyfnt
+;	ld de, FntString
+;	call CopyStatusStringP
+;	jr .endstatus
+;.skip_partyfnt	
 	ld de, FntString
 	call CopyStatusString
 .endstatus
@@ -455,12 +454,12 @@ PlaceNonFaintStatus:
 	jr z, .no_status
 
 .place
-	ld a, [hTemp]
-	cp 7
-	jr nz, .skip_party
-	call CopyStatusStringP
-	jr .continuestatusstring
-.skip_party
+;	ld a, [hTemp]
+;	cp 7
+;	jr nz, .skip_party        ;changed my mind on this
+;	call CopyStatusStringP
+;	jr .continuestatusstring
+;.skip_party
 	call CopyStatusString
 .continuestatusstring
 	ld a, TRUE

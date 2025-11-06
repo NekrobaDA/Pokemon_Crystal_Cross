@@ -5228,7 +5228,7 @@ PrintPlayerHUD:
 	pop hl
 	dec hl
 
-	ld a, TEMPMON
+	ld a, 0
 	ld [wMonType], a
 	callfar GetGender
 	ld a, " "
@@ -5239,7 +5239,8 @@ PrintPlayerHUD:
 
 .got_gender_char
 ;	hlcoord 17, 8
-;	ld [hl], a
+	hlcoord 10, 10
+	ld [hl], a
 	hlcoord 10, 10
 	push af ; back up gender
 	push hl

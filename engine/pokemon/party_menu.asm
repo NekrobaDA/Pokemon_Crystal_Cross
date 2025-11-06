@@ -227,7 +227,8 @@ PlacePartyMonLevel:
 	ret z
 	ld c, a
 	ld b, 0
-	hlcoord 8, 2
+;	hlcoord 8, 2
+	hlcoord 7, 2
 .loop
 	push bc
 	push hl
@@ -270,7 +271,8 @@ PlacePartyMonStatus:
 	ld c, a
 	ld b, 0
 ;	hlcoord 5, 2
-	hlcoord 11, 2
+;	hlcoord 11, 2
+	hlcoord 10, 2
 .loop
 	push bc
 	push hl
@@ -344,7 +346,7 @@ PlacePartyMonTMHMCompatibility:
 	ret
 
 .string_able
-	db "ABLE@"
+	db "ABLE    @"
 
 .string_not_able
 	db "NOT ABLE@"
@@ -406,7 +408,7 @@ PlacePartyMonEvoStoneCompatibility:
 	ret
 
 .string_able
-	db "ABLE@"
+	db "ABLE    @"
 .string_not_able
 	db "NOT ABLE@"
 
@@ -416,7 +418,8 @@ PlacePartyMonGender:
 	ret z
 	ld c, a
 	ld b, 0
-	hlcoord 12, 2
+;	hlcoord 12, 2
+	hlcoord 10, 2
 .loop
 	push bc
 	push hl
@@ -456,7 +459,7 @@ PlacePartyMonGender:
 	db "♀…FEMALE@"
 
 .unknown
-	db "…UNKNOWN@"
+	db " …UNKNOWN@"
 
 PlacePartyMonMobileBattleSelection:
 	ld a, [wPartyCount]
