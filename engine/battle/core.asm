@@ -5304,8 +5304,8 @@ DrawEnemyHUD:
 	inc de
 	ld a, [hl]
 	ld [de], a
-
-	ld a, TEMPMON
+	
+	ld a, WILDMON
 	ld [wMonType], a
 	callfar GetGender
 	ld a, " "
@@ -5644,11 +5644,13 @@ Battle_StatsScreen:
 
 	ld hl, vTiles2 tile $31
 	ld de, vTiles0
-	ld bc, $11 tiles
+;	ld bc, $11 tiles
+	ld bc, $23 tiles
 	call CopyBytes
 
 	ld hl, vTiles2
-	ld de, vTiles0 tile $11
+;	ld de, vTiles0 tile $11
+	ld de, vTiles0 tile $23
 	ld bc, $31 tiles
 	call CopyBytes
 
@@ -5663,12 +5665,14 @@ Battle_StatsScreen:
 
 	call DisableLCD
 
-	ld hl, vTiles0
+	ld hl, vTiles0           ;adjusted to account for additional summary tiles
 	ld de, vTiles2 tile $31
-	ld bc, $11 tiles
+;	ld bc, $11 tiles
+	ld bc, $23 tiles
 	call CopyBytes
 
-	ld hl, vTiles0 tile $11
+;	ld hl, vTiles0 tile $11
+	ld hl, vTiles0 tile $23
 	ld de, vTiles2
 	ld bc, $31 tiles
 	call CopyBytes
@@ -6591,6 +6595,9 @@ LoadEnemyMon:
 ; All trainers have preset DVs, determined by class
 ; See GetTrainerDVs for more on that
 	farcall GetTrainerDVs
+	;add fuction to load predefined trainer mon genders
+	;and then load them into wSeerCaughtGender
+	
 ; These are the DVs we'll use if we're actually in a trainer battle
 	ld a, [wBattleMode]
 	dec a
@@ -6598,6 +6605,11 @@ LoadEnemyMon:
 
 ; Wild DVs
 ; Here's where the fun starts
+;	call Random          ;roll gender (50/50 ratio)
+;	and %1
+;	rrca
+;	ld [wSeerCaughtGender], a
+	callfar GenerateGender
 
 ; Roaming monsters (Entei, Raikou) work differently
 ; They have their own structs, which are shorter than normal

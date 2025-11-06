@@ -143,44 +143,57 @@ GetGender:
 	dec a
 
 ; 0: PartyMon
-	ld hl, wPartyMon1DVs
+;	ld hl, wPartyMon1DVs
+	ld hl, wPartyMon1CaughtGender
 	ld bc, PARTYMON_STRUCT_LENGTH
 	and a
 	jr z, .PartyMon
 
 ; 1: OTPartyMon
-	ld hl, wOTPartyMon1DVs
+;	ld hl, wOTPartyMon1DVs
+	ld hl, wOTPartyMon1CaughtGender
 	dec a
 	jr z, .PartyMon
 
 ; 2: sBoxMon
-	ld hl, sBoxMon1DVs
+;	ld hl, sBoxMon1DVs
+	ld hl, sBoxMon1CaughtGender
 	ld bc, BOXMON_STRUCT_LENGTH
 	dec a
 	jr z, .sBoxMon
 
 ; 3: Unknown
-	ld hl, wTempMonDVs
+;	ld hl, wTempMonDVs
+	ld hl, wTempMonCaughtGender
 	dec a
 	jr z, .DVs
 
 ; 4: WildMon
-	ld hl, wEnemyMonDVs
+;	ld hl, wEnemyMonDVs
+;	ld hl, wEnemyMonCaughtGender        ;doens't exist- probably needs to
+;	ld hl, wTempMonCaughtGender
+	ld hl, wSeerCaughtGender
 	dec a
 	jr z, .DVs
 
 ; 5: BattleMon
-	ld hl, wBattleMonDVs
+;	ld hl, wBattleMonDVs
+;	ld hl, wBattleMonCaughtGender       ;doens't exist- probably needs to
+	ld hl, wSeerCaughtLevel
 	dec a
 	jr z, .DVs
 	
 ; 6: PlayerTradeMon
-	ld hl, wPlayerTrademonDVs
+;	ld hl, wPlayerTrademonDVs
+;	ld hl, wPlayerTrademonCaughtGender  ;doens't exist
+	ld hl, wTempMonCaughtGender
 	dec a 
 	jr z, .DVs
 
 ; 7: OTTradeMon
-	ld hl, wOTTrademonDVs
+;	ld hl, wOTTrademonDVs
+;	ld hl, wOTTrademonCaughtGender      ;doesn't exist
+	ld hl, wTempMonCaughtGender
 	jr z, .DVs
 
 ; Get our place in the party/box.
@@ -197,17 +210,10 @@ GetGender:
 	ld a, BANK(sBox)
 	call z, OpenSRAM
 
-; Attack DV
-	ld a, [hli]
-	and $f0
-	ld b, a
-; Speed DV
+;get stored gender
 	ld a, [hl]
-	and $f0
-	swap a
-
-; Put our DVs together.
-	or b
+	and CAUGHT_GENDER_MASK
+	rlca
 	ld b, a
 
 ; Close SRAM if we were dealing with a sBoxMon.
@@ -242,9 +248,10 @@ GetGender:
 	cp GENDER_F100
 	jr z, .Female
 
-; Values below the ratio are male, and vice versa.
-	cp b
-	jr c, .Male
+;female=0, male=1
+	ld a, b
+	and a
+	ret
 
 .Female:
 	xor a
@@ -529,4 +536,51 @@ ListMoves:
 	jr nz, .nonmove_loop
 
 .done
+	ret
+	
+GenerateGender:
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, BaseData
+	ld a, BANK(BaseData)
+	call LoadIndirectPointer
+	ld bc, BASE_GENDER
+	add hl, bc
+	call GetFarByte
+	
+	cp GENDER_F12_5
+	jr nz, .nextratio
+	call Random
+	and %111
+	and a
+	jr z, .finishrollgender
+	ld a, 1
+	jr .finishrollgender
+.nextratio
+	cp GENDER_F25
+	jr nz, .nextratio2
+	call Random
+	and %11
+	and a
+	jr z, .finishrollgender
+	ld a, 1
+	jr .finishrollgender
+.nextratio2
+	cp GENDER_F75
+	jr nz, .nextratio3
+	call Random
+	and %11
+	and a
+	ld a, 1
+	jr z, .finishrollgender
+	ld a, 0
+	jr .finishrollgender
+.nextratio3
+	call Random    ;else, 50/50
+	and %1
+.finishrollgender
+	rrca
+	ld [wSeerCaughtGender], a
 	ret

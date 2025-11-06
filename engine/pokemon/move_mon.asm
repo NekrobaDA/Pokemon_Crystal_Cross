@@ -1647,6 +1647,7 @@ CalcMonStatC:
 GivePoke::
 	push de
 	push bc
+	callfar GenerateGender
 	xor a ; PARTYMON
 	ld [wMonType], a
 	call TryAddMonToParty

@@ -166,15 +166,6 @@ SetCaughtData:
 	ld hl, wPartyMon1CaughtLevel
 	call GetPartyLocation
 SetBoxmonOrEggmonCaughtData:
-;	ld a, [wTimeOfDay]
-;	inc a
-;	rrca
-;	rrca
-;	and CAUGHT_TIME_MASK
-;	ld b, a
-;	ld a, [wCurPartyLevel]
-;	or b
-;	ld [hli], a
 ;new store caught ball code
 	ld a, [wCurItem]
 	cp POKE_BALL
@@ -235,8 +226,8 @@ SetBoxmonOrEggmonCaughtData:
 .NotPokecenter2F:
 	call GetWorldMapLocation
 	ld b, a
-	ld a, [wPlayerGender]
-	rrca ; shift bit 0 (PLAYERGENDER_FEMALE_F) to bit 7 (CAUGHT_GENDER_MASK)
+	ld a, [wSeerCaughtGender]  ;gender of caught pokemon
+;	rrca ; shift not needed here as already pre-shifted when generated
 	or b
 	ld [hl], a
 	ret
