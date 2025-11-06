@@ -449,7 +449,7 @@ DayCare_GiveEgg:
 	ld hl, wPartyCount
 	ld a, [hl]
 	cp PARTY_LENGTH
-	jr nc, .PartyFull
+	jp nc, .PartyFull
 	inc a
 	ld [hl], a
 
@@ -509,6 +509,15 @@ DayCare_GiveEgg:
 	ld [hli], a
 	ld [hl], a
 	and a
+	
+	farcall GenerateGender          ;generate gender now so gender remains consistant
+	ld a, [wPartyCount]             ;if the egg is hatched and then the game reset
+	dec a
+	ld hl, wPartyMon1CaughtGender
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [wSeerCaughtGender]
+	ld [hl], a
 	ret
 
 .PartyFull:

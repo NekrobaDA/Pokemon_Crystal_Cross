@@ -226,6 +226,14 @@ SetBoxmonOrEggmonCaughtData:
 .NotPokecenter2F:
 	call GetWorldMapLocation
 	ld b, a
+	ld a, [hTemp]              ;egg hatching check
+	cp 2
+	jr nz, .proceednormally
+	
+	ld a, [hl]                 ;hatching eggs already have a gender stored
+	ld [wSeerCaughtGender], a  ;so prevent overwriting it
+	
+.proceednormally	
 	ld a, [wSeerCaughtGender]  ;gender of caught pokemon
 ;	rrca ; shift not needed here as already pre-shifted when generated
 	or b
@@ -274,6 +282,8 @@ SetEggMonCaughtData:
 	push af
 	ld a, CAUGHT_EGG_LEVEL
 	ld [wCurPartyLevel], a
+	ld a, 2
+	ld [hTemp], a
 	call SetBoxmonOrEggmonCaughtData
 	pop af
 	ld [wCurPartyLevel], a

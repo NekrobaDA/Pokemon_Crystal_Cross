@@ -197,23 +197,37 @@ DayCareStep::
 	ld [hl], a
 	callfar CheckBreedmonCompatibility
 	ld a, [wBreedingCompatibility]
-	cp 230
-	ld b, 60 percent + 1
-	jr nc, .okay
+	cp 230                 ;if not higher than 230
+	jr c, .do_next         ;go to next check
+	call Random  
+	cp 75      ;~70%
+	ret nc
+	jr .okay
+	
+.do_next	
 	ld a, [wBreedingCompatibility]
 	cp 170
-	ld b, 50 percent
-	jr nc, .okay
+	jr c, .do_next2
+	call Random  
+	cp 115     ;~55%
+	ret nc
+	jr .okay
+	
+.do_next2	
 	ld a, [wBreedingCompatibility]
 	cp 110
-	ld b, 40 percent
-	jr nc, .okay
-	ld b, 30 percent
+	jr c, .do_next3
+	call Random
+	cp 140     ;~45
+	ret nc
+	jr .okay
+
+.do_next3	
+	call Random
+	cp 175     ;~30
+	ret nc
 
 .okay
-	call Random
-	cp b
-	ret nc
 	ld hl, wDayCareMan
 	res DAYCAREMAN_MONS_COMPATIBLE_F, [hl]
 	set DAYCAREMAN_HAS_EGG_F, [hl]
