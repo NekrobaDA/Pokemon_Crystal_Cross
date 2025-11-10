@@ -270,7 +270,8 @@ HPBarAnim_UpdateHPRemaining:
 	ld de, SCREEN_WIDTH + 1
 .loaded_de
 	push hl
-	ld a, [wDittoFlag]
+;	ld a, [wDittoFlag]
+	ld a, [wTempMailType]
 	cp 7
 	jr nz, .skipredirect
 	hlcoord 15, 10
@@ -278,12 +279,6 @@ HPBarAnim_UpdateHPRemaining:
 	ld [hl], a
 	
 	add hl, de
-;	dec hl
-;	ld a, [wCurHPAnimOldHP]
-;	ld [wStringBuffer2 + 1], a
-;	ld a, [wCurHPAnimOldHP + 1]
-;	ld [wStringBuffer2], a
-;	ld de, wStringBuffer2
 	call DepleteHPNumberFunction
 	hlcoord 15, 10
 	jr .printnumber
@@ -294,12 +289,6 @@ HPBarAnim_UpdateHPRemaining:
 	ld [hli], a
 	ld [hli], a
 	ld [hld], a
-;	dec hl
-;	ld a, [wCurHPAnimOldHP]
-;	ld [wStringBuffer2 + 1], a
-;	ld a, [wCurHPAnimOldHP + 1]
-;	ld [wStringBuffer2], a
-;	ld de, wStringBuffer2
 	call DepleteHPNumberFunction
 
 .printnumber

@@ -55,3 +55,13 @@ CopyBackpic::
 	dec b
 	jr nz, .outer_loop
 	ret
+	
+ShowLinkBattleParticipantsAfterEnd::
+	ld a, [wCurOTMon]
+	ld hl, wOTPartyMon1Status
+	call GetPartyLocation
+	ld a, [wEnemyMonStatus]
+	ld [hl], a
+	call ClearTilemap
+	farcall _ShowLinkBattleParticipants
+	ret

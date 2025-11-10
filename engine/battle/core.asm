@@ -5202,6 +5202,7 @@ PrintPlayerHUD:
 	ld a, [wCurBattleMon]
 	ld hl, wPartyMon1DVs
 	call GetPartyLocation
+	
 	ld de, wTempMonDVs
 	ld a, [hli]
 	ld [de], a
@@ -5212,6 +5213,7 @@ PrintPlayerHUD:
 	ld de, wTempMonLevel
 	ld bc, $11
 	call CopyBytes
+	
 	ld a, [wCurBattleMon]
 	ld hl, wPartyMon1Species
 	call GetPartyLocation
@@ -5219,11 +5221,19 @@ PrintPlayerHUD:
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
 	call GetBaseData
+	
+	ld a, [wCurBattleMon]          ;fixes gender changing when opponent swaps pokemon
+	ld hl, wPartyMon1CaughtGender
+	call GetPartyLocation
+	ld a, [hl]
+;	ld [wTempMonCaughtGender], a
+	ld [wSeerCaughtLevel], a
 
 	pop hl
 	dec hl
 
-	ld a, 0
+;	ld a, $3
+	ld a, $5
 	ld [wMonType], a
 	callfar GetGender
 	ld a, " "
@@ -5250,7 +5260,8 @@ PrintPlayerHUD:
 
 .copy_level	
 ;check for start-button info toggle, if so, display instead;
-	ld a, [wDittoFlag]
+;	ld a, [wDittoFlag]
+	ld a, [wTempMailType]
 	cp 7
 	ret nz
 
@@ -5259,7 +5270,8 @@ PrintPlayerHUD:
 	ld [wTempMonLevel], a
 	call PrintLevel
 	
-	ld a, 0
+;	ld a, 0
+	ld a, $5
 	ld [wMonType], a
 	callfar GetGender
 	ld a, " "
@@ -5434,7 +5446,8 @@ DrawEnemyHUD:
 	call DrawEnemyHPSymbol
 	
 ;check for start-button info toggle, if so, display instead;
-	ld a, [wDittoFlag]
+;	ld a, [wDittoFlag]
+	ld a, [wTempMailType]
 	cp 7
 	ret nz
 
@@ -5456,9 +5469,9 @@ UpdateHPPal:
 	ret z
 	jp FinishBattleAnim
 
-Battle_DummyFunction:
+;Battle_DummyFunction:
 ; called before placing either battler's nickname in the HUD
-	ret
+;	ret
 
 BattleMenu:
 	xor a
@@ -6646,10 +6659,6 @@ LoadEnemyMon:
 
 ; Wild DVs
 ; Here's where the fun starts
-;	call Random          ;roll gender (50/50 ratio)
-;	and %1
-;	rrca
-;	ld [wSeerCaughtGender], a
 	callfar GenerateGender
 
 ; Roaming monsters (Entei, Raikou) work differently
@@ -6715,17 +6724,21 @@ LoadEnemyMon:
 	cp GROUP_JOHTO_SAFARI_GATE
 	jr nz, .nope
 
+;rollshiny
 	call Random
-	cp 7
-	jr nc, .trynext
-	ld b, ATKDEFDV_SHINY ; $ea
-	ld c, SPDSPCDV_SHINY ; $aa
-	jr .UpdateDVs
-.trynext:
-	call Random
-	cp 7
+	cp 16
 	jr nc, .skipshine
-	ld b, ATKDEFDV_SHINYF ; $ea
+	call Random
+	and %1111 ;0-15
+	rrca
+	rrca
+	rrca
+	rrca
+	ld b, a
+	ld a, $a
+	or b
+	ld b, a
+.gotDV
 	ld c, SPDSPCDV_SHINY ; $aa
 	jr .UpdateDVs
 
@@ -6736,7 +6749,7 @@ LoadEnemyMon:
 	jr z, .skipshine
 	
 	farcall GenerateSwarmShiny
-	jp .next
+	jr .next
 
 .skipshine:
 ; Generate new random DVs
@@ -6753,7 +6766,6 @@ LoadEnemyMon:
 	ld [hl], c
 	
 .next
-
 ; We've still got more to do if we're dealing with a wild monster
 	ld a, [wBattleMode]
 	dec a
@@ -9080,17 +9092,15 @@ CheckPayDay:
 	call ClearBGPalettes
 	ret
 
-ShowLinkBattleParticipantsAfterEnd:
-;	farcall StubbedTrainerRankings_LinkBattles
-;	farcall BackupMobileEventIndex
-	ld a, [wCurOTMon]
-	ld hl, wOTPartyMon1Status
-	call GetPartyLocation
-	ld a, [wEnemyMonStatus]
-	ld [hl], a
-	call ClearTilemap
-	farcall _ShowLinkBattleParticipants
-	ret
+;ShowLinkBattleParticipantsAfterEnd:
+;	ld a, [wCurOTMon]
+;	ld hl, wOTPartyMon1Status
+;	call GetPartyLocation
+;	ld a, [wEnemyMonStatus]
+;	ld [hl], a
+;	call ClearTilemap
+;	farcall _ShowLinkBattleParticipants
+;	ret
 
 DisplayLinkBattleResult:
 	ld a, [wBattleResult]
@@ -9346,7 +9356,7 @@ GetRoamMonMapGroup:
 	cp b
 	ld hl, wRoamMon4MapGroup
 	ret z
-	;ld a, [wRoamMon5Species]
+	ld a, [wRoamMon5Species]
 	;cp b
 	ld hl, wRoamMon5MapGroup
 	ret ;z
@@ -9372,7 +9382,7 @@ GetRoamMonMapNumber:
 	cp b
 	ld hl, wRoamMon4MapNumber
 	ret z
-	;ld a, [wRoamMon5Species]
+	ld a, [wRoamMon5Species]
 	;cp b
 	ld hl, wRoamMon5MapNumber
 	ret ;z
@@ -9399,7 +9409,7 @@ GetRoamMonHP:
 	cp b
 	ld hl, wRoamMon4HP
 	ret z
-	;ld a, [wRoamMon5Species]
+	ld a, [wRoamMon5Species]
 	;cp b
 	ld hl, wRoamMon5HP
 	ret ;z
@@ -9426,7 +9436,7 @@ GetRoamMonDVs:
 	cp b
 	ld hl, wRoamMon4DVs
 	ret z
-	;ld a, [wRoamMon5Species]
+	ld a, [wRoamMon5Species]
 	;cp b
 	ld hl, wRoamMon5DVs
 	ret
@@ -9758,62 +9768,6 @@ GetTrainerBackpic:
 	ld c, 7 * 7
 	predef DecompressGet2bpp
 	ret
-
-;CopyBackpic:
-;	ldh a, [rSVBK]
-;	push af
-;	ld a, BANK(wDecompressScratch)
-;	ldh [rSVBK], a
-;	ld hl, vTiles0
-;	ld de, vTiles2 tile $31
-;	ldh a, [hROMBank]
-;	ld b, a
-;	ld c, 7 * 7
-;	call Get2bpp
-;	pop af
-;	ldh [rSVBK], a
-;	call .LoadTrainerBackpicAsOAM
-;	ld a, $31
-;	ldh [hGraphicStartTile], a
-;	hlcoord 2, 6
-;	lb bc, 6, 6
-;	predef PlaceGraphic
-;	ret
-
-;.LoadTrainerBackpicAsOAM:
-;	ld hl, wVirtualOAMSprite00
-;	xor a
-;	ldh [hMapObjectIndex], a
-;	ld b, 6
-;	ld e, (SCREEN_WIDTH + 1) * TILE_WIDTH
-;.outer_loop
-;	ld c, 3
-;	ld d, 8 * TILE_WIDTH
-;.inner_loop
-;	ld [hl], d ; y
-;	inc hl
-;	ld [hl], e ; x
-;	inc hl
-;	ldh a, [hMapObjectIndex]
-;	ld [hli], a ; tile id
-;	inc a
-;	ldh [hMapObjectIndex], a
-;	ld a, PAL_BATTLE_OB_PLAYER
-;	ld [hli], a ; attributes
-;	ld a, d
-;	add 1 * TILE_WIDTH
-;	ld d, a
-;	dec c
-;	jr nz, .inner_loop
-;	ldh a, [hMapObjectIndex]
-;	add $3
-;	ldh [hMapObjectIndex], a
-;	ld a, e
-;	add 1 * TILE_WIDTH
-;	ld e, a
-;	dec b
-;	jr nz, .outer_loop
-;	ret
 
 BattleStartMessage:
 	ld a, [wBattleMode]

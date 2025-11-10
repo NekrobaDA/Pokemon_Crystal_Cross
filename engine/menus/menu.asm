@@ -336,19 +336,24 @@ _2DMenuInterpretJoypad:
 	cp 7
 	jr nz, .notinbattle
 
-	ld a, [wDittoFlag]
+;	ld a, [wDittoFlag]
+	ld a, [wTempMailType]
 	cp 7
 	jr z, .resetflag
 	
 	ld a, 7
-	ld [wDittoFlag], a
+;	ld [wDittoFlag], a
+	ld [wTempMailType], a
+
 	farcall _UpdateBattleHUDs
 	call LoadTilemapToTempTilemap
 	ret
 	
 .resetflag
 	xor a
-	ld [wDittoFlag], a
+;	ld [wDittoFlag], a
+	ld [wTempMailType], a
+	
 	farcall _UpdateBattleHUDs
 	call LoadTilemapToTempTilemap
 	ret

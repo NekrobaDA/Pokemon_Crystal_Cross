@@ -59,7 +59,8 @@ DrawHP:
 	call DrawBattleHPBar
 	pop hl
 
-	ld a, [wDittoFlag]
+;	ld a, [wDittoFlag]
+	ld a, [wTempMailType]
 	cp 7
 	jr z, .skipHP
 
