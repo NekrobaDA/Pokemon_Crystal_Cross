@@ -1,4 +1,7 @@
 LoadBattleMenu:
+	ld a, 7
+	ld [wTempMailSpecies], a
+
 	ld hl, BattleMenuHeader
 	call LoadMenuHeader
 	ld a, [wBattleMenuCursorPosition]
@@ -35,7 +38,7 @@ BattleMenuHeader:
 	db 1 ; default option
 
 .MenuData:
-	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
+	db STATICMENU_CURSOR | STATICMENU_DISABLE_B | STATICMENU_ENABLE_START ; flags
 	dn 2, 2 ; rows, columns
 	db 6 ; spacing
 	dba .Text

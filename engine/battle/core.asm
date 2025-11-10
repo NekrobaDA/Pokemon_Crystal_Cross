@@ -5197,11 +5197,6 @@ CheckDanger:
 	ret
 
 PrintPlayerHUD:
-;	ld de, wBattleMonNick
-;	hlcoord 10, 7
-;	call Battle_DummyFunction
-;	call PlaceString
-
 	push bc
 
 	ld a, [wCurBattleMon]
@@ -5238,7 +5233,6 @@ PrintPlayerHUD:
 	ld a, "♀"
 
 .got_gender_char
-;	hlcoord 17, 8
 	hlcoord 10, 10
 	ld [hl], a
 	hlcoord 10, 10
@@ -5252,12 +5246,44 @@ PrintPlayerHUD:
 	ld a, b
 	cp " "
 	jr nz, .copy_level ; male or female
-	dec hl ; genderless
+;	dec hl ; genderless
 
-.copy_level
-;	ld a, [wBattleMonLevel]
-;	ld [wTempMonLevel], a
-;	jp PrintLevel
+.copy_level	
+;check for start-button info toggle, if so, display instead;
+	ld a, [wDittoFlag]
+	cp 7
+	ret nz
+
+	hlcoord 11, 10
+	ld a, [wBattleMonLevel]
+	ld [wTempMonLevel], a
+	call PrintLevel
+	
+	ld a, 0
+	ld [wMonType], a
+	callfar GetGender
+	ld a, " "
+	jr c, .skip_gender
+	ld a, "♂"
+	jr nz, .got_gender_char2
+	ld a, "♀"
+
+.got_gender_char2
+	hlcoord 10, 10
+	ld [hl], a
+	
+	hlcoord 14, 10
+	ld a, ":"
+	ld [hl], a
+	hlcoord 15, 10
+	ld a, " "
+	ld [hl], a
+
+.skip_gender
+	hlcoord 15, 10
+	ld de, wBattleMonHP
+	lb bc, 2, 3
+	call PrintNum
 	ret
 
 UpdateEnemyHUD::
@@ -5406,6 +5432,15 @@ DrawEnemyHUD:
 	hlcoord 8, 1
 	ld b, 0
 	call DrawEnemyHPSymbol
+	
+;check for start-button info toggle, if so, display instead;
+	ld a, [wDittoFlag]
+	cp 7
+	ret nz
+
+	ld de, wEnemyMonNick
+	hlcoord 1, 0
+	call PlaceString
 	ret
 
 UpdateEnemyHPPal:
@@ -5474,6 +5509,7 @@ BattleMenu:
 
 BattleMenu_Fight:
 	xor a
+	ld [wTempMailSpecies], a	
 	ld [wNumFleeAttempts], a
 	call SafeLoadTempTilemapToTilemap
 	and a
@@ -5485,6 +5521,8 @@ LoadBattleMenu2:
 	ret
 
 BattleMenu_Pack:
+	xor a
+	ld [wTempMailSpecies], a
 	ld a, [wLinkMode]
 	and a
 	jp nz, .ItemsCantBeUsed
@@ -5592,6 +5630,8 @@ BattleMenu_Pack:
 	ret
 
 BattleMenu_PKMN:
+	xor a
+	ld [wTempMailSpecies], a
 	call LoadStandardMenuHeader
 BattleMenuPKMN_ReturnFromStats:
 	call ExitMenu
@@ -8995,6 +9035,7 @@ CleanUpBattleRAM:
 	ld [wKeyItemsPocketScrollPosition], a
 	ld [wItemsPocketScrollPosition], a
 	ld [wBallsPocketScrollPosition], a
+	ld [wTempMailSpecies], a            ;used for start-toggle
 	ld hl, wPlayerSubStatus1
 	ld b, wEnemyFuryCutterCount - wPlayerSubStatus1
 .loop
@@ -9718,61 +9759,61 @@ GetTrainerBackpic:
 	predef DecompressGet2bpp
 	ret
 
-CopyBackpic:
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wDecompressScratch)
-	ldh [rSVBK], a
-	ld hl, vTiles0
-	ld de, vTiles2 tile $31
-	ldh a, [hROMBank]
-	ld b, a
-	ld c, 7 * 7
-	call Get2bpp
-	pop af
-	ldh [rSVBK], a
-	call .LoadTrainerBackpicAsOAM
-	ld a, $31
-	ldh [hGraphicStartTile], a
-	hlcoord 2, 6
-	lb bc, 6, 6
-	predef PlaceGraphic
-	ret
+;CopyBackpic:
+;	ldh a, [rSVBK]
+;	push af
+;	ld a, BANK(wDecompressScratch)
+;	ldh [rSVBK], a
+;	ld hl, vTiles0
+;	ld de, vTiles2 tile $31
+;	ldh a, [hROMBank]
+;	ld b, a
+;	ld c, 7 * 7
+;	call Get2bpp
+;	pop af
+;	ldh [rSVBK], a
+;	call .LoadTrainerBackpicAsOAM
+;	ld a, $31
+;	ldh [hGraphicStartTile], a
+;	hlcoord 2, 6
+;	lb bc, 6, 6
+;	predef PlaceGraphic
+;	ret
 
-.LoadTrainerBackpicAsOAM:
-	ld hl, wVirtualOAMSprite00
-	xor a
-	ldh [hMapObjectIndex], a
-	ld b, 6
-	ld e, (SCREEN_WIDTH + 1) * TILE_WIDTH
-.outer_loop
-	ld c, 3
-	ld d, 8 * TILE_WIDTH
-.inner_loop
-	ld [hl], d ; y
-	inc hl
-	ld [hl], e ; x
-	inc hl
-	ldh a, [hMapObjectIndex]
-	ld [hli], a ; tile id
-	inc a
-	ldh [hMapObjectIndex], a
-	ld a, PAL_BATTLE_OB_PLAYER
-	ld [hli], a ; attributes
-	ld a, d
-	add 1 * TILE_WIDTH
-	ld d, a
-	dec c
-	jr nz, .inner_loop
-	ldh a, [hMapObjectIndex]
-	add $3
-	ldh [hMapObjectIndex], a
-	ld a, e
-	add 1 * TILE_WIDTH
-	ld e, a
-	dec b
-	jr nz, .outer_loop
-	ret
+;.LoadTrainerBackpicAsOAM:
+;	ld hl, wVirtualOAMSprite00
+;	xor a
+;	ldh [hMapObjectIndex], a
+;	ld b, 6
+;	ld e, (SCREEN_WIDTH + 1) * TILE_WIDTH
+;.outer_loop
+;	ld c, 3
+;	ld d, 8 * TILE_WIDTH
+;.inner_loop
+;	ld [hl], d ; y
+;	inc hl
+;	ld [hl], e ; x
+;	inc hl
+;	ldh a, [hMapObjectIndex]
+;	ld [hli], a ; tile id
+;	inc a
+;	ldh [hMapObjectIndex], a
+;	ld a, PAL_BATTLE_OB_PLAYER
+;	ld [hli], a ; attributes
+;	ld a, d
+;	add 1 * TILE_WIDTH
+;	ld d, a
+;	dec c
+;	jr nz, .inner_loop
+;	ldh a, [hMapObjectIndex]
+;	add $3
+;	ldh [hMapObjectIndex], a
+;	ld a, e
+;	add 1 * TILE_WIDTH
+;	ld e, a
+;	dec b
+;	jr nz, .outer_loop
+;	ret
 
 BattleStartMessage:
 	ld a, [wBattleMode]

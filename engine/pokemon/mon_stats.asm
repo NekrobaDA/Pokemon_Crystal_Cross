@@ -59,6 +59,10 @@ DrawHP:
 	call DrawBattleHPBar
 	pop hl
 
+	ld a, [wDittoFlag]
+	cp 7
+	jr z, .skipHP
+
 ; Print HP
 	bccoord 1, 1, 0
 	add hl, bc
@@ -78,6 +82,7 @@ DrawHP:
 	ld de, wTempMonMaxHP
 	lb bc, 2, 3
 	call PrintNum
+.skipHP
 	pop hl
 	pop de
 	ret

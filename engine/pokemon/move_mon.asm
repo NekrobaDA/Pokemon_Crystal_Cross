@@ -800,7 +800,7 @@ RetrieveMonFromDayCareMan:
 	ld de, SFX_TRANSACTION
 	call PlaySFX
 	call WaitSFX
-	call GetBreedMon1LevelGrowth
+	farcall GetBreedMon1LevelGrowth
 	ld a, b
 	ld [wPrevPartyLevel], a
 	ld a, e
@@ -815,7 +815,7 @@ RetrieveMonFromDayCareLady:
 	ld de, SFX_TRANSACTION
 	call PlaySFX
 	call WaitSFX
-	call GetBreedMon2LevelGrowth
+	farcall GetBreedMon2LevelGrowth
 	ld a, b
 	ld [wPrevPartyLevel], a
 	ld a, e

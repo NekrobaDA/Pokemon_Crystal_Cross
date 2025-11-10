@@ -270,20 +270,51 @@ HPBarAnim_UpdateHPRemaining:
 	ld de, SCREEN_WIDTH + 1
 .loaded_de
 	push hl
+	ld a, [wDittoFlag]
+	cp 7
+	jr nz, .skipredirect
+	hlcoord 15, 10
+	ld a, " "
+	ld [hl], a
+	
+	add hl, de
+;	dec hl
+;	ld a, [wCurHPAnimOldHP]
+;	ld [wStringBuffer2 + 1], a
+;	ld a, [wCurHPAnimOldHP + 1]
+;	ld [wStringBuffer2], a
+;	ld de, wStringBuffer2
+	call DepleteHPNumberFunction
+	hlcoord 15, 10
+	jr .printnumber
+
+.skipredirect	
 	add hl, de
 	ld a, " "
 	ld [hli], a
 	ld [hli], a
 	ld [hld], a
+;	dec hl
+;	ld a, [wCurHPAnimOldHP]
+;	ld [wStringBuffer2 + 1], a
+;	ld a, [wCurHPAnimOldHP + 1]
+;	ld [wStringBuffer2], a
+;	ld de, wStringBuffer2
+	call DepleteHPNumberFunction
+
+.printnumber
+	lb bc, 2, 3
+	call PrintNum
+	pop hl
+	ret
+	
+DepleteHPNumberFunction:
 	dec hl
 	ld a, [wCurHPAnimOldHP]
 	ld [wStringBuffer2 + 1], a
 	ld a, [wCurHPAnimOldHP + 1]
 	ld [wStringBuffer2], a
 	ld de, wStringBuffer2
-	lb bc, 2, 3
-	call PrintNum
-	pop hl
 	ret
 
 HPBarAnim_PaletteUpdate:

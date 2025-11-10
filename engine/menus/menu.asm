@@ -33,6 +33,13 @@ Get2DMenuSelection:
 	call StaticMenuJoypad
 	call MenuClickSound
 Mobile_GetMenuSelection:
+;	ld hl, wMenuJoypadFilter
+;	set START_F, [hl]
+	
+;	call GetMenuJoypad
+;	bit START_F, a
+;	jr nz, .pressedstart
+	
 	ld a, [wMenuDataFlags]
 	bit 1, a
 	jr z, .skip
@@ -68,6 +75,13 @@ Mobile_GetMenuSelection:
 .quit2
 	scf
 	ret
+	
+;.pressedstart
+;	hlcoord 11, 10
+;	ld a, [wBattleMonLevel]
+;	ld [wTempMonLevel], a
+;	call PrintLevel
+;	ret
 
 Get2DMenuNumberOfColumns:
 	ld a, [wMenuData_2DMenuDimensions]
@@ -304,16 +318,43 @@ _2DMenuInterpretJoypad:
 	bit SELECT_F, a
 	jp nz, .a_b_start_select
 	bit START_F, a
-	jp nz, .a_b_start_select
+;	jp nz, .a_b_start_select
+	jr nz, .pressedstart
 	bit D_RIGHT_F, a
-	jr nz, .d_right
+	jp nz, .d_right
 	bit D_LEFT_F, a
-	jr nz, .d_left
+	jp nz, .d_left
 	bit D_UP_F, a
-	jr nz, .d_up
+	jp nz, .d_up
 	bit D_DOWN_F, a
 	jr nz, .d_down
 	and a
+	ret
+	
+.pressedstart
+	ld a, [wTempMailSpecies]
+	cp 7
+	jr nz, .notinbattle
+
+	ld a, [wDittoFlag]
+	cp 7
+	jr z, .resetflag
+	
+	ld a, 7
+	ld [wDittoFlag], a
+	farcall _UpdateBattleHUDs
+	call LoadTilemapToTempTilemap
+	ret
+	
+.resetflag
+	xor a
+	ld [wDittoFlag], a
+	farcall _UpdateBattleHUDs
+	call LoadTilemapToTempTilemap
+	ret
+	
+.notinbattle
+	xor a
 	ret
 
 .set_bit_7
@@ -726,3 +767,6 @@ _InitVerticalMenuCursor::
 	ld [hli], a
 	ld [hli], a
 	ret
+	
+Blankstring:
+	db "    @"
