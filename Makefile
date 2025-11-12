@@ -68,6 +68,10 @@ compare: $(roms)
 tools:
 	$(MAKE) -C tools/
 
+#uncomment to use freespace finder	
+#all:
+#	tools/free_space.awk BANK=all pokecrystal.map
+
 # -w added to surpress non-fatal warnings
 RGBASMFLAGS = -L -Weverything -w
 # Create a sym/map for debug purposes if `make` run with `DEBUG=1`
@@ -123,7 +127,7 @@ pokecrystal11_debug_base = dbg
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) -n $*.sym -m $*.map -l layout.link -o $@ $(filter %.o,$^)
 	$(RGBFIX) $($*_opt) $@
-	tools/stadium --base $($*_base) $@
+#	tools/stadium --base $($*_base) $@
 
 
 ### LZ compression rules

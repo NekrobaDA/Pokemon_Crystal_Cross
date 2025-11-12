@@ -1,13 +1,13 @@
 #!/usr/bin/gawk -f
 
-# Usage:  tools/free_space.awk [BANK=<bank_spec>] pokecrystal.map
+# Usage:  tools/free_space.awk [BANK=<bank_spec>] project.map
 
 # The BANK argument allows printing free space in one, all, or none of the ROM's banks.
 # Valid arguments are numbers (in decimal "42" or hexadecimal "0x2a"), "all" or "none".
 # If not specified, defaults to "none".
 # The `BANK` argument MUST be before the map file name, otherwise it has no effect!
-# Yes:  tools/free_space.awk BANK=all pokecrystal.map
-# No:   tools/free_space.awk pokecrystal.map BANK=42
+# Yes:  tools/free_space.awk BANK=all project.map
+# No:   tools/free_space.awk project.map BANK=42
 
 # Copyright (c) 2020, Eldred Habert.
 # SPDX-License-Identifier: MIT
@@ -38,17 +38,25 @@ function register_bank(amount) {
 		printf "Bank %3d: %5d/16384 (%.2f%%)\n", bank_num, amount, amount * 100 / 16384
 	}
 }
+function register_bank_str(str) {
+    if (str ~ /\$[0-9A-F]+/) {
+        register_bank(strtonum("0x" substr(str, 2)))
+    } else {
+        printf "Malformed number? \"%s\" does not start with '$'\n", str
+    }
+}
 
-rom_bank && toupper($0) ~ /^[ \t]*EMPTY/ {
+rom_bank && toupper($0) ~ /^[ \t]*EMPTY$/ {
 	# Empty bank
 	register_bank(16384)
 }
 rom_bank && toupper($0) ~ /^[ \t]*SLACK:[ \t]/ {
-	if ($2 ~ /\$[0-9A-F]+/) {
-		register_bank(strtonum("0x" substr($2, 2)))
-	} else {
-		printf "Malformed slack line? \"%s\" does not start with '$'\n", $2
-	}
+    # Old (rgbds <=0.6.0) end-of-bank free space
+    register_bank_str($2)
+}
+rom_bank && toupper($0) ~ /^[ \t]*TOTAL EMPTY:[ \t]/ {
+    # New (rgbds >=0.6.1) total free space
+    register_bank_str($3)
 }
 
 END {

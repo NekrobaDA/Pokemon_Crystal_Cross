@@ -330,7 +330,7 @@ GetBaseData::
 	jr .end
 
 .egg
-	ld de, UnusedEggPic
+;	ld de, UnusedEggPic
 
 ; Sprite dimensions
 	ld b, $55 ; 5x5

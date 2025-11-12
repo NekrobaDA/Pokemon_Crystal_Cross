@@ -15,8 +15,8 @@ Route44_Blocks:
 Route28_Blocks:
 	INCBIN "maps/Route28.ablk"
 
-BetaPlayersHouse2F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaPlayersHouse2F.ablk"
+;BetaPlayersHouse2F_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaPlayersHouse2F.ablk"
 
 CeladonCity_Blocks:
 	INCBIN "maps/CeladonCity.ablk"
@@ -30,26 +30,26 @@ Route2_Blocks:
 ElmsHouse_Blocks:
 	INCBIN "maps/ElmsHouse.ablk"
 
-BetaSproutTower1_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTower1.ablk"
+;BetaSproutTower1_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTower1.ablk"
 
 Route11_Blocks:
 	INCBIN "maps/Route11.ablk"
 
-BetaSproutTower5_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTower5.ablk"
+;BetaSproutTower5_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTower5.ablk"
 
 Route15_Blocks:
 	INCBIN "maps/Route15.ablk"
 
-BetaSproutTower9_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTower9.ablk"
+;BetaSproutTower9_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTower9.ablk"
 
 Route19_Blocks:
 	INCBIN "maps/Route19.ablk"
 
-BetaBlackthornCity_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaBlackthornCity.ablk"
+;BetaBlackthornCity_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaBlackthornCity.ablk"
 
 Route10South_Blocks:
 	INCBIN "maps/Route10South.ablk"
@@ -91,8 +91,8 @@ Route25_Blocks:
 Route24_Blocks:
 	INCBIN "maps/Route24.ablk"
 
-BetaVioletCity_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaVioletCity.ablk"
+;BetaVioletCity_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaVioletCity.ablk"
 
 Route3_Blocks:
 	INCBIN "maps/Route3.ablk"
@@ -100,26 +100,26 @@ Route3_Blocks:
 PewterCity_Blocks:
 	INCBIN "maps/PewterCity.ablk"
 
-BetaSilverCaveOutside_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSilverCaveOutside.ablk"
+;BetaSilverCaveOutside_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSilverCaveOutside.ablk"
 
-BetaSproutTower2_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTower2.ablk"
+;BetaSproutTower2_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTower2.ablk"
 
 Route12_Blocks:
 	INCBIN "maps/Route12.ablk"
 
-BetaGoldenrodCity_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaGoldenrodCity.ablk"
+;BetaGoldenrodCity_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaGoldenrodCity.ablk"
 
 Route20_Blocks:
 	INCBIN "maps/Route20.ablk"
 
-BetaSproutTower6_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTower6.ablk"
+;BetaSproutTower6_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTower6.ablk"
 
-BetaPokecenter_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaPokecenter.ablk"
+;BetaPokecenter_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaPokecenter.ablk"
 
 Route30_Blocks:
 	INCBIN "maps/Route30.ablk"
@@ -142,8 +142,8 @@ FuchsiaCity_Blocks:
 Route38_Blocks:
 	INCBIN "maps/Route38.ablk"
 
-BetaCianwoodCity_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaCianwoodCity.ablk"
+;BetaCianwoodCity_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaCianwoodCity.ablk"
 
 OlivineTimsHouse_Blocks:
 OlivineHouseBeta_Blocks:
@@ -212,11 +212,11 @@ Route29Route46Gate_Blocks:
 Route5SaffronGate_Blocks:
 	INCBIN "maps/NorthSouthGate.ablk"
 
-BetaEcruteakCity_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaEcruteakCity.ablk"
+;BetaEcruteakCity_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaEcruteakCity.ablk"
 
-BetaCherrygroveCity_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaCherrygroveCity.ablk"
+;BetaCherrygroveCity_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaCherrygroveCity.ablk"
 
 CinnabarIsland_Blocks:
 	INCBIN "maps/CinnabarIsland.ablk"
@@ -227,8 +227,8 @@ Route4_Blocks:
 Route8_Blocks:
 	INCBIN "maps/Route8.ablk"
 
-BetaSproutTower3_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTower3.ablk"
+;BetaSproutTower3_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTower3.ablk"
 
 ViridianCity_Blocks:
 	INCBIN "maps/ViridianCity.ablk"
@@ -239,14 +239,14 @@ Route13_Blocks:
 Route21_Blocks:
 	INCBIN "maps/Route21.ablk"
 
-BetaSproutTower7_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTower7.ablk"
+;BetaSproutTower7_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTower7.ablk"
 
 Route17_Blocks:
 	INCBIN "maps/Route17.ablk"
 
-BetaMahoganyTown_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaMahoganyTown.ablk"
+;BetaMahoganyTown_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaMahoganyTown.ablk"
 
 Route31_Blocks:
 	INCBIN "maps/Route31.ablk"
@@ -278,17 +278,17 @@ Route17Route18Gate_Blocks:
 Route31VioletGate_Blocks:
 	INCBIN "maps/EastWestGate.ablk"
 
-BetaAzaleaTown_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaAzaleaTown.ablk"
+;BetaAzaleaTown_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaAzaleaTown.ablk"
 
 VermilionCity_Blocks:
 	INCBIN "maps/VermilionCity.ablk"
 
-BetaOlivineCity_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaOlivineCity.ablk"
+;BetaOlivineCity_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaOlivineCity.ablk"
 
-BetaNewBarkTown_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaNewBarkTown.ablk"
+;BetaNewBarkTown_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaNewBarkTown.ablk"
 
 ElmsLab_Blocks:
 	INCBIN "maps/ElmsLab.ablk"
@@ -429,8 +429,8 @@ CeladonMansion3F_Blocks:
 CeladonMansionRoof_Blocks:
 	INCBIN "maps/CeladonMansionRoof.ablk"
 
-BetaHouse_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaHouse.ablk"
+;BetaHouse_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaHouse.ablk"
 
 CeladonGameCorner_Blocks:
 	INCBIN "maps/CeladonGameCorner.ablk"
@@ -451,8 +451,8 @@ VioletNicknameSpeechHouse_Blocks:
 VioletKylesHouse_Blocks:
 	INCBIN "maps/House2.ablk"
 
-BetaUnionCave_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaUnionCave.ablk"
+;BetaUnionCave_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaUnionCave.ablk"
 
 UnionCaveB1F_Blocks:
 	INCBIN "maps/UnionCaveB1F.ablk"
@@ -471,8 +471,8 @@ Route5UndergroundPathEntrance_Blocks:
 Route6UndergroundPathEntrance_Blocks:
 	INCBIN "maps/UndergroundPathEntrance.ablk"
 
-BetaCapsuleHouse_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaCapsuleHouse.ablk"
+;BetaCapsuleHouse_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaCapsuleHouse.ablk"
 
 KurtsHouse_Blocks:
 	INCBIN "maps/KurtsHouse.ablk"
@@ -501,20 +501,20 @@ RuinsOfAlphAerodactylChamber_Blocks:
 SproutTower1F_Blocks:
 	INCBIN "maps/SproutTower1F.ablk"
 
-BetaSproutTowerCutOut1_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTowerCutOut1.ablk"
+;BetaSproutTowerCutOut1_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTowerCutOut1.ablk"
 
 SproutTower2F_Blocks:
 	INCBIN "maps/SproutTower2F.ablk"
 
-BetaSproutTowerCutOut2_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTowerCutOut2.ablk"
+;BetaSproutTowerCutOut2_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTowerCutOut2.ablk"
 
 SproutTower3F_Blocks:
 	INCBIN "maps/SproutTower3F.ablk"
 
-BetaSproutTowerCutOut3_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSproutTowerCutOut3.ablk"
+;BetaSproutTowerCutOut3_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSproutTowerCutOut3.ablk"
 
 RadioTower1F_Blocks:
 	INCBIN "maps/RadioTower1F.ablk"
@@ -588,8 +588,8 @@ GoldenrodDeptStoreB1F_Blocks:
 GoldenrodUndergroundWarehouse_Blocks:
 	INCBIN "maps/GoldenrodUndergroundWarehouse.ablk"
 
-BetaElevator_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaElevator.ablk"
+;BetaElevator_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaElevator.ablk"
 
 TinTower1F_Blocks:
 	INCBIN "maps/TinTower1F.ablk"
@@ -627,8 +627,8 @@ BurnedTower1F_Blocks:
 BurnedTowerB1F_Blocks:
 	INCBIN "maps/BurnedTowerB1F.ablk"
 
-BetaCaveTestMap_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaCaveTestMap.ablk"
+;BetaCaveTestMap_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaCaveTestMap.ablk"
 
 MountMortar1FOutside_Blocks:
 	INCBIN "maps/MountMortar1FOutside.ablk"
@@ -690,17 +690,17 @@ SilverCaveRoom2_Blocks:
 SilverCaveRoom3_Blocks:
 	INCBIN "maps/SilverCaveRoom3.ablk"
 
-BetaRocketHideoutB2F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaRocketHideoutB2F.ablk"
+;BetaRocketHideoutB2F_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaRocketHideoutB2F.ablk"
 
-BetaRocketHideoutB1F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaRocketHideoutB1F.ablk"
+;BetaRocketHideoutB1F_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaRocketHideoutB1F.ablk"
 
-BetaRocketHideout1F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaRocketHideout1F.ablk"
+;BetaRocketHideout1F_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaRocketHideout1F.ablk"
 
-BetaRocketHideoutB3F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaRocketHideoutB3F.ablk"
+;BetaRocketHideoutB3F_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaRocketHideoutB3F.ablk"
 
 MahoganyMart1F_Blocks:
 MountMoonGiftShop_Blocks:
@@ -748,8 +748,8 @@ MahoganyGym_Blocks:
 OlivineGym_Blocks:
 	INCBIN "maps/OlivineGym.ablk"
 
-BetaUnknownGym_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaUnknownGym.ablk"
+;BetaUnknownGym_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaUnknownGym.ablk"
 
 CianwoodGym_Blocks:
 	INCBIN "maps/CianwoodGym.ablk"
@@ -781,8 +781,8 @@ OlivineLighthouse6F_Blocks:
 
 SECTION "Map Blocks 3", ROMX
 
-BetaSlowpokeWell1F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaSlowpokeWell1F.ablk"
+;BetaSlowpokeWell1F_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaSlowpokeWell1F.ablk"
 
 SlowpokeWellB1F_Blocks:
 	INCBIN "maps/SlowpokeWellB1F.ablk"
@@ -826,8 +826,8 @@ FastShip1F_Blocks:
 FastShipB1F_Blocks:
 	INCBIN "maps/FastShipB1F.ablk"
 
-BetaFastShipInsideCutOut_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaFastShipInsideCutOut.ablk"
+;BetaFastShipInsideCutOut_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaFastShipInsideCutOut.ablk"
 
 FastShipCabins_NNW_NNE_NE_Blocks:
 	INCBIN "maps/FastShipCabins_NNW_NNE_NE.ablk"
@@ -915,14 +915,14 @@ PewterGym_Blocks:
 CeladonGym_Blocks:
 	INCBIN "maps/CeladonGym.ablk"
 
-BetaCeladonMansion1F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaCeladonMansion1F.ablk"
+;BetaCeladonMansion1F_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaCeladonMansion1F.ablk"
 
 CeladonCafe_Blocks:
 	INCBIN "maps/CeladonCafe.ablk"
 
-BetaCeladonMansion2F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaCeladonMansion2F.ablk"
+;BetaCeladonMansion2F_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaCeladonMansion2F.ablk"
 
 RockTunnel1F_Blocks:
 	INCBIN "maps/RockTunnel1F.ablk"
@@ -1042,8 +1042,8 @@ BattleTowerElevator_Blocks:
 BattleTowerOutside_Blocks:
 	INCBIN "maps/BattleTowerOutside.ablk"
 
-BetaBlank_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaBlank.ablk"
+;BetaBlank_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaBlank.ablk"
 
 GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.ablk"
@@ -1069,8 +1069,8 @@ CatalliaHouse2_Blocks:
 Route22_Blocks:
 	INCBIN "maps/Route22.ablk"
 	
-BetaRoute23_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaRoute23.ablk"
+;BetaRoute23_Blocks: ; unreferenced
+;	INCBIN "maps/unused/BetaRoute23.ablk"
 	
 SECTION "Map Blocks 3", ROMX
 

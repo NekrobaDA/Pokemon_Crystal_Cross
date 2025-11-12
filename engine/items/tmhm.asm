@@ -145,7 +145,6 @@ TeachTMHM:
 	and a
 	jr z, .nope
 
-;	farcall StubbedTrainerRankings_TMsHMsTaught
 	ld a, [wCurItem]
 	call IsHM
 	ret c
@@ -159,9 +158,6 @@ TeachTMHM:
 	and a
 	ret
 
-.didnt_use ; unreferenced
-	ld a, 2
-	ld [wItemEffectSucceeded], a
 .learned_move
 	scf
 	ret
@@ -436,19 +432,19 @@ TMHMPocket_GetCurrentLineCoord:
 	jr nz, .loop
 	ret
 
-PlaceMoveNameAfterTMHMName: ; unreferenced
-; Similar to a part of TMHM_DisplayPocketItems.
-	pop hl
-	ld bc, 3
-	add hl, bc
-	predef GetTMHMMove
-	ld a, [wTempTMHM]
-	ld [wPutativeTMHMMove], a
-	call GetMoveName
-	push hl
-	call PlaceString
-	pop hl
-	ret
+;PlaceMoveNameAfterTMHMName: ; unreferenced
+;; Similar to a part of TMHM_DisplayPocketItems.
+;	pop hl
+;	ld bc, 3
+;	add hl, bc
+;	predef GetTMHMMove
+;	ld a, [wTempTMHM]
+;	ld [wPutativeTMHMMove], a
+;	call GetMoveName
+;	push hl
+;	call PlaceString
+;	pop hl
+;	ret
 
 TMHM_CancelString:
 	db "CANCEL@"
@@ -485,36 +481,36 @@ TMHM_PlaySFX_ReadText2:
 	pop de
 	ret
 
-VerboseReceiveTMHM: ; unreferenced
-	call ConvertCurItemIntoCurTMHM
-	call .CheckHaveRoomForTMHM
-	ld hl, .NoRoomTMHMText
-	jr nc, .print
-	ld hl, .ReceivedTMHMText
-.print
-	jp PrintText
+;VerboseReceiveTMHM: ; unreferenced
+;	call ConvertCurItemIntoCurTMHM
+;	call .CheckHaveRoomForTMHM
+;	ld hl, .NoRoomTMHMText
+;	jr nc, .print
+;	ld hl, .ReceivedTMHMText
+;.print
+;	jp PrintText
 
-.NoRoomTMHMText:
-	text_far _NoRoomTMHMText
-	text_end
+;.NoRoomTMHMText:
+;	text_far _NoRoomTMHMText
+;	text_end
 
-.ReceivedTMHMText:
-	text_far _ReceivedTMHMText
-	text_end
+;.ReceivedTMHMText:
+;	text_far _ReceivedTMHMText
+;	text_end
 
-.CheckHaveRoomForTMHM:
-	ld a, [wTempTMHM]
-	dec a
-	ld hl, wTMsHMs
-	ld b, 0
-	ld c, a
-	add hl, bc
-	ld a, [hl]
-	inc a
-	cp MAX_ITEM_STACK + 1
-	ret nc
-	ld [hl], a
-	ret
+;.CheckHaveRoomForTMHM:
+;	ld a, [wTempTMHM]
+;	dec a
+;	ld hl, wTMsHMs
+;	ld b, 0
+;	ld c, a
+;	add hl, bc
+;	ld a, [hl]
+;	inc a
+;	cp MAX_ITEM_STACK + 1
+;	ret nc
+;	ld [hl], a
+;	ret
 
 ConsumeTM:
 	call ConvertCurItemIntoCurTMHM

@@ -392,122 +392,6 @@ AI_Items:
 	call EnemyUsedPotion
 	jp .Use
 
-; Everything up to "End unused" is unused
-
-.UnusedHealItem: ; unreferenced
-; This has similar conditions to .HealItem
-	callfar AICheckEnemyMaxHP
-	jr c, .dont_use
-	push bc
-	ld de, wEnemyMonMaxHP + 1
-	ld hl, wEnemyMonHP + 1
-	ld a, [de]
-	sub [hl]
-	jr z, .check_40_percent
-	dec hl
-	dec de
-	ld c, a
-	sbc [hl]
-	and a
-	jr nz, .check_40_percent
-	ld a, c
-	cp b
-	jp c, .check_50_percent
-	callfar AICheckEnemyQuarterHP
-	jr c, .check_40_percent
-
-.check_50_percent
-	pop bc
-	ld a, [bc]
-	bit UNKNOWN_USE_F, a
-	jp z, .Use
-	call Random
-	cp 50 percent + 1
-	jp c, .Use
-
-.dont_use
-	jp .DontUse
-
-.check_40_percent
-	pop bc
-	ld a, [bc]
-	bit UNKNOWN_USE_F, a
-	jp z, .DontUse
-	call Random
-	cp 39 percent + 1
-	jp c, .Use
-	jp .DontUse
-
-; End unused
-
-.XAccuracy:
-	call .XItem
-	jp c, .DontUse
-	call EnemyUsedXAccuracy
-	jp .Use
-
-.GuardSpec:
-	call .XItem
-	jp c, .DontUse
-	call EnemyUsedGuardSpec
-	jp .Use
-
-.DireHit:
-	call .XItem
-	jp c, .DontUse
-	call EnemyUsedDireHit
-	jp .Use
-
-.XAttack:
-	call .XItem
-	jp c, .DontUse
-	call EnemyUsedXAttack
-	jp .Use
-
-.XDefend:
-	call .XItem
-	jp c, .DontUse
-	call EnemyUsedXDefend
-	jp .Use
-
-.XSpeed:
-	call .XItem
-	jp c, .DontUse
-	call EnemyUsedXSpeed
-	jp .Use
-
-.XSpecial:
-	call .XItem
-	jp c, .DontUse
-	call EnemyUsedXSpecial
-	jp .Use
-
-.XItem:
-	ld a, [wEnemyTurnsTaken]
-	and a
-	jr nz, .notfirstturnout
-	ld a, [bc]
-	bit ALWAYS_USE_F, a
-	jp nz, .Use
-	call Random
-	cp 50 percent + 1
-	jp c, .DontUse
-	ld a, [bc]
-	bit CONTEXT_USE_F, a
-	jp nz, .Use
-	call Random
-	cp 50 percent + 1
-	jp c, .DontUse
-	jp .Use
-.notfirstturnout
-	ld a, [bc]
-	bit ALWAYS_USE_F, a
-	jp z, .DontUse
-	call Random
-	cp 20 percent - 1
-	jp nc, .DontUse
-	jp .Use
-
 .DontUse:
 	scf
 	ret
@@ -711,12 +595,6 @@ EnemyWithdrewText:
 	text_far _EnemyWithdrewText
 	text_end
 
-EnemyUsedFullHealRed: ; unreferenced
-	call AIUsedItemSound
-	call AI_HealStatus
-	ld a, FULL_HEAL_RED ; X_SPEED
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
-
 AI_HealStatus:
 	ld a, [wCurOTMon]
 	ld hl, wOTPartyMon1Status
@@ -727,36 +605,15 @@ AI_HealStatus:
 	ld [wEnemyMonStatus], a
 	; Bug: this should reset SUBSTATUS_NIGHTMARE
 	; Uncomment the 2 lines below to fix
-	; ld hl, wEnemySubStatus1
-	; res SUBSTATUS_NIGHTMARE, [hl]
+	ld hl, wEnemySubStatus1
+	res SUBSTATUS_NIGHTMARE, [hl]
 	; Bug: this should reset SUBSTATUS_CONFUSED
 	; Uncomment the 2 lines below to fix
-	; ld hl, wEnemySubStatus3
-	; res SUBSTATUS_CONFUSED, [hl]
+	ld hl, wEnemySubStatus3
+	res SUBSTATUS_CONFUSED, [hl]
 	ld hl, wEnemySubStatus5
 	res SUBSTATUS_TOXIC, [hl]
 	ret
-
-EnemyUsedXAccuracy:
-	call AIUsedItemSound
-	ld hl, wEnemySubStatus4
-	set SUBSTATUS_X_ACCURACY, [hl]
-	ld a, X_ACCURACY
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
-
-EnemyUsedGuardSpec:
-	call AIUsedItemSound
-	ld hl, wEnemySubStatus4
-	set SUBSTATUS_MIST, [hl]
-	ld a, GUARD_SPEC
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
-
-EnemyUsedDireHit:
-	call AIUsedItemSound
-	ld hl, wEnemySubStatus4
-	set SUBSTATUS_FOCUS_ENERGY, [hl]
-	ld a, DIRE_HIT
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 AICheckEnemyFractionMaxHP: ; unreferenced
 ; Input: a = divisor
@@ -789,36 +646,6 @@ AICheckEnemyFractionMaxHP: ; unreferenced
 	ld a, e
 	sub c
 	ret
-
-EnemyUsedXAttack:
-	ld b, ATTACK
-	ld a, X_ATTACK
-	jr EnemyUsedXItem
-
-EnemyUsedXDefend:
-	ld b, DEFENSE
-	ld a, X_DEFEND
-	jr EnemyUsedXItem
-
-EnemyUsedXSpeed:
-	ld b, SPEED
-	ld a, X_SPEED
-	jr EnemyUsedXItem
-
-EnemyUsedXSpecial:
-	ld b, SP_ATTACK
-	ld a, X_SPECIAL
-
-; Parameter
-; a = ITEM_CONSTANT
-; b = BATTLE_CONSTANT (ATTACK, DEFENSE, SPEED, SP_ATTACK, SP_DEFENSE, ACCURACY, EVASION)
-EnemyUsedXItem:
-	ld [wCurEnemyItem], a
-	push bc
-	call PrintText_UsedItemOn
-	pop bc
-	farcall RaiseStat
-	jp AIUpdateHUD
 
 ; Parameter
 ; a = ITEM_CONSTANT

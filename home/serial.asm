@@ -276,11 +276,6 @@ Serial_PrintWaitingTextAndSyncAndExchangeNybble::
 	call WaitLinkTransfer
 	jp SafeLoadTempTilemapToTilemap
 
-Serial_SyncAndExchangeNybble:: ; unreferenced
-;	call LoadTilemapToTempTilemap
-;	callfar PlaceWaitingText
-;	jp WaitLinkTransfer ; pointless
-
 WaitLinkTransfer::
 	ld a, $ff
 	ld [wOtherPlayerLinkAction], a

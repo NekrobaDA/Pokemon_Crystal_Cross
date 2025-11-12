@@ -134,10 +134,6 @@ SpeechTextbox::
 	ld c, TEXTBOX_INNERW
 	jp Textbox
 
-GameFreakText:: ; unreferenced
-	;text "ゲームフりーク！" ; "GAMEFREAK!"
-	done
-
 RadioTerminator::
 	ld hl, .stop
 	ret
@@ -196,10 +192,6 @@ PlaceNextChar::
 	ld c, l
 	pop hl
 	ret
-
-DummyChar:: ; unreferenced
-;	pop de
-	;fallthrough
 
 NextChar::
 	inc de

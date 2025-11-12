@@ -66,7 +66,6 @@ INCLUDE "engine/events/std_collision.asm"
 INCLUDE "engine/events/bug_contest/judging.asm"
 INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
 INCLUDE "engine/events/bug_contest/contest_2.asm"
-;INCLUDE "engine/pokemon/correct_party_errors.asm"  ;unreferenced, commented out
 INCLUDE "engine/math/get_square_root.asm"
 
 
@@ -254,7 +253,7 @@ INCLUDE "data/pokemon/base_stats.asm"
 ;INCLUDE "engine/battle/getgen1trainerclassname.asm"
 INCLUDE "engine/link/init_list.asm"
 
-UnusedEggPic::
+;UnusedEggPic::
 ; The G/S Egg pic. This is shifted up a few pixels.
 ;INCBIN "gfx/pokemon/egg/unused_front.2bpp.lz"
 
@@ -283,7 +282,7 @@ INCLUDE "engine/overworld/player_movement.asm"
 INCLUDE "engine/events/engine_flags.asm"
 INCLUDE "engine/overworld/variables.asm"
 INCLUDE "data/text/battle.asm"
-INCLUDE "engine/debug/color_picker.asm"
+;INCLUDE "engine/debug/color_picker.asm"
 INCLUDE "data/pokemon/names.asm"
 
 
@@ -482,7 +481,6 @@ INCBIN "gfx/splash/copyright.2bpp"
 
 INCLUDE "engine/menus/options_menu.asm"
 INCLUDE "engine/movie/splash.asm"
-INCLUDE "engine/movie/intro.asm"
 
 
 SECTION "bank3E", ROMX
@@ -532,7 +530,6 @@ INCBIN "gfx/splash/ditto.2bpp.lz"
 
 SECTION "Title", ROMX
 
-INCLUDE "engine/movie/unused_title.asm"
 INCLUDE "engine/movie/title.asm"
 
 
@@ -587,6 +584,10 @@ INCLUDE "engine/battle/update_battle_huds.asm"
 
 SECTION "mobile5E", ROMX
 
+INCLUDE "engine/pokemon/personalitytrait.asm"
+INCLUDE "engine/battle_anims/pokeball_wobble.asm"
+INCLUDE "engine/pokemon/breedmon_level_growth.asm"
+INCLUDE "engine/events/paint.asm"
 ;empty space
 
 
@@ -645,7 +646,7 @@ INCLUDE "data/phone/text/wilton_callee.asm"
 INCLUDE "data/phone/text/kenji_callee.asm"
 INCLUDE "data/phone/text/parry_callee.asm"
 INCLUDE "data/phone/text/erin_callee.asm"
-INCLUDE "data/phone/text/unused.asm"
+;INCLUDE "data/phone/text/unused.asm"
 
 
 SECTION "Miscellaneous Text", ROMX
@@ -675,14 +676,16 @@ INCLUDE "engine/pokegear/townmap_convertlinebreakcharacters.asm"
 PokegearGFX:
 INCBIN "gfx/pokegear/pokegear.2bpp.lz"
 
-INCLUDE "engine/pokemon/european_mail.asm"
+StandardEnglishFont:
+INCBIN "gfx/font/english.1bpp"
+;INCLUDE "engine/pokemon/european_mail.asm"
 
 
 SECTION "Debug Room", ROMX
 
-if DEF(_DEBUG)
-INCLUDE "engine/debug/debug_room.asm"
-endc
+;if DEF(_DEBUG)
+;INCLUDE "engine/debug/debug_room.asm"
+;endc
 
 
 SECTION "Battle Tower Text", ROMX
@@ -733,8 +736,8 @@ INCLUDE "engine/events/CCafeBerries.asm"
 INCLUDE "engine/events/sweet_scent.asm"               ;moved from bank14
 INCLUDE "gfx/pokemon/unown_bitmasks.asm"           ;moved from pic animations 1
 INCLUDE "engine/pokedex/unown_dex.asm"           ;moved from bank3e
-INCLUDE "engine/events/paint.asm"
-INCLUDE "engine/pokemon/personalitytrait.asm"
+;INCLUDE "engine/events/paint.asm"
+;INCLUDE "engine/pokemon/personalitytrait.asm"
 
 
 SECTION "Color", ROMX
@@ -745,11 +748,11 @@ SECTION "Effect Commands 2", ROMX
 
 INCLUDE "engine/battle/effect_commands2.asm"
 INCLUDE "home/eq_exceptions.asm"
-INCLUDE "engine/battle_anims/pokeball_wobble.asm"
-INCLUDE "engine/pokemon/breedmon_level_growth.asm"
+;INCLUDE "engine/battle_anims/pokeball_wobble.asm"
+;INCLUDE "engine/pokemon/breedmon_level_growth.asm"
 
 
-SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]
+;SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]
 
 ; The end of the ROM is taken up by checksums of the content, apparently used
 ; by Pokémon Stadium 2 due to the checksums' "N64PS3" header. (In Japan,
@@ -757,4 +760,4 @@ SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]
 ; This SECTION reserves space for those checksums.
 ; If it is removed, also remove the "tools/stadium" command in the Makefile.
 
-	ds $220
+;	ds $220

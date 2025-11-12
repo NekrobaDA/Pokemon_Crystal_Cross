@@ -117,15 +117,8 @@ NewGame:
 	jp FinishContinueFunction
 
 AreYouABoyOrAreYouAGirl:
-;	farcall Mobile_AlwaysReturnNotCarry ; mobile
-;	jr c, .ok
 	farcall InitGender
 	ret
-
-;.ok
-;	ld c, 0
-;	farcall InitMobileProfile ; mobile
-;	ret
 
 if DEF(_DEBUG)
 DebugRoom: ; unreferenced
@@ -1017,9 +1010,7 @@ NUM_TITLESCREENOPTIONS EQU const_value
 IntroSequence:
 	callfar SplashScreen
 	jr c, StartTitleScreen
-	farcall CrystalIntro
-
-	; fallthrough
+; fallthrough
 
 StartTitleScreen:
 	ldh a, [rSVBK]

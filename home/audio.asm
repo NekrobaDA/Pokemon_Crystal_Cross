@@ -286,11 +286,6 @@ MinVolume::
 	ld [wVolume], a
 	ret
 
-FadeOutToMusic:: ; unreferenced
-;	ld a, 4
-;	ld [wMusicFade], a
-	ret
-
 FadeInToMusic::
 	ld a, 4 | (1 << MUSIC_FADE_IN_F)
 	ld [wMusicFade], a
@@ -438,10 +433,10 @@ SpecialMapMusic::
 	and a
 	ret
 
-.bike ; unreferenced
+;.bike ; unreferenced
 ;	ld de, MUSIC_BICYCLE
 ;	scf
-	ret
+;	ret
 
 .surf
 	ld de, MUSIC_SURF

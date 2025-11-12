@@ -142,9 +142,6 @@ ROMX $77
 	"bank77_2"
 ROMX $7f
 	"Link"
-ROMX $80
-	org $7de0
-	"Stadium 2 Checksums"
 WRAM0
 	"Stack"
 	"Audio RAM"

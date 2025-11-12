@@ -29,17 +29,17 @@ ReadAnyMail:
 	pop de
 	push de
 	ld a, BANK(sPartyMail)
-	call OpenSRAM
-	farcall IsMailEuropean
-	call CloseSRAM
-	ld a, c
+;	call OpenSRAM
+;	farcall IsMailEuropean
+;	call CloseSRAM
+;	ld a, c
 	ld de, StandardEnglishFont
-	or a
-	jr z, .got_font
-	ld de, FrenchGermanFont
-	sub $3
-	jr c, .got_font
-	ld de, SpanishItalianFont
+;	or a
+;	jr z, .got_font
+;	ld de, FrenchGermanFont
+;	sub $3
+;	jr c, .got_font
+;	ld de, SpanishItalianFont
 
 .got_font
 	ld hl, vTiles1

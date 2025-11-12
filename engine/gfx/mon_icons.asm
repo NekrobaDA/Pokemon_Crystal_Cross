@@ -162,77 +162,77 @@ LoadMenuMonIcon:
 	dw Unused_GetPartyMenuMonIcon       ; MONICON_UNUSED
 
 Unused_GetPartyMenuMonIcon:
-	call InitPartyMenuIcon
-	call .GetPartyMonItemGFX
-	call SetPartyMonIconAnimSpeed
-	ret
+;	call InitPartyMenuIcon
+;	call .GetPartyMonItemGFX
+;	call SetPartyMonIconAnimSpeed
+;	ret
 
-.GetPartyMonItemGFX:
-	push bc
-	ldh a, [hObjectStructIndex]
-	ld hl, wPartyMon1Item
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	pop bc
-	ld a, [hl]
-	and a
-	jr z, .no_item
-	push hl
-	push bc
-	ld d, a
-	callfar ItemIsMail
-	pop bc
-	pop hl
-	jr c, .not_mail
-	ld a, $06
-	jr .got_tile
-.not_mail
-	ld a, $05
-	; fallthrough
+;.GetPartyMonItemGFX:
+;	push bc
+;	ldh a, [hObjectStructIndex]
+;	ld hl, wPartyMon1Item
+;	ld bc, PARTYMON_STRUCT_LENGTH
+;	call AddNTimes
+;	pop bc
+;	ld a, [hl]
+;	and a
+;	jr z, .no_item
+;	push hl
+;	push bc
+;	ld d, a
+;	callfar ItemIsMail
+;	pop bc
+;	pop hl
+;	jr c, .not_mail
+;	ld a, $06
+;	jr .got_tile
+;.not_mail
+;	ld a, $05
+;	; fallthrough
 
-.no_item
-	ld a, $04
-.got_tile
-	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
-	add hl, bc
-	ld [hl], a
+;.no_item
+;	ld a, $04
+;.got_tile
+;	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+;	add hl, bc
+;	ld [hl], a
 	ret
 
 Mobile_InitAnimatedMonIcon:
-	call PartyMenu_InitAnimatedMonIcon
-	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
-	add hl, bc
-	ld a, SPRITE_ANIM_SEQ_NULL
-	ld [hl], a
-	ld hl, SPRITEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, 9 * 8
-	ld [hl], a
-	ld hl, SPRITEANIMSTRUCT_YCOORD
-	add hl, bc
-	ld a, 9 * 8
-	ld [hl], a
+;	call PartyMenu_InitAnimatedMonIcon
+;	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
+;	add hl, bc
+;	ld a, SPRITE_ANIM_SEQ_NULL
+;	ld [hl], a
+;	ld hl, SPRITEANIMSTRUCT_XCOORD
+;	add hl, bc
+;	ld a, 9 * 8
+;	ld [hl], a
+;	ld hl, SPRITEANIMSTRUCT_YCOORD
+;	add hl, bc
+;	ld a, 9 * 8
+;	ld [hl], a
 	ret
 
 Mobile_InitPartyMenuBGPal71:
-	call InitPartyMenuIcon
-	call SetPartyMonIconAnimSpeed
-	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
-	add hl, bc
-	ld a, SPRITE_ANIM_SEQ_NULL
-	ld [hl], a
-	ld hl, SPRITEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, 3 * 8
-	ld [hl], a
-	ld hl, SPRITEANIMSTRUCT_YCOORD
-	add hl, bc
-	ld a, 12 * 8
-	ld [hl], a
-	ld a, c
-	ld [wc608], a
-	ld a, b
-	ld [wc608 + 1], a
+;	call InitPartyMenuIcon
+;	call SetPartyMonIconAnimSpeed
+;	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
+;	add hl, bc
+;	ld a, SPRITE_ANIM_SEQ_NULL
+;	ld [hl], a
+;	ld hl, SPRITEANIMSTRUCT_XCOORD
+;	add hl, bc
+;	ld a, 3 * 8
+;	ld [hl], a
+;	ld hl, SPRITEANIMSTRUCT_YCOORD
+;	add hl, bc
+;	ld a, 12 * 8
+;	ld [hl], a
+;	ld a, c
+;	ld [wc608], a
+;	ld a, b
+;	ld [wc608 + 1], a
 	ret
 
 PartyMenu_InitAnimatedMonIcon:

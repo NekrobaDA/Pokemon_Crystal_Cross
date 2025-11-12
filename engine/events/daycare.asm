@@ -659,17 +659,13 @@ DayCare_InitBreeding:
 	call Random
 	ld [hld], a
 	ld [wTempMonDVs + 1], a
-	ld de, wBreedMon1DVs
 	
-	ld a, [wBreedMon1CaughtGender]
-	ld [wTempMonCaughtGender], a
+	ld de, wBreedMon1DVs
 	ld a, [wBreedMon1Species]
 	cp b
 	jr z, .GotDVs
 	
 	ld de, wBreedMon2DVs
-	ld a, [wBreedMon2CaughtGender]
-	ld [wTempMonCaughtGender], a	
 	ld a, [wBreedMon2Species]
 	cp b
 	jr z, .GotDVs
