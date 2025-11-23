@@ -108,6 +108,20 @@ ReadTrainerPartyPieces:
 	pop hl
 	inc hl 
 
+	push hl
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1CaughtGender
+;	ld hl, wSeerCaughtGender
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+	pop hl
+	call GetNextTrainerDataByte
+	rrca
+	ld [de], a
+;	ld [wSeerCaughtGender], a
+
 ;item	
 	ld a, [wOtherTrainerType]
 	and TRAINERTYPE_ITEM
@@ -407,14 +421,6 @@ CopyTrainerName:
 	ld bc, NAME_LENGTH
 	ld a, [wTrainerGroupBank]
 	call FarCopyBytes
-	pop de
-	ret
-
-IncompleteCopyNameFunction: ; unreferenced
-; Copy of CopyTrainerName but without "call CopyBytes"
-	ld de, wStringBuffer1
-	push de
-	ld bc, NAME_LENGTH
 	pop de
 	ret
 

@@ -88,6 +88,11 @@ LoadHPBar:
 	ld hl, vTiles2 tile $55
 	lb bc, BANK(ExpBarGFX), 11
 	call Get2bppViaHDMA
+	
+	ld de, EnemyHPBarExtrasGFX
+	ld hl, vTiles2 tile $79
+	lb bc, BANK(EnemyHPBarExtrasGFX), 4
+	call Get1bppViaHDMA
 	ret
 
 StatsScreen_LoadFont:
@@ -108,6 +113,12 @@ StatsScreen_LoadFont:
 	ld hl, vTiles2 tile $55
 	lb bc, BANK(ExpBarGFX), 10
 	call Get2bppViaHDMA
+	
+	ld de, EnemyHPBarExtrasGFX
+	ld hl, vTiles2 tile $79
+	lb bc, BANK(EnemyHPBarExtrasGFX), 2
+	call Get1bppViaHDMA
+	
 LoadStatsScreenPageTilesGFX:
 	ld de, StatsScreenPageTilesGFX
 	ld hl, vTiles2 tile $31

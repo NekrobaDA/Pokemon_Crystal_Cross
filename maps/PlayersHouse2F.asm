@@ -45,6 +45,8 @@ InitDebugScript:
 	writetext ActivateDebugText
 	yesorno
 	iffalse NoDebugScript
+	
+;	credits  ;for testing credits quickly
 
 ; good party
 	givepoke LEAFEON, 40

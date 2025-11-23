@@ -5323,10 +5323,6 @@ DrawEnemyHUD:
 	ld [wCurSpecies], a
 	ld [wCurPartySpecies], a
 	call GetBaseData
-;	ld de, wEnemyMonNick
-;	hlcoord 1, 0
-;	call Battle_DummyFunction
-;	call PlaceString
 	ld h, b
 	ld l, c
 	dec hl
@@ -5344,33 +5340,33 @@ DrawEnemyHUD:
 	ld a, [hl]
 	ld [de], a
 	
-	ld a, WILDMON
-	ld [wMonType], a
-	callfar GetGender
-	ld a, " "
-	jr c, .got_gender
-	ld a, "♂"
-	jr nz, .got_gender
-	ld a, "♀"
-
-.got_gender
+	call GetTrainermonOrWildmonGenderSymbol
 	hlcoord 5, 0
 	ld [hl], a
 ;add shiny icon
+	ld bc, wTempMonDVs
+	farcall CheckShininess
+	jr nc, .tryalt
+	hlcoord 10, 0
+	ld [hl], $7b
+	jr .endshine
+.tryalt
+	ld bc, wTempMonDVs
+	farcall CheckShininessAlt
+	jr nc, .endshine
+	hlcoord 10, 0
+	ld [hl], $7c
+.endshine
 
 	hlcoord 2, 0
 	push af
 	push hl
-	hlcoord 7, 0
+	hlcoord 8, 0
 	ld de, wEnemyMonStatus
 	predef PlaceNonFaintStatus
 	pop hl
 	pop bc
-	jr nz, .skip_level
-	ld a, b
-	cp " "
-	jr nz, .print_level
-	dec hl
+
 .print_level
 	ld a, [wEnemyMonLevel]
 	ld [wTempMonLevel], a
@@ -5446,14 +5442,44 @@ DrawEnemyHUD:
 	call DrawEnemyHPSymbol
 	
 ;check for start-button info toggle, if so, display instead;
-;	ld a, [wDittoFlag]
 	ld a, [wTempMailType]
 	cp 7
 	ret nz
+		
+	ld de, BlankString
+	hlcoord 1, 0
+	call PlaceString
+	
+;	call GetTrainermonOrWildmonGenderSymbol
+;	hlcoord 9, 0
+;	ld [hl], a
 
 	ld de, wEnemyMonNick
 	hlcoord 1, 0
 	call PlaceString
+	
+	hlcoord 10, 0
+
+.loopinc
+	ld a, [hli]
+    cp " "
+	jr nz, .loopinc
+	
+	dec hl
+	push hl
+	call GetTrainermonOrWildmonGenderSymbol
+	pop hl
+	ld [hl], a
+	
+	hlcoord 8, 1
+	ld a, [wEnemyMonLevel]
+	ld [wTempMonLevel], a
+	call PrintLevel
+
+.drawL
+	hlcoord 8, 1
+	ld a, "<L>"
+	ld [hl], a
 	ret
 
 UpdateEnemyHPPal:
@@ -6648,19 +6674,25 @@ LoadEnemyMon:
 
 ; All trainers have preset DVs, determined by class
 ; See GetTrainerDVs for more on that
-	farcall GetTrainerDVs
-	;add fuction to load predefined trainer mon genders
-	;and then load them into wSeerCaughtGender
-	
-; These are the DVs we'll use if we're actually in a trainer battle
+
 	ld a, [wBattleMode]
 	dec a
-	jp nz, .UpdateDVs
+	jr z, .WildDVs
 
-; Wild DVs
+; Trainer DVs
+	ld a, [wCurPartyMon]
+	ld hl, wOTPartyMon1DVs
+	call GetPartyLocation
+	ld b, [hl]
+	inc hl
+	ld c, [hl]
+	jp .UpdateDVs
+
+.WildDVs:
 ; Here's where the fun starts
 	callfar GenerateGender
-
+	
+.skipgenerate
 ; Roaming monsters (Entei, Raikou) work differently
 ; They have their own structs, which are shorter than normal
 	ld a, [wBattleType]
@@ -6710,11 +6742,19 @@ LoadEnemyMon:
 	cp BATTLETYPE_SHINY_ALT
 	jp nz, .GenerateDVs
 	
+	ld a, 1
+	rrca
+	ld [wSeerCaughtGender], a  ;always male
+	
 	ld b, ATKDEFDV_SHINY_ALT ; $ed
 	ld c, SPDSPCDV_SHINY_ALT ; $dd
 	jp .UpdateDVs
 
 .BattletypeShiny
+	ld a, 1
+	rrca
+	ld [wSeerCaughtGender], a  ;always male
+
 	ld b, ATKDEFDV_SHINY ; $ea
 	ld c, SPDSPCDV_SHINY ; $aa
 	jp .UpdateDVs
@@ -6739,7 +6779,12 @@ LoadEnemyMon:
 	or b
 	ld b, a
 .gotDV
+	call Random
+	and %1
+	and a
 	ld c, SPDSPCDV_SHINY ; $aa
+	jr z, .UpdateDVs
+	ld c, $a5
 	jr .UpdateDVs
 
 .nope
@@ -9462,210 +9507,210 @@ GetRoamMonSpecies:
 	;cp [hl]
 	;ret
 
-AddLastLinkBattleToLinkRecord:
-	ld hl, wOTPlayerID
-	ld de, wStringBuffer1
-	ld bc, 2
-	call CopyBytes
-	ld hl, wOTPlayerName
-	ld bc, NAME_LENGTH - 1
-	call CopyBytes
-	ld hl, sLinkBattleStats - (LINK_BATTLE_RECORD_LENGTH - 6)
-	call .StoreResult
-	ld hl, sLinkBattleRecord
-	ld d, NUM_LINK_BATTLE_RECORDS
-.loop
-	push hl
-	inc hl
-	inc hl
-	ld a, [hl]
-	dec hl
-	dec hl
-	and a
-	jr z, .copy
-	push de
-	ld bc, LINK_BATTLE_RECORD_LENGTH - 6
-	ld de, wStringBuffer1
-	call CompareBytesLong
-	pop de
-	pop hl
-	jr c, .done
-	ld bc, LINK_BATTLE_RECORD_LENGTH
-	add hl, bc
-	dec d
-	jr nz, .loop
-	ld bc, -LINK_BATTLE_RECORD_LENGTH
-	add hl, bc
-	push hl
-
-.copy
-	ld d, h
-	ld e, l
-	ld hl, wStringBuffer1
-	ld bc, LINK_BATTLE_RECORD_LENGTH - 6
-	call CopyBytes
-	ld b, 6
-	xor a
-.loop2
-	ld [de], a
-	inc de
-	dec b
-	jr nz, .loop2
-	pop hl
-
-.done
-	call .StoreResult
-	call .FindOpponentAndAppendRecord
-	ret
-
-.StoreResult:
-	ld a, [wBattleResult]
-	and $f
-	cp LOSE
-	ld bc, (sLinkBattleRecord1Wins - sLinkBattleRecord1) + 1
-	jr c, .okay ; WIN
-	ld bc, (sLinkBattleRecord1Losses - sLinkBattleRecord1) + 1
-	jr z, .okay ; LOSE
-	; DRAW
-	ld bc, (sLinkBattleRecord1Draws - sLinkBattleRecord1) + 1
-.okay
-	add hl, bc
-	call .CheckOverflow
-	ret nc
-	inc [hl]
-	ret nz
-	dec hl
-	inc [hl]
-	ret
-
-.CheckOverflow:
-	dec hl
-	ld a, [hl]
-	inc hl
-	cp HIGH(MAX_LINK_RECORD)
-	ret c
-	ld a, [hl]
-	cp LOW(MAX_LINK_RECORD)
-	ret
-
-.FindOpponentAndAppendRecord:
-	ld b, NUM_LINK_BATTLE_RECORDS
-	ld hl, sLinkBattleRecord1End - 1
-	ld de, wLinkBattleRecordBuffer
-.loop3
-	push bc
-	push de
-	push hl
-	call .LoadPointer
-	pop hl
-	ld a, e
-	pop de
-	ld [de], a
-	inc de
-	ld a, b
-	ld [de], a
-	inc de
-	ld a, c
-	ld [de], a
-	inc de
-	ld bc, LINK_BATTLE_RECORD_LENGTH
-	add hl, bc
-	pop bc
-	dec b
-	jr nz, .loop3
-	ld b, $0
-	ld c, $1
-.loop4
-	ld a, b
-	add b
-	add b
-	ld e, a
-	ld d, 0
-	ld hl, wLinkBattleRecordBuffer
-	add hl, de
-	push hl
-	ld a, c
-	add c
-	add c
-	ld e, a
-	ld d, 0
-	ld hl, wLinkBattleRecordBuffer
-	add hl, de
-	ld d, h
-	ld e, l
-	pop hl
-	push bc
-	ld c, 3
-	call CompareBytes
-	pop bc
-	jr z, .equal
-	jr nc, .done2
-
-.equal
-	inc c
-	ld a, c
-	cp $5
-	jr nz, .loop4
-	inc b
-	ld c, b
-	inc c
-	ld a, b
-	cp $4
-	jr nz, .loop4
-	ret
-
-.done2
-	push bc
-	ld a, b
-	ld bc, LINK_BATTLE_RECORD_LENGTH
-	ld hl, sLinkBattleRecord
-	call AddNTimes
-	push hl
-	ld de, wLinkBattleRecordBuffer
-	ld bc, LINK_BATTLE_RECORD_LENGTH
-	call CopyBytes
-	pop hl
-	pop bc
-	push hl
-	ld a, c
-	ld bc, LINK_BATTLE_RECORD_LENGTH
-	ld hl, sLinkBattleRecord
-	call AddNTimes
-	pop de
-	push hl
-	ld bc, LINK_BATTLE_RECORD_LENGTH
-	call CopyBytes
-	ld hl, wLinkBattleRecordBuffer
-	ld bc, LINK_BATTLE_RECORD_LENGTH
-	pop de
-	call CopyBytes
-	ret
-
-.LoadPointer:
-	ld e, $0
-	ld a, [hld]
-	ld c, a
-	ld a, [hld]
-	ld b, a
-	ld a, [hld]
-	add c
-	ld c, a
-	ld a, [hld]
-	adc b
-	ld b, a
-	jr nc, .okay2
-	inc e
-
-.okay2
-	ld a, [hld]
-	add c
-	ld c, a
-	ld a, [hl]
-	adc b
-	ld b, a
-	ret nc
-	inc e
-	ret
+AddLastLinkBattleToLinkRecord:    ;commenting out for space for now, but do we even really
+;	ld hl, wOTPlayerID            ;need or care about a w-l ratio here?
+;	ld de, wStringBuffer1
+;	ld bc, 2
+;	call CopyBytes
+;	ld hl, wOTPlayerName
+;	ld bc, NAME_LENGTH - 1
+;	call CopyBytes
+;	ld hl, sLinkBattleStats - (LINK_BATTLE_RECORD_LENGTH - 6)
+;	call .StoreResult
+;	ld hl, sLinkBattleRecord
+;	ld d, NUM_LINK_BATTLE_RECORDS
+;.loop
+;	push hl
+;	inc hl
+;	inc hl
+;	ld a, [hl]
+;	dec hl
+;	dec hl
+;	and a
+;	jr z, .copy
+;	push de
+;	ld bc, LINK_BATTLE_RECORD_LENGTH - 6
+;	ld de, wStringBuffer1
+;	call CompareBytesLong
+;	pop de
+;	pop hl
+;	jr c, .done
+;	ld bc, LINK_BATTLE_RECORD_LENGTH
+;	add hl, bc
+;	dec d
+;	jr nz, .loop
+;	ld bc, -LINK_BATTLE_RECORD_LENGTH
+;	add hl, bc
+;	push hl
+;
+;.copy
+;	ld d, h
+;	ld e, l
+;	ld hl, wStringBuffer1
+;	ld bc, LINK_BATTLE_RECORD_LENGTH - 6
+;	call CopyBytes
+;	ld b, 6
+;	xor a
+;.loop2
+;	ld [de], a
+;	inc de
+;	dec b
+;	jr nz, .loop2
+;	pop hl
+;
+;.done
+;	call .StoreResult
+;	call .FindOpponentAndAppendRecord
+;	ret
+;
+;.StoreResult:
+;	ld a, [wBattleResult]
+;	and $f
+;	cp LOSE
+;	ld bc, (sLinkBattleRecord1Wins - sLinkBattleRecord1) + 1
+;	jr c, .okay ; WIN
+;	ld bc, (sLinkBattleRecord1Losses - sLinkBattleRecord1) + 1
+;	jr z, .okay ; LOSE
+;	; DRAW
+;	ld bc, (sLinkBattleRecord1Draws - sLinkBattleRecord1) + 1
+;.okay
+;	add hl, bc
+;	call .CheckOverflow
+;	ret nc
+;	inc [hl]
+;	ret nz
+;	dec hl
+;	inc [hl]
+;	ret
+;
+;.CheckOverflow:
+;	dec hl
+;	ld a, [hl]
+;	inc hl
+;	cp HIGH(MAX_LINK_RECORD)
+;	ret c
+;	ld a, [hl]
+;	cp LOW(MAX_LINK_RECORD)
+;	ret
+;
+;.FindOpponentAndAppendRecord:
+;	ld b, NUM_LINK_BATTLE_RECORDS
+;	ld hl, sLinkBattleRecord1End - 1
+;	ld de, wLinkBattleRecordBuffer
+;.loop3
+;	push bc
+;	push de
+;	push hl
+;	call .LoadPointer
+;	pop hl
+;	ld a, e
+;	pop de
+;	ld [de], a
+;	inc de
+;	ld a, b
+;	ld [de], a
+;	inc de
+;	ld a, c
+;	ld [de], a
+;	inc de
+;	ld bc, LINK_BATTLE_RECORD_LENGTH
+;	add hl, bc
+;	pop bc
+;	dec b
+;	jr nz, .loop3
+;	ld b, $0
+;	ld c, $1
+;.loop4
+;	ld a, b
+;	add b
+;	add b
+;	ld e, a
+;	ld d, 0
+;	ld hl, wLinkBattleRecordBuffer
+;	add hl, de
+;	push hl
+;	ld a, c
+;	add c
+;	add c
+;	ld e, a
+;	ld d, 0
+;	ld hl, wLinkBattleRecordBuffer
+;	add hl, de
+;	ld d, h
+;	ld e, l
+;	pop hl
+;	push bc
+;	ld c, 3
+;	call CompareBytes
+;	pop bc
+;	jr z, .equal
+;	jr nc, .done2
+;
+;.equal
+;	inc c
+;	ld a, c
+;	cp $5
+;	jr nz, .loop4
+;	inc b
+;	ld c, b
+;	inc c
+;	ld a, b
+;	cp $4
+;	jr nz, .loop4
+;	ret
+;
+;.done2
+;	push bc
+;	ld a, b
+;	ld bc, LINK_BATTLE_RECORD_LENGTH
+;	ld hl, sLinkBattleRecord
+;	call AddNTimes
+;	push hl
+;	ld de, wLinkBattleRecordBuffer
+;	ld bc, LINK_BATTLE_RECORD_LENGTH
+;	call CopyBytes
+;	pop hl
+;	pop bc
+;	push hl
+;	ld a, c
+;	ld bc, LINK_BATTLE_RECORD_LENGTH
+;	ld hl, sLinkBattleRecord
+;	call AddNTimes
+;	pop de
+;	push hl
+;	ld bc, LINK_BATTLE_RECORD_LENGTH
+;	call CopyBytes
+;	ld hl, wLinkBattleRecordBuffer
+;	ld bc, LINK_BATTLE_RECORD_LENGTH
+;	pop de
+;	call CopyBytes
+;	ret
+;
+;.LoadPointer:
+;	ld e, $0
+;	ld a, [hld]
+;	ld c, a
+;	ld a, [hld]
+;	ld b, a
+;	ld a, [hld]
+;	add c
+;	ld c, a
+;	ld a, [hld]
+;	adc b
+;	ld b, a
+;	jr nc, .okay2
+;	inc e
+;
+;.okay2
+;	ld a, [hld]
+;	add c
+;	ld c, a
+;	ld a, [hl]
+;	adc b
+;	ld b, a
+;	ret nc
+;	inc e
+;	ret
 
 InitBattleDisplay:
 	call .InitBackPic
@@ -9845,3 +9890,25 @@ BattleStartMessage:
 	pop hl
 	call StdBattleTextbox
 	ret
+
+GetTrainermonOrWildmonGenderSymbol:
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	ld a, 3
+	jr z, .finishgenderlookup
+	ld a, WILDMON
+.finishgenderlookup
+	;fallthrough
+GetGenderSymbol:
+	ld [wMonType], a
+	farcall GetGender
+	ld a, " "
+	jr c, .got_gender
+	ld a, "♂"
+	jr nz, .got_gender
+	ld a, "♀"
+.got_gender
+	ret
+	
+BlankString:
+	db "          @"

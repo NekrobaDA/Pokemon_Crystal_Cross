@@ -58,13 +58,28 @@ GetNature:
 	ld hl, wTempMonDVs
 	
 ; Attack
-	ld a, [hl]  ;0-255
-	ld c, 10
-	call SimpleDivide
-	ld a, b
+;	ld a, [hli]  ;0-255
+;	ld c, 10
+;	call SimpleDivide
+;	ld a, b
+
+	ld a, [hli]
+	and %11110000
+	rlca
+	rlca
+	rlca
+	rlca
+	ld d, a    ;0-15 (16 values)
 	
-	ld d, a
-	ret
+	ld a, [hl]
+	and %1111
+	cp 8
+	ret nc
+	
+	ld a, d
+	add 9      ;(0-15 -> 9-24)
+	ld d, a	
+	ret        ;(consequence: values 9-15 (7 natures), are twice as common as the others)
 
 ;trait and nature strings could not be called from here without breaking things
 ;so now they clutter stats_screen.asm

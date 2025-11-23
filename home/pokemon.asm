@@ -133,11 +133,22 @@ DrawEnemyHPSymbol::
 	push hl
 	push de
 	push bc
+	
+	ld a, [wTempMailType]
+	cp 7
+	jr z, .drawalt
+	
 ; Place 'HP:'
 	ld a, $70
 	ld [hli], a
 	ld a, $72
 	ld [hl], a
+	jr .enddraw
+	
+.drawalt
+	ld a, "<L>"
+	ld [hl], a
+.enddraw
 	pop bc
 	pop de
 	pop hl
@@ -287,9 +298,13 @@ PrintLevel::
 	jr c, Print8BitNumLeftAlign
 
 ; 3-digit numbers overwrite the :L.
-	dec hl
-	inc c
-	jr Print8BitNumLeftAlign
+;	dec hl
+;	inc c
+;	jr Print8BitNumLeftAlign
+	ld [hl], $79
+	inc hl
+	ld [hl], $7a
+	ret
 
 PrintLevel_Force3Digits::
 ; Print :L and all 3 digits

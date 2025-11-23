@@ -2,6 +2,7 @@
 SHINY_DEF_VAL EQU 10
 SHINY_SPD_VAL EQU 10
 SHINY_SPC_VAL EQU 10
+SHINY_SPC_VAL_2 EQU 5
 
 CheckShininess:
 ; Check if a mon is shiny by DVs at bc.
@@ -26,9 +27,14 @@ CheckShininess:
 	ld a, [hl]
 	and $f
 	cp  SHINY_SPC_VAL
+	jr nz, .check_second_shinyval
+	jr .shiny
+	
+.check_second_shinyval   ;added to allow for more shiny+nature combos
+	cp SHINY_SPC_VAL_2
 	jr nz, .not_shiny
 
-; shiny
+.shiny
 	scf
 	ret
 
@@ -40,6 +46,7 @@ CheckShininess:
 SHINYALT_DEF_VAL EQU 13
 SHINYALT_SPD_VAL EQU 13
 SHINYALT_SPC_VAL EQU 13
+SHINYALT_SPC_VAL_2 EQU 6
 
 CheckShininessAlt:
 ; Check if a mon is shiny by DVs at bc.
@@ -64,9 +71,14 @@ CheckShininessAlt:
 	ld a, [hl]
 	and $f
 	cp  SHINYALT_SPC_VAL
+	jr nz, .check_second_shinyval_alt
+	jr .shiny
+	
+.check_second_shinyval_alt   ;added to allow for more shiny+nature combos
+	cp SHINYALT_SPC_VAL_2
 	jr nz, .not_shiny
 
-; shiny
+.shiny
 	scf
 	ret
 

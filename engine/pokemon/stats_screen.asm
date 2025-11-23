@@ -1438,33 +1438,32 @@ PrintTrait:
 
 	jp PlaceString
 	
-NatureStrings:
-	dw HardyString
-	dw LonelyString
-	dw NaughtyString ;female shiny slot
-	dw CarefulString
-	dw BraveString
-	dw BoldString    ;never seems to hit this number
-	dw DocileString
-	dw RelaxedString
-	dw ImpishString
-	dw HastyString
-	dw TimidString
-	dw LaxString
-	dw SeriousString
-	dw JollyString
-	dw NaiveString
-	dw ModestString
-	dw MildString
-	dw QuietString
-	dw CalmString
-	dw RashString
-	dw BashfulString
-	dw GentleString
-	dw SassyString
-	dw AdamantString ;male shiny slot
-	dw QuirkyString
-	dw BoldString    ;extra because there's somehow 26, not 25
+NatureStrings:         ;natures will modify stat exp gains
+	dw HardyString     ;+-/--
+	dw LonelyString    ;+atk/-def
+	dw SassyString     ;+sp.def/-spd
+	dw CarefulString   ;+sp.def/-sp.atk
+	dw BraveString     ;atk/-spd
+	dw BoldString      ;+def/-atk
+	dw DocileString    ;+-/--
+	dw RelaxedString   ;+def/-spd
+	dw ImpishString    ;+def/-sp.atk
+	dw RashString      ;+sp.atk/-sp.def *
+	dw TimidString     ;+spd/-atk       *
+	dw NaughtyString   ;+atk/-sp.def    *
+	dw JollyString     ;+spd/-sp.atk    *
+	dw NaiveString     ;+spd/-sp.def    *
+	dw AdamantString   ;+atk/-sp.atk    *  (shiny + alt shiny 'male' set DVs)
+	dw ModestString    ;+sp.atk/-atk    *
+	dw MildString      ;+sp.atk/-def
+	dw QuietString     ;+sp.atk/-spd
+	dw CalmString      ;+sp.def/-atk
+	dw HastyString     ;+spd/-def
+	dw BashfulString   ;+-/--
+	dw GentleString    ;+sp.def/-def
+	dw SeriousString   ;+-/--
+	dw LaxString       ;+def/-sp.def
+	dw QuirkyString    ;+-/--
 
 ;nature strings	
 HardyString:

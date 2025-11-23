@@ -248,11 +248,23 @@ PlacePartyMonLevel:
 	ld a, "<LV>"
 	ld [hli], a
 	lb bc, PRINTNUM_LEFTALIGN | 1, 2
-	; jr .okay
-.ThreeDigits:
-	lb bc, PRINTNUM_LEFTALIGN | 1, 3
-; .okay
+
 	call PrintNum
+	jr .next
+.ThreeDigits:
+;	lb bc, PRINTNUM_LEFTALIGN | 1, 3
+	push hl
+	ld de, EnemyHPBarExtrasGFX
+	ld hl, vTiles2 tile $79
+	lb bc, BANK(EnemyHPBarExtrasGFX), 2
+	call Get1bppViaHDMA
+	pop hl
+
+	ld a, "<LV>"
+	ld [hli], a
+	ld [hl], $79
+	inc hl
+	ld [hl], $7a
 
 .next
 	pop hl

@@ -24,6 +24,9 @@ INCBIN "gfx/battle/enemy_hp_bar_border.1bpp"
 HPExpBarBorderGFX:
 INCBIN "gfx/battle/hp_exp_bar_border.1bpp"
 
+EnemyHPBarExtrasGFX:
+INCBIN "gfx/battle/enemy_hp_bar_extras.1bpp"
+
 ExpBarGFX:
 INCBIN "gfx/battle/expbar.2bpp"
 
