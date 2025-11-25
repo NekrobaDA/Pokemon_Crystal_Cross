@@ -14,15 +14,10 @@ BattleStatsScreenInit:
 	ld a, [wBattleMode]
 	and a
 	jr z, StatsScreenInit
-;	jr _MobileStatsScreenInit
 
 StatsScreenInit:
 	ld hl, StatsScreenMain
 	jr StatsScreenInit_gotaddress
-
-;_MobileStatsScreenInit:
-;	ld hl, StatsScreenMobile
-;	jr StatsScreenInit_gotaddress
 
 StatsScreenInit_gotaddress:
 	ldh a, [hMapAnims]
@@ -424,11 +419,13 @@ StatsScreen_InitUpperHalf:
 	
 	hlcoord 2, 0
 	call PrintLevel
-	ld hl, .NicknamePointers
-	call GetNicknamePointer
-	call CopyNickname
-	hlcoord 1, 2
-	call PlaceString
+;	ld hl, .NicknamePointers
+;	call GetNicknamePointer
+;	call CopyNickname
+;	hlcoord 1, 2
+;	call PlaceString
+	call PlaceNickname
+
 	hlcoord 5, 0
 	call .PlaceGenderChar
 	ld a, [wTempMonPokerusStatus]
@@ -498,12 +495,6 @@ StatsScreen_InitUpperHalf:
 .got_gender
 	ld [hl], a
 	ret
-
-.NicknamePointers:
-	dw wPartyMonNicknames
-	dw wOTPartyMonNicknames
-	dw sBoxMonNicknames
-	dw wBufferMonNick
 
 BallsSummaryGFX:
 INCBIN "gfx/font/balls_summary.2bpp"
@@ -598,6 +589,8 @@ StatsScreen_LoadGFX:
 	dw LoadBluePage
 
 LoadPinkPage:
+	call PlaceNickname
+
 	ld de, .Status_Type
 ;	hlcoord 0, 9
 	hlcoord 0, 8
@@ -734,6 +727,8 @@ LoadPinkPage:
 	db "<TO>< N><EX><T:>@"
 
 LoadGreenPage:
+	call PlaceNickname
+
 	ld de, .Item
 	hlcoord 0, 8
 	call PlaceString
@@ -798,6 +793,15 @@ LoadBluePage:
 	call CopyNickname
 	farcall CorrectNickErrors
 	hlcoord 2, 9
+	call PlaceString
+	
+.speciesname:
+	ld de, BlankNameString
+	hlcoord 1, 2
+	call PlaceString
+	ld a, [wBaseSpecies]
+	ld [wNamedObjectIndex], a
+	call GetPokemonName
 	call PlaceString
 
 .location:
@@ -1533,3 +1537,22 @@ PrintNature:
 	pop hl
 
 	jp PlaceString
+	
+BlankNameString:
+	db "          @"
+	
+PlaceNickname:
+	ld de, BlankNameString
+	hlcoord 1, 2
+	call PlaceString
+	ld hl, .NicknamePointers
+	call GetNicknamePointer
+	call CopyNickname
+	hlcoord 1, 2
+	jp PlaceString
+	
+.NicknamePointers:
+	dw wPartyMonNicknames
+	dw wOTPartyMonNicknames
+	dw sBoxMonNicknames
+	dw wBufferMonNick

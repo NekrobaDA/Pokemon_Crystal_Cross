@@ -432,8 +432,13 @@ PokeBallEffect:
 	jr nz, .ditto
 	
 	ld a, [wd010] ;[wDittoFlag]
-	cp 0
+	and a
 	jr z, .not_ditto
+	
+	ld hl, DittoMoves
+	ld de, wEnemyMonMoves
+	ld bc, NUM_MOVES
+	call CopyBytes
 
 .ditto
 	ld hl, DITTO
@@ -474,6 +479,11 @@ PokeBallEffect:
 	ld hl, wEnemySubStatus5
 	bit SUBSTATUS_TRANSFORMED, [hl]
 	jr nz, .Transformed
+	
+	ld a, [wd010] ;[wDittoFlag]
+	and a
+	jr nz, .Transformed
+	
 	ld hl, wWildMonMoves
 	ld de, wEnemyMonMoves
 	ld bc, NUM_MOVES
@@ -3190,3 +3200,6 @@ GetMthMoveOfCurrentMon:
 	ld b, 0
 	add hl, bc
 	ret
+	
+DittoMoves:
+	dw TRANSFORM, NO_MOVE, NO_MOVE, NO_MOVE

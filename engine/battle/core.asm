@@ -5361,7 +5361,7 @@ DrawEnemyHUD:
 	hlcoord 2, 0
 	push af
 	push hl
-	hlcoord 8, 0
+	hlcoord 9, 0
 	ld de, wEnemyMonStatus
 	predef PlaceNonFaintStatus
 	pop hl

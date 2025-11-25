@@ -32,6 +32,11 @@ _BillsPC:
 	pop af
 	ld [wOptions], a
 	call LoadFontsBattleExtra
+	
+	ld de, EnemyHPBarExtrasGFX
+	ld hl, vTiles2 tile $79
+	lb bc, BANK(EnemyHPBarExtrasGFX), 2
+	call Get1bppViaHDMA
 	ret
 
 .PCWhatText:
