@@ -2502,22 +2502,6 @@ BillsPC_ChangeBoxSubmenu:
 	jr z, .Switch
 	cp $2
 	jr z, .Name
-	cp $3
-	jr z, .Print
-	and a
-	ret
-
-.Print:
-	call GetBoxCount
-	and a
-	jr z, .EmptyBox
-	ld e, l
-	ld d, h
-	ld a, [wMenuSelection]
-	dec a
-	ld c, a
-	farcall PrintPCBox
-	call BillsPC_ClearTilemap
 	and a
 	ret
 
@@ -2558,20 +2542,17 @@ BillsPC_ChangeBoxSubmenu:
 	call CopyName2
 	ret
 
-	hlcoord 11, 7 ; unreferenced
-
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 11, 4, SCREEN_WIDTH - 1, 13
+	menu_coords 11, 6, SCREEN_WIDTH - 1, 13
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 4 ; items
+	db 3 ; items
 	db "SWITCH@"
 	db "NAME@"
-	db "PRINT@"
 	db "QUIT@"
 
 BillsPC_PlaceChooseABoxString:

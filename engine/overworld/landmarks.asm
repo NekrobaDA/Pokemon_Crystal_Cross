@@ -47,15 +47,16 @@ INCLUDE "data/maps/landmarks.asm"
 
 GetLandmarkNameS::
 ; Copy the name of landmark e to wStringBuffer1.
+
+	ld a, e
 	push hl
 	push de
 	push bc
 
-	ld l, e
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	ld de, Landmarks2 + 2
+	add a
+	ld hl, Landmarks2
+	ld e, a
+	ld d, 0
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]

@@ -6,9 +6,9 @@ Serial::
 	push de
 	push hl
 
-	ld a, [wPrinterConnectionOpen]
-	bit 0, a
-	jr nz, .printer
+;	ld a, [wPrinterConnectionOpen]
+;	bit 0, a
+;	jr nz, .printer
 
 	ldh a, [hSerialConnectionStatus]
 	inc a ; is it equal to CONNECTION_NOT_ESTABLISHED?
@@ -30,9 +30,9 @@ Serial::
 	ldh [rSC], a
 	jr .player2
 
-.printer
-	call PrinterReceive
-	jr .end
+;.printer
+;	call PrinterReceive
+;	jr .end
 
 .establish_connection
 	ldh a, [rSB]

@@ -1,128 +1,139 @@
-landmark1: MACRO
-; x, y, Name2
-	db \1 + 8, \2 + 16
-	dw \3
-ENDM
+;landmark1: MACRO
+;; x, y, Name2
+;	db \1 + 8, \2 + 16
+;	dw \3
+;ENDM
 
 Landmarks2:
 ; entries correspond to constants/landmark1_constants.asm
-	dbbw       0,   0, SpecialMapName2
-	landmark1 140, 100, NewBarkTownName2
-	landmark1 128, 100, Route29Name2
-	landmark1 100, 100, CherrygroveCityName2
-	landmark1 116,  84, Route47Name2
-	landmark1 108,  76, CatalliaTownName2
-	landmark1 100,  80, Route30Name2
-	landmark1  96,  60, Route31Name2
-	landmark1  84,  60, VioletCityName2
-	landmark1  85,  58, SproutTowerName2
-	landmark1  84,  92, Route32Name2
-	landmark1  76,  76, RuinsOfAlphName2
-	landmark1  84, 124, UnionCaveName2
-	landmark1  82, 124, Route33Name2
-	landmark1  68, 124, AzaleaTownName2
-	landmark1  70, 122, SlowpokeWellName2
-	landmark1  52, 120, IlexForestName2
-	landmark1  52, 112, Route34Name2
-	landmark1  52,  92, GoldenrodCityName2
-	landmark1  50,  92, RadioTowerName2
-	landmark1  52,  76, Route35Name2
-	landmark1  52,  60, NationalParkName2
-	landmark1  64,  60, Route36Name2
-	landmark1  68,  52, Route37Name2
-	landmark1  68,  44, EcruteakCityName2
-	landmark1  70,  42, TinTowerName2
-	landmark1  66,  42, BurnedTowerName2
-	landmark1  52,  44, Route38Name2
-	landmark1  36,  48, Route39Name2
-	landmark1  36,  60, OlivineCityName2
-	landmark1  38,  62, LighthouseName2
-	landmark1  28,  64, Route40Name2
-	landmark1  28,  92, WhirlIslandsName2
-	landmark1  28, 100, Route41Name2
-	landmark1  20, 100, CianwoodCityName2
-	landmark1  92,  44, Route42Name2
-	landmark1  84,  44, MtMortarName2
-	landmark1 108,  44, MahoganyTownName2
-	landmark1 108,  36, Route43Name2
-	landmark1 108,  28, LakeOfRageName2
-	landmark1 120,  44, Route44Name2
-	landmark1 130,  38, IcePathName2
-	landmark1 132,  44, BlackthornCityName2
-	landmark1 132,  36, DragonsDenName2
-	landmark1 132,  64, Route45Name2
-	landmark1 112,  72, DarkCaveName2
-	landmark1 124,  88, Route46Name2
-	landmark1 148,  68, SilverCaveName2
-	landmark1  52, 108, PalletTownName2
-	landmark1  52,  92, Route1Name2
-	landmark1  52,  76, ViridianCityName2
-	landmark1  52,  64, Route2Name2
-	landmark1  52,  52, PewterCityName2
-	landmark1  64,  52, Route3Name2
-	landmark1  76,  52, MtMoonName2
-	landmark1  88,  52, Route4Name2
-	landmark1 100,  52, CeruleanCityName2
-	landmark1 100,  44, Route24Name2
-	landmark1 108,  36, Route25Name2
-	landmark1 100,  60, Route5Name2
-	landmark1 108,  76, UndergroundName2
-	landmark1 100,  76, Route6Name2
-	landmark1 100,  84, VermilionCityName2
-	landmark1  88,  60, DiglettsCaveName2
-	landmark1  88,  68, Route7Name2
-	landmark1 116,  68, Route8Name2
-	landmark1 116,  52, Route9Name2
-	landmark1 132,  52, RockTunnelName2
-	landmark1 132,  56, Route10Name2
-	landmark1 132,  60, PowerPlantName2
-	landmark1 132,  68, LavenderTownName2
-	landmark1 140,  68, LavRadioTowerName2
-	landmark1  76,  68, CeladonCityName2
-	landmark1 100,  68, SaffronCityName2
-	landmark1 116,  84, Route11Name2
-	landmark1 132,  80, Route12Name2
-	landmark1 124, 100, Route13Name2
-	landmark1 116, 112, Route14Name2
-	landmark1 104, 116, Route15Name2
-	landmark1  68,  68, Route16Name2
-	landmark1  68,  92, Route17Name2
-	landmark1  80, 116, Route18Name2
-	landmark1  92, 116, FuchsiaCityName2
-	landmark1  92, 128, Route19Name2
-	landmark1  76, 132, Route20Name2
-	landmark1  68, 132, SeafoamIslandsName2
-	landmark1  52, 132, CinnabarIslandName2
-	landmark1  52, 120, Route21Name2
-	landmark1  36,  68, Route22Name2
-	landmark1  28,  52, VictoryRoadName2
-	landmark1  28,  44, Route23Name2
-	landmark1  28,  36, IndigoPlateauName2
-	landmark1  28,  92, Route26Name2
-	landmark1  20, 100, Route27Name2
-	landmark1  12, 100, TohjoFallsName2
-	landmark1  20,  68, Route28Name2
-	landmark1 140, 116, FastShipName2
-	landmark1   0,   0, OneIslandName2
-	landmark1   0,   0, KindleRoadName2
-	landmark1   0,   0, MtEmberName2
-	landmark1   0,   0, TwoIslandName2
-	landmark1   0,   0, CapeBrinkName2
-	landmark1   0,   0, ThreeIslandName2
-	landmark1   0,   0, BondBridgeName2
-	landmark1   0,   0, BerryForestName2
-	landmark1   0,   0, FourIslandName2
-	landmark1   0,   0, IcefallCaveName2
-	landmark1   0,   0, FiveIslandName2
-	landmark1   0,   0, FiveIsleMeadowName2
-	landmark1   0,   0, SixIslandName2
-	landmark1   0,   0, WaterPathName2
-	landmark1   0,   0, RuinValleyName2
-	landmark1   0,   0, PatternBushName2
-	landmark1   0,   0, SevenIslandName2
-	landmark1  28,  56, BattleTowerName2
-	landmark1   0,   0, CanyonEntranceName2
-	landmark1   0,   0, SevaultCanyonName2
+	dw SpecialMapName2
+	dw NewBarkTownName2
+	dw Route29Name2
+	dw CherrygroveCityName2
+	dw Route47Name2
+	dw CatalliaTownName2
+	dw Route30Name2
+	dw Route31Name2
+	dw VioletCityName2
+	dw SproutTowerName2
+	dw Route32Name2
+	dw RuinsOfAlphName2
+	dw UnionCaveName2
+	dw Route33Name2
+	dw AzaleaTownName2
+	dw SlowpokeWellName2
+	dw IlexForestName2
+	dw Route34Name2
+	dw GoldenrodCityName2
+	dw RadioTowerName2
+	dw Route35Name2
+	dw NationalParkName2
+	dw Route36Name2
+	dw Route37Name2
+	dw EcruteakCityName2
+	dw TinTowerName2
+	dw BurnedTowerName2
+	dw Route38Name2
+	dw Route39Name2
+	dw OlivineCityName2
+	dw LighthouseName2
+	dw Route40Name2
+	dw WhirlIslandsName2
+	dw Route41Name2
+	dw CianwoodCityName2
+	dw Route42Name2
+	dw MtMortarName2
+	dw MahoganyTownName2
+	dw Route43Name2
+	dw LakeOfRageName2
+	dw Route44Name2
+	dw IcePathName2
+	dw BlackthornCityName2
+	dw DragonsDenName2
+	dw Route45Name2
+	dw DarkCaveName2
+	dw Route46Name2
+	dw SilverCaveName2
+	dw PalletTownName2
+	dw Route1Name2
+	dw ViridianCityName2
+	dw Route2Name2
+	dw PewterCityName2
+	dw Route3Name2
+	dw MtMoonName2
+	dw Route4Name2
+	dw CeruleanCityName2
+	dw Route24Name2
+	dw Route25Name2
+	dw Route5Name2
+	dw UndergroundName2
+	dw Route6Name2
+	dw VermilionCityName2
+	dw DiglettsCaveName2
+	dw Route7Name2
+	dw Route8Name2
+	dw Route9Name2
+	dw RockTunnelName2
+	dw Route10Name2
+	dw PowerPlantName2
+	dw LavenderTownName2
+	dw LavRadioTowerName2
+	dw CeladonCityName2
+	dw SaffronCityName2
+	dw Route11Name2
+	dw Route12Name2
+	dw Route13Name2
+	dw Route14Name2
+	dw Route15Name2
+	dw Route16Name2
+	dw Route17Name2
+	dw Route18Name2
+	dw FuchsiaCityName2
+	dw Route19Name2
+	dw Route20Name2
+	dw SeafoamIslandsName2
+	dw CinnabarIslandName2
+	dw Route21Name2
+	dw Route22Name2
+	dw VictoryRoadName2
+	dw Route23Name2
+	dw IndigoPlateauName2
+	dw Route26Name2
+	dw Route27Name2
+	dw TohjoFallsName2
+	dw Route28Name2
+	dw FastShipName2
+	dw OneIslandName2
+	dw KindleRoadName2
+	dw MtEmberName2
+	dw TwoIslandName2
+	dw CapeBrinkName2
+	dw ThreeIslandName2
+	dw BondBridgeName2
+	dw BerryForestName2
+	dw FourIslandName2
+	dw IcefallCaveName2
+	dw FiveIslandName2
+	dw FiveIsleMeadowName2
+	dw SixIslandName2
+	dw WaterPathName2
+	dw RuinValleyName2
+	dw PatternBushName2
+	dw SevenIslandName2
+	dw BattleTowerName2
+	dw CanyonEntranceName2
+	dw SevaultCanyonName2 ;0-116
+	dw PlaceholderName2_1
+	dw PlaceholderName2_2
+	dw PlaceholderName2_3
+	dw PlaceholderName2_4
+	dw PlaceholderName2_5
+	dw PlaceholderName2_6
+	dw PlaceholderName2_7
+	dw PlaceholderName2_8
+	dw PlaceholderName2_9
+	dw GiftName2
+	dw EventName2
 
 NewBarkTownName2:     db "New Bark Town@"
 CherrygroveCityName2: db "Cherrygrove City@"
@@ -149,7 +160,6 @@ WhirlIslandsName2:    db "Whirl Islands@"
 MtMortarName2:        db "Mt. Mortar@"
 DragonsDenName2:      db "Dragon's Den@"
 IcePathName2:         db "Ice Path@"
-NotApplicableName2:   db "N/A@" ; unreferenced ; "オバケやしき" ("HAUNTED HOUSE") in Japanese
 PalletTownName2:      db "Pallet Town@"
 ViridianCityName2:    db "Viridian City@"
 PewterCityName2:      db "Pewter City@"
@@ -247,5 +257,14 @@ CanyonEntranceName2:  db "Canyon Entrance@"
 SevaultCanyonName2:   db "Sevault Canyon@"
 Route47Name2:         db "Route 47@"
 CatalliaTownName2:    db "Catallia Town@"
-;add burned tower
-;handle unknown location
+PlaceholderName2_1:   db "Placeholder@"
+PlaceholderName2_2:   db "Placeholder@"
+PlaceholderName2_3:   db "Placeholder@"
+PlaceholderName2_4:   db "Placeholder@"
+PlaceholderName2_5:   db "Placeholder@"
+PlaceholderName2_6:   db "Placeholder@"
+PlaceholderName2_7:   db "Placeholder@"
+PlaceholderName2_8:   db "Placeholder@"
+PlaceholderName2_9:   db "Placeholder@"
+GiftName2:            db "In a Trade@" ;trademons
+EventName2:           db "Event@"

@@ -1700,6 +1700,9 @@ GivePoke::
 	ld [sBoxMon1Item], a
 
 .done
+	ld a, POKE_BALL   ;set caughtball as pokeball
+	ld [wCurItem], a
+
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
 	ld [wTempEnemyMonSpecies], a
@@ -1760,7 +1763,8 @@ GivePoke::
 	ld [hli], a
 	ld [hl], LOW(RANDY_OT_ID)
 	pop bc
-	farcall SetGiftPartyMonCaughtData
+;	farcall SetGiftPartyMonCaughtData
+	farcall SetCaughtData  ;so Kenya has a met location
 	jr .skip_nickname
 
 .send_to_box

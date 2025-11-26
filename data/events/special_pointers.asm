@@ -50,7 +50,7 @@ SpecialsPointers::
 	add_special NameRival
 	add_special SetDayOfWeek
 	add_special OverworldTownMap
-	add_special UnownPrinter
+;	add_special UnownPrinter
 	add_special MapRadio
 	add_special UnownPuzzle
 	add_special SlotMachine
@@ -115,11 +115,11 @@ SpecialsPointers::
 	add_special ProfOaksPCBoot
 	add_special GameboyCheck
 	add_special TrainerHouse
-	add_special PhotoStudio
+;	add_special PhotoStudio
 	add_special InitRoamMons
 	add_special FadeOutMusic
 	add_special Diploma
-	add_special PrintDiploma
+;	add_special PrintDiploma
 	add_special InitRoamMonsKanto
 	add_special MoveRelearner
 	add_special GiveEggMoveEgg
