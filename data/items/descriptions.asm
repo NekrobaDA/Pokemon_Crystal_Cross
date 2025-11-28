@@ -259,20 +259,20 @@ PokeDollDesc:
 	next "a wild #MON.@"
 
 FlowerMailDesc:
-	db   "Flower-print MAIL."
-	next "(HOLD)@"
+	db   "#MON-print"
+	next "MAIL. (HOLD)@"
 
 GreenTeaDesc:
-	db   "I like sweet tea"
-	next "more, personally@"
+	db   "An herbal tea."
+	next "Restores HP.@"
 
 EnergyRootDesc:
 	db   "Restores #MON"
 	next "HP by 200. Bitter.@"
 
 SootheBalmDesc:
-	db   "I wonder if balms work"
-	next "on #MON without skin@"
+	db   "An herbal balm."
+	next "Heals status.@"
 
 RevivalHerbDesc:
 	db   "Revives fainted"

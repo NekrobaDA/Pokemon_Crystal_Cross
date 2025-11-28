@@ -79,7 +79,6 @@
 	const GOLDUCK    ; 37
 	const MANKEY     ; 38
 	const PRIMEAPE   ; 39
-	const ANNIHILAPE
 	const GROWLITHE  ; 3a
 	const ARCANINE   ; 3b
 	const POLIWAG    ; 3c
@@ -274,6 +273,7 @@ JOHTO_POKEMON EQU const_value
 	const REMORAID   ; df
 	const OCTILLERY  ; e0
 	const DELIBIRD   ; e1
+	const HAULIBIRD
 	const MANTYKE
 	const MANTINE    ; e2
 	const SKARCHIC

@@ -23,8 +23,6 @@ TohjoFalls_MapScripts:
 CrystalOnix:
 	cry ONIX
 	setevent EVENT_FOUGHT_ONIX
-;	loadwildmon ONIX, 30
-;	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
 	loadwildmon ONIX, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY_ALT
 

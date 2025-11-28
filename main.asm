@@ -446,6 +446,7 @@ SECTION "Pic Animations 2", ROMX
 INCLUDE "gfx/pokemon/frame_pointers.asm"
 INCLUDE "gfx/pokemon/female_frame_pointers.asm"
 INCLUDE "gfx/pokemon/kanto_frames.asm"
+;INCLUDE "gfx/pokemon/female_anim_pointers.asm"
 
 
 SECTION "Font Inversed", ROMX

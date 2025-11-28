@@ -59,7 +59,6 @@ AnimationPointers:
 	dw GolduckAnimation
 	dw MankeyAnimation
 	dw PrimeapeAnimation
-	dw AnnihilapeAnimation
 	dw GrowlitheAnimation
 	dw ArcanineAnimation
 	dw PoliwagAnimation
@@ -253,6 +252,7 @@ AnimationPointers:
 	dw RemoraidAnimation
 	dw OctilleryAnimation
 	dw DelibirdAnimation
+	dw HaulibirdAnimation
 	dw MantykeAnimation
 	dw MantineAnimation
 	dw SkarchicAnimation

@@ -125,8 +125,6 @@ INCLUDE "gfx/pokemon/persian/ditto.pal"
 	RGB 00, 00, 00
 	RGB 00, 00, 00 ;primeape
 	RGB 00, 00, 00
-	RGB 00, 00, 00 ;annihilape
-	RGB 00, 00, 00
 	RGB 00, 00, 00 ;growlithe
 	RGB 00, 00, 00
 	RGB 00, 00, 00 ;arcanine
@@ -493,6 +491,8 @@ INCLUDE "gfx/pokemon/remoraid/ditto.pal"
 INCLUDE "gfx/pokemon/octillery/ditto.pal"
 	RGB 00, 00, 00 ;delibird
 	RGB 00, 00, 00
+	RGB 00, 00, 00 ;haulibird
+	RGB 00, 00, 00
 	RGB 00, 00, 00 ;mantyke
 	RGB 00, 00, 00
 	RGB 00, 00, 00 ;mantine
@@ -673,7 +673,6 @@ INCBIN "gfx/pokemon/psyduck/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/golduck/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/mankey/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/primeape/front.gbcpal", middle_colors
-INCBIN "gfx/pokemon/annihilape/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/growlithe/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/arcanine/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/poliwag/front.gbcpal", middle_colors
@@ -867,6 +866,7 @@ INCBIN "gfx/pokemon/corsola/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/remoraid/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/octillery/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/delibird/front.gbcpal", middle_colors
+INCBIN "gfx/pokemon/haulibird/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/mantyke/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/mantine/front.gbcpal", middle_colors
 INCBIN "gfx/pokemon/skarchic/front.gbcpal", middle_colors
@@ -1010,7 +1010,6 @@ INCLUDE "gfx/pokemon/psyduck/shiny.pal"
 INCLUDE "gfx/pokemon/golduck/shiny.pal"
 INCLUDE "gfx/pokemon/mankey/shiny.pal"
 INCLUDE "gfx/pokemon/primeape/shiny.pal"
-INCLUDE "gfx/pokemon/annihilape/shiny.pal"
 INCLUDE "gfx/pokemon/growlithe/shiny.pal"
 INCLUDE "gfx/pokemon/arcanine/shiny.pal"
 INCLUDE "gfx/pokemon/poliwag/shiny.pal"
@@ -1204,6 +1203,7 @@ INCLUDE "gfx/pokemon/corsola/shiny.pal"
 INCLUDE "gfx/pokemon/remoraid/shiny.pal"
 INCLUDE "gfx/pokemon/octillery/shiny.pal"
 INCLUDE "gfx/pokemon/delibird/shiny.pal"
+INCLUDE "gfx/pokemon/haulibird/shiny.pal"
 INCLUDE "gfx/pokemon/mantyke/shiny.pal"
 INCLUDE "gfx/pokemon/mantine/shiny.pal"
 INCLUDE "gfx/pokemon/skarchic/shiny.pal"
@@ -1347,7 +1347,6 @@ INCLUDE "gfx/pokemon/psyduck/shinyalt.pal"
 INCLUDE "gfx/pokemon/golduck/shinyalt.pal"
 INCLUDE "gfx/pokemon/mankey/shinyalt.pal"
 INCLUDE "gfx/pokemon/primeape/shinyalt.pal"
-INCLUDE "gfx/pokemon/annihilape/shinyalt.pal"
 INCLUDE "gfx/pokemon/growlithe/shinyalt.pal"
 INCLUDE "gfx/pokemon/arcanine/shinyalt.pal"
 INCLUDE "gfx/pokemon/poliwag/shinyalt.pal"
@@ -1541,6 +1540,7 @@ INCLUDE "gfx/pokemon/corsola/shinyalt.pal"
 INCLUDE "gfx/pokemon/remoraid/shinyalt.pal"
 INCLUDE "gfx/pokemon/octillery/shinyalt.pal"
 INCLUDE "gfx/pokemon/delibird/shinyalt.pal"
+INCLUDE "gfx/pokemon/haulibird/shinyalt.pal"
 INCLUDE "gfx/pokemon/mantyke/shinyalt.pal"
 INCLUDE "gfx/pokemon/mantine/shinyalt.pal"
 INCLUDE "gfx/pokemon/skarchic/shinyalt.pal"

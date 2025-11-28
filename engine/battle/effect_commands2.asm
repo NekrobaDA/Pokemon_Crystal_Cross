@@ -634,7 +634,3 @@ DoBurnupCheckEnemy:
 	ld [wEnemyMonType2], a
 .endburnupreplaceenemy	
 	ret
-	
-CheckMoveIsPurify:
-
-	ret	

@@ -59,7 +59,6 @@ AnimationIdlePointers:
 	dw GolduckAnimationIdle
 	dw MankeyAnimationIdle
 	dw PrimeapeAnimationIdle
-	dw AnnihilapeAnimationIdle
 	dw GrowlitheAnimationIdle
 	dw ArcanineAnimationIdle
 	dw PoliwagAnimationIdle
@@ -253,6 +252,7 @@ AnimationIdlePointers:
 	dw RemoraidAnimationIdle
 	dw OctilleryAnimationIdle
 	dw DelibirdAnimationIdle
+	dw HaulibirdAnimationIdle
 	dw MantykeAnimationIdle
 	dw MantineAnimationIdle
 	dw SkarchicAnimationIdle

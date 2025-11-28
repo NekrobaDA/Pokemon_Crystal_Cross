@@ -59,7 +59,6 @@ FramesPointers:
 	dba GolduckFrames
 	dba MankeyFrames
 	dba PrimeapeFrames
-	dba AnnihilapeFrames
 	dba GrowlitheFrames
 	dba ArcanineFrames
 	dba PoliwagFrames
@@ -253,6 +252,7 @@ FramesPointers:
 	dba RemoraidFrames
 	dba OctilleryFrames
 	dba DelibirdFrames
+	dba HaulibirdFrames
 	dba MantykeFrames
 	dba MantineFrames
 	dba SkarchicFrames

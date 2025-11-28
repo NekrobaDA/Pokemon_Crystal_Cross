@@ -130,8 +130,6 @@ FemalePokemonPicPointers::
 	dba MankeyBackpic
 	dba PrimeapeFrontpic
 	dba PrimeapeBackpic
-	dba AnnihilapeFrontpic
-	dba AnnihilapeBackpic
 	dba GrowlitheFrontpic
 	dba GrowlitheBackpic
 	dba ArcanineFrontpic
@@ -518,6 +516,8 @@ FemalePokemonPicPointers::
 	dba OctilleryBackpic
 	dba DelibirdFrontpic
 	dba DelibirdBackpic
+	dba HaulibirdFrontpic
+	dba HaulibirdBackpic
 	dba MantykeFrontpic
 	dba MantykeBackpic
 	dba MantineFrontpic

@@ -77,6 +77,7 @@ EvosAttacksPointers2::
 	dw RemoraidEvosAttacks
 	dw OctilleryEvosAttacks
 	dw DelibirdEvosAttacks
+	dw HaulibirdEvosAttacks
 	dw MantykeEvosAttacks
 	dw MantineEvosAttacks
 	dw SkarchicEvosAttacks
@@ -1476,6 +1477,7 @@ OctilleryEvosAttacks:                ;final
 	db 0 ; no more level-up moves
 
 DelibirdEvosAttacks:                 ;final
+	dbbbw EVOLVE_ITEM_LEVEL, ICE_STONE, 25, HAULIBIRD
 	db 0 ; no more evolutions
 	dbw 1, PECK
 	dbw 1, GROWL
@@ -1490,6 +1492,23 @@ DelibirdEvosAttacks:                 ;final
 	dbw 42, HAIL
 	dbw 47, BLIZZARD
 	dbw 52, HAZE
+	db 0 ; no more level-up moves
+	
+HaulibirdEvosAttacks:                 ;final
+	db 0 ; no more evolutions
+	dbw 1, PECK
+	dbw 1, GROWL
+	dbw 4, POWDER_SNOW
+	dbw 7, ENCORE
+	dbw 12, PAY_DAY
+	dbw 17, AGILITY
+	dbw 22, PRESENT
+	dbw 29, ICY_WIND
+	dbw 35, REST
+	dbw 41, DRILL_PECK
+	dbw 45, HAIL
+	dbw 52, BLIZZARD
+	dbw 58, HAZE
 	db 0 ; no more level-up moves
 
 MantykeEvosAttacks:                  ;final

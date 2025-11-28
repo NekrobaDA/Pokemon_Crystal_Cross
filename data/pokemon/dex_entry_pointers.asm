@@ -60,7 +60,6 @@ PokedexDataPointerTable:
 	dba GolduckPokedexEntry
 	dba MankeyPokedexEntry
 	dba PrimeapePokedexEntry
-	dba AnnihilapePokedexEntry
 	dba GrowlithePokedexEntry
 	dba ArcaninePokedexEntry
 	dba PoliwagPokedexEntry
@@ -254,6 +253,7 @@ PokedexDataPointerTable:
 	dba RemoraidPokedexEntry
 	dba OctilleryPokedexEntry
 	dba DelibirdPokedexEntry
+	dba HaulibirdPokedexEntry
 	dba MantykePokedexEntry
 	dba MantinePokedexEntry
 	dba SkarchicPokedexEntry

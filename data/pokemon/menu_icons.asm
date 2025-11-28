@@ -66,7 +66,6 @@ MonMenuIcons:
 	db ICON_GOLDUCK      
 	db ICON_MANKEY       
 	db ICON_PRIMEAPE
-	db ICON_PRIMEAPE   ;annihilape
 	db ICON_GROWLITHE    
 	db ICON_ARCANINE     
 	db ICON_POLIWAG      
@@ -260,6 +259,7 @@ MonMenuIcons:
 	db ICON_REMORAID     
 	db ICON_OCTILLERY
 	db ICON_DELIBIRD
+	db ICON_DELIBIRD  ;HAULIBIRD
 	db ICON_MANTINE	 ;MANTYKE
 	db ICON_MANTINE
 	db ICON_SKARMORY  ;skarchic

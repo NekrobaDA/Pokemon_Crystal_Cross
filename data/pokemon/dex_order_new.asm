@@ -180,6 +180,7 @@ NewPokedexOrder:
 	dw SWINUB
 	dw PILOSWINE
 	dw DELIBIRD
+	dw HAULIBIRD
 	dw HORSEA
 	dw SEADRA
 	dw KINGDRA

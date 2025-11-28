@@ -9,7 +9,6 @@ AlphabeticalPokedexOrder:
 	dw ALAKAZAM   ; 41
 	dw AMBIPOM
 	dw AMPHAROS   ; b5
-	dw ANNIHILAPE
 	dw ARBOK      ; 18
 	dw ARBOK_DARK
 	dw ARBOK_KANTO
@@ -106,6 +105,7 @@ AlphabeticalPokedexOrder:
 	dw GROWLITHE_HISUIAN
 	dw GYARADOS   ; 82
 	dw HAPPINY
+	dw HAULIBIRD
 	dw HAUNTER    ; 5d
 	dw HERACROSS  ; ee
 	dw HITMONCHAN ; 6b

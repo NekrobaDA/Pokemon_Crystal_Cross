@@ -356,7 +356,12 @@ GenerateSwarmShiny:
 	or b
 	ld b, a
 .gotDV
+	call Random
+	and %1
+	and a
 	ld c, SPDSPCDV_SHINY ; $aa
+	jr z, .UpdateDVs
+	ld c, $a5
 	jr .UpdateDVs
 
 .skipshine:

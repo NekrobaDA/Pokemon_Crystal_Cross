@@ -65,7 +65,6 @@ PokemonCries::
 	mon_cry CRY_PSYDUCK,     255,  192 ; GOLDUCK
 	mon_cry CRY_NIDOQUEEN,   221,  224 ; MANKEY
 	mon_cry CRY_NIDOQUEEN,   175,  192 ; PRIMEAPE
-	mon_cry CRY_NIDOQUEEN,   175,  192 ; ANNIHILAPE
 	mon_cry CRY_GROWLITHE,    32,  192 ; GROWLITHE
 	mon_cry CRY_WEEDLE,        0,  256 ; ARCANINE
 	mon_cry CRY_PIDGEY,      255,  383 ; POLIWAG
@@ -259,6 +258,7 @@ PokemonCries::
 	mon_cry CRY_SUNFLORA,     13,  256 ; REMORAID
 	mon_cry CRY_TOTODILE,      0,  384 ; OCTILLERY
 	mon_cry CRY_TEDDIURSA,     2,  106 ; DELIBIRD
+	mon_cry CRY_TEDDIURSA,     2,  106 ; HAULIBIRD
 	mon_cry CRY_MANTINE,    -190,  240 ; MANTYKE
 	mon_cry CRY_MANTINE,    -190,  240 ; MANTINE
 	mon_cry CRY_AMPHAROS,   2217,  384 ; SKARCHIC

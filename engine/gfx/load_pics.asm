@@ -117,9 +117,6 @@ _GetFrontpic:
 	ret
 
 GetPicIndirectPointer:
-	call GetGender
-	jr z, .female
-	
 	ld a, [wCurPartySpecies]
 	call GetPokemonIndexFromID
 	ld b, h
@@ -140,31 +137,16 @@ GetPicIndirectPointer:
 	jr z, .unown
 .not_unown
 
+	push bc
+	call GetGender
+	jr z, .female
+	pop bc
 	ld hl, PokemonPicPointers
 	ld d, BANK(PokemonPicPointers)
 	jr .done
 	
 .female
-	ld a, [wCurPartySpecies]
-	call GetPokemonIndexFromID
-	ld b, h
-	ld c, l
-	ld a, l
-	sub LOW(UNOWN)
-	if HIGH(UNOWN) == 0
-		or h
-	else
-		jr nz, .not_unown2
-		if HIGH(UNOWN) == 1
-			dec h
-		else
-			ld a, h
-			cp HIGH(UNOWN)
-		endc
-	endc
-	jr z, .unown
-.not_unown2
-	
+	pop bc
 	ld hl, FemalePokemonPicPointers
 	ld d, BANK(FemalePokemonPicPointers)
 

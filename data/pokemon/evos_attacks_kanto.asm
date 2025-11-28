@@ -61,7 +61,6 @@ EvosAttacksPointers1::
 	dw GolduckEvosAttacks
 	dw MankeyEvosAttacks
 	dw PrimeapeEvosAttacks
-	dw AnnihilapeEvosAttacks
 	dw GrowlitheEvosAttacks
 	dw ArcanineEvosAttacks
 	dw PoliwagEvosAttacks
@@ -1195,8 +1194,8 @@ MankeyEvosAttacks:                   ;final
 	db 0 ; no more level-up moves
 
 PrimeapeEvosAttacks:                 ;final
-	dbbw EVOLVE_ITEM, DUSK_STONE, ANNIHILAPE
 	db 0 ; no more evolutions
+	dbw 1, SHADOW_PUNCH
 	dbw 1, SKY_UPPERCUT
 	dbw 1, SCRATCH
 	dbw 1, LEER
@@ -1211,25 +1210,6 @@ PrimeapeEvosAttacks:                 ;final
 	dbw 45, SWAGGER
 	dbw 49, SUBMISSION
 	dbw 53, OUTRAGE
-	db 0 ; no more level-up moves
-
-AnnihilapeEvosAttacks:               ;final
-	db 0 ; no more evolutions
-	dbw 1, SKY_UPPERCUT
-	dbw 1, SCRATCH
-	dbw 1, LEER
-	dbw 4, LOW_KICK
-	dbw 9, HOWL
-	dbw 13, FURY_SWIPES
-	dbw 17, SEISMIC_TOSS
-	dbw 21, SCREECH
-	dbw 25, ROCK_SMASH
-	dbw 38, PURSUIT
-	dbw 43, SLAM
-	dbw 47, SWAGGER
-	dbw 51, SUBMISSION
-	dbw 57, OUTRAGE
-	dbw LEARN_EVO_MOVE, SHADOW_PUNCH ;evolution move
 	db 0 ; no more level-up moves
 
 GrowlitheEvosAttacks:                ;final

@@ -76,6 +76,7 @@ EggMovePointers2::
 	dw RemoraidEggMoves
 	dw NoEggMoves2
 	dw DelibirdEggMoves
+	dw NoEggMoves2
 	dw MantykeEggMoves
 	dw NoEggMoves2
 	dw SkarchicEggMoves

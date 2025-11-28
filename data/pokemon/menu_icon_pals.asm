@@ -68,7 +68,6 @@ MonMenuIconPals:
 	icon_pals BLUE, BLUE ; GOLDUCK
 	icon_pals BROWN, GREEN ; MANKEY
 	icon_pals BROWN, GREEN ; PRIMEAPE
-	icon_pals GRAY, BLUE ; ANNIHILAPE
 	icon_pals YELLOW, BROWN ; GROWLITHE
 	icon_pals YELLOW, BROWN ; ARCANINE
 	icon_pals BLUE, TEAL ; POLIWAG
@@ -261,6 +260,7 @@ MonMenuIconPals:
 	icon_pals RED, BLUE ; CORSOLA
 	icon_pals BLUE, GRAY ; REMORAID
 	icon_pals RED, TEAL ; OCTILLERY
+	icon_pals RED, PURPLE ; DELIBIRD
 	icon_pals RED, PURPLE ; DELIBIRD
 	icon_pals PURPLE, TEAL ; MANTYKE
 	icon_pals PURPLE, TEAL ; MANTINE

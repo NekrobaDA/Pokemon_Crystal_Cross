@@ -59,7 +59,6 @@ FemaleBitmasksPointers:
 	dw GolduckBitmasks
 	dw MankeyBitmasks
 	dw PrimeapeBitmasks
-	dw AnnihilapeBitmasks
 	dw GrowlitheBitmasks
 	dw ArcanineBitmasks
 	dw PoliwagBitmasks
@@ -253,6 +252,7 @@ FemaleBitmasksPointers:
 	dw RemoraidBitmasks
 	dw OctilleryBitmasks
 	dw DelibirdBitmasks
+	dw HaulibirdBitmasks
 	dw MantykeBitmasks
 	dw MantineBitmasks
 	dw SkarchicBitmasks

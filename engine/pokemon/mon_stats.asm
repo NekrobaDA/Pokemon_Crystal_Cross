@@ -588,4 +588,5 @@ GenerateGender:
 .finishrollgender
 	rrca
 	ld [wSeerCaughtGender], a
-	ret
+	ld [wTempMonCaughtGender], a  ;this has to be here to make wild gender variants
+	ret                           ;animate correctly, apparently.
