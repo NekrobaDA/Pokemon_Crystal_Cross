@@ -917,54 +917,16 @@ StatsScreen_PlaceFrontpic:
 .AnimateMon:
 	ld hl, wStatsScreenFlags
 	set 5, [hl]
-	ld a, [wCurPartySpecies]
-	call GetPokemonIndexFromID
-	ld a, l
-	cp LOW(UNOWN)
-	ld a, h
-	;hlcoord 0, 0
 	hlcoord 12, 0
-	jp nz, PrepMonFrontpicAlt ;PrepMonFrontpic
-	if HIGH(UNOWN) == 0
-		and a
-	elif HIGH(UNOWN) == 1
-		dec a
-	else
-		cp HIGH(UNOWN)
-	endc
-	jp nz, PrepMonFrontpicAlt ;PrepMonFrontpic
 	xor a
 	ld [wBoxAlignment], a
 	jp _PrepMonFrontpic
 
 .AnimateEgg:
-	ld a, [wCurPartySpecies]
-	push hl
-	call GetPokemonIndexFromID
-	ld a, l
-	cp LOW(UNOWN)
-	ld a, h
-	pop hl
-	jr nz, .not_unown_egg
-	if HIGH(UNOWN) == 0
-		and a
-	elif HIGH(UNOWN) == 1
-		dec a
-	else
-		cp HIGH(UNOWN)
-	endc
-	jr z, .unownegg
-.not_unown_egg
-	;ld a, TRUE
-	xor a
-	ld [wBoxAlignment], a
-	jr .get_animation
-
-.unownegg
 	xor a
 	ld [wBoxAlignment], a
 
-.get_animation
+;.get_animation
 	ld a, [wCurPartySpecies]
 	call IsAPokemon
 	ret c
@@ -1066,9 +1028,6 @@ StatsScreen_LoadTextboxSpaceGFX:
 	pop de
 	pop hl
 	ret
-
-StatsScreenSpaceGFX: ; unreferenced
-INCBIN "gfx/font/space.2bpp"
 
 EggStatsScreen:
 	xor a

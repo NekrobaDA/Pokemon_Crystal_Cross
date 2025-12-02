@@ -3106,7 +3106,7 @@ CooltrainerFGroup:
 	db 36
 	dw RAPIDASH
 	db 0 ;female
-	db STOMP, FIRE_SPIN, HORN_ATTACK, AGILITY
+	dw STOMP, FIRE_SPIN, HORN_ATTACK, AGILITY
 	db -1 ; end
 
 	next_list_item ; COOLTRAINERF (10)

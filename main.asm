@@ -438,7 +438,6 @@ INCLUDE "gfx/pokemon/unown_idles.asm"
 INCLUDE "gfx/pokemon/bitmask_pointers.asm"
 INCLUDE "gfx/pokemon/female_bitmask_pointers.asm"
 INCLUDE "gfx/pokemon/bitmasks.asm"
-INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
 
 
 SECTION "Pic Animations 2", ROMX
@@ -446,7 +445,6 @@ SECTION "Pic Animations 2", ROMX
 INCLUDE "gfx/pokemon/frame_pointers.asm"
 INCLUDE "gfx/pokemon/female_frame_pointers.asm"
 INCLUDE "gfx/pokemon/kanto_frames.asm"
-;INCLUDE "gfx/pokemon/female_anim_pointers.asm"
 
 
 SECTION "Font Inversed", ROMX
@@ -460,6 +458,8 @@ SECTION "Pic Animations 3", ROMX
 INCLUDE "gfx/pokemon/johto_frames.asm"
 INCLUDE "gfx/pokemon/unown_frame_pointers.asm"
 INCLUDE "gfx/pokemon/unown_frames.asm"
+INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
+INCLUDE "gfx/pokemon/unown_bitmasks.asm"
 
 
 SECTION "bank38", ROMX
@@ -727,8 +727,7 @@ INCLUDE "engine/events/egg_move_egg.asm"
 INCLUDE "engine/link/time_capsule_2.asm"
 INCLUDE "data/pokemon/dex_numbers.asm"
 INCLUDE "engine/events/CCafeBerries.asm"
-INCLUDE "engine/events/sweet_scent.asm"               ;moved from bank14
-INCLUDE "gfx/pokemon/unown_bitmasks.asm"           ;moved from pic animations 1
+INCLUDE "engine/events/sweet_scent.asm"          ;moved from bank14
 INCLUDE "engine/pokedex/unown_dex.asm"           ;moved from bank3e
 ;INCLUDE "engine/events/paint.asm"
 ;INCLUDE "engine/pokemon/personalitytrait.asm"

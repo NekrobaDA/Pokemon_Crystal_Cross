@@ -905,17 +905,15 @@ GetMonAnimPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	call PokeAnim_IsUnown
-	jr nz, .notunown_pointer
 	ld c, BANK(UnownAnimationPointers) ; aka BANK(UnownAnimationIdlePointers)
 	ld hl, UnownAnimationPointers - 2
 	ld de, UnownAnimationIdlePointers - 2
-	jr .unown
-
-.notunown_pointer
+	call PokeAnim_IsUnown
+	jr z, .unown
 	ld c, BANK(AnimationPointers) ; aka BANK(AnimationIdlePointers)
 	ld hl, AnimationPointers - 2
 	ld de, AnimationIdlePointers - 2
+.unown
 
 	ld a, [wPokeAnimIdleFlag]
 	and a
@@ -924,31 +922,11 @@ GetMonAnimPointer:
 	ld e, l
 .got_pointer
 
+	call PokeAnim_IsUnown
 	ld a, [wPokeAnimSpeciesOrUnown]
 	ld l, a
 	ld h, 0
-	call GetPokemonIndexFromID
-	add hl, hl
-	add hl, de
-	ld a, c
-	ld [wPokeAnimPointerBank], a
-	call GetFarWord
-	ld a, l
-	ld [wPokeAnimPointerAddr], a
-	ld a, h
-	ld [wPokeAnimPointerAddr + 1], a
-	ret
-	
-.unown
-	ld a, [wPokeAnimIdleFlag]
-	and a
-	jr nz, .got_pointer
-	ld d, h
-	ld e, l
-
-	ld a, [wPokeAnimSpeciesOrUnown]
-	ld l, a
-	ld h, 0
+	call nz, GetPokemonIndexFromID
 	add hl, hl
 	add hl, de
 	ld a, c
@@ -1005,7 +983,7 @@ GetMonFramesPointer:
 	ld hl, UnownFramesPointers - 2
 	ld a, BANK(UnownFramesPointers)
 	ld c, 2
-	jr .unown
+	jr .got_frames
 
 .getgender
 	ldh a, [rSVBK]
@@ -1013,7 +991,6 @@ GetMonFramesPointer:
 	ld a, BANK(wCurPartySpecies)
 	ldh [rSVBK], a
 
-	;farcall GetGender
 	predef GetGender
 	jr z, .femaleframes
 	
@@ -1038,40 +1015,20 @@ GetMonFramesPointer:
 	ld a, [wPokeAnimSpeciesOrUnown]
 	ld l, a
 	ld h, 0
-	call GetPokemonIndexFromID
+	call nz, GetPokemonIndexFromID
 	ld a, c
 	ld c, l
 	ld b, h
 	pop hl
 	call AddNTimes
 	pop af
+	jr z, .no_bank
 	ld c, a
 	call GetFarByte
 	ld [wPokeAnimFramesBank], a
 	inc hl
 	ld a, c
-;beow is the same
-	call GetFarWord
-	ld a, l
-	ld [wPokeAnimFramesAddr], a
-	ld a, h
-	ld [wPokeAnimFramesAddr + 1], a
-	ret
-
-.unown
-	push af
-	push hl
-	ld a, [wPokeAnimSpeciesOrUnown]
-	ld l, a
-	ld h, 0
-	
-	ld a, c
-	ld c, l
-	ld b, h
-	pop hl
-	call AddNTimes
-	pop af
-	
+.no_bank	
 	call GetFarWord
 	ld a, l
 	ld [wPokeAnimFramesAddr], a
@@ -1093,26 +1050,27 @@ GetMonBitmaskPointer:
 	jr z, .egg
 	
 	call PokeAnim_IsUnown
+	jr nz, .getgender
+	
 	ld a, BANK(UnownBitmasksPointers)
 	ld de, UnownBitmasksPointers - 2
-	jr z, .unown
-	
-;getgender
+	jr .getbitmask
+
+.getgender
 	ldh a, [rSVBK]                ;so it turns out
 	push af                       ;this actually matters.
 	ld a, BANK(wCurPartySpecies)  ;a lot.
 	ldh [rSVBK], a                ;or else GetGender will not actually work
 	
-	;farcall GetGender
-	predef GetGender
-	jr z, .femalebitmasks
+	predef GetGender              ;this also wouldn't work for wildmons
+	jr z, .femalebitmasks         ;unless I changed to a predef
 	
 ;male
 	pop af
 	ldh [rSVBK], a
-	ld a, BANK(BitmasksPointers)  ;and yet.. this is still not working
-	ld de, BitmasksPointers - 2   ;in wild battles. why.
-	jr .getbitmask                ;(it works on the summary screen) : /
+	ld a, BANK(BitmasksPointers)
+	ld de, BitmasksPointers - 2
+	jr .getbitmask
 
 .femalebitmasks
 	pop af
@@ -1126,23 +1084,7 @@ GetMonBitmaskPointer:
 	ld a, [wPokeAnimSpeciesOrUnown]
 	ld l, a
 	ld h, 0
-	call GetPokemonIndexFromID
-	add hl, hl
-	add hl, de
-	ld a, [wPokeAnimBitmaskBank]
-	call GetFarWord
-	ld a, l
-	ld [wPokeAnimBitmaskAddr], a
-	ld a, h
-	ld [wPokeAnimBitmaskAddr + 1], a
-	ret
-	
-.unown
-	ld [wPokeAnimBitmaskBank], a
-
-	ld a, [wPokeAnimSpeciesOrUnown]
-	ld l, a
-	ld h, 0
+	call nz, GetPokemonIndexFromID
 	add hl, hl
 	add hl, de
 	ld a, [wPokeAnimBitmaskBank]
