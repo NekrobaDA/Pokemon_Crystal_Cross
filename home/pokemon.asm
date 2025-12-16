@@ -136,7 +136,7 @@ DrawEnemyHPSymbol::
 	
 	ld a, [wTempMailType]
 	cp 7
-	jr z, .drawalt
+	jr nz, .drawalt
 	
 ; Place 'HP:'
 	ld a, $70

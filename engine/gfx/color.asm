@@ -173,7 +173,19 @@ ApplyHPBarPals:
 	ld h, $0
 	add hl, hl
 	add hl, hl
-	ld bc, HPBarPals
+	
+;get palset based on time of day
+	ld a, [wNightFlag]
+	ld bc, HPBarPals  ;day pals
+	and a
+	jr z, .continueHPpals
+	ld bc, HPBarPalsNight
+	cp 1
+	jr z, .continueHPpals	
+;eveHPpals
+	ld bc, HPBarPalsEve
+
+.continueHPpals	
 	add hl, bc
 	ld bc, 4
 	ld a, BANK(wBGPals2)
@@ -298,8 +310,16 @@ LoadPalette_White_Col1_Col2_Black:
 	ld a, $5
 	ldh [rSVBK], a
 	
+	ld a, [wStatsScreenFlags]  ;tricky to use because overlaps with wPackJumptableIndex
+	cp 1
+	jr z, .day
+	cp 2
+	jr z, .day
+	cp 3
+	jr z, .day
+	
 	ld a, [wNightFlag]
-	cp 0
+	and a
 	jr z, .day
 	cp 1
 	jr z, .night
@@ -973,6 +993,10 @@ INCLUDE "gfx/sgb/predef.pal"
 
 HPBarPals:
 INCLUDE "gfx/battle/hp_bar.pal"
+HPBarPalsNight:
+INCLUDE "gfx/battle/hp_bar_n.pal"
+HPBarPalsEve:
+INCLUDE "gfx/battle/hp_bar_e.pal"
 
 ExpBarPalette:
 INCLUDE "gfx/battle/exp_bar.pal"

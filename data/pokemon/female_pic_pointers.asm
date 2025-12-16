@@ -112,7 +112,7 @@ FemalePokemonPicPointers::
 	dba ParasectBackpic
 	dba VenonatFrontpic
 	dba VenonatBackpic
-	dba VenomothFrontpic
+	dba VenomothFemaleFrontpic
 	dba VenomothBackpic
 	dba DiglettFrontpic
 	dba DiglettBackpic
@@ -308,7 +308,7 @@ FemalePokemonPicPointers::
 	dba LaprasBackpic
 	dba DittoFrontpic
 	dba DittoBackpic
-	dba EeveeFrontpic
+	dba EeveeFemaleFrontpic
 	dba EeveeBackpic
 	dba VaporeonFrontpic
 	dba VaporeonBackpic
@@ -492,7 +492,7 @@ FemalePokemonPicPointers::
 	dba DetoqwilBackpic
 	dba ShuckleFrontpic
 	dba ShuckleBackpic
-	dba SneaselFrontpic
+	dba SneaselFemaleFrontpic
 	dba SneaselBackpic
 	dba WeavileFrontpic
 	dba WeavileBackpic
@@ -528,7 +528,7 @@ FemalePokemonPicPointers::
 	dba SkarmoryBackpic
 	dba HoundourFrontpic
 	dba HoundourBackpic
-	dba HoundoomFrontpic
+	dba HoundoomFemaleFrontpic
 	dba HoundoomBackpic
 	dba PhanpyFrontpic
 	dba PhanpyBackpic

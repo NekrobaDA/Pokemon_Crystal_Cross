@@ -76,7 +76,8 @@ SageLiScript:
 	opentext
 	writetext SageLiTakeThisFlashText
 	promptbutton
-	verbosegiveitem HM_FLASH
+;	verbosegiveitem HM_FLASH
+	verbosegiveitem EXP_SHARE
 	setevent EVENT_GOT_HM05_FLASH
 	setevent EVENT_BEAT_SAGE_LI
 	writetext SageLiFlashExplanationText
@@ -231,26 +232,39 @@ SageLiBeatenText:
 	done
 
 SageLiTakeThisFlashText:
-	text "You and your #-"
-	line "MON should have"
+;	text "You and your #-"
+;	line "MON should have"
 
-	para "no problem using"
-	line "this move."
+;	para "no problem using"
+;	line "this move."
 
-	para "Take this FLASH"
-	line "HM."
+;	para "Take this FLASH"
+;	line "HM."
+;	done
+
+	text "I'm sorry, but I"
+	line "have no more HMs"
+	cont "to hand out."
+	
+	para "Perhaps this item"
+	line "could be of use"
+	cont "to you instead."
 	done
 
+
 SageLiFlashExplanationText:
-	text "FLASH illuminates"
-	line "even the darkest"
-	cont "of all places."
+;	text "FLASH illuminates"
+;	line "even the darkest"
+;	cont "of all places."
 
-	para "But to use it out"
-	line "of battle, you"
+;	para "But to use it out"
+;	line "of battle, you"
+;
+;	para "need the BADGE"
+;	line "from VIOLET's GYM."
+;	done
 
-	para "need the BADGE"
-	line "from VIOLET's GYM."
+	text "Take care."
 	done
 
 SageLiAfterBattleText:

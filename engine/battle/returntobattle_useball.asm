@@ -1,4 +1,7 @@
 _ReturnToBattle_UseBall:
+	xor a
+	ld [wStatsScreenFlags], a
+
 	call ClearBGPalettes
 	call ClearTilemap
 	ld a, [wBattleType]

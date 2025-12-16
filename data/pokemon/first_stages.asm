@@ -61,7 +61,6 @@ FirstEvoStages::
 	dw PSYDUCK
 	dw MANKEY     ;38
 	dw MANKEY
-	dw MANKEY
 	dw GROWLITHE
 	dw GROWLITHE
 	dw POLIWAG
@@ -254,6 +253,7 @@ FirstEvoStages::
 	dw CORSOLA
 	dw REMORAID
 	dw REMORAID   ;e0
+	dw DELIBIRD
 	dw DELIBIRD
 	dw MANTYKE
 	dw MANTYKE

@@ -59,10 +59,9 @@ DrawHP:
 	call DrawBattleHPBar
 	pop hl
 
-;	ld a, [wDittoFlag]
 	ld a, [wTempMailType]
 	cp 7
-	jr z, .skipHP
+	jr nz, .skipHP
 
 ; Print HP
 	bccoord 1, 1, 0

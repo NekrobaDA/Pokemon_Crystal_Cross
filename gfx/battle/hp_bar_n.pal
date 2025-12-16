@@ -1,0 +1,9 @@
+; green
+	RGB 15, 13, 11
+	RGB 00, 11, 00
+; yellow
+	RGB 15, 13, 11
+	RGB 15, 10, 00
+; red
+	RGB 15, 13, 11
+	RGB 15, 00, 00

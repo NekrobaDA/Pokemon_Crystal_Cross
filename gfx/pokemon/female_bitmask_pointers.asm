@@ -50,7 +50,7 @@ FemaleBitmasksPointers:
 	dw ParasBitmasks
 	dw ParasectBitmasks
 	dw VenonatBitmasks
-	dw VenomothBitmasks
+	dw VenomothFemaleBitmasks
 	dw DiglettBitmasks
 	dw DugtrioBitmasks
 	dw MeowthBitmasks
@@ -148,7 +148,7 @@ FemaleBitmasksPointers:
 	dw NessiBitmasks
 	dw LaprasBitmasks
 	dw DittoBitmasks
-	dw EeveeBitmasks
+	dw EeveeFemaleBitmasks
 	dw VaporeonBitmasks
 	dw JolteonBitmasks
 	dw FlareonBitmasks
@@ -240,7 +240,7 @@ FemaleBitmasksPointers:
 	dw QwilfishBitmasks
 	dw DetoqwilBitmasks
 	dw ShuckleBitmasks
-	dw SneaselBitmasks
+	dw SneaselFemaleBitmasks
 	dw WeavileBitmasks
 	dw TeddiursaBitmasks
 	dw UrsaringBitmasks
@@ -258,7 +258,7 @@ FemaleBitmasksPointers:
 	dw SkarchicBitmasks
 	dw SkarmoryBitmasks
 	dw HoundourBitmasks
-	dw HoundoomBitmasks
+	dw HoundoomFemaleBitmasks
 	dw PhanpyBitmasks
 	dw DonphanBitmasks
 	dw StantlerBitmasks

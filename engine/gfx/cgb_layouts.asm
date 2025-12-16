@@ -65,6 +65,43 @@ LoadSGBLayoutCGB:
 	dw _CGB_Unused1E
 
 _CGB_BattleGrayscale:
+	;insert time pal code here
+	ld a, [wNightFlag]
+	and a
+	jr z, .daypal
+	cp 1
+	jr z, .nightpal
+;evepal
+	ld hl, PalPacket_BattleGrayscaleE + 1
+	ld de, wBGPals1
+	ld c, 4
+	call CopyPalettes
+	ld hl, PalPacket_BattleGrayscaleE + 1
+	ld de, wBGPals1 palette PAL_BATTLE_BG_EXP
+	ld c, 4
+	call CopyPalettes
+	ld hl, PalPacket_BattleGrayscaleE + 1
+	ld de, wOBPals1
+	ld c, 2
+	call CopyPalettes
+	jp _CGB_FinishBattleScreenLayout
+	
+.nightpal
+	ld hl, PalPacket_BattleGrayscaleN + 1
+	ld de, wBGPals1
+	ld c, 4
+	call CopyPalettes
+	ld hl, PalPacket_BattleGrayscaleN + 1
+	ld de, wBGPals1 palette PAL_BATTLE_BG_EXP
+	ld c, 4
+	call CopyPalettes
+	ld hl, PalPacket_BattleGrayscaleN + 1
+	ld de, wOBPals1
+	ld c, 2
+	call CopyPalettes
+	jr _CGB_FinishBattleScreenLayout
+
+.daypal	
 	ld hl, PalPacket_BattleGrayscale + 1
 	ld de, wBGPals1
 	ld c, 4

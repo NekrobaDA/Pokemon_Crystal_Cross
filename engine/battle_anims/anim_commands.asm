@@ -209,8 +209,10 @@ ClearActorHud:
 	and a
 	jr z, .player
 
-	hlcoord 1, 0
-	lb bc, 4, 10
+;	hlcoord 1, 0
+;	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 4, 11
 	call ClearBox
 	ret
 

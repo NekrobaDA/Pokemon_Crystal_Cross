@@ -114,6 +114,8 @@ StatsScreen_SetJumptableIndex:
 StatsScreen_Exit:
 	ld hl, wJumptableIndex
 	set 7, [hl]
+	xor a
+	ld [wTempMailType], a
 	ret
 
 MonStatsInit:
@@ -468,6 +470,8 @@ StatsScreen_InitUpperHalf:
 	db "<PKRS>@"
 
 .PlaceHPBar:
+	ld a, 7
+	ld [wTempMailType], a
 	ld hl, wTempMonHP
 	ld a, [hli]
 	ld b, a
@@ -482,6 +486,8 @@ StatsScreen_InitUpperHalf:
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
 ;	call DelayFrame
+;	xor a
+;	ld [wTempMailType], a
 	ret
 
 .PlaceGenderChar:

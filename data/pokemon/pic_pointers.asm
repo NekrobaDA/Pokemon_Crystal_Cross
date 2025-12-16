@@ -27,7 +27,7 @@ PokemonPicPointers::
 	dba WartortleFrontpic
 	dba WartortleBackpic
 	dba BlastoiseFrontpic
-	dba BlastoiseBackpic
+	dba BlastoiseBackpic   ;© Vince
 	dba CaterpieFrontpic
 	dba CaterpieBackpic
 	dba MetapodFrontpic
@@ -113,7 +113,7 @@ PokemonPicPointers::
 	dba VenonatFrontpic
 	dba VenonatBackpic
 	dba VenomothFrontpic
-	dba VenomothBackpic
+	dba VenomothBackpic    ;© Vince
 	dba DiglettFrontpic
 	dba DiglettBackpic
 	dba DugtrioFrontpic
@@ -131,7 +131,7 @@ PokemonPicPointers::
 	dba PrimeapeFrontpic
 	dba PrimeapeBackpic
 	dba GrowlitheFrontpic
-	dba GrowlitheBackpic
+	dba GrowlitheBackpic   ;© Vince
 	dba ArcanineFrontpic
 	dba ArcanineBackpic
 	dba PoliwagFrontpic
@@ -171,7 +171,7 @@ PokemonPicPointers::
 	dba GolemFrontpic
 	dba GolemBackpic
 	dba PonytaFrontpic
-	dba PonytaBackpic
+	dba PonytaBackpic      ;© Vince
 	dba RapidashFrontpic
 	dba RapidashBackpic
 	dba SlowpokeFrontpic
@@ -329,7 +329,7 @@ PokemonPicPointers::
 	dba PorygonFrontpic
 	dba PorygonBackpic
 	dba Porygon2Frontpic
-	dba Porygon2Backpic
+	dba Porygon2Backpic    ;© Vince
 	dba PorygonZFrontpic
 	dba PorygonZBackpic
 	dba OmanyteFrontpic
@@ -369,7 +369,7 @@ PokemonPicPointers::
 	dba BayleefFrontpic
 	dba BayleefBackpic
 	dba MeganiumFrontpic
-	dba MeganiumBackpic
+	dba MeganiumBackpic    ;© Vince
 	dba CyndaquilFrontpic
 	dba CyndaquilBackpic
 	dba QuilavaFrontpic
@@ -399,7 +399,7 @@ PokemonPicPointers::
 	dba AriadosFrontpic
 	dba AriadosBackpic
 	dba ChinchouFrontpic
-	dba ChinchouBackpic
+	dba ChinchouBackpic    ;© Vince
 	dba LanturnFrontpic
 	dba LanturnBackpic
 	dba TogepiFrontpic
@@ -465,7 +465,7 @@ PokemonPicPointers::
 	dba OkapakoFrontpic
 	dba OkapakoBackpic
 	dba GirafarigFrontpic
-	dba GirafarigBackpic
+	dba GirafarigBackpic   ;© Vince
 	dba PinecoFrontpic
 	dba PinecoBackpic
 	dba ForretressFrontpic
@@ -491,7 +491,7 @@ PokemonPicPointers::
 	dba DetoqwilFrontpic
 	dba DetoqwilBackpic
 	dba ShuckleFrontpic
-	dba ShuckleBackpic
+	dba ShuckleBackpic     ;© Vince
 	dba SneaselFrontpic
 	dba SneaselBackpic
 	dba WeavileFrontpic
@@ -515,9 +515,9 @@ PokemonPicPointers::
 	dba OctilleryFrontpic
 	dba OctilleryBackpic
 	dba DelibirdFrontpic
-	dba DelibirdBackpic
-	dba HaulibirdFrontpic
-	dba HaulibirdBackpic
+	dba DelibirdBackpic    ;© Vince
+	dba HaulibirdFrontpic  ;© Vince
+	dba HaulibirdBackpic   ;© Vince
 	dba MantykeFrontpic
 	dba MantykeBackpic
 	dba MantineFrontpic
@@ -582,7 +582,7 @@ PokemonPicPointers::
 	dba Wartortle_CloneFrontpic
 	dba Wartortle_CloneBackpic
 	dba Blastoise_CloneFrontpic
-	dba Blastoise_CloneBackpic
+	dba Blastoise_CloneBackpic ;(base) © Vince
 	dba Ekans_DarkFrontpic
 	dba Ekans_DarkBackpic
 	dba Arbok_DarkFrontpic

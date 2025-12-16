@@ -270,10 +270,9 @@ HPBarAnim_UpdateHPRemaining:
 	ld de, SCREEN_WIDTH + 1
 .loaded_de
 	push hl
-;	ld a, [wDittoFlag]
 	ld a, [wTempMailType]
 	cp 7
-	jr nz, .skipredirect
+	jr z, .skipredirect
 	hlcoord 15, 10
 	ld a, " "
 	ld [hl], a

@@ -272,6 +272,8 @@ HandleBetweenTurnEffects:
 	;call CheckFaint_PlayerThenEnemy
 	ret c
 	call HandleWeather
+	farcall _CGB_BattleColors
+	
 	call CheckFaint_PlayerThenEnemy
 	ret c
 	call HandleWrap
@@ -289,6 +291,8 @@ HandleBetweenTurnEffects:
 	;call CheckFaint_EnemyThenPlayer
 	ret c
 	call HandleWeather
+	farcall _CGB_BattleColors
+	
 	call CheckFaint_EnemyThenPlayer
 	ret c
 	call HandleWrap
@@ -2613,7 +2617,7 @@ UpdateHPBar:
 	ret
 
 HandleEnemyMonFaint:
-	call FaintEnemyPokemon
+	call FaintEnemyPokemon	
 	ld hl, wBattleMonHP
 	ld a, [hli]
 	or [hl]
@@ -2682,8 +2686,10 @@ DoubleSwitch:
 	cp USING_EXTERNAL_CLOCK
 	jr z, .player_1
 	call ClearSprites
-	hlcoord 1, 0
-	lb bc, 4, 10
+;	hlcoord 1, 0
+;	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 4, 11
 	call ClearBox
 	call PlayerPartyMonEntrance
 	ld a, $1
@@ -2887,8 +2893,10 @@ FaintEnemyPokemon:
 	call EnemyMonFaintedAnimation
 	ld de, SFX_FAINT
 	call PlaySFX
-	hlcoord 1, 0
-	lb bc, 4, 10
+;	hlcoord 1, 0
+;	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 4, 11
 	call ClearBox
 	ld hl, BattleText_EnemyMonFainted
 	jp StdBattleTextbox
@@ -4067,8 +4075,10 @@ ClearEnemyMonBox:
 	ldh [hBGMapMode], a
 	call ExitMenu
 	call ClearSprites
-	hlcoord 1, 0
-	lb bc, 4, 10
+;	hlcoord 1, 0
+;	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 4, 11
 	call ClearBox
 	call WaitBGMap
 	jp FinishBattleAnim
@@ -5246,43 +5256,22 @@ PrintPlayerHUD:
 	hlcoord 10, 10
 	ld [hl], a
 	hlcoord 10, 10
-	push af ; back up gender
+	push af          ;if this is removed, HP gfx do not print
 	push hl
 	ld de, wBattleMonStatus
 	predef PlaceNonFaintStatus
 	pop hl
 	pop bc
-	ret nz
-	ld a, b
-	cp " "
-	jr nz, .copy_level ; male or female
-;	dec hl ; genderless
-
-.copy_level	
-;check for start-button info toggle, if so, display instead;
-;	ld a, [wDittoFlag]
+	
+;check for start-button info toggle, if so, display instead;	
 	ld a, [wTempMailType]
 	cp 7
-	ret nz
-
+	jr z, .skiplv
+	
 	hlcoord 11, 10
 	ld a, [wBattleMonLevel]
 	ld [wTempMonLevel], a
 	call PrintLevel
-	
-;	ld a, 0
-	ld a, $5
-	ld [wMonType], a
-	callfar GetGender
-	ld a, " "
-	jr c, .skip_gender
-	ld a, "♂"
-	jr nz, .got_gender_char2
-	ld a, "♀"
-
-.got_gender_char2
-	hlcoord 10, 10
-	ld [hl], a
 	
 	hlcoord 14, 10
 	ld a, ":"
@@ -5290,12 +5279,26 @@ PrintPlayerHUD:
 	hlcoord 15, 10
 	ld a, " "
 	ld [hl], a
-
-.skip_gender
+	
 	hlcoord 15, 10
 	ld de, wBattleMonHP
 	lb bc, 2, 3
 	call PrintNum
+	ret
+
+.skiplv
+	ld a, $5
+	ld [wMonType], a
+	callfar GetGender
+	ld a, " "
+	jr c, .got_gender_char2
+	ld a, "♂"
+	jr nz, .got_gender_char2
+	ld a, "♀"
+
+.got_gender_char2
+	hlcoord 10, 10
+	ld [hl], a
 	ret
 
 UpdateEnemyHUD::
@@ -5339,39 +5342,35 @@ DrawEnemyHUD:
 	inc de
 	ld a, [hl]
 	ld [de], a
-	
-	call GetTrainermonOrWildmonGenderSymbol
-	hlcoord 5, 0
-	ld [hl], a
-;add shiny icon
-	ld bc, wTempMonDVs
-	farcall CheckShininess
-	jr nc, .tryalt
-	hlcoord 10, 0
-	ld [hl], $7b
-	jr .endshine
-.tryalt
-	ld bc, wTempMonDVs
-	farcall CheckShininessAlt
-	jr nc, .endshine
-	hlcoord 10, 0
-	ld [hl], $7c
-.endshine
 
-	hlcoord 2, 0
-	push af
+	ld de, wEnemyMonNick
+	hlcoord 1, 0
+	call PlaceString
+	
+	hlcoord 10, 0
+	ld a, [hl]
+	cp " "
+	jr z, .skipoffset
+	ld de, wEnemyMonNick
+	hlcoord 0, 0
+	call PlaceString
+
+.skipoffset	
+	hlcoord 10, 0
+
 	push hl
-	hlcoord 9, 0
+	call GetTrainermonOrWildmonGenderSymbol
+	pop hl
+	ld [hl], a
+	
+	hlcoord 10, 0
 	ld de, wEnemyMonStatus
 	predef PlaceNonFaintStatus
-	pop hl
-	pop bc
-
-.print_level
+	
+	hlcoord 8, 1
 	ld a, [wEnemyMonLevel]
 	ld [wTempMonLevel], a
 	call PrintLevel
-.skip_level
 
 	ld hl, wEnemyMonHP
 	ld a, [hli]
@@ -5441,45 +5440,54 @@ DrawEnemyHUD:
 	ld b, 0
 	call DrawEnemyHPSymbol
 	
-;check for start-button info toggle, if so, display instead;
 	ld a, [wTempMailType]
 	cp 7
 	ret nz
-		
+
 	ld de, BlankString
-	hlcoord 1, 0
+	hlcoord 0, 0
 	call PlaceString
-	
-;	call GetTrainermonOrWildmonGenderSymbol
-;	hlcoord 9, 0
-;	ld [hl], a
-
-	ld de, wEnemyMonNick
-	hlcoord 1, 0
-	call PlaceString
-	
-	hlcoord 10, 0
-
-.loopinc
-	ld a, [hli]
-    cp " "
-	jr nz, .loopinc
-	
-	dec hl
-	push hl
-	call GetTrainermonOrWildmonGenderSymbol
-	pop hl
+	hlcoord 10, 1
+	ld a, " "
 	ld [hl], a
 	
-	hlcoord 8, 1
+	ld a, [wTempEnemyMonSpecies]
+	call CheckCaughtMon
+	jr z, .skipcaughticon
+	hlcoord 1, 0
+	ld [hl], $5f
+.skipcaughticon
+	call GetTrainermonOrWildmonGenderSymbol
+	hlcoord 5, 0
+	ld [hl], a
+;add shiny icon
+	ld bc, wTempMonDVs
+	farcall CheckShininess
+	jr nc, .tryalt
+	hlcoord 8, 0
+	ld [hl], $7b
+	jr .endshine
+.tryalt
+	ld bc, wTempMonDVs
+	farcall CheckShininessAlt
+	jr nc, .endshine
+	hlcoord 8, 0
+	ld [hl], $7c
+.endshine
+
+	push af
+;	push hl
+	hlcoord 10, 0
+	ld de, wEnemyMonStatus
+	predef PlaceNonFaintStatus
+;	pop hl
+	pop bc
+
+;.print_level
+	hlcoord 2, 0
 	ld a, [wEnemyMonLevel]
 	ld [wTempMonLevel], a
 	call PrintLevel
-
-.drawL
-	hlcoord 8, 1
-	ld a, "<L>"
-	ld [hl], a
 	ret
 
 UpdateEnemyHPPal:
@@ -5608,6 +5616,8 @@ BattleMenu_Pack:
 	ret
 
 .didnt_use_item
+	xor a
+	ld [wStatsScreenFlags], a
 	call ClearPalettes
 	call DelayFrame
 	call _LoadBattleFontsHPBar
@@ -5632,8 +5642,10 @@ BattleMenu_Pack:
 	ld a, [wItemAttributeValue]
 	cp BALL
 	jr z, .ball
+	
+	xor a
+	ld [wStatsScreenFlags], a
 	call ClearBGPalettes
-
 .ball
 	xor a
 	ldh [hBGMapMode], a
@@ -8762,7 +8774,16 @@ DropEnemySub:
 	ld [wCurPartySpecies], a
 	call GetBaseData
 	ld hl, wEnemyMonDVs
+
+	ld a, [wBattleMode]
+	cp WILD_BATTLE
+	jr z, .setwildmontype
+	ld a, 3
+	jr .continuemontype
+
+.setwildmontype	
 	ld a, WILDMON
+.continuemontype
 	ld [wMonType], a
 	predef GetVariant
 	ld de, vTiles2
@@ -9093,6 +9114,7 @@ CleanUpBattleRAM:
 	ld [wItemsPocketScrollPosition], a
 	ld [wBallsPocketScrollPosition], a
 	ld [wTempMailSpecies], a            ;used for start-toggle
+	ld [wTempMailType], a
 	ld hl, wPlayerSubStatus1
 	ld b, wEnemyFuryCutterCount - wPlayerSubStatus1
 .loop
@@ -9911,4 +9933,4 @@ GetGenderSymbol:
 	ret
 	
 BlankString:
-	db "          @"
+	db "           @"

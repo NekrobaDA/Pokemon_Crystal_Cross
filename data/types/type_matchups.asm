@@ -86,6 +86,7 @@ TypeMatchups:
 	db ROCK,         GROUND,       NOT_VERY_EFFECTIVE
 	db ROCK,         FLYING,       SUPER_EFFECTIVE
 	db ROCK,         BUG,          SUPER_EFFECTIVE
+	db ROCK,         ICE,          SUPER_EFFECTIVE    ;re-adding
 	db ROCK,         STEEL,        NOT_VERY_EFFECTIVE
 	db GHOST,        NORMAL,       NO_EFFECT
 	db GHOST,        PSYCHIC_TYPE, SUPER_EFFECTIVE

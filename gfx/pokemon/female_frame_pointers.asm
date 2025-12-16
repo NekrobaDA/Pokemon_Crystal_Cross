@@ -50,7 +50,7 @@ FemaleFramesPointers:
 	dba ParasFrames
 	dba ParasectFrames
 	dba VenonatFrames
-	dba VenomothFrames
+	dba VenomothFemaleFrames
 	dba DiglettFrames
 	dba DugtrioFrames
 	dba MeowthFrames
@@ -148,7 +148,7 @@ FemaleFramesPointers:
 	dba NessiFrames
 	dba LaprasFrames
 	dba DittoFrames
-	dba EeveeFrames
+	dba EeveeFemaleFrames
 	dba VaporeonFrames
 	dba JolteonFrames
 	dba FlareonFrames
@@ -240,7 +240,7 @@ FemaleFramesPointers:
 	dba QwilfishFrames
 	dba DetoqwilFrames
 	dba ShuckleFrames
-	dba SneaselFrames
+	dba SneaselFemaleFrames
 	dba WeavileFrames
 	dba TeddiursaFrames
 	dba UrsaringFrames
@@ -258,7 +258,7 @@ FemaleFramesPointers:
 	dba SkarchicFrames
 	dba SkarmoryFrames
 	dba HoundourFrames
-	dba HoundoomFrames
+	dba HoundoomFemaleFrames
 	dba PhanpyFrames
 	dba DonphanFrames
 	dba StantlerFrames

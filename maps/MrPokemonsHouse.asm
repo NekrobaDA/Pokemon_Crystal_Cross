@@ -69,7 +69,8 @@ MrPokemonsHouse_MrPokemonScript:
 	writetext MrPokemonText_GimmeTheScale
 	yesorno
 	iffalse .refused
-	verbosegiveitem EXP_SHARE
+;	verbosegiveitem EXP_SHARE
+	verbosegiveitem HM_FLASH
 	iffalse .full
 	takeitem RED_SCALE
 	sjump .AlwaysNewDiscoveries
@@ -232,7 +233,11 @@ MrPokemonText_ImDependingOnYou:
 	done
 
 MrPokemonText_AlwaysNewDiscoveries:
-	text "Life is delight-"
+	text "FLASH illuminates"
+	line "even the darkest"
+	cont "of all places."
+
+	para "Life is delight-"
 	line "ful! Always, new"
 
 	para "discoveries to be"
@@ -338,8 +343,8 @@ MrPokemonText_GimmeTheScale:
 	line "care to trade it?"
 
 	para "I can offer this"
-	line "EXP.SHARE I got"
-	cont "from PROF.OAK."
+	line "HM I got from"
+	cont "PROF.OAK."
 	done
 
 MrPokemonText_Disappointed:

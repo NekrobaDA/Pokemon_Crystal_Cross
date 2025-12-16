@@ -94,3 +94,9 @@ rept 6
 	RGB 00, 00, 00
 endr
 	db 0
+	
+PalPacket_BattleGrayscaleN:
+	sgb_pal_set BLACKOUT_N, BLACKOUT_N, BLACKOUT_N, BLACKOUT_N
+	
+PalPacket_BattleGrayscaleE:
+	sgb_pal_set BLACKOUT_E, BLACKOUT_E, BLACKOUT_E, BLACKOUT_E
