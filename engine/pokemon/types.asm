@@ -58,7 +58,16 @@ PrintType:
 
 	push hl
 	add a
+	
+	push af
+	ld a, [wBattleMode]
+	and a
 	ld hl, TypeNames
+	jr z, .notinbattle
+	ld hl, TypeNames2
+.notinbattle
+	
+	pop af
 	ld e, a
 	ld d, 0
 	add hl, de

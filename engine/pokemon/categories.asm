@@ -19,8 +19,15 @@ GetMoveCategoryName:
 	rlc a
 	rlc a
 	dec a
-
+	
+	push af
+	ld a, [wBattleMode]
+	and a
 	ld hl, CategoryNames
+	jr z, .notinbattle
+	ld hl, CategoryNames2
+.notinbattle
+	pop af
 	ld e, a
 	ld d, 0
 	add hl, de

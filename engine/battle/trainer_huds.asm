@@ -140,15 +140,14 @@ DrawEnemyHUDBorder:
 	hlcoord 1, 1
 	ld de, 1 ; start on left
 	call PlaceHUDBorderTiles
-	ld a, [wBattleMode]
-	dec a
-	ret nz
-	ld a, [wTempEnemyMonSpecies]
-	call CheckCaughtMon
-	ret z
-	hlcoord 1, 0
-	;ld [hl], $5d
-	ld [hl], $5f
+;	ld a, [wBattleMode]
+;	dec a
+;	ret nz
+;	ld a, [wTempEnemyMonSpecies]
+;	call CheckCaughtMon
+;	ret z
+;	hlcoord 1, 0
+;	ld [hl], $5f
 	ret
 
 .tiles
