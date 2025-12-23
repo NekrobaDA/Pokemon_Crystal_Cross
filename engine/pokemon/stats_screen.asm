@@ -486,8 +486,6 @@ StatsScreen_InitUpperHalf:
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
 ;	call DelayFrame
-;	xor a
-;	ld [wTempMailType], a
 	ret
 
 .PlaceGenderChar:

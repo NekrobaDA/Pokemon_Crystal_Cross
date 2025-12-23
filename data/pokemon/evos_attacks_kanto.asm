@@ -3312,7 +3312,7 @@ MewEvosAttacks:                      ;final
 	dbw 70, WEATHER_BALL
 	dbw 70, AQUA_RING
 	dbw 70, U_TURN
-	dbw 70, MIST
+	dbw 70, INGRAIN
 	dbw 70, REFRESH
 	dbw 70, ACID_RAIN
 	db 0 ; no more level-up moves

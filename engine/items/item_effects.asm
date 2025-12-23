@@ -1663,6 +1663,9 @@ RevivePokemon:
 	predef SmallFarFlagAction
 
 .skip_to_revive
+	ld a, 7
+	ld [wTempMailType], a
+
 	xor a
 	ld [wLowHealthAlarm], a
 	ld a, [wCurItem]
@@ -1684,6 +1687,11 @@ RevivePokemon:
 	call ItemActionTextWaitButton
 	call UseDisposableItem
 	ld a, FALSE
+	
+	push af
+	xor a
+	ld [wTempMailType], a
+	pop af
 	ret
 
 FullRestoreEffect:
@@ -1704,6 +1712,9 @@ FullRestoreEffect:
 	jp StatusHealer_Jumptable
 
 .FullRestore:
+	ld a, 7
+	ld [wTempMailType], a
+
 	xor a
 	ld [wLowHealthAlarm], a
 	call ReviveFullHP
@@ -1719,7 +1730,10 @@ FullRestoreEffect:
 	ld [wPartyMenuActionText], a
 	call ItemActionTextWaitButton
 	call UseDisposableItem
-	ld a, 0
+;	ld a, 0
+
+	xor a
+	ld [wTempMailType], a
 	ret
 
 BitterBerryEffect:
@@ -1767,6 +1781,9 @@ EnergypowderEnergyRootCommon:
 	jp StatusHealer_Jumptable
 
 ItemRestoreHP:
+	ld a, 7                 ;every one of these is a pain and agony of my own making
+	ld [wTempMailType], a   ;make better choices, everyone
+	
 	ld b, PARTYMENUACTION_HEALING_ITEM
 	call UseItem_SelectMon
 	ld a, 2
@@ -1790,7 +1807,10 @@ ItemRestoreHP:
 	ld [wPartyMenuActionText], a
 	call ItemActionTextWaitButton
 	call UseDisposableItem
-	ld a, 0
+;	ld a, 0
+	
+	xor a
+	ld [wTempMailType], a
 	ret
 
 HealHP_SFX_GFX:
@@ -2239,6 +2259,9 @@ PurifyFunction:
 
 Softboiled_MilkDrinkFunction:
 ; Softboiled/Milk Drink in the field
+	ld a, 7
+	ld [wTempMailType], a
+
 	ld a, [wPartyMenuCursor]
 	dec a
 	ld b, a
@@ -2265,6 +2288,9 @@ Softboiled_MilkDrinkFunction:
 	ld a, b
 	inc a
 	ld [wPartyMenuCursor], a
+	
+	xor a
+	ld [wTempMailType], a
 	ret
 
 .SelectMilkDrinkRecipient:

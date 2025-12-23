@@ -1618,10 +1618,12 @@ DoAquaRing:
 	call GetBattleVarAddr
 	bit SUBSTATUS_AQUARING, [hl]
 	ret z
+	call ContinueLeftovers
+	ret nc
+	call GetSixteenthMaxHP
 	call SwitchTurnCore
 	call ItemRecoveryAnim
-	call SwitchTurnCore
-	call ContinueLeftovers
+	call RestoreHP
 	ld hl, BattleText_AquaRingRestore
 	jp StdBattleTextbox
 	
@@ -1643,10 +1645,8 @@ DoIngrain:
 	call GetBattleVarAddr
 	bit SUBSTATUS_ROOTED, [hl]
 	ret z
-;	call SwitchTurnCore
-;	call ItemRecoveryAnim
-;	call SwitchTurnCore
 	call ContinueLeftovers
+	ret nc
 	ld hl, BattleText_IngrainRestore
 	jp StdBattleTextbox
 
@@ -1672,6 +1672,7 @@ DoLeftovers:
 	cp HELD_LEFTOVERS
 	ret nz
 	call ContinueLeftovers
+	ret nc
 	ld hl, BattleText_TargetRecoveredWithItem
 	jp StdBattleTextbox
 	
@@ -1696,9 +1697,16 @@ ContinueLeftovers:
 	ret z
 
 .restore
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_AQUARING, [hl]
+	scf
+	ret nz
+
 	call GetSixteenthMaxHP
 	call SwitchTurnCore
 	call RestoreHP
+	scf
 	ret
 
 HandleMysteryberry:
@@ -5505,6 +5513,33 @@ UpdateHPPal:
 ; called before placing either battler's nickname in the HUD
 ;	ret
 
+WeatherString:
+	db "Weather@"
+
+FieldString:
+	db "Field@"
+	
+FieldNoneString:
+	db "NONE@"
+	
+WeatherNoneString:
+	db "CLEAR@"
+	
+WeatherSunString:
+	db "SUN@"
+	
+WeatherRainString:
+	db "RAIN@"
+	
+WeatherSnowString:
+	db "SNOW@"
+	
+WeatherAcidString:
+	db "ACID@"
+	
+WeatherSandString:
+	db "SAND@"
+
 BattleMenu:
 	xor a
 	ldh [hBGMapMode], a
@@ -5519,7 +5554,47 @@ BattleMenu:
 	call UpdateBattleHuds
 	call EmptyBattleTextbox
 	call LoadTilemapToTempTilemap
+	
 .ok
+;	hlcoord 1, 15
+	hlcoord 1, 14
+	ld de, WeatherString ;weather
+	call PlaceString
+;	hlcoord 1, 16
+	hlcoord 1, 16
+	ld a, "/"
+	ld [hli], a
+	
+	ld a, [wBattleWeather]
+	cp WEATHER_NONE
+	ld de, WeatherNoneString
+	jr z, .gotstring
+	cp WEATHER_SUN
+	ld de, WeatherSunString ;weather name
+	jr z, .gotstring
+	cp WEATHER_RAIN
+	ld de, WeatherRainString ;weather name
+	jr z, .gotstring
+	cp WEATHER_HAIL
+	ld de, WeatherSnowString ;weather name
+	jr z, .gotstring
+	cp WEATHER_ACID_RAIN
+	ld de, WeatherAcidString ;weather name
+	jr z, .gotstring
+;assume sandstorm
+	ld de, WeatherSandString ;weather name
+
+.gotstring	
+	call PlaceString
+;Not being used right now
+;	hlcoord 1, 13
+;	ld de, FieldString ;field
+;	call PlaceString
+;	hlcoord 1, 14
+;	ld a, "/"
+;	ld [hli], a
+;	ld de, FieldNoneString ;field name
+;	call PlaceString
 
 .loop
 	ld a, [wBattleType]

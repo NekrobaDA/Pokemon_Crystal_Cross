@@ -559,7 +559,7 @@ MartCatallia:
 	db ENERGYPOWDER
 	db PARLYZ_HEAL
 ;	db AWAKENING
-	db LOVE_BALL
+	db LEFTOVERS
 	db -1 ; end
 
 MartCatalliaDex:

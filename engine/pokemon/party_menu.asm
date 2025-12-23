@@ -681,6 +681,7 @@ PartyMenuSelect:
 	ld a, [wMenuCursorY]
 	dec a
 	ld [wCurPartyMon], a
+	ld [wDittoFlag], a       ;I broke something somewhere, so this is a bandaid
 	ld c, a
 	ld b, 0
 	ld hl, wPartySpecies
@@ -771,7 +772,8 @@ YouHaveNoPKMNString:
 	db "You have no <PK><MN>!@"
 
 PrintPartyMenuActionText:
-	ld a, [wCurPartyMon]
+;	ld a, [wCurPartyMon]      ;this is broken for some reason, and idk why
+	ld a, [wDittoFlag]        ;but this is a fix
 	ld hl, wPartyMonNicknames
 	call GetNick
 	ld a, [wPartyMenuActionText]
