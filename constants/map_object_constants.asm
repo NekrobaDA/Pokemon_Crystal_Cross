@@ -230,8 +230,8 @@ NUM_SPRITEMOVEDATA EQU const_value
 	const STEP_TYPE_17               ; 17
 	const STEP_TYPE_DELETE           ; 18
 	const STEP_TYPE_SKYFALL_TOP      ; 19
-	const STEP_TYPE_NPC_DIAGONAL_STAIRS
-	const STEP_TYPE_PLAYER_DIAGONAL_STAIRS
+	const STEP_TYPE_NPC_STAIRS
+	const STEP_TYPE_PLAYER_STAIRS
 
 ; ObjectActionPairPointers indexes (see engine/overworld/map_object_action.asm)
 	const_def
@@ -252,6 +252,7 @@ NUM_SPRITEMOVEDATA EQU const_value
 	const OBJECT_ACTION_BOULDER_DUST  ; 0e
 	const OBJECT_ACTION_GRASS_SHAKE   ; 0f
 	const OBJECT_ACTION_SKYFALL       ; 10
+	const OBJECT_ACTION_RUN           ; 11
 	const OBJECT_ACTION_OVERLAY
 
 ; Facings indexes (see data/sprites/facings.asm)
@@ -294,10 +295,11 @@ NUM_SPRITEMOVEDATA EQU const_value
 	const_def
 	const STEP_SLOW          ; 0
 	const STEP_WALK          ; 1
+	const STEP_RUN
 	const STEP_BIKE          ; 2
 	const STEP_LEDGE         ; 3
 	const STEP_ICE           ; 4
 	const STEP_TURN          ; 5
 	const STEP_BACK_LEDGE    ; 6
 	const STEP_WALK_IN_PLACE ; 7
-	const STEP_DIAGONAL_STAIRS
+	const STEP_STAIRS

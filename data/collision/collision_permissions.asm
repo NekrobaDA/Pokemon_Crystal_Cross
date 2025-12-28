@@ -208,23 +208,23 @@ TileCollisionTable::
 	db WATER_TILE        ; cd
 	db WATER_TILE        ; ce
 	db WATER_TILE        ; cf
-	db LAND_TILE ; COLL_DIAGONAL_STAIRS_RIGHT
-	db LAND_TILE ; COLL_DIAGONAL_STAIRS_LEFT
+	db LAND_TILE         ; COLL_STAIRS_DOWN_RIGHT
+	db LAND_TILE         ; COLL_STAIRS_DOWN_LEFT
+	db LAND_TILE         ; COLL_STAIRS_UP_RIGHT
+	db LAND_TILE         ; COLL_STAIRS_UP_LEFT
+	db LAND_TILE         ;
+	db LAND_TILE         ; 
+	db LAND_TILE         ; 
+	db LAND_TILE         ; 
+	db WALL_TILE         ; 
+	db WALL_TILE         ; 
+	db WALL_TILE         ; 
+	db WALL_TILE         ; 
+	db WALL_TILE         ; 
+	db WALL_TILE         ; 
 	db WALL_TILE | TALK  ; coll rock smash
 	db WALL_TILE | TALK  ; coll log
 	db WALL_TILE | TALK  ; coll bush
-	db LAND_TILE         ; d5
-	db LAND_TILE         ; d6
-	db LAND_TILE         ; d7
-	db LAND_TILE         ; d8
-	db LAND_TILE         ; d9
-	db LAND_TILE         ; da
-	db LAND_TILE         ; db
-	db LAND_TILE         ; dc
-	db LAND_TILE         ; dd
-	db LAND_TILE         ; de
-	db LAND_TILE         ; df
-	db LAND_TILE         ; e0
 	db LAND_TILE         ; e1
 	db LAND_TILE         ; e2
 	db LAND_TILE         ; e3

@@ -223,3 +223,10 @@ ENDM
 skyfall_top: MACRO
 	db movement_skyfall_top
 ENDM
+
+	const movement_bike_step ; $5a
+bike_step: MACRO
+	db movement_bike_step + \1
+ENDM
+
+	const_skip 3

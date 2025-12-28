@@ -2719,14 +2719,19 @@ wGameTimeMinutes:: db
 wGameTimeSeconds:: db
 wGameTimeFrames::  db
 
-	ds 2
+;	ds 2
 
 wCurDay:: db
 
-	ds 1
+;	ds 1
 
 wObjectFollow_Leader:: db
 wObjectFollow_Follower:: db
+
+wPlayerGoingUpDownStairs:: db
+wObjectGoingUpDownStairs:: db
+wPlayerGoingLeftRightStairs:: db
+
 wCenteredObject:: db
 wFollowerMovementQueueLength:: db
 wFollowMovementQueue:: ds 5

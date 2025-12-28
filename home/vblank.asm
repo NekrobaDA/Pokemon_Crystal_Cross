@@ -117,12 +117,12 @@ VBlank0::
 	xor a
 	ld [wVBlankOccurred], a
 
-	ld a, [wOverworldDelay]
-	and a
-	jr z, .ok
-	dec a
-	ld [wOverworldDelay], a
-.ok
+;	ld a, [wOverworldDelay]
+;	and a
+;	jr z, .ok
+;	dec a
+;	ld [wOverworldDelay], a
+;.ok
 
 	ld a, [wTextDelayFrames]
 	and a

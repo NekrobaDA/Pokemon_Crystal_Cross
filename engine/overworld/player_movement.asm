@@ -57,7 +57,7 @@ DoPlayerMovement::
 	ret c
 	call .TryJump
 	ret c
-	call .TryDiagonalStairs
+	call .TryStairs
 	ret c
 	call .CheckWarp
 	ret c
@@ -85,7 +85,7 @@ DoPlayerMovement::
 	ret c
 	call .TryJump
 	ret c
-	call .TryDiagonalStairs
+	call .TryStairs
 	ret c
 	call .CheckWarp
 	ret c
@@ -316,6 +316,17 @@ DoPlayerMovement::
 	ret
 
 .walk
+	ld a, [wCurInput]
+	and B_BUTTON
+	jr nz, .run
+;if previously running, switch sprite back	
+	ld a, [wPlayerState]
+	cp PLAYER_RUN
+	jr nz, .sprite_unset
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	farcall UpdatePlayerSprite
+.sprite_unset
 	ld a, STEP_WALK
 	call .DoStep
 	scf
@@ -327,8 +338,17 @@ DoPlayerMovement::
 	scf
 	ret
 
-.unused ; unreferenced
-	xor a
+.run
+	ld a, [wPlayerState]
+	cp PLAYER_RUN
+	jr z, .sprite_set
+	ld a, PLAYER_RUN
+	ld [wPlayerState], a
+	farcall UpdatePlayerSprite
+.sprite_set
+	ld a, STEP_RUN
+	call .DoStep
+	scf
 	ret
 
 .bump
@@ -337,7 +357,15 @@ DoPlayerMovement::
 
 .TrySurf:
 	call .CheckSurfPerms
+	push af
 	ld [wWalkingIntoLand], a
+	ld a, [wPlayerStepType]
+	cp STEP_TYPE_TURN
+	jr nz, .not_surf_turning
+	xor a
+	ld [wWalkingIntoLand], a
+.not_surf_turning
+	pop af
 	jr c, .surf_bump
 
 	call .CheckNPC
@@ -442,12 +470,12 @@ DoPlayerMovement::
 	db FACE_UP | FACE_RIGHT   ; COLL_HOP_UP_RIGHT
 	db FACE_UP | FACE_LEFT    ; COLL_HOP_UP_LEFT
 	
-.TryDiagonalStairs:
+.TryStairs:
 	ld a, [wPlayerStandingTile]
 	ld e, a
 	and $f0
-	cp HI_NYBBLE_DIAGONAL_STAIRS
-	jr nz, .DontDiagonalStairs
+	cp HI_NYBBLE_STAIRS
+	jr nz, .DontStairs
 
 	ld a, e
 	and 7
@@ -455,24 +483,30 @@ DoPlayerMovement::
 	ld d, 0
 	ld hl, .FacingStairsTable
 	add hl, de
+	add hl, de
 	ld a, [wFacingDirection]
 	and [hl]
-	jr z, .DontDiagonalStairs
-
-	ld a, STEP_DIAGONAL_STAIRS
+	jr z, .DontStairs
+	inc hl
+	ld a, [hl]
+	ld [wPlayerGoingLeftRightStairs], a
+	
+	ld a, STEP_STAIRS
 	call .DoStep
-	ld a, 7
+	ld a, PLAYERMOVEMENT_JUMP
 	scf
 	ret
 
 .FacingStairsTable:
-	db FACE_RIGHT
-	db FACE_LEFT
+	db FACE_RIGHT, RIGHT
+	db FACE_LEFT, LEFT
+	db FACE_RIGHT, RIGHT
+	db FACE_LEFT, LEFT
 
-.DontDiagonalStairs:
+.DontStairs:
 	xor a
 	ret
-
+	
 .CheckWarp:
 ; Bug: Since no case is made for STANDING here, it will check
 ; [.edgewarps + $ff]. This resolves to $3e at $8035a.
@@ -553,13 +587,14 @@ DoPlayerMovement::
 ; entries correspond to STEP_* constants
 	dw .SlowStep
 	dw .NormalStep
-	dw .FastStep
+	dw .RunStep
+	dw .BikeStep
 	dw .JumpStep
 	dw .SlideStep
 	dw .TurningStep
 	dw .BackJumpStep
 	dw .FinishFacing
-	dw .DiagonalStairsStep
+	dw .StairsStep
 
 .SlowStep:
 	slow_step DOWN
@@ -571,11 +606,16 @@ DoPlayerMovement::
 	step UP
 	step LEFT
 	step RIGHT
-.FastStep:
+.RunStep:
 	big_step DOWN
 	big_step UP
 	big_step LEFT
 	big_step RIGHT
+.BikeStep
+	bike_step DOWN
+	bike_step UP
+	bike_step LEFT
+	bike_step RIGHT
 .JumpStep:
 	jump_step DOWN
 	jump_step UP
@@ -601,7 +641,7 @@ DoPlayerMovement::
 	db $80 | UP
 	db $80 | LEFT
 	db $80 | RIGHT
-.DiagonalStairsStep:
+.StairsStep:
 	stairs_step DOWN
 	stairs_step UP
 	stairs_step LEFT
@@ -861,6 +901,11 @@ ENDM
 	ret
 
 .BumpSound:
+	ld a, [wPlayerLastTile]
+	and $f0
+	cp HI_NYBBLE_STAIRS
+	ret z
+	
 	call CheckSFX
 	ret c
 	ld de, SFX_BUMP

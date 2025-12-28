@@ -58,8 +58,8 @@ PredefPointers::
 	add_predef LoadSGBLayout
 	add_predef Pokedex_GetArea
 	add_predef DoBattleTransition
-	add_predef DummyPredef35
-	add_predef DummyPredef36
+;	add_predef DummyPredef35
+;	add_predef DummyPredef36
 	add_predef PlayBattleAnim
 	add_predef DummyPredef38
 	add_predef DummyPredef39

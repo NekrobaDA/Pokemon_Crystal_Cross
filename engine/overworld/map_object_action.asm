@@ -18,6 +18,8 @@ ObjectActionPairPointers:
 	dw SetFacingBoulderDust,           SetFacingStanding
 	dw SetFacingGrassShake,            SetFacingStanding
 	dw SetFacingSkyfall,               SetFacingCurrent
+	dw SetFacingRunAction,             SetFacingCurrent  ;does not seem to work
+;	dw SetFacingStepAction,            SetFacingCurrent  ;as in it won't animate the sprite
 	dw SetFacingOverlay,               SetFacingOverlay
 
 SetFacingStanding:
@@ -50,18 +52,14 @@ SetFacingStepAction:
 
 	ld hl, OBJECT_STEP_FRAME
 	add hl, bc
+	inc [hl]
 	ld a, [hl]
-	inc a
-	and %00001111
-	ld [hl], a
-
 	rrca
 	rrca
-	maskbits NUM_DIRECTIONS
+	rrca
+	and %11
 	ld d, a
-
 	call GetSpriteDirection
-	or FACING_STEP_DOWN_0 ; useless
 	or d
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc
@@ -149,7 +147,8 @@ CounterclockwiseSpinAction:
 	inc a
 	and %00001111
 	ld d, a
-	cp 4
+;	cp 4
+	cp 6
 	jr c, .ok
 
 	ld d, 0
@@ -212,9 +211,9 @@ SetFacingBounce:
 	add hl, bc
 	ld a, [hl]
 	inc a
-	and %00001111
+	and %00011111
 	ld [hl], a
-	and %00001000
+	and %00010000
 	jr z, SetFacingFreezeBounce
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc
@@ -300,5 +299,26 @@ SetFacingOverlay:
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc
 	ld [hl], FACING_OVERLAY
+	ret
+	
+SetFacingRunAction:
+	ld hl, OBJECT_FLAGS1
+	add hl, bc
+	bit SLIDING_F, [hl]
+	jp nz, SetFacingCurrent
+
+	ld hl, OBJECT_STEP_FRAME
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	rrca
+	rrca
+	and %11
+	ld d, a
+	call GetSpriteDirection
+	or d
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld [hl], a
 	ret
 	
