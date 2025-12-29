@@ -4,7 +4,7 @@ ChrisStateSprites:
 	db PLAYER_SURF,      SPRITE_SURF
 	db PLAYER_SURF_PIKA, SPRITE_SURFING_PIKACHU
 	db PLAYER_DIVE,      SPRITE_DIVE
-	db PLAYER_RUN,       SPRITE_KRIS   ;placeholder
+	db PLAYER_RUN,       SPRITE_CHRIS_RUN
 	db -1 ; end
 
 KrisStateSprites:
@@ -13,5 +13,5 @@ KrisStateSprites:
 	db PLAYER_SURF,      SPRITE_SURF
 	db PLAYER_SURF_PIKA, SPRITE_SURFING_PIKACHU
 	db PLAYER_DIVE,      SPRITE_DIVE
-	db PLAYER_RUN,       SPRITE_CHRIS  ;placeholder
+	db PLAYER_RUN,       SPRITE_KRIS_RUN
 	db -1 ; end

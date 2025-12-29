@@ -44,6 +44,14 @@ CloseText::
 	ret
 
 OpenText::
+	ld a, [wPlayerState]    ;not sure if there's a better way
+	cp PLAYER_RUN           ;but change sprite back from running
+	jr nz, .sprite_unset
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	farcall UpdatePlayerSprite
+.sprite_unset
+
 	call ClearWindowData
 	ldh a, [hROMBank]
 	push af

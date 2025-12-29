@@ -1900,8 +1900,15 @@ CheckCurrentMapCoordEvents::
 	xor a
 	ret
 
-.copy_coord_event
-	pop hl
+.copy_coord_event	
+	ld a, [wPlayerState]    ;revert sprite back to walking
+	cp PLAYER_RUN           ;for coord events
+	jr nz, .sprite_unset
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	farcall UpdatePlayerSprite
+.sprite_unset
+	pop hl	
 	ld de, wCurCoordEvent
 	ld bc, COORD_EVENT_SIZE
 	call CopyBytes
