@@ -238,66 +238,66 @@ __tmhm_value__ = __tmhm_value__ + 1
 ENDM
 
 ; see data/moves/tmhm_moves.asm for moves | b9-f4, 60
-	add_tm DYNAMICPUNCH ; b9  1 x
-	add_tm DRAGON_CLAW  ; ba  2 x
-	add_tm WATER_PULSE  ; bb  3 x
-	add_tm CALM_MIND    ; bc  4 x
-	add_tm ROAR         ; bd  5 x
-	add_tm TOXIC        ; be  6 x
-	add_tm HAIL         ; bf  7 x
-	add_tm CURSE        ; c0  8 x
-	add_tm HEADBUTT     ; c1  9 x
-	add_tm HIDDEN_POWER ; c2 10 x
-	add_tm SUNNY_DAY    ; c3 11 x
-	add_tm U_TURN       ; c4 12 x
-	add_tm ICE_BEAM     ; c5 13 x
-	add_tm BLIZZARD     ; c6 14 x
-	add_tm HYPER_BEAM   ; c7 15 x
-	add_tm LIGHT_SCREEN ; c8 16 x
-	add_tm PROTECT      ; c9 17 x
-	add_tm RAIN_DANCE   ; ca 18 x
-	add_tm GIGA_DRAIN   ; cb 19 x
-	add_tm REFLECT      ; cc 20 x
-	add_tm SNARL        ; cd 21 x
-	add_tm SOLARBEAM    ; ce 22 x
-	add_tm IRON_TAIL    ; cf 23 x
-	add_tm THUNDERBOLT  ; d0 24 x
-	add_tm THUNDER      ; d1 25 x
-	add_tm EARTHQUAKE   ; d2 26 x
-	add_tm RETURN       ; d3 27 x
-	add_tm DIG          ; d4 28 x
-	add_tm PSYCHIC_M    ; d5 29 x
-	add_tm SHADOW_BALL  ; d6 30 x
-	add_tm WILL_O_WISP  ; d7 31 x
-	add_tm DOUBLE_TEAM  ; d8 32 x
-	add_tm ICE_PUNCH    ; d9 33 x
-	add_tm THUNDER_WAVE ; da 34 x
-	add_tm FLAMETHROWER ; db 35 x
-	add_tm SLUDGE_BOMB  ; dc 36 x
-	add_tm SANDSTORM    ; dd 37 x
-	add_tm FIRE_BLAST   ; de 38 x
-	add_tm ROCK_SLIDE   ; df 39 x
-	add_tm ZAP_CANNON   ; e0 40 x
-	add_tm THUNDERPUNCH ; e1 41 x
-	add_tm DREAM_EATER  ; e2 42 x
-	add_tm RAZOR_WIND   ; e3 43 x
-	add_tm REST         ; e4 44 x
-	add_tm ATTRACT      ; e5 45 x
-	add_tm THIEF        ; e6 46 x
-	add_tm STEEL_WING   ; e7 47 x
-	add_tm FIRE_PUNCH   ; e8 48 x
-	add_tm FURY_CUTTER  ; e9 49 x
-	add_tm SUBSTITUTE   ; ea 50 x
-	add_tm ROOST        ; eb 51 x
-	add_tm AURA_SPHERE  ; ec 52 x
-	add_tm ENERGY_BALL  ; ed 53 x
-	add_tm POISON_JAB   ; ee 54 x
-	add_tm SHADOW_CLAW  ; ef 55 x
-	add_tm FLASH_CANNON ; f0 56 x
-	add_tm CHARGE_BEAM  ; f1 57 x
-	add_tm DARK_PULSE   ; f2 58 x
-	add_tm DRAGONBREATH ; f3 59 x
-	add_tm TERA_BURST   ; f4 60 x
+	add_tm DYNAMICPUNCH   ; 1    chuck reward, two island store
+	add_tm DRAGON_CLAW    ; 2    route 27 (hgss), battle tower BP
+	add_tm WATER_PULSE    ; 3    cerulean gym reward, celadon dept store after defeat
+	add_tm CALM_MIND      ; 4    saffron gym reward, battle tower BP
+	add_tm ROAR           ; 5    route 32 (gsc), celadon dept store
+	add_tm TOXIC          ; 6    (cinnibar mansion?), battle tower BP
+	add_tm HAIL           ; 7    pryce reward, goldenrod dept store after defeat
+	add_tm CURSE          ; 8    (move earlier) ecruteak city, two island store
+	add_tm HEADBUTT       ; 9    ilex, goldenrod dept store (after finding)
+	add_tm HIDDEN_POWER   ;10    lake of rage, goldenrod dept store (after finding)
+	add_tm SUNNY_DAY      ;11    celadon dept store
+	add_tm TAUNT          ;12    mt moon (rby), two island store (after finding)
+	add_tm ICE_BEAM       ;13    icefall cave (four island), battle tower BP
+	add_tm BLIZZARD       ;14    goldenrod game corner
+	add_tm HYPER_BEAM     ;15    celadon game corner
+	add_tm LIGHT_SCREEN   ;16    route 27 (gsc), celadon game corner
+	add_tm PROTECT        ;17    miltank cure reward?, celedon dept store
+	add_tm RAIN_DANCE     ;18    celadon dept store
+	add_tm GIGA_DRAIN     ;19    celedon gym reward, two island store (after defeating)
+	add_tm REFLECT        ;20    (idk, somewhere), celadon game corner
+	add_tm SNARL          ;21    team rocket hideout goldenrod, two island store
+	add_tm SOLARBEAM      ;22    celadon dept store
+	add_tm IRON_TAIL      ;23    jasmine reward, two island store
+	add_tm THUNDERBOLT    ;24    burned tower (require strength), battle tower BP
+	add_tm THUNDER        ;25    goldenrod game corner
+	add_tm EARTHQUAKE     ;26    viridian gym reward, battle tower BP
+	add_tm ZAP_CANNON     ;27    power plant, two island store (after receiving)
+	add_tm DIG            ;28    national park, celadon dept store
+	add_tm PSYCHIC_M      ;29    saffron city psychic house, battle tower BP
+	add_tm SHADOW_BALL    ;30    morty reward, battle tower BP
+	add_tm WILL_O_WISP    ;31    (lavender town), battle tower BP
+	add_tm DOUBLE_TEAM    ;32    route 34 gatehouse(?), celadon dept store
+	add_tm ICE_PUNCH      ;33    goldenrod dept store
+	add_tm THUNDER_WAVE   ;34    (west of vermillion), battle tower BP
+	add_tm FLAMETHROWER   ;35    cinnabar gym reward, battle tower BP
+	add_tm SLUDGE_BOMB    ;36    route 43 (gsc), battle tower BP
+	add_tm SANDSTORM      ;37    two island base store
+	add_tm FIRE_BLAST     ;38    goldenrod game corner
+	add_tm ROCK_SLIDE     ;39    pewter gym reward, battle tower BP
+	add_tm AERIAL_ACE     ;40    goldenrod dept store
+	add_tm THUNDERPUNCH   ;41    goldenrod dept store
+	add_tm U_TURN         ;42    bugsy reward, two island store
+	add_tm RAZOR_WIND     ;43    (move to two island base store),(add a finable location?)
+	add_tm REST           ;44    route 9 (frlg), celadon dept store (after finding)
+	add_tm ATTRACT        ;45    whitney reward, goldenrod dept store after defeat
+	add_tm THIEF          ;46    mahogany rocket hideout (gsc), two island store?
+	add_tm STEEL_WING     ;47    (move earlier, route to johto safari?), golden dept store (af)
+	add_tm FIRE_PUNCH     ;48    goldenrod dept store
+	add_tm AURA_SPHERE    ;49    (one island?), goldenrod dept store (after finding)
+	add_tm SUBSTITUTE     ;50    (add findable location?), battle tower BP
+	add_tm ROOST          ;51    falkner reward, two island store
+	add_tm X_SCISSOR      ;52    (six island?), battle tower BP
+	add_tm ENERGY_BALL    ;53    (three island?), battle tower BP
+	add_tm POISON_JAB     ;54    fuschia gym reward, battle tower BP
+	add_tm SHADOW_CLAW    ;55    (johto ?), celadon dept store(after fidning)?
+	add_tm DARK_PULSE     ;56    five island rocket hideout?, battle tower BP
+	add_tm CHARGE_BEAM    ;57    vermillion gym, celadon dept store after defeat	
+	add_tm FLASH_CANNON   ;58    route 28 (replaces steel wing), battle tower BP
+	add_tm DRAGON_PULSE   ;59    clair reward, battle tower BP
+	add_tm TERA_BURST     ;60    special npc, two island store (after receiving)
 NUM_TMS EQU __tmhm_value__ - 1
 
 add_hm: MACRO
@@ -352,32 +352,56 @@ PURGE MT_VALUE
 __tmhm_value__ = __tmhm_value__ + 1
 ENDM
 
-	add_mt MIMIC          ; x
-	add_mt SWIFT          ; x
-	add_mt SLEEP_TALK     ; x
-	add_mt OUTRAGE        ; x
-	add_mt MEGA_PUNCH     ; x
-	add_mt MEGA_KICK      ; x
-	add_mt SWORDS_DANCE   ; x
-	add_mt SEISMIC_TOSS   ; x
-	add_mt COUNTER        ; x
-	add_mt SELFDESTRUCT   ; x
-	add_mt NIGHT_SHADE    ; x
-	add_mt EARTH_POWER    ; x
-	add_mt SUBMISSION     ; x
-	add_mt TWISTER        ; x
-	add_mt ICY_WIND       ; x
-	add_mt HYPER_VOICE    ; x
-	add_mt PAIN_SPLIT     ; x
-	add_mt HEAL_BELL      ; x
-	add_mt SPIKES         ; x
-	add_mt HEAT_WAVE      ; x
-	add_mt BULLDOZE       ; x
-	add_mt AQUA_TAIL      ; x
-	add_mt SACRED_FIRE    ; x
-	add_mt AEROBLAST      ; x
-	add_mt VOLT_TACKLE    ; x
-	add_mt SHADOW_RUSH
+	add_mt MIMIC          ;01  goldenrod coin tutor
+	add_mt SWIFT          ;02  g2 set 1, ??
+	add_mt SLEEP_TALK     ;03  goldenrod coin tutor
+	add_mt OUTRAGE        ;04
+	add_mt MEGA_PUNCH     ;05  saffron fighting dojo?
+	add_mt MEGA_KICK      ;06  saffron fighting dojo?
+	add_mt SWORDS_DANCE   ;07  sevii island seven bridge (like frlg?)
+	add_mt SEISMIC_TOSS   ;08  a cianwood dogp fighter?
+	add_mt COUNTER        ;09  a cianwood dogp fighter?
+	add_mt SELFDESTRUCT   ;10  kindle road / mt ember (frlg)?
+	add_mt NIGHT_SHADE    ;11  g2 set 1, ??
+	add_mt EARTH_POWER    ;12  mt ember
+	add_mt SUBMISSION     ;13
+	add_mt TWISTER        ;14  g2 set 1, ??
+	add_mt ICY_WIND       ;15  tutor in ice path?
+	add_mt HYPER_VOICE    ;16
+	add_mt PAIN_SPLIT     ;17
+	add_mt HEAL_BELL      ;18
+	add_mt SPIKES         ;19  Mahogany or Fuschia?
+	add_mt HEAT_WAVE      ;20  g3 set 1, ??
+	add_mt BULLDOZE       ;21
+	add_mt AQUA_TAIL      ;22  g4+ set 1, ??
+	add_mt OMINOUS_WIND   ;23  g3 set 1, ??
+	add_mt SIGNAL_BEAM    ;24  g3 set 1, ??
+	add_mt SEED_BOMB      ;25
+	add_mt SCALD          ;26  cerulean, or kindle road hotsprings ?
+	add_mt DOUBLE_EDGE    ;27  victory road? (like frlg)
+	add_mt WEATHER_BALL   ;28
+	add_mt WAVE_CRASH     ;29
+	add_mt FRENZY_PLANT   ;30
+	add_mt SACRED_FIRE    ;31  sage in two island Cape Brink house
+	add_mt AEROBLAST      ;32  sage in two island Cape Brink house
+	add_mt VOLT_TACKLE    ;33  sage in two island Cape Brink house
+	add_mt SHADOW_RUSH    ;34 (some team rocket location / npc)
+	add_mt METEOR_STORM   ;    late game, Sevii island Sevault canyon house?
+	add_mt ACID_RAIN
+	add_mt SEARING_SAND
+	add_mt KNOCK_OFF      ;    g4+ set 1, ??
+	add_mt IRON_HEAD      ;    g4+ set 1, ??
+	add_mt MAELSTROM
+	add_mt RETURN         ;    Goldenrod Dept store
+	add_mt DREAM_EATER    ;    Viridian (current tm location)
+	add_mt FURY_CUTTER    ;    a bug catcher in a dead-end or hidden base in Ilex?
+	add_mt FOCUS_BLAST
+	add_mt FACADE
+	add_mt SLAM
+	add_mt GALE_WIND
+	add_mt DRILL_RUN
+	add_mt AVALANCHE
+	add_mt SHOCK_WAVE
 NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 NUM_TM_HM_TUTOR EQU __tmhm_value__ - 1

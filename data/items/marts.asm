@@ -47,6 +47,8 @@ Marts:
 	dw MartUnderground
 	dw MartCatallia
 	dw MartCatalliaDex
+	dw BattleTowerBPTMs1
+	dw BattleTowerBPTMs2
 
 MartCherrygrove:
 	db 4 ; # items
@@ -189,20 +191,20 @@ MartGoldenrod5F4:
 MartGoldenrod5F5:
 	db 2
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db -1
 
 MartGoldenrod5F6:
 	db 3
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db -1
 	
 MartGoldenrod5F7:
 	db 4
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 	db -1
@@ -210,7 +212,7 @@ MartGoldenrod5F7:
 MartGoldenrod5F8:
 	db 5
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 	db TM_DYNAMICPUNCH
@@ -219,7 +221,7 @@ MartGoldenrod5F8:
 MartGoldenrod5F9:
 	db 5
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 	db TM_IRON_TAIL
@@ -228,7 +230,7 @@ MartGoldenrod5F9:
 MartGoldenrod5F10:
 	db 5
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 ;	db TM_ICY_WIND
@@ -237,7 +239,7 @@ MartGoldenrod5F10:
 MartGoldenrod5F11:
 	db 6
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 	db TM_DYNAMICPUNCH
@@ -247,7 +249,7 @@ MartGoldenrod5F11:
 MartGoldenrod5F12:
 	db 6
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 	db TM_DYNAMICPUNCH
@@ -257,7 +259,7 @@ MartGoldenrod5F12:
 MartGoldenrod5F13:
 	db 7
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 	db TM_DYNAMICPUNCH
@@ -268,7 +270,7 @@ MartGoldenrod5F13:
 MartGoldenrod5F14:
 	db 6
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 	db TM_IRON_TAIL
@@ -278,13 +280,13 @@ MartGoldenrod5F14:
 MartGoldenrod5F15:
 	db 8
 ;	db TM_MUD_SLAP
-	db TM_FURY_CUTTER
+	db TM_U_TURN
 	db TM_ATTRACT
 	db TM_SHADOW_BALL
 	db TM_DYNAMICPUNCH
 	db TM_IRON_TAIL
 ;	db TM_ICY_WIND
-	db TM_DRAGONBREATH
+	db TM_DRAGON_PULSE
 	db -1
 
 MartOlivine:
@@ -405,65 +407,22 @@ MartVermilion:
 	db -1 ; end
 
 MartCeladon2F1:
-	db 17 ; # items
-	db TM_DYNAMICPUNCH ; bf
-	db TM_HEADBUTT     ; c0
-	db TM_CURSE        ; c1
-	;db TM_ROLLOUT      ; c2
-	db TM_ROAR         ; c4
-	db TM_TOXIC        ; c5
-	db TM_ZAP_CANNON   ; c6
-	;db TM_ROCK_SMASH   ; c7
-	;db TM_PSYCH_UP     ; c8
-	db TM_HIDDEN_POWER ; c9
-	db TM_SUNNY_DAY    ; ca
-	;db TM_SWEET_SCENT  ; cb
-	db TM_ICE_BEAM     ; cc
-	db TM_BLIZZARD     ; cd
-	db TM_HYPER_BEAM   ; ce
-;	db TM_ICY_WIND     ; cf
-	db TM_PROTECT      ; d0
+	db 1 ; # items
+	db ULTRA_BALL      ;temp
 	db -1 ; end
 
 MartCeladon2F2:
-	db 17 ; # items
-	db TM_RAIN_DANCE   ; d1
-	db TM_GIGA_DRAIN   ; d2
-	db TM_THUNDERBOLT  ; d3
-	;db TM_FRUSTRATION  ; d4
-	db TM_SOLARBEAM    ; d5
-	db TM_IRON_TAIL    ; d6
-	db TM_DRAGONBREATH ; d7
-	db TM_THUNDER      ; d8
-	db TM_EARTHQUAKE   ; d9
-	db TM_RETURN       ; da
-	db TM_DIG          ; db
-	db TM_PSYCHIC_M    ; dd
-	db TM_SHADOW_BALL  ; de
-;	db TM_MUD_SLAP     ; df
-	db TM_DOUBLE_TEAM  ; e0
-	db TM_ICE_PUNCH    ; e1
-;	db TM_SWAGGER      ; e2
+	db 1 ; # items
+	db ULTRA_BALL      ;temp
 	db -1 ; end
 
 MartCeladon3F:
-	db 16 ; # items
-	db TM_U_TURN       ; e3
-	db TM_SLUDGE_BOMB  ; e4
-	db TM_SANDSTORM    ; e5
-	db TM_FIRE_BLAST   ; e6
-	db TM_RAZOR_WIND   ; e7
-	db TM_FLAMETHROWER ; e8
-	db TM_THUNDERPUNCH ; e9
-	db TM_DREAM_EATER  ; ea
-	db TM_ROCK_SLIDE   ; eb
-	db TM_REST         ; ec
-	db TM_ATTRACT      ; ed
-	db TM_THIEF        ; ee
-	db TM_STEEL_WING   ; ef
-	db TM_FIRE_PUNCH   ; f0
-	db TM_FURY_CUTTER  ; f1
-;	db TM_NIGHTMARE
+	db 5 ; # items
+	db TM_DOUBLE_TEAM
+	db TM_RAZOR_WIND
+	db TM_ROAR
+	db TM_DIG
+	db TM_SUNNY_DAY
 	db -1 ; end
 
 MartCeladon4F:
@@ -576,6 +535,34 @@ MartCatalliaDex:
 	db TM_FLAMETHROWER
 	db ENERGYPOWDER
 	db RAWST_BERRY
+	db -1 ; end
+
+BattleTowerBPTMs1:
+	db 10 ; # items
+	db TM_ICE_BEAM
+	db TM_THUNDERBOLT
+	db TM_FLAMETHROWER
+	db TM_CALM_MIND
+	db TM_PSYCHIC_M
+	db TM_THUNDER_WAVE
+	db TM_ENERGY_BALL
+	db TM_EARTHQUAKE
+	db TM_ROCK_SLIDE
+	db TM_DRAGON_CLAW
+	db -1 ; end
+
+BattleTowerBPTMs2:
+	db 10 ; # items
+	db TM_TOXIC
+	db TM_PROTECT
+	db TM_ROOST
+	db TM_SLUDGE_BOMB
+	db TM_WILL_O_WISP
+	db TM_SHADOW_BALL
+	db TM_X_SCISSOR
+	db TM_DARK_PULSE
+	db TM_FLASH_CANNON
+	db TM_DRAGON_PULSE
 	db -1 ; end
 
 DefaultMart:

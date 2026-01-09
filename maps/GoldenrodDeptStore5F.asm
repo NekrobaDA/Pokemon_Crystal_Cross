@@ -14,122 +14,14 @@ GoldenrodDeptStore5F_MapScripts:
 GoldenrodDeptStore5FClerk2Script:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_CLAIR
-	iftrue .dragonbreath
-	checkevent EVENT_BEAT_WHITNEY
-	iftrue .checkmorty
-	sjump .default
-	
-.checkmorty
-	checkevent EVENT_BEAT_MORTY
-	iftrue .checkchuck
-	sjump .attract
-	
-.checkchuck
-	checkevent EVENT_BEAT_CHUCK
-	iftrue .check1
-.jasmine
-	checkevent EVENT_BEAT_JASMINE
-	iftrue .check2
-.pryce1
-	checkevent EVENT_BEAT_PRYCE
-	iftrue .icywind
-	sjump .shadowball
-
-.check1
-	checkevent EVENT_BEAT_JASMINE
-	iftrue .beatjasmine
-	checkevent EVENT_BEAT_PRYCE
-	iftrue .pryceonly
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_8 ;dynamicpunch only
-	closetext
-	end
-	
-.pryceonly
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_11 ; dynamicpunch icy wind
-	closetext
-	end
-
-.beatjasmine
-	checkevent EVENT_BEAT_PRYCE
-	iftrue .beatjasminepryce
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_12 ;dynamicpunch iron tail
-	closetext
-	end
-	
-.beatjasminepryce
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_13 ; dynamicpunch iron tail icy wind
-	closetext
-	end
-
-.check2
-	checkevent EVENT_BEAT_PRYCE
-	iftrue .pryce
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_9 ;iron tail only
-	closetext
-	end
-	
-.pryce
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_14 ; iron tail icy wind
-	closetext
-	end
-	
-.icywind
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_10 ;only icy wind
-	closetext
-	end
-	
-.attract
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_6
-	closetext
-	end
-	
-.shadowball
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_7
-	closetext
-	end
-	
-.dragonbreath
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_15
-	closetext
-	end
-	
-.default
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_5
+	pokemart MARTTYPE_MUTABLE, 2
 	closetext
 	end
 
 GoldenrodDeptStore5FClerkScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM02_HEADBUTT
-	iftrue .headbutt
-	checkevent EVENT_GOT_TM08_ROCK_SMASH
-	iftrue .onlyrocksmash
-	sjump .neither
-
-.headbutt
-	checkevent EVENT_GOT_TM08_ROCK_SMASH
-	iftrue .both
-	sjump .onlyheadbutt
-
-.neither
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_1
-	closetext
-	end
-
-.onlyheadbutt
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_2
-	closetext
-	end
-
-.onlyrocksmash
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_3
-	closetext
-	end
-
-.both
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_4
+	pokemart MARTTYPE_MUTABLE, 1
 	closetext
 	end
 

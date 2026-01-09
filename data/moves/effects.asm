@@ -1325,9 +1325,9 @@ FlameWheel:
 	damagestats
 	damagecalc
 	stab
-	damagevariation
 	checkhit
-	effectchance
+	furycutter
+	damagevariation
 	moveanim
 	failuretext
 	applydamage
@@ -1335,8 +1335,7 @@ FlameWheel:
 	supereffectivetext
 	defrost
 	checkfaint
-	speedup
-	statupmessage
+	kingsrock
 	endmove
 
 Curse:

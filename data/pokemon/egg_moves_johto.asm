@@ -150,13 +150,16 @@ ChikoritaEggMoves:    ;xx
 	dw DRAGON_DANCE
 	dw SING
 	dw TAKE_DOWN
-	dw SWEET_SCENT
 	dw MORNING_SUN
 	dw FLAIL
 	dw ECHOED_VOICE
 	dw LEAF_BLADE
 	dw REFRESH
 	dw EFFECT_SPORE
+	dw BULLET_SEED
+	dw MAGICAL_LEAF
+	dw INGRAIN
+	dw DRAGONBREATH
 	dw -1 ; end
 
 CyndaquilEggMoves:    ;xx
@@ -169,6 +172,7 @@ CyndaquilEggMoves:    ;xx
 	dw CONFUSION
 	dw ENDURE
 	dw SWAGGER
+	dw LEER
 	dw -1 ; end
 
 TotodileEggMoves:     ;xx
@@ -182,6 +186,8 @@ TotodileEggMoves:     ;xx
 	dw POWERUPPUNCH
 	dw FLAIL
 	dw AQUA_JET
+	dw DRAGONBREATH
+	dw SUPERPOWER
 	dw -1 ; end
 
 SentretEggMoves:      ;xx
@@ -308,6 +314,7 @@ MarillEggMoves:       ;xx
 	dw REFRESH
 	dw SLAM
 	dw POWERUPPUNCH
+	dw SUPERPOWER
 	dw -1 ; end
 
 BonslyEggMoves:       ;xx
@@ -498,6 +505,7 @@ QwilfishEggMoves:     ;xx
 	dw FLAIL
 	dw FELL_STINGER
 	dw HEX
+	dw GUNK_SHOT
 	dw -1 ; end
 
 ShuckleEggMoves:      ;xx
@@ -662,6 +670,8 @@ PhanpyEggMoves:       ;xx
 	dw BULK_UP
 	dw HOWL
 	dw ECHOED_VOICE
+	dw SUPERPOWER
+	dw GUNK_SHOT
 	dw -1 ; end
 
 StantlerEggMoves:     ;xx
@@ -758,6 +768,7 @@ Ekans_DarkEggMoves:
 	dw ICE_FANG
 	dw DRAGON_RAGE
 	dw SUPER_FANG
+	dw DRAGONBREATH
 	dw -1 ; end
 	
 Pichu_SpikyEggMoves:
@@ -787,6 +798,7 @@ Growlithe_HisuianEggMoves:   ;xx
 	dw SWAGGER
 	dw ANCIENTPOWER
 	dw DRAGON_RAGE
+	dw DRAGONBREATH
 	dw -1 ; end
 	
 Sandshrew_AlolanEggMoves:    ;xx
@@ -830,6 +842,7 @@ Wooper_PaldeanEggMoves:      ;xx
 	dw ENDURE
 	dw POWERUPPUNCH
 	dw HAZE
+	dw GUNK_SHOT
 	dw -1 ; end
 	
 StarlyEggMoves:

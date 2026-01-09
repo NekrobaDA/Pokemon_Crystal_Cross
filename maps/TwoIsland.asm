@@ -5,11 +5,19 @@
 	const TWOISLAND_LASS
 	const TWOISLAND_BUG_CATCHER
 	const TWOISLAND_POKEFAN_F
+	const TWOISLAND_CLERK2
 
 TwoIsland_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	
+TwoIslandClerkScript1:
+	faceplayer
+	opentext
+	pokemart MARTTYPE_MUTABLE, 4
+	closetext
+	end
 	
 TwoIslandBerryTraderScript:
 	opentext
@@ -416,4 +424,5 @@ TwoIsland_MapEvents:
 	object_event 28,  7, SPRITE_LASS, SPRITEMOVEDATA_STILL, 0, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, TwoIslandLassScript, -1
 	object_event 31, 17, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TwoIslandBugcatcherScript, -1
 	object_event 12,  7, SPRITE_POKEFAN_F, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TwoIslandPokefanScript, -1
+	object_event 33,  5, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TwoIslandClerkScript1, -1
 	

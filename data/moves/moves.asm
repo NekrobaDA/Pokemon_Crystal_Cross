@@ -172,7 +172,7 @@ Moves1:
 ;SLEEP_POWDER
 	move EFFECT_SLEEP,               0, GRASS,        STATUS,    75, 15,   0
 ;PETAL_DANCE
-	move EFFECT_ATTACK_DOWN_HIT,    90, GRASS,        PHYSICAL, 100, 20,  30
+	move EFFECT_SP_ATK_UP_HIT,       80, GRASS,       SPECIAL,  100, 20,  50
 ;STRING_SHOT
 	move EFFECT_SPEED_DOWN,          0, BUG,          STATUS,    95, 40,   0
 ;DRAGON_RAGE
@@ -328,7 +328,7 @@ Moves1:
 ;DRAGON_CLAW
 	move EFFECT_NORMAL_HIT,         80, DRAGON,       PHYSICAL, 100, 15,   0
 ;FLAME_WHEEL
-	move EFFECT_FLAME_WHEEL,        70, FIRE,         PHYSICAL, 100, 25,  50
+	move EFFECT_FLAME_WHEEL,        60, FIRE,         PHYSICAL,  95, 25,  50
 ;CURSE
 	move EFFECT_CURSE,               0, CURSE_TYPE,   STATUS,   100, 10,   0
 ;AEROBLAST - high critical hit move
@@ -426,7 +426,7 @@ Moves1:
 ;IRON_TAIL
 	move EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,        PHYSICAL,  85, 15,  30
 ;METAL_CLAW
-	move EFFECT_ATTACK_UP_HIT,      55, STEEL,        PHYSICAL,  95, 35,  50
+	move EFFECT_ATTACK_UP_HIT,      50, STEEL,        PHYSICAL,  95, 35,  50
 ;MORNING_SUN
 	move EFFECT_MORNING_SUN,         0, NORMAL,       STATUS,   100, 10,   0
 ;ENERGY_BALL
@@ -792,7 +792,7 @@ Moves1:
 ;INGRAIN - restore hp at end of turn + prevent phazing
 	move EFFECT_INGRAIN,             0, GRASS,        STATUS,    100, 20,  0
 ;FLAME_CHARGE
-	move EFFECT_FLAME_WHEEL,        50, FIRE,         PHYSICAL,  100, 20, 70
+	move EFFECT_SPEED_UP_HIT,       50, FIRE,         PHYSICAL,  100, 20, 70
 ;BURN_UP - strong attack that removes user's fire typing
 	move EFFECT_BURNUP,            130, FIRE,         SPECIAL,   100,  5,  0
 ;PURIFY (heals hp if heals status, otherwise does nothing) (heal status of party member in ow)
@@ -853,7 +853,7 @@ Moves1:
 
 ;(does acid rain cause corrosion too?)
 
-;dragon's cry crit up opp atk down?
+;dragon's cry crit up opp atk down? (or atk up crit up)
 
 ;facade, make tutor in place of swift
 

@@ -5,6 +5,9 @@ _tms1 = 0 ; TM01-TM24 (24)
 _tms2 = 0 ; TM25-TM48 (24)
 _tms3 = 0 ; TM49-TM50 + HM01-HM07 + MT01-MT03 (??/24)
 _tms4 = 0 ; (extra)
+_tms5 = 0 ; (extra)
+_tms6 = 0 ; (extra)
+_tms7 = 0 ; (extra)
 rept _NARG
 	if DEF(\1_TMNUM)
 	if \1_TMNUM < 24 + 1
@@ -13,8 +16,14 @@ _tms1 = _tms1 | (1 << ((\1_TMNUM) - 1))
 _tms2 = _tms2 | (1 << ((\1_TMNUM) - 1 - 24))
 	else
 _tms3 = _tms3 | (1 << ((\1_TMNUM) - 1 - 48))
-else
+	else
 _tms4 = _tms4 | (1 << ((\1_TMNUM) - 1 - 72))
+	else
+_tms5 = _tms5 | (1 << ((\1_TMNUM) - 1 - 96))
+	else
+_tms6 = _tms6 | (1 << ((\1_TMNUM) - 1 - 104))
+	else
+_tms7 = _tms7 | (1 << ((\1_TMNUM) - 1 - 112))
 	endc
 	else
 		fail "\1 is not a TM, HM, or move tutor move"
@@ -37,15 +46,27 @@ rept 3 ; (extra)
 	db _tms4 & $ff
 _tms4 = _tms4 >> 8
 endr
+rept 1               ;I don't know why, but I can't rept 3 this without it breaking
+	db _tms5 & $ff
+_tms5 = _tms5 >> 8
+endr
+rept 1
+	db _tms6 & $ff
+_tms6 = _tms6 >> 8
+endr
+rept 1
+	db _tms7 & $ff
+_tms7 = _tms7 >> 8
+endr
 ENDM
 
 BaseData::
 ;	; the parameter to indirect_table must be a compile-time constant, and BASE_DATA_SIZE is not
 	if ((__RGBDS_MAJOR__ << 24) | (__RGBDS_MINOR__ << 8) | __RGBDS_PATCH__) >= $400
 ;		; if this version of RGBDS supports asserts, just assert that the size is correct
-		assert $1E == BASE_DATA_SIZE, "Please adjust the table size (and this assertion) to match BASE_DATA_SIZE"
+		assert $21 == BASE_DATA_SIZE, "Please adjust the table size (and this assertion) to match BASE_DATA_SIZE"
 	endc
-	indirect_table $1E, 1
+	indirect_table $21, 1
 	indirect_entries MEW, BaseData1
 	indirect_entries NUM_POKEMON, BaseData2
 	indirect_table_end

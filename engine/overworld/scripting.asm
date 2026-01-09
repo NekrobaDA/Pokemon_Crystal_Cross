@@ -572,6 +572,8 @@ Script_pokemart:
 	ld c, a
 	call GetScriptByte
 	ld e, a
+	ld [hTemp], a
+	
 	call GetScriptByte
 	ld d, a
 	ld a, [wScriptBank]

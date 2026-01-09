@@ -2466,11 +2466,11 @@ UsedRockClimbScript:
 	ret
 
 .RockClimbUpStep:
-	step UP
+	big_step UP
 	step_end
 
 .RockClimbDownStep:
-	step DOWN
+	big_step DOWN
 	step_end
 
 .RockClimbFixFacing:

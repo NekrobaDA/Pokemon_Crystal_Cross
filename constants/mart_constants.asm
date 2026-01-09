@@ -5,6 +5,7 @@
 	const MARTTYPE_BARGAIN
 	const MARTTYPE_PHARMACY
 	const MARTTYPE_ROOFTOP
+	const MARTTYPE_MUTABLE
 
 ; Marts indexes (see data/items/marts.asm)
 	const_def
@@ -55,4 +56,6 @@
 	const MART_UNDERGROUND
 	const MART_CATALLIA
 	const MART_CATALLIA_DEX
+	const MART_BATTLE_TOWER_BP_TMS1
+	const MART_BATTLE_TOWER_BP_TMS2
 NUM_MARTS EQU const_value

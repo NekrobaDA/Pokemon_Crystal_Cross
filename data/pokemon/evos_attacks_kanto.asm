@@ -710,7 +710,7 @@ NidoqueenEvosAttacks:                ;final
 	dbw 43, CHARM
 	dbw 47, CRUNCH
 	dbw 52, EARTH_POWER
-	dbw 58, SUBMISSION
+	dbw 58, SUBMISSION     ;change to SUPERPOWER
 	dbw LEARN_EVO_MOVE, SLAM
 	db 0 ; no more level-up moves
 
@@ -748,7 +748,7 @@ NidorinoEvosAttacks:                 ;final
 
 NidokingEvosAttacks:                 ;final
 	db 0 ; no more evolutions
-	dbw 1, POWERUPPUNCH
+	dbw 1, POWERUPPUNCH    ;add SUPERPOWER as relearner
 	dbw 1, PECK
 	dbw 1, LEER
 	dbw 4, POISON_STING
@@ -1362,8 +1362,8 @@ AlakazamEvosAttacks:                 ;final
 MachopEvosAttacks:                   ;final
 	dbbw EVOLVE_LEVEL, 28, MACHOKE
 	db 0 ; no more evolutions
-	dbw 1, POUND
-	dbw 1, LEER
+	dbw 1, POUND             ;give superpower by lv up
+	dbw 1, LEER              ;and submission in evo lv up
 	dbw 4, LOW_KICK
 	dbw 7, ENDURE
 	dbw 13, POWERUPPUNCH
@@ -2633,7 +2633,7 @@ MagmarEvosAttacks:                   ;final
 
 PinsirEvosAttacks:                   ;final
 	db 0 ; no more evolutions
-	dbw 1, PECK
+	dbw 1, PECK            ;give SUPERPOWER somehow
 	dbw 1, HARDEN
 	dbw 4, LASER_FOCUS
 	dbw 8, QUICK_ATTACK
@@ -2845,7 +2845,7 @@ FlareonEvosAttacks:                  ;final
 	dbw 30, HOWL
 	dbw 35, SMOG
 	dbw 40, FIRE_FANG
-	dbw 45, SUBMISSION
+	dbw 45, SUBMISSION   ;change to SLAM, add SUPERPOWER as relearner
 	dbw 50, SWAGGER
 	dbw 55, FIRE_BLAST
 	dbw LEARN_EVO_MOVE, EMBER

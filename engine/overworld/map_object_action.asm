@@ -18,8 +18,7 @@ ObjectActionPairPointers:
 	dw SetFacingBoulderDust,           SetFacingStanding
 	dw SetFacingGrassShake,            SetFacingStanding
 	dw SetFacingSkyfall,               SetFacingCurrent
-	dw SetFacingRunAction,             SetFacingCurrent  ;does not seem to work
-;	dw SetFacingStepAction,            SetFacingCurrent  ;as in it won't animate the sprite
+	dw SetFacingRunAction,             SetFacingCurrent
 	dw SetFacingOverlay,               SetFacingOverlay
 
 SetFacingStanding:
@@ -321,4 +320,84 @@ SetFacingRunAction:
 	add hl, bc
 	ld [hl], a
 	ret
+	
+;SetFacingRunAction:      ;potential roller skating code, dummied out for now
+;	ld hl, OBJECT_FLAGS1
+;	add hl, bc
+;	bit SLIDING_F, [hl]
+;	jp nz, SetFacingCurrent
+;
+;	ld hl, OBJECT_STEP_FRAME
+;	add hl, bc
+;	inc [hl]
+;	
+;	push hl
+;	call GetSpriteDirection
+;	pop hl
+;	cp OW_RIGHT
+;	jr z, .doalt
+;	cp OW_LEFT
+;	jr z, .doalt
+;	
+;	ld a, [hl]	
+;	rrca
+;	rrca
+;	and %11
+;	
+;	cp 1
+;	jr z, .nextstep
+;	
+;	ld a, [hl]
+;	rrca
+;	rrca
+;	rrca
+;	and %11
+;	jr .finish
+;	
+;.nextstep     ;OR 2shifts w/ 3shifts
+;	ld d, a	
+;	ld a, [hl]
+;	rrca
+;	rrca
+;	rrca
+;	and %11
+;	or d
+;	jr .finish
+;	
+;.doalt
+;	ld a, [hl]	
+;	rrca
+;	rrca
+;	and %11
+;	
+;	cp 0   ;0 makes the 'glide' frame longer instead
+;	jr z, .nextstep2
+;	
+;	ld d, a    ;OR 2shifts w/ 3shifts
+;	ld a, [hl]
+;	rrca
+;	rrca
+;	rrca
+;	and %11
+;	or d
+;	jr .finish
+;	
+;.nextstep2     ;OR 2shifts w/ 4shifts
+;	ld d, a	
+;	ld a, [hl]
+;	rrca
+;	rrca
+;	rrca
+;	rrca
+;	and %11
+;	or d
+;
+;.finish
+;	ld d, a
+;	call GetSpriteDirection
+;	or d
+;	ld hl, OBJECT_FACING_STEP
+;	add hl, bc
+;	ld [hl], a
+;	ret
 	

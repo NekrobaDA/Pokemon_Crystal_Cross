@@ -4,6 +4,7 @@
 	const CELADONDEPTSTORE3F_GAMEBOY_KID1
 	const CELADONDEPTSTORE3F_GAMEBOY_KID2
 	const CELADONDEPTSTORE3F_SUPER_NERD
+	const CELADONDEPTSTORE3F_CLERK2
 
 CeladonDeptStore3F_MapScripts:
 	def_scene_scripts
@@ -11,6 +12,13 @@ CeladonDeptStore3F_MapScripts:
 	def_callbacks
 
 CeladonDeptStore3FClerkScript:
+	faceplayer
+	opentext
+	pokemart MARTTYPE_MUTABLE, 3
+	closetext
+	end
+	
+CeladonDeptStore3FClerkScript2:
 	faceplayer
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_CELADON_3F
@@ -112,3 +120,4 @@ CeladonDeptStore3F_MapEvents:
 	object_event  9,  1, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore3FGameboyKid1Script, -1
 	object_event 10,  1, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore3FGameboyKid2Script, -1
 	object_event 13,  4, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore3FSuperNerdScript, -1
+	object_event  6,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore3FClerkScript2, -1

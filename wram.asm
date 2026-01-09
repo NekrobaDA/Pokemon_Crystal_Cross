@@ -2502,7 +2502,8 @@ wBaseEggGroups:: db
 wBaseTMHM:: flag_array NUM_TM_HM_TUTOR
 wCurBaseDataEnd::
 
-ds 6
+;ds 6
+;	ds 4 ;?
 
 wCurDamage:: dw
 

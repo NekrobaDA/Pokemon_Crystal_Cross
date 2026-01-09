@@ -968,6 +968,8 @@ ParsePlayerAction:
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_FURY_CUTTER
 	jr z, .continue_fury_cutter
+	cp EFFECT_FLAME_WHEEL
+	jr z, .continue_fury_cutter
 	xor a
 	ld [wPlayerFuryCutterCount], a
 
@@ -6584,6 +6586,8 @@ ParseEnemyAction:
 .raging
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_FURY_CUTTER
+	jr z, .fury_cutter
+	cp EFFECT_FLAME_WHEEL
 	jr z, .fury_cutter
 	xor a
 	ld [wEnemyFuryCutterCount], a

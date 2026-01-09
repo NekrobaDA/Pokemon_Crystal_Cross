@@ -22,6 +22,7 @@ OpenMartDialog::
 	dw BargainShop
 	dw Pharmacist
 	dw RooftopSale
+	dw MutableMart
 
 MartDialog:
 	ld a, MARTTYPE_STANDARD
@@ -93,6 +94,50 @@ RooftopSale:
 	ret
 
 INCLUDE "data/items/rooftop_sale.asm"
+
+MutableMart:
+	ld a, [hTemp]
+	cp 1
+	jr z, .TM1
+	cp 2
+	jr z, .TM2
+	cp 3
+	jr z, .TM3
+	cp 4
+	jr z, .TM4
+	
+;TM5
+	ld b, BANK(MartIndigoMutableTMs)
+	ld de, MartIndigoMutableTMs
+	jr .ok	
+.TM4
+	ld b, BANK(MartSeviiTwoMutableTMs)
+	ld de, MartSeviiTwoMutableTMs
+	jr .ok
+.TM3
+	ld b, BANK(MartCeladonMutableTMs)
+	ld de, MartCeladonMutableTMs
+	jr .ok
+.TM2
+	ld b, BANK(MartGoldenrodMutableTMs2)
+	ld de, MartGoldenrodMutableTMs2
+	jr .ok
+.TM1
+	ld b, BANK(MartGoldenrodMutableTMs1)
+	ld de, MartGoldenrodMutableTMs1
+
+.ok
+	call LoadMartPointer
+	call ReadMutableMart
+	call LoadStandardMenuHeader
+	ld hl, MartWelcomeText
+	call MartTextbox
+	call BuyMenu
+	ld hl, MartComeAgainText
+	call MartTextbox
+	ret
+
+INCLUDE "data/items/mutable_marts.asm"
 
 LoadMartPointer:
 	ld a, b
@@ -393,6 +438,7 @@ GetMartDialogGroup:
 	dwb .BargainShopPointers, 1
 	dwb .PharmacyPointers, 0
 	dwb .StandardMartPointers, 2
+	dwb .MutableMartPointers, 0
 
 .StandardMartPointers:
 	dw MartHowManyText
@@ -419,6 +465,14 @@ GetMartDialogGroup:
 	dw BargainShopSoldOutText
 
 .PharmacyPointers:
+	dw PharmacyHowManyText
+	dw PharmacyFinalPriceText
+	dw PharmacyNoMoneyText
+	dw PharmacyPackFullText
+	dw PharmacyThanksText
+	dw BuyMenuLoop
+	
+.MutableMartPointers
 	dw PharmacyHowManyText
 	dw PharmacyFinalPriceText
 	dw PharmacyNoMoneyText
@@ -863,3 +917,101 @@ MartTextbox:
 	call JoyWaitAorB
 	call ExitMenu
 	ret
+
+ReadMutableMart:
+; Load the mart pointer. Mart data is local (no need for bank).
+	xor a
+	ld [hTemp], a
+
+	ld hl, wMartPointer
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	push hl
+
+; set hl to the first entry
+	inc hl
+	ld bc, wMartItem1BCD
+	ld de, wCurMart + 1
+
+.loop
+	; read event flag pointer
+	ld a, [hli]
+	cp -1
+	jr z, .done
+	
+	push de
+	push bc
+	ld e, a
+	ld a, [hli]
+	ld d, a          ; DE = event flag address
+
+	; read bit index (0–7)
+	ld a, [hli]
+	ld c, a          ; C = bit index
+
+	; build mask = 1 << bitIndex
+	ld b, 1
+.buildmask
+	ld a, c
+	and a
+	jr z, .maskready
+	dec c
+	sla b
+	jr .buildmask
+
+.maskready
+	ld a, [de]       ; read event flag byte
+	and b
+	jr z, .skip      ; bit not set -> skip entry
+
+.available
+	pop bc
+	pop de
+	; copy item
+	ld a, [hli]
+	ld [de], a
+	inc de
+	
+	ld a, [hTemp]
+	inc a
+	ld [hTemp], a
+
+	push de
+	; copy price
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+
+	; convert price to BCD
+	push hl
+	ld h, b
+	ld l, c
+	call GetMartPrice
+	ld b, h
+	ld c, l
+	pop hl
+	pop de
+
+	jr .loop
+
+.skip
+	; skip item + price
+	pop bc
+	pop de
+	inc hl
+	inc hl
+	inc hl
+	jr .loop
+
+.done
+	ld [de], a
+	inc de
+	pop hl
+;	ld a, [hl]
+
+	ld a, [hTemp]
+	ld [wCurMart], a
+	ret
+	

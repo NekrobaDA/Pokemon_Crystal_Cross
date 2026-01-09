@@ -959,8 +959,8 @@ FeatherDanceDescription:
 	next "foe's ATTACK.@"
 	
 HailDescription:
-	db   "Summons a snowstorm"
-	next "for 8 turns.@"
+	db   "Summons a snow-"
+	next "storm for 8 turns.@"
 	
 HyperVoiceDescription:
 	db   "A loud attack"

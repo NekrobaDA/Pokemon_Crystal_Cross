@@ -283,6 +283,7 @@ EkansEggMoves:        ;xx
 	dw ICE_FANG
 	dw DRAGON_RAGE
 	dw SUPER_FANG
+	dw DRAGONBREATH
 	dw -1 ; end
 	
 PichuEggMoves:        ;xx
@@ -516,6 +517,7 @@ GrowlitheEggMoves:    ;xx
 	dw GROWL
 	dw SWAGGER
 	dw DRAGON_RAGE
+	dw DRAGONBREATH
 	dw -1 ; end
 
 PoliwagEggMoves:      ;xx
@@ -571,6 +573,7 @@ TentacoolEggMoves:    ;xx
 	dw PURSUIT
 	dw ACID_SPRAY
 	dw POWER_GEM
+	dw GUNK_SHOT
 	dw -1 ; end
 
 GeodudeEggMoves:      ;xx
@@ -582,6 +585,7 @@ GeodudeEggMoves:      ;xx
 	dw BULK_UP
 	dw ENDURE
 	dw SWAGGER
+	dw SUPERPOWER
 	dw -1 ; end
 
 PonytaEggMoves:       ;xx
@@ -726,6 +730,7 @@ KrabbyEggMoves:       ;xx
 	dw IRON_DEFENSE
 	dw SLASH
 	dw X_SCISSOR
+	dw SUPERPOWER
 	dw -1 ; end
 
 ExeggcuteEggMoves:    ;xx
@@ -777,6 +782,7 @@ KoffingEggMoves:      ;xx
 	dw SUPERSONIC
 	dw PURSUIT
 	dw ROLLOUT
+	dw GUNK_SHOT
 	dw -1 ; end
 
 RhyhornEggMoves:      ;xx
@@ -789,6 +795,7 @@ RhyhornEggMoves:      ;xx
 	dw SCARY_FACE
 	dw FIRE_FANG
 	dw STOMP
+	dw SUPERPOWER
 	dw -1 ; end
 
 HappinyEggMoves:      ;xx
@@ -835,6 +842,7 @@ HorseaEggMoves:       ;xx
 	dw POWDER_SNOW
 	dw SMOG
 	dw FLAIL
+	dw DRAGONBREATH
 	dw -1 ; end
 
 GoldeenEggMoves:      ;xx
@@ -942,6 +950,7 @@ NessiEggMoves:        ;xx
 	dw ECHOED_VOICE
 	dw BUBBLEBEAM
 	dw DRAGON_RAGE
+	dw DRAGONBREATH
 	dw -1 ; end
 
 EeveeEggMoves:        ;xx
@@ -1007,6 +1016,7 @@ MunchlaxEggMoves:     ;xx
 	dw POWERUPPUNCH
 	dw ROLLOUT
 	dw MUD_SLAP
+	dw SUPERPOWER
 	dw -1 ; end
 
 DratiniEggMoves:      ;xx

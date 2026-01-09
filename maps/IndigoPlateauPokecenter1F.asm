@@ -5,6 +5,7 @@
 	const INDIGOPLATEAUPOKECENTER1F_SILVER
 	const INDIGOPLATEAUPOKECENTER1F_GRAMPS
 	const INDIGOPLATEAUPOKECENTER1F_ABRA
+	const INDIGOPLATEAUPOKECENTER1F_CLERK2
 
 IndigoPlateauPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -140,6 +141,13 @@ IndigoPlateauPokecenter1FNurseScript:
 IndigoPlateauPokecenter1FClerkScript:
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_INDIGO_PLATEAU
+	closetext
+	end
+	
+IndigoPlateauPokecenter1FClerkScript2:
+	faceplayer
+	opentext
+	pokemart MARTTYPE_MUTABLE, 5
 	closetext
 	end
 
@@ -322,3 +330,4 @@ IndigoPlateauPokecenter1F_MapEvents:
 	object_event 16,  9, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
 	object_event  1,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TeleportGuyScript, EVENT_TELEPORT_GUY
 	object_event  0,  9, SPRITE_ABRA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, AbraScript, EVENT_TELEPORT_GUY
+	object_event 12,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FClerkScript2, -1

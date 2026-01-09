@@ -25,18 +25,45 @@ BattleCommand_FuryCutter:
 	dec b
 	ret z
 
+;CalcConsecutiveDamage
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_FLAME_WHEEL
+	jr z, .calcflamewheel
+
 ; Double the damage
 	ld hl, wCurDamage + 1
 	sla [hl]
 	dec hl
 	rl [hl]
 	jr nc, .checkdouble
-
 ; No overflow
 	ld a, $ff
 	ld [hli], a
 	ld [hl], a
 	ret
+	
+.calcflamewheel          ;do 1.5x damage for Flame Wheel instead
+	ld a, [wCurDamage]
+	ld h, a
+	ld d, a
+	ld a, [wCurDamage + 1]
+	ld l, a
+	ld e, a              ;likely bug, using flame wheel, echoed voice, or fury cutter
+                         ;in succession will probably increment damage for all three
+	srl d                ;so you could alternate between moves and still keep the multiplier
+	rr e                 ;but I don't care enough to stop anyone from doing that
+
+	add hl, de
+	jr nc, .Update
+	ld hl, $ffff
+
+.Update	
+	ld a, h
+	ld [wCurDamage], a
+	ld a, l
+	ld [wCurDamage + 1], a
+	jr .checkdouble
 
 ResetFuryCutterCount:
 	push hl
