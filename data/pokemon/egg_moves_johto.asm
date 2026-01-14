@@ -173,6 +173,7 @@ CyndaquilEggMoves:    ;xx
 	dw ENDURE
 	dw SWAGGER
 	dw LEER
+	dw WORK_UP
 	dw -1 ; end
 
 TotodileEggMoves:     ;xx
@@ -181,28 +182,31 @@ TotodileEggMoves:     ;xx
 	dw METAL_CLAW
 	dw DRAGON_DANCE
 	dw MUD_SHOT
-	dw SLAM
 	dw ENDURE
 	dw POWERUPPUNCH
 	dw FLAIL
 	dw AQUA_JET
 	dw DRAGONBREATH
-	dw SUPERPOWER
+	dw MUD_SLAP
+	dw LOW_KICK
 	dw -1 ; end
 
 SentretEggMoves:      ;xx
 	dw SLASH
-	dw REVERSAL
+	dw TAKE_DOWN
 	dw CONFUSION
-	dw CHARM
 	dw SUPER_FANG
-	dw TACKLE
+	dw MUD_SLAP
 	dw POWERUPPUNCH
 	dw PURSUIT
 	dw LASER_FOCUS
 	dw ROLLOUT
 	dw ECHOED_VOICE
 	dw ENDURE
+	dw HONE_CLAWS
+	dw FAINT_ATTACK
+	dw WORK_UP
+	dw SNATCH
 	dw -1 ; end
 
 HoothootEggMoves:     ;xx
@@ -216,10 +220,11 @@ HoothootEggMoves:     ;xx
 	dw AGILITY
 	dw RECOVER
 	dw OMINOUS_WIND
-	dw TACKLE
 	dw REFRESH
 	dw SILVER_WIND
 	dw MEAN_LOOK
+	dw WORK_UP
+	dw AIR_CUTTER
 	dw -1 ; end
 
 LedybaEggMoves:       ;xx
@@ -235,6 +240,10 @@ LedybaEggMoves:       ;xx
 	dw BUG_BITE
 	dw AIR_CUTTER
 	dw VACUUM_WAVE
+	dw WORK_UP
+	dw BULLET_PUNCH
+	dw POWERUPPUNCH
+	dw SHADOW_PUNCH
 	dw -1 ; end
 
 SpinarakEggMoves:     ;xx
@@ -246,11 +255,13 @@ SpinarakEggMoves:     ;xx
 	dw GROWTH
 	dw SLASH
 	dw FELL_STINGER
-	dw X_SCISSOR
 	dw PIN_MISSILE
-;	dw SHARPEN
+	dw HONE_CLAWS
 	dw BUG_BUZZ
 	dw MEGAHORN
+	dw NIGHT_SLASH
+	dw CROSS_POISON
+	dw TWINEEDLE
 	dw -1 ; end
 
 ChinchouEggMoves:     ;xx
@@ -300,6 +311,10 @@ MareepEggMoves:       ;xx
 	dw DEFENSE_CURL
 	dw ENDURE
 	dw ECHOED_VOICE
+	dw HYPNOSIS
+	dw DRAGON_TAIL     ;apparently it doens't normally get this?
+	dw DRAGONBREATH
+	dw TAIL_WHIP
 	dw -1 ; end
 
 MarillEggMoves:       ;xx
@@ -312,9 +327,9 @@ MarillEggMoves:       ;xx
 	dw ENCORE
 	dw AQUA_JET
 	dw REFRESH
-	dw SLAM
-	dw POWERUPPUNCH
-	dw SUPERPOWER
+	dw WISH
+	dw MUDDY_WATER
+	dw PRESENT
 	dw -1 ; end
 
 BonslyEggMoves:       ;xx
@@ -330,13 +345,16 @@ HoppipEggMoves:       ;xx
 	dw AMNESIA
 	dw PAY_DAY
 	dw AGILITY
-	dw RAZOR_LEAF
 	dw ENDURE
-	dw SWEET_SCENT
 	dw CHARM
-	dw SPLASH
 	dw TAKE_DOWN
 	dw SING
+	dw PETAL_DANCE
+	dw MAGICAL_LEAF
+	dw LUNGE
+	dw BULLET_SEED
+	dw GROWTH
+	dw BATON_PASS
 	dw -1 ; end
 
 AipomEggMoves:        ;xx
@@ -456,12 +474,18 @@ DunsparceEggMoves:    ;xx
 	dw AGILITY
 	dw HYPNOSIS
 	dw HEX
-	dw PURSUIT
 	dw REFRESH
 	dw ECHOED_VOICE
 	dw AMNESIA
 	dw BATON_PASS
 	dw DESTINY_BOND
+	dw ROLLOUT
+	dw ENDURE
+	dw HEX
+	dw MUD_SHOT
+	dw SCALE_SHOT
+	dw DRAGON_TAIL
+	dw WORK_UP
 	dw -1 ; end
 
 GligarEggMoves:       ;xx

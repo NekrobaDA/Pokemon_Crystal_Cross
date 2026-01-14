@@ -19,4 +19,5 @@ CriticalHitMoves:
 	dw STONE_EDGE
 	dw X_SCISSOR
 	dw THUNDERSPEAR
+	dw FALCON_DIVE
 	dw -1

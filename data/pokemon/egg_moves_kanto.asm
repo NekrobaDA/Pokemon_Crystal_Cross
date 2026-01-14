@@ -225,26 +225,29 @@ SquirtleEggMoves:     ;xx
 CaterpieEggMoves:     ;xx
 	dw ACID_SPRAY
 	dw CONFUSION
-	dw LEECH_LIFE
+	dw STRUGGLE_BUG
 	dw MEGA_DRAIN
 	dw -1
 	
 WeedleEggMoves:       ;xx
 	dw ACID_SPRAY
-	dw LEECH_LIFE
+	dw RAGE
 	dw MEGAHORN
-;	dw SHARPEN
+	dw BUG_BITE
 	dw -1
 
 PidgeyEggMoves:       ;xx
 	dw PURSUIT
-	dw TAKE_DOWN
 	dw DRILL_PECK
 	dw LEER
 	dw REFRESH
 	dw MUD_SLAP
 	dw OMINOUS_WIND
-	dw FEATHERDANCE
+	dw UPROAR
+	dw FAINT_ATTACK
+	dw SKY_ATTACK
+	dw WORK_UP
+	dw SHARPEN
 	dw -1 ; end
 
 RattataEggMoves:      ;xx

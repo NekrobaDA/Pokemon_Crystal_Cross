@@ -172,7 +172,7 @@ Moves1:
 ;SLEEP_POWDER
 	move EFFECT_SLEEP,               0, GRASS,        STATUS,    75, 15,   0
 ;PETAL_DANCE
-	move EFFECT_SP_ATK_UP_HIT,       80, GRASS,       SPECIAL,  100, 20,  50
+	move EFFECT_SP_ATK_UP_HIT,      90, GRASS,        PHYSICAL, 100, 20,  30
 ;STRING_SHOT
 	move EFFECT_SPEED_DOWN,          0, BUG,          STATUS,    95, 40,   0
 ;DRAGON_RAGE
@@ -640,7 +640,7 @@ Moves1:
 ;PSYCHIC_FANG - chance to disable opponent's move
 	move EFFECT_DISABLE_HIT,        50, PSYCHIC_TYPE, PHYSICAL, 100, 10,  50
 ;ESPER_WING
-	move EFFECT_SPEED_UP_HIT,       80, PSYCHIC_TYPE, PHYSICAL, 100, 10,  50
+	move EFFECT_SPEED_UP_HIT,       80, PSYCHIC_TYPE, PHYSICAL, 100, 10,  30
 ;METEOR_STORM
 	move EFFECT_BURN_HIT,          100, ROCK,         SPECIAL,   90,  5,  30
 ;ROCK_TOMB
@@ -696,7 +696,7 @@ Moves1:
 ;MIST_BALL
 	move EFFECT_SP_ATK_DOWN_HIT,    70, PSYCHIC_TYPE, SPECIAL,  100,  10, 30
 ;LUSTER_BASH
-	move EFFECT_DEFENSE_UP_HIT,     70, PSYCHIC_TYPE, PHYSICAL,  90,  10, 50
+	move EFFECT_DEFENSE_UP_HIT,     70, PSYCHIC_TYPE, PHYSICAL,  90,  10, 30
 ;MAELSTROM
 	move EFFECT_TRAP_TARGET,       110, DRAGON,       SPECIAL,   75,  5,   0
 ;TOXIC_SPIKES
@@ -727,8 +727,8 @@ Moves1:
 	move EFFECT_NORMAL_HIT,        100, ROCK,         PHYSICAL,   80,  5,  0
 ;IRON_HEAD
 	move EFFECT_FLINCH_HIT,         80, STEEL,        PHYSICAL,  100, 15, 30
-;LANDS_WRATH - rasies sp atk and sp def on charge turn, then attacks next turn (change to sp def only?)
-	move EFFECT_LANDS_WRATH,       120, GROUND,       SPECIAL,    90,  5,  0
+;ERUPTION (effect temp)
+	move EFFECT_BURN_HIT,          150, FIRE,         SPECIAL,   100,  5,  0
 ;MUD_BOMB
 	move EFFECT_ACCURACY_DOWN_HIT,  85, GROUND,       SPECIAL,    85, 10, 30
 ;AQUA_TAIL
@@ -803,8 +803,8 @@ Moves1:
 	move EFFECT_MIST,                0, WATER,        STATUS,    100, 30,  0
 ;BOLT_STRIKE
 	move EFFECT_PARALYZE_HIT,      130, ELECTRIC,     PHYSICAL,   70,  5, 10
-;FALCON_DIVE (add flinch effect)
-	move EFFECT_JUMP_KICK,          70, FLYING,       PHYSICAL,   90, 20, 30
+;FALCON_DIVE (add flinch effect) high-crit move
+	move EFFECT_FALCON_DIVE,        70, FLYING,       PHYSICAL,   90, 20, 30
 ;HURRICANE (effect wip)
 	move EFFECT_CONFUSE_HIT,       110, FLYING,       SPECIAL,    70, 10, 30
 ;SLAG_STORM (add burn chance)
@@ -845,7 +845,8 @@ Moves1:
 	move EFFECT_LEECH_HIT,          65, ELECTRIC,     SPECIAL,   100, 20,  0
 ;STRUGGLE_BUG
 	move EFFECT_SP_ATK_DOWN_HIT,    40, BUG,          PHYSICAL,   90, 15, 30
-
+;VENOSHOCK (effect temp)
+	move EFFECT_HEX,                65, POISON,       SPECIAL,   100, 10,  0
 
 ;readd mist w/ safeguard buff?
 

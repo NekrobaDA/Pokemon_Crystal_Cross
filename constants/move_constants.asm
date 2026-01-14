@@ -355,7 +355,7 @@
 	const STAR_FREEZE
 	const STONE_EDGE
 	const IRON_HEAD
-	const LANDS_WRATH
+	const ERUPTION
 	const MUD_BOMB
 	const AQUA_TAIL
 	const MUDDY_WATER
@@ -414,6 +414,7 @@
 	const FOUL_PLAY
 	const PARABOLCHARGE
 	const STRUGGLE_BUG
+	const VENOSHOCK
 	const STRUGGLE
 	
 NUM_ATTACKS EQU const_value + - 1

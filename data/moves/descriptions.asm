@@ -354,7 +354,7 @@ MoveDescriptions1:
 	dw StarFreezeDescription
 	dw StoneEdgeDescription
 	dw IronHeadDescription
-	dw LandsWrathDescription
+	dw EruptionDescription
 	dw MudBombDescription
 	dw AquaTailDescription
 	dw MuddyWaterDescription
@@ -414,8 +414,11 @@ MoveDescriptions1:
 	dw FoulPlayDescription
 	dw ParabolChargeDescription
 	dw StruggleBugDescription
+	dw VenoshockDescription
 
 
+VenoshockDescription:
+EruptionDescription:
 StruggleBugDescription:
 ParabolChargeDescription:
 FoulPlayDescription:
@@ -574,10 +577,6 @@ AuroraVeilDescription:
 StarFreezeDescription:
 	db   "May paralyze or"
 	next "freeze the foe.@"
-	
-LandsWrathDescription:
-	db   "1st turn: Attack"
-	next "2nd turn: Rest@"
 	
 AquaTailDescription:
 	db   "User's tail makes"

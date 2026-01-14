@@ -373,7 +373,7 @@ BattleAnimations::
 	dw BattleAnim_Flash        ;star freeze
 	dw BattleAnim_RockSlide    ;stone edge
 	dw BattleAnim_IronTail     ;iron head
-	dw BattleAnim_Earthquake   ;land's wrath
+	dw BattleAnim_FireBlast    ;eruption
 	dw BattleAnim_SludgeBomb   ;mud bomb
 	dw BattleAnim_Waterfall    ;aqua tail
 	dw BattleAnim_Surf         ;muddy water
@@ -411,7 +411,7 @@ BattleAnimations::
 	dw BattleAnim_Recover      ;aqua ring
 	dw BattleAnim_Mist
 	dw BattleAnim_Spark        ;bolt strike
-	dw BattleAnim_Fly          ;falcon dive
+	dw BattleAnim_QuickAttack  ;falcon dive
 	dw BattleAnim_Aeroblast    ;hurricane
 	dw BattleAnim_Twister      ;slag storm
 	dw BattleAnim_Rollout      ;ice ball
@@ -432,6 +432,7 @@ BattleAnimations::
 	dw BattleAnim_FaintAttack  ;foul play
 	dw BattleAnim_Thundershock ;parabolcharge
 	dw BattleAnim_Splash       ;struggle bug
+	dw BattleAnim_SludgeBomb   ;venoshock
 	dw BattleAnim_Struggle
 
 BattleAnim_0:

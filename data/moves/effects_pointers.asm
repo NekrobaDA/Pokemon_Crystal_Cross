@@ -198,4 +198,5 @@ MoveEffectsPointers:
 	dw Ingrain
 	dw BurnUp
 	dw Purify
+	dw FlinchHit  ;falcondive
 	

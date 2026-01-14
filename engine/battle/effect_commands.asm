@@ -1816,6 +1816,8 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 	cp EFFECT_JUMP_KICK
 	jr z, .Missed
+	cp EFFECT_FALCON_DIVE
+	jr z, .Missed
 	call ResetDamage
 
 .Missed:
@@ -2522,8 +2524,11 @@ GetFailureResultText:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_JUMP_KICK
+	jr z, .continuejumpkick
+	cp EFFECT_FALCON_DIVE
 	ret nz
 
+.continuejumpkick
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
@@ -2531,7 +2536,8 @@ GetFailureResultText:
 	ld hl, wCurDamage
 	ld a, [hli]
 	ld b, [hl]
-rept 3
+;rept 3
+rept 2       ;1/8th -> 1/4th
 	srl a
 	rr b
 endr
@@ -6380,7 +6386,6 @@ jr .not_flying
 	dw FLY,        .BattleFlewText
 	dw DIG,        .BattleDugText
 	dw DIVE,       .BattleDiveText
-	dw LANDS_WRATH, .BattleLandsWrathText
 	dw -1
 
 .BattleLandsWrathText:
