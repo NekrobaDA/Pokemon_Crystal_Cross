@@ -287,8 +287,8 @@
 	const SCALE_SHOT
 	const CHARGE
 	const DISCHARGE
+	const THUNDER_FANG
 	const CROSS_CHOP
-	const BRICK_BREAK
 	const DRAIN_PUNCH
 	const FOCUS_BLAST
 	const DETECT

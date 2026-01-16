@@ -1,6 +1,6 @@
 	db 0 ; species ID placeholder
 
-	db  70, 105,  89,  80,  65,  79
+	db  70,  95,  89,  80,  75,  79
 	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, DRAGON ; type

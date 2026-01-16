@@ -2200,10 +2200,12 @@ PurifyFunction:
 	jr z, .ContinuePurifyStatusCure 
 
 	ld a, PARTYMENUTEXT_PURIFY_FAIL  ; if no status, fail
-	call ItemActionText              ; (not sure why this fail message reloads the menu)
-	pop bc                           ; (when the PP fail message exits menu, but it works)
+	call ItemActionText
+	pop de
+	pop bc
 	jr .skip
-
+	
+	push de
 .ContinuePurifyStatusCure            ; else, continue to cure function
 	xor a
 	ld [hli], a
@@ -2239,6 +2241,7 @@ PurifyFunction:
 	sub c
 	ld [hl], a  ;finally subtract 1 from PP
 	pop bc
+	pop bc
 	
 .skip
 	ld a, b
@@ -2251,10 +2254,9 @@ PurifyFunction:
 	ld [wPartyMenuActionText], a
 	call ChooseMonToUseItemOn
 	pop bc
-	jr c, .set_carry
-	ret
-.set_carry
+	jr nc, .no_carry
 	scf
+.no_carry
 	ret
 
 Softboiled_MilkDrinkFunction:

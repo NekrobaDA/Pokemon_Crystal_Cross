@@ -190,6 +190,7 @@ BulbasaurEggMoves:    ;xx
 	dw ECHOED_VOICE
 	dw SING
 	dw ANCIENTPOWER
+	dw VENOSHOCK
 	dw -1 ; end
 
 CharmanderEggMoves:   ;xx
@@ -248,6 +249,7 @@ PidgeyEggMoves:       ;xx
 	dw SKY_ATTACK
 	dw WORK_UP
 	dw SHARPEN
+	dw ESPER_WING
 	dw -1 ; end
 
 RattataEggMoves:      ;xx
@@ -260,10 +262,13 @@ RattataEggMoves:      ;xx
 	dw FIRE_FANG
 	dw ICE_FANG
 	dw BUBBLEBEAM
+	dw WORK_UP
+	dw UPROAR
+	dw SNATCH
+	dw MUD_SLAP
 	dw -1 ; end
 
 SpearowEggMoves:      ;xx
-	dw FALSE_SWIPE
 	dw SCARY_FACE
 	dw QUICK_ATTACK
 	dw TRI_ATTACK
@@ -274,19 +279,28 @@ SpearowEggMoves:      ;xx
 	dw BATON_PASS
 	dw AIR_CUTTER
 	dw ECHOED_VOICE
-	dw OMINOUS_WIND
+	dw SWAGGER
+	dw ASTONISH
+	dw UPROAR
+	dw MUD_SLAP
 	dw -1 ; end
 
 EkansEggMoves:        ;xx
 	dw PURSUIT
 	dw SPITE
-	dw CRUNCH
 	dw DISABLE
 	dw DRAGON_DANCE
 	dw ICE_FANG
+	dw THUNDER_FANG
+	dw FIRE_FANG
 	dw DRAGON_RAGE
 	dw SUPER_FANG
 	dw DRAGONBREATH
+	dw VENOSHOCK
+	dw DRAGON_TAIL
+	dw REFRESH
+	dw SCALE_SHOT
+	dw SUCKER_PUNCH
 	dw -1 ; end
 	
 PichuEggMoves:        ;xx
@@ -369,15 +383,14 @@ VulpixEggMoves:       ;xx
 	dw HYPNOSIS
 	dw HOWL
 	dw CHARM
-	dw DESTINY_BOND
 	dw DISABLE
 	dw LICK
 	dw CONFUSION
-	dw FIRE_FANG
 	dw OMINOUS_WIND
 	dw FLAIL
 	dw FLAME_WHEEL
 	dw ENCORE
+	dw INFERNALPARADE
 	dw -1 ; end
 	
 JigglypuffEggMoves:   ;xx
@@ -404,7 +417,7 @@ ZubatEggMoves:        ;xx
 	dw FIRE_FANG
 	dw ICE_FANG
 	dw NASTY_PLOT
-	dw HEX
+	dw VENOSHOCK
 	dw -1 ; end
 
 OddishEggMoves:       ;xx
@@ -478,6 +491,7 @@ MeowthEggMoves:       ;xx
 	dw PURSUIT
 	dw METAL_CLAW
 	dw ICE_FANG
+	dw GLARE
 	dw -1 ; end
 
 PsyduckEggMoves:      ;xx
@@ -577,6 +591,7 @@ TentacoolEggMoves:    ;xx
 	dw ACID_SPRAY
 	dw POWER_GEM
 	dw GUNK_SHOT
+	dw VENOSHOCK
 	dw -1 ; end
 
 GeodudeEggMoves:      ;xx
@@ -672,6 +687,7 @@ GrimerEggMoves:       ;xx
 	dw SPITE
 	dw POWERUPPUNCH
 	dw PURSUIT
+	dw VENOSHOCK
 	dw -1 ; end
 
 ShellderEggMoves:     ;xx

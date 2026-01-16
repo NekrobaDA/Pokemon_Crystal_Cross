@@ -670,7 +670,7 @@ Moves1:
 ;INFESTATION
 	move EFFECT_TRAP_TARGET,        35, BUG,          SPECIAL,   90, 20,   0
 ;VENOMSTRIKE - high critical hit move; chance to poison or paralyze
-	move EFFECT_VENOMSTRIKE,       100, POISON,       PHYSICAL,  95, 20,  30
+	move EFFECT_VENOMSTRIKE,       100, POISON,       PHYSICAL,  90, 20,  30
 ;PHANTOMFORCE (effect unfinished) (needs to hit through protect)
 	move EFFECT_FLY,                90, GHOST,        PHYSICAL, 100, 20,   0
 ;FISSURE

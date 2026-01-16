@@ -1293,8 +1293,6 @@ Text_PlayedPokeFlute::
 	text_promptbutton
 	text_end
 
-	text_end ; unreferenced
-
 _BlueCardBalanceText::
 	text "You now have"
 	line "@"
@@ -1306,7 +1304,7 @@ _CoinCaseCountText::
 	text "Coins:"
 	line "@"
 	text_decimal wCoins, 2, 4
-	done
+	text_end
 
 _RaiseThePPOfWhichMoveText::
 	text "Raise the PP of"

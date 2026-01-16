@@ -410,11 +410,11 @@ MoveDescriptions1:
 	dw DragonsCryDescription
 	dw FacadeDescription
 	dw HealBlockDescription
-	dw StruggleDescription
 	dw FoulPlayDescription
 	dw ParabolChargeDescription
 	dw StruggleBugDescription
 	dw VenoshockDescription
+	dw StruggleDescription
 
 
 VenoshockDescription:

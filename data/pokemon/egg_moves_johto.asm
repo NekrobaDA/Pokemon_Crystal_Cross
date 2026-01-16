@@ -225,6 +225,7 @@ HoothootEggMoves:     ;xx
 	dw MEAN_LOOK
 	dw WORK_UP
 	dw AIR_CUTTER
+	dw PSYCH_UP
 	dw -1 ; end
 
 LedybaEggMoves:       ;xx
@@ -262,6 +263,7 @@ SpinarakEggMoves:     ;xx
 	dw NIGHT_SLASH
 	dw CROSS_POISON
 	dw TWINEEDLE
+	dw VENOSHOCK
 	dw -1 ; end
 
 ChinchouEggMoves:     ;xx
@@ -287,6 +289,9 @@ TogepiEggMoves:       ;xx
 	dw ECHOED_VOICE
 	dw MYSTICALFIRE
 	dw NASTY_PLOT
+	dw SWEET_KISS
+	dw WORK_UP
+	dw UPROAR
 	dw -1 ; end
 
 NatuEggMoves:         ;xx
@@ -482,10 +487,11 @@ DunsparceEggMoves:    ;xx
 	dw ROLLOUT
 	dw ENDURE
 	dw HEX
-	dw MUD_SHOT
 	dw SCALE_SHOT
 	dw DRAGON_TAIL
 	dw WORK_UP
+	dw POISON_TAIL
+	dw ROCK_TOMB
 	dw -1 ; end
 
 GligarEggMoves:       ;xx
@@ -501,6 +507,7 @@ GligarEggMoves:       ;xx
 	dw CRABHAMMER
 ;	dw SHARPEN
 	dw AIR_CUTTER
+	dw VENOSHOCK
 	dw -1 ; end
 
 SnubbullEggMoves:     ;xx
@@ -530,6 +537,8 @@ QwilfishEggMoves:     ;xx
 	dw FELL_STINGER
 	dw HEX
 	dw GUNK_SHOT
+	dw VENOSHOCK
+	dw POISON_TAIL
 	dw -1 ; end
 
 ShuckleEggMoves:      ;xx
@@ -729,14 +738,14 @@ Vulpix_AlolanEggMoves:       ;xx
 	dw HYPNOSIS
 	dw HOWL
 	dw CHARM
-	dw DESTINY_BOND
 	dw LICK
 	dw CONFUSION
 	dw ICE_FANG
 	dw HEX
 	dw FLAIL
-	dw ICE_SHARD
 	dw ENCORE
+	dw SAFEGUARD
+	dw MIST
 	dw -1 ; end
 	
 Bulbasaur_CloneEggMoves:
@@ -786,13 +795,19 @@ Squirtle_CloneEggMoves:
 Ekans_DarkEggMoves:
 	dw PURSUIT
 	dw SPITE
-	dw CRUNCH
 	dw DISABLE
 	dw DRAGON_DANCE
 	dw ICE_FANG
+	dw THUNDER_FANG
+	dw FIRE_FANG
 	dw DRAGON_RAGE
 	dw SUPER_FANG
 	dw DRAGONBREATH
+	dw VENOSHOCK
+	dw DRAGON_TAIL
+	dw REFRESH
+	dw SCALE_SHOT
+	dw SUCKER_PUNCH
 	dw -1 ; end
 	
 Pichu_SpikyEggMoves:

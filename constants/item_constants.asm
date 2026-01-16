@@ -401,7 +401,7 @@ ENDM
 	add_mt GALE_WIND
 	add_mt DRILL_RUN
 	add_mt AVALANCHE
-	add_mt SHOCK_WAVE     ;consider low kick, refresh, iron defense, luster bash etc
+	add_mt SHOCK_WAVE     ;consider low kick, toxic spikes, iron defense, luster bash etc
 NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 NUM_TM_HM_TUTOR EQU __tmhm_value__ - 1

@@ -476,167 +476,180 @@ PidgeotEvosAttacks:                  ;updated
 	dbw LEARN_EVO_MOVE, FALCON_DIVE
 	db 0 ; no more level-up moves
 
-RattataEvosAttacks:                  ;
+RattataEvosAttacks:                  ;updated
 	dbbw EVOLVE_LEVEL, 20, RATICATE
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, TAIL_WHIP
 	dbw 4, QUICK_ATTACK
-	dbw 7, LASER_FOCUS
+	dbw 7, FOCUS_ENERGY
 	dbw 10, BITE
-;	dbw 13, SHARPEN
-	dbw 19, FURY_SWIPES
-	dbw 22, PURSUIT
-	dbw 27, SUPER_FANG
-	dbw 32, SWAGGER
-	dbw 36, TAKE_DOWN
-	dbw 45, CRUNCH
+	dbw 13, SHARPEN
+	dbw 16, FURY_SWIPES
+	dbw 19, PURSUIT
+	dbw 24, SUPER_FANG
+	dbw 29, SWAGGER
+	dbw 34, SUCKER_PUNCH
+	dbw 39, TAKE_DOWN
+	dbw 44, CRUNCH
 	db 0 ; no more level-up moves
 
-RaticateEvosAttacks:                 ;
+RaticateEvosAttacks:                 ;updated
 	db 0 ; no more evolutions
-	dbw 1, REFRESH
+	dbw 1, REFRESH         ;move relearner
+	dbw 1, FACADE          ;move relearner
 	dbw 1, TACKLE
 	dbw 1, TAIL_WHIP
 	dbw 4, QUICK_ATTACK
-	dbw 7, LASER_FOCUS
+	dbw 7, FOCUS_ENERGY
 	dbw 10, BITE
-;	dbw 13, SHARPEN
-	dbw 19, FURY_SWIPES
-	dbw 19, SCARY_FACE    ;evolution move
-	dbw 27, PURSUIT
-	dbw 32, SUPER_FANG
-	dbw 36, SWAGGER 
+	dbw 13, SHARPEN
+	dbw 16, FURY_SWIPES
+	dbw 19, PURSUIT
+	dbw 20, SCARY_FACE     ;evolution move
+	dbw 29, SUPER_FANG
+	dbw 34, SWAGGER
+	dbw 39, SUCKER_PUNCH
 	dbw 45, TAKE_DOWN
 	dbw 52, CRUNCH
 	dbw LEARN_EVO_MOVE, SCARY_FACE
 	db 0 ; no more level-up moves
 
-SpearowEvosAttacks:                  ;
+SpearowEvosAttacks:                  ;updated
 	dbbw EVOLVE_LEVEL, 20, FEAROW
 	db 0 ; no more evolutions
 	dbw 1, PECK
 	dbw 1, LEER
-	dbw 4, MUD_SLAP
-	dbw 9, PURSUIT
-;	dbw 14, SHARPEN
-	dbw 19, AIR_CUTTER
-	dbw 21, LASER_FOCUS
-	dbw 25, MIRROR_MOVE
+	dbw 4, SHARPEN
+	dbw 9, FURY_ATTACK
+	dbw 13, PURSUIT
+	dbw 17, AERIAL_ACE
+	dbw 19, FOCUS_ENERGY
+	dbw 21, MIRROR_MOVE
+	dbw 25, FALSE_SWIPE
 	dbw 29, AGILITY
 	dbw 33, TAKE_DOWN
 	dbw 37, ROOST
 	dbw 45, DRILL_PECK
 	db 0 ; no more level-up moves
 
-FearowEvosAttacks:                   ;
+FearowEvosAttacks:                   ;updated
 	db 0 ; no more evolutions
-	dbw 1, SKY_ATTACK
+	dbw 1, BATON_PASS      ;move relearner
+	dbw 1, SKY_ATTACK      ;move relearner
 	dbw 1, PECK
 	dbw 1, LEER
-	dbw 4, MUD_SLAP
-	dbw 9, PURSUIT
-;	dbw 14, SHARPEN
-	dbw 19, WING_ATTACK   ;evolution move
-	dbw 25, LASER_FOCUS
-	dbw 29, MIRROR_MOVE
-	dbw 33, AGILITY
-	dbw 37, TAKE_DOWN
-	dbw 43, ROOST
-	dbw 47, DRILL_PECK 
-	dbw 55, DRILL_RUN
+	dbw 4, SHARPEN
+	dbw 9, FURY_ATTACK
+	dbw 13, PURSUIT
+	dbw 17, AERIAL_ACE
+	dbw 19, FOCUS_ENERGY
+	dbw 20, WING_ATTACK    ;evolution move
+	dbw 23, MIRROR_MOVE
+	dbw 29, FALSE_SWIPE
+	dbw 35, AGILITY
+	dbw 41, TAKE_DOWN
+	dbw 47, ROOST
+	dbw 53, DRILL_PECK
+	dbw 58, DRILL_RUN
 	dbw LEARN_EVO_MOVE, WING_ATTACK
 	db 0 ; no more level-up moves
 
-EkansEvosAttacks:                    ;
+EkansEvosAttacks:                    ;updated
 	dbbw EVOLVE_LEVEL_REGION_SEVII, 24, ARBOK_SEVII
 	dbbw EVOLVE_LEVEL_REGION, 24, ARBOK_KANTO
 	dbbw EVOLVE_LEVEL, 24, ARBOK
 	db 0 ; no more evolutions
 	dbw 1, WRAP
 	dbw 1, LEER
-	dbw 4, BITE
-	dbw 9, REFRESH
-	dbw 12, GLARE   
-	dbw 17, SCREECH
-	dbw 20, POISON_FANG
-	dbw 22, SLAM
-	dbw 27, ACID_SPRAY
-	dbw 32, MUD_SHOT
-	dbw 36, COIL
-	dbw 44, POISON_JAB
-	dbw 48, HAZE
+	dbw 4, POISON_STING
+	dbw 9, BITE
+	dbw 12, GLARE
+	dbw 17, POISON_FANG
+	dbw 20, SCREECH
+	dbw 25, ACID_SPRAY     ;->DRAGONBREATH
+	dbw 28, MUD_BOMB
+	dbw 36, POISON_TAIL
+	dbw 41, CRUNCH         ;->BASILISKFANG
+	dbw 44, COIL
+	dbw 49, VENOMSTRIKE
+	dbw 54, HAZE
 	db 0 ; no more level-up moves
 
-ArbokEvosAttacks:                    ;
+ArbokEvosAttacks:                    ;updated
 	db 0 ; no more evolutions
-	dbw 1, FIRE_FANG
-	dbw 1, ICE_FANG
+	dbw 1, BASILISKFANG    ;move relearner
+	dbw 1, REFRESH         ;move relearner
 	dbw 1, WRAP
 	dbw 1, LEER
-	dbw 4, BITE
-	dbw 9, REFRESH
-	dbw 12, GLARE   
-	dbw 17, SCREECH
-	dbw 20, POISON_FANG
-	dbw 22, SLAM
-	dbw 23, SCARY_FACE    ;evolution move
-	dbw 32, ACID_SPRAY
-	dbw 36, MUD_SHOT
-	dbw 40, COIL
-	dbw 45, POISON_JAB
-	dbw 49, CRUNCH
-	dbw 55, HAZE
+	dbw 4, POISON_STING
+	dbw 9, BITE
+	dbw 12, GLARE
+	dbw 17, POISON_FANG
+	dbw 20, SCREECH
+	dbw 24, SCARY_FACE     ;evolution move
+	dbw 27, ACID_SPRAY
+	dbw 32, MUD_BOMB
+	dbw 39, POISON_TAIL
+	dbw 44, CRUNCH
+	dbw 51, COIL
+	dbw 56, VENOMSTRIKE
+	dbw 63, HAZE
 	dbw LEARN_EVO_MOVE, SCARY_FACE
 	db 0 ; no more level-up moves
 
-PichuEvosAttacks:                    ;
+PichuEvosAttacks:                    ;updated
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, PIKACHU
 	db 0 ; no more evolutions
 	dbw 1, CHARM
 	dbw 1, THUNDERSHOCK
-	dbw 4, TAIL_WHIP
-	dbw 8, THUNDER_WAVE
-	dbw 12, QUICK_ATTACK
-	dbw 15, NASTY_PLOT
+	dbw 1, TAIL_WHIP
+	dbw 4, THUNDER_WAVE
+	dbw 10, QUICK_ATTACK
+	dbw 13, SWEET_KISS
+	dbw 18, NASTY_PLOT
 	db 0 ; no more level-up moves
 
-PikachuEvosAttacks:                  ;
+PikachuEvosAttacks:                  ;updated
 	dbbw EVOLVE_ITEM_REGION_SEVII, THUNDERSTONE, RAICHU_ALOLAN
 	dbbw EVOLVE_ITEM, THUNDERSTONE, RAICHU
 	db 0 ; no more evolutions
-	dbw 1, NASTY_PLOT
-	dbw 1, VOLT_TACKLE
-	dbw 1, GROWL
+	dbw 1, VOLT_TACKLE     ;move relearner
+	dbw 1, NASTY_PLOT      ;pre-evolution, move relearner
 	dbw 1, THUNDERSHOCK
-	dbw 4, TAIL_WHIP
-	dbw 10, THUNDER_WAVE
-	dbw 13, QUICK_ATTACK
-	dbw 18, DOUBLE_TEAM
-	dbw 21, SPARK
-	dbw 26, AGILITY
-	dbw 34, SLAM
-	dbw 37, THUNDERBOLT
+	dbw 1, GROWL
+	dbw 4, THUNDER_WAVE
+	dbw 10, QUICK_ATTACK
+	dbw 13, CHARGE
+	dbw 18, SPARK
+	dbw 21, DOUBLE_TEAM
+	dbw 26, SLAM
+	dbw 29, THUNDERBOLT
+	dbw 34, AGILITY
+	dbw 37, DISCHARGE
 	dbw 42, LIGHT_SCREEN
-	dbw 45, THUNDER
+	dbw 45, THUNDER        ;->VOLT_TACKLE/PSYCHIC
 	db 0 ; no more level-up moves
 
-RaichuEvosAttacks:                   ;
+RaichuEvosAttacks:                   ;updated
 	db 0 ; no more evolutions
-	dbw 1, JUMP_KICK
-	dbw 1, NASTY_PLOT
-	dbw 1, GROWL
+	dbw 1, THUNDER_KICK    ;move relearner
+	dbw 1, NASTY_PLOT      ;pre-evolution, move relearner
 	dbw 1, THUNDERSHOCK
-	dbw 4, TAIL_WHIP
-	dbw 10, THUNDER_WAVE
-	dbw 13, QUICK_ATTACK
+	dbw 1, GROWL
+	dbw 4, THUNDER_WAVE
+	dbw 10, QUICK_ATTACK
+	dbw 13, CHARGE
 	dbw 18, SPARK
-	dbw 22, DOUBLE_TEAM
-	dbw 30, SLAM
-	dbw 35, AGILITY
-	dbw 42, THUNDERBOLT
-	dbw 45, LIGHT_SCREEN
-	dbw 54, VOLT_TACKLE
+	dbw 21, DOUBLE_TEAM
+	dbw 25, THUNDERPUNCH   ;evolution move
+	dbw 29, SLAM
+	dbw 33, THUNDERBOLT
+	dbw 37, AGILITY
+	dbw 44, DISCHARGE
+	dbw 48, LIGHT_SCREEN
+	dbw 55, VOLT_TACKLE
+	dbw LEARN_EVO_MOVE, THUNDERPUNCH
 	db 0 ; no more level-up moves
 
 SandshrewEvosAttacks:                ;
@@ -672,7 +685,7 @@ SandslashEvosAttacks:                ;
 	dbw 29, SWORDS_DANCE
 	dbw 35, SANDSTORM
 	dbw 53, EARTHQUAKE
-	dbw LEARN_EVO_MOVE, SANDSLASH
+	dbw LEARN_EVO_MOVE, SLASH
 	db 0 ; no more level-up moves
 
 NidoranFEvosAttacks:                 ;
@@ -816,7 +829,7 @@ ClefableEvosAttacks:                 ;
 	dbw LEARN_EVO_MOVE, HEAL_BELL
 	db 0 ; no more level-up moves
 
-VulpixEvosAttacks:                   ;
+VulpixEvosAttacks:                   ;updated
 	dbbbw EVOLVE_ITEM_LEVEL, FIRE_STONE, 25, NINETALES
 	db 0 ; no more evolutions
 	dbw 1, EMBER
@@ -824,31 +837,36 @@ VulpixEvosAttacks:                   ;
 	dbw 4, SPITE
 	dbw 7, QUICK_ATTACK
 	dbw 12, CONFUSE_RAY
-	dbw 15, MYSTICALFIRE
-	dbw 20, SHADOWSTRIKE
-	dbw 24, WILL_O_WISP
-	dbw 28, HEX
-	dbw 34, FLAMETHROWER
-	dbw 39, SAFEGUARD
-	dbw 45, FIRE_BLAST
+	dbw 15, FIRE_FANG
+	dbw 20, WILL_O_WISP
+	dbw 23, HEX
+	dbw 26, FIRE_SPIN
+	dbw 31, SAFEGUARD
+	dbw 34, EXTRASENSORY
+	dbw 39, FLAMETHROWER
+	dbw 42, DESTINY_BOND
+	dbw 47, FIRE_BLAST
 	db 0 ; no more level-up moves
 
-NinetalesEvosAttacks:                ;
+NinetalesEvosAttacks:                ;updated
 	db 0 ; no more evolutions
-	dbw 1, NASTY_PLOT
+	dbw 1, NASTY_PLOT      ;move relearner
+	dbw 1, MYSTICALFIRE    ;move relearner
 	dbw 1, EMBER
 	dbw 1, TAIL_WHIP
 	dbw 4, SPITE
 	dbw 7, QUICK_ATTACK
 	dbw 12, CONFUSE_RAY
-	dbw 15, MYSTICALFIRE
-	dbw 20, SHADOWSTRIKE
-	dbw 24, WILL_O_WISP
-	dbw 24, CURSE         ;evolution move
-	dbw 34, HEX
-	dbw 39, FLAMETHROWER
-	dbw 45, SAFEGUARD
-	dbw 53, FIRE_BLAST
+	dbw 15, FIRE_FANG
+	dbw 20, WILL_O_WISP
+	dbw 23, HEX
+	dbw 25, CURSE          ;evolution move
+	dbw 32, FIRE_SPIN
+	dbw 40, SAFEGUARD
+	dbw 44, EXTRASENSORY
+	dbw 48, FLAMETHROWER
+	dbw 52, DESTINY_BOND
+	dbw 56, FIRE_BLAST	
 	dbw LEARN_EVO_MOVE, CURSE
 	db 0 ; no more level-up moves
 
