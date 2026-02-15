@@ -837,15 +837,15 @@ VulpixEvosAttacks:                   ;updated
 	dbw 4, SPITE
 	dbw 7, QUICK_ATTACK
 	dbw 12, CONFUSE_RAY
-	dbw 15, FIRE_FANG
+	dbw 16, FIRE_FANG
 	dbw 20, WILL_O_WISP
-	dbw 23, HEX
-	dbw 26, FIRE_SPIN
-	dbw 31, SAFEGUARD
-	dbw 34, EXTRASENSORY
-	dbw 39, FLAMETHROWER
-	dbw 42, DESTINY_BOND
-	dbw 47, FIRE_BLAST
+	dbw 24, HEX
+	dbw 28, EXTRASENSORY
+	dbw 32, FLAMETHROWER
+	dbw 36, SAFEGUARD
+	dbw 40, FIRE_SPIN
+	dbw 44, DESTINY_BOND
+	dbw 48, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 NinetalesEvosAttacks:                ;updated
@@ -857,14 +857,14 @@ NinetalesEvosAttacks:                ;updated
 	dbw 4, SPITE
 	dbw 7, QUICK_ATTACK
 	dbw 12, CONFUSE_RAY
-	dbw 15, FIRE_FANG
+	dbw 16, FIRE_FANG
 	dbw 20, WILL_O_WISP
-	dbw 23, HEX
+	dbw 24, HEX
 	dbw 25, CURSE          ;evolution move
-	dbw 32, FIRE_SPIN
-	dbw 40, SAFEGUARD
-	dbw 44, EXTRASENSORY
-	dbw 48, FLAMETHROWER
+	dbw 32, EXTRASENSORY
+	dbw 38, FLAMETHROWER
+	dbw 43, SAFEGUARD
+	dbw 49, FIRE_SPIN
 	dbw 52, DESTINY_BOND
 	dbw 56, FIRE_BLAST	
 	dbw LEARN_EVO_MOVE, CURSE
@@ -908,56 +908,65 @@ WigglytuffEvosAttacks:               ;
 	dbw LEARN_EVO_MOVE, PAIN_SPLIT
 	db 0 ; no more level-up moves
 
-ZubatEvosAttacks:                    ;
+ZubatEvosAttacks:                    ;updated
 	dbbw EVOLVE_LEVEL, 22, GOLBAT
 	db 0 ; no more evolutions
-	dbw 1, LEECH_LIFE
+	dbw 1, MEGA_DRAIN
 	dbw 1, SUPERSONIC
-	dbw 4, BITE
-	dbw 9, SCREECH
+	dbw 4, ASTONISH        ;->LICK
+	dbw 9, BITE
 	dbw 13, WING_ATTACK
-	dbw 17, CONFUSE_RAY
-	dbw 21, SWIFT
-	dbw 25, POISON_FANG
-	dbw 33, AIR_CUTTER	
-	dbw 37, SUPER_FANG
-	dbw 42, HAZE
+	dbw 17, SCREECH
+	dbw 21, POISON_FANG
+	dbw 25, CONFUSE_RAY
+	dbw 28, AIR_CUTTER
+	dbw 32, DETECT         ;->MEAN_LOOK
+	dbw 37, LEECH_LIFE
+	dbw 41, VENOSHOCK
+	dbw 45, HAZE
+	dbw 48, AIR_SLASH
 	db 0 ; no more level-up moves
 
-GolbatEvosAttacks:                   ;
+GolbatEvosAttacks:                   ;updated
 	dbbw EVOLVE_HAPPINESS, TR_ANYTIME, CROBAT
 	db 0 ; no more evolutions
-	dbw 1, LEECH_LIFE
+	dbw 1, MEGA_DRAIN
 	dbw 1, SUPERSONIC
-	dbw 4, BITE
-	dbw 9, SCREECH
+	dbw 4, LICK
+	dbw 9, BITE
 	dbw 13, WING_ATTACK
-	dbw 17, CONFUSE_RAY
-	dbw 21, SWIFT
-	dbw 25, POISON_FANG
+	dbw 17, SCREECH
+	dbw 21, POISON_FANG
+	dbw 27, CONFUSE_RAY
 	dbw 33, AIR_CUTTER
 	dbw 38, MEAN_LOOK
-	dbw 43, SKY_ATTACK
-	dbw 49, HAZE
-	dbw LEARN_EVO_MOVE, LICK       ;evolution move
+	dbw 43, LEECH_LIFE
+	dbw 47, VENOSHOCK
+	dbw 51, HAZE
+	dbw 56, AIR_SLASH
+	dbw LEARN_EVO_MOVE, LICK
 	db 0 ; no more level-up moves
 	
-CrobatEvosAttacks:                   ;
+CrobatEvosAttacks:                   ;updated
 	db 0 ; no more evolutions
-	dbw 1, X_SCISSOR
-	dbw 1, LEECH_LIFE
+	dbw 1, PSYCHIC_FANG    ;move relearner
+	dbw 1, DETECT          ;pre-evolution, move relearner
+	dbw 1, MEGA_DRAIN
 	dbw 1, SUPERSONIC
-	dbw 4, BITE
-	dbw 9, SCREECH
+	dbw 4, LICK
+	dbw 9, BITE
 	dbw 13, WING_ATTACK
-	dbw 17, CONFUSE_RAY
-	dbw 21, SWIFT
-	dbw 32, POISON_FANG
-	dbw 38, AIR_CUTTER
-	dbw 43, MEAN_LOOK
-	dbw 49, SKY_ATTACK
-	dbw 54, HAZE
-	dbw LEARN_EVO_MOVE, POISON_JAB ;evolution move
+	dbw 17, SCREECH
+	dbw 21, POISON_FANG
+	dbw 27, CONFUSE_RAY
+	dbw 33, AIR_CUTTER
+	dbw 38, MEAN_LOOK
+	dbw 42, CROSS_POISON   ;evolution move
+	dbw 45, LEECH_LIFE
+	dbw 49, VENOSHOCK
+	dbw 57, HAZE
+	dbw 61, AIR_SLASH
+	dbw LEARN_EVO_MOVE, CROSS_POISON
 	db 0 ; no more level-up moves
 
 OddishEvosAttacks:                   ;

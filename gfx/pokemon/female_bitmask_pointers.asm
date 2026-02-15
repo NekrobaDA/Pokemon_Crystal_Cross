@@ -1,7 +1,7 @@
 FemaleBitmasksPointers:
-	dw BulbasaurBitmasks
-	dw IvysaurBitmasks
-	dw VenusaurBitmasks
+	dw BulbasaurFemaleBitmasks
+	dw IvysaurFemaleBitmasks
+	dw VenusaurFemaleBitmasks
 	dw CharmanderBitmasks
 	dw CharmeleonBitmasks
 	dw CharizardFemaleBitmasks

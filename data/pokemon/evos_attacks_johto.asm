@@ -451,15 +451,15 @@ SpinarakEvosAttacks:                 ;updated
 	dbw 4, INFESTATION
 	dbw 8, SCARY_FACE
 	dbw 12, NIGHT_SHADE
-	dbw 15, FURY_SWIPES
-	dbw 19, BUG_BITE
+	dbw 15, BUG_BITE
+	dbw 19, FURY_SWIPES
 	dbw 24, SHADOW_SNEAK   ;->SUCKER_PUNCH
 	dbw 28, POISON_FANG
 	dbw 32, AGILITY
 	dbw 36, LEECH_LIFE
 	dbw 40, PSYCHIC_M
-	dbw 43, POISON_JAB
-	dbw 47, SPIDER_WEB
+	dbw 43, SPIDER_WEB
+	dbw 47, POISON_JAB
 	db 0 ; no more level-up moves
 
 AriadosEvosAttacks:                  ;updated
@@ -471,16 +471,16 @@ AriadosEvosAttacks:                  ;updated
 	dbw 4, INFESTATION
 	dbw 8, SCARY_FACE
 	dbw 12, NIGHT_SHADE
-	dbw 15, FURY_SWIPES
-	dbw 19, BUG_BITE
+	dbw 15, BUG_BITE
+	dbw 19, FURY_SWIPES
 	dbw 22, SWORDS_DANCE   ;evolution move
 	dbw 28, SUCKER_PUNCH
 	dbw 32, POISON_FANG
 	dbw 37, AGILITY
 	dbw 41, LEECH_LIFE
 	dbw 46, PSYCHIC_M
-	dbw 50, POISON_JAB
-	dbw 55, SPIDER_WEB
+	dbw 50, SPIDER_WEB
+	dbw 55, POISON_JAB
 	dbw LEARN_EVO_MOVE, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
@@ -1967,35 +1967,35 @@ Vulpix_AlolanEvosAttacks:            ;updated
 	dbw 4, SPITE
 	dbw 7, ICE_SHARD
 	dbw 12, CONFUSE_RAY
-	dbw 15, ICY_WIND
+	dbw 16, ICY_WIND
 	dbw 20, DISABLE
-	dbw 23, OMINOUS_WIND
-	dbw 26, AURORA_BEAM
-	dbw 31, DESTINY_BOND
-	dbw 34, EXTRASENSORY
-	dbw 39, ICE_BEAM
-	dbw 42, AURORA_VEIL
-	dbw 47, BLIZZARD
+	dbw 24, OMINOUS_WIND
+	dbw 28, EXTRASENSORY
+	dbw 32, ICE_BEAM
+	dbw 36, AURORA_VEIL
+	dbw 40, FREEZE_DRY
+	dbw 44, DESTINY_BOND
+	dbw 48, BLIZZARD
 	db 0 ; no more level-up moves
 
 Ninetales_AlolanEvosAttacks:         ;updated
 	db 0 ; no more evolutions
 	dbw 1, NASTY_PLOT      ;move relearner
-	dbw 1, FROSTBREATH     ;move relearner
+	dbw 1, SHEER_COLD      ;move relearner
 	dbw 1, POWDER_SNOW
 	dbw 1, TAIL_WHIP
 	dbw 4, SPITE
 	dbw 7, ICE_SHARD
 	dbw 12, CONFUSE_RAY
-	dbw 15, ICY_WIND
+	dbw 16, ICY_WIND
 	dbw 20, DISABLE
-	dbw 23, OMINOUS_WIND
-	dbw 24, CURSE          ;evolution move
-	dbw 32, AURORA_BEAM
-	dbw 40, DESTINY_BOND
-	dbw 44, EXTRASENSORY
-	dbw 48, ICE_BEAM
-	dbw 52, AURORA_VEIL
+	dbw 24, OMINOUS_WIND
+	dbw 25, CURSE          ;evolution move
+	dbw 32, EXTRASENSORY
+	dbw 38, ICE_BEAM
+	dbw 43, AURORA_VEIL
+	dbw 49, FREEZE_DRY
+	dbw 52, DESTINY_BOND
 	dbw 56, BLIZZARD
 	dbw LEARN_EVO_MOVE, CURSE
 	db 0 ; no more level-up moves

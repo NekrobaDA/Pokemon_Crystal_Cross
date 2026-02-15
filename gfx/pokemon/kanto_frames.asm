@@ -1,8 +1,11 @@
 KantoFrames: ; used only for BANK(KantoFrames)
 
 BulbasaurFrames::  INCLUDE "gfx/pokemon/bulbasaur/frames.asm"
+BulbasaurFemaleFrames::  INCLUDE "gfx/pokemon/bulbasaur_female/frames.asm"
 IvysaurFrames::    INCLUDE "gfx/pokemon/ivysaur/frames.asm"
+IvysaurFemaleFrames::    INCLUDE "gfx/pokemon/ivysaur_female/frames.asm"
 VenusaurFrames::   INCLUDE "gfx/pokemon/venusaur/frames.asm"
+VenusaurFemaleFrames::   INCLUDE "gfx/pokemon/venusaur_female/frames.asm"
 CharmanderFrames:: INCLUDE "gfx/pokemon/charmander/frames.asm"
 CharmeleonFrames:: INCLUDE "gfx/pokemon/charmeleon/frames.asm"
 CharizardFrames::

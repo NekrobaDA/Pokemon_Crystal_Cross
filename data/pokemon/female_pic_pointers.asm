@@ -10,12 +10,12 @@ FemalePokemonPicPointers::
 ; entries correspond to Pokémon species, two apiece (first index is 0)
 	dbw -1, -1 ; unused
 	dbw -1, -1 ; unused
-	dba BulbasaurFrontpic
+	dba BulbasaurFemaleFrontpic
 	dba BulbasaurBackpic
-	dba IvysaurFrontpic
+	dba IvysaurFemaleFrontpic
 	dba IvysaurBackpic
-	dba VenusaurFrontpic
-	dba VenusaurBackpic
+	dba VenusaurFemaleFrontpic
+	dba VenusaurFemaleBackpic
 	dba CharmanderFrontpic
 	dba CharmanderBackpic
 	dba CharmeleonFrontpic

@@ -8809,6 +8809,13 @@ DropPlayerSub:
 	ld [wMonType], a
 	predef GetVariant
 	ld de, vTiles2 tile $31
+
+	ld a, [wCurBattleMon]          ;fixes an issue with displaying incorrect gendered backpic
+	ld hl, wPartyMon1CaughtGender
+	call GetPartyLocation
+	ld a, [hl]
+	ld [wSeerCaughtLevel], a
+	
 	predef GetMonBackpic
 	pop af
 	ld [wCurPartySpecies], a

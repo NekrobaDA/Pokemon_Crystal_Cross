@@ -189,6 +189,7 @@ TotodileEggMoves:     ;xx
 	dw DRAGONBREATH
 	dw MUD_SLAP
 	dw LOW_KICK
+	dw PSYCHIC_FANG
 	dw -1 ; end
 
 SentretEggMoves:      ;xx
@@ -254,7 +255,6 @@ SpinarakEggMoves:     ;xx
 	dw BATON_PASS
 	dw PURSUIT
 	dw GROWTH
-	dw SLASH
 	dw FELL_STINGER
 	dw PIN_MISSILE
 	dw HONE_CLAWS
@@ -264,6 +264,8 @@ SpinarakEggMoves:     ;xx
 	dw CROSS_POISON
 	dw TWINEEDLE
 	dw VENOSHOCK
+	dw TOXIC_SPIKES  ;will be a tutor
+	dw SWAGGER
 	dw -1 ; end
 
 ChinchouEggMoves:     ;xx
@@ -523,6 +525,7 @@ SnubbullEggMoves:     ;xx
 	dw POISON_FANG
 	dw POWERUPPUNCH
 	dw BULK_UP
+	dw PSYCHIC_FANG
 	dw -1 ; end
 
 QwilfishEggMoves:     ;xx
@@ -734,7 +737,6 @@ LarvitarEggMoves:     ;xx
 	dw -1 ; end
 	
 Vulpix_AlolanEggMoves:       ;xx
-	dw PURSUIT
 	dw HYPNOSIS
 	dw HOWL
 	dw CHARM
@@ -746,6 +748,9 @@ Vulpix_AlolanEggMoves:       ;xx
 	dw ENCORE
 	dw SAFEGUARD
 	dw MIST
+	dw AURORA_BEAM
+	dw PAYBACK
+	dw FAINT_ATTACK
 	dw -1 ; end
 	
 Bulbasaur_CloneEggMoves:

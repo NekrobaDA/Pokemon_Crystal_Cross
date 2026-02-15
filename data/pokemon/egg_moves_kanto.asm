@@ -301,6 +301,7 @@ EkansEggMoves:        ;xx
 	dw REFRESH
 	dw SCALE_SHOT
 	dw SUCKER_PUNCH
+	dw PSYCHIC_FANG
 	dw -1 ; end
 	
 PichuEggMoves:        ;xx
@@ -379,7 +380,6 @@ ClefairyEggMoves:     ;xx
 	dw -1 ; end
 
 VulpixEggMoves:       ;xx
-	dw PURSUIT
 	dw HYPNOSIS
 	dw HOWL
 	dw CHARM
@@ -391,6 +391,9 @@ VulpixEggMoves:       ;xx
 	dw FLAME_WHEEL
 	dw ENCORE
 	dw INFERNALPARADE
+	dw FAINT_ATTACK
+	dw PAYBACK
+	dw FLARE_BLITZ
 	dw -1 ; end
 	
 JigglypuffEggMoves:   ;xx
@@ -417,7 +420,9 @@ ZubatEggMoves:        ;xx
 	dw FIRE_FANG
 	dw ICE_FANG
 	dw NASTY_PLOT
-	dw VENOSHOCK
+	dw SKY_ATTACK
+	dw FAINT_ATTACK
+	dw SUPER_FANG
 	dw -1 ; end
 
 OddishEggMoves:       ;xx
@@ -1024,6 +1029,7 @@ AerodonEggMoves:      ;xx
 ;	dw SHARPEN
 	dw DRAGON_RAGE
 	dw GLARE
+	dw PSYCHIC_FANG
 	dw -1 ; end
 
 MunchlaxEggMoves:     ;xx
