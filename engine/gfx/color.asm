@@ -1001,6 +1001,9 @@ INCLUDE "gfx/battle/hp_bar_e.pal"
 ExpBarPalette:
 INCLUDE "gfx/battle/exp_bar.pal"
 
+BugsyPal:
+INCLUDE "gfx/battle/overlays/overlay_pals.pal"
+
 INCLUDE "data/pokemon/palettes.asm"
 
 INCLUDE "data/trainers/palettes.asm"

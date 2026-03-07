@@ -6486,6 +6486,7 @@ BattleCommand_TrapTarget:
 	dw SAND_TOMB, SandTombTrapText  ; 'was trapped!'
 	dw MAELSTROM, MaelstromTrapText ; 'was trapped!'
 	dw INFESTATION, InfestationTrapText ; 'was trapped!'
+	dw LEAF_TORNADO, InfestationTrapText ; 'was trapped!'
 
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 

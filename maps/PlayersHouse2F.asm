@@ -49,12 +49,17 @@ InitDebugScript:
 ;	credits  ;for testing credits quickly
 
 ; good party
-	givepoke JOLTEON, 50
-	givepoke LEAFEON, 40
-	givepoke CHIMEREON, 40
+	givepoke MEW, 70
+	givepoke JOLTEON, 40
+	givepoke VAPOREON, 50
+	givepoke FLAREON, 50
 	givepoke ESPEON, 40
 	givepoke UMBREON, 40
-	givepoke MEW, 70
+	givepoke LEAFEON, 40
+	givepoke GLACEON, 40
+	givepoke SYLVEON, 40
+	givepoke CHIMEREON, 40
+	givepoke EEVEE, 20
 ; useful items
 	giveitem ORAN_BERRY, 99
 	giveitem CHESTO_BERRY, 99

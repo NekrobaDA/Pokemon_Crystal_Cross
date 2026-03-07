@@ -3004,6 +3004,8 @@ WinTrainerBattle:
 	jr nz, .battle_tower
 
 	call BattleWinSlideInEnemyTrainerFrontpic
+;	farcall ProtoDrawOverlaySpriteDetail         ;needs placement adjustment
+	
 	ld c, 40
 	call DelayFrames
 
@@ -4442,7 +4444,7 @@ InitBattleMon:
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	call CopyBytes
 	call ApplyStatusEffectOnPlayerStats
-	call BadgeStatBoosts
+	call BadgeStatBoosts                   ;remove at some point
 	ret
 
 BattleCheckPlayerShininess:
@@ -5242,12 +5244,13 @@ PrintPlayerHUD:
 	ld [wCurSpecies], a
 	call GetBaseData
 	
-	ld a, [wCurBattleMon]          ;fixes gender changing when opponent swaps pokemon
-	ld hl, wPartyMon1CaughtGender
-	call GetPartyLocation
-	ld a, [hl]
-;	ld [wTempMonCaughtGender], a
-	ld [wSeerCaughtLevel], a
+	call ReassertPartymonGender
+;	ld a, [wCurBattleMon]          ;fixes gender changing when opponent swaps pokemon
+;	ld hl, wPartyMon1CaughtGender
+;	call GetPartyLocation
+;	ld a, [hl]
+;;	ld [wTempMonCaughtGender], a
+;	ld [wSeerCaughtLevel], a
 
 	pop hl
 	dec hl
@@ -8810,11 +8813,13 @@ DropPlayerSub:
 	predef GetVariant
 	ld de, vTiles2 tile $31
 
-	ld a, [wCurBattleMon]          ;fixes an issue with displaying incorrect gendered backpic
-	ld hl, wPartyMon1CaughtGender
-	call GetPartyLocation
-	ld a, [hl]
-	ld [wSeerCaughtLevel], a
+
+	call ReassertPartymonGender
+;	ld a, [wCurBattleMon]          ;fixes an issue with displaying incorrect gendered backpic
+;	ld hl, wPartyMon1CaughtGender
+;	call GetPartyLocation
+;	ld a, [hl]
+;	ld [wSeerCaughtLevel], a
 	
 	predef GetMonBackpic
 	pop af
@@ -8917,6 +8922,7 @@ BattleIntro:
 	ld hl, rLCDC
 	res rLCDC_WINDOW_TILEMAP, [hl] ; select vBGMap0/vBGMap2
 	call InitBattleDisplay
+	farcall ProtoDrawOverlaySpriteDetail
 	call BattleStartMessage
 	ld hl, rLCDC
 	set rLCDC_WINDOW_TILEMAP, [hl] ; select vBGMap1/vBGMap3
@@ -9277,8 +9283,8 @@ DisplayLinkBattleResult:
 	ld a, BANK(sLinkBattleStats)
 	call OpenSRAM
 
-	call AddLastLinkBattleToLinkRecord
-	call ReadAndPrintLinkBattleRecord
+;	call AddLastLinkBattleToLinkRecord
+;	call ReadAndPrintLinkBattleRecord
 
 	call CloseSRAM
 
@@ -10011,3 +10017,12 @@ GetGenderSymbol:
 	
 BlankString:
 	db "           @"
+
+ReassertPartymonGender:
+	ld a, [wCurBattleMon]
+	ld hl, wPartyMon1CaughtGender
+	call GetPartyLocation
+	ld a, [hl]
+	ld [wSeerCaughtLevel], a
+	ret
+	

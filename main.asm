@@ -677,9 +677,7 @@ INCBIN "gfx/font/english.1bpp"
 
 SECTION "Debug Room", ROMX
 
-;if DEF(_DEBUG)
-;INCLUDE "engine/debug/debug_room.asm"
-;endc
+;empty space
 
 
 SECTION "Battle Tower Text", ROMX
@@ -743,6 +741,8 @@ INCLUDE "engine/battle/effect_commands2.asm"
 INCLUDE "home/eq_exceptions.asm"
 ;INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 ;INCLUDE "engine/pokemon/breedmon_level_growth.asm"
+
+INCLUDE "engine/gfx/overlayspritecode.asm"
 
 
 ;SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$80]

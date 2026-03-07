@@ -144,7 +144,18 @@ _CGB_BattleColors:
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_BG_EXP
 	ld de, wOBPals1
 	pop hl
+;this is a terrible way of doing this, but the corruption apocalypse has forced my hand	
+	ld a, [wTrainerClass]
+	cp BUGSY               ;and I need a way to disable this once the mons are out
+	jr nz, .defaultpal
+	ld hl, BugsyPal
+	call LoadPalette_White_Col1_Col2_Black
+	jr .endpal
+
+.defaultpal	
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_OB_ENEMY
+.endpal
+	
 	pop hl
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_OB_PLAYER
 	ld a, SCGB_BATTLE_COLORS
