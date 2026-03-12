@@ -3,8 +3,7 @@ ProtoDrawOverlaySpriteDetail:
 	ld a, [wTrainerClass]                  ;temporary, since only bugsy is being tested rn
 	cp BUGSY                               ;will need a pointer table for which gfx to load
 	ret nz
-;	call GetSpritePalette                  ;this broke the game, so backup is to run a check
-                                           ;to load pals into cgb_layouts instead
+
 	call LoadOverlaySpriteGFX
 	call StageOverlaySpriteData
 	ret
@@ -49,5 +48,4 @@ StageOverlaySpriteData:
 
 INCLUDE "gfx/battle/overlays/overlay_spritedata.asm"   ;overlay placement data
 
-;INCLUDE "gfx/battle/overlays/getspritepalette.asm"    ;this broke the game
-;pals are currently handled by overlay_pals.pal in color.asm & loaded in cgb_layouts.asm
+;pals are currently handled by overlay_pals.asm in color.asm & loaded in cgb_layouts.asm

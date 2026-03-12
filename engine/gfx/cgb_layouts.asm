@@ -99,7 +99,7 @@ _CGB_BattleGrayscale:
 	ld de, wOBPals1
 	ld c, 2
 	call CopyPalettes
-	jr _CGB_FinishBattleScreenLayout
+	jp _CGB_FinishBattleScreenLayout
 
 .daypal	
 	ld hl, PalPacket_BattleGrayscale + 1
@@ -143,18 +143,37 @@ _CGB_BattleColors:
 	ld hl, ExpBarPalette
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_BG_EXP
 	ld de, wOBPals1
-	pop hl
-;this is a terrible way of doing this, but the corruption apocalypse has forced my hand	
-	ld a, [wTrainerClass]
-	cp BUGSY               ;and I need a way to disable this once the mons are out
-	jr nz, .defaultpal
-	ld hl, BugsyPal
-	call LoadPalette_White_Col1_Col2_Black
-	jr .endpal
 
-.defaultpal	
-	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_OB_ENEMY
+;trainer overlay palette loading code
+	ld a, [wTempEnemyMonSpecies]   ;pokemon set this value to anything other than zero
+	and a                          ;so if not zero, skip the trainer pal check
+	jr nz, .defaultpal
+	
+	ld a, [wTrainerClass]
+	ld b, a
+	ld hl, TrainerOverlayPals
+	
+.traineroverlaycolorloop
+	ld a, [hli]
+	cp b
+	jr z, .continueloadpal
+	cp -1
+	jr z, .defaultpal
+rept PAL_COLOR_SIZE * 2
+	inc hl       ;skip over the two RGB colors to the next entry
+endr
+	jr .traineroverlaycolorloop
+
+.continueloadpal
+	call LoadPalette_White_Col1_Col2_Black
+	pop hl
+	jr .endpal
+	
+.defaultpal
+	pop hl       ;restore otherwise default palette
+	call LoadPalette_White_Col1_Col2_Black
 .endpal
+;end trainer overlay palette load
 	
 	pop hl
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_OB_PLAYER
