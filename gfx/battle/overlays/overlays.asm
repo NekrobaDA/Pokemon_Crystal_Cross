@@ -1,4 +1,9 @@
-;SECTION "Trainer Overlay GFX", ROMX
-;
-BugsyOverlayGFX::
-INCBIN "gfx/battle/overlays/bugsy.2bpp"         ;only bugsy rn, need a trainer pointer table
+TrainerOverlayGFX:
+	db BUGSY
+	dw BugsyOverlayGFX
+	db 5
+	
+	db -1 ;end
+
+BugsyOverlayGFX:
+INCBIN "gfx/battle/overlays/bugsy.2bpp"

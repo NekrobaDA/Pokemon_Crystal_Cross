@@ -1,27 +1,46 @@
 ;draw sprites to battle screen function
 ProtoDrawOverlaySpriteDetail:
-	ld a, [wTrainerClass]                  ;temporary, since only bugsy is being tested rn
-	cp BUGSY                               ;will need a pointer table for which gfx to load
-	ret nz
-
 	call LoadOverlaySpriteGFX
 	call StageOverlaySpriteData
 	ret
 
 ;load overlay sprites into vram
 LoadOverlaySpriteGFX:
-	ld de, BugsyOverlayGFX                 ;load after party ball tiles
-	ld hl, vTiles0 tile $35                ;figure out how to adjust for varible sizes
-	lb bc, BANK(LoadOverlaySpriteGFX), 5   ;likely have a file defining how large each 
-	call Get2bppViaHDMA                    ;trainer overlay is, and load into 'a' (?)
+	ld a, [wTrainerClass]                  ;store trainer class for lookup
+	ld b, a
+	ld hl, TrainerOverlayGFX
+	
+.trainergfxlookuploop
+	ld a, [hli]          ;trainer class -> gfx inc'
+	cp -1
+	ret z
+	cp b
+	jr z, .proceedtoload
+	inc hl               ;lower gfx inc -> higher gfx inc
+	inc hl               ;higher gfx inc -> tile size
+	inc hl               ;tile size -> next trainer entry
+	jr .trainergfxlookuploop	
+
+.proceedtoload
+	ld a, [hli]          ;need to load the gfx pointer into de
+	ld e, a
+	ld a, [hli]
+	ld d, a
+
+	ld a, [hli]          ;tile count
+	
+	ld hl, vTiles0 tile $35                ;address to copy tiles to
+	lb bc, BANK(LoadOverlaySpriteGFX), 0   ;number of tiles to copy stored in a
+	ld c, a
+	call Get2bppViaHDMA                    ;load after party ball tiles
 	ret
 
-INCLUDE "gfx/battle/overlays/overlays.asm"             ;overlay gfx
+INCLUDE "gfx/battle/overlays/overlays.asm" ;overlay gfx files
 
 StageOverlaySpriteData:
 	ld a, [wTrainerClass]                  ;store trainer class for lookup
 	ld b, a
-	ld hl, OverlaySpritesDrawtable         ;change to load matching trainer (eventually)
+	ld hl, OverlaySpritesDrawtable         ;iterate through to load matching trainer (slowly)
 	ld de, wVirtualOAMSprite12
 
 .trainerlookuploop
@@ -60,7 +79,6 @@ StageOverlaySpriteData:
 	ld [de], a           ;no flip, priority, etc. pal data will be written later
 	inc de               ;attributes -> next entry
 	jr .loadloop
-	ret
 
 INCLUDE "gfx/battle/overlays/overlay_spritedata.asm"   ;overlay placement data
 
