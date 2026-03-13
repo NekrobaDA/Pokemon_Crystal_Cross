@@ -19,10 +19,26 @@ LoadOverlaySpriteGFX:
 INCLUDE "gfx/battle/overlays/overlays.asm"             ;overlay gfx
 
 StageOverlaySpriteData:
-	ld hl, BugsyOverlaySprites             ;change to load matching trainer (eventually)
+	ld a, [wTrainerClass]                  ;store trainer class for lookup
+	ld b, a
+	ld hl, OverlaySpritesDrawtable         ;change to load matching trainer (eventually)
 	ld de, wVirtualOAMSprite12
 
-.looppoint
+.trainerlookuploop
+	ld a, [hli]          ;trainer class -> first table entry
+	cp -1
+	ret z                ;end if table ends (just a safeguard)
+	
+	cp b                 ;if trainer class matches, proceed to
+	jr z, .loadloop      ;the object load/placement loop
+
+.skiptonextloop          ;if not, advance the table to the next trainer entry
+	ld a, [hli]          ;(eventually) ff -> next trainer class
+	cp $FF               ;return to trainer lookup
+	jr z, .trainerlookuploop
+	jr .skiptonextloop   ;I don't know if this is really a good way of doing this overall
+	                     ;it might be slow the more that is added
+.loadloop
 	ld a, [hl]           ;start at entry 1, coor y
 	cp $FF               ;if FF, end
 	ret z
@@ -43,7 +59,7 @@ StageOverlaySpriteData:
 	ld a, 0
 	ld [de], a           ;no flip, priority, etc. pal data will be written later
 	inc de               ;attributes -> next entry
-	jr .looppoint
+	jr .loadloop
 	ret
 
 INCLUDE "gfx/battle/overlays/overlay_spritedata.asm"   ;overlay placement data
