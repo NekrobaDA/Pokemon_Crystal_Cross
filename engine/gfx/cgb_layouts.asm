@@ -114,7 +114,7 @@ _CGB_BattleGrayscale:
 	ld de, wOBPals1
 	ld c, 2
 	call CopyPalettes
-	jr _CGB_FinishBattleScreenLayout
+	jp _CGB_FinishBattleScreenLayout
 
 _CGB_BattleColors:
 	ld de, wBGPals1
@@ -151,20 +151,40 @@ _CGB_BattleColors:
 	
 	ld a, [wTrainerClass]
 	ld b, a
+	ld a, [wOtherTrainerID]
+	ld c, a
 	ld hl, TrainerOverlayPals
 	
 .traineroverlaycolorloop
-	ld a, [hli]
+	ld a, [hli]              ;trainer class -> trainer const
 	cp b
 	jr z, .continueloadpal
 	cp -1
 	jr z, .defaultpal
+	
+.iteratetonextloop
+	ld a, [hli]              ;trainer const = ff, end, FF -> next trainer class
+	cp $ff                   ;else trainer const -> pal data
+	jr z, .traineroverlaycolorloop
+	
 rept PAL_COLOR_SIZE * 2
-	inc hl       ;skip over the two RGB colors to the next entry
+	inc hl                   ;skip over the two RGB colors to the next entry
 endr
-	jr .traineroverlaycolorloop
+	jr .iteratetonextloop
 
 .continueloadpal
+	ld a, [hli]              ;trainer const -> pal
+	cp c                     ;compare trainer const
+	jr z, .finallyreadpalettedata
+	cp $FE
+	jr z, .finallyreadpalettedata
+
+rept PAL_COLOR_SIZE * 2
+	inc hl                   ;skip over the two RGB colors to the next entry
+endr
+	jr .continueloadpal
+
+.finallyreadpalettedata	
 	call LoadPalette_White_Col1_Col2_Black
 	pop hl
 	jr .endpal
