@@ -21,3 +21,6 @@ TrainerOverlayPals:
 ;	RGB 31,18,06, 20,06,08 ;second basically unused	
 	
 	db -1 ;end
+
+GreyscaleSlidePal:
+	RGB 07,07,07, 02,03,03

@@ -3003,8 +3003,8 @@ WinTrainerBattle:
 	bit 0, a
 	jr nz, .battle_tower
 
-	call BattleWinSlideInEnemyTrainerFrontpic
-;	farcall ProtoDrawOverlaySpriteDetail         ;needs placement adjustment
+	call GreyscaleSlideEnemyTrainerPic
+	farcall ProtoDrawOverlaySpriteDetail
 	
 	ld c, 40
 	call DelayFrames
@@ -3023,7 +3023,8 @@ WinTrainerBattle:
 	jp .give_money
 
 .battle_tower
-	call BattleWinSlideInEnemyTrainerFrontpic
+	call GreyscaleSlideEnemyTrainerPic
+	
 	ld c, 40
 	call DelayFrames
 	call EmptyBattleTextbox
@@ -3516,7 +3517,7 @@ LostBattle:
 	hlcoord 0, 0
 	lb bc, 8, 21
 	call ClearBox
-	call BattleWinSlideInEnemyTrainerFrontpic
+	call GreyscaleSlideEnemyTrainerPic
 
 	ld c, 40
 	call DelayFrames
@@ -3533,7 +3534,7 @@ LostBattle:
 	hlcoord 0, 0
 	lb bc, 8, 21
 	call ClearBox
-	call BattleWinSlideInEnemyTrainerFrontpic
+	call GreyscaleSlideEnemyTrainerPic
 
 	ld c, 40
 	call DelayFrames
@@ -3781,6 +3782,13 @@ CheckWhetherSwitchmonIsPredetermined:
 
 ResetEnemyBattleVars:
 ; and draw empty Textbox
+	ld a, 254
+	ld [wDittoFlag], a         ;more overlay greyscale code
+	ld b, SCGB_BATTLE_COLORS
+	call GetSGBLayout
+	call SetPalettes
+	call ClearSprites
+
 	xor a
 	ld [wLastPlayerCounterMove], a
 	ld [wLastEnemyCounterMove], a
@@ -3794,6 +3802,9 @@ ResetEnemyBattleVars:
 	ld a, 8
 	call SlideBattlePicOut
 	call EmptyBattleTextbox
+	
+	xor a
+	ld [wDittoFlag], a
 	jp LoadStandardMenuHeader
 
 ResetBattleParticipants:
@@ -4444,7 +4455,7 @@ InitBattleMon:
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	call CopyBytes
 	call ApplyStatusEffectOnPlayerStats
-	call BadgeStatBoosts                   ;remove at some point
+;	call BadgeStatBoosts                   ;remove at some point
 	ret
 
 BattleCheckPlayerShininess:
@@ -7307,13 +7318,15 @@ BattleWinSlideInEnemyTrainerFrontpic:
 	ld [wTrainerClass], a
 	ld de, vTiles2
 	callfar GetTrainerPic
-	hlcoord 19, 0
+;	hlcoord 19, 0
+	hlcoord 18, 0
 	ld c, 0
 
 .outer_loop
 	inc c
 	ld a, c
-	cp 7
+;	cp 7
+	cp 8
 	ret z
 	xor a
 	ldh [hBGMapMode], a
@@ -7553,96 +7566,36 @@ ApplyStatLevelMultiplier:
 
 INCLUDE "data/battle/stat_multipliers_2.asm"
 
-BadgeStatBoosts:
-; Raise the stats of the battle mon in wBattleMon
-; depending on which badges have been obtained.
-
-; Every other badge boosts a stat, starting from the first.
-; GlacierBadge also boosts Special Defense, although the relevant code is buggy (see below).
-
-; 	ZephyrBadge:  Attack
-; 	PlainBadge:   Speed
-; 	MineralBadge: Defense
-; 	GlacierBadge: Special Attack and Special Defense
-
-; The boosted stats are in order, except PlainBadge and MineralBadge's boosts are swapped.
-
-	ld a, [wLinkMode]
-	and a
-	ret nz
-
-	ld a, [wInBattleTowerBattle]
-	and a
-	ret nz
-
-	ld a, [wJohtoBadges]
-
-; Swap badges 3 (PlainBadge) and 5 (MineralBadge).
-	ld d, a
-	and (1 << PLAINBADGE)
-	add a
-	add a
-	ld b, a
-	ld a, d
-	and (1 << MINERALBADGE)
-	rrca
-	rrca
-	ld c, a
-	ld a, d
-	and ((1 << ZEPHYRBADGE) | (1 << HIVEBADGE) | (1 << FOGBADGE) | (1 << STORMBADGE) | (1 << GLACIERBADGE) | (1 << RISINGBADGE))
-	or b
-	or c
-	ld b, a
-
-	ld hl, wBattleMonAttack
-	ld c, 4
-.CheckBadge:
-	ld a, b
-	srl b
-	call c, BoostStat
-	inc hl
-	inc hl
-; Check every other badge.
-	srl b
-	dec c
-	jr nz, .CheckBadge
-; Check GlacierBadge again for Special Defense.
-; This check is buggy because it assumes that a is set by the "ld a, b" in the above loop,
-; but it can actually be overwritten by the call to BoostStat.
-	srl a
-	call c, BoostStat
-	ret
-
-BoostStat:
-; Raise stat at hl by 1/8.
-
-	ld a, [hli]
-	ld d, a
-	ld e, [hl]
-	srl d
-	rr e
-	srl d
-	rr e
-	srl d
-	rr e
-	ld a, [hl]
-	add e
-	ld [hld], a
-	ld a, [hl]
-	adc d
-	ld [hli], a
-
-; Cap at 999.
-	ld a, [hld]
-	sub LOW(MAX_STAT_VALUE)
-	ld a, [hl]
-	sbc HIGH(MAX_STAT_VALUE)
-	ret c
-	ld a, HIGH(MAX_STAT_VALUE)
-	ld [hli], a
-	ld a, LOW(MAX_STAT_VALUE)
-	ld [hld], a
-	ret
+;BoostStat:
+;; Raise stat at hl by 1/8.
+;
+;	ld a, [hli]
+;	ld d, a
+;	ld e, [hl]
+;	srl d
+;	rr e
+;	srl d
+;	rr e
+;	srl d
+;	rr e
+;	ld a, [hl]
+;	add e
+;	ld [hld], a
+;	ld a, [hl]
+;	adc d
+;	ld [hli], a
+;
+;; Cap at 999.
+;	ld a, [hld]
+;	sub LOW(MAX_STAT_VALUE)
+;	ld a, [hl]
+;	sbc HIGH(MAX_STAT_VALUE)
+;	ret c
+;	ld a, HIGH(MAX_STAT_VALUE)
+;	ld [hli], a
+;	ld a, LOW(MAX_STAT_VALUE)
+;	ld [hld], a
+;	ret
 
 _LoadBattleFontsHPBar:
 	callfar LoadBattleFontsHPBar
@@ -8076,7 +8029,7 @@ GiveExperiencePoints:
 	ld [wApplyStatLevelMultipliersToEnemy], a
 	call ApplyStatLevelMultiplierOnAllStats
 	callfar ApplyStatusEffectOnPlayerStats
-	callfar BadgeStatBoosts
+;	callfar BadgeStatBoosts
 	callfar UpdatePlayerHUD
 	call EmptyBattleTextbox
 	call LoadTilemapToTempTilemap
@@ -8935,7 +8888,10 @@ BattleIntro:
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox
-	call ClearSprites
+;	call ClearSprites
+	ld a, [wBattleMode]
+	cp WILD_BATTLE
+	call z, ClearSprites   ;trainer sprites will clear later to preserve overlays longer
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
 	call z, UpdateEnemyHUD
@@ -10024,5 +9980,16 @@ ReassertPartymonGender:
 	call GetPartyLocation
 	ld a, [hl]
 	ld [wSeerCaughtLevel], a
+	ret
+	
+GreyscaleSlideEnemyTrainerPic:	
+	ld a, 254
+	ld [wDittoFlag], a
+	call BattleWinSlideInEnemyTrainerFrontpic
+	xor a
+	ld [wDittoFlag], a
+	ld b, SCGB_BATTLE_COLORS
+	call GetSGBLayout
+	call SetPalettes
 	ret
 	

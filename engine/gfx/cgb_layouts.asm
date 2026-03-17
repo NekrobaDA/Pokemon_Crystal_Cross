@@ -121,9 +121,20 @@ _CGB_BattleColors:
 	call GetBattlemonBackpicPalettePointer
 	push hl
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_BG_PLAYER
+;black out sliding trainer sprites	
+	ld a, [wDittoFlag]  ;temp
+	cp 254
+	jr nz, .normalenemypal
+	ld hl, GreyscaleSlidePal
+	push hl
+	call LoadPalette_White_Col1_Col2_Black
+	jr .endslidepal
+.normalenemypal	
 	call GetEnemyFrontpicPalettePointer
 	push hl
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_BG_ENEMY
+.endslidepal	
+;end blackout slide pal code	
 	ld a, [wEnemyHPPal]
 	ld l, a
 	ld h, 0
