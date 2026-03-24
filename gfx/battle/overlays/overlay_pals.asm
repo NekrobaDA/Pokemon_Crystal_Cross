@@ -3,6 +3,9 @@ TrainerOverlayPals:
 	db $FE   ;use same pal for all instances of this trainer
 	RGB 20,08,23, 20,08,23 ;second currently unused
 	db $FF
+	
+;	db GRUNTF
+;	RGB 31,18,06, 20,06,08 ;second basically unused	
 
 	db KIMONO_GIRL
 	db SAYO   ;green (espeon)
@@ -17,9 +20,15 @@ TrainerOverlayPals:
 	RGB 17,20,26, 10,09,31
 	db $FF
 
-;	db GRUNTF
-;	RGB 31,18,06, 20,06,08 ;second basically unused	
+	db BLUE
+	db $FE   ;use same pal for all instances of this trainer
+	RGB 21,13,07, 21,13,07 ;second currently unused
+	db $FF
 	
+	db CLAIR
+	db $FE   ;use same pal for all instances of this trainer
+	RGB 15,19,23, 15,07,11
+	db $FF
 	db -1 ;end
 
 GreyscaleSlidePal:

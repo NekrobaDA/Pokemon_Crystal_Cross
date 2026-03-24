@@ -11,6 +11,13 @@ TrainerOverlayGFX:
 	dw KimonoGirlOverlayGFX
 	db 18
 	
+	db BLUE
+	dw TrainerBlueOverlayGFX
+	db 6
+	
+	db CLAIR
+	dw ClairOverlayGFX
+	db 25
 	db -1 ;end
 
 BugsyOverlayGFX:
@@ -21,3 +28,9 @@ INCBIN "gfx/battle/overlays/bugsy.2bpp"
 
 KimonoGirlOverlayGFX:
 INCBIN "gfx/battle/overlays/kimono.2bpp"
+
+TrainerBlueOverlayGFX:
+INCBIN "gfx/battle/overlays/trainerblue.2bpp"
+
+ClairOverlayGFX:
+INCBIN "gfx/battle/overlays/clair.2bpp"
